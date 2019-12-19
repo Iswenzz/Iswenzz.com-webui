@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import NavBar from './containers/NavBar/NavBar';
+import { ParallaxProvider, ParallaxBanner } from 'react-scroll-parallax';
 
 import { Theme, createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/core/styles';
@@ -20,9 +21,18 @@ class App extends Component
 		});
 
 		return (
-			<ThemeProvider theme={theme}>
-				<NavBar />
-			</ThemeProvider>
+			<ParallaxProvider>
+				<ThemeProvider theme={theme}>
+					<NavBar />
+					<ParallaxBanner 
+					layers={[{ image: 'https://iswenzz.com/assets/images/medieval_village/3.jpg', 
+						amount: 0.4, children: null}]} style={{height: '400px'}}>
+					</ParallaxBanner>
+
+					{/* Scroll Test */}
+					<div style={{ height: '1200px' }} />
+				</ThemeProvider>
+			</ParallaxProvider>
 		);
 	}
 }
