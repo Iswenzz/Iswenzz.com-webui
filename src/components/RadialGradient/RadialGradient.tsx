@@ -11,6 +11,7 @@ interface IGradient
     height?: string,
     position?: string,
     colors?: IGradientColor[]
+   
 }
 
 class RadialGradient extends Component<IGradient>
@@ -26,7 +27,9 @@ class RadialGradient extends Component<IGradient>
     render() : JSX.Element
     {
         return (
-            <div style={{ height: this.props.height, background: this.processBackgroundColor() }} />
+            <div style={{ height: this.props.height, background: this.processBackgroundColor() }}>
+                {this.props.children}
+            </div>
         );
     }
 }
