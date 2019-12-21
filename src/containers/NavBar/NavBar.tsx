@@ -9,7 +9,7 @@ class NavBar extends Component
 	render(): JSX.Element
 	{
 		return (
-			<AppBar position="fixed" style={{ background: 'transparent' }}>
+			<AppBar id="Navbar" position="absolute" style={{ background: 'transparent' }}>
 				<Toolbar variant="dense">
 					<Grid container direction="row" justify="space-around" alignItems="center">
 						<Button size='large' color="inherit">Home</Button>
