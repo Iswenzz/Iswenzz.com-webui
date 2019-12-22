@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
 
-interface IGradientColor
+export interface IGradientColor
 {
     color: string,
     colorPercent: string
 }
 
-interface IGradient
+export interface GradiantProps
 {
     height?: string,
     position?: string,
     colors?: IGradientColor[]
-   
 }
 
-class RadialGradient extends Component<IGradient>
+class RadialGradient extends Component<GradiantProps>
 {
     processBackgroundColor = (): string =>
     {
