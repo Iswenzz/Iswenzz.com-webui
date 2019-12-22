@@ -16,7 +16,7 @@ class Intro extends Component
             <div id="Intro">
 
                 <Parallax bgImage={require('../../../../assets/images/index/1.jpg')} bgImageAlt="index bg1" strength={500}>
-                    <div style={{ height: '200px' }} />
+                    <div style={{ height: '250px' }} />
                     <Grid container direction="row" justify="center" alignItems="center">
                         <Typography style={{fontFamily: "'Poiret One', sans-serif", fontWeight: 1000,
                         color: 'rgba(220, 220, 220, 0.9)'}} align="center" variant="h3" component="h2">
@@ -40,7 +40,7 @@ class Intro extends Component
 
                         </Typography>
                     </Grid>
-                    <div style={{ height: '200px' }} />
+                    <div style={{ height: '250px' }} />
                 </Parallax>
 
                 <RadialGradient height='600px' position='ellipse at bottom' colors={[
