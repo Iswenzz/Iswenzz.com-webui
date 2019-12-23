@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Grid, GridDirection, GridJustification, GridItemsAlignment } from '@material-ui/core';
 
 export interface IGradientColor
 {
@@ -8,10 +9,13 @@ export interface IGradientColor
 
 export interface GradiantProps
 {
-    height?: string,
+    direction?: GridDirection,
+    justify?: GridJustification,
+    alignItems?: GridItemsAlignment
     position?: string,
-    colors?: IGradientColor[]
-}
+    colors?: IGradientColor[],
+    style?: React.CSSProperties
+}  
 
 class RadialGradient extends Component<GradiantProps>
 {
@@ -26,9 +30,11 @@ class RadialGradient extends Component<GradiantProps>
     render() : JSX.Element
     {
         return (
-            <div style={{ height: this.props.height, background: this.processBackgroundColor() }}>
+            <Grid container direction={this.props.direction || 'row'} 
+            justify={this.props.justify || 'center'} alignItems={this.props.alignItems || 'center'} 
+            style={{ ...this.props.style, background: this.processBackgroundColor() }}>
                 {this.props.children}
-            </div>
+            </Grid>
         );
     }
 }
