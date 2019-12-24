@@ -6,11 +6,14 @@ import { bindActionCreators } from "redux";
 import { Component } from "react";
 import { connect } from 'react-redux';
 
-import { Parallax } from 'react-parallax';
 import NavBar from '../UI/NavBar/NavBar';
+import Spacing from '../../components/Spacing/Spacing';
+import { Grid } from '@material-ui/core';
 import RadialGradient from '../../components/RadialGradient/RadialGradient';
 import Footer from '../UI/Footer/Footer';
 import Intro from '../Home/UI/Intro/Intro';
+import IntroSkill from '../Home/UI/Intro/IntroSkill';
+import {Parallax, ParallaxLayer} from 'react-spring/renderprops-addons';
 import { HomeActions } from './store/types';
 
 interface LinkStateProp 
@@ -29,25 +32,70 @@ class Home extends Component<ReduxHomeProps>
 {
     render(): JSX.Element
     {
+        const fxs: JSX.Element = (
+            <div>
+                <ParallaxLayer offset={1.3} speed={0.3}>
+                    <div style={{ pointerEvents: 'none' }}>
+                        <img src='' alt='' style={{ width: '15%', marginLeft: '70%' }} />
+                    </div>
+                </ParallaxLayer>
+                <ParallaxLayer offset={1} speed={0.4}>
+                    <div style={{ opacity: 0.1 }}>
+                        <img src='' alt='' style={{ display: 'block', width: '20%', marginLeft: '55%' }} />
+                        <img src='' alt='' style={{ display: 'block', width: '10%', marginLeft: '15%' }} />
+                    </div>
+                </ParallaxLayer>
+                <ParallaxLayer offset={1.75} speed={0.2}>
+                    <div style={{ opacity: 0.1 }}>
+                        <img src='' alt='' style={{ display: 'block', width: '20%', marginLeft: '70%' }} />
+                        <img src='' alt='' style={{ display: 'block', width: '20%', marginLeft: '40%' }} />
+                    </div>
+                </ParallaxLayer>
+            </div>
+        );
+
+        const starBg: JSX.Element = (
+            <ParallaxLayer offset={0} speed={0} factor={3}>
+                <div style={{ backgroundImage: `url(${require('../../assets/images/index/stars.svg')})`, backgroundSize: 'cover', height: '100%' }} />
+            </ParallaxLayer>
+        );
+
         return (
             <div>
-                {/* Intro */}
-                <NavBar />
-                <Intro />
+                <Parallax pages={3}>
+                    {starBg}{fxs}
+                    {/* Background */}
+                    <ParallaxLayer offset={0} speed={0.3}>
+                        <Grid container direction="row" justify="center" alignItems="center">
+                            <img src={require('../../assets/images/index/1.jpg')} alt='' /> 
+                        </Grid> 
+                    </ParallaxLayer>
+                    
+                    <ParallaxLayer offset={1.2} speed={0.3}>
+                        <Grid container direction="row" justify="center" alignItems="center">
+                            <img src={require('../../assets/images/index/2.jpg')} alt='' /> 
+                        </Grid>
+                    </ParallaxLayer>
 
-                {/* Projects */}
-                <Parallax bgImage={require('../../assets/images/index/2.jpg')} bgImageAlt="index bg2" strength={500}>
-                    <div style={{ height: '500px' }} />
+                    {/* Pages */}
+                    <ParallaxLayer offset={0} speed={0.1}>
+                        <NavBar />
+                        <Intro />
+                        <Spacing height='300px' />
+                        <IntroSkill />
+                    </ParallaxLayer>
+
+                    <ParallaxLayer offset={1.9} speed={0.1}>
+                        <Spacing height='140px' />
+                        <RadialGradient position='ellipse at bottom' colors={[
+                        { color: '#23272B', colorPercent: '0%' },
+                        { color: '#090A0A', colorPercent: '100%' }]}>
+                            <Spacing height='600px' />
+                        </RadialGradient>
+                        <Footer />
+                    </ParallaxLayer>
+                    
                 </Parallax>
-                <RadialGradient height='600px' position='ellipse at bottom' colors={[
-                    { color: '#23272B', colorPercent: '0%' },
-                    { color: '#090A0A', colorPercent: '100%' }
-                ]} />
-
-                {/* Level Design */}
-
-                {/* Footer */}
-                <Footer />
             </div>
         );
     }

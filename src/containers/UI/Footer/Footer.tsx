@@ -10,7 +10,7 @@ class Footer extends Component
     render(): JSX.Element
     {
         return (
-            <RadialGradient height='100px' position='ellipse at bottom' colors={[
+            <RadialGradient position='ellipse at bottom' colors={[
                 { color: '#23272A', colorPercent: '0%' },
                 { color: '#23272F', colorPercent: '100%' }
             ]}>

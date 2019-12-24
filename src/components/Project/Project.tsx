@@ -17,6 +17,7 @@ interface ProjectProps
     altImage?: string,
     blur?: string,
     button?: boolean
+    style?: React.CSSProperties
 }
 
 class Project extends Component<ProjectProps>
@@ -32,12 +33,8 @@ class Project extends Component<ProjectProps>
         );
 
         return (
-            <Parallax blur={7} bgImage={this.props.image} style=
-            {{
-                width: this.props.width, 
-                height: this.props.height,
-                boxShadow: this.props.blur
-            }}
+            <Parallax blur={4} bgImage={this.props.image} style={{ ...this.props.style, width: this.props.width, 
+            height: this.props.height, boxShadow: this.props.blur }}
             bgImageAlt={this.props.altImage} strength={400}>
                 <div style={{width: this.props.width, height: this.props.height}}>
                     

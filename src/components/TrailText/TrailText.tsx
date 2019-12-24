@@ -5,7 +5,8 @@ export interface TrailProps
 {
 	height?: number,
 	items: string[],
-	active?: boolean
+	active?: boolean,
+	style?: React.CSSProperties
 }
 
 const config = { mass: 5, tension: 2000, friction: 200 }
@@ -20,7 +21,7 @@ const TrailText: FunctionComponent<TrailProps> = (props: TrailProps): JSX.Elemen
 	});
 
   	return (
-		<div>
+		<div style={props.style}>
 			{trail.map(({ x, height, ...rest }, index) => 
 			(
 				<animated.div key={props.items![index]} 
