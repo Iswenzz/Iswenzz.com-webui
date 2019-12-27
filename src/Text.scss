@@ -1,0 +1,44 @@
+.calli-title {
+    @extend .title-color;
+    font-family: 'Calligraffitti', cursive;
+    font-size: 60px;
+}
+
+.calli-text {
+    @extend .title-color;
+    font-family: 'Calligraffitti', cursive;
+    font-weight: 200;
+    font-size: 24px;
+}
+
+.pre-line {
+    white-space: pre-line;
+}
+
+.poiret-title {
+    @extend .title-color;
+    font-family: 'Poiret One', sans-serif;
+    font-weight: 1000;
+}
+
+.poiret-text {
+    @extend .title-color;
+    font-family: 'Poiret One', sans-serif;
+    font-size: 24px;
+}
+
+.ubuntu-p {
+    @extend .title-color;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 200;
+    font-size: 14px;
+}
+
+.ubuntu-p-left {
+    @extend .ubuntu-p;
+    text-align: left;
+}
+
+.title-color {
+    color: rgba(220, 220, 220, 0.9);
+}
