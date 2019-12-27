@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Parallax } from 'react-parallax';
-import { Typography, CardActions, Button } from '@material-ui/core';
+import Popup from '../../components/Popup/Popup';
+import { Typography, CardActions, Button, Card, CardActionArea, CardContent } from '@material-ui/core';
 
-interface ProjectProps
+export interface ProjectProps
 {
     title: string,
     description?: string,
@@ -15,13 +15,33 @@ interface ProjectProps
     width?: string,
     height?: string,
     altImage?: string,
-    blur?: string,
     button?: boolean
     style?: React.CSSProperties
 }
 
-class Project extends Component<ProjectProps>
+export interface ProjectState 
 {
+    isOpen: boolean
+}
+
+class Project extends Component<ProjectProps, ProjectState>
+{
+    state: ProjectState = {
+        isOpen: false
+    }
+
+    onToggle = (): void =>
+    {
+        console.log(!this.state.isOpen);
+        this.setState(state => ({ isOpen: !this.state.isOpen }));
+    }
+
+    onClickClose = (): void => 
+    {
+        console.log(false);
+        this.setState(state => ({ isOpen: false }));
+    }
+
     render() : JSX.Element
     {
         const button: JSX.Element = (
@@ -32,31 +52,27 @@ class Project extends Component<ProjectProps>
             </CardActions>
         );
 
+        const popup: JSX.Element = (
+            <Popup title="Funky Kong" desc="MOGI TIME" isOpen={this.state.isOpen} closeHandle={this.onClickClose} />
+        );
+
         return (
-            <Parallax blur={4} bgImage={this.props.image} style={{ ...this.props.style, width: this.props.width, 
-            height: this.props.height, boxShadow: this.props.blur }}
-            bgImageAlt={this.props.altImage} strength={400}>
-                <div style={{width: this.props.width, height: this.props.height}}>
-                    
-                    {/* --- Title --- */}
-                    <Typography style={{fontSize: parseInt(this.props.fontSize || "16")}} variant="h5" component="h2">
-                        <h2 style={{paddingTop: (parseInt(this.props.height || "0") / 2) - 75, textAlign: "center", color: "#FFFFFF"}}>
+            <Card onClick={this.state.isOpen ? () => null : this.onToggle} style={{backgroundImage: `url(${this.props.image})`, 
+            backgroundSize: `${this.props.width} ${this.props.height}`, 
+            width: this.props.width, height: this.props.height, borderRadius: '8px'}}>
+                <CardActionArea>
+                    <CardContent>
+                        <Typography color='secondary' style={{width: this.props.width, height: this.props.height}} 
+                        gutterBottom variant="h5" component="h2">
                             {this.props.title}
-                        </h2>
-                    </Typography>
-                    
-                    {/* --- Description --- */}
-                    <Typography style={{fontSize: parseInt(this.props.fontSize || "12")}} variant="h3" component="h3">
-                        <h3 style={{paddingLeft: 25, textAlign: "left", color: "#d1d1d1"}}>
-                            {this.props.description}
-                        </h3>
-                    </Typography>
-                   
+                        </Typography>
+                    </CardContent>
+                    {/* --- Popup --- */}
+                    {this.state.isOpen ? popup : null}
                     {/* --- Button --- */}
                     {this.props.button !== undefined ? button : null}
-
-                </div>
-            </Parallax>
+                </CardActionArea>
+            </Card>
         );
     }
 }
