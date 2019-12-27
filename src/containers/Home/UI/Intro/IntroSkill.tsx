@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import IntroText from './IntroText/IntroText';
-import IntroTextSkill from './IntroTextSkill/IntroTextSkill';
+import IntroText from './IntroText';
+import IntroTextSkill from './IntroTextSkill';
 import Spacing from '../../../../components/Spacing/Spacing';
 import RadialGradient from '../../../../components/RadialGradient/RadialGradient';
 import { Grid } from '@material-ui/core';
