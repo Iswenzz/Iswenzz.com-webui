@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 import NavBar from '../UI/NavBar/NavBar';
 import Spacing from '../../components/Spacing/Spacing';
 import { Grid } from '@material-ui/core';
-import RadialGradient from '../../components/RadialGradient/RadialGradient';
+import Projects from './UI/Projects/Projects';
 import Footer from '../UI/Footer/Footer';
 import Intro from '../Home/UI/Intro/Intro';
 import IntroSkill from '../Home/UI/Intro/IntroSkill';
@@ -18,12 +18,12 @@ import { HomeActions } from './store/types';
 
 interface LinkStateProp 
 {
-	introTextActive: boolean
+    introTextActive: boolean
 }
 
 interface LinkDispatchProps 
 {
-	toggleIntroText: (active: boolean) => void
+    toggleIntroText: (active: boolean) => void
 }
 
 export type ReduxHomeProps = LinkStateProp & LinkDispatchProps;
@@ -71,7 +71,7 @@ class Home extends Component<ReduxHomeProps>
                         </Grid> 
                     </ParallaxLayer>
                     
-                    <ParallaxLayer offset={1.2} speed={0.3}>
+                    <ParallaxLayer offset={1.45} speed={0.3}>
                         <Grid container direction="row" justify="center" alignItems="center">
                             <img src={require('../../assets/images/index/2.jpg')} alt='' /> 
                         </Grid>
@@ -85,13 +85,8 @@ class Home extends Component<ReduxHomeProps>
                         <IntroSkill />
                     </ParallaxLayer>
 
-                    <ParallaxLayer offset={1.9} speed={0.1}>
-                        <Spacing height='140px' />
-                        <RadialGradient position='ellipse at bottom' colors={[
-                        { color: '#23272B', colorPercent: '0%' },
-                        { color: '#090A0A', colorPercent: '100%' }]}>
-                            <Spacing height='600px' />
-                        </RadialGradient>
+                    <ParallaxLayer offset={1.8} speed={0.1}>
+                        <Projects />
                         <Footer />
                     </ParallaxLayer>
                     
