@@ -1,6 +1,7 @@
 .project-title {
     @extend .poiret-text;
     background-color: #2c2f33;
+    padding: 8px 8px 8px 8px;
 }
 
 .project-modal {
@@ -10,16 +11,15 @@
 
 .project-actions {
     @extend .poiret-text;
-    background-color: #2c2f33;
+    background-color: #2c2f33; 
 }
 
-.project-close {
-    position: absolute;
-    right: 0;
+.project-icons {
+    padding-top: 4px;
 }
 
 .poiret-text {
     color: rgba(220, 220, 220, 0.9);
-    font-family: 'Poiret One', sans-serif;
-    font-size: 24px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 18px;
 }
