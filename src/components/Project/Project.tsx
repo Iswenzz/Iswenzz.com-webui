@@ -1,33 +1,57 @@
 import React, { Component } from 'react';
 import Popup from '../../components/Popup/Popup';
 import { Typography, CardActions, Button, Card, CardActionArea, CardContent } from '@material-ui/core';
+import marked from "marked";
 
-export interface ProjectProps
+export interface ProjectRenderProps
+{
+    renderFormat?: 'md' | 'css' | 'json' | 'xml' | 'mp4',
+    renderUrl?: string,
+    renderStyle?: React.CSSProperties,
+}
+
+export interface ProjectCarouselProps
+{
+    carouselImages?: string[],
+    carouselStyle?: React.CSSProperties
+}
+
+export interface CardProps
 {
     title: string,
     description?: string,
-    image?: string,
+    cardImage?: string,
+    altImage?: string,
+    style?: React.CSSProperties,
     buttonText?: string,
     buttonURL?: string,
-    font?: string,
-    fontSize?: string,
-    textColor?: string,
     width?: string,
     height?: string,
-    altImage?: string,
-    button?: boolean
-    style?: React.CSSProperties
+    button?: boolean,
+    render?: boolean,
+    carousel?: boolean
 }
 
 export interface ProjectState 
 {
-    isOpen: boolean
+    isOpen: boolean,
+    markdown: any
 }
 
-class Project extends Component<ProjectProps, ProjectState>
+export type LinkedProjectProps = CardProps & ProjectRenderProps & ProjectCarouselProps;
+
+class Project extends Component<LinkedProjectProps, ProjectState>
 {
     state: ProjectState = {
-        isOpen: false
+        isOpen: false,
+        markdown: null
+    }
+
+    componentDidMount() 
+    {
+        if (this.props.renderUrl !== undefined)
+            fetch(this.props.renderUrl).then(response => response.text())
+                .then(text => this.setState({ markdown: marked(text) }));
     }
 
     onToggle = (): void =>
@@ -52,12 +76,14 @@ class Project extends Component<ProjectProps, ProjectState>
             </CardActions>
         );
 
-        const popup: JSX.Element = (
-            <Popup title="Funky Kong" desc="MOGI TIME" isOpen={this.state.isOpen} closeHandle={this.onClickClose} />
+        const md: JSX.Element = (
+            <section>
+                <article dangerouslySetInnerHTML={{__html: this.state.markdown}} />
+            </section>
         );
 
         return (
-            <Card onClick={this.state.isOpen ? () => null : this.onToggle} style={{backgroundImage: `url(${this.props.image})`, 
+            <Card onClick={this.state.isOpen ? () => null : this.onToggle} style={{backgroundImage: `url(${this.props.cardImage})`, 
             backgroundSize: `${this.props.width} ${this.props.height}`, 
             width: this.props.width, height: this.props.height, borderRadius: '8px'}}>
                 <CardActionArea>
@@ -68,7 +94,9 @@ class Project extends Component<ProjectProps, ProjectState>
                         </Typography>
                     </CardContent>
                     {/* --- Popup --- */}
-                    {this.state.isOpen ? popup : null}
+                    <Popup isOpen={this.state.isOpen} closeHandle={this.onClickClose}>
+                        {md}
+                    </Popup>
                     {/* --- Button --- */}
                     {this.props.button !== undefined ? button : null}
                 </CardActionArea>

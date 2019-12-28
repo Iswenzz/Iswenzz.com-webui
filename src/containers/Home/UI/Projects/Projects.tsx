@@ -4,33 +4,39 @@ import { Grid, Typography } from '@material-ui/core';
 import { Transition, animated } from 'react-spring/renderprops';
 import Spacing from '../../../../components/Spacing/Spacing';
 import { SpringGrid, enterExitStyle } from 'react-stonecutter';
-import Project, { ProjectProps } from '../../../../components/Project/Project';
+import Project, { LinkedProjectProps } from '../../../../components/Project/Project';
 import '../../../../Text.scss';
 
-let projects: ProjectProps[] = [
+let projects: LinkedProjectProps[] = [
     {
         title: '0',
         width: '250px',
         height: '150px',
-        image: require('../../../../assets/images/index/5.jpg')
+        cardImage: require('../../../../assets/images/index/5.jpg'),
+        renderFormat: 'md',
+        renderUrl: "https://raw.githubusercontent.com/Iswenzz/AION-Chat/master/README.md"
     },
     {
         title: '1',
         width: '250px',
         height: '150px',
-        image: require('../../../../assets/images/index/5.jpg')
+        cardImage: require('../../../../assets/images/index/5.jpg'),
+        renderFormat: 'md',
+        renderUrl: "https://raw.githubusercontent.com/Iswenzz/AION-Chat/master/README.md"
     },
     {
         title: '2',
         width: '250px',
         height: '150px',
-        image: require('../../../../assets/images/index/5.jpg')
+        cardImage: require('../../../../assets/images/index/5.jpg'),
+        renderFormat: 'md',
+        renderUrl: "https://raw.githubusercontent.com/Iswenzz/AION-Chat/master/README.md"
     },
 ];
 
 export interface ProjectState
 {
-    projs?: ProjectProps[]
+    projs?: LinkedProjectProps[]
 }
 
 const animStyle: any = enterExitStyle.skew; 
@@ -67,7 +73,8 @@ class Projects extends Component<any, ProjectState>
                         gutterHeight={20} springConfig={{ stiffness: 100, damping: 30 }}>
                             {this.state.projs?.map((proj) => (
                                 <li key={proj.title}> 
-                                    <Project title={proj.title} height={proj.height} width={proj.width} image={proj.image} />
+                                    <Project renderFormat={proj.renderFormat} renderUrl={proj.renderUrl} title={proj.title} 
+                                    height={proj.height} width={proj.width} cardImage={proj.cardImage} />
                                 </li>
                             ))}
                         </SpringGrid>

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Fab from '@material-ui/core/Fab';
 import RadialGradient from '../../../components/RadialGradient/RadialGradient';
-import GitHub from '@material-ui/icons/GitHub';
+import { GitHub, YouTube, LinkedIn } from '@material-ui/icons';
 
 class Footer extends Component
 {
@@ -19,10 +19,10 @@ class Footer extends Component
                         <GitHub />
                     </Fab>
                     <Fab color="primary" style={{ margin: 20 }} aria-label="add">
-                        <GitHub />
+                        <YouTube />
                     </Fab>
                     <Fab color="primary" style={{ margin: 20 }} aria-label="add">
-                        <GitHub />
+                        <LinkedIn />
                     </Fab>
                 </Grid>
             </RadialGradient>
