@@ -7,45 +7,10 @@ import { SpringGrid, enterExitStyle } from 'react-stonecutter';
 import Project, { LinkedProjectProps } from '../../../../components/Project/Project';
 import '../../../../Text.scss';
 
-let projects: LinkedProjectProps[] = [
-    {
-        title: '0',
-        width: '250px',
-        height: '150px',
-        cardImage: require('../../../../assets/images/index/5.jpg'),
-        renderFormat: 'md',
-        renderUrl: "https://raw.githubusercontent.com/Iswenzz/AION-Chat/master/README.md"
-    },
-    {
-        title: '1',
-        width: '250px',
-        height: '150px',
-        cardImage: require('../../../../assets/images/index/5.jpg'),
-        renderFormat: 'md',
-        renderUrl: "https://raw.githubusercontent.com/Iswenzz/AION-Chat/master/README.md"
-    },
-    {
-        title: '2',
-        width: '250px',
-        height: '150px',
-        cardImage: require('../../../../assets/images/index/5.jpg'),
-        renderFormat: 'md',
-        renderUrl: "https://raw.githubusercontent.com/Iswenzz/AION-Chat/master/README.md"
-    },
-];
-
-export interface ProjectState
-{
-    projs?: LinkedProjectProps[]
-}
-
+const projects: LinkedProjectProps[] = require('./Projects.json');
 const animStyle: any = enterExitStyle.skew; 
-class Projects extends Component<any, ProjectState>
+class Projects extends Component
 {
-    state: ProjectState = {
-        projs: projects
-    }
-
     render(): JSX.Element
     {
         return (
@@ -71,10 +36,9 @@ class Projects extends Component<any, ProjectState>
                         <SpringGrid enter={animStyle.enter} entered={animStyle.entered} exit={animStyle.exit} 
                         component='div' columns={5} perspective={600} columnWidth={250} gutterWidth={20} 
                         gutterHeight={20} springConfig={{ stiffness: 100, damping: 30 }}>
-                            {this.state.projs?.map((proj) => (
-                                <li key={proj.title}> 
-                                    <Project renderFormat={proj.renderFormat} renderUrl={proj.renderUrl} title={proj.title} 
-                                    height={proj.height} width={proj.width} cardImage={proj.cardImage} />
+                            {projects?.map((project) => (
+                                <li key={project.title}> 
+                                    <Project proj={project} />
                                 </li>
                             ))}
                         </SpringGrid>
