@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import { DialogTitle, Dialog, DialogContent, DialogContentText, DialogActions, Button, Slide } from "@material-ui/core";
+import { DialogTitle, Dialog, DialogContent, Slide, Fab, Grid } from "@material-ui/core";
 import { TransitionProps } from "@material-ui/core/transitions/transition";
+import { Close } from '@material-ui/icons';
+import './Popup.scss';
 
 export interface PopupProps
 {
@@ -27,20 +29,21 @@ class Popup extends Component<LinkedPopupProps>
 	render(): JSX.Element
 	{
 		return (
-			<Dialog open={this.props.isOpen} TransitionComponent={Transition} keepMounted 
-			onClose={this.props.closeHandle} aria-labelledby="alert-dialog-slide-title" 
+			<Dialog maxWidth='xl' open={this.props.isOpen} TransitionComponent={Transition} 
+			keepMounted onClose={this.props.closeHandle} aria-labelledby="alert-dialog-slide-title" 
 			aria-describedby="alert-dialog-slide-description">
-				<DialogTitle id="alert-dialog-slide-title">{this.props.title}</DialogTitle>
-				<DialogContent>
-					<DialogContentText id="alert-dialog-slide-description">
-						{this.props.desc}
-					</DialogContentText>
+				<DialogTitle className='project-title'>
+					<Grid container direction="row" justify="space-between" alignItems="center">
+						{this.props.title}
+						<Fab onClick={this.props.closeHandle} color="primary" aria-label="add">
+							<Close />
+						</Fab>
+					</Grid>
+				</DialogTitle>
+				<DialogContent className='project-modal'>
+					{this.props.desc}
+					{this.props.children}
 				</DialogContent>
-				<DialogActions>
-					<Button onClick={this.props.closeHandle} color="primary">
-						Close
-					</Button>
-				</DialogActions>
 			</Dialog>
 		);
 	}
