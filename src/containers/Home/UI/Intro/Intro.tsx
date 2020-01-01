@@ -3,7 +3,7 @@ import * as actions from '../../store/actions';
 
 import { useScrollPercentage } from 'react-scroll-percentage';
 import { useDispatch } from 'react-redux';
-import { Transition, animated } from 'react-spring/renderprops'
+import { Transition, animated } from 'react-spring'
 import Typography from '@material-ui/core/Typography';
 import { Grid } from '@material-ui/core';
 import '../../../../Text.scss';
@@ -23,16 +23,16 @@ const Intro: FunctionComponent = (props): JSX.Element =>
 
                 {/* Iswenzz */}
                 <div className='calli-title'>
-                    <Transition native items={true} from={{ overflow: 'hidden', height: 0 }}
-                    enter={[{ height: 'auto' }]} delay={400} leave={{ height: 0 }}>
+                    <Transition items={true} from={{ overflow: 'hidden', height: 0 }}
+                    enter={[{ height: 'auto' }]} leave={{ height: 0 }}>
                     { show => show && (props => <animated.div style={props}>Iswenzz</animated.div>)}
                     </Transition>
                 </div>
 
                 {/* Text Below */}
                 <div className='poiret-title'>
-                    <Transition native items={true} from={{ overflow: 'hidden', height: 0 }}
-                    enter={[{ height: 'auto' }]} delay={600} leave={{ height: 0 }}>
+                    <Transition items={true} from={{ overflow: 'hidden', height: 0 }}
+                    enter={[{ height: 'auto' }]} leave={{ height: 0 }}>
                     { show => show && (props => <animated.div style={props}>Software Engineer and Level Designer</animated.div>)}
                     </Transition>
                 </div>

@@ -13,17 +13,22 @@ import Projects from './UI/Projects/Projects';
 import Footer from '../UI/Footer/Footer';
 import Intro from '../Home/UI/Intro/Intro';
 import IntroSkill from '../Home/UI/Intro/IntroSkill';
-import {Parallax, ParallaxLayer} from 'react-spring/renderprops-addons';
+import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 import { HomeActions } from './store/types';
+import { LinkedProjectProps } from '../../components/Project/Project';
 
 interface LinkStateProp 
 {
-    introTextActive: boolean
+    introTextActive: boolean,
+    projectModalActive: boolean,
+    projects: LinkedProjectProps[]
 }
 
 interface LinkDispatchProps 
 {
-    toggleIntroText: (active: boolean) => void
+    toggleIntroText: (active: boolean) => void,
+    toggleProjectModal: (active: boolean) => void,
+    updateProjects: (projects: LinkedProjectProps[]) => void
 }
 
 export type ReduxHomeProps = LinkStateProp & LinkDispatchProps;
@@ -62,19 +67,15 @@ class Home extends Component<ReduxHomeProps>
 
         return (
             <div>
-                <Parallax pages={3}>
+                <Parallax enabled={true} pages={3}>
                     {starBg}{fxs}
                     {/* Background */}
                     <ParallaxLayer offset={0} speed={0.3}>
-                        <Grid container direction="row" justify="center" alignItems="center">
-                            <img src={require('../../assets/images/index/1.jpg')} alt='' /> 
-                        </Grid> 
+                        <div style={{ backgroundImage: `url(${require('../../assets/images/index/1.jpg')})`, backgroundSize: 'cover', height: '100%' }} />
                     </ParallaxLayer>
                     
                     <ParallaxLayer offset={1.45} speed={0.3}>
-                        <Grid container direction="row" justify="center" alignItems="center">
-                            <img src={require('../../assets/images/index/2.jpg')} alt='' /> 
-                        </Grid>
+                        <div style={{ backgroundImage: `url(${require('../../assets/images/index/2.jpg')})`, backgroundSize: 'cover', height: '100%' }} />
                     </ParallaxLayer>
 
                     {/* Pages */}
@@ -98,12 +99,16 @@ class Home extends Component<ReduxHomeProps>
 
 const mapStateToProps = (state: AppState, ownProps: any): LinkStateProp => 
 ({
-	introTextActive: state.home.introTextActive!
+    introTextActive: state.home.introTextActive!,
+    projectModalActive: state.home.projectModalActive!,
+    projects: state.home.projects!
 });
 
 const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, HomeActions>, ownProps: any): LinkDispatchProps => 
 ({
-	toggleIntroText: bindActionCreators(actions.toggleIntroText, dispatch)
+    toggleIntroText: bindActionCreators(actions.toggleIntroText, dispatch),
+    toggleProjectModal: bindActionCreators(actions.toggleProjectModal, dispatch),
+    updateProjects: bindActionCreators(actions.updateProjects, dispatch)
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

@@ -1,17 +1,23 @@
-import React, { Component } from "react";
-import { DialogTitle, Dialog, DialogContent, Slide, Fab, Grid } from "@material-ui/core";
+import * as actions from '../../containers/Home/store/actions';
+import React, { FunctionComponent, useEffect, useState } from "react";
+import { Dialog, DialogContent, Slide, Fab, Grid, Container } from "@material-ui/core";
 import { TransitionProps } from "@material-ui/core/transitions/transition";
 import { Close, Lock } from '@material-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faOsi } from '@fortawesome/free-brands-svg-icons';
 import { LinkedProjectProps } from "../Project/Project";
+import ViewPager from '../../components/ViewPager/ViewPager';
+import { AppState } from "../..";
+import marked from "marked";
+import { useSelector, useDispatch } from "react-redux";
+import Slider from "react-slick";
 import './ProjectPopup.scss';
+import Spacing from '../Spacing/Spacing';
+import RadialGradient from '../RadialGradient/RadialGradient';
 
 export interface ProjectPopupProps
 {
-	proj: LinkedProjectProps
-	isOpen: boolean,
-	closeHandle?: any,
+	projects: LinkedProjectProps[],
 	children?: any
 }
 
@@ -19,49 +25,71 @@ const Transition = React.forwardRef<unknown, TransitionProps>(function Transitio
 	return <Slide direction="up" ref={ref} {...props} />;
 });
 
-class Popup extends Component<ProjectPopupProps>
+const ProjectPopup: FunctionComponent<ProjectPopupProps> = (props: ProjectPopupProps): JSX.Element =>
 {
-	render(): JSX.Element
-	{
-		const openSource: JSX.Element = (
-			<Fab href={this.props.proj.sourceURL} style={{ margin: '0 8px 0 8px'}} color="primary" aria-label="add">
-				<FontAwesomeIcon icon={faOsi} size='2x' />
-			</Fab>
-		);
+	const projectModalActive = useSelector((state: AppState) => state.home.projectModalActive);
+	const dispatch = useDispatch();
 
-		const privateSource: JSX.Element = (
-			<Fab style={{ margin: '0 8px 0 8px'}} color="primary" aria-label="add">
-				<Lock />
-			</Fab>
-		);
+	const onClickClose = (): void => 
+    {
+        dispatch(actions.toggleProjectModal(false));
+    }
 
-		return (
-			<Dialog maxWidth='xl' open={this.props.isOpen} TransitionComponent={Transition} 
-			keepMounted onClose={this.props.closeHandle} aria-labelledby="alert-dialog-slide-title" 
-			aria-describedby="alert-dialog-slide-description">
-				<Grid container className="project-title" direction="row" justify="space-between" alignItems="center">
-					<div className='project-icons'>
-						{this.props.proj.renderIcons!.map(icon => (
-							<img style={{ margin: '0 4px 0 4px' }} width='64' height='64' alt='lang' 
-							src={icon} />
-						))}
-					</div>
+	return (
+		<Dialog maxWidth='xl' open={projectModalActive} TransitionComponent={Transition} 
+		keepMounted onClose={onClickClose} aria-labelledby="alert-dialog-slide-title" 
+		aria-describedby="alert-dialog-slide-description">
+			<ViewPager width='1100px' height='600px' items={props.projects.map((proj: LinkedProjectProps, i: number) => 
+			{
+				const openSource: JSX.Element = (
+					<Fab href={proj.sourceURL} style={{ margin: '0 8px 0 8px'}} color="primary" aria-label="add">
+						<FontAwesomeIcon icon={faOsi} size='2x' />
+					</Fab>
+				);
+
+				const privateSource: JSX.Element = (
+					<Fab style={{ margin: '0 8px 0 8px'}} color="primary" aria-label="add">
+						<Lock />
+					</Fab>
+				);
+
+				return (
 					<div>
-						{this.props.proj.isOpenSource ? openSource : privateSource}
-						<Fab onClick={this.props.closeHandle} style={{ margin: '0 8px 0 8px'}} 
-						color="primary" aria-label="add">
-							<Close />
-						</Fab>
+						{/* Modal Navbar */}
+						<Grid container className="project-title" direction="row" justify="space-between" alignItems="center">
+							<div className='project-icons'>
+								{proj.renderIcons!.map(icon => (
+									<img onDragStart={(e) => e.preventDefault()} 
+									style={{ margin: '0 4px 0 4px' }} width='64' height='64' alt='lang' src={icon} />
+								))}
+							</div>
+							<div>
+								{proj.isOpenSource ? openSource : privateSource}
+								<Fab onClick={onClickClose} style={{ margin: '0 8px 0 8px'}} 
+								color="primary" aria-label="add">
+									<Close />
+								</Fab>
+							</div>
+						</Grid>
+		
+						{/* Modal Content */}
+						<RadialGradient position='ellipse at bottom' colors={[
+						{ color: '#323536', colorPercent: '0%' },
+						{ color: '#23272a', colorPercent: '100%' }]}>
+							<DialogContent className='project-modal'>
+								{proj.showTitle ? proj.title : null}
+								{proj.desc}
+								<section>
+									<article dangerouslySetInnerHTML={{__html: marked(proj.renderFile!)}} />
+								</section>
+								{props.children}
+							</DialogContent>
+						</RadialGradient>
 					</div>
-				</Grid>
-				<DialogContent className='project-modal'>
-					{this.props.proj.showTitle ? this.props.proj.title : null}
-					{this.props.proj.desc}
-					{this.props.children}
-				</DialogContent>
-			</Dialog>
-		);
-	}
+				);
+			})} />
+		</Dialog>
+	);
 }
 
-export default Popup;
+export default ProjectPopup;
