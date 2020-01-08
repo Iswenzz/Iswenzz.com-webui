@@ -1,4 +1,4 @@
-import React, { useRef, FunctionComponent, useState } from 'react';
+import React, { FunctionComponent, useState, useEffect } from 'react';
 import clamp from 'lodash/clamp';
 import { useSprings, animated } from 'react-spring';
 import { useDrag } from 'react-use-gesture';
@@ -15,6 +15,7 @@ const defaultItems: JSX.Element[] = [
 export interface ViewPagerProps
 {
 	items?: JSX.Element[],
+	startIndex?: number,
 	height?: string,
 	width?: string
 }
@@ -26,39 +27,49 @@ export interface ViewPagerState
 
 const ViewPager: FunctionComponent<ViewPagerProps> = (props: ViewPagerProps): JSX.Element => 
 {
-	const [items, setItems] = useState(props.items !== undefined ? props.items : defaultItems);
-
-	const index = useRef(0);
-	const [springProps, set] = useSprings(items.length, i => ({
+	const [items,] = useState(props.items !== undefined ? props.items : defaultItems);
+	const [index, setIndex] = useState(props.startIndex !== undefined ? props.startIndex : 0);
+	const [divRef, setDivRef] = useState<HTMLElement | null>(null);
+	
+	const [springProps, set] = useSprings(items.length, i => 
+	({
 		x: i * window.innerWidth,
 		scale: 1,
 		display: 'block'
 	}));
 
+	useEffect(() =>
+	{
+		// TODO better way to get the right item
+		setIndex(props.startIndex!);
+		divRef?.dispatchEvent(new MouseEvent('mousedown', { bubbles: true, cancelable: false }));
+	}, 
+	[props.startIndex, divRef]);
+
 	const bind = useDrag(({ down, movement: [mx], direction: [xDir], distance, cancel }) => 
 	{
 		if (down && distance > window.innerWidth / 2) 
 		{
-			index.current = clamp(index.current + (xDir > 0 ? -1 : 1), 0, items.length - 1);
+			setIndex(clamp(index + (xDir > 0 ? -1 : 1), 0, items.length - 1));
 			cancel!();
 		}
 
 		set(i => 
 		{
-			if (i < index.current - 1 || i > index.current + 1) 
+			if (i < index - 1 || i > index + 1) 
 				return { display: 'none' };
 
-			const x = (i - index.current) * window.innerWidth + (down ? mx : 0);
+			const x = (i - index) * window.innerWidth + (down ? mx : 0);
 			const scale = down ? 1 - distance / window.innerWidth / 2 : 1;
 
 			return { x, scale, display: 'block' };
 		});
 	});
-
+	
 	return (
 		<div>
 			{springProps.map(({ x, display, scale }, i) => (
-				<animated.div className="carousel" {...bind()} key={i} 
+				<animated.div className="carousel" {...bind()} key={i} ref={ref => setDivRef(ref)}
 				style={{ display, x, height: props.height, width: props.width }}>
 					<animated.div style={{scale}}>
 						{items[i]}
