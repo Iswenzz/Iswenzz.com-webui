@@ -23,8 +23,7 @@ const TrailText: FunctionComponent<TrailProps> = (props: TrailProps): JSX.Elemen
 
   	return (
 		<div className={props.className} style={props.style}>
-			{trail.map(({ x, height, ...rest }, index) => 
-			(
+			{trail.map(({ x, height, ...rest }, index) => (
 				<animated.div key={props.items![index]} 
 					style={{ ...rest, transform: `translate3d(0,${x}px,0)` }}>
 					<animated.div style={{ height: props.height }}>{props.items![index]}</animated.div>

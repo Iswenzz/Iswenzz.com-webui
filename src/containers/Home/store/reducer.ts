@@ -1,17 +1,17 @@
-import React from 'react';
 import { HomeActions, HomeActionEnum } from './types';
 import { updateObject } from '../../../utility';
 import { ReduxHomeProps } from '../Home';
-import { LinkedProjectProps } from '../../../components/Project/Project';
 
 export let initialState: ReduxHomeProps = {
 	projectModalActive: false,
 	introTextActive: false,
 	projects: require('../UI/Projects/Projects.json'),
+	projectsStartIndex: 0,
 
 	toggleIntroText: () => null,
 	toggleProjectModal: () => null,
-	updateProjects: () => null
+	updateProjects: () => null,
+	setProjectsIndex: () => null
 };
 
 const reducer = (state: ReduxHomeProps = initialState, action: HomeActions): ReduxHomeProps =>
@@ -31,6 +31,11 @@ const reducer = (state: ReduxHomeProps = initialState, action: HomeActions): Red
 		case HomeActionEnum.UPDATE_PROJECTS:
 			return updateObject(state, {
 				projects: action.projects
+			});
+
+		case HomeActionEnum.SET_PROJECTS_INDEX:
+			return updateObject(state, {
+				projectsStartIndex: action.index
 			});
 
 		default:

@@ -1,7 +1,7 @@
 import { HomeActionEnum, HomeActions } from './types';
 import { AppState } from '../../../index';
 import { Dispatch } from 'react';
-import { LinkedProjectProps } from '../../../components/Project/Project';
+import { LinkedProjectProps } from '../UI/Project/Project';
 
 export const toggleIntroText = (active: boolean) =>
 {
@@ -32,6 +32,17 @@ export const updateProjects = (projects: LinkedProjectProps[]) =>
         return dispatch({
             type: HomeActionEnum.UPDATE_PROJECTS,
             projects
+        });
+    }
+};
+
+export const setProjectsIndex = (index: number) =>
+{
+    return (dispatch: Dispatch<HomeActions>, getState: () => AppState) =>
+    {
+        return dispatch({
+            type: HomeActionEnum.SET_PROJECTS_INDEX,
+            index
         });
     }
 };
