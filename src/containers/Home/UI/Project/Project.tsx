@@ -1,17 +1,16 @@
-import * as actions from '../../containers/Home/store/actions';
+import * as actions from '../../store/actions';
 import React, { FunctionComponent } from 'react';
 import { CardActions, Button, Card, CardActionArea, CardContent, Grid } from '@material-ui/core';
-import { AppState } from '../..';
+import { AppState } from '../../../..';
 import { useSelector, useDispatch } from 'react-redux';
-import '../../Text.scss';
-import './Project.scss';
+import '../../../../Text.scss';
 
 export interface ProjectRenderProps
 {
     renderUrl?: string,
     renderStyle?: React.CSSProperties,
     renderIcons?: string[],
-    renderFile?: string
+    renderFile?: JSX.Element[]
 }
 
 export interface ProjectCarouselProps
@@ -43,6 +42,7 @@ export type LinkedProjectProps = CardProps & ProjectRenderProps & ProjectCarouse
 
 export interface ProjectProps
 {
+    projects: LinkedProjectProps[]
     currentProj: LinkedProjectProps
 }
 
@@ -53,6 +53,7 @@ const Project: FunctionComponent<ProjectProps> = (props: ProjectProps): JSX.Elem
 
     const onToggle = () =>
     {
+        dispatch(actions.setProjectsIndex(props.projects.indexOf(props.currentProj)));
         dispatch(actions.toggleProjectModal(!projectModalActive));
     }
 
@@ -68,13 +69,16 @@ const Project: FunctionComponent<ProjectProps> = (props: ProjectProps): JSX.Elem
         <Card onClick={projectModalActive ? () => null : onToggle} 
         style={{backgroundImage: `url(${props.currentProj.cardImage})`, 
         backgroundSize: `${props.currentProj.width} ${props.currentProj.height}`, 
-        width: props.currentProj.width, height: props.currentProj.height, borderRadius: '8px'}}>
+        width: props.currentProj.width, height: props.currentProj.height, borderRadius: '8px', 
+        boxShadow: '3px 3px 5px 6px rgb(16,16,16)'}}>
             <CardActionArea>
                 <CardContent>
                     <Grid container alignItems="center" justify="center" direction="row">
                         <div style={{height: props.currentProj.height, width: props.currentProj.width,
                         paddingTop: parseInt(props.currentProj.height!) / 3}} 
-                        className='ubuntu-text-center'>{props.currentProj.title}</div>
+                        className='ubuntu-text-center'>
+                            {props.currentProj.title}
+                        </div>
                     </Grid>
                 </CardContent>
                 {/* --- Optional Button --- */}

@@ -1,13 +1,12 @@
 [
     {
-        "renderFile": "<h1 id=\"cod4x-utility\">CoD4x Utility</h1><p><a href=\"https://ci.appveyor.com/project/Iswenzz/cod4x-utility\"><img src=\"https://ci.appveyor.com/api/projects/status/gb3f3etgol4eggrl?svg=true\" alt=\"Build status\"></a><a href=\"https://codecov.io/gh/Iswenzz/CoD4x-Utility\"><img src=\"https://codecov.io/gh/Iswenzz/CoD4x-Utility/branch/master/graph/badge.svg\" alt=\"codecov\"></a><a href=\"https://www.codefactor.io/repository/github/iswenzz/cod4x-utility\"><img src=\"https://www.codefactor.io/repository/github/iswenzz/cod4x-utility/badge\" alt=\"CodeFactor\"></a><a href=\"https://www.gnu.org/licenses/gpl-3.0\"><img src=\"https://img.shields.io/badge/License-GPLv3-blue.svg\" alt=\"License: GPL v3\"></a></p><p>CoD4x Utility Tool allows you to modify player, graphical, viewmodel, and vision settings on any CoD4x 1.7 / 1.8 server.</p><p><img src=\"https://i.imgur.com/fNOgG6L.jpg\" alt=\"\"></p><h2 id=\"features\">Features</h2><ul><li>Draw FPS / 2D / HUD / FX</li><li>Fullbright / Decals / Details / Specular / Specular Mode / AA Shadows / Normals</li><li>Laser</li><li>Viewmodel X Y Z Position</li><li>FOV &amp; FOV Scale</li><li>Camera Bob</li><li>Movie config + Export CFG</li></ul><p>All settings listed above are saved in <code>profile.xml</code></p><p>Credits: Iswenzz</p>",
         "title": "AION Chat",
         "sourceURL": "https://github.com/Iswenzz/AION-Chat",
         "isOpenSource": true,
         "showTitle": false,
         "width": "250px",
         "height": "150px",
-        "cardImage": "https://www.python.tc/wp-content/uploads/2016/10/python-index-pull-e1477454732328.jpg",
+        "cardImage": "https://i.imgur.com/tyhB0rJ.png",
         "renderUrl": "https://raw.githubusercontent.com/Iswenzz/AION-Chat/master/README.md",
         "renderIcons": [
             "http://213.32.18.205:1337/iswenzz/devicons/csharp.svg",
@@ -15,14 +14,13 @@
         ]
     },
     {
-        "renderFile": "<h1 id=\"cod4x-utility\">CoD4x Utility</h1><p><a href=\"https://ci.appveyor.com/project/Iswenzz/cod4x-utility\"><img src=\"https://ci.appveyor.com/api/projects/status/gb3f3etgol4eggrl?svg=true\" alt=\"Build status\"></a><a href=\"https://codecov.io/gh/Iswenzz/CoD4x-Utility\"><img src=\"https://codecov.io/gh/Iswenzz/CoD4x-Utility/branch/master/graph/badge.svg\" alt=\"codecov\"></a><a href=\"https://www.codefactor.io/repository/github/iswenzz/cod4x-utility\"><img src=\"https://www.codefactor.io/repository/github/iswenzz/cod4x-utility/badge\" alt=\"CodeFactor\"></a><a href=\"https://www.gnu.org/licenses/gpl-3.0\"><img src=\"https://img.shields.io/badge/License-GPLv3-blue.svg\" alt=\"License: GPL v3\"></a></p><p>CoD4x Utility Tool allows you to modify player, graphical, viewmodel, and vision settings on any CoD4x 1.7 / 1.8 server.</p><p><img src=\"https://i.imgur.com/fNOgG6L.jpg\" alt=\"\"></p><h2 id=\"features\">Features</h2><ul><li>Draw FPS / 2D / HUD / FX</li><li>Fullbright / Decals / Details / Specular / Specular Mode / AA Shadows / Normals</li><li>Laser</li><li>Viewmodel X Y Z Position</li><li>FOV &amp; FOV Scale</li><li>Camera Bob</li><li>Movie config + Export CFG</li></ul><p>All settings listed above are saved in <code>profile.xml</code></p><p>Credits: Iswenzz</p>",
         "title": "AION Encdec",
         "sourceURL": "https://github.com/Iswenzz/AION-Encdec",
         "isOpenSource": true,
         "showTitle": false,
         "width": "250px",
         "height": "150px",
-        "cardImage": "https://www.python.tc/wp-content/uploads/2016/10/python-index-pull-e1477454732328.jpg",
+        "cardImage": "https://i.imgur.com/iKu3JIG.png",
         "renderUrl": "https://raw.githubusercontent.com/Iswenzz/AION-Encdec/master/README.md",
         "renderIcons": [
             "http://213.32.18.205:1337/iswenzz/devicons/csharp.svg",
@@ -30,14 +28,13 @@
         ]
     },
     {
-        "renderFile": "<h1 id=\"cod4x-utility\">CoD4x Utility</h1><p><a href=\"https://ci.appveyor.com/project/Iswenzz/cod4x-utility\"><img src=\"https://ci.appveyor.com/api/projects/status/gb3f3etgol4eggrl?svg=true\" alt=\"Build status\"></a><a href=\"https://codecov.io/gh/Iswenzz/CoD4x-Utility\"><img src=\"https://codecov.io/gh/Iswenzz/CoD4x-Utility/branch/master/graph/badge.svg\" alt=\"codecov\"></a><a href=\"https://www.codefactor.io/repository/github/iswenzz/cod4x-utility\"><img src=\"https://www.codefactor.io/repository/github/iswenzz/cod4x-utility/badge\" alt=\"CodeFactor\"></a><a href=\"https://www.gnu.org/licenses/gpl-3.0\"><img src=\"https://img.shields.io/badge/License-GPLv3-blue.svg\" alt=\"License: GPL v3\"></a></p><p>CoD4x Utility Tool allows you to modify player, graphical, viewmodel, and vision settings on any CoD4x 1.7 / 1.8 server.</p><p><img src=\"https://i.imgur.com/fNOgG6L.jpg\" alt=\"\"></p><h2 id=\"features\">Features</h2><ul><li>Draw FPS / 2D / HUD / FX</li><li>Fullbright / Decals / Details / Specular / Specular Mode / AA Shadows / Normals</li><li>Laser</li><li>Viewmodel X Y Z Position</li><li>FOV &amp; FOV Scale</li><li>Camera Bob</li><li>Movie config + Export CFG</li></ul><p>All settings listed above are saved in <code>profile.xml</code></p><p>Credits: Iswenzz</p>",
         "title": "CoD4x Utility",
         "sourceURL": "https://github.com/Iswenzz/CoD4x-Utility",
         "isOpenSource": true,
         "showTitle": false,
         "width": "250px",
         "height": "150px",
-        "cardImage": "https://www.python.tc/wp-content/uploads/2016/10/python-index-pull-e1477454732328.jpg",
+        "cardImage": "https://i.imgur.com/fNOgG6L.jpg",
         "renderUrl": "https://raw.githubusercontent.com/Iswenzz/CoD4x-Utility/master/README.md",
         "renderIcons": [
             "http://213.32.18.205:1337/iswenzz/devicons/assembly.svg",
