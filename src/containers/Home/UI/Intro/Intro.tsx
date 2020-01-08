@@ -1,20 +1,31 @@
 import React, { FunctionComponent } from 'react';
 import * as actions from '../../store/actions';
-
 import { useScrollPercentage } from 'react-scroll-percentage';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Transition, animated } from 'react-spring'
 import Typography from '@material-ui/core/Typography';
 import { Grid } from '@material-ui/core';
+import { AppState } from '../../../..';
 import '../../../../Text.scss';
+import SplitText from 'react-pose-text';
 
-const Intro: FunctionComponent = (props): JSX.Element =>
+const charPoses = {
+    exit: { opacity: 0, y: 20 },
+    enter: {
+      opacity: 1,
+      y: 0,
+      delay: ({ charIndex }: any) => charIndex * 30
+    }
+};
+
+const Intro: FunctionComponent = (): JSX.Element =>
 {
+    const introTextActive = useSelector((state: AppState) => state.home.introTextActive);
     const dispatch = useDispatch();
     const [ref, percentage] = useScrollPercentage({
         threshold: 0,
     });
-    if (percentage > 0.3)
+    if (!introTextActive && percentage > 0.9) 
         dispatch(actions.toggleIntroText(true));
 
 	return (
@@ -23,18 +34,16 @@ const Intro: FunctionComponent = (props): JSX.Element =>
 
                 {/* Iswenzz */}
                 <div className='calli-title'>
-                    <Transition items={true} from={{ overflow: 'hidden', height: 0 }}
-                    enter={[{ height: 'auto' }]} leave={{ height: 0 }}>
-                    { show => show && (props => <animated.div style={props}>Iswenzz</animated.div>)}
-                    </Transition>
+                    <SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
+                        Iswenzz
+                    </SplitText>
                 </div>
 
                 {/* Text Below */}
                 <div className='poiret-title'>
-                    <Transition items={true} from={{ overflow: 'hidden', height: 0 }}
-                    enter={[{ height: 'auto' }]} leave={{ height: 0 }}>
-                    { show => show && (props => <animated.div style={props}>Software Engineer and Level Designer</animated.div>)}
-                    </Transition>
+                    <SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
+                        Software Engineer and Level Designer
+                    </SplitText>
                 </div>
 
             </Typography>

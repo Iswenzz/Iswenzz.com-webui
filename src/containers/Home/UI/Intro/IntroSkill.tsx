@@ -5,6 +5,7 @@ import IntroTextSkill from './IntroTextSkill';
 import Spacing from '../../../../components/Spacing/Spacing';
 import RadialGradient from '../../../../components/RadialGradient/RadialGradient';
 import { Grid } from '@material-ui/core';
+import { Parallax } from 'react-parallax';
 
 class IntroSkill extends Component
 {
@@ -19,7 +20,9 @@ class IntroSkill extends Component
                     <IntroText />
                 </RadialGradient>
 
-                <Spacing height='100px' />
+                <Parallax style={{backgroundColor: 'black'}} bgImage={require('../../../../assets/images/index/stars.svg')} bgImageAlt="index" strength={400}>
+                    <Spacing height='100px' />
+                </Parallax>
 
                 <RadialGradient position='ellipse at top' colors={[
                     { color: '#23272B', colorPercent: '0%' },
