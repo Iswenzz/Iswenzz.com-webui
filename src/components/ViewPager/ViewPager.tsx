@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState, useEffect } from 'react';
+import React, { FunctionComponent, useState, useEffect, LegacyRef, RefObject, forwardRef, Ref } from 'react';
 import clamp from 'lodash/clamp';
 import { useSprings, animated } from 'react-spring';
 import { useDrag } from 'react-use-gesture';
@@ -15,17 +15,28 @@ const defaultItems: JSX.Element[] = [
 export interface ViewPagerProps
 {
 	items?: JSX.Element[],
+	style?: React.CSSProperties,
+	bgcolor?: string,
+	ref?: RefObject<HTMLDivElement>,
 	startIndex?: number,
-	height?: string,
-	width?: string
+	config?: ViewPagerConfig
+}
+
+export interface ViewPagerConfig
+{
+	top?: string | number,
+	right?: string | number,
+	width?: string | number,
+	height?: string | number
 }
 
 export interface ViewPagerState
 {
-	items?: JSX.Element[]
+	items?: JSX.Element[],
+	mainRef?: RefObject<HTMLDivElement>
 }
 
-const ViewPager: FunctionComponent<ViewPagerProps> = (props: ViewPagerProps): JSX.Element => 
+const ViewPager = forwardRef((props: ViewPagerProps, ref: any) => 
 {
 	const [items,] = useState(props.items !== undefined ? props.items : defaultItems);
 	const [index, setIndex] = useState(props.startIndex !== undefined ? props.startIndex : 0);
@@ -67,17 +78,19 @@ const ViewPager: FunctionComponent<ViewPagerProps> = (props: ViewPagerProps): JS
 	});
 	
 	return (
-		<div>
+		<div style={props.style}>
 			{springProps.map(({ x, display, scale }, i) => (
-				<animated.div className="carousel" {...bind()} key={i} ref={ref => setDivRef(ref)}
-				style={{ display, x, height: props.height, width: props.width }}>
-					<animated.div style={{scale}}>
+				<animated.div className="carousel" {...bind()} key={i} ref={ref}
+				style={{display, x,
+				height: props.config?.height, width: props.config?.width,
+				top: props.config?.top, right: props.config?.right }}>
+					<animated.div ref={ref => setDivRef(ref)} style={{scale, background: props.bgcolor}}>
 						{items[i]}
 					</animated.div>
 				</animated.div>
 			))}
 		</div>
 	);
-}
+});
 
 export default ViewPager;
