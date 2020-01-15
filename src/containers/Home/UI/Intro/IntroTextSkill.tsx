@@ -85,7 +85,7 @@ const IntroText: FunctionComponent<IntroTextProps> = (props: IntroTextProps): JS
         direction="row" justify="space-evenly" alignItems="center">
             
             {/* Web Development */}
-            <Typography align="left" variant="h5" component="h5">
+            <Typography style={{paddingBottom: '20px'}} align="left" variant="h5" component="h5">
                 <TrailText className='poiret-text' active={isVisible} items={[webDev.title]} />
                 <TrailText className='ubuntu-p-left' active={isVisible} items={webDev.points} />
                 <Spacing height='40px' />
@@ -94,7 +94,7 @@ const IntroText: FunctionComponent<IntroTextProps> = (props: IntroTextProps): JS
             </Typography>
 
             {/* Software Development */} 
-            <Typography align="left" variant="h5" component="h5">
+            <Typography style={{paddingBottom: '20px'}} align="left" variant="h5" component="h5">
                 <TrailText className='poiret-text' active={isVisible} items={[softDev.title]} />
                 <TrailText className='ubuntu-p-left' active={isVisible} items={softDev.points} />
                 <Spacing height='40px' />
@@ -103,7 +103,7 @@ const IntroText: FunctionComponent<IntroTextProps> = (props: IntroTextProps): JS
             </Typography>
 
             {/* Level Design */}
-            <Typography align="left" variant="h5" component="h5">
+            <Typography style={{paddingBottom: '20px'}} align="left" variant="h5" component="h5">
                 <TrailText className='poiret-text' active={isVisible} items={[levelDesign.title]} />
                 <TrailText className='ubuntu-p-left' active={isVisible} items={levelDesign.points} />
                 <Spacing height='40px' />
