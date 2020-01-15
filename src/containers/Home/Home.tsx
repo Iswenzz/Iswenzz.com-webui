@@ -39,10 +39,6 @@ const Home: FunctionComponent<ReduxHomeProps> = (props: ReduxHomeProps): JSX.Ele
                 <Spacing height='200px' />
                 <Contact />
                 <Footer />
-                <Parallax style={{backgroundColor: 'black'}} bgImage={require('../../assets/images/index/stars.svg')} 
-                bgImageAlt="index" strength={-400}>
-                    <Spacing height='200px' />
-                </Parallax>
             </Parallax>
         </div>
     );
