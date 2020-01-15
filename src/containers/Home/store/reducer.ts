@@ -1,5 +1,5 @@
 import { HomeActions, HomeActionEnum } from './types';
-import { updateObject } from '../../../utility';
+import { updateObject } from '../../../Utility/utility';
 import { ReduxHomeProps } from '../Home';
 
 export let initialState: ReduxHomeProps = {
