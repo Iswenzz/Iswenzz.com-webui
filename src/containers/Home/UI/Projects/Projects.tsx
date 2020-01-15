@@ -1,16 +1,16 @@
 import React, { FunctionComponent } from 'react';
 import RadialGradient from '../../../../components/RadialGradient/RadialGradient';
-import { Grid, Typography, Container } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 import Spacing from '../../../../components/Spacing/Spacing';
-import { SpringGrid, enterExitStyle } from 'react-stonecutter';
 import Project, { LinkedProjectProps } from '../Project/Project';
 import ProjectPopup from '../ProjectPopup/ProjectPopup';
+import StonecutterGrid from '../../../../components/StonecutterGrid/StonecutterGrid';
 import { useSelector } from 'react-redux';
 import { AppState } from '../../../..';
 import SplitText from 'react-pose-text';
+import { enterExitStyle } from 'react-stonecutter';
 import '../../../../Text.scss';
 
-const animStyle: any = enterExitStyle.skew; 
 const charPoses = {
     exit: { opacity: 0, y: 20 },
     enter: {
@@ -39,20 +39,19 @@ const Projects: FunctionComponent = (): JSX.Element =>
             <Spacing height='200px' />
 
             {/* Projects */}
-            <RadialGradient style={{listStyleType: 'none'}} position='ellipse at bottom' colors={[
+            <RadialGradient style={{listStyleType: 'none', paddingTop: '50px', paddingBottom: '50px'}} 
+            position='ellipse at bottom' colors={[
             { color: '#23272B', colorPercent: '0%' },
             { color: '#090A0A', colorPercent: '100%' }]}>
-                <Container>
-                    <SpringGrid enter={animStyle.enter} entered={animStyle.entered} exit={animStyle.exit} 
-                    component='div' columns={5} perspective={600} columnWidth={250} gutterWidth={20} 
-                    gutterHeight={20} springConfig={{ stiffness: 100, damping: 30 }}>
-                        {projects!.map((project: LinkedProjectProps) => (
-                            <li key={project.title}> 
-                                <Project projects={projects!} currentProj={project} />
-                            </li>
-                        ))}
-                    </SpringGrid>
-                </Container>
+                <StonecutterGrid responsive animStyle={enterExitStyle.skew} config={{ component: 'div', columns: 5,
+                perspective: 600, columnWidth: 250, gutterWidth: 20, gutterHeight: 20,
+                springConfig: { stiffness: 100, damping: 30 } }}>
+                    {projects!.map((project: LinkedProjectProps) => (
+                        <li key={project.title}> 
+                            <Project projects={projects!} currentProj={project} />
+                        </li>
+                    ))}
+                </StonecutterGrid>
                 <ProjectPopup projects={projects!} />
                 <Spacing height='600px' />
             </RadialGradient>
