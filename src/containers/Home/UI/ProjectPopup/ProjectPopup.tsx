@@ -1,6 +1,6 @@
 import * as actions from '../../store/actions';
 import React, { FunctionComponent, useEffect, useRef } from "react";
-import { DialogContent, Fab, Grid, Modal, Fade, Backdrop } from "@material-ui/core";
+import { DialogContent, Fab, Grid, Modal, Fade, Backdrop, Tooltip } from "@material-ui/core";
 import { Close, Lock } from '@material-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faOsi } from '@fortawesome/free-brands-svg-icons';
@@ -12,6 +12,7 @@ import useWindowSize from '../../../../Utility/useWindowSize';
 import { useSelector, useDispatch } from "react-redux";
 import RadialGradient from '../../../../components/RadialGradient/RadialGradient';
 import { useMediaQuery } from 'react-responsive';
+import '../../../../Text.scss';
 import './ProjectPopup.scss';
 
 export interface ProjectPopupProps
@@ -55,15 +56,19 @@ const ProjectPopup: FunctionComponent<ProjectPopupProps> = (props: ProjectPopupP
 	const renderProject = (project: LinkedProjectProps, i: number): JSX.Element =>
 	{
 		const openSource: JSX.Element = (
-			<Fab href={project.sourceURL} style={{ margin: '0 8px 0 8px'}} color="primary" aria-label="add">
-				<FontAwesomeIcon icon={faOsi} size='2x' />
-			</Fab>
+			<Tooltip arrow disableFocusListener disableTouchListener title="View Source">
+				<Fab href={project.sourceURL} style={{ margin: '0 8px 0 8px'}} color="primary" aria-label="add">
+					<FontAwesomeIcon icon={faOsi} size='2x' />
+				</Fab>
+			</Tooltip>
 		);
 
 		const privateSource: JSX.Element = (
-			<Fab style={{ margin: '0 8px 0 8px'}} color="primary" aria-label="add">
-				<Lock />
-			</Fab>
+			<Tooltip arrow disableFocusListener disableTouchListener title="Private Source">
+				<Fab disabled style={{ margin: '0 8px 0 8px'}} color="primary" aria-label="add">
+					<Lock />
+				</Fab>
+			</Tooltip>
 		);
 		
 		return (
@@ -73,8 +78,10 @@ const ProjectPopup: FunctionComponent<ProjectPopupProps> = (props: ProjectPopupP
 				alignItems="center">
 					<div className='project-icons'>
 						{project.renderIcons!.map(icon => (
-							<img onDragStart={(e) => e.preventDefault()} 
-							style={{ margin: '0 4px 0 4px' }} width='64' height='64' alt='lang' src={icon} />
+							<Tooltip arrow disableFocusListener disableTouchListener title={icon.name}>
+								<img onDragStart={(e) => e.preventDefault()} 
+								style={{ margin: '0 4px 0 4px' }} width='64' height='64' alt='lang' src={icon.src} />
+						  	</Tooltip>
 						))}
 					</div>
 					<div>
