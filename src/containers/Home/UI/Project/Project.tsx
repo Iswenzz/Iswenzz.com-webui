@@ -4,6 +4,7 @@ import { CardActions, Button, Card, CardActionArea, CardContent, Grid } from '@m
 import { AppState } from '../../../..';
 import { useSelector, useDispatch } from 'react-redux';
 import '../../../../Text.scss';
+import { useMediaQuery } from 'react-responsive';
 
 export interface ProjectRenderProps
 {
@@ -48,6 +49,7 @@ export interface ProjectProps
 
 const Project: FunctionComponent<ProjectProps> = (props: ProjectProps): JSX.Element =>
 {
+    const isPortrait = useMediaQuery({ orientation: 'portrait' });
     const projectModalActive = useSelector((state: AppState) => state.home.projectModalActive);
     const dispatch = useDispatch();
 
@@ -65,17 +67,25 @@ const Project: FunctionComponent<ProjectProps> = (props: ProjectProps): JSX.Elem
         </CardActions>
     );
 
+    const cardSize: { width: string, height: string } = isPortrait ? {
+        width: `${parseInt(props.currentProj.width!) / 2}px`,
+        height: `${parseInt(props.currentProj.height!) / 2}px`
+    } : {
+        width: props.currentProj.width!,
+        height: props.currentProj.height!
+    }
+
     return (
         <Card onClick={projectModalActive ? () => null : onToggle} 
         style={{backgroundImage: `url(${props.currentProj.cardImage})`, 
-        backgroundSize: `${props.currentProj.width} ${props.currentProj.height}`, 
-        width: props.currentProj.width, height: props.currentProj.height, borderRadius: '8px', 
+        backgroundSize: `${cardSize.width} ${cardSize.height}`, 
+        width: cardSize.width, height: cardSize.height, borderRadius: '8px', 
         boxShadow: '3px 3px 5px 6px rgb(16,16,16)'}}>
             <CardActionArea>
                 <CardContent>
                     <Grid container alignItems="center" justify="center" direction="row">
-                        <div style={{height: props.currentProj.height, width: props.currentProj.width,
-                        paddingTop: parseInt(props.currentProj.height!) / 3}} 
+                        <div style={{height: cardSize.height, width: cardSize.width,
+                        paddingTop: parseInt(cardSize.height!) / 3}} 
                         className='ubuntu-text-center'>
                             {props.currentProj.title}
                         </div>
