@@ -46,7 +46,7 @@ const Projects: FunctionComponent = (): JSX.Element =>
             { color: '#23272B', colorPercent: '0%' },
             { color: '#090A0A', colorPercent: '100%' }]}>
                 <StonecutterGrid responsive animStyle={enterExitStyle.skew} config={{ component: 'div', columns: 5,
-                perspective: 600, columnWidth: isPortrait ? 115 : 250, gutterWidth: 20, gutterHeight: isPortrait ? -40 : 20,
+                perspective: 600, columnWidth: isPortrait ? 85 : 200, gutterWidth: 20, gutterHeight: isPortrait ? -70 : 0,
                 springConfig: { stiffness: 100, damping: 30 } }}>
                     {projects!.map((project: LinkedProjectProps) => (
                         <li key={project.title}> 

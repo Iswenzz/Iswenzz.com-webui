@@ -3,15 +3,22 @@ import React, { FunctionComponent } from 'react';
 import { CardActions, Button, Card, CardActionArea, CardContent, Grid } from '@material-ui/core';
 import { AppState } from '../../../..';
 import { useSelector, useDispatch } from 'react-redux';
-import '../../../../Text.scss';
 import { useMediaQuery } from 'react-responsive';
+import { ReactBlur } from 'react-blur';
+import '../../../../Text.scss';
 
 export interface ProjectRenderProps
 {
     renderUrl?: string,
     renderStyle?: React.CSSProperties,
-    renderIcons?: string[],
+    renderIcons?: IconProps[],
     renderFile?: JSX.Element[]
+}
+
+export interface IconProps
+{
+    src: string,
+    name: string
 }
 
 export interface ProjectCarouselProps
@@ -77,15 +84,14 @@ const Project: FunctionComponent<ProjectProps> = (props: ProjectProps): JSX.Elem
 
     return (
         <Card onClick={projectModalActive ? () => null : onToggle} 
-        style={{backgroundImage: `url(${props.currentProj.cardImage})`, 
-        backgroundSize: `${cardSize.width} ${cardSize.height}`, 
-        width: cardSize.width, height: cardSize.height, borderRadius: '8px', 
-        boxShadow: '3px 3px 5px 6px rgb(16,16,16)'}}>
+        style={{ width: cardSize.width, height: cardSize.height, borderRadius: '8px', 
+        boxShadow: '3px 3px 5px 6px rgb(16,16,16)' }}>
             <CardActionArea>
                 <CardContent>
+                    {/* TODO BLUR */}
                     <Grid container alignItems="center" justify="center" direction="row">
-                        <div style={{height: cardSize.height, width: cardSize.width,
-                        paddingTop: parseInt(cardSize.height!) / 3}} 
+                        <div style={{ height: cardSize.height, width: cardSize.width,
+                        paddingTop: parseInt(cardSize.height!) / (isPortrait ? -5 : 5) }}
                         className='ubuntu-text-center'>
                             {props.currentProj.title}
                         </div>
