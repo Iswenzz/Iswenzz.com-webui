@@ -14,7 +14,7 @@ class IntroSkill extends Component
 		return (
             <Grid container direction="column" justify="center" alignItems="stretch">
                 <RadialGradient position='ellipse at bottom' colors={[
-                    { color: '#23272B', colorPercent: '0%' },
+                    { color: '#002638', colorPercent: '0%' },
                     { color: '#090A0A', colorPercent: '100%' }
                 ]}>
                     <IntroText />
@@ -25,7 +25,7 @@ class IntroSkill extends Component
                 </Parallax>
 
                 <RadialGradient position='ellipse at top' colors={[
-                    { color: '#23272B', colorPercent: '0%' },
+                    { color: '#002638', colorPercent: '0%' },
                     { color: '#090A0A', colorPercent: '100%' }
                 ]}>
                     <IntroTextSkill />

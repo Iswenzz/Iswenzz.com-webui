@@ -1,10 +1,9 @@
 import * as actions from '../../store/actions';
 import React, { FunctionComponent } from 'react';
-import { CardActions, Button, Card, CardActionArea, CardContent, Grid } from '@material-ui/core';
+import { CardActions, Button, Card, CardActionArea } from '@material-ui/core';
 import { AppState } from '../../../..';
 import { useSelector, useDispatch } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
-import { ReactBlur } from 'react-blur';
 import '../../../../Text.scss';
 
 export interface ProjectRenderProps
@@ -83,20 +82,16 @@ const Project: FunctionComponent<ProjectProps> = (props: ProjectProps): JSX.Elem
     }
 
     return (
-        <Card onClick={projectModalActive ? () => null : onToggle} 
-        style={{ width: cardSize.width, height: cardSize.height, borderRadius: '8px', 
-        boxShadow: '3px 3px 5px 6px rgb(16,16,16)' }}>
-            <CardActionArea>
-                <CardContent>
-                    {/* TODO BLUR */}
-                    <Grid container alignItems="center" justify="center" direction="row">
-                        <div style={{ height: cardSize.height, width: cardSize.width,
-                        paddingTop: parseInt(cardSize.height!) / (isPortrait ? -5 : 5) }}
-                        className='ubuntu-text-center'>
-                            {props.currentProj.title}
-                        </div>
-                    </Grid>
-                </CardContent>
+        <Card onClick={onToggle} 
+        style={{ backgroundImage: `url(${props.currentProj.cardImage})`, 
+        backgroundSize: `${cardSize.width} ${cardSize.height}`,
+        width: cardSize.width, height: cardSize.height, borderRadius: '8px', 
+        boxShadow: '3px 3px 3px 4px rgb(6,6,6)' }}>
+            <CardActionArea style={{ height: '100%', width: '100%' }}>
+                <p className='ubuntu-text-center' style={{ fontSize: isPortrait ? 14 : 20,
+                height: parseInt(cardSize.height) / 3 }}>
+                    {props.currentProj.title}
+                </p>
                 {/* --- Optional Button --- */}
                 {props.currentProj.button !== undefined ? button : null}
             </CardActionArea>

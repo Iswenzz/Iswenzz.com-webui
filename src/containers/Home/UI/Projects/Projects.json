@@ -95,7 +95,7 @@
             {"name": "GSC", "src": "http://213.32.18.205:1337/iswenzz/devicons/gsc.svg"},
             {"name": "C", "src": "http://213.32.18.205:1337/iswenzz/devicons/c.svg"},
             {"name": "Maya", "src": "http://213.32.18.205:1337/iswenzz/devicons/maya.svg"},
-            {"name": "3DS Max", "src": "http://213.32.18.205:1337/iswenzz/devicons/3dsmax.svg"}
+            {"name": "3DS Max", "src": "http://213.32.18.205:1337/iswenzz/devicons/3ds-max.svg"}
         ]
     },
     {
@@ -109,7 +109,7 @@
         "renderIcons": [
             {"name": "GSC", "src": "http://213.32.18.205:1337/iswenzz/devicons/gsc.svg"},
             {"name": "Maya", "src": "http://213.32.18.205:1337/iswenzz/devicons/maya.svg"},
-            {"name": "3DS Max", "src": "http://213.32.18.205:1337/iswenzz/devicons/3dsmax.svg"}
+            {"name": "3DS Max", "src": "http://213.32.18.205:1337/iswenzz/devicons/3ds-max.svg"}
         ]
     },
     {
@@ -124,7 +124,7 @@
         "renderIcons": [
             {"name": "GSC", "src": "http://213.32.18.205:1337/iswenzz/devicons/gsc.svg"},
             {"name": "Maya", "src": "http://213.32.18.205:1337/iswenzz/devicons/maya.svg"},
-            {"name": "3DS Max", "src": "http://213.32.18.205:1337/iswenzz/devicons/3dsmax.svg"}
+            {"name": "3DS Max", "src": "http://213.32.18.205:1337/iswenzz/devicons/3ds-max.svg"}
         ]
     },
     {

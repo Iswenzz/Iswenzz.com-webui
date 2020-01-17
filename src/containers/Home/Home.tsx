@@ -12,6 +12,7 @@ import Footer from '../UI/Footer/Footer';
 import Intro from '../Home/UI/Intro/Intro';
 import IntroSkill from '../Home/UI/Intro/IntroSkill';
 import Contact from '../Home/UI/Contact/Contact';
+import Levels from '../Home/UI/Levels/Levels';
 import { HomeActions } from './store/types';
 import { LinkedProjectProps } from './UI/Project/Project';
 import { Parallax } from 'react-parallax';
@@ -22,7 +23,7 @@ const Home: FunctionComponent<ReduxHomeProps> = (props: ReduxHomeProps): JSX.Ele
 {
     return (
         <div>
-            <Parallax bgImage={require('../../assets/images/index/4.png')} bgImageAlt="index" strength={400}>
+            <Parallax bgImage={require('../../assets/images/index/20.jpg')} bgImageAlt="index" strength={400} blur={5}>
                 <Spacing height='100px' />
                 <NavBar />
                 <Intro />
@@ -30,12 +31,17 @@ const Home: FunctionComponent<ReduxHomeProps> = (props: ReduxHomeProps): JSX.Ele
                 <IntroSkill />
             </Parallax>
 
-            <Parallax bgImage={require('../../assets/images/index/2.jpg')} bgImageAlt="index" strength={-400}>
+            <Parallax bgImage={require('../../assets/images/index/4.jpg')} bgImageAlt="index" strength={-400} blur={3}>
                 <Spacing height='200px' />
                 <Projects />
             </Parallax>
 
-            <Parallax bgImage={require('../../assets/images/index/3.png')} bgImageAlt="index" strength={-400}>
+            <Parallax bgImage={require('../../assets/images/index/3.png')} bgImageAlt="index" strength={-400} blur={3}>
+                <Spacing height='200px' />
+                <Levels />
+            </Parallax>
+
+            <Parallax bgImage={require('../../assets/images/index/3.jpg')} bgImageAlt="index" strength={-400} blur={3}>
                 <Spacing height='200px' />
                 <Contact />
                 <Footer />

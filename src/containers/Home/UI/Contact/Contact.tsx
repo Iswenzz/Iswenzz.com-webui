@@ -55,7 +55,7 @@ const Contact: FunctionComponent = (): JSX.Element =>
 
             {/* Contact */}
             <RadialGradient position='ellipse at bottom' colors={[
-            { color: '#23272B', colorPercent: '0%' },
+            { color: '#51001C', colorPercent: '0%' },
             { color: '#090A0A', colorPercent: '100%' }]}>
                 <Container maxWidth="md">
                     <Grid container direction="row" justify="center" alignItems="center">
@@ -78,7 +78,7 @@ const Contact: FunctionComponent = (): JSX.Element =>
                         </form>
                     </Grid>
                 </Container>
-                <Spacing height='600px' />
+                <Spacing height='800px' />
             </RadialGradient>
             
         </Grid>

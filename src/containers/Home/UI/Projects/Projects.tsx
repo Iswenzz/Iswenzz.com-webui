@@ -9,8 +9,8 @@ import { useSelector } from 'react-redux';
 import { AppState } from '../../../..';
 import SplitText from 'react-pose-text';
 import { enterExitStyle } from 'react-stonecutter';
-import '../../../../Text.scss';
 import { useMediaQuery } from 'react-responsive';
+import '../../../../Text.scss';
 
 const charPoses = {
     exit: { opacity: 0, y: 20 },
@@ -42,12 +42,12 @@ const Projects: FunctionComponent = (): JSX.Element =>
 
             {/* Projects */}
             <RadialGradient style={{listStyleType: 'none', paddingTop: isPortrait ? '90px' : '50px', paddingBottom: '50px'}} 
-            position='ellipse at bottom' colors={[
-            { color: '#23272B', colorPercent: '0%' },
+            position='ellipse at top' colors={[
+            { color: '#200038', colorPercent: '0%' },
             { color: '#090A0A', colorPercent: '100%' }]}>
                 <StonecutterGrid responsive animStyle={enterExitStyle.skew} config={{ component: 'div', columns: 5,
                 perspective: 600, columnWidth: isPortrait ? 85 : 200, gutterWidth: 20, gutterHeight: isPortrait ? -70 : 0,
-                springConfig: { stiffness: 100, damping: 30 } }}>
+                springConfig: { stiffness: 100, damping: 12 } }}>
                     {projects!.map((project: LinkedProjectProps) => (
                         <li key={project.title}> 
                             <Project projects={projects!} currentProj={project} />
@@ -55,7 +55,7 @@ const Projects: FunctionComponent = (): JSX.Element =>
                     ))}
                 </StonecutterGrid>
                 <ProjectPopup projects={projects!} />
-                <Spacing height={isPortrait ? '400px' : '600px'} />
+                <Spacing height={isPortrait ? '400px' : '800px'} />
             </RadialGradient>
             
         </Grid>

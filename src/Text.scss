@@ -1,14 +1,20 @@
 .calli-title {
     @extend .title-color;
     font-family: 'Calligraffitti', cursive;
+    font-weight: bold;
     font-size: 60px;
 }
 
 .calli-text {
     @extend .title-color;
     font-family: 'Calligraffitti', cursive;
-    font-weight: 200;
+    font-weight: bold;
     font-size: 24px;
+}
+
+.text-stroke {
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
 }
 
 .pre-line {
@@ -18,7 +24,7 @@
 .poiret-title {
     @extend .title-color;
     font-family: 'Poiret One', sans-serif;
-    font-weight: 1000;
+    font-weight: bold;
 }
 
 .poiret-text {
