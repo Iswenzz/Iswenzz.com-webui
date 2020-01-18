@@ -39,9 +39,9 @@ const Levels: FunctionComponent = (): JSX.Element =>
 			{ color: '#001C51', colorPercent: '0%' },
 			{ color: '#090A0A', colorPercent: '100%' }]}>
 				<EmblaCarousel style={{ padding: '5% 0 5% 0' }} height='700px' width='100%' 
-				autoplay delayLength={10000}>
+				delayLength={10000} autoplay={false}>
 					{levels.map((level: LevelProject) => (
-						<Level project={level} />
+						<Level levels={levels} currentLevel={level} />
 					))}
 				</EmblaCarousel>
 				<Spacing height='1000px' />
