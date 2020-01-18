@@ -101,7 +101,6 @@ const ProjectPopup: FunctionComponent<ProjectPopupProps> = (props: ProjectPopupP
 						{project.showTitle ? project.title : null}
 						{project.desc}
 						<div className="project-md" id={`popupProjectMd-${project.title}`} /> 
-						{props.children}
 					</DialogContent>
 				</RadialGradient>
 			</div>

@@ -33,6 +33,9 @@ export interface SetProjectsStartIndex
 }
 
 export type HomeAnimationActions = ToggleIntroText;
-export type HomeProjectsActions = ToggleProjectModal & SetProjectsStartIndex & UpdateProjects;
+export type HomeProjectsActions = ToggleProjectModal 
+    & SetProjectsStartIndex 
+    & UpdateProjects;
 
-export type HomeActions = HomeAnimationActions & HomeProjectsActions;
+export type HomeActions = HomeAnimationActions 
+    & HomeProjectsActions;

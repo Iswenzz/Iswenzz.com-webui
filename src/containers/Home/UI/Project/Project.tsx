@@ -4,6 +4,7 @@ import { CardActions, Button, Card, CardActionArea } from '@material-ui/core';
 import { AppState } from '../../../..';
 import { useSelector, useDispatch } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
+import { Parallax } from 'react-parallax';
 import '../../../../Text.scss';
 
 export interface ProjectRenderProps
@@ -82,20 +83,21 @@ const Project: FunctionComponent<ProjectProps> = (props: ProjectProps): JSX.Elem
     }
 
     return (
-        <Card onClick={onToggle} 
-        style={{ backgroundImage: `url(${props.currentProj.cardImage})`, 
-        backgroundSize: `${cardSize.width} ${cardSize.height}`,
-        width: cardSize.width, height: cardSize.height, borderRadius: '8px', 
-        boxShadow: '3px 3px 3px 4px rgb(6,6,6)' }}>
-            <CardActionArea style={{ height: '100%', width: '100%' }}>
-                <p className='ubuntu-text-center' style={{ fontSize: isPortrait ? 14 : 20,
-                height: parseInt(cardSize.height) / 3 }}>
-                    {props.currentProj.title}
-                </p>
-                {/* --- Optional Button --- */}
-                {props.currentProj.button !== undefined ? button : null}
-            </CardActionArea>
-        </Card>
+        <Parallax bgImage={props.currentProj.cardImage} style={{ borderRadius: '8px', borderStyle: 'dashed' }} 
+        bgImageAlt="card" strength={0} blur={5}>
+            <Card onClick={onToggle} 
+            style={{ backgroundColor: 'transparent', width: cardSize.width, height: cardSize.height, borderRadius: '8px', 
+            boxShadow: '0 8px 6px -6px rgba(0, 0, 0, 1)', borderColor: 'dimgray' }}>
+                <CardActionArea style={{ height: '100%', width: '100%' }}>
+                    <p className='ubuntu-text-center' style={{ fontSize: isPortrait ? 14 : 20,
+                    height: parseInt(cardSize.height) / 3 }}>
+                        {props.currentProj.title}
+                    </p>
+                    {/* --- Optional Button --- */}
+                    {props.currentProj.button !== undefined ? button : null}
+                </CardActionArea>
+            </Card>
+        </Parallax>
     );
 }
 
