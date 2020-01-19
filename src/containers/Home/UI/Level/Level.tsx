@@ -26,11 +26,6 @@ export interface LevelProject
 
 const Level: FunctionComponent<LevelProps> = (props: LevelProps): JSX.Element =>
 {
-	// TODO 
-	// - prevent clicking on the card behind
-	// - fix first flip freeze
-	// - fix tooltip not showing up
-
 	const isPortrait = useMediaQuery({ orientation: 'portrait' });
 
 	const desktopCard: JSX.Element = (
@@ -57,7 +52,7 @@ const Level: FunctionComponent<LevelProps> = (props: LevelProps): JSX.Element =>
 
 	const mobileCard: JSX.Element = (
 		<Container className="level-desc">
-			<Grid container className="level-grid" direction="row" justify="space-evenly" alignItems="center">
+			<Grid container className="level-grid" direction="row" justify="center" alignItems="center">
 				<h3 className="calli-title" style={{fontSize: '30px'}}>{props.currentLevel.name}</h3>
 				<ReactPlayer width='100%' height='50%' url={props.currentLevel.videoUrl} />
 				<Container>
@@ -70,9 +65,9 @@ const Level: FunctionComponent<LevelProps> = (props: LevelProps): JSX.Element =>
 	);
 
 	return (
-		<FlipCard className="level-flip" back={(
+		<FlipCard back={(
 			<Container className="level" style={{ backgroundImage: `url(${props.currentLevel.image})`}}>
-				<Grid container className="level-grid" direction="column" justify="space-evenly" alignItems="flex-end">
+				<Grid container direction="column" justify="space-evenly" alignItems="flex-end">
 					{props.currentLevel.renderIcons?.map(icon => (
 						<Tooltip arrow disableFocusListener disableTouchListener title={icon.name}>
 							<img onDragStart={(e) => e.preventDefault()} style={{ margin: '0 4px 0 4px' }} 

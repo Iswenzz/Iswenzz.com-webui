@@ -1,5 +1,5 @@
-import React, { useState, FunctionComponent } from 'react';
-import { useSpring, animated } from 'react-spring';
+import React, { Component } from 'react';
+import ReactCardFlip from 'react-card-flip';
 import './FlipCard.scss';
 
 export interface FlipCardProps
@@ -10,25 +10,45 @@ export interface FlipCardProps
 	front?: React.ReactNode,
 }
 
-const FlipCard: FunctionComponent<FlipCardProps> = (props: FlipCardProps): JSX.Element =>
+export interface FlipCardState
 {
-	const [flipped, set] = useState(false);
-	const { transform, opacity } = useSpring({
-		opacity: flipped ? 1 : 0,
-		transform: `perspective(600px) rotateX(${flipped ? 180 : 0}deg)`,
-		config: { mass: 5, tension: 500, friction: 80 }
-	});
+	isFlipped: boolean,
+	drag: boolean
+}
 
-	return (
-		<div className={props.className} style={props.style} onClick={() => set(state => !state)}>
-			<animated.div className="c" style={{ opacity: opacity.interpolate(o => 1 - o), transform }}>
-				{props.back}
-			</animated.div>
-			<animated.div className="c" style={{ opacity, transform: transform.interpolate(t => `${t} rotateX(180deg)`) }}>
-				{props.front}
-			</animated.div>
-		</div>
-	);
+class FlipCard extends Component<FlipCardProps, FlipCardState>
+{
+	constructor(props: FlipCardProps) 
+	{
+		super(props);
+		this.handleClick = this.handleClick.bind(this);
+	}
+
+	state: FlipCardState = {
+		isFlipped: false,
+		drag: false
+	}
+
+	handleClick(e: any) 
+	{
+		e.preventDefault();
+		this.setState(prevState => ({ isFlipped: !prevState.isFlipped }));
+	}
+
+	render(): JSX.Element
+	{
+		return (
+			<ReactCardFlip containerStyle={{ width: '100%', height: '100%' }}
+			isFlipped={this.state.isFlipped} flipDirection="vertical">
+				<div className="c-flip" onClick={this.handleClick}>
+					{this.props.back}
+				</div>
+				<div className="c-flip" onClick={this.handleClick}>
+					{this.props.front}
+				</div>
+			</ReactCardFlip>
+		);
+	}
 }
 
 export default FlipCard;
