@@ -29,7 +29,8 @@ const EmblaCarouselComponent: FunctionComponent<EmblaCarouselProps> = (props: Em
 	const scrollPrev = useCallback(() => embla.scrollPrev(), [embla]);
 	const scrollNext = useCallback(() => embla.scrollNext(), [embla]);
 
-	useInterval(() => {
+	useInterval(() => 
+	{
 		if (selectedIndex === scrollSnaps.length - 1)
 			scrollTo(0);
 		else
@@ -38,7 +39,8 @@ const EmblaCarouselComponent: FunctionComponent<EmblaCarouselProps> = (props: Em
 		isRunning ? delay : null
 	);
 
-	useEffect(() => {
+	useEffect(() => 
+	{
 		const onSelect = () => 
 		{ 
 			setSelectedIndex(embla.selectedScrollSnap());
@@ -68,7 +70,7 @@ const EmblaCarouselComponent: FunctionComponent<EmblaCarouselProps> = (props: Em
 		<Grid style={props.style} container direction="row" justify="center" alignItems="center">
 			<div style={{ width: props.width, height: props.height }} className="embla">
 				<EmblaCarouselReact className="embla__viewport" emblaRef={setEmbla} 
-				options={{ loop: false }} htmlTagName="div">
+				options={{ loop: false, draggable: false }} htmlTagName="div">
 				<div style={{ width: props.width, height: props.height }} 
 				className="embla__container">
 					{props.children.map((Child, index) => (
