@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, FunctionComponent } from "react";
+import React, { useState, useEffect, useCallback, FunctionComponent, memo } from "react";
 import EmblaCarouselReact from "embla-carousel-react";
 import useInterval from "../../Utility/useInterval";
 import { DotButton, PrevButton, NextButton } from "./EmblaCarouselButtons/EmblaCarouselButtons";
@@ -92,4 +92,4 @@ const EmblaCarouselComponent: FunctionComponent<EmblaCarouselProps> = (props: Em
 	);
 };
 
-export default EmblaCarouselComponent;
+export default memo(EmblaCarouselComponent);

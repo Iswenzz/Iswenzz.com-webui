@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, memo } from 'react';
 import RadialGradient from '../../../../components/RadialGradient/RadialGradient';
 import { Grid, Typography } from '@material-ui/core';
 import Spacing from '../../../../components/Spacing/Spacing';
@@ -62,4 +62,4 @@ const Projects: FunctionComponent = (): JSX.Element =>
     );
 }
 
-export default Projects;
+export default memo(Projects);

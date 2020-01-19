@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, memo } from 'react';
 import { SpringGrid, enterExitStyle, SpringGridProps, makeResponsive } from 'react-stonecutter';
 
 export interface StonecutterGridProps
@@ -24,4 +24,4 @@ const StonecutterGrid: FunctionComponent<StonecutterGridProps> = (props: Stonecu
     );
 }
 
-export default StonecutterGrid;
+export default memo(StonecutterGrid);

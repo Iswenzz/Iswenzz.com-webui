@@ -63,7 +63,7 @@ const Contact: FunctionComponent = (): JSX.Element =>
                         className={classes.avatar} />
                         <form className={classes.form} noValidate>
                             <TextField color="secondary" variant="outlined" margin="normal" required fullWidth id="email"
-                            label="Email Address" name="email" autoComplete="email" autoFocus />
+                            label="Email Address" name="email" autoComplete="email" />
                             <TextField color="secondary" variant="outlined" margin="normal" required fullWidth id="subject"
                             label="Subject" name="subject" />
                             <TextField multiline rows="6" color="secondary" variant="outlined" 

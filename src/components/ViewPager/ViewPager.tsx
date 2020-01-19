@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState, useEffect, LegacyRef, RefObject, forwardRef, Ref } from 'react';
+import React, { useState, useEffect, RefObject, forwardRef, memo } from 'react';
 import clamp from 'lodash/clamp';
 import { useSprings, animated } from 'react-spring';
 import { useDrag } from 'react-use-gesture';
@@ -93,4 +93,4 @@ const ViewPager = forwardRef((props: ViewPagerProps, ref: any) =>
 	);
 });
 
-export default ViewPager;
+export default memo(ViewPager);

@@ -1,5 +1,5 @@
 import * as actions from '../../store/actions';
-import React, { FunctionComponent, useEffect, useRef } from "react";
+import React, { FunctionComponent, useEffect, memo } from "react";
 import { DialogContent, Fab, Grid, Modal, Fade, Backdrop, Tooltip } from "@material-ui/core";
 import { Close, Lock } from '@material-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -25,7 +25,6 @@ const ProjectPopup: FunctionComponent<ProjectPopupProps> = (props: ProjectPopupP
 {
 	const isPortrait = useMediaQuery({ orientation: 'portrait' });
 	const [width, height] = useWindowSize();
-	const viewPagerRef = useRef<HTMLDivElement>(null);
 
 	const projectModalActive = useSelector((state: AppState) => state.home.projectModalActive);
 	const projectsStartIndex = useSelector((state: AppState) => state.home.projectsStartIndex);
@@ -130,11 +129,11 @@ const ProjectPopup: FunctionComponent<ProjectPopupProps> = (props: ProjectPopupP
 		keepMounted onClose={onClickClose} closeAfterTransition BackdropComponent={Backdrop} 
 		BackdropProps={{ timeout: 500 }}>
 			<Fade in={projectModalActive}>
-				<ViewPager bgcolor='#202326' ref={viewPagerRef} startIndex={projectsStartIndex} config={{...getConfig()}}
+				<ViewPager bgcolor='#202326' startIndex={projectsStartIndex} config={{...getConfig()}}
 				items={props.projects.map((proj: LinkedProjectProps, i: number): JSX.Element => renderProject(proj, i))} />
 			</Fade>
 		</Modal>
 	);
 }
 
-export default ProjectPopup;
+export default memo(ProjectPopup);
