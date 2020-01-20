@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, memo } from 'react';
 
 import IntroText from './IntroText';
 import IntroTextSkill from './IntroTextSkill';
@@ -35,4 +35,4 @@ class IntroSkill extends Component
 	}
 }
 
-export default IntroSkill;
+export default memo(IntroSkill);

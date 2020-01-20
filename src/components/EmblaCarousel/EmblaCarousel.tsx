@@ -56,11 +56,13 @@ const EmblaCarouselComponent: FunctionComponent<EmblaCarouselProps> = (props: Em
 		return () => embla && embla.destroy();
 	}, [embla]);
 
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	function handleIsRunningChange(e: any) 
 	{
 		setIsRunning(e.target.checked);
 	}
 
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	function handleDelayChange(e: any) 
 	{
 		setDelay(Number(e.target.value));

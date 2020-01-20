@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, memo } from 'react';
 import ReactCardFlip from 'react-card-flip';
 import './FlipCard.scss';
 
@@ -51,4 +51,4 @@ class FlipCard extends Component<FlipCardProps, FlipCardState>
 	}
 }
 
-export default FlipCard;
+export default memo(FlipCard);

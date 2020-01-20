@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, memo } from 'react';
 import TrailText from '../../../../components/TrailText/TrailText';
 import { Typography, Grid, Container } from '@material-ui/core';
 import { useSelector } from 'react-redux';
@@ -34,4 +34,4 @@ const IntroText: FunctionComponent<IntroTextProps> = (props: IntroTextProps): JS
     );
 }
 
-export default IntroText;
+export default memo(IntroText);

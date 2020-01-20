@@ -37,8 +37,7 @@ const ProjectPopup: FunctionComponent<ProjectPopupProps> = (props: ProjectPopupP
 	
 	useEffect(() => 
 	{
-		props.projects.map((project: LinkedProjectProps): void => 
-		{
+		props.projects.map((project: LinkedProjectProps): Promise<void> =>
 			fetch(project.renderUrl!).then(response => response.text()).then(text => 
 			{
 				// render md file in the right div
@@ -48,9 +47,9 @@ const ProjectPopup: FunctionComponent<ProjectPopupProps> = (props: ProjectPopupP
 				section.appendChild(article);
 				let div = document.getElementById(`popupProjectMd-${project.title}`);
 				div?.appendChild(section);
-			});
-		});
-	}, []);
+			})
+		);
+	}, [props.projects]);
 
 	const renderProject = (project: LinkedProjectProps, i: number): JSX.Element =>
 	{
@@ -64,9 +63,11 @@ const ProjectPopup: FunctionComponent<ProjectPopupProps> = (props: ProjectPopupP
 
 		const privateSource: JSX.Element = (
 			<Tooltip arrow disableFocusListener disableTouchListener title="Private Source">
-				<Fab disabled style={{ margin: '0 8px 0 8px'}} color="primary" aria-label="add">
-					<Lock />
-				</Fab>
+				<span>
+					<Fab disabled style={{ margin: '0 8px 0 8px'}} color="primary" aria-label="add">
+						<Lock />
+					</Fab>
+				</span>
 			</Tooltip>
 		);
 		
@@ -125,7 +126,7 @@ const ProjectPopup: FunctionComponent<ProjectPopupProps> = (props: ProjectPopupP
 	}
 
 	return (
-		<Modal aria-labelledby="simple-modal-title" aria-describedby="simple-modal-description" open={projectModalActive} 
+		<Modal aria-labelledby="project-modal" aria-describedby="viewpager-project" open={projectModalActive} 
 		keepMounted onClose={onClickClose} closeAfterTransition BackdropComponent={Backdrop} 
 		BackdropProps={{ timeout: 500 }}>
 			<Fade in={projectModalActive}>
@@ -133,7 +134,7 @@ const ProjectPopup: FunctionComponent<ProjectPopupProps> = (props: ProjectPopupP
 				items={props.projects.map((proj: LinkedProjectProps, i: number): JSX.Element => renderProject(proj, i))} />
 			</Fade>
 		</Modal>
-	);
+	)
 }
 
 export default memo(ProjectPopup);

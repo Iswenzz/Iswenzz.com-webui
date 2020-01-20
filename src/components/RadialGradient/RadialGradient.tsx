@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, GridDirection, GridJustification, GridItemsAlignment, Container, Box } from '@material-ui/core';
+import { Grid, GridDirection, GridJustification, GridItemsAlignment, Box } from '@material-ui/core';
 
 export interface IGradientColor
 {

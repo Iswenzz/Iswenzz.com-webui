@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, memo } from 'react';
 
 export interface SpacingProps
 {
@@ -16,4 +16,4 @@ class Spacing extends Component<SpacingProps>
     }
 }
 
-export default Spacing;
+export default memo(Spacing);

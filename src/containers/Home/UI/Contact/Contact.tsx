@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, memo } from 'react';
 import RadialGradient from '../../../../components/RadialGradient/RadialGradient';
 import { Grid, Typography, Container, Avatar, TextField, Button, makeStyles } from '@material-ui/core';
 import Spacing from '../../../../components/Spacing/Spacing';
@@ -85,4 +85,4 @@ const Contact: FunctionComponent = (): JSX.Element =>
     );
 }
 
-export default Contact;
+export default memo(Contact);

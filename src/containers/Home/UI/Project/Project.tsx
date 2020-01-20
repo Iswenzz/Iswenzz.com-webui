@@ -4,7 +4,6 @@ import { CardActions, Button, Card, CardActionArea } from '@material-ui/core';
 import { AppState } from '../../../..';
 import { useSelector, useDispatch } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
-import { Parallax } from 'react-parallax';
 import '../../../../Text.scss';
 
 export interface ProjectRenderProps

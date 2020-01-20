@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, memo } from 'react';
 import { useTrail, animated } from 'react-spring';
 
 export interface TrailProps
@@ -33,4 +33,4 @@ const TrailText: FunctionComponent<TrailProps> = (props: TrailProps): JSX.Elemen
 	);
 }
 
-export default TrailText;
+export default memo(TrailText);

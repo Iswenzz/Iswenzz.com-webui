@@ -1,5 +1,5 @@
-import React, { FunctionComponent } from "react";
-import { Grid, Tooltip, Container, Typography, GridList, GridListTile, GridListTileBar, Box } from "@material-ui/core";
+import React, { FunctionComponent, memo } from "react";
+import { Grid, Tooltip, Container, Typography, GridList, GridListTile } from "@material-ui/core";
 import { IconProps } from '../Project/Project';
 import FlipCard from '../../../../components/FlipCard/FlipCard';
 import ReactPlayer from 'react-player';
@@ -81,4 +81,4 @@ const Level: FunctionComponent<LevelProps> = (props: LevelProps): JSX.Element =>
 	);
 }
 
-export default Level;
+export default memo(Level);

@@ -1,8 +1,7 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, memo } from 'react';
 import * as actions from '../../store/actions';
 import { useScrollPercentage } from 'react-scroll-percentage';
 import { useDispatch, useSelector } from 'react-redux';
-import { Transition, animated } from 'react-spring'
 import Typography from '@material-ui/core/Typography';
 import { Grid } from '@material-ui/core';
 import { AppState } from '../../../..';
@@ -51,4 +50,4 @@ const Intro: FunctionComponent = (): JSX.Element =>
     );
 }
 
-export default Intro;
+export default memo(Intro);

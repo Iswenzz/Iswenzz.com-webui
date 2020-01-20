@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from 'react';
+import React, { FunctionComponent, useState, memo } from 'react';
 import RadialGradient from '../../../../components/RadialGradient/RadialGradient';
 import { Grid, Typography } from '@material-ui/core';
 import EmblaCarousel from '../../../../components/EmblaCarousel/EmblaCarousel';
@@ -51,4 +51,4 @@ const Levels: FunctionComponent = (): JSX.Element =>
 	);
 }
 
-export default Levels;
+export default memo(Levels);

@@ -15,6 +15,7 @@ class NavBar extends Component
 						<Button size='large' color="inherit">Home</Button>
 						<Button size='large' color="inherit">Projects</Button>
 						<Button size='large' color="inherit">Level Design</Button>
+						<Button size='large' color="inherit">About</Button>
 					</Grid>
 				</Toolbar>
 			</AppBar>
