@@ -26,6 +26,7 @@
 		"@types/redux-actions": "^2.6.1",
 		"@types/styled-components": "^4.4.2",
 		"@types/uuid": "^3.4.6",
+		"axios": "^0.19.1",
 		"css-loader": "^3.4.0",
 		"devicon-react-svg": "^0.2.2",
 		"embla-carousel-react": "^1.2.10",
