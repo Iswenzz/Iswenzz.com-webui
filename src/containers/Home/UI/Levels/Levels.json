@@ -58,7 +58,7 @@
 			{"name": "3DS Max", "src": "http://213.32.18.205:1337/iswenzz/devicons/3ds-max.svg"},
 			{"name": "Photoshop", "src": "http://213.32.18.205:1337/iswenzz/devicons/photoshop.svg"},
 			{"name": "World Machine", "src": "http://213.32.18.205:1337/iswenzz/devicons/worldmachine.svg"},
-			{"name": "UModel", "src": "http://213.32.18.205:1337/iswenzz/devicons/ue4.svg"}
+			{"name": "UModel", "src": "http://213.32.18.205:1337/iswenzz/devicons/unreal-engine.svg"}
         ]
 	},
 	{
@@ -67,7 +67,7 @@
 		"description": "Description",
 		"videoUrl": "https://www.youtube.com/watch?v=DgjmWXsrc8E",
 		"renderIcons": [
-            {"name": "Unreal Engine 4", "src": "http://213.32.18.205:1337/iswenzz/devicons/ue4.svg"},
+            {"name": "Unreal Engine 4", "src": "http://213.32.18.205:1337/iswenzz/devicons/unreal-engine.svg"},
             {"name": "Maya", "src": "http://213.32.18.205:1337/iswenzz/devicons/maya.svg"},
 			{"name": "Speedtree", "src": "http://213.32.18.205:1337/iswenzz/devicons/speedtree.svg"},
 			{"name": "Photoshop", "src": "http://213.32.18.205:1337/iswenzz/devicons/photoshop.svg"},
@@ -97,7 +97,6 @@
             {"name": "Maya", "src": "http://213.32.18.205:1337/iswenzz/devicons/maya.svg"},
 			{"name": "GCFScape", "src": "http://213.32.18.205:1337/iswenzz/devicons/gcfscape.svg"},
 			{"name": "VTFEdit", "src": "http://213.32.18.205:1337/iswenzz/devicons/vtfedit.svg"},
-			{"name": "KV Map Converter 2", "src": "http://213.32.18.205:1337/iswenzz/devicons/kvmap.svg"},
 			{"name": "Photoshop", "src": "http://213.32.18.205:1337/iswenzz/devicons/photoshop.svg"},
 			{"name": "Crazy Bump", "src": "http://213.32.18.205:1337/iswenzz/devicons/crazybump.svg"}
         ]

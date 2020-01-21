@@ -22,10 +22,10 @@
         "cardImage": "https://ak4.picdn.net/shutterstock/videos/19580074/thumb/1.jpg",
         "renderUrl": "https://raw.githubusercontent.com/Iswenzz/Level-Editor/master/README.md",
         "renderIcons": [
-            {"name": "DirectX", "src": "http://213.32.18.205:1337/iswenzz/devicons/directx.svg"},
             {"name": "C#", "src": "http://213.32.18.205:1337/iswenzz/devicons/csharp.svg"},
             {"name": ".NET", "src": "http://213.32.18.205:1337/iswenzz/devicons/dotnet.svg"},
-            {"name": "HLSL", "src": "http://213.32.18.205:1337/iswenzz/devicons/hlsl.svg"}
+            {"name": "SharpDX", "src": "http://213.32.18.205:1337/iswenzz/devicons/sharpdx.svg"},
+            {"name": "DirectX", "src": "http://213.32.18.205:1337/iswenzz/devicons/directx.svg"}
         ]
     },
     {
