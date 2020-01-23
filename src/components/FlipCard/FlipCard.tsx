@@ -8,12 +8,12 @@ export interface FlipCardProps
 	style?: React.CSSProperties,
 	back?: React.ReactNode,
 	front?: React.ReactNode,
+	flipCallback?: (flipState: boolean) => void,
 }
 
 export interface FlipCardState
 {
-	isFlipped: boolean,
-	drag: boolean
+	isFlipped: boolean
 }
 
 class FlipCard extends Component<FlipCardProps, FlipCardState>
@@ -25,14 +25,15 @@ class FlipCard extends Component<FlipCardProps, FlipCardState>
 	}
 
 	state: FlipCardState = {
-		isFlipped: false,
-		drag: false
+		isFlipped: false
 	}
 
 	handleClick(e: any) 
 	{
 		e.preventDefault();
 		this.setState(prevState => ({ isFlipped: !prevState.isFlipped }));
+		if (this.props.flipCallback !== undefined)
+			this.props.flipCallback(this.state.isFlipped);
 	}
 
 	render(): JSX.Element
