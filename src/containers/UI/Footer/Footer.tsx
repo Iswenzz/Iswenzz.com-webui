@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDiscord, faYoutube, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { Parallax } from 'react-parallax';
 import Spacing from '../../../components/Spacing/Spacing';
+import { Tooltip } from '@material-ui/core';
 
 class Footer extends Component
 {
@@ -24,9 +25,11 @@ class Footer extends Component
                         <Fab href='https://www.youtube.com/c/iswenzz' color="primary" style={{ margin: 20 }} aria-label="add">
                             <FontAwesomeIcon color='#FF0000' icon={faYoutube} size='2x' />
                         </Fab>
-                        <Fab href='https://github.com/iswenzz' color="primary" style={{ margin: 20 }} aria-label="add">
-                            <FontAwesomeIcon color='#7289da' icon={faDiscord} size='2x' />
-                        </Fab>
+                        <Tooltip disableFocusListener disableTouchListener title="Iswenzz#3906">
+                            <Fab color="primary" style={{ margin: 20 }} aria-label="add">
+                                <FontAwesomeIcon color='#7289da' icon={faDiscord} size='2x' />
+                            </Fab>
+                        </Tooltip>
                     </Grid>
                 </RadialGradient>
                 <Parallax style={{backgroundColor: 'black'}} bgImage={require('../../../assets/images/index/stars.svg')} 
