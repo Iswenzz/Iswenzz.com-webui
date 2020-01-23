@@ -63,6 +63,7 @@
 		"react-tilt": "^0.1.4",
 		"react-use-gesture": "^7.0.0-beta.6",
 		"react-view-pager": "^0.6.0",
+		"react-visibility-sensor": "^5.1.1",
 		"redux": "^4.0.4",
 		"redux-actions": "^2.6.5",
 		"redux-thunk": "^2.3.0",
