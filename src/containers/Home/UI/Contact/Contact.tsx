@@ -6,8 +6,9 @@ import Spacing from '../../../../components/Spacing/Spacing';
 import SplitText from 'react-pose-text';
 import posed, { PoseGroup } from 'react-pose';
 import VisibilitySensor from "react-visibility-sensor";
-import '../../../../Text.scss';
 import { useMediaQuery } from 'react-responsive';
+import { Element } from 'react-scroll';
+import '../../../../Text.scss';
 
 const charPoses = {
     exit: { opacity: 0, y: 20 },
@@ -124,6 +125,7 @@ const Contact: FunctionComponent = (): JSX.Element =>
                 <Spacing height='200px' />
 
                 {/* Contact */}
+                <Element name="contact-section" />
                 <RadialGradient position='ellipse at bottom' colors={[
                 { color: '#51001C', colorPercent: '0%' },
                 { color: '#090A0A', colorPercent: '100%' }]}

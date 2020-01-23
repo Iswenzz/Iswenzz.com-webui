@@ -12,6 +12,7 @@ import { enterExitStyle } from 'react-stonecutter';
 import { useMediaQuery } from 'react-responsive';
 import posed, { PoseGroup } from 'react-pose';
 import VisibilitySensor from "react-visibility-sensor";
+import { Element } from 'react-scroll';
 import '../../../../Text.scss';
 
 const charPoses = {
@@ -66,6 +67,7 @@ const Projects: FunctionComponent = (): JSX.Element =>
                 <Spacing height='200px' />
 
                 {/* Projects */}
+                <Element name="projects-section" />
                 <RadialGradient style={{listStyleType: 'none', paddingTop: isPortrait ? '90px' : '50px', 
                 paddingBottom: '50px'}} 
                 position='ellipse at top' colors={[
@@ -77,7 +79,7 @@ const Projects: FunctionComponent = (): JSX.Element =>
                             <Grid container direction="row" alignItems="center" justify="center">
                                 <StonecutterGrid responsive animStyle={enterExitStyle.skew} 
                                 config={{ component: 'div', columns: 5,
-                                perspective: 600, columnWidth: isPortrait ? 85 : 200, gutterWidth: 20, 
+                                perspective: 600, columnWidth: isPortrait ? 85 : 200, gutterWidth: 30, 
                                 gutterHeight: isPortrait ? -70 : 0,
                                 springConfig: { stiffness: 100, damping: 12 } 
                                 }}>

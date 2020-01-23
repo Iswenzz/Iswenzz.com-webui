@@ -7,7 +7,9 @@ import SplitText from 'react-pose-text';
 import Level, { LevelProject } from '../Level/Level';
 import posed, { PoseGroup } from 'react-pose';
 import VisibilitySensor from "react-visibility-sensor";
+import { Element } from 'react-scroll';
 import '../../../../Text.scss';
+import { useMediaQuery } from 'react-responsive';
 
 const charPoses = {
 	exit: { opacity: 0, y: 20 },
@@ -42,6 +44,7 @@ const Animation = posed.div({
 const Levels: FunctionComponent = (): JSX.Element =>
 {
 	const [levels,] = useState<LevelProject[]>(require('./Levels.json'));
+	const isTabletOrMobileDevice = useMediaQuery({ query: '(max-device-width: 1224px)' });
 
 	return (
 		<VisibilitySensor partialVisibility offset={{bottom: 800}}>
@@ -60,13 +63,15 @@ const Levels: FunctionComponent = (): JSX.Element =>
 				<Spacing height='200px' />
 
 				{/* Level Design */}
+				<Element name="level-design-section" />
 				<RadialGradient position='ellipse at bottom' colors={[
 				{ color: '#001C51', colorPercent: '0%' },
 				{ color: '#090A0A', colorPercent: '100%' }]}>
 					<PoseGroup>
 					{isVisible && [
 						<Animation key="carousel-anim" style={{width: '100%', height: '100%'}}>
-							<EmblaCarousel style={{ padding: '5% 0 5% 0' }} height='700px' width='100%' 
+							<EmblaCarousel style={{ padding: '5% 0 5% 0' }} 
+							height={isTabletOrMobileDevice ? '500px' : '700px' } width='100%' 
 							delayLength={10000} autoplay={false}>
 								{levels.map((level: LevelProject) => (
 									<Level levels={levels} currentLevel={level} />
