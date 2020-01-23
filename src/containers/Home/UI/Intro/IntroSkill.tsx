@@ -1,5 +1,4 @@
 import React, { Component, memo } from 'react';
-
 import IntroText from './IntroText';
 import IntroTextSkill from './IntroTextSkill';
 import Spacing from '../../../../components/Spacing/Spacing';

@@ -1,8 +1,7 @@
-import React, { FunctionComponent, memo } from 'react';
+import React, { memo, Component } from 'react';
 import TrailText from '../../../../components/TrailText/TrailText';
 import { Typography, Grid, Container } from '@material-ui/core';
-import { useSelector } from 'react-redux';
-import { AppState } from '../../../../index';
+import VisibilitySensor from "react-visibility-sensor";
 import '../../../../Text.scss';
 
 const intro: { desc: string } = {
@@ -13,25 +12,26 @@ const intro: { desc: string } = {
     UI/UX design, and reverse engineering.`
 }
 
-export interface IntroTextProps
+class IntroText extends Component
 {
-    introTextActive?: boolean
-}
-
-const IntroText: FunctionComponent<IntroTextProps> = (props: IntroTextProps): JSX.Element =>
-{
-    const isVisible = useSelector((state: AppState) => state.home.introTextActive);
-
-    return (
-        <Grid style={{paddingTop: '50px', paddingBottom: '50px'}} container direction="row" justify="center" alignItems="center">
-            {/* About me */}
-            <Container>
-                <Typography align="left" paragraph component="h5">
-                    <TrailText className='pre-line poiret-text' active={isVisible} items={[intro.desc]} /> 
-                </Typography>
-            </Container>
-        </Grid>
-    );
+    render(): JSX.Element
+    {
+        return (
+            <VisibilitySensor partialVisibility>
+            {({ isVisible }) => (
+                <Grid style={{paddingTop: '50px', paddingBottom: '50px'}} container direction="row" 
+                justify="center" alignItems="center">
+                    {/* About me */}
+                    <Container>
+                        <Typography align="left" paragraph component="h5">
+                            <TrailText className='pre-line poiret-text' active={isVisible} items={[intro.desc]} /> 
+                        </Typography>
+                    </Container>
+                </Grid>
+            )}
+            </VisibilitySensor>
+        );
+    }
 }
 
 export default memo(IntroText);

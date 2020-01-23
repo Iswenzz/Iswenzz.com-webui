@@ -1,8 +1,7 @@
-import React, { FunctionComponent, memo } from 'react';
+import React, { memo, Component } from 'react';
 import TrailText from '../../../../components/TrailText/TrailText';
 import { Typography, Grid } from '@material-ui/core';
-import { useSelector } from 'react-redux';
-import { AppState } from '../../../../index';
+import VisibilitySensor from "react-visibility-sensor";
 import Spacing from '../../../../components/Spacing/Spacing';
 import '../../../../Text.scss';
 
@@ -71,48 +70,48 @@ const levelDesignEditors: { title: string, points: string[] } = {
     ]
 };
 
-export interface IntroTextProps
+class IntroText extends Component
 {
-    introTextActive?: boolean
-}
-
-const IntroText: FunctionComponent<IntroTextProps> = (props: IntroTextProps): JSX.Element =>
-{
-    const isVisible = useSelector((state: AppState) => state.home.introTextActive);
-
-    return (
-        <Grid style={{paddingTop: '50px', paddingBottom: '70px'}} container 
-        direction="row" justify="space-evenly" alignItems="center">
-            
-            {/* Web Development */}
-            <Typography style={{paddingBottom: '20px'}} align="left" variant="h5" component="h5">
-                <TrailText className='poiret-text' active={isVisible} items={[webDev.title]} />
-                <TrailText className='ubuntu-p-left' active={isVisible} items={webDev.points} />
-                <Spacing height='40px' />
-                <TrailText className='poiret-text' active={isVisible} items={[webDevStack.title]} />
-                <TrailText className='ubuntu-p-left' active={isVisible} items={webDevStack.points} />
-            </Typography>
-
-            {/* Software Development */} 
-            <Typography style={{paddingBottom: '20px'}} align="left" variant="h5" component="h5">
-                <TrailText className='poiret-text' active={isVisible} items={[softDev.title]} />
-                <TrailText className='ubuntu-p-left' active={isVisible} items={softDev.points} />
-                <Spacing height='40px' />
-                <TrailText className='poiret-text' active={isVisible} items={[softDevStack.title]} />
-                <TrailText className='ubuntu-p-left' active={isVisible} items={softDevStack.points} />
-            </Typography>
-
-            {/* Level Design */}
-            <Typography style={{paddingBottom: '20px'}} align="left" variant="h5" component="h5">
-                <TrailText className='poiret-text' active={isVisible} items={[levelDesign.title]} />
-                <TrailText className='ubuntu-p-left' active={isVisible} items={levelDesign.points} />
-                <Spacing height='40px' />
-                <TrailText className='poiret-text' active={isVisible} items={[levelDesignEditors.title]} />
-                <TrailText className='ubuntu-p-left' active={isVisible} items={levelDesignEditors.points} />
-            </Typography>
-
-        </Grid>
-    );
+    render(): JSX.Element
+    {
+        return (
+            <VisibilitySensor partialVisibility>
+            {({ isVisible }) => (
+                <Grid style={{paddingTop: '50px', paddingBottom: '70px'}} container 
+                direction="row" justify="space-evenly" alignItems="center">
+                    
+                    {/* Web Development */}
+                    <Typography style={{paddingBottom: '20px'}} align="left" variant="h5" component="h5">
+                        <TrailText className='poiret-text' active={isVisible} items={[webDev.title]} />
+                        <TrailText className='ubuntu-p-left' active={isVisible} items={webDev.points} />
+                        <Spacing height='40px' />
+                        <TrailText className='poiret-text' active={isVisible} items={[webDevStack.title]} />
+                        <TrailText className='ubuntu-p-left' active={isVisible} items={webDevStack.points} />
+                    </Typography>
+    
+                    {/* Software Development */} 
+                    <Typography style={{paddingBottom: '20px'}} align="left" variant="h5" component="h5">
+                        <TrailText className='poiret-text' active={isVisible} items={[softDev.title]} />
+                        <TrailText className='ubuntu-p-left' active={isVisible} items={softDev.points} />
+                        <Spacing height='40px' />
+                        <TrailText className='poiret-text' active={isVisible} items={[softDevStack.title]} />
+                        <TrailText className='ubuntu-p-left' active={isVisible} items={softDevStack.points} />
+                    </Typography>
+    
+                    {/* Level Design */}
+                    <Typography style={{paddingBottom: '20px'}} align="left" variant="h5" component="h5">
+                        <TrailText className='poiret-text' active={isVisible} items={[levelDesign.title]} />
+                        <TrailText className='ubuntu-p-left' active={isVisible} items={levelDesign.points} />
+                        <Spacing height='40px' />
+                        <TrailText className='poiret-text' active={isVisible} items={[levelDesignEditors.title]} />
+                        <TrailText className='ubuntu-p-left' active={isVisible} items={levelDesignEditors.points} />
+                    </Typography>
+    
+                </Grid>
+            )}
+            </VisibilitySensor>
+        );
+    }
 }
 
 export default memo(IntroText);

@@ -1,4 +1,4 @@
-import React, { FunctionComponent, memo } from "react";
+import React, { FunctionComponent, memo, useState } from "react";
 import { Grid, Tooltip, Container, Typography, GridList, GridListTile } from "@material-ui/core";
 import { IconProps } from '../Project/Project';
 import FlipCard from '../../../../components/FlipCard/FlipCard';
@@ -27,6 +27,12 @@ export interface LevelProject
 const Level: FunctionComponent<LevelProps> = (props: LevelProps): JSX.Element =>
 {
 	const isPortrait = useMediaQuery({ orientation: 'portrait' });
+	const [isFlipped, setFlipped] = useState<boolean>(true);
+
+	const flipCallback = (flipState: boolean): void =>
+	{
+		setFlipped(flipState);
+	}
 
 	const desktopCard: JSX.Element = (
 		<Container className="level-desc">
@@ -35,7 +41,7 @@ const Level: FunctionComponent<LevelProps> = (props: LevelProps): JSX.Element =>
 					<h1 className="calli-title">{props.currentLevel.name}</h1>
 				</GridListTile>
 				<GridListTile key={Math.random()} cols={1} rows={1} style={{width: '70%', height: '500px'}}>
-					<ReactPlayer width='100%' height='100%' url={props.currentLevel.videoUrl} />
+					{!isFlipped ? <ReactPlayer width='100%' height='100%' url={props.currentLevel.videoUrl} /> : null}
 				</GridListTile>
 				<GridListTile key={Math.random()} cols={1} rows={1} style={{width: '30%'}}>
 					<Grid container direction="row" justify="center" alignItems="center">
@@ -54,7 +60,7 @@ const Level: FunctionComponent<LevelProps> = (props: LevelProps): JSX.Element =>
 		<Container className="level-desc">
 			<Grid container className="level-grid" direction="row" justify="center" alignItems="center">
 				<h3 className="calli-title" style={{fontSize: '30px'}}>{props.currentLevel.name}</h3>
-				<ReactPlayer width='100%' height='50%' url={props.currentLevel.videoUrl} />
+				{!isFlipped ? <ReactPlayer width='100%' height='50%' url={props.currentLevel.videoUrl} /> : null}
 				<Container>
 					<Typography className="ubuntu-text" align="left" paragraph component="h3">
 						{props.currentLevel.description}
@@ -65,7 +71,7 @@ const Level: FunctionComponent<LevelProps> = (props: LevelProps): JSX.Element =>
 	);
 
 	return (
-		<FlipCard back={(
+		<FlipCard flipCallback={flipCallback} back={(
 			<Container className="level" style={{ backgroundImage: `url(${props.currentLevel.image})`}}>
 				<Grid container direction="column" justify="space-evenly" alignItems="flex-end">
 					{props.currentLevel.renderIcons?.map(icon => (

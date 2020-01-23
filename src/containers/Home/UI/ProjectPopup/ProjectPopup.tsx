@@ -131,7 +131,7 @@ const ProjectPopup: FunctionComponent<ProjectPopupProps> = (props: ProjectPopupP
 		BackdropProps={{ timeout: 500 }}>
 			<Fade in={projectModalActive}>
 				<ViewPager bgcolor='#202326' startIndex={projectsStartIndex} config={{...getConfig()}}
-				items={props.projects.map((proj: LinkedProjectProps, i: number): JSX.Element => renderProject(proj, i))} />
+				items={props.projects?.map((proj: LinkedProjectProps, i: number): JSX.Element => renderProject(proj, i))} />
 			</Fade>
 		</Modal>
 	)
