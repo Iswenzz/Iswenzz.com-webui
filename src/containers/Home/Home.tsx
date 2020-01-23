@@ -52,7 +52,6 @@ const Home: FunctionComponent<ReduxHomeProps> = (props: ReduxHomeProps): JSX.Ele
 
 interface LinkStateProp 
 {
-    introTextActive: boolean,
     projectModalActive: boolean,
     projects: LinkedProjectProps[],
     projectsStartIndex: number
@@ -60,7 +59,6 @@ interface LinkStateProp
 
 interface LinkDispatchProps 
 {
-    toggleIntroText: (active: boolean) => void,
     toggleProjectModal: (active: boolean) => void,
     updateProjects: (projects: LinkedProjectProps[]) => void,
     setProjectsIndex: (index: number) => void
@@ -68,7 +66,6 @@ interface LinkDispatchProps
 
 const mapStateToProps = (state: AppState, ownProps: any): LinkStateProp => 
 ({
-    introTextActive: state.home.introTextActive!,
     projectModalActive: state.home.projectModalActive!,
     projects: state.home.projects!,
     projectsStartIndex: state.home.projectsStartIndex!
@@ -76,7 +73,6 @@ const mapStateToProps = (state: AppState, ownProps: any): LinkStateProp =>
 
 const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, HomeActions>, ownProps: any): LinkDispatchProps => 
 ({
-    toggleIntroText: bindActionCreators(actions.toggleIntroText, dispatch),
     toggleProjectModal: bindActionCreators(actions.toggleProjectModal, dispatch),
     updateProjects: bindActionCreators(actions.updateProjects, dispatch),
     setProjectsIndex: bindActionCreators(actions.setProjectsIndex, dispatch)

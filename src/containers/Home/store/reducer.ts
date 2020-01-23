@@ -4,11 +4,9 @@ import { ReduxHomeProps } from '../Home';
 
 export let initialState: ReduxHomeProps = {
 	projectModalActive: false,
-	introTextActive: false,
 	projects: require('../UI/Projects/Projects.json'),
 	projectsStartIndex: 0,
 
-	toggleIntroText: () => null,
 	toggleProjectModal: () => null,
 	updateProjects: () => null,
 	setProjectsIndex: () => null
@@ -18,11 +16,6 @@ const reducer = (state: ReduxHomeProps = initialState, action: HomeActions): Red
 {
 	switch (action.type)
 	{
-		case HomeActionEnum.TOGGLE_INTRO_TRAIL:
-			return updateObject(state, {
-				introTextActive: action.active
-			});
-		
 		case HomeActionEnum.TOGGLE_PROJECT_MODAL:
 			return updateObject(state, {
 				projectModalActive: action.active

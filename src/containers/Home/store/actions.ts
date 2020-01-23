@@ -3,17 +3,6 @@ import { AppState } from '../../../index';
 import { Dispatch } from 'react';
 import { LinkedProjectProps } from '../UI/Project/Project';
 
-export const toggleIntroText = (active: boolean) =>
-{
-    return (dispatch: Dispatch<HomeActions>, getState: () => AppState) =>
-    {
-        return dispatch({
-            type: HomeActionEnum.TOGGLE_INTRO_TRAIL,
-            active
-        });
-    }
-};
-
 export const toggleProjectModal = (active: boolean) =>
 {
     return (dispatch: Dispatch<HomeActions>, getState: () => AppState) =>
