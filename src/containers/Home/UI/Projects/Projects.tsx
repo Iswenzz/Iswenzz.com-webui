@@ -70,8 +70,8 @@ const Projects: FunctionComponent = (): JSX.Element =>
                 <Element name="projects-section" />
                 <RadialGradient style={{listStyleType: 'none', paddingTop: isPortrait ? '90px' : '50px', 
                 paddingBottom: '50px'}} 
-                position='ellipse at top' colors={[
-                { color: '#200038', colorPercent: '0%' },
+                position='ellipse at 80%' colors={[
+                { color: '#3c0084', colorPercent: '0%' },
                 { color: '#090A0A', colorPercent: '100%' }]}>
                     <PoseGroup>
                     {isVisible && [

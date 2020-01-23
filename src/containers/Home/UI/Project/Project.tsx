@@ -86,7 +86,7 @@ const Project: FunctionComponent<ProjectProps> = (props: ProjectProps): JSX.Elem
         style={{ backgroundImage: `url(${props.currentProj.cardImage})`, 
         backgroundSize: `${cardSize.width} ${cardSize.height}`,
         width: cardSize.width, height: cardSize.height, borderRadius: '8px', 
-        boxShadow: '0 8px 6px -6px rgba(0, 0, 0, 1)', borderColor: 'dimgray', borderStyle: 'dashed' }}>
+        boxShadow: '8px 8px 32px 0px rgba(75,0,110,1)', borderColor: 'dimgray'}}>
             <CardActionArea style={{ height: '100%', width: '100%' }}>
                 <p className='ubuntu-text-center' style={{ fontSize: isPortrait ? 14 : 20,
                 height: parseInt(cardSize.height) / 3 }}>

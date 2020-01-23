@@ -19,8 +19,8 @@
 	{
 		"name": "Train Rush",
 		"image": "https://iswenzz.com/assets/images/mp_dr_train_rush/1.jpg",
-		"description": "Description",
-		"videoUrl": "https://www.youtube.com/watch?v=DgjmWXsrc8E",
+		"description": "A recreation of the level Train Rush from the game A Hat in Time and also the level Time Rift - The Moon as a secret. This map took roughly 1 month to make.",
+		"videoUrl": "https://www.youtube.com/watch?v=PpfoMNMNZ5w",
 		"renderIcons": [
 			{"name": "Radiant", "src": "http://213.32.18.205:1337/iswenzz/devicons/radiant.svg"},
 			{"name": "GSC", "src": "http://213.32.18.205:1337/iswenzz/devicons/gsc.svg"},
@@ -34,8 +34,8 @@
 	{
 		"name": "N64 Bowser Castle",
 		"image": "https://iswenzz.com/assets/images/mp_slide_n64_bowser_c/1.jpg",
-		"description": "Description",
-		"videoUrl": "https://www.youtube.com/watch?v=DgjmWXsrc8E",
+		"description": "This map is a recreation of the level, N64 Bowser's Castle from Mario Kart Wii, This map took roughly one week to create.",
+		"videoUrl": "https://www.youtube.com/watch?v=tKMtIIM5eGU",
 		"renderIcons": [
 			{"name": "Radiant", "src": "http://213.32.18.205:1337/iswenzz/devicons/radiant.svg"},
 			{"name": "GSC", "src": "http://213.32.18.205:1337/iswenzz/devicons/gsc.svg"},
@@ -49,7 +49,7 @@
 	{
 		"name": "Blackout",
 		"image": "https://iswenzz.com/assets/images/mp_br_blackout/2.jpg",
-		"description": "Description",
+		"description": "This map is designed for 30+ players, and was created for the Sr- Battleroyale mod. This map utilizes the entirety of the Call of Duty 4 game engine, and pushes the game to it's limits. ",
 		"videoUrl": "https://www.youtube.com/watch?v=DgjmWXsrc8E",
 		"renderIcons": [
 			{"name": "Radiant", "src": "http://213.32.18.205:1337/iswenzz/devicons/radiant.svg"},
@@ -64,8 +64,8 @@
 	{
 		"name": "Medieval Village",
 		"image": "https://iswenzz.com/assets/images/medieval_village/3.jpg",
-		"description": "Description",
-		"videoUrl": "https://www.youtube.com/watch?v=DgjmWXsrc8E",
+		"description": "This is a Medieval village scene. I made this in roughly 1 week using Unreal Engine 4. ",
+		"videoUrl": "https://www.youtube.com/watch?v=3qs9xnKlGlU",
 		"renderIcons": [
             {"name": "Unreal Engine 4", "src": "http://213.32.18.205:1337/iswenzz/devicons/unreal-engine.svg"},
             {"name": "Maya", "src": "http://213.32.18.205:1337/iswenzz/devicons/maya.svg"},
@@ -77,8 +77,8 @@
 	{
 		"name": "Super Mario 64",
 		"image": "https://iswenzz.com/assets/images/mp_dr_sm64/2.jpg",
-		"description": "Description",
-		"videoUrl": "https://www.youtube.com/watch?v=DgjmWXsrc8E",
+		"description": "This map is a recreation of the Peach Castle and the first level Bob-omb Battlefield. This is recreated from the classic game Super Mario 64. ",
+		"videoUrl": "https://www.youtube.com/watch?v=4S_twub-mZo",
 		"renderIcons": [
 			{"name": "Radiant", "src": "http://213.32.18.205:1337/iswenzz/devicons/radiant.svg"},
 			{"name": "GSC", "src": "http://213.32.18.205:1337/iswenzz/devicons/gsc.svg"},
@@ -89,8 +89,8 @@
 	{
 		"name": "Portal 2",
 		"image": "https://iswenzz.com/assets/images/mp_dr_portal/2.jpg",
-		"description": "Description",
-		"videoUrl": "https://www.youtube.com/watch?v=DgjmWXsrc8E",
+		"description": "This map is a recreation of the introduction level of Portal 2.",
+		"videoUrl": "https://www.youtube.com/watch?v=lU5C_cHDvQQ",
 		"renderIcons": [
 			{"name": "Radiant", "src": "http://213.32.18.205:1337/iswenzz/devicons/radiant.svg"},
 			{"name": "GSC", "src": "http://213.32.18.205:1337/iswenzz/devicons/gsc.svg"},
@@ -104,8 +104,8 @@
 	{
 		"name": "Toujane",
 		"image": "https://iswenzz.com/assets/images/mp_toujane/2.jpg",
-		"description": "Description",
-		"videoUrl": "https://www.youtube.com/watch?v=DgjmWXsrc8E",
+		"description": "The most popular map from the classic Call of Duty 2, ported and remastered in Call of Duty 4. ",
+		"videoUrl": "https://www.youtube.com/watch?v=ATimP1R-rJ4",
 		"renderIcons": [
 			{"name": "Radiant", "src": "http://213.32.18.205:1337/iswenzz/devicons/radiant.svg"},
 			{"name": "GSC", "src": "http://213.32.18.205:1337/iswenzz/devicons/gsc.svg"},

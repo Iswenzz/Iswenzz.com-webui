@@ -8,8 +8,8 @@ import Level, { LevelProject } from '../Level/Level';
 import posed, { PoseGroup } from 'react-pose';
 import VisibilitySensor from "react-visibility-sensor";
 import { Element } from 'react-scroll';
-import '../../../../Text.scss';
 import { useMediaQuery } from 'react-responsive';
+import '../../../../Text.scss';
 
 const charPoses = {
 	exit: { opacity: 0, y: 20 },
