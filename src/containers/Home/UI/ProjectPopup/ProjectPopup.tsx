@@ -1,6 +1,6 @@
 import * as actions from '../../store/actions';
 import React, { FunctionComponent, useEffect, memo } from "react";
-import { DialogContent, Fab, Grid, Modal, Fade, Backdrop, Tooltip, makeStyles, DialogTitle } from "@material-ui/core";
+import { DialogContent, Fab, Grid, Modal, Fade, Backdrop, Tooltip, DialogTitle } from "@material-ui/core";
 import { Close, Lock } from '@material-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faOsi } from '@fortawesome/free-brands-svg-icons';
@@ -20,24 +20,8 @@ export interface ProjectPopupProps
 	children?: any
 }
 
-const useStyles = makeStyles(theme => ({
-	modalTitleDark: {
-		backgroundColor: '#23272A',
-		padding: '8px 8px 8px 8px',
-		position: 'static',
-		overflow: 'hidden'
-	},
-	modalTitleLight: {
-		backgroundColor: '#e5e5e5',
-		padding: '8px 8px 8px 8px',
-		position: 'static',
-		overflow: 'hidden'
-	},
-}));
-
 const ProjectPopup: FunctionComponent<ProjectPopupProps> = (props: ProjectPopupProps): JSX.Element =>
 {
-	const classes = useStyles();
 	const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
 	const isPortrait = useMediaQuery({ orientation: 'portrait' });
 	const [width, height] = useWindowSize();
@@ -91,7 +75,7 @@ const ProjectPopup: FunctionComponent<ProjectPopupProps> = (props: ProjectPopupP
 			<div>
 				{/* Modal Navbar */}
 				<DialogTitle style={{margin: 0, padding: 0}}>
-					<Grid container direction="row" justify="space-between" alignItems="center">
+					<Grid className="project-title" container direction="row" justify="space-between" alignItems="center">
 						<div className='project-icons'>
 							{project.renderIcons!.map(icon => (
 								<Tooltip arrow disableFocusListener disableTouchListener title={icon.name}>
