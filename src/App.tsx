@@ -9,6 +9,7 @@ import Home from './containers/Home/Home';
 import { connect } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { bindActionCreators } from 'redux';
+import { CssBaseline } from '@material-ui/core';
 
 const App: FunctionComponent<ReduxAppProps> = (props: ReduxAppProps): JSX.Element =>
 {
@@ -21,6 +22,32 @@ const App: FunctionComponent<ReduxAppProps> = (props: ReduxAppProps): JSX.Elemen
 			},
 		},
 		overrides: {
+			MuiCssBaseline: {
+				'@global': {
+					html: {
+						'--scrollbarBG': props.isDarkMode ? '#23272a' : '#d9d9d9',
+						'--thumbBG': props.isDarkMode ? '#3a3d41' : '#c0c0c0'
+					},
+					body: {
+						scrollbarWidth: 'thin',
+						scrollbarColor: 'var(--thumbBG) var(--scrollbarBG)',
+						backgroundColor: props.isDarkMode ? 'black' : 'silver', 
+						margin: 0
+					},
+					'::-webkit-scrollbar': {
+						width: '12px'
+					},
+					'::-webkit-scrollbar-track': {
+						background: 'var(--scrollbarBG)',
+						borderRadius: '10px'
+					},
+					'::-webkit-scrollbar-thumb': {
+						backgroundColor: 'var(--thumbBG)',
+						border: '3px solid var(--scrollbarBG)',
+						borderRadius: '10px',
+					},
+				}
+			},
 			MuiTooltip: {
 				tooltip: {
 					fontSize: "1em",
@@ -70,6 +97,7 @@ const App: FunctionComponent<ReduxAppProps> = (props: ReduxAppProps): JSX.Elemen
 	return (
 		<ParallaxProvider>
 			<ThemeProvider theme={theme}> 
+				<CssBaseline />
 				<Home />
 			</ThemeProvider>
 		</ParallaxProvider>
