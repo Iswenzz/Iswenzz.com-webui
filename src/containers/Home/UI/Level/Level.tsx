@@ -78,7 +78,7 @@ const Level: FunctionComponent<LevelProps> = (props: LevelProps): JSX.Element =>
 	);
 
 	const mobileCard: JSX.Element = (
-		<Container className="level-desc">
+		<Container className={isDarkMode ? classes.darkCard : classes.whiteCard}>
 			<Grid container className="level-grid" direction="row" justify="center" alignItems="center">
 				<h3 className="calli-title" style={{fontSize: '30px'}}>{props.currentLevel.name}</h3>
 				{!isFlipped ? <ReactPlayer width='100%' height='50%' url={props.currentLevel.videoUrl} /> : null}
