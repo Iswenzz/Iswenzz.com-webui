@@ -1,15 +1,4 @@
-.project-title {
-    @extend .poiret-text;
-    background-color: #202326;
-    padding: 8px 8px 8px 8px;
-    box-shadow: 0 8px 6px -6px black;
-    display: block;
-    position: static;
-    overflow: hidden;
-}
-
 .project-modal {
-    @extend .poiret-text;
     overflow: hidden;
 }
 
@@ -21,10 +10,4 @@
    article * {
        max-width: 100%;
    }
-}
-
-.poiret-text {
-    color: rgba(220, 220, 220, 0.9);
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 18px;
 }

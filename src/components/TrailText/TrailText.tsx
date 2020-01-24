@@ -1,7 +1,8 @@
 import React, { FunctionComponent, memo } from 'react';
 import { useTrail, animated } from 'react-spring';
+import { Typography, TypographyProps } from '@material-ui/core';
 
-export interface TrailProps
+export interface TrailProps extends TypographyProps
 {
 	height?: number,
 	items: string[],
@@ -24,9 +25,14 @@ const TrailText: FunctionComponent<TrailProps> = (props: TrailProps): JSX.Elemen
   	return (
 		<div className={props.className} style={props.style}>
 			{trail.map(({ x, height, ...rest }, index) => (
-				<animated.div key={props.items![index]} 
+				<animated.div key={Math.random()}  
 					style={{ ...rest, transform: `translate3d(0,${x}px,0)` }}>
-					<animated.div style={{ height: props.height }}>{props.items![index]}</animated.div>
+					<animated.div style={{ height: props.height }}>
+						<Typography align={props.align} color={props.color} paragraph={props.paragraph} 
+						component={props.component}>
+							{props.items[index]} 
+						</Typography>
+					</animated.div>
 				</animated.div>
 			))}
 		</div>

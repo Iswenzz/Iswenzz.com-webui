@@ -1,6 +1,6 @@
 import * as actions from '../../store/actions';
 import React, { FunctionComponent, useEffect, memo } from "react";
-import { DialogContent, Fab, Grid, Modal, Fade, Backdrop, Tooltip } from "@material-ui/core";
+import { DialogContent, Fab, Grid, Modal, Fade, Backdrop, Tooltip, makeStyles, DialogTitle } from "@material-ui/core";
 import { Close, Lock } from '@material-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faOsi } from '@fortawesome/free-brands-svg-icons';
@@ -10,7 +10,6 @@ import { AppState } from "../../../..";
 import marked from "marked";
 import useWindowSize from '../../../../Utility/useWindowSize';
 import { useSelector, useDispatch } from "react-redux";
-import RadialGradient from '../../../../components/RadialGradient/RadialGradient';
 import { useMediaQuery } from 'react-responsive';
 import '../../../../Text.scss';
 import './ProjectPopup.scss';
@@ -21,8 +20,25 @@ export interface ProjectPopupProps
 	children?: any
 }
 
+const useStyles = makeStyles(theme => ({
+	modalTitleDark: {
+		backgroundColor: '#23272A',
+		padding: '8px 8px 8px 8px',
+		position: 'static',
+		overflow: 'hidden'
+	},
+	modalTitleLight: {
+		backgroundColor: '#e5e5e5',
+		padding: '8px 8px 8px 8px',
+		position: 'static',
+		overflow: 'hidden'
+	},
+}));
+
 const ProjectPopup: FunctionComponent<ProjectPopupProps> = (props: ProjectPopupProps): JSX.Element =>
 {
+	const classes = useStyles();
+	const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
 	const isPortrait = useMediaQuery({ orientation: 'portrait' });
 	const [width, height] = useWindowSize();
 
@@ -55,8 +71,8 @@ const ProjectPopup: FunctionComponent<ProjectPopupProps> = (props: ProjectPopupP
 	{
 		const openSource: JSX.Element = (
 			<Tooltip arrow disableFocusListener disableTouchListener title="View Source">
-				<Fab href={project.sourceURL} style={{ margin: '0 8px 0 8px'}} color="primary" aria-label="add">
-					<FontAwesomeIcon icon={faOsi} size='2x' />
+				<Fab href={project.sourceURL} style={{ margin: '0 8px 0 8px'}} color="primary">
+					<FontAwesomeIcon color='silver' icon={faOsi} size='2x' />
 				</Fab>
 			</Tooltip>
 		);
@@ -64,7 +80,7 @@ const ProjectPopup: FunctionComponent<ProjectPopupProps> = (props: ProjectPopupP
 		const privateSource: JSX.Element = (
 			<Tooltip arrow disableFocusListener disableTouchListener title="Private Source">
 				<span>
-					<Fab disabled style={{ margin: '0 8px 0 8px'}} color="primary" aria-label="add">
+					<Fab disabled style={{ margin: '0 8px 0 8px'}} color="primary">
 						<Lock />
 					</Fab>
 				</span>
@@ -74,35 +90,32 @@ const ProjectPopup: FunctionComponent<ProjectPopupProps> = (props: ProjectPopupP
 		return (
 			<div>
 				{/* Modal Navbar */}
-				<Grid container className="project-title" direction="row" justify="space-between" 
-				alignItems="center">
-					<div className='project-icons'>
-						{project.renderIcons!.map(icon => (
-							<Tooltip arrow disableFocusListener disableTouchListener title={icon.name}>
-								<img onDragStart={(e) => e.preventDefault()} 
-								style={{ margin: '0 4px 0 4px' }} width='64' height='64' alt='lang' src={icon.src} />
-						  	</Tooltip>
-						))}
-					</div>
-					<div>
-						{project.isOpenSource ? openSource : privateSource}
-						<Fab onClick={onClickClose} style={{ margin: '0 8px 0 8px'}} 
-						color="primary" aria-label="add">
-							<Close />
-						</Fab>
-					</div>
-				</Grid> 
+				<DialogTitle style={{margin: 0, padding: 0}}>
+					<Grid container direction="row" justify="space-between" alignItems="center">
+						<div className='project-icons'>
+							{project.renderIcons!.map(icon => (
+								<Tooltip arrow disableFocusListener disableTouchListener title={icon.name}>
+									<img onDragStart={(e) => e.preventDefault()} 
+									style={{ margin: '0 4px 0 4px' }} width='64' height='64' alt='lang' src={icon.src} />
+								</Tooltip>
+							))}
+						</div>
+						<div>
+							{project.isOpenSource ? openSource : privateSource}
+							<Fab onClick={onClickClose} style={{ margin: '0 8px 0 8px' }} 
+							color="secondary">
+								<Close color="primary" />
+							</Fab>
+						</div>
+					</Grid> 
+				</DialogTitle>
 
 				{/* Modal Content */}
-				<RadialGradient container position='ellipse at bottom' colors={[
-				{ color: '#323536', colorPercent: '0%' },
-				{ color: '#222428', colorPercent: '100%' }]}>
-					<DialogContent className='project-modal'>
-						{project.showTitle ? project.title : null}
-						{project.desc}
-						<div className="project-md" id={`popupProjectMd-${project.title}`} /> 
-					</DialogContent>
-				</RadialGradient>
+				<DialogContent className='project-modal'>
+					{project.showTitle ? project.title : null}
+					{project.desc}
+					<div className="project-md" id={`popupProjectMd-${project.title}`} /> 
+				</DialogContent>
 			</div>
 		);
 	}
@@ -130,7 +143,8 @@ const ProjectPopup: FunctionComponent<ProjectPopupProps> = (props: ProjectPopupP
 		keepMounted onClose={onClickClose} closeAfterTransition BackdropComponent={Backdrop} 
 		BackdropProps={{ timeout: 500 }}>
 			<Fade in={projectModalActive}>
-				<ViewPager bgcolor='#202326' startIndex={projectsStartIndex} config={{...getConfig()}}
+				<ViewPager bgcolor={isDarkMode ? '#202326' : '#f4f4f4'} 
+				startIndex={projectsStartIndex} config={{...getConfig()}}
 				items={props.projects?.map((proj: LinkedProjectProps, i: number): JSX.Element => renderProject(proj, i))} />
 			</Fade>
 		</Modal>

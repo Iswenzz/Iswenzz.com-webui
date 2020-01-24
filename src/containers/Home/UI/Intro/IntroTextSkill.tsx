@@ -1,6 +1,6 @@
 import React, { memo, Component } from 'react';
 import TrailText from '../../../../components/TrailText/TrailText';
-import { Typography, Grid } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import VisibilitySensor from "react-visibility-sensor";
 import Spacing from '../../../../components/Spacing/Spacing';
 import '../../../../Text.scss';
@@ -81,31 +81,43 @@ class IntroText extends Component
                 direction="row" justify="space-evenly" alignItems="center">
                     
                     {/* Web Development */}
-                    <Typography style={{paddingBottom: '20px'}} align="left" variant="h5" component="h5">
-                        <TrailText className='poiret-text' active={isVisible} items={[webDev.title]} />
-                        <TrailText className='ubuntu-p-left' active={isVisible} items={webDev.points} />
+                    <div style={{paddingBottom: '20px'}}>
+                        <TrailText align="left" variant="h5" component="h5" color="textPrimary" 
+                        className='poiret-text' active={isVisible} items={[webDev.title]} />
+                        <TrailText align="left" variant="h5" component="h5" color="textPrimary"
+                        className='ubuntu-p-left' active={isVisible} items={webDev.points} />
                         <Spacing height='40px' />
-                        <TrailText className='poiret-text' active={isVisible} items={[webDevStack.title]} />
-                        <TrailText className='ubuntu-p-left' active={isVisible} items={webDevStack.points} />
-                    </Typography>
+                        <TrailText align="left" variant="h5" component="h5" color="textPrimary"
+                        className='poiret-text' active={isVisible} items={[webDevStack.title]} />
+                        <TrailText align="left" variant="h5" component="h5" color="textPrimary"
+                        className='ubuntu-p-left' active={isVisible} items={webDevStack.points} />
+                    </div>
     
                     {/* Software Development */} 
-                    <Typography style={{paddingBottom: '20px'}} align="left" variant="h5" component="h5">
-                        <TrailText className='poiret-text' active={isVisible} items={[softDev.title]} />
-                        <TrailText className='ubuntu-p-left' active={isVisible} items={softDev.points} />
+                    <div style={{paddingBottom: '20px'}}>
+                        <TrailText align="left" variant="h5" component="h5" color="textPrimary"
+                        className='poiret-text' active={isVisible} items={[softDev.title]} />
+                        <TrailText align="left" variant="h5" component="h5" color="textPrimary"
+                        className='ubuntu-p-left' active={isVisible} items={softDev.points} />
                         <Spacing height='40px' />
-                        <TrailText className='poiret-text' active={isVisible} items={[softDevStack.title]} />
-                        <TrailText className='ubuntu-p-left' active={isVisible} items={softDevStack.points} />
-                    </Typography>
+                        <TrailText align="left" variant="h5" component="h5" color="textPrimary"
+                        className='poiret-text' active={isVisible} items={[softDevStack.title]} />
+                        <TrailText align="left" variant="h5" component="h5" color="textPrimary"
+                        className='ubuntu-p-left' active={isVisible} items={softDevStack.points} />
+                    </div>
     
                     {/* Level Design */}
-                    <Typography style={{paddingBottom: '20px'}} align="left" variant="h5" component="h5">
-                        <TrailText className='poiret-text' active={isVisible} items={[levelDesign.title]} />
-                        <TrailText className='ubuntu-p-left' active={isVisible} items={levelDesign.points} />
+                    <div style={{paddingBottom: '20px'}}>
+                        <TrailText align="left" variant="h5" component="h5" color="textPrimary"
+                        className='poiret-text' active={isVisible} items={[levelDesign.title]} />
+                        <TrailText align="left" variant="h5" component="h5" color="textPrimary"
+                        className='ubuntu-p-left' active={isVisible} items={levelDesign.points} />
                         <Spacing height='40px' />
-                        <TrailText className='poiret-text' active={isVisible} items={[levelDesignEditors.title]} />
-                        <TrailText className='ubuntu-p-left' active={isVisible} items={levelDesignEditors.points} />
-                    </Typography>
+                        <TrailText align="left" variant="h5" component="h5" color="textPrimary"
+                        className='poiret-text' active={isVisible} items={[levelDesignEditors.title]} />
+                        <TrailText align="left" variant="h5" component="h5" color="textPrimary"
+                        className='ubuntu-p-left' active={isVisible} items={levelDesignEditors.points} />
+                    </div>
     
                 </Grid>
             )}

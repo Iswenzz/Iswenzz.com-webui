@@ -6,7 +6,6 @@
 }
 
 .calli-text {
-    @extend .title-color;
     font-family: 'Calligraffitti', cursive;
     font-weight: bold;
     font-size: 24px;
@@ -28,13 +27,11 @@
 }
 
 .poiret-text {
-    @extend .title-color;
     font-family: 'Poiret One', sans-serif;
     font-size: 24px;
 }
 
 .ubuntu-text {
-    @extend .title-color;
     font-family: 'Ubuntu', sans-serif;
     font-size: 20px;
 }
@@ -45,7 +42,6 @@
 }
 
 .ubuntu-p {
-    @extend .title-color;
     font-family: 'Ubuntu', sans-serif;
     font-weight: 200;
     font-size: 14px;

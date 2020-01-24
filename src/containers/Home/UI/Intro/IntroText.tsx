@@ -1,6 +1,6 @@
 import React, { memo, Component } from 'react';
 import TrailText from '../../../../components/TrailText/TrailText';
-import { Typography, Grid, Container } from '@material-ui/core';
+import { Grid, Container } from '@material-ui/core';
 import VisibilitySensor from "react-visibility-sensor";
 import '../../../../Text.scss';
 
@@ -23,9 +23,8 @@ class IntroText extends Component
                 justify="center" alignItems="center">
                     {/* About me */}
                     <Container>
-                        <Typography align="left" paragraph component="h5">
-                            <TrailText className='pre-line poiret-text' active={isVisible} items={[intro.desc]} /> 
-                        </Typography>
+                        <TrailText align="left" color="textPrimary" paragraph component="h5" 
+                        className='pre-line poiret-text' active={isVisible} items={[intro.desc]} /> 
                     </Container>
                 </Grid>
             )}

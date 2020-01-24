@@ -1,37 +1,39 @@
-import React, { Component, memo } from 'react';
+import React, { memo, FunctionComponent } from 'react';
 import IntroText from './IntroText';
 import IntroTextSkill from './IntroTextSkill';
 import Spacing from '../../../../components/Spacing/Spacing';
 import RadialGradient from '../../../../components/RadialGradient/RadialGradient';
 import { Grid } from '@material-ui/core';
 import { Parallax } from 'react-parallax';
+import { useSelector } from 'react-redux';
+import { AppState } from '../../../..';
 
-class IntroSkill extends Component
+const IntroSkill: FunctionComponent = (): JSX.Element =>
 {
-	render(): JSX.Element
-	{
-		return (
-            <Grid container direction="column" justify="center" alignItems="stretch">
-                <RadialGradient position='ellipse at bottom' colors={[
-                    { color: '#0e0f14', colorPercent: '0%' },
-                    { color: '#181a21', colorPercent: '100%' }
-                ]}>
-                    <IntroText />
-                </RadialGradient>
+    const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
 
-                <Parallax style={{backgroundColor: 'black'}} bgImage={require('../../../../assets/images/index/stars.svg')} bgImageAlt="index" strength={400}>
-                    <Spacing height='100px' />
-                </Parallax>
+	return (
+        <Grid container direction="column" justify="center" alignItems="stretch">
+            <RadialGradient position='ellipse at bottom' colors={[
+                { color: isDarkMode ? '#0e0f14' : '#e5e5e5', colorPercent: '0%' },
+                { color: isDarkMode ? '#181a21' : '#f4f4f4', colorPercent: '100%' }
+            ]}>
+                <IntroText />
+            </RadialGradient>
 
-                <RadialGradient position='ellipse at top' colors={[
-                    { color: '#0e0f14', colorPercent: '0%' },
-                    { color: '#181a21', colorPercent: '100%' }
-                ]}>
-                    <IntroTextSkill />
-                </RadialGradient>
-            </Grid>
-		);
-	}
+            <Parallax style={{backgroundColor: 'black'}} bgImageAlt="index" strength={400}
+            bgImage={require(`../../../../assets/images/index/${isDarkMode ? 'stars' : 'clouds'}.svg`)}>
+                <Spacing height='100px' />
+            </Parallax>
+
+            <RadialGradient position='ellipse at top' colors={[
+                { color: isDarkMode ? '#0e0f14' : '#e5e5e5', colorPercent: '0%' },
+                { color: isDarkMode ? '#181a21' : '#f4f4f4', colorPercent: '100%' }
+            ]}>
+                <IntroTextSkill />
+            </RadialGradient>
+        </Grid>
+    );
 }
 
 export default memo(IntroSkill);

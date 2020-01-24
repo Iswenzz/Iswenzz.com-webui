@@ -1,5 +1,5 @@
 import React, { FunctionComponent, memo } from 'react';
-import RadialGradient from '../../../../components/RadialGradient/RadialGradient';
+import RadialGradient, { GradiantProps } from '../../../../components/RadialGradient/RadialGradient';
 import { Grid, Typography } from '@material-ui/core';
 import Spacing from '../../../../components/Spacing/Spacing';
 import Project, { LinkedProjectProps } from '../Project/Project';
@@ -49,6 +49,22 @@ const Projects: FunctionComponent = (): JSX.Element =>
 {
     const isPortrait = useMediaQuery({ orientation: 'portrait' });
     const projects = useSelector((state: AppState) => state.home.projects);
+    const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
+
+    const config: GradiantProps = isDarkMode ? {
+		position: 'ellipse at bottom', 
+		colors: [
+			{ color: '#3c0084', colorPercent: '0%' },
+            { color: '#090A0A', colorPercent: '100%' }
+		]
+	} : {
+		linear: true,
+		position: '144deg', 
+		colors: [
+			{ color: '#ffffff' },
+			{ color: '#f4f4f4' }
+		]
+	}
 
     return (
         <VisibilitySensor partialVisibility offset={{bottom: 600}}>
@@ -68,11 +84,8 @@ const Projects: FunctionComponent = (): JSX.Element =>
 
                 {/* Projects */}
                 <Element name="projects-section" />
-                <RadialGradient style={{listStyleType: 'none', paddingTop: isPortrait ? '90px' : '50px', 
-                paddingBottom: '50px'}} 
-                position='ellipse at 80%' colors={[
-                { color: '#3c0084', colorPercent: '0%' },
-                { color: '#090A0A', colorPercent: '100%' }]}>
+                <RadialGradient config={config} style={{listStyleType: 'none', paddingTop: isPortrait ? '90px' : '50px', 
+                paddingBottom: '50px'}}>
                     <PoseGroup>
                     {isVisible && [
                         <Animation key="grid-anim" style={{width: '100%', height: '100%'}}>

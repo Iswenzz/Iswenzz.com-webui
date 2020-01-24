@@ -1,14 +1,25 @@
 import React, { FunctionComponent } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
+import * as actions from '../../../store/actions';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import { Link } from "react-scroll";
 import { useMediaQuery } from 'react-responsive';
+import { Switch } from '@material-ui/core';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppState } from '../../..';
 
 const NavBar: FunctionComponent = (): JSX.Element =>
 {
+	const dispatch = useDispatch();
+	const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
 	const isTabletOrMobileDevice = useMediaQuery({ query: '(max-device-width: 1224px)' });
+
+	const toggleDarkMode = (e: any): void =>
+	{
+		dispatch(actions.toggleDarkMode(e.target.checked));
+	}
 
 	return (
 		<AppBar id="Navbar" position="absolute" style={{ background: 'transparent' }}>
@@ -25,6 +36,8 @@ const NavBar: FunctionComponent = (): JSX.Element =>
 					offset={isTabletOrMobileDevice ? 100 : 70}>
 						<Button size='large' color="inherit">Contact</Button>
 					</Link>
+					<Switch checked={isDarkMode} value="darkModeChecked" 
+					onChange={e => toggleDarkMode(e)} />
 				</Grid>
 			</Toolbar>
 		</AppBar>

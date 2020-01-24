@@ -1,5 +1,5 @@
 import React, { FunctionComponent, memo, useState } from 'react';
-import RadialGradient from '../../../../components/RadialGradient/RadialGradient';
+import RadialGradient, { GradiantProps } from '../../../../components/RadialGradient/RadialGradient';
 import { Grid, Typography, Container, Avatar, TextField, Button, makeStyles, CircularProgress } from '@material-ui/core';
 import axios from 'axios';
 import Spacing from '../../../../components/Spacing/Spacing';
@@ -8,6 +8,8 @@ import posed, { PoseGroup } from 'react-pose';
 import VisibilitySensor from "react-visibility-sensor";
 import { useMediaQuery } from 'react-responsive';
 import { Element } from 'react-scroll';
+import { useSelector } from 'react-redux';
+import { AppState } from '../../../..';
 import '../../../../Text.scss';
 
 const charPoses = {
@@ -86,6 +88,7 @@ const Animation = posed.div({
 
 const Contact: FunctionComponent = (): JSX.Element =>
 {
+	const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
 	const isTabletOrMobileDevice = useMediaQuery({ query: '(max-device-width: 1224px)' });
 	const classes = useStyles();
 	const [state, setState] = useState<ContactState>({
@@ -143,6 +146,21 @@ const Contact: FunctionComponent = (): JSX.Element =>
 		}
 	}
 
+	const config: GradiantProps = isDarkMode ? {
+		position: 'ellipse at bottom', 
+		colors: [
+			{ color: '#51001C', colorPercent: '0%' },
+			{ color: '#090A0A', colorPercent: '100%' }
+		]
+	} : {
+		linear: true,
+		position: '-45deg', 
+		colors: [
+			{ color: '#ffdf00' },
+			{ color: '#00dfff' }
+		]
+	}
+
 	return (
 		<VisibilitySensor partialVisibility offset={{bottom: 500}}>
 		{({ isVisible }) => (
@@ -161,10 +179,7 @@ const Contact: FunctionComponent = (): JSX.Element =>
 
 				{/* Contact */}
 				<Element name="contact-section" />
-				<RadialGradient position='ellipse at bottom' colors={[
-				{ color: '#51001C', colorPercent: '0%' },
-				{ color: '#090A0A', colorPercent: '100%' }]}
-				style={{ paddingTop: '70px', paddingBottom: '120px' }}>
+				<RadialGradient config={config} style={{ paddingTop: '70px', paddingBottom: '120px' }}>
 					<PoseGroup>
 					{isVisible && [
 						<Animation key="contact-anim">

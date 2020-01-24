@@ -1,6 +1,6 @@
 import * as actions from '../../store/actions';
 import React, { FunctionComponent } from 'react';
-import { CardActions, Button, Card, CardActionArea } from '@material-ui/core';
+import { CardActions, Button, Card, CardActionArea, Typography } from '@material-ui/core';
 import { AppState } from '../../../..';
 import { useSelector, useDispatch } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
@@ -86,12 +86,13 @@ const Project: FunctionComponent<ProjectProps> = (props: ProjectProps): JSX.Elem
         style={{ backgroundImage: `url(${props.currentProj.cardImage})`, 
         backgroundSize: `${cardSize.width} ${cardSize.height}`,
         width: cardSize.width, height: cardSize.height, borderRadius: '8px', 
-        boxShadow: '8px 8px 32px 0px rgba(75,0,110,1)', borderColor: 'dimgray'}}>
+        boxShadow: '0 3px 5px 2px rgba(60, 60, 60, .3)', borderColor: 'dimgray'}}>
             <CardActionArea style={{ height: '100%', width: '100%' }}>
-                <p className='ubuntu-text-center' style={{ fontSize: isPortrait ? 14 : 20,
+                <Typography variant="subtitle1" align="center" 
+                paragraph component="p" style={{ fontSize: isPortrait ? 14 : 20, 
                 height: parseInt(cardSize.height) / 3 }}>
                     {props.currentProj.title}
-                </p>
+                </Typography>
                 {/* --- Optional Button --- */}
                 {props.currentProj.button !== undefined ? button : null}
             </CardActionArea>
