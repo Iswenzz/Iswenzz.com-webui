@@ -40,9 +40,13 @@ const ProjectPopup: FunctionComponent<ProjectPopupProps> = (props: ProjectPopupP
 		props.projects.map((project: LinkedProjectProps): Promise<void> =>
 			fetch(project.renderUrl!).then(response => response.text()).then(text => 
 			{
+				if (text.includes('404: Not Found'))
+					text = "Work in progress...";
+
 				// render md file in the right div
 				let article = document.createElement("article");
 				article.innerHTML = marked(text);
+				console.log(text);
 				let section = document.createElement("section");
 				section.appendChild(article);
 				let div = document.getElementById(`popupProjectMd-${project.title}`);
@@ -80,7 +84,8 @@ const ProjectPopup: FunctionComponent<ProjectPopupProps> = (props: ProjectPopupP
 							{project.renderIcons!.map(icon => (
 								<Tooltip arrow disableFocusListener disableTouchListener title={icon.name}>
 									<img onDragStart={(e) => e.preventDefault()} 
-									style={{ margin: '0 4px 0 4px' }} width='64' height='64' alt='lang' src={icon.src} />
+									style={{ margin: '0 4px 0 4px' }} width={isPortrait ? '32' : '64'} 
+									height={isPortrait ? '32' : '64'}  alt='lang' src={icon.src} />
 								</Tooltip>
 							))}
 						</div>
