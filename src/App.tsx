@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from 'react';
-import { ParallaxProvider } from 'react-scroll-parallax';
 import * as actions from './store/actions';
 import { AppActions } from './store/types';
 import { AppState } from './index';
@@ -20,13 +19,22 @@ const App: FunctionComponent<ReduxAppProps> = (props: ReduxAppProps): JSX.Elemen
 				fontFamily: "Ubuntu",
 				color: 'rgba(220, 220, 220, 1)'
 			},
+			h1: {
+				fontFamily: "Calligraffitti",
+				color: 'rgba(220, 220, 220, 1)'
+			},
+			h2: {
+				fontFamily: "Calligraffitti",
+				color: 'rgba(220, 220, 220, 1)'
+			}
 		},
 		overrides: {
 			MuiCssBaseline: {
 				'@global': {
 					html: {
 						'--scrollbarBG': props.isDarkMode ? '#23272a' : '#d9d9d9',
-						'--thumbBG': props.isDarkMode ? '#3a3d41' : '#c0c0c0'
+						'--thumbBG': props.isDarkMode ? '#3a3d41' : '#c0c0c0',
+						overflowX: 'hidden'
 					},
 					body: {
 						scrollbarWidth: 'thin',
@@ -95,12 +103,10 @@ const App: FunctionComponent<ReduxAppProps> = (props: ReduxAppProps): JSX.Elemen
 	}));
 
 	return (
-		<ParallaxProvider>
-			<ThemeProvider theme={theme}> 
-				<CssBaseline />
-				<Home />
-			</ThemeProvider>
-		</ParallaxProvider>
+		<ThemeProvider theme={theme}> 
+			<CssBaseline />
+			<Home />
+		</ThemeProvider>
 	);
 }
 
