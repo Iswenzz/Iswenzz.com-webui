@@ -18,7 +18,6 @@ import { Parallax } from 'react-parallax';
 import { Typography } from '@material-ui/core';
 import SplitText from 'react-pose-text';
 import Spacing from '../../components/Spacing/Spacing';
-import './Home.scss';
 import '../../Text.scss';
 
 const charPoses = {
@@ -37,14 +36,15 @@ const Home: FunctionComponent = (): JSX.Element =>
     return (
         <>
             <NavBar />
-            <Parallax style={{paddingTop: '70px', paddingBottom: '300px'}} 
+            <Parallax style={{paddingTop: '70px', paddingBottom: '300px', boxShadow: '0 0 5px 6px rgba(60, 60, 60, .3)'}} 
             bgImage={require(`../../assets/images/index/${isDarkMode ? '20.jpg' : 'nature1.jpg'}`)} 
             bgImageAlt="index" strength={400} blur={0}>
                 <Intro />
             </Parallax>
             <IntroSkill /> 
 
-            <Parallax bgImage={require(`../../assets/images/index/${isDarkMode ? '4.jpg' : '2.jpg'}`)} 
+            <Parallax style={{boxShadow: '0 0 5px 6px rgba(60, 60, 60, .3)'}} 
+            bgImage={require(`../../assets/images/index/${isDarkMode ? '4.jpg' : '2.jpg'}`)} 
             bgImageAlt="index" strength={-200} blur={0}>
                 <Spacing height='200px' />
                 <Typography align="center" variant="h1" component="h1">
@@ -56,7 +56,8 @@ const Home: FunctionComponent = (): JSX.Element =>
             </Parallax>
             <Projects />
 
-            <Parallax bgImage={require(`../../assets/images/index/${isDarkMode ? '6.jpg' : '20.jpg'}`)} 
+            <Parallax style={{boxShadow: '0 0 5px 6px rgba(60, 60, 60, .3)'}} 
+            bgImage={require(`../../assets/images/index/${isDarkMode ? '6.jpg' : '20.jpg'}`)} 
             bgImageAlt="index" strength={-200} blur={0}>
                 <Spacing height='200px' />
                 <Typography align="center" variant="h1" component="h1">
@@ -68,7 +69,8 @@ const Home: FunctionComponent = (): JSX.Element =>
             </Parallax>
             <Levels />
 
-            <Parallax bgImage={require(`../../assets/images/index/${isDarkMode ? '55.png' : 't1.jpg'}`)} 
+            <Parallax style={{boxShadow: '0 0 5px 6px rgba(60, 60, 60, .3)'}} 
+            bgImage={require(`../../assets/images/index/${isDarkMode ? '55.png' : 't1.jpg'}`)} 
             bgImageAlt="index" strength={200} blur={0}>
                 <Spacing height='200px' />
                 <Typography align="center" variant="h1" component="h1">

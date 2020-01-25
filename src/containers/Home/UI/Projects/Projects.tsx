@@ -57,7 +57,7 @@ const Projects: FunctionComponent = (): JSX.Element =>
 	}
 
     return (
-        <VisibilitySensor partialVisibility offset={{bottom: 600}}>
+        <VisibilitySensor partialVisibility offset={{bottom: 300}}>
         {({ isVisible }) => (
             <Grid container direction="column" justify="center" alignItems="center">
                 <Element name="projects-section" />

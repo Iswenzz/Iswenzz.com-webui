@@ -152,7 +152,7 @@ const Contact: FunctionComponent = (): JSX.Element =>
 	}
 
 	return (
-		<VisibilitySensor partialVisibility offset={{bottom: 500}}>
+		<VisibilitySensor partialVisibility offset={{bottom: 300}}>
 		{({ isVisible }) => (
 			<Grid container direction="column" justify="center" alignItems="center">
 				<Element name="contact-section" />

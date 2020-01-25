@@ -54,7 +54,7 @@ const Levels: FunctionComponent = (): JSX.Element =>
 	}
 
 	return (
-		<VisibilitySensor partialVisibility offset={{bottom: 800}}>
+		<VisibilitySensor partialVisibility offset={{bottom: 500}}>
         {({ isVisible }) => (
 			<Grid container direction="column" justify="center" alignItems="center">
 				<Element name="level-design-section" />
