@@ -1,28 +1,18 @@
 import React, { FunctionComponent, memo } from 'react';
 import RadialGradient, { GradiantProps } from '../../../../components/RadialGradient/RadialGradient';
-import { Grid, Typography } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import Spacing from '../../../../components/Spacing/Spacing';
 import Project, { LinkedProjectProps } from '../Project/Project';
 import ProjectPopup from '../ProjectPopup/ProjectPopup';
 import StonecutterGrid from '../../../../components/StonecutterGrid/StonecutterGrid';
 import { useSelector } from 'react-redux';
 import { AppState } from '../../../..';
-import SplitText from 'react-pose-text';
 import { enterExitStyle } from 'react-stonecutter';
 import { useMediaQuery } from 'react-responsive';
 import posed, { PoseGroup } from 'react-pose';
 import VisibilitySensor from "react-visibility-sensor";
 import { Element } from 'react-scroll';
 import '../../../../Text.scss';
-
-const charPoses = {
-    exit: { opacity: 0, y: 20 },
-    enter: {
-        opacity: 1,
-        y: 0,
-        delay: ({ charIndex }: any) => charIndex * 30
-    }
-};
 
 const Animation = posed.div({
 	enter: { 
@@ -70,19 +60,6 @@ const Projects: FunctionComponent = (): JSX.Element =>
         <VisibilitySensor partialVisibility offset={{bottom: 600}}>
         {({ isVisible }) => (
             <Grid container direction="column" justify="center" alignItems="center">
-
-                {/* Projects Title */}
-                <Typography align="center" variant="h3" component="h2">
-                    <div className='calli-title'>
-                        <SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
-                            Projects
-                        </SplitText>
-                    </div>
-                </Typography>
-
-                <Spacing height='200px' />
-
-                {/* Projects */}
                 <Element name="projects-section" />
                 <RadialGradient config={config} style={{listStyleType: 'none', paddingTop: isPortrait ? '90px' : '50px', 
                 paddingBottom: '50px'}}>
@@ -108,8 +85,7 @@ const Projects: FunctionComponent = (): JSX.Element =>
                     </PoseGroup>
                     <ProjectPopup projects={projects!} />
                     <Spacing height={isPortrait ? '400px' : '800px'} />
-                </RadialGradient>
-                
+                </RadialGradient>     
             </Grid>
         )}
         </VisibilitySensor>

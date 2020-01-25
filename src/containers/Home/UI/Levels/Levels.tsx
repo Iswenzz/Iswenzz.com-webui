@@ -1,9 +1,8 @@
 import React, { FunctionComponent, useState, memo } from 'react';
 import RadialGradient, { GradiantProps } from '../../../../components/RadialGradient/RadialGradient';
-import { Grid, Typography } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import EmblaCarousel from '../../../../components/EmblaCarousel/EmblaCarousel';
 import Spacing from '../../../../components/Spacing/Spacing';
-import SplitText from 'react-pose-text';
 import Level, { LevelProject } from '../Level/Level';
 import posed, { PoseGroup } from 'react-pose';
 import VisibilitySensor from "react-visibility-sensor";
@@ -12,15 +11,6 @@ import { useMediaQuery } from 'react-responsive';
 import { useSelector } from 'react-redux';
 import { AppState } from '../../../..';
 import '../../../../Text.scss';
-
-const charPoses = {
-	exit: { opacity: 0, y: 20 },
-	enter: {
-		opacity: 1,
-		y: 0,
-		delay: ({ charIndex }: any) => charIndex * 30
-	}
-};
 
 const Animation = posed.div({
 	enter: { 
@@ -58,7 +48,7 @@ const Levels: FunctionComponent = (): JSX.Element =>
 	} : {
 		position: 'ellipse at bottom', 
 		colors: [
-			{ color: '#0083ff', colorPercent: '0%' },
+			{ color: '#f69100', colorPercent: '0%' },
 			{ color: '#f4f4f4', colorPercent: '50%' }
 		]
 	}
@@ -67,19 +57,6 @@ const Levels: FunctionComponent = (): JSX.Element =>
 		<VisibilitySensor partialVisibility offset={{bottom: 800}}>
         {({ isVisible }) => (
 			<Grid container direction="column" justify="center" alignItems="center">
-
-				{/* Level Design Title */}
-				<Typography align="center" variant="h3" component="h2">
-					<div className='calli-title'>
-						<SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
-							Level Design
-						</SplitText>
-					</div>
-				</Typography>
-
-				<Spacing height='200px' />
-
-				{/* Level Design */}
 				<Element name="level-design-section" />
 				<RadialGradient config={config}>
 					<PoseGroup>
@@ -96,8 +73,7 @@ const Levels: FunctionComponent = (): JSX.Element =>
 					]}
 					</PoseGroup>
 					<Spacing height='1000px' />
-				</RadialGradient>
-				
+				</RadialGradient>	
 			</Grid>
 		)}
 		</VisibilitySensor>

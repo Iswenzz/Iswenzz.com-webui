@@ -1,9 +1,8 @@
 import React, { FunctionComponent, memo, useState } from 'react';
 import RadialGradient, { GradiantProps } from '../../../../components/RadialGradient/RadialGradient';
-import { Grid, Typography, Container, Avatar, TextField, Button, makeStyles, CircularProgress } from '@material-ui/core';
+import { Grid, Container, Avatar, TextField, Button, makeStyles, CircularProgress } from '@material-ui/core';
 import axios from 'axios';
 import Spacing from '../../../../components/Spacing/Spacing';
-import SplitText from 'react-pose-text';
 import posed, { PoseGroup } from 'react-pose';
 import VisibilitySensor from "react-visibility-sensor";
 import { useMediaQuery } from 'react-responsive';
@@ -11,15 +10,6 @@ import { Element } from 'react-scroll';
 import { useSelector } from 'react-redux';
 import { AppState } from '../../../..';
 import '../../../../Text.scss';
-
-const charPoses = {
-	exit: { opacity: 0, y: 20 },
-	enter: {
-		opacity: 1,
-		y: 0,
-		delay: ({ charIndex }: any) => charIndex * 30
-	}
-};
 
 const useStyles = makeStyles(theme => ({
 	paper: {
@@ -149,15 +139,15 @@ const Contact: FunctionComponent = (): JSX.Element =>
 	const config: GradiantProps = isDarkMode ? {
 		position: 'ellipse at bottom', 
 		colors: [
-			{ color: '#51001C', colorPercent: '0%' },
-			{ color: '#090A0A', colorPercent: '100%' }
+			{ color: '#841A2A', colorPercent: '0%' },
+			{ color: '#151243', colorPercent: '70%' }
 		]
 	} : {
 		linear: true,
 		position: '-45deg', 
 		colors: [
 			{ color: '#ffdf00' },
-			{ color: '#00dfff' }
+			{ color: '#f4f4f4' }
 		]
 	}
 
@@ -165,19 +155,6 @@ const Contact: FunctionComponent = (): JSX.Element =>
 		<VisibilitySensor partialVisibility offset={{bottom: 500}}>
 		{({ isVisible }) => (
 			<Grid container direction="column" justify="center" alignItems="center">
-
-				{/* Contact Title */}
-				<Typography align="center" variant="h3" component="h2">
-					<div className='calli-title'>
-						<SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
-							Contact
-						</SplitText>
-					</div>
-				</Typography>
-
-				<Spacing height='200px' />
-
-				{/* Contact */}
 				<Element name="contact-section" />
 				<RadialGradient config={config} style={{ paddingTop: '70px', paddingBottom: '120px' }}>
 					<PoseGroup>
@@ -197,7 +174,6 @@ const Contact: FunctionComponent = (): JSX.Element =>
 								<TextField name="message" id="message" multiline rows="6" color="secondary" 
 								variant="outlined" margin="normal" required fullWidth label="Message"
 								onChange={onMessageChange} />
-	
 								<Container maxWidth="xs">
 									<Grid container direction="row" justify="center" alignItems="center">
 										<Button fullWidth variant="contained" type="submit" 
@@ -215,8 +191,7 @@ const Contact: FunctionComponent = (): JSX.Element =>
 					]}
 					</PoseGroup>
 					<Spacing height={isTabletOrMobileDevice ? '50px' : '600px'} />
-				</RadialGradient>
-				
+				</RadialGradient>	
 			</Grid>
 		)}
 		</VisibilitySensor>

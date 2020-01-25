@@ -6,7 +6,6 @@ import { bindActionCreators } from "redux";
 import { connect, useSelector } from 'react-redux';
 
 import NavBar from '../UI/NavBar/NavBar';
-import Spacing from '../../components/Spacing/Spacing';
 import Projects from './UI/Projects/Projects';
 import Footer from '../UI/Footer/Footer';
 import Intro from '../Home/UI/Intro/Intro';
@@ -16,6 +15,20 @@ import Levels from '../Home/UI/Levels/Levels';
 import { HomeActions } from './store/types';
 import { LinkedProjectProps } from './UI/Project/Project';
 import { Parallax } from 'react-parallax';
+import { Typography } from '@material-ui/core';
+import SplitText from 'react-pose-text';
+import Spacing from '../../components/Spacing/Spacing';
+import './Home.scss';
+import '../../Text.scss';
+
+const charPoses = {
+    exit: { opacity: 0, y: 20 },
+    enter: {
+        opacity: 1,
+        y: 0,
+        delay: ({ charIndex }: any) => charIndex * 30
+    }
+};
 
 const Home: FunctionComponent = (): JSX.Element =>
 {
@@ -23,33 +36,50 @@ const Home: FunctionComponent = (): JSX.Element =>
 
     return (
         <>
-            <Parallax bgImage={require(`../../assets/images/index/${isDarkMode ? '20.jpg' : 'nature1.jpg'}`)} 
-            bgImageAlt="index" strength={400} blur={3}>
-                <Spacing height='100px' />
-                <NavBar />
+            <NavBar />
+            <Parallax style={{paddingTop: '70px', paddingBottom: '300px'}} 
+            bgImage={require(`../../assets/images/index/${isDarkMode ? '20.jpg' : 'nature1.jpg'}`)} 
+            bgImageAlt="index" strength={400} blur={0}>
                 <Intro />
-                <Spacing height='300px' />
-                <IntroSkill />
             </Parallax>
+            <IntroSkill /> 
 
             <Parallax bgImage={require(`../../assets/images/index/${isDarkMode ? '4.jpg' : '2.jpg'}`)} 
-            bgImageAlt="index" strength={-400} blur={3}>
+            bgImageAlt="index" strength={-200} blur={0}>
                 <Spacing height='200px' />
-                <Projects />
+                <Typography align="center" variant="h1" component="h1">
+                    <SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
+                        Projects
+                    </SplitText>
+                </Typography>
+                <Spacing height='200px' />
             </Parallax>
+            <Projects />
 
-            <Parallax bgImage={require(`../../assets/images/index/${isDarkMode ? '3.png' : '20.jpg'}`)} 
-            bgImageAlt="index" strength={-400} blur={3}>
+            <Parallax bgImage={require(`../../assets/images/index/${isDarkMode ? '6.jpg' : '20.jpg'}`)} 
+            bgImageAlt="index" strength={-200} blur={0}>
                 <Spacing height='200px' />
-                <Levels />
+                <Typography align="center" variant="h1" component="h1">
+                    <SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
+                        Level Design
+                    </SplitText>
+                </Typography>
+                <Spacing height='200px' />
             </Parallax>
+            <Levels />
 
-            <Parallax bgImage={require(`../../assets/images/index/${isDarkMode ? '3.jpg' : 'nature7.jpg'}`)} 
-            bgImageAlt="index" strength={-400} blur={3}>
+            <Parallax bgImage={require(`../../assets/images/index/${isDarkMode ? '55.png' : 't1.jpg'}`)} 
+            bgImageAlt="index" strength={200} blur={0}>
                 <Spacing height='200px' />
-                <Contact />
-                <Footer />
+                <Typography align="center" variant="h1" component="h1">
+                    <SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
+                        Contact
+                    </SplitText>
+				</Typography>
+                <Spacing height='200px' />
             </Parallax>
+            <Contact />
+            <Footer />
         </>
     );
 }
