@@ -6,9 +6,10 @@ import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import { Link } from "react-scroll";
 import { useMediaQuery } from 'react-responsive';
-import { Switch } from '@material-ui/core';
+import { Fab } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppState } from '../../..';
+import { Flare, Brightness3 } from '@material-ui/icons';
 
 const NavBar: FunctionComponent = (): JSX.Element =>
 {
@@ -16,9 +17,9 @@ const NavBar: FunctionComponent = (): JSX.Element =>
 	const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
 	const isTabletOrMobileDevice = useMediaQuery({ query: '(max-device-width: 1224px)' });
 
-	const toggleDarkMode = (e: any): void =>
+	const toggleDarkMode = (): void =>
 	{
-		dispatch(actions.toggleDarkMode(e.target.checked));
+		dispatch(actions.toggleDarkMode(!isDarkMode));
 	}
 
 	return (
@@ -36,8 +37,10 @@ const NavBar: FunctionComponent = (): JSX.Element =>
 					offset={isTabletOrMobileDevice ? 100 : 70}>
 						<Button size='large' color="inherit">Contact</Button>
 					</Link>
-					<Switch checked={isDarkMode} value="darkModeChecked" 
-					onChange={e => toggleDarkMode(e)} />
+					<Fab style={{ backgroundColor: 'transparent', color: isDarkMode ? 'goldenrod' : 'gainsboro' }} 
+					size='small' onClick={toggleDarkMode}>
+						{isDarkMode ? <Flare /> : <Brightness3 />}
+					</Fab>
 				</Grid>
 			</Toolbar>
 		</AppBar>
