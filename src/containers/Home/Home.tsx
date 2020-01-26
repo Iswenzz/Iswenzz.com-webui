@@ -72,7 +72,7 @@ const Home: FunctionComponent = (): JSX.Element =>
             <Levels />
 
             <Parallax style={{boxShadow: '0 0 5px 6px rgba(60, 60, 60, .3)'}} 
-            bgImage={require(`../../assets/images/index/${isDarkMode ? '55.png' : 't1.jpg'}`)} 
+            bgImage={require(`../../assets/images/index/${isDarkMode ? '55.jpg' : 't1.jpg'}`)} 
             bgImageAlt="index" strength={200} blur={0}>
                 <Spacing height='200px' />
                 <Typography align="center" variant="h1" component="h1">
