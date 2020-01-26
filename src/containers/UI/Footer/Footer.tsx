@@ -6,9 +6,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDiscord, faYoutube, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { Parallax } from 'react-parallax';
 import Spacing from '../../../components/Spacing/Spacing';
-import { Tooltip } from '@material-ui/core';
+import { Tooltip, Typography } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 import { AppState } from '../../..';
+import '../../../Text.scss';
 
 const Footer: FunctionComponent = (): JSX.Element =>
 {
@@ -36,7 +37,11 @@ const Footer: FunctionComponent = (): JSX.Element =>
             </RadialGradient>
             <Parallax style={{backgroundColor: 'black'}} bgImageAlt="index" strength={-400}
             bgImage={require(`../../../assets/images/index/${isDarkMode ? 'stars' : 'clouds'}.svg`)}>
-                <Spacing height='200px' />
+                <Spacing height='10px' />
+                <Typography align="center" color="textPrimary" variant="subtitle2" component="h3">
+                    Copyright © Iswenzz 2017-2020
+                </Typography>
+                <Spacing height='190px' />
             </Parallax>
         </>
     );
