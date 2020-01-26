@@ -19,6 +19,7 @@ import { Typography } from '@material-ui/core';
 import SplitText from 'react-pose-text';
 import Spacing from '../../components/Spacing/Spacing';
 import '../../Text.scss';
+import ProjectPopup from './UI/ProjectPopup/ProjectPopup';
 
 const charPoses = {
     exit: { opacity: 0, y: 20 },
@@ -56,6 +57,7 @@ const Home: FunctionComponent = (): JSX.Element =>
                 </Typography>
                 <Spacing height='200px' />
             </Parallax>
+            <ProjectPopup />
             <Projects />
 
             <Parallax style={{boxShadow: '0 0 5px 6px rgba(60, 60, 60, .3)'}} 

@@ -3,7 +3,6 @@ import RadialGradient, { GradiantProps } from '../../../../components/RadialGrad
 import { Grid } from '@material-ui/core';
 import Spacing from '../../../../components/Spacing/Spacing';
 import Project, { LinkedProjectProps } from '../Project/Project';
-import ProjectPopup from '../ProjectPopup/ProjectPopup';
 import StonecutterGrid from '../../../../components/StonecutterGrid/StonecutterGrid';
 import { useSelector } from 'react-redux';
 import { AppState } from '../../../..';
@@ -83,7 +82,6 @@ const Projects: FunctionComponent = (): JSX.Element =>
                         </Animation>
                     ]}
                     </PoseGroup>
-                    <ProjectPopup projects={projects!} />
                     <Spacing height={isPortrait ? '400px' : '800px'} />
                 </RadialGradient>     
             </Grid>

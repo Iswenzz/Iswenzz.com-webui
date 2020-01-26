@@ -1,6 +1,6 @@
 import * as actions from '../../../../store/actions';
-import React, { FunctionComponent, useEffect, memo } from "react";
-import { DialogContent, Fab, Grid, Modal, Fade, Backdrop, Tooltip, DialogTitle } from "@material-ui/core";
+import React, { FunctionComponent, useEffect, memo, forwardRef, useState } from "react";
+import { DialogContent, Fab, Grid, Modal, Fade, Backdrop, Tooltip, DialogTitle, BackdropProps } from "@material-ui/core";
 import { Close, Lock } from '@material-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faOsi } from '@fortawesome/free-brands-svg-icons';
@@ -14,15 +14,10 @@ import { useMediaQuery } from 'react-responsive';
 import '../../../../Text.scss';
 import './ProjectPopup.scss';
 
-export interface ProjectPopupProps
-{
-	projects: LinkedProjectProps[],
-	children?: any
-}
-
-const ProjectPopup: FunctionComponent<ProjectPopupProps> = (props: ProjectPopupProps): JSX.Element =>
+const ProjectPopup: FunctionComponent = (): JSX.Element =>
 {
 	const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
+	const projects = useSelector((state: AppState) => state.home.projects);
 	const isPortrait = useMediaQuery({ orientation: 'portrait' });
 	const [width, height] = useWindowSize();
 
@@ -37,7 +32,7 @@ const ProjectPopup: FunctionComponent<ProjectPopupProps> = (props: ProjectPopupP
 	
 	useEffect(() => 
 	{
-		props.projects.map((project: LinkedProjectProps): Promise<void> =>
+		projects.map((project: LinkedProjectProps): Promise<void> =>
 			fetch(project.renderUrl!).then(response => response.text()).then(text => 
 			{
 				if (text.includes('404: Not Found'))
@@ -52,7 +47,7 @@ const ProjectPopup: FunctionComponent<ProjectPopupProps> = (props: ProjectPopupP
 				div?.appendChild(section);
 			})
 		);
-	}, [props.projects]);
+	}, [projects]);
 
 	const renderProject = (project: LinkedProjectProps, i: number): JSX.Element =>
 	{
@@ -128,7 +123,8 @@ const ProjectPopup: FunctionComponent<ProjectPopupProps> = (props: ProjectPopupP
 
 	return (
 		<Modal aria-labelledby="project-modal" aria-describedby="viewpager-project" open={isModalActive} 
-		keepMounted onClose={onClickClose} closeAfterTransition BackdropComponent={Backdrop} 
+		keepMounted onClose={onClickClose} closeAfterTransition 
+		BackdropComponent={Backdrop} 
 		BackdropProps={{ timeout: 500 }}>
 			<Fade in={isModalActive}>
 				<>
@@ -139,7 +135,7 @@ const ProjectPopup: FunctionComponent<ProjectPopupProps> = (props: ProjectPopupP
 					</Tooltip>
 					<ViewPager bgcolor={isDarkMode ? '#202326' : '#f4f4f4'} 
 					startIndex={projectsStartIndex} config={{...getConfig()}}
-					items={props.projects?.map(
+					items={projects?.map(
 					(proj: LinkedProjectProps, i: number): JSX.Element => renderProject(proj, i))} />
 				</>
 			</Fade>
