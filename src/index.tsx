@@ -10,7 +10,8 @@ import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import App from './App';
 import appReducer from './store/reducer';
 import homeReducer from './containers/Home/store/reducer';
-const composeEnhancers: any = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancers: any = process.env.NODE_ENV === 'development' 
+    ? (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : compose;
 
 const rootReducer = combineReducers({
     app: appReducer,
