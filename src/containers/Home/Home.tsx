@@ -36,15 +36,17 @@ const Home: FunctionComponent = (): JSX.Element =>
     return (
         <>
             <NavBar />
-            <Parallax style={{paddingTop: '70px', paddingBottom: '300px', boxShadow: '0 0 5px 6px rgba(60, 60, 60, .3)'}} 
+            <Parallax style={{boxShadow: '0 0 5px 6px rgba(60, 60, 60, .3)'}} 
             bgImage={require(`../../assets/images/index/${isDarkMode ? '20.jpg' : 'nature1.jpg'}`)} 
             bgImageAlt="index" strength={400} blur={0}>
+                <Spacing height='70px' />
                 <Intro />
+                <Spacing height='300px' />
             </Parallax>
             <IntroSkill /> 
 
             <Parallax style={{boxShadow: '0 0 5px 6px rgba(60, 60, 60, .3)'}} 
-            bgImage={require(`../../assets/images/index/${isDarkMode ? '4.jpg' : '2.jpg'}`)} 
+            bgImage={require(`../../assets/images/index/${isDarkMode ? '2.jpg' : '2.jpg'}`)} 
             bgImageAlt="index" strength={-200} blur={0}>
                 <Spacing height='200px' />
                 <Typography align="center" variant="h1" component="h1">
