@@ -19,6 +19,11 @@ const App: FunctionComponent<ReduxAppProps> = (props: ReduxAppProps): JSX.Elemen
 				fontFamily: "Ubuntu",
 				color: 'rgba(220, 220, 220, 1)'
 			},
+			subtitle2: {
+				fontFamily: "Poiret One",
+				color: 'rgba(220, 220, 220, 1)',
+				fontWeight: 'bold'
+			},
 			h1: {
 				fontFamily: "Calligraffitti",
 				color: 'rgba(220, 220, 220, 1)'
