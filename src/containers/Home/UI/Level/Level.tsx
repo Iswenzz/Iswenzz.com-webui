@@ -38,7 +38,7 @@ const useStyles = makeStyles(theme => ({
 	whiteCard: {
 		height: '100%', 
 		width: '100%',
-		background: 'radial-gradient(ellipse at 80%, #c9c9c9 0%, rgb(240, 240, 240) 110%)',
+		background: 'radial-gradient(ellipse at 80%, #eaeaea 0%, rgb(240, 240, 240) 110%)',
 		borderColor: 'rgba(0, 131, 255, .3)',
 		borderStyle: 'dotted',
 	}
