@@ -20,6 +20,7 @@ const NavBar: FunctionComponent = (): JSX.Element =>
 	const toggleDarkMode = (): void =>
 	{
 		dispatch(actions.toggleDarkMode(!isDarkMode));
+		localStorage.setItem('isDarkMode', (!isDarkMode).toString());
 	}
 
 	return (

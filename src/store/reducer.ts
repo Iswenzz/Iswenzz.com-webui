@@ -1,9 +1,9 @@
 import { AppActions, AppActionEnum } from './types';
-import { updateObject } from '../Utility/utility';
+import { updateObject } from '../utility/utility';
 import { ReduxAppProps } from '../App';
 
 export let initialState: ReduxAppProps = {
-	isDarkMode: false,
+	isDarkMode: localStorage.getItem('isDarkMode') === 'true',
 
 	toggleDarkMode: () => null
 };
