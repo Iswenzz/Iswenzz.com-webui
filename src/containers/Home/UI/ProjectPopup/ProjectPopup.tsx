@@ -1,4 +1,4 @@
-import * as actions from '../../store/actions';
+import * as actions from '../../../../store/actions';
 import React, { FunctionComponent, useEffect, memo } from "react";
 import { DialogContent, Fab, Grid, Modal, Fade, Backdrop, Tooltip, DialogTitle } from "@material-ui/core";
 import { Close, Lock } from '@material-ui/icons';
@@ -26,13 +26,13 @@ const ProjectPopup: FunctionComponent<ProjectPopupProps> = (props: ProjectPopupP
 	const isPortrait = useMediaQuery({ orientation: 'portrait' });
 	const [width, height] = useWindowSize();
 
-	const projectModalActive = useSelector((state: AppState) => state.home.projectModalActive);
+	const isModalActive = useSelector((state: AppState) => state.app.isModalActive);
 	const projectsStartIndex = useSelector((state: AppState) => state.home.projectsStartIndex);
 	const dispatch = useDispatch();
 
 	const onClickClose = (): void => 
     {
-        dispatch(actions.toggleProjectModal(false));
+        dispatch(actions.toggleModalActive(false));
 	}
 	
 	useEffect(() => 
@@ -46,7 +46,6 @@ const ProjectPopup: FunctionComponent<ProjectPopupProps> = (props: ProjectPopupP
 				// render md file in the right div
 				let article = document.createElement("article");
 				article.innerHTML = marked(text);
-				console.log(text);
 				let section = document.createElement("section");
 				section.appendChild(article);
 				let div = document.getElementById(`popupProjectMd-${project.title}`);
@@ -128,10 +127,10 @@ const ProjectPopup: FunctionComponent<ProjectPopupProps> = (props: ProjectPopupP
 	}
 
 	return (
-		<Modal aria-labelledby="project-modal" aria-describedby="viewpager-project" open={projectModalActive} 
+		<Modal aria-labelledby="project-modal" aria-describedby="viewpager-project" open={isModalActive} 
 		keepMounted onClose={onClickClose} closeAfterTransition BackdropComponent={Backdrop} 
 		BackdropProps={{ timeout: 500 }}>
-			<Fade in={projectModalActive}>
+			<Fade in={isModalActive}>
 				<ViewPager bgcolor={isDarkMode ? '#202326' : '#f4f4f4'} 
 				startIndex={projectsStartIndex} config={{...getConfig()}}
 				items={props.projects?.map((proj: LinkedProjectProps, i: number): JSX.Element => renderProject(proj, i))} />

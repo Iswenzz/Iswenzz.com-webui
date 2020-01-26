@@ -1,10 +1,12 @@
-import * as actions from '../../store/actions';
+import * as homeActions from '../../store/actions';
+import * as appActions from '../../../../store/actions';
 import React, { FunctionComponent } from 'react';
 import { CardActions, Button, Card, CardActionArea, Typography } from '@material-ui/core';
 import { AppState } from '../../../..';
 import { useSelector, useDispatch } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
 import '../../../../Text.scss';
+import posed from 'react-pose';
 
 export interface ProjectRenderProps
 {
@@ -53,16 +55,33 @@ export interface ProjectProps
     currentProj: LinkedProjectProps
 }
 
+const Animation = posed.div({
+    hoverable: true,
+    pressable: true,
+    init: {
+        scale: 1,
+        boxShadow: '0px 0px 0px rgba(0,0,0,0)'
+    },
+    hover: {
+        scale: 1.2,
+        boxShadow: '0px 5px 10px rgba(0,0,0,0.2)'
+    },
+    press: {
+        scale: 1.1,
+        boxShadow: '0px 2px 5px rgba(0,0,0,0.1)'
+    }
+});
+
 const Project: FunctionComponent<ProjectProps> = (props: ProjectProps): JSX.Element =>
 {
     const isPortrait = useMediaQuery({ orientation: 'portrait' });
-    const projectModalActive = useSelector((state: AppState) => state.home.projectModalActive);
+    const isModalActive = useSelector((state: AppState) => state.app.isModalActive);
     const dispatch = useDispatch();
 
     const onToggle = () =>
     {
-        dispatch(actions.setProjectsIndex(props.projects.indexOf(props.currentProj)));
-        dispatch(actions.toggleProjectModal(!projectModalActive));
+        dispatch(homeActions.setProjectsIndex(props.projects.indexOf(props.currentProj)));
+        dispatch(appActions.toggleModalActive(!isModalActive));
     }
 
     const button: JSX.Element = (
@@ -82,21 +101,23 @@ const Project: FunctionComponent<ProjectProps> = (props: ProjectProps): JSX.Elem
     }
 
     return (
-        <Card onClick={onToggle} 
-        style={{ backgroundImage: `url(${props.currentProj.cardImage})`, 
-        backgroundSize: `${cardSize.width} ${cardSize.height}`,
-        width: cardSize.width, height: cardSize.height, borderRadius: '8px', 
-        boxShadow: '0 3px 5px 2px rgba(60, 60, 60, .3)', borderColor: 'dimgray'}}>
-            <CardActionArea style={{ height: '100%', width: '100%' }}>
-                <Typography variant="subtitle1" align="center" 
-                paragraph component="p" style={{ fontSize: isPortrait ? 14 : 20, 
-                height: parseInt(cardSize.height) / 3 }}>
-                    {props.currentProj.title}
-                </Typography>
-                {/* --- Optional Button --- */}
-                {props.currentProj.button !== undefined ? button : null}
-            </CardActionArea>
-        </Card>
+        <Animation>
+            <Card onClick={onToggle} 
+            style={{ backgroundImage: `url(${props.currentProj.cardImage})`, 
+            backgroundSize: `${cardSize.width} ${cardSize.height}`,
+            width: cardSize.width, height: cardSize.height, borderRadius: '8px', 
+            boxShadow: '0 3px 5px 2px rgba(60, 60, 60, .3)', borderColor: 'dimgray'}}>
+                <CardActionArea style={{ height: '100%', width: '100%' }}>
+                    <Typography variant="subtitle1" align="center" 
+                    paragraph component="p" style={{ fontSize: isPortrait ? 14 : 20, 
+                    height: parseInt(cardSize.height) / 3 }}>
+                        {props.currentProj.title}
+                    </Typography>
+                    {/* --- Optional Button --- */}
+                    {props.currentProj.button !== undefined ? button : null}
+                </CardActionArea>
+            </Card>
+        </Animation>
     );
 }
 

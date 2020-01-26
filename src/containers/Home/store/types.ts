@@ -2,15 +2,8 @@ import { LinkedProjectProps } from "../UI/Project/Project";
 
 export enum HomeActionEnum
 {
-    TOGGLE_PROJECT_MODAL = 'TOGGLE_PROJECT_MODAL',
     UPDATE_PROJECTS = 'UPDATE_PROJECTS',
     SET_PROJECTS_INDEX = 'SET_PROJECTS_INDEX'
-}
-
-export interface ToggleProjectModal
-{
-    type: string,
-    active?: boolean
 }
 
 export interface UpdateProjects
@@ -25,8 +18,7 @@ export interface SetProjectsStartIndex
     index?: number
 }
 
-export type HomeProjectsActions = ToggleProjectModal 
-    & SetProjectsStartIndex 
+export type HomeProjectsActions = SetProjectsStartIndex 
     & UpdateProjects;
 
 export type HomeActions = HomeProjectsActions;

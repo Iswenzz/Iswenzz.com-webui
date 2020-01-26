@@ -34,7 +34,8 @@ const App: FunctionComponent<ReduxAppProps> = (props: ReduxAppProps): JSX.Elemen
 					html: {
 						'--scrollbarBG': props.isDarkMode ? '#23272a' : '#d9d9d9',
 						'--thumbBG': props.isDarkMode ? '#3a3d41' : '#c0c0c0',
-						overflowX: 'hidden'
+						overflowX: 'hidden',
+						overflowY: props.isModalActive ? 'hidden' : 'visible'
 					},
 					body: {
 						scrollbarWidth: 'thin',
@@ -112,24 +113,28 @@ const App: FunctionComponent<ReduxAppProps> = (props: ReduxAppProps): JSX.Elemen
 
 interface LinkStateProps
 {
-	isDarkMode: boolean
+	isDarkMode: boolean,
+	isModalActive: boolean
 }
 
 interface LinkDispatchProps
 {
-	toggleDarkMode: (active: boolean) => void
+	toggleDarkMode: (active: boolean) => void,
+	toggleModalActive: (active: boolean) => void
 }
 
 export type ReduxAppProps = LinkStateProps & LinkDispatchProps;
 
 const mapStateToProps = (state: AppState, ownProps: any): LinkStateProps => 
 ({
-    isDarkMode: state.app.isDarkMode!,
+	isDarkMode: state.app.isDarkMode!,
+	isModalActive: state.app.isModalActive!
 });
 
 const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, AppActions>, ownProps: any): LinkDispatchProps => 
 ({
-    toggleDarkMode: bindActionCreators(actions.toggleDarkMode, dispatch),
+	toggleDarkMode: bindActionCreators(actions.toggleDarkMode, dispatch),
+	toggleModalActive: bindActionCreators(actions.toggleModalActive, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

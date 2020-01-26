@@ -3,17 +3,6 @@ import { AppState } from '../../../index';
 import { Dispatch } from 'react';
 import { LinkedProjectProps } from '../UI/Project/Project';
 
-export const toggleProjectModal = (active: boolean) =>
-{
-    return (dispatch: Dispatch<HomeActions>, getState: () => AppState) =>
-    {
-        return dispatch({
-            type: HomeActionEnum.TOGGLE_PROJECT_MODAL,
-            active
-        });
-    }
-};
-
 export const updateProjects = (projects: LinkedProjectProps[]) =>
 {
     return (dispatch: Dispatch<HomeActions>, getState: () => AppState) =>
