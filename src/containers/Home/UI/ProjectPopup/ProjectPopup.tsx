@@ -115,7 +115,7 @@ const ProjectPopup: FunctionComponent<ProjectPopupProps> = (props: ProjectPopupP
 			width: width / 1.5
 		}
 		if (isPortrait) return {
-			height: height,
+			height: height / 1.2,
 			width: width,
 		}
 		else return {
@@ -131,9 +131,17 @@ const ProjectPopup: FunctionComponent<ProjectPopupProps> = (props: ProjectPopupP
 		keepMounted onClose={onClickClose} closeAfterTransition BackdropComponent={Backdrop} 
 		BackdropProps={{ timeout: 500 }}>
 			<Fade in={isModalActive}>
-				<ViewPager bgcolor={isDarkMode ? '#202326' : '#f4f4f4'} 
-				startIndex={projectsStartIndex} config={{...getConfig()}}
-				items={props.projects?.map((proj: LinkedProjectProps, i: number): JSX.Element => renderProject(proj, i))} />
+				<>
+					<Tooltip open={isModalActive} placement="right" arrow disableFocusListener 
+					disableTouchListener title="Drag the window!">
+						<img onDragStart={(e) => e.preventDefault()} style={{margin: '10 10 10 10'}} alt='drag'
+						src={require('../../../../assets/images/misc/icons8-hand-drag-64.png')} />
+					</Tooltip>
+					<ViewPager bgcolor={isDarkMode ? '#202326' : '#f4f4f4'} 
+					startIndex={projectsStartIndex} config={{...getConfig()}}
+					items={props.projects?.map(
+					(proj: LinkedProjectProps, i: number): JSX.Element => renderProject(proj, i))} />
+				</>
 			</Fade>
 		</Modal>
 	)
