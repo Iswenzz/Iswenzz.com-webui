@@ -1,6 +1,6 @@
 import * as actions from '../../../../store/actions';
-import React, { FunctionComponent, useEffect, memo, forwardRef, useState } from "react";
-import { DialogContent, Fab, Grid, Modal, Fade, Backdrop, Tooltip, DialogTitle, BackdropProps } from "@material-ui/core";
+import React, { FunctionComponent, useEffect, memo} from "react";
+import { DialogContent, Fab, Grid, Modal, Fade, Backdrop, Tooltip, DialogTitle } from "@material-ui/core";
 import { Close, Lock } from '@material-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faOsi } from '@fortawesome/free-brands-svg-icons';
