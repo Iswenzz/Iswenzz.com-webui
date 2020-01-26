@@ -23,6 +23,7 @@ export interface LevelProject
 	videoUrl?: string,
 	width?: string,
 	height?: string,
+	hintColor?: string,
 	renderIcons?: IconProps[]
 }
 
@@ -37,7 +38,7 @@ const useStyles = makeStyles(theme => ({
 	whiteCard: {
 		height: '100%', 
 		width: '100%',
-		background: 'radial-gradient(ellipse at 80%, white 0%, rgb(240, 240, 240) 110%)',
+		background: 'radial-gradient(ellipse at 80%, #c9c9c9 0%, rgb(240, 240, 240) 110%)',
 		borderColor: 'rgba(0, 131, 255, .3)',
 		borderStyle: 'dotted',
 	}
@@ -59,7 +60,7 @@ const Level: FunctionComponent<LevelProps> = (props: LevelProps): JSX.Element =>
 		<Container className={isDarkMode ? classes.darkCard : classes.whiteCard}>
 			<GridList className="level-grid-list" cellHeight='auto' spacing={1}>
 				<GridListTile key={Math.random()} cols={2} rows={2} style={{height: '150px'}}>
-					<h1 className="calli-title">{props.currentLevel.name}</h1>
+					<h1 className="calli-title" style={{ color: 'silver' }}>{props.currentLevel.name}</h1>
 				</GridListTile>
 				<GridListTile key={Math.random()} cols={1} rows={1} style={{width: '70%', height: '500px'}}>
 					{!isFlipped ? <ReactPlayer width='100%' height='100%' url={props.currentLevel.videoUrl} /> : null}
@@ -80,7 +81,7 @@ const Level: FunctionComponent<LevelProps> = (props: LevelProps): JSX.Element =>
 	const mobileCard: JSX.Element = (
 		<Container className={isDarkMode ? classes.darkCard : classes.whiteCard}>
 			<Grid container className="level-grid" direction="row" justify="center" alignItems="center">
-				<h3 className="calli-title" style={{fontSize: '30px'}}>{props.currentLevel.name}</h3>
+				<h3 className="calli-title" style={{ fontSize: '30px', color: 'silver' }}>{props.currentLevel.name}</h3>
 				{!isFlipped ? <ReactPlayer width='100%' height='50%' url={props.currentLevel.videoUrl} /> : null}
 				<Container>
 					<Typography className="ubuntu-text" align="left" color="textPrimary" paragraph component="h3">
@@ -93,15 +94,20 @@ const Level: FunctionComponent<LevelProps> = (props: LevelProps): JSX.Element =>
 
 	return (
 		<FlipCard flipCallback={flipCallback} back={(
-			<Container className="level" style={{ backgroundImage: `url(${props.currentLevel.image})`}}>
-				<Grid container direction="column" justify="space-evenly" alignItems="flex-end">
-					{props.currentLevel.renderIcons?.map(icon => (
-						<Tooltip arrow disableFocusListener disableTouchListener title={icon.name}>
-							<img onDragStart={(e) => e.preventDefault()} style={{ margin: '0 4px 0 4px' }} 
-							width={isPortrait ? '32' : '64'} height={isPortrait ? '32' : '64'} 
-							alt='lang' src={icon.src} />
-						</Tooltip>
-					))}
+			<Container className="level" style={{ backgroundImage: `url(${props.currentLevel.image})` }}>
+				<Grid container direction="row" alignItems="center" justify="space-between">
+					<h4 className="calli-text" style={{ color: props.currentLevel.hintColor }}>
+						Click Me!
+					</h4>
+					<Grid container direction="column" justify="space-evenly" alignItems="flex-end">
+						{props.currentLevel.renderIcons?.map(icon => (
+							<Tooltip arrow disableFocusListener disableTouchListener title={icon.name}>
+								<img onDragStart={(e) => e.preventDefault()} style={{ margin: '0 4px 0 4px' }} 
+								width={isPortrait ? '32' : '64'} height={isPortrait ? '32' : '64'} 
+								alt='lang' src={icon.src} />
+							</Tooltip>
+						))}
+					</Grid>
 				</Grid>
 			</Container>
 		)} front={isPortrait ? mobileCard : desktopCard} />
