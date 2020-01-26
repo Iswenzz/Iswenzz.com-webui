@@ -1,4 +1,4 @@
-import React, { useState, useEffect, RefObject, forwardRef, memo } from 'react';
+import React, { useState, useEffect, RefObject, memo, FunctionComponent } from 'react';
 import clamp from 'lodash/clamp';
 import { useSprings, animated } from 'react-spring';
 import { useDrag } from 'react-use-gesture';
@@ -17,7 +17,6 @@ export interface ViewPagerProps
 	items?: JSX.Element[],
 	style?: React.CSSProperties,
 	bgcolor?: string,
-	ref?: RefObject<HTMLDivElement>,
 	startIndex?: number,
 	config?: ViewPagerConfig
 }
@@ -36,7 +35,7 @@ export interface ViewPagerState
 	mainRef?: RefObject<HTMLDivElement>
 }
 
-const ViewPager = forwardRef((props: ViewPagerProps, ref: any) => 
+const ViewPager: FunctionComponent<ViewPagerProps> = (props: ViewPagerProps): JSX.Element => 
 {
 	const [items,] = useState(props.items !== undefined ? props.items : defaultItems);
 	const [index, setIndex] = useState(props.startIndex !== undefined ? props.startIndex : 0);
@@ -80,7 +79,7 @@ const ViewPager = forwardRef((props: ViewPagerProps, ref: any) =>
 	return (
 		<div style={props.style}>
 			{springProps.map(({ x, display, scale }, i) => (
-				<animated.div className="carousel" {...bind()} key={i} ref={ref}
+				<animated.div className="carousel" {...bind()} key={i}
 				style={{display, x,
 				height: props.config?.height, width: props.config?.width,
 				top: props.config?.top, right: props.config?.right }}>
@@ -91,6 +90,6 @@ const ViewPager = forwardRef((props: ViewPagerProps, ref: any) =>
 			))}
 		</div>
 	);
-});
+}
 
 export default memo(ViewPager);
