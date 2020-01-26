@@ -8,7 +8,7 @@ import { LinkedProjectProps } from "../Project/Project";
 import ViewPager, { ViewPagerConfig } from '../../../../components/ViewPager/ViewPager';
 import { AppState } from "../../../..";
 import marked from "marked";
-import useWindowSize from '../../../../Utility/useWindowSize';
+import useWindowSize from '../../../../utility/useWindowSize';
 import { useSelector, useDispatch } from "react-redux";
 import { useMediaQuery } from 'react-responsive';
 import '../../../../Text.scss';
@@ -84,8 +84,8 @@ const ProjectPopup: FunctionComponent<ProjectPopupProps> = (props: ProjectPopupP
 							{project.renderIcons!.map(icon => (
 								<Tooltip arrow disableFocusListener disableTouchListener title={icon.name}>
 									<img onDragStart={(e) => e.preventDefault()} 
-									style={{ margin: '0 4px 0 4px' }} width={isPortrait ? '32' : '64'} 
-									height={isPortrait ? '32' : '64'}  alt='lang' src={icon.src} />
+									style={{ margin: '0 4px 0 4px' }} width={isPortrait ? '32px' : '64px'} 
+									height={isPortrait ? '32px' : '64px'}  alt='lang' src={icon.src} />
 								</Tooltip>
 							))}
 						</div>
