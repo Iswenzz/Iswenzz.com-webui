@@ -121,7 +121,11 @@ const Contact: FunctionComponent = (): JSX.Element =>
 		// if the form as valid information send a post req
 		if (Object.values(state).every(item => item !== undefined && item !== null))
 		{
+<<<<<<< HEAD
 			await axios.post('http://localhost:443/contact', state, { 
+=======
+			await axios.post('https://iswenzz.com/contact', state, { 
+>>>>>>> b0b827e70f17adc6fad9b4b954e28681c1dfa407
 				headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' } 
 			}).then(res => {
 				setSuccess(true);
