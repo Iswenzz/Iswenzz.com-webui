@@ -12,12 +12,6 @@ import { AppState } from '../../../..';
 import '../../../../Text.scss';
 
 const useStyles = makeStyles(theme => ({
-	paper: {
-		marginTop: theme.spacing(8),
-		display: 'flex',
-		flexDirection: 'column',
-		alignItems: 'center',
-	},
 	avatar: {
 		margin: theme.spacing(1),
 		width: '120px',
@@ -66,9 +60,9 @@ const Animation = posed.div({
 		}
 	},
 	exit: {
-		y: '0%',
+		y: '-100%',
 		opacity: 0,
-		scale: 2.6,
+		scale: 1.4,
 		transition: { 
 			duration: 1000,
 			ease: 'easeIn'
@@ -151,45 +145,50 @@ const Contact: FunctionComponent = (): JSX.Element =>
 		]
 	}
 
+	const form: JSX.Element = (
+		<Grid container 
+		direction="row" justify="center" alignItems="center">
+			<Avatar alt='iswenzz avatar' src={require('../../../../assets/images/misc/iswenzz.png')} 
+			className={classes.avatar} />
+			<form onSubmit={sendEmail} className={classes.form}>
+				<TextField name="email" id="email" color="secondary" variant="outlined" 
+				margin="normal" required fullWidth label="Email Address" autoComplete="email" 
+				onChange={onMailChange} />
+				<TextField name="subject" id="subject" color="secondary" variant="outlined" 
+				margin="normal" required fullWidth label="Subject"
+				onChange={onSubjectChange} />
+				<TextField name="message" id="message" multiline rows="6" color="secondary" 
+				variant="outlined" margin="normal" required fullWidth label="Message"
+				onChange={onMessageChange} />
+				<Container maxWidth="xs">
+					<Grid container direction="row" justify="center" alignItems="center">
+						<Button fullWidth variant="contained" type="submit" 
+						color="secondary" disabled={loading}
+						className={success ? classes.buttonSuccess : fail ? classes.buttonFail : classes.buttonDefault}>
+							Send
+						</Button>
+						{loading && <CircularProgress size={32} className={classes.buttonProgress} />}
+					</Grid>
+				</Container>
+			</form>
+		</Grid>
+	);
+
 	return (
-		<VisibilitySensor partialVisibility offset={{bottom: 300}}>
+		<VisibilitySensor partialVisibility>
 		{({ isVisible }) => (
 			<Grid container direction="column" justify="center" alignItems="center">
 				<Element name="contact-section" />
-				<RadialGradient config={config} style={{ paddingTop: '70px', paddingBottom: '120px' }}>
-					<PoseGroup>
-					{isVisible && [
-						<Animation key="contact-anim">
-						<Grid container direction="row" justify="center" alignItems="center">
-						<Container className={classes.paper} maxWidth="md">
-							<Avatar alt='iswenzz avatar' src={require('../../../../assets/images/misc/iswenzz.png')} 
-							className={classes.avatar} />
-							<form onSubmit={sendEmail} className={classes.form}>
-								<TextField name="email" id="email" color="secondary" variant="outlined" 
-								margin="normal" required fullWidth label="Email Address" autoComplete="email" 
-								onChange={onMailChange} />
-								<TextField name="subject" id="subject" color="secondary" variant="outlined" 
-								margin="normal" required fullWidth label="Subject"
-								onChange={onSubjectChange} />
-								<TextField name="message" id="message" multiline rows="6" color="secondary" 
-								variant="outlined" margin="normal" required fullWidth label="Message"
-								onChange={onMessageChange} />
-								<Container maxWidth="xs">
-									<Grid container direction="row" justify="center" alignItems="center">
-										<Button fullWidth variant="contained" type="submit" 
-										color="secondary" disabled={loading}
-										className={success ? classes.buttonSuccess : fail ? classes.buttonFail : classes.buttonDefault}>
-											Send
-										</Button>
-										{loading && <CircularProgress size={32} className={classes.buttonProgress} />}
-									</Grid>
-								</Container>
-							</form>
-						</Container>
-						</Grid>
-						</Animation>
-					]}
-					</PoseGroup>
+				<RadialGradient config={config} style={{ paddingTop: '80px', paddingBottom: '120px' }}>
+					{isTabletOrMobileDevice ? form : (
+						<PoseGroup>
+						{isVisible && [
+							<Animation key="contact-anim">
+								{form}
+							</Animation>
+						]}
+						</PoseGroup>
+					)}
 					<Spacing height={isTabletOrMobileDevice ? '50px' : '600px'} />
 				</RadialGradient>	
 			</Grid>

@@ -31,7 +31,7 @@ const NavBar: FunctionComponent = (): JSX.Element =>
 						<Button size='large' color="inherit">Projects</Button>
 					</Link>
 					<Link to="level-design-section" smooth 
-					offset={isTabletOrMobileDevice ? 250 : 70}>
+					offset={isTabletOrMobileDevice ? 0 : 70}>
 						<Button size='large' color="inherit">Level Design</Button>
 					</Link>
 					<Link to="contact-section" smooth

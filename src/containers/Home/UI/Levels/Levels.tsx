@@ -46,7 +46,7 @@ const Levels: FunctionComponent = (): JSX.Element =>
 			{ color: '#090A0A', colorPercent: '100%' }
 		]
 	} : {
-		position: 'ellipse at bottom', 
+		position: 'circle at bottom', 
 		colors: [
 			{ color: '#f69100', colorPercent: '0%' },
 			{ color: '#f4f4f4', colorPercent: '50%' }
@@ -54,7 +54,7 @@ const Levels: FunctionComponent = (): JSX.Element =>
 	}
 
 	return (
-		<VisibilitySensor partialVisibility offset={{bottom: 500}}>
+		<VisibilitySensor partialVisibility>
         {({ isVisible }) => (
 			<Grid container direction="column" justify="center" alignItems="center">
 				<Element name="level-design-section" />
@@ -72,7 +72,7 @@ const Levels: FunctionComponent = (): JSX.Element =>
 						</Animation>	
 					]}
 					</PoseGroup>
-					<Spacing height='1000px' />
+					<Spacing height={isTabletOrMobileDevice ? '800px' : '1000px'} />
 				</RadialGradient>	
 			</Grid>
 		)}

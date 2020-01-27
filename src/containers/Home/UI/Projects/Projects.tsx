@@ -37,6 +37,7 @@ const Animation = posed.div({
 const Projects: FunctionComponent = (): JSX.Element =>
 {
     const isPortrait = useMediaQuery({ orientation: 'portrait' });
+    const isTabletOrMobileDevice = useMediaQuery({ query: '(max-device-width: 1224px)' });
     const projects = useSelector((state: AppState) => state.home.projects);
     const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
 
@@ -53,36 +54,41 @@ const Projects: FunctionComponent = (): JSX.Element =>
 			{ color: '#ffffff' },
 			{ color: '#f4f4f4' }
 		]
-	}
+    }
+    
+    const projectGrid: JSX.Element = (
+        <Grid container direction="row" alignItems="center" justify="center">
+            <StonecutterGrid responsive animStyle={enterExitStyle.skew} 
+            config={{ component: 'div', columns: 5,
+            perspective: 600, columnWidth: isPortrait ? 85 : 200, gutterWidth: 30, 
+            gutterHeight: isPortrait ? -70 : 0,
+            springConfig: { stiffness: 100, damping: 12 } }}>
+                {projects!.map((project: LinkedProjectProps) => (
+                    <li key={project.title}> 
+                        <Project projects={projects!} currentProj={project} />
+                    </li>
+                ))}
+            </StonecutterGrid>
+        </Grid>
+    );
 
     return (
-        <VisibilitySensor partialVisibility offset={{bottom: 300}}>
+        <VisibilitySensor partialVisibility>
         {({ isVisible }) => (
             <Grid container direction="column" justify="center" alignItems="center">
                 <Element name="projects-section" />
                 <RadialGradient config={config} style={{listStyleType: 'none', paddingTop: isPortrait ? '90px' : '50px', 
                 paddingBottom: '50px'}}>
-                    <PoseGroup>
-                    {isVisible && [
-                        <Animation key="grid-anim" style={{width: '100%', height: '100%'}}>
-                            <Grid container direction="row" alignItems="center" justify="center">
-                                <StonecutterGrid responsive animStyle={enterExitStyle.skew} 
-                                config={{ component: 'div', columns: 5,
-                                perspective: 600, columnWidth: isPortrait ? 85 : 200, gutterWidth: 30, 
-                                gutterHeight: isPortrait ? -70 : 0,
-                                springConfig: { stiffness: 100, damping: 12 } 
-                                }}>
-                                    {projects!.map((project: LinkedProjectProps) => (
-                                        <li key={project.title}> 
-                                            <Project projects={projects!} currentProj={project} />
-                                        </li>
-                                    ))}
-                                </StonecutterGrid>
-                            </Grid>
-                        </Animation>
-                    ]}
-                    </PoseGroup>
-                    <Spacing height={isPortrait ? '400px' : '800px'} />
+                    {isTabletOrMobileDevice ? projectGrid : (
+                        <PoseGroup>
+                        {isVisible && [
+                            <Animation key="grid-anim" style={{width: '100%', height: '100%'}}>
+                                {projectGrid}
+                            </Animation>
+                        ]}
+                        </PoseGroup>
+                    )}
+                    <Spacing height={isTabletOrMobileDevice ? '1100px' : isPortrait ? '400px' : '800px'} />
                 </RadialGradient>     
             </Grid>
         )}
