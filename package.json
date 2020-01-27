@@ -25,6 +25,7 @@
 		"@types/uuid": "^3.4.6",
 		"axios": "^0.19.1",
 		"css-loader": "^3.4.0",
+		"detect-browser": "^4.8.0",
 		"embla-carousel-react": "^1.2.10",
 		"enquire.js": "^2.1.6",
 		"lodash": "^4.17.15",
