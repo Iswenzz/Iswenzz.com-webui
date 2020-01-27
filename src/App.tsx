@@ -9,6 +9,7 @@ import { connect } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { bindActionCreators } from 'redux';
 import { CssBaseline } from '@material-ui/core';
+import { detect } from 'detect-browser';
 
 const App: FunctionComponent<ReduxAppProps> = (props: ReduxAppProps): JSX.Element =>
 {
@@ -118,6 +119,7 @@ const App: FunctionComponent<ReduxAppProps> = (props: ReduxAppProps): JSX.Elemen
 
 interface LinkStateProps
 {
+	browserInfo: ReturnType<typeof detect>,
 	isDarkMode: boolean,
 	isModalActive: boolean
 }
@@ -132,8 +134,9 @@ export type ReduxAppProps = LinkStateProps & LinkDispatchProps;
 
 const mapStateToProps = (state: AppState, ownProps: any): LinkStateProps => 
 ({
-	isDarkMode: state.app.isDarkMode!,
-	isModalActive: state.app.isModalActive!
+	browserInfo: state.app.browserInfo,
+	isDarkMode: state.app.isDarkMode,
+	isModalActive: state.app.isModalActive
 });
 
 const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, AppActions>, ownProps: any): LinkDispatchProps => 

@@ -106,8 +106,8 @@ export type ReduxHomeProps = LinkStateProps & LinkDispatchProps;
 
 const mapStateToProps = (state: AppState, ownProps: any): LinkStateProps => 
 ({
-    projects: state.home.projects!,
-    projectsStartIndex: state.home.projectsStartIndex!
+    projects: state.home.projects,
+    projectsStartIndex: state.home.projectsStartIndex
 });
 
 const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, HomeActions>, ownProps: any): LinkDispatchProps => 
