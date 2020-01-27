@@ -131,7 +131,7 @@ const Contact: FunctionComponent = (): JSX.Element =>
 	}
 
 	const config: GradiantProps = isDarkMode ? {
-		position: 'ellipse at bottom', 
+		position: `${isTabletOrMobileDevice ? 'circle' : 'ellipse'} at bottom`, 
 		colors: [
 			{ color: '#841A2A', colorPercent: '0%' },
 			{ color: '#151243', colorPercent: '70%' }
