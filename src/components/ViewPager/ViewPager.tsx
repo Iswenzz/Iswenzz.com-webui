@@ -35,7 +35,7 @@ export interface ViewPagerState
 	mainRef?: RefObject<HTMLDivElement>
 }
 
-const ViewPager: FunctionComponent<ViewPagerProps> = (props: ViewPagerProps): JSX.Element => 
+export const ViewPager: FunctionComponent<ViewPagerProps> = (props: ViewPagerProps): JSX.Element => 
 {
 	const [items,] = useState(props.items !== undefined ? props.items : defaultItems);
 	const [index, setIndex] = useState(props.startIndex !== undefined ? props.startIndex : 0);

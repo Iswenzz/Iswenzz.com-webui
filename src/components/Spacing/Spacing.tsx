@@ -6,7 +6,7 @@ export interface SpacingProps
     style?: React.CSSProperties
 }
 
-class Spacing extends Component<SpacingProps>
+export class Spacing extends Component<SpacingProps>
 {
     render(): JSX.Element
     {

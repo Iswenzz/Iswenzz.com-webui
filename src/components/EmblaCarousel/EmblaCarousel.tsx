@@ -15,15 +15,15 @@ export interface EmblaCarouselProps
 	style?: React.CSSProperties
 }
 
-const EmblaCarouselComponent: FunctionComponent<EmblaCarouselProps> = (props: EmblaCarouselProps) => 
+export const EmblaCarouselComponent: FunctionComponent<EmblaCarouselProps> = (props: EmblaCarouselProps) => 
 {
 	const [embla, setEmbla] = useState<any>(null);
 	const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
 	const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
 	const [selectedIndex, setSelectedIndex] = useState(0);
 	const [scrollSnaps, setScrollSnaps] = useState([]);
-	const [delay, setDelay] = useState(props.delayLength);
-	const [isRunning, setIsRunning] = useState(props.autoplay);
+	const [delay,] = useState(props.delayLength);
+	const [isRunning,] = useState(props.autoplay);
 
 	const scrollTo = useCallback(index => embla.scrollTo(index), [embla]);
 	const scrollPrev = useCallback(() => embla.scrollPrev(), [embla]);
@@ -55,18 +55,6 @@ const EmblaCarouselComponent: FunctionComponent<EmblaCarouselProps> = (props: Em
 		}
 		return () => embla && embla.destroy();
 	}, [embla]);
-
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	function handleIsRunningChange(e: any) 
-	{
-		setIsRunning(e.target.checked);
-	}
-
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	function handleDelayChange(e: any) 
-	{
-		setDelay(Number(e.target.value));
-	}
 
 	return (
 		<Grid style={props.style} container direction="row" justify="center" alignItems="center">

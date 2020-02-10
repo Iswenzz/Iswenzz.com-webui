@@ -16,7 +16,7 @@ export interface FlipCardState
 	isFlipped: boolean
 }
 
-class FlipCard extends Component<FlipCardProps, FlipCardState>
+export class FlipCard extends Component<FlipCardProps, FlipCardState>
 {
 	constructor(props: FlipCardProps) 
 	{

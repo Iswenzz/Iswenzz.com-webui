@@ -12,7 +12,7 @@ export interface TrailProps extends TypographyProps
 }
 
 const config = { mass: 5, tension: 2000, friction: 200 }
-const TrailText: FunctionComponent<TrailProps> = (props: TrailProps): JSX.Element =>
+export const TrailText: FunctionComponent<TrailProps> = (props: TrailProps): JSX.Element =>
 {
 	const trail = useTrail(props.items.length, {
 		config,
