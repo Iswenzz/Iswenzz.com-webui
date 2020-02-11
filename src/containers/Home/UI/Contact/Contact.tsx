@@ -70,7 +70,7 @@ const Animation = posed.div({
 	}
 });
 
-const Contact: FunctionComponent = (): JSX.Element =>
+export const Contact: FunctionComponent = (): JSX.Element =>
 {
 	const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
 	const isTabletOrMobileDevice = useMediaQuery({ query: '(max-device-width: 1224px)' });

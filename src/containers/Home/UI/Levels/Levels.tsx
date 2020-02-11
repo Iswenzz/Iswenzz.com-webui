@@ -33,7 +33,7 @@ const Animation = posed.div({
 	}
 });
 
-const Levels: FunctionComponent = (): JSX.Element =>
+export const Levels: FunctionComponent = (): JSX.Element =>
 {
 	const [levels,] = useState<LevelProject[]>(require('./Levels.json'));
 	const isTabletOrMobileDevice = useMediaQuery({ query: '(max-device-width: 1224px)' });

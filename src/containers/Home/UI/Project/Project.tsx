@@ -1,7 +1,7 @@
 import * as homeActions from '../../store/actions';
 import * as appActions from '../../../../store/actions';
 import React, { FunctionComponent } from 'react';
-import { CardActions, Button, Card, CardActionArea, Typography } from '@material-ui/core';
+import { Card, CardActionArea, Typography } from '@material-ui/core';
 import { AppState } from '../../../..';
 import { useSelector, useDispatch } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
@@ -39,11 +39,8 @@ export interface CardProps
     cardImage?: string,
     altImage?: string,
     style?: React.CSSProperties,
-    buttonText?: string,
-    buttonURL?: string,
     width?: string,
     height?: string,
-    button?: boolean,
     carousel?: boolean
 }
 
@@ -72,7 +69,7 @@ const Animation = posed.div({
     }
 });
 
-const Project: FunctionComponent<ProjectProps> = (props: ProjectProps): JSX.Element =>
+export const Project: FunctionComponent<ProjectProps> = (props: ProjectProps): JSX.Element =>
 {
     const isPortrait = useMediaQuery({ orientation: 'portrait' });
     const isModalActive = useSelector((state: AppState) => state.app.isModalActive);
@@ -83,14 +80,6 @@ const Project: FunctionComponent<ProjectProps> = (props: ProjectProps): JSX.Elem
         dispatch(homeActions.setProjectsIndex(props.projects.indexOf(props.currentProj)));
         dispatch(appActions.toggleModalActive(!isModalActive));
     }
-
-    const button: JSX.Element = (
-        <CardActions style={{paddingLeft: 25}}>
-            <Button size="small" variant="contained" color="primary" href={props.currentProj.buttonURL}>
-                {props.currentProj.buttonText}
-            </Button>
-        </CardActions>
-    );
 
     const cardSize: { width: string, height: string } = isPortrait ? {
         width: `${parseInt(props.currentProj.width!) / 2}px`,
@@ -113,8 +102,6 @@ const Project: FunctionComponent<ProjectProps> = (props: ProjectProps): JSX.Elem
                     height: parseInt(cardSize.height) / 3 }}>
                         {props.currentProj.title}
                     </Typography>
-                    {/* --- Optional Button --- */}
-                    {props.currentProj.button !== undefined ? button : null}
                 </CardActionArea>
             </Card>
         </Animation>

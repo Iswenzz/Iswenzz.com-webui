@@ -25,9 +25,11 @@ describe('[Component] <ViewPager>', () =>
     it('Scroll to item', () => {
         wrapper.find(DotButton).first().simulate("click");
     });
+
     it('Next item', () => {
         wrapper.find(NextButton).simulate("click");
     });
+    
     it('Prev item', () => {
         wrapper.find(NextButton).simulate("click");
         wrapper.find(PrevButton).simulate("click");

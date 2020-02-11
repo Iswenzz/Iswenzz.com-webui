@@ -13,7 +13,7 @@ const charPoses = {
     }
 };
 
-class Intro extends Component
+export class Intro extends Component
 {
     render(): JSX.Element
     {

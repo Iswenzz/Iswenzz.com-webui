@@ -11,7 +11,7 @@ import { bindActionCreators } from 'redux';
 import { CssBaseline } from '@material-ui/core';
 import { detect } from 'detect-browser';
 
-const App: FunctionComponent<ReduxAppProps> = (props: ReduxAppProps): JSX.Element =>
+export const App: FunctionComponent<ReduxAppProps> = (props: ReduxAppProps): JSX.Element =>
 {
 	let theme: Theme = responsiveFontSizes(createMuiTheme(
 	{

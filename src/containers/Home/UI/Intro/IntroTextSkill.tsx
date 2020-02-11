@@ -1,4 +1,4 @@
-import React, { memo, Component, FunctionComponent } from 'react';
+import React, { memo, FunctionComponent } from 'react';
 import TrailText from '../../../../components/TrailText/TrailText';
 import { Grid, Container } from '@material-ui/core';
 import VisibilitySensor from "react-visibility-sensor";

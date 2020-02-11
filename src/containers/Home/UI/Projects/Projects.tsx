@@ -34,7 +34,7 @@ const Animation = posed.div({
 	}
 });
 
-const Projects: FunctionComponent = (): JSX.Element =>
+export const Projects: FunctionComponent = (): JSX.Element =>
 {
     const isPortrait = useMediaQuery({ orientation: 'portrait' });
     const isTabletOrMobileDevice = useMediaQuery({ query: '(max-device-width: 1224px)' });

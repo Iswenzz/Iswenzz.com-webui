@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AppState } from '../../..';
 import { Flare, Brightness3 } from '@material-ui/icons';
 
-const NavBar: FunctionComponent = (): JSX.Element =>
+export const NavBar: FunctionComponent = (): JSX.Element =>
 {
 	const dispatch = useDispatch();
 	const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);

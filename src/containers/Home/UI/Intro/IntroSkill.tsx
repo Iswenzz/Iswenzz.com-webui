@@ -8,7 +8,7 @@ import { Parallax } from 'react-parallax';
 import { useSelector } from 'react-redux';
 import { AppState } from '../../../..';
 
-const IntroSkill: FunctionComponent = (): JSX.Element =>
+export const IntroSkill: FunctionComponent = (): JSX.Element =>
 {
     const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
 

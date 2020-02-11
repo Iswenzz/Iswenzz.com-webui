@@ -13,8 +13,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { useMediaQuery } from 'react-responsive';
 import '../../../../Text.scss';
 import './ProjectPopup.scss';
+import uuid from 'uuid';
 
-const ProjectPopup: FunctionComponent = (): JSX.Element =>
+export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 {
 	const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
 	const projects = useSelector((state: AppState) => state.home.projects);
@@ -70,13 +71,13 @@ const ProjectPopup: FunctionComponent = (): JSX.Element =>
 		);
 		
 		return (
-			<div>
+			<div key={uuid.v4()}>
 				{/* Modal Navbar */}
 				<DialogTitle style={{margin: 0, padding: 0}}>
 					<Grid className="project-title" container direction="row" justify="space-between" alignItems="center">
 						<div className='project-icons'>
 							{project.renderIcons!.map(icon => (
-								<Tooltip arrow disableFocusListener disableTouchListener title={icon.name}>
+								<Tooltip key={uuid.v4()} arrow disableFocusListener disableTouchListener title={icon.name}>
 									<img onDragStart={(e) => e.preventDefault()} 
 									style={{ margin: '0 4px 0 4px' }} width={isPortrait ? '32px' : '64px'} 
 									height={isPortrait ? '32px' : '64px'}  alt='lang' src={icon.src} />
@@ -85,7 +86,7 @@ const ProjectPopup: FunctionComponent = (): JSX.Element =>
 						</div>
 						<div>
 							{project.isOpenSource ? openSource : privateSource}
-							<Fab onClick={onClickClose} style={{ margin: '0 8px 0 8px' }} 
+							<Fab id="fab_modal_close" onClick={onClickClose} style={{ margin: '0 8px 0 8px' }} 
 							color="secondary">
 								<Close color="primary" />
 							</Fab>

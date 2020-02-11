@@ -6,6 +6,7 @@ import ReactPlayer from 'react-player';
 import { useMediaQuery } from "react-responsive";
 import { useSelector } from "react-redux";
 import { AppState } from "../../../..";
+import uuid from "uuid";
 import '../../../../Text.scss';
 import './Level.scss';
 
@@ -44,7 +45,7 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
-const Level: FunctionComponent<LevelProps> = (props: LevelProps): JSX.Element =>
+export const Level: FunctionComponent<LevelProps> = (props: LevelProps): JSX.Element =>
 {
 	const isPortrait = useMediaQuery({ orientation: 'portrait' });
 	const [isFlipped, setFlipped] = useState<boolean>(true);
@@ -59,13 +60,13 @@ const Level: FunctionComponent<LevelProps> = (props: LevelProps): JSX.Element =>
 	const desktopCard: JSX.Element = (
 		<Container className={isDarkMode ? classes.darkCard : classes.whiteCard}>
 			<GridList className="level-grid-list" cellHeight='auto' spacing={1}>
-				<GridListTile key={Math.random()} cols={2} rows={2} style={{height: '150px'}}>
+				<GridListTile key={uuid.v4()} cols={2} rows={2} style={{height: '150px'}}>
 					<h1 className="calli-title" style={{ color: 'silver' }}>{props.currentLevel.name}</h1>
 				</GridListTile>
-				<GridListTile key={Math.random()} cols={1} rows={1} style={{width: '70%', height: '500px'}}>
+				<GridListTile key={uuid.v4()} cols={1} rows={1} style={{width: '70%', height: '500px'}}>
 					{!isFlipped ? <ReactPlayer width='100%' height='100%' url={props.currentLevel.videoUrl} /> : null}
 				</GridListTile>
-				<GridListTile key={Math.random()} cols={1} rows={1} style={{width: '30%'}}>
+				<GridListTile key={uuid.v4()} cols={1} rows={1} style={{width: '30%'}}>
 					<Grid container direction="row" justify="center" alignItems="center">
 						<Container>
 							<Typography className="ubuntu-text" align="left" color="textPrimary" paragraph component="h3">
@@ -101,7 +102,7 @@ const Level: FunctionComponent<LevelProps> = (props: LevelProps): JSX.Element =>
 					</h4>
 					<Grid container direction="column" justify="space-evenly" alignItems="flex-end">
 						{props.currentLevel.renderIcons?.map(icon => (
-							<Tooltip arrow disableFocusListener disableTouchListener title={icon.name}>
+							<Tooltip key={uuid.v4()} arrow disableFocusListener disableTouchListener title={icon.name}>
 								<img onDragStart={(e) => e.preventDefault()} style={{ margin: '0 4px 0 4px' }} 
 								width={isPortrait ? '32' : '64'} height={isPortrait ? '32' : '64'} 
 								alt='lang' src={icon.src} />

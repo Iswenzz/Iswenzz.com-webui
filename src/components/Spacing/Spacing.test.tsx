@@ -4,13 +4,8 @@ import { Spacing } from './Spacing';
 
 describe('[Component] <Spacing>', () => 
 {
-	beforeEach(() => 
-	{
-		shallow(<Spacing />);
-	});
-
 	it('Testing component', () => 
 	{
-        
+        shallow(<Spacing />);
 	});
 });
