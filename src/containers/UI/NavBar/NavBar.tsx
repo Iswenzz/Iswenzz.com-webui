@@ -8,7 +8,7 @@ import { Link } from "react-scroll";
 import { useMediaQuery } from 'react-responsive';
 import { Fab } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
-import { AppState } from '../../..';
+import { AppState } from '../../../application';
 import { Flare, Brightness3 } from '@material-ui/icons';
 
 export const NavBar: FunctionComponent = (): JSX.Element =>

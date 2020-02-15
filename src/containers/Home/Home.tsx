@@ -1,6 +1,6 @@
 import * as actions from './store/actions';
 import React, { FunctionComponent } from 'react';
-import { AppState } from "../..";
+import { AppState } from "../../application";
 import { ThunkDispatch } from "redux-thunk";
 import { bindActionCreators } from "redux";
 import { connect, useSelector } from 'react-redux';

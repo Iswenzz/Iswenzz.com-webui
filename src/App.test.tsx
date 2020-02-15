@@ -1,33 +1,18 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { App } from './App';
-import configureMockStore from 'redux-mock-store';
 import * as redux from 'react-redux';
-import thunk from 'redux-thunk';
 import { Context } from 'react-responsive';
 import { initialState as appInitialState } from './store/reducer';
-import { initialState as homeInitialState } from './containers/Home/store/reducer';
-
-const rootStore = {
-    app: appInitialState,
-    home: homeInitialState
-}
-
-let mockStore = configureMockStore([thunk])(rootStore);
-function updateMockStore(props: Object)
-{
-    mockStore = configureMockStore([thunk])({
-        ...rootStore,
-        ...props
-    });
-}
+import { store } from './application';
+import * as actions from './store/actions';
 
 describe('[Root] <App>', () => 
 {
 	it('Starting application', () => 
 	{
         mount((
-            <redux.Provider store={mockStore}>
+            <redux.Provider store={store}>
                 <Context.Provider value={{}}>
                     <App {...appInitialState} />
                 </Context.Provider>
@@ -38,7 +23,7 @@ describe('[Root] <App>', () =>
     it('Portrait mode', () =>
     {
         mount((
-            <redux.Provider store={mockStore}>
+            <redux.Provider store={store}>
                 <Context.Provider value={{orientation: 'portrait'}}>
                     <App {...appInitialState} />
                 </Context.Provider>
@@ -48,14 +33,9 @@ describe('[Root] <App>', () =>
 
     it('Dark mode', () =>
     {
-        updateMockStore({
-            app: {
-                ...appInitialState,
-                isDarkMode: true
-            }
-        });
+        store.dispatch<any>(actions.toggleDarkMode(true));
         mount((
-            <redux.Provider store={mockStore}>
+            <redux.Provider store={store}>
                 <Context.Provider value={{}}>
                     <App {...appInitialState} />
                 </Context.Provider>

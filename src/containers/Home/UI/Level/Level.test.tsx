@@ -1,17 +1,10 @@
 import React from 'react';
 import { mount, ReactWrapper } from 'enzyme';
 import { Level, LevelProps, LevelProject } from './Level';
-import configureMockStore from 'redux-mock-store';
 import * as redux from 'react-redux';
-import thunk from 'redux-thunk';
 import { FlipCard } from '../../../../components/FlipCard/FlipCard';
+import { store } from '../../../../application';
 
-const initialStore = {
-    app: {
-        isDarkMode: false
-    }
-}
-let mockStore = configureMockStore([thunk])(initialStore);
 const levels: LevelProject[] = require('../Levels/Levels.json');
 
 describe('[Container] <Level>', () => 
@@ -21,7 +14,7 @@ describe('[Container] <Level>', () =>
 	beforeEach(() => 
 	{ 
 		wrapper = mount((
-            <redux.Provider store={mockStore}>
+            <redux.Provider store={store}>
                 <Level currentLevel={levels[0]} levels={levels}/>
             </redux.Provider>
         ));

@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import * as actions from './store/actions';
 import { AppActions } from './store/types';
-import { AppState } from './index';
+import { AppState } from './application';
 import { Theme, createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/core/styles';
 import Home from './containers/Home/Home';

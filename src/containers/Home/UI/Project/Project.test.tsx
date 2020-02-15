@@ -1,10 +1,9 @@
 import React from 'react';
 import { mount, ReactWrapper } from 'enzyme';
 import { Project, LinkedProjectProps, ProjectProps } from './Project';
-import configureMockStore from 'redux-mock-store';
 import * as redux from 'react-redux';
-import thunk from 'redux-thunk';
 import { Card } from '@material-ui/core';
+import { store } from '../../../../application';
 
 const project: LinkedProjectProps = {
     title: "AION Chat",
@@ -21,13 +20,6 @@ const project: LinkedProjectProps = {
     ]
 }
 
-const initialStore = {
-    app: {
-        isModalActive: false
-    }
-}
-let mockStore = configureMockStore([thunk])(initialStore);
-
 describe('[Container] <Project>', () => 
 {
     let wrapper: ReactWrapper<ProjectProps>;
@@ -35,7 +27,7 @@ describe('[Container] <Project>', () =>
 	beforeEach(() => 
 	{
 		wrapper = mount((
-            <redux.Provider store={mockStore}>
+            <redux.Provider store={store}>
                 <Project currentProj={project} projects={[project]}/>
             </redux.Provider>
         ));

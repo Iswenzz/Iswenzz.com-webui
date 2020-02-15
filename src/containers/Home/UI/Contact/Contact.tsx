@@ -8,7 +8,7 @@ import VisibilitySensor from "react-visibility-sensor";
 import { useMediaQuery } from 'react-responsive';
 import { Element } from 'react-scroll';
 import { useSelector } from 'react-redux';
-import { AppState } from '../../../..';
+import { AppState } from '../../../../application';
 import '../../../../Text.scss';
 
 const useStyles = makeStyles(theme => ({

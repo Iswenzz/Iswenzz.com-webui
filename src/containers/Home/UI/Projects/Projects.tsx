@@ -5,7 +5,7 @@ import Spacing from '../../../../components/Spacing/Spacing';
 import Project, { LinkedProjectProps } from '../Project/Project';
 import StonecutterGrid from '../../../../components/StonecutterGrid/StonecutterGrid';
 import { useSelector } from 'react-redux';
-import { AppState } from '../../../..';
+import { AppState } from '../../../../application';
 import { enterExitStyle } from 'react-stonecutter';
 import { useMediaQuery } from 'react-responsive';
 import posed, { PoseGroup } from 'react-pose';

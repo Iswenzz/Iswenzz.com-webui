@@ -9,7 +9,7 @@ import VisibilitySensor from "react-visibility-sensor";
 import { Element } from 'react-scroll';
 import { useMediaQuery } from 'react-responsive';
 import { useSelector } from 'react-redux';
-import { AppState } from '../../../..';
+import { AppState } from '../../../../application';
 import '../../../../Text.scss';
 
 const Animation = posed.div({

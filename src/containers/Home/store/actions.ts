@@ -1,5 +1,5 @@
 import { HomeActionEnum, HomeActions } from './types';
-import { AppState } from '../../../index';
+import { AppState } from '../../../application';
 import { Dispatch } from 'react';
 import { LinkedProjectProps } from '../UI/Project/Project';
 

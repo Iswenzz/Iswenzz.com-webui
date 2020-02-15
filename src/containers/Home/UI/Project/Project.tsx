@@ -2,7 +2,7 @@ import * as homeActions from '../../store/actions';
 import * as appActions from '../../../../store/actions';
 import React, { FunctionComponent } from 'react';
 import { Card, CardActionArea, Typography } from '@material-ui/core';
-import { AppState } from '../../../..';
+import { AppState } from '../../../../application';
 import { useSelector, useDispatch } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
 import '../../../../Text.scss';

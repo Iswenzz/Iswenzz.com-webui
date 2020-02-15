@@ -1,29 +1,8 @@
 import 'react-app-polyfill/ie11';
 import 'react-app-polyfill/stable';
 import * as serviceWorker from './serviceWorker';
-import React from 'react';
 import ReactDOM from 'react-dom';
-import thunk from 'redux-thunk';
-import { Provider } from 'react-redux';
-import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
+import application from './application';
 
-import App from './App';
-import appReducer from './store/reducer';
-import homeReducer from './containers/Home/store/reducer';
-const composeEnhancers: any = process.env.NODE_ENV === 'development' 
-    ? (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : compose;
-
-const rootReducer = combineReducers({
-    app: appReducer,
-    home: homeReducer
-});
-export type AppState = ReturnType<typeof rootReducer>;
-export const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
-
-const app: JSX.Element = (
-    <Provider store={store}>
-        <App />
-    </Provider>
-);
-ReactDOM.render(app, document.getElementById('root'));
+ReactDOM.render(application, document.getElementById('root'));
 serviceWorker.unregister();

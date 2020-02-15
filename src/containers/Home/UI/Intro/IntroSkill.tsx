@@ -6,7 +6,7 @@ import RadialGradient from '../../../../components/RadialGradient/RadialGradient
 import { Grid } from '@material-ui/core';
 import { Parallax } from 'react-parallax';
 import { useSelector } from 'react-redux';
-import { AppState } from '../../../..';
+import { AppState } from '../../../../application';
 
 export const IntroSkill: FunctionComponent = (): JSX.Element =>
 {

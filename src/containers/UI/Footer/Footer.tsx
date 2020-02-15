@@ -8,7 +8,7 @@ import { Parallax } from 'react-parallax';
 import Spacing from '../../../components/Spacing/Spacing';
 import { Tooltip, Typography } from '@material-ui/core';
 import { useSelector } from 'react-redux';
-import { AppState } from '../../..';
+import { AppState } from '../../../application';
 import '../../../Text.scss';
 
 const Footer: FunctionComponent = (): JSX.Element =>

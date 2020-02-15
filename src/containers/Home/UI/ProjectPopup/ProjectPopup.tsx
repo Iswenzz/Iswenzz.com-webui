@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faOsi } from '@fortawesome/free-brands-svg-icons';
 import { LinkedProjectProps } from "../Project/Project";
 import ViewPager, { ViewPagerConfig } from '../../../../components/ViewPager/ViewPager';
-import { AppState } from "../../../..";
+import { AppState } from "../../../../application";
 import marked from "marked";
 import useWindowSize from '../../../../utility/useWindowSize';
 import { useSelector, useDispatch } from "react-redux";

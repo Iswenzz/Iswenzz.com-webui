@@ -5,7 +5,7 @@ import FlipCard from '../../../../components/FlipCard/FlipCard';
 import ReactPlayer from 'react-player';
 import { useMediaQuery } from "react-responsive";
 import { useSelector } from "react-redux";
-import { AppState } from "../../../..";
+import { AppState } from "../../../../application";
 import uuid from "uuid";
 import '../../../../Text.scss';
 import './Level.scss';

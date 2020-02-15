@@ -1,22 +1,9 @@
 import React from 'react';
 import { mount, ReactWrapper } from 'enzyme';
 import { ProjectPopup } from './ProjectPopup';
-import configureMockStore from 'redux-mock-store';
 import * as redux from 'react-redux';
-import thunk from 'redux-thunk';
 import { Modal } from '@material-ui/core';
-
-const initialStore = {
-    app: {
-        isModalActive: false,
-        isDarkMode: false
-    },
-    home: {
-        projectsStartIndex: 0,
-        projects: require("../Projects/Projects.json")
-    }
-}
-let mockStore = configureMockStore([thunk])(initialStore);
+import { store } from '../../../../application';
 
 describe('[Container] <ProjectPopup>', () => 
 {
@@ -25,7 +12,7 @@ describe('[Container] <ProjectPopup>', () =>
 	beforeEach(() => 
 	{
 		wrapper = mount((
-            <redux.Provider store={mockStore}>
+            <redux.Provider store={store}>
                 <ProjectPopup />
             </redux.Provider>
         ));
