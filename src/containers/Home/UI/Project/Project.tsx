@@ -82,8 +82,8 @@ export const Project: FunctionComponent<ProjectProps> = (props: ProjectProps): J
     }
 
     const cardSize: { width: string, height: string } = isPortrait ? {
-        width: `${parseInt(props.currentProj.width!) / 2}px`,
-        height: `${parseInt(props.currentProj.height!) / 2}px`
+        width: `${parseInt(props.currentProj.width!, 10) / 2}px`,
+        height: `${parseInt(props.currentProj.height!, 10) / 2}px`
     } : {
         width: props.currentProj.width!,
         height: props.currentProj.height!
@@ -99,7 +99,7 @@ export const Project: FunctionComponent<ProjectProps> = (props: ProjectProps): J
                 <CardActionArea style={{ height: '100%', width: '100%' }}>
                     <Typography variant="subtitle1" align="center" 
                     paragraph component="p" style={{ fontSize: isPortrait ? 14 : 20, 
-                    height: parseInt(cardSize.height) / 3 }}>
+                    height: parseInt(cardSize.height, 10) / 3 }}>
                         {props.currentProj.title}
                     </Typography>
                 </CardActionArea>
