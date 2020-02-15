@@ -98,7 +98,6 @@ interface LinkStateProps
 
 interface LinkDispatchProps 
 {
-    updateProjects: (projects: LinkedProjectProps[]) => void,
     setProjectsIndex: (index: number) => void
 }
 
@@ -112,7 +111,6 @@ const mapStateToProps = (state: AppState, ownProps: any): LinkStateProps =>
 
 const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, HomeActions>, ownProps: any): LinkDispatchProps => 
 ({
-    updateProjects: bindActionCreators(actions.updateProjects, dispatch),
     setProjectsIndex: bindActionCreators(actions.setProjectsIndex, dispatch)
 });
 

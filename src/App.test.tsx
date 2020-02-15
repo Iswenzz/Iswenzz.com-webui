@@ -3,9 +3,7 @@ import { mount } from 'enzyme';
 import { App } from './App';
 import * as redux from 'react-redux';
 import { Context } from 'react-responsive';
-import { initialState as appInitialState } from './store/reducer';
 import { store } from './application';
-import * as actions from './store/actions';
 
 describe('[Root] <App>', () => 
 {
@@ -13,9 +11,7 @@ describe('[Root] <App>', () =>
 	{
         mount((
             <redux.Provider store={store}>
-                <Context.Provider value={{}}>
-                    <App {...appInitialState} />
-                </Context.Provider>
+                <App {...store.getState().app} />
             </redux.Provider>
         ));
     });
@@ -25,7 +21,7 @@ describe('[Root] <App>', () =>
         mount((
             <redux.Provider store={store}>
                 <Context.Provider value={{orientation: 'portrait'}}>
-                    <App {...appInitialState} />
+                    <App {...store.getState().app} />
                 </Context.Provider>
             </redux.Provider>
         ));
@@ -33,12 +29,18 @@ describe('[Root] <App>', () =>
 
     it('Dark mode', () =>
     {
-        store.dispatch<any>(actions.toggleDarkMode(true));
         mount((
             <redux.Provider store={store}>
-                <Context.Provider value={{}}>
-                    <App {...appInitialState} />
-                </Context.Provider>
+                <App {...store.getState().app} isDarkMode={true} />
+            </redux.Provider>
+        ));
+    });
+
+    it('Modal active', () =>
+    {
+        mount((
+            <redux.Provider store={store}>
+                <App {...store.getState().app} isModalActive={true} />
             </redux.Provider>
         ));
     });

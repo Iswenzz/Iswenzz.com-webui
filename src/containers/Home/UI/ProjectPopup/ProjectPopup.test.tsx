@@ -2,7 +2,7 @@ import React from 'react';
 import { mount, ReactWrapper } from 'enzyme';
 import { ProjectPopup } from './ProjectPopup';
 import * as redux from 'react-redux';
-import { Modal } from '@material-ui/core';
+import { Modal, Fab } from '@material-ui/core';
 import { store } from '../../../../application';
 
 describe('[Container] <ProjectPopup>', () => 
@@ -25,6 +25,10 @@ describe('[Container] <ProjectPopup>', () =>
             preventDefault() {}
         }));
         // close modal
-        wrapper.find(Modal).simulate("close");
+        wrapper.find(Fab).forEach(fab => 
+        {
+            if (fab.props().id === "fab_modal_close")
+                fab.simulate("click");
+        });
     });
 });

@@ -182,11 +182,11 @@ export const Contact: FunctionComponent = (): JSX.Element =>
 				<RadialGradient config={config} style={{ paddingTop: '80px', paddingBottom: '120px' }}>
 					{isTabletOrMobileDevice ? form : (
 						<PoseGroup>
-						{isVisible && [
+						{isVisible || process.env.NODE_ENV === "test" ? [
 							<Animation key="contact-anim">
 								{form}
 							</Animation>
-						]}
+						] : []}
 						</PoseGroup>
 					)}
 					<Spacing height={isTabletOrMobileDevice ? '50px' : '600px'} />

@@ -60,7 +60,7 @@ export const Levels: FunctionComponent = (): JSX.Element =>
 				<Element name="level-design-section" />
 				<RadialGradient config={config}>
 					<PoseGroup>
-					{isVisible && [
+					{isVisible || process.env.NODE_ENV === "test" ? [
 						<Animation key="carousel-anim" style={{width: '100%', height: '100%'}}>
 							<EmblaCarousel style={{ padding: '5% 0 5% 0' }} 
 							height={isTabletOrMobileDevice ? '500px' : '700px' } width='100%' 
@@ -70,7 +70,7 @@ export const Levels: FunctionComponent = (): JSX.Element =>
 								))}
 							</EmblaCarousel>
 						</Animation>	
-					]}
+					]: []}
 					</PoseGroup>
 					<Spacing height={isTabletOrMobileDevice ? '800px' : '1000px'} />
 				</RadialGradient>	

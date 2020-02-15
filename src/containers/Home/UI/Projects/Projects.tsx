@@ -81,11 +81,11 @@ export const Projects: FunctionComponent = (): JSX.Element =>
                 paddingBottom: '50px'}}>
                     {isTabletOrMobileDevice ? projectGrid : (
                         <PoseGroup>
-                        {isVisible && [
+                        {isVisible || process.env.NODE_ENV === "test" ? [
                             <Animation key="grid-anim" style={{width: '100%', height: '100%'}}>
                                 {projectGrid}
                             </Animation>
-                        ]}
+                        ] : []}
                         </PoseGroup>
                     )}
                     <Spacing height={isTabletOrMobileDevice ? '1100px' : isPortrait ? '400px' : '800px'} />
