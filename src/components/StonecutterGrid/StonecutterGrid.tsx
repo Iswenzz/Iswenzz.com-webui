@@ -1,5 +1,5 @@
 import React, { FunctionComponent, memo } from 'react';
-import { SpringGrid, enterExitStyle, SpringGridProps, makeResponsive } from 'react-stonecutter';
+import { SpringGrid, enterExitStyle, SpringGridProps, makeResponsive, layout } from 'react-stonecutter';
 
 export interface StonecutterGridProps
 {
@@ -7,6 +7,7 @@ export interface StonecutterGridProps
     animStyle?: typeof enterExitStyle | any,
     children?: JSX.Element[],
     responsive?: boolean 
+    layout?: typeof layout;
 }
 
 export const StonecutterGrid: FunctionComponent<StonecutterGridProps> = (props: StonecutterGridProps): JSX.Element =>
@@ -18,7 +19,8 @@ export const StonecutterGrid: FunctionComponent<StonecutterGridProps> = (props: 
         component={props.config?.component} perspective={props.config?.perspective}
         columns={props.responsive !== undefined && props.responsive ? 5 : props.config?.columns} 
         columnWidth={props.config?.columnWidth} gutterWidth={props.config?.gutterWidth} 
-        gutterHeight={props.config?.gutterHeight} springConfig={props.config?.springConfig}>
+        gutterHeight={props.config?.gutterHeight} springConfig={props.config?.springConfig}
+        layout={props.config?.layout}>
             {props.children}
         </ResponsiveGrid>
     );
