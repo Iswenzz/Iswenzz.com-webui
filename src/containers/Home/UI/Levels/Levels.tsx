@@ -66,13 +66,13 @@ export const Levels: FunctionComponent = (): JSX.Element =>
 							height={isTabletOrMobileDevice ? '500px' : '700px' } width='100%' 
 							delayLength={10000} autoplay={false}>
 								{levels.map((level: LevelProject) => (
-									<Level levels={levels} currentLevel={level} />
+									<Level key={level.name} levels={levels} currentLevel={level} />
 								))}
 							</EmblaCarousel>
 						</Animation>	
 					]: []}
 					</PoseGroup>
-					<Spacing height={isTabletOrMobileDevice ? '800px' : '1000px'} />
+					<Spacing height={isTabletOrMobileDevice ? '800px' : '1100px'} />
 				</RadialGradient>	
 			</Grid>
 		)}
