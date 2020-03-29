@@ -5,8 +5,8 @@ import { Card, CardActionArea, Typography } from '@material-ui/core';
 import { AppState } from '../../../../application';
 import { useSelector, useDispatch } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
-import '../../../../Text.scss';
 import posed from 'react-pose';
+import '../../../../Text.scss';
 
 export interface ProjectRenderProps
 {
@@ -48,8 +48,9 @@ export type LinkedProjectProps = CardProps & ProjectRenderProps & ProjectCarouse
 
 export interface ProjectProps
 {
-    projects: LinkedProjectProps[]
-    currentProj: LinkedProjectProps
+    projects: LinkedProjectProps[],
+    currentProj: LinkedProjectProps,
+    itemHeight?: number
 }
 
 const Animation = posed.div({
@@ -71,7 +72,7 @@ const Animation = posed.div({
 
 export const Project: FunctionComponent<ProjectProps> = (props: ProjectProps): JSX.Element =>
 {
-    const isPortrait = useMediaQuery({ orientation: 'portrait' });
+    const isTabletOrMobileDevice = useMediaQuery({ query: '(max-device-width: 1224px)' });
     const isModalActive = useSelector((state: AppState) => state.app.isModalActive);
     const dispatch = useDispatch();
 
@@ -81,25 +82,24 @@ export const Project: FunctionComponent<ProjectProps> = (props: ProjectProps): J
         dispatch(appActions.toggleModalActive(!isModalActive));
     }
 
-    const cardSize: { width: string, height: string } = isPortrait ? {
-        width: `${parseInt(props.currentProj.width!, 10) / 2}px`,
-        height: `${parseInt(props.currentProj.height!, 10) / 2}px`
+    const cardSize: { width: number, height: number } = isTabletOrMobileDevice ? {
+        width: parseInt(props.currentProj.width!, 10) / 2,
+        height: (props.itemHeight === undefined) ? parseInt(props.currentProj.height!, 10) / 2 : props.itemHeight! / 2,
     } : {
-        width: props.currentProj.width!,
-        height: props.currentProj.height!
+        width: parseInt(props.currentProj.width!, 10),
+        height: (props.itemHeight === undefined) ? parseInt(props.currentProj.height!, 10) : props.itemHeight!
     }
 
     return (
         <Animation>
             <Card onClick={onToggle} 
-            style={{ backgroundImage: `url(${props.currentProj.cardImage})`, 
-            backgroundSize: `${cardSize.width} ${cardSize.height}`,
-            width: cardSize.width, height: cardSize.height, borderRadius: '8px', 
-            boxShadow: '0 3px 5px 2px rgba(60, 60, 60, .3)', borderColor: 'dimgray'}}>
+            style={{ backgroundImage: `url(${props.currentProj.cardImage})`, backgroundSize: 'cover',
+            width: cardSize.width, height: cardSize.height, 
+            borderRadius: '2px', borderColor: 'rgba(40, 40, 40, 1)', borderWidth: '2px', borderStyle: 'dashed',
+            boxShadow: '0 3px 5px 2px rgba(60, 60, 60, .3)'}}>
                 <CardActionArea style={{ height: '100%', width: '100%' }}>
-                    <Typography variant="subtitle1" align="center" 
-                    paragraph component="p" style={{ fontSize: isPortrait ? 14 : 20, 
-                    height: parseInt(cardSize.height, 10) / 3 }}>
+                    <Typography variant="caption" align="center" 
+                    paragraph component="p" style={{ fontSize: isTabletOrMobileDevice ? 14 : 20, height: cardSize.height / 3 }}>
                         {props.currentProj.title}
                     </Typography>
                 </CardActionArea>

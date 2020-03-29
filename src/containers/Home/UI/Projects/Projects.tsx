@@ -6,29 +6,26 @@ import Project, { LinkedProjectProps } from '../Project/Project';
 import StonecutterGrid from '../../../../components/StonecutterGrid/StonecutterGrid';
 import { useSelector } from 'react-redux';
 import { AppState } from '../../../../application';
-import { enterExitStyle } from 'react-stonecutter';
+import { enterExitStyle, layout } from 'react-stonecutter';
 import { useMediaQuery } from 'react-responsive';
-import posed, { PoseGroup } from 'react-pose';
-import VisibilitySensor from "react-visibility-sensor";
 import { Element } from 'react-scroll';
+import posed, { PoseGroup } from 'react-pose';
+import { random } from 'lodash';
+import VisibilitySensor from "react-visibility-sensor";
 import '../../../../Text.scss';
 
 const Animation = posed.div({
-	enter: { 
-		y: '0%', 
+	enter: {  
 		opacity: 1,
-		scale: 1,
 		transition: { 
-			duration: 1000,
+			duration: 2000,
 			ease: 'easeOut'
 		}
 	},
 	exit: {
-		y: '-100%',
-		opacity: 0,
-		scale: 2.6,
+        opacity: 0,
 		transition: { 
-			duration: 1000,
+			duration: 2000,
 			ease: 'easeIn'
 		}
 	}
@@ -55,19 +52,25 @@ export const Projects: FunctionComponent = (): JSX.Element =>
 			{ color: '#f4f4f4' }
 		]
     }
-    
+
     const projectGrid: JSX.Element = (
         <Grid container direction="row" alignItems="center" justify="center">
             <StonecutterGrid responsive animStyle={enterExitStyle.skew} 
             config={{ component: 'div', columns: 5,
-            perspective: 600, columnWidth: isPortrait ? 85 : 200, gutterWidth: 30, 
-            gutterHeight: isPortrait ? -70 : 0,
+            perspective: 600, columnWidth: isTabletOrMobileDevice ? 85 : 200, gutterWidth: 30, 
+            gutterHeight: isTabletOrMobileDevice ? -70 : 0, 
+            layout: isTabletOrMobileDevice ? layout.simple : layout.pinterest,
             springConfig: { stiffness: 100, damping: 12 } }}>
-                {projects!.map((project: LinkedProjectProps) => (
-                    <li key={project.title}> 
-                        <Project projects={projects!} currentProj={project} />
+            {projects!.map((project: LinkedProjectProps) => {
+                let r = isTabletOrMobileDevice ? undefined : random(100, 220);
+                return (
+                    //@ts-ignore - for itemHeight custom attribute
+                    <li key={project.title} itemHeight={r}> 
+                        <Project projects={projects!} currentProj={project} 
+                        itemHeight={r} /> 
                     </li>
-                ))}
+                )
+            })}
             </StonecutterGrid>
         </Grid>
     );
@@ -77,10 +80,11 @@ export const Projects: FunctionComponent = (): JSX.Element =>
         {({ isVisible }) => (
             <Grid container direction="column" justify="center" alignItems="center">
                 <Element name="projects-section" />
-                <RadialGradient config={config} style={{listStyleType: 'none', paddingTop: isPortrait ? '90px' : '50px', 
+                <RadialGradient config={config} style={{listStyleType: 'none', 
+                paddingTop: isTabletOrMobileDevice ? '90px' : '50px', 
                 paddingBottom: '50px'}}>
-                    {isTabletOrMobileDevice ? projectGrid : (
-                        <PoseGroup>
+                   {isTabletOrMobileDevice ? projectGrid : (
+                        <PoseGroup> 
                         {isVisible || process.env.NODE_ENV === "test" ? [
                             <Animation key="grid-anim" style={{width: '100%', height: '100%'}}>
                                 {projectGrid}
@@ -88,7 +92,7 @@ export const Projects: FunctionComponent = (): JSX.Element =>
                         ] : []}
                         </PoseGroup>
                     )}
-                    <Spacing height={isTabletOrMobileDevice ? '1100px' : isPortrait ? '400px' : '800px'} />
+                    <Spacing height={isTabletOrMobileDevice || isPortrait ? '1500px' : '1000px'} />
                 </RadialGradient>     
             </Grid>
         )}
