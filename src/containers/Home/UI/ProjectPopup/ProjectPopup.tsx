@@ -1,5 +1,5 @@
 import * as actions from '../../../../store/actions';
-import React, { FunctionComponent, useEffect, memo} from "react";
+import React, { FunctionComponent, memo} from "react";
 import { DialogContent, Fab, Grid, Modal, Fade, Backdrop, Tooltip, DialogTitle } from "@material-ui/core";
 import { Close, Lock } from '@material-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -7,13 +7,17 @@ import { faOsi } from '@fortawesome/free-brands-svg-icons';
 import { LinkedProjectProps } from "../Project/Project";
 import ViewPager, { ViewPagerConfig } from '../../../../components/ViewPager/ViewPager';
 import { AppState } from "../../../../application";
-import marked from "marked";
 import useWindowSize from '../../../../utility/useWindowSize';
 import { useSelector, useDispatch } from "react-redux";
 import { useMediaQuery } from 'react-responsive';
+import * as MarkdownIt from 'markdown-it';
+import uuid from 'uuid';
+import VS2015 from '../../../UI/Highlight/VS1025';
+import AtomOneLight from '../../../UI/Highlight/AtomOneLight';
 import '../../../../Text.scss';
 import './ProjectPopup.scss';
-import uuid from 'uuid';
+
+const hljs = require('highlight.js');
 
 export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 {
@@ -30,25 +34,50 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
     {
         dispatch(actions.toggleModalActive(false));
 	}
-	
-	useEffect(() => 
+
+	const renderMds = (): void =>
 	{
 		projects.map((project: LinkedProjectProps): Promise<void> =>
 			fetch(project.renderUrl!).then(response => response.text()).then(text => 
 			{
-				if (text.includes('404: Not Found'))
+				let div = document.getElementById(`popupProjectMd-${project.title}`);
+				if (!div?.childElementCount)
+				{
+					if (text.includes('404: Not Found'))
 					text = "Work in progress...";
 
-				// render md file in the right div
-				let article = document.createElement("article");
-				article.innerHTML = marked(text);
-				let section = document.createElement("section");
-				section.appendChild(article);
-				let div = document.getElementById(`popupProjectMd-${project.title}`);
-				div?.appendChild(section);
+					// full options list (defaults)
+					let md: MarkdownIt = MarkdownIt.default({
+						html:         true,
+						xhtmlOut:     false,
+						breaks:       false,
+						langPrefix:   'language-',
+						linkify:      true,
+						typographer:  false,
+						highlight: function (str: string, lang: string)
+						{
+							if (lang && hljs.getLanguage(lang)) 
+							{
+								try {
+									return '<pre class="hljs"><code>'
+										+ hljs.highlight(lang, str, true).value 
+										+ '</code></pre>';
+								} catch (__) { }
+							}
+							return '<pre class="hljs"><code>' + md.utils.escapeHtml(str) + '</code></pre>';
+						}
+					});
+
+					// render md file in the right div
+					let article = document.createElement("article");
+					article.innerHTML = md.render(text);
+					let section = document.createElement("section");
+					section.appendChild(article);
+					div?.appendChild(section);
+				}
 			})
 		);
-	}, [projects]);
+	}
 
 	const renderProject = (project: LinkedProjectProps, i: number): JSX.Element =>
 	{
@@ -122,9 +151,20 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 		}
 	}
 
+	const getViewPager = (): JSX.Element =>
+	{
+		renderMds();
+		return (
+			<ViewPager bgcolor={isDarkMode ? '#202326' : '#f4f4f4'} 
+			startIndex={projectsStartIndex} config={{...getConfig()}}
+			items={projects?.map(
+			(proj: LinkedProjectProps, i: number): JSX.Element => renderProject(proj, i))} />
+		);
+	}
+
 	return (
-		<Modal aria-labelledby="project-modal" aria-describedby="viewpager-project" open={isModalActive} 
-		keepMounted onClose={onClickClose} closeAfterTransition 
+		<Modal aria-labelledby="project-modal" aria-describedby="viewpager-project" 
+		open={isModalActive} keepMounted onClose={onClickClose} closeAfterTransition 
 		BackdropComponent={Backdrop} 
 		BackdropProps={{ timeout: 500 }}>
 			<Fade in={isModalActive}>
@@ -134,10 +174,7 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 						<img onDragStart={(e) => e.preventDefault()} style={{margin: '10 10 10 10'}} alt='drag'
 						src={require('../../../../assets/images/misc/icons8-hand-drag-64.png')} />
 					</Tooltip>
-					<ViewPager bgcolor={isDarkMode ? '#202326' : '#f4f4f4'} 
-					startIndex={projectsStartIndex} config={{...getConfig()}}
-					items={projects?.map(
-					(proj: LinkedProjectProps, i: number): JSX.Element => renderProject(proj, i))} />
+					{isDarkMode ? <VS2015>{getViewPager()}</VS2015> : <AtomOneLight>{getViewPager()}</AtomOneLight>}
 				</>
 			</Fade>
 		</Modal>
