@@ -27,11 +27,12 @@ export const NavBar: FunctionComponent = (): JSX.Element =>
 		<AppBar id="Navbar" position="absolute" style={{ background: 'transparent' }}>
 			<Toolbar variant="dense">
 				<Grid container direction="row" justify="space-around" alignItems="center">
-					<Link to="projects-section" smooth>
+					<Link to="projects-section" smooth
+					offset={isTabletOrMobileDevice ? 200 : 100}>
 						<Button size='large' color="inherit">Projects</Button>
 					</Link>
 					<Link to="level-design-section" smooth 
-					offset={isTabletOrMobileDevice ? 0 : 70}>
+					offset={isTabletOrMobileDevice ? 30 : 125}>
 						<Button size='large' color="inherit">Level Design</Button>
 					</Link>
 					<Link to="contact-section" smooth
