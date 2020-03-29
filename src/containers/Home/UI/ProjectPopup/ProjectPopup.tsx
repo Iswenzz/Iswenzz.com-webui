@@ -1,5 +1,5 @@
 import * as actions from '../../../../store/actions';
-import React, { FunctionComponent, memo} from "react";
+import React, { FunctionComponent, memo, useState} from "react";
 import { DialogContent, Fab, Grid, Modal, Fade, Backdrop, Tooltip, DialogTitle } from "@material-ui/core";
 import { Close, Lock } from '@material-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -19,11 +19,23 @@ import './ProjectPopup.scss';
 
 const hljs = require('highlight.js');
 
+export interface ProjectPopupState
+{
+	projectsLength: number,
+	projects: JSX.Element[] | null,
+	isDarkMode: boolean,
+}
+
 export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 {
 	const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
 	const projects = useSelector((state: AppState) => state.home.projects);
 	const isPortrait = useMediaQuery({ orientation: 'portrait' });
+	const [renderedProj, setRenderedProject] = useState<ProjectPopupState>({
+		projectsLength: 0,
+		projects: null,
+		isDarkMode: isDarkMode
+	});
 	const [width, height] = useWindowSize();
 
 	const isModalActive = useSelector((state: AppState) => state.app.isModalActive);
@@ -46,7 +58,7 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 					if (text.includes('404: Not Found'))
 					text = "Work in progress...";
 
-					// full options list (defaults)
+					// convert markdown to html
 					let md: MarkdownIt = MarkdownIt.default({
 						html:         true,
 						xhtmlOut:     false,
@@ -79,6 +91,11 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 		);
 	}
 
+	/**
+	 * Render a single project JSX.Element.
+	 * @param project - Project to render.
+	 * @param i - Project index.
+	 */
 	const renderProject = (project: LinkedProjectProps, i: number): JSX.Element =>
 	{
 		const openSource: JSX.Element = (
@@ -133,6 +150,9 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 		);
 	}
 
+	/**
+	 * Set viewpager resolution / position.
+	 */
 	const getConfig = (): ViewPagerConfig => 
 	{
 		const responsiveRes = {
@@ -151,14 +171,36 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 		}
 	}
 
+	/**
+	 * Rerender the projects when projects/isDarkMode state changes.
+	 */
+	const shouldRenderProjects = (): void =>
+	{
+		if (projects.length !== renderedProj.projectsLength
+			|| isDarkMode !== renderedProj.isDarkMode)
+		{
+			let p: JSX.Element[] = projects?.map(
+				(proj: LinkedProjectProps, i: number): JSX.Element => renderProject(proj, i));
+			setRenderedProject({
+				projectsLength: p.length,
+				projects: p,
+				isDarkMode: isDarkMode
+			});
+		}
+	}
+
+	/**
+	 * Get the view pager component when modal is open, 
+	 * check if projects need to be rerendered and request mds.
+	 */
 	const getViewPager = (): JSX.Element =>
 	{
 		renderMds();
+		shouldRenderProjects();
 		return (
 			<ViewPager bgcolor={isDarkMode ? '#202326' : '#f4f4f4'} 
 			startIndex={projectsStartIndex} config={{...getConfig()}}
-			items={projects?.map(
-			(proj: LinkedProjectProps, i: number): JSX.Element => renderProject(proj, i))} />
+			items={renderedProj.projects!} />
 		);
 	}
 
@@ -174,7 +216,9 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 						<img onDragStart={(e) => e.preventDefault()} style={{margin: '10 10 10 10'}} alt='drag'
 						src={require('../../../../assets/images/misc/icons8-hand-drag-64.png')} />
 					</Tooltip>
-					{isDarkMode ? <VS2015>{getViewPager()}</VS2015> : <AtomOneLight>{getViewPager()}</AtomOneLight>}
+					{isModalActive ? 
+						isDarkMode ? <VS2015>{getViewPager()}</VS2015> : <AtomOneLight>{getViewPager()}</AtomOneLight>
+						: null}
 				</>
 			</Fade>
 		</Modal>
