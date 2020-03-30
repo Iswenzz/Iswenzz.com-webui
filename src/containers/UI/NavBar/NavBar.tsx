@@ -147,8 +147,7 @@ export const NavBar: FunctionComponent<NavBarProps> = (props: NavBarProps): JSX.
 							Iswenzz
 						</Typography>
 					</Grid>
-					<Grid item xs={2} />
-					<Grid item xs={7}>
+					<Grid item xs={9}>
 						{isTabletOrMobileDevice || isPortrait ? navBarButtonsMobile : navBarButtonsDesktop}
 					</Grid>
 				</Grid>
