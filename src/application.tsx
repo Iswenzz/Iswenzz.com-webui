@@ -8,7 +8,7 @@ import appReducer from './store/reducer';
 import homeReducer from './containers/Home/store/reducer';
 
 export const composeEnhancers: any = process.env.NODE_ENV === 'development' 
-    ? (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : compose;
+    ? (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose : compose;
 
 export const rootReducer = combineReducers({
     app: appReducer,
