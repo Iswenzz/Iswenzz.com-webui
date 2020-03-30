@@ -3,6 +3,7 @@
     font-family: 'Calligraffitti', cursive;
     font-weight: bold;
     font-size: 60px;
+    user-select: none;
 }
 
 .calli-text {
@@ -24,6 +25,7 @@
     @extend .title-color;
     font-family: 'Poiret One', sans-serif;
     font-weight: bold;
+    user-select: none;
 }
 
 .poiret-text {

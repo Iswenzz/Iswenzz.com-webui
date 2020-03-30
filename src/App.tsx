@@ -33,6 +33,14 @@ export const App: FunctionComponent<ReduxAppProps> = (props: ReduxAppProps): JSX
 				fontFamily: "Calligraffitti",
 				color: 'rgba(220, 220, 220, 1)'
 			},
+			h4: {
+				fontFamily: "Calligraffitti",
+				color: 'rgba(220, 220, 220, 1)'
+			},
+			h5: {
+				fontFamily: "Calligraffitti",
+				color: 'rgba(220, 220, 220, 1)'
+			},
 			caption: {
 				fontFamily: "Ubuntu",
 				color: 'rgba(240, 240, 240, 1)'
