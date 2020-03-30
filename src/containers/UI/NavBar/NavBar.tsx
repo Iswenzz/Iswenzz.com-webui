@@ -12,7 +12,7 @@ import { AppState } from '../../../application';
 import { Flare, Brightness3 } from '@material-ui/icons';
 import posed, { PoseGroup } from 'react-pose';
 
-const Animation = posed.div({
+const AnimationSticky = posed.div({
 	enter: { 
 		opacity: 1,
 		scale: 1,
@@ -24,6 +24,25 @@ const Animation = posed.div({
 	exit: {
 		opacity: 0,
 		scale: 1.5,
+		transition: { 
+			duration: 500,
+			ease: 'easeIn'
+		}
+	}
+});
+
+const AnimationAbsolute = posed.div({
+	enter: { 
+		opacity: 1,
+		scale: 1,
+		transition: { 
+			duration: 500,
+			ease: 'easeOut'
+		}
+	},
+	exit: {
+		opacity: 0,
+		scale: 0,
 		transition: { 
 			duration: 500,
 			ease: 'easeIn'
@@ -79,13 +98,13 @@ export const NavBar: FunctionComponent<NavBarProps> = (props: NavBarProps): JSX.
 	return (
 		<PoseGroup flipMove={false}>
 		{isPastIntro ? [
-			<Animation style={{ zIndex: 4000, top: 0, position: "fixed", width: '100%' }} key="navBar-anim">
+			<AnimationSticky style={{ zIndex: 4000, top: 0, position: "fixed", width: '100%' }} key="navBar-anim">
 			{navBar}
-			</Animation>
+			</AnimationSticky>
 		] : [
-			<div key="navBar-noanim">
+			<AnimationAbsolute style={{ zIndex: 4000, top: 0, position: "absolute", width: '100%' }} key="navBar-noanim">
 			{navBar}
-			</div>
+			</AnimationAbsolute>
 		]}
 		</PoseGroup>
 	);
