@@ -2,8 +2,7 @@ import * as homeActions from '../../store/actions';
 import * as appActions from '../../../../store/actions';
 import React, { FunctionComponent } from 'react';
 import { Card, CardActionArea, Typography } from '@material-ui/core';
-import { AppState } from '../../../../application';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
 import posed from 'react-pose';
 import '../../../../Text.scss';
@@ -73,13 +72,13 @@ const Animation = posed.div({
 export const Project: FunctionComponent<ProjectProps> = (props: ProjectProps): JSX.Element =>
 {
     const isTabletOrMobileDevice = useMediaQuery({ query: '(max-device-width: 1224px)' });
-    const isModalActive = useSelector((state: AppState) => state.app.isModalActive);
     const dispatch = useDispatch();
 
     const onToggle = () =>
     {
         dispatch(homeActions.setProjectsIndex(props.projects.indexOf(props.currentProj)));
-        dispatch(appActions.toggleModalActive(!isModalActive));
+        dispatch(homeActions.toggleProjectModalActive(true));
+        dispatch(appActions.toggleModalActive(true));
     }
 
     const cardSize: { width: number, height: number } = isTabletOrMobileDevice ? {

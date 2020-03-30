@@ -12,3 +12,14 @@ export const setProjectsIndex = (index: number) =>
         });
     }
 };
+
+export const toggleProjectModalActive = (active: boolean) =>
+{
+    return (dispatch: Dispatch<HomeActions>, getState: () => AppState) =>
+    {
+        return dispatch({
+            type: HomeActionEnum.TOGGLE_PROJECT_MODAL_ACTIVE,
+            active
+        });
+    }
+};

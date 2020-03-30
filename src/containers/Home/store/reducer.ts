@@ -5,8 +5,10 @@ import { ReduxHomeProps } from '../Home';
 export let initialState: ReduxHomeProps = {
 	projects: require('../UI/Projects/Projects.json'),
 	projectsStartIndex: 0,
+	projectModalActive: false,
 
-	setProjectsIndex: () => null
+	setProjectsIndex: () => null,
+	toggleProjectModalActive: () => null
 };
 
 const reducer = (state: ReduxHomeProps = initialState, action: HomeActions): ReduxHomeProps =>
@@ -16,6 +18,10 @@ const reducer = (state: ReduxHomeProps = initialState, action: HomeActions): Red
 		case HomeActionEnum.SET_PROJECTS_INDEX:
 			return updateObject(state, {
 				projectsStartIndex: action.index
+			});
+		case HomeActionEnum.TOGGLE_PROJECT_MODAL_ACTIVE:
+			return updateObject(state, {
+				projectModalActive: action.active
 			});
 
 		default:

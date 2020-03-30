@@ -1,6 +1,7 @@
 export enum HomeActionEnum
 {
-    SET_PROJECTS_INDEX = 'SET_PROJECTS_INDEX'
+    SET_PROJECTS_INDEX = 'SET_PROJECTS_INDEX',
+    TOGGLE_PROJECT_MODAL_ACTIVE = 'TOGGLE_PROJECT_MODAL_ACTIVE'
 }
 
 export interface SetProjectsStartIndex
@@ -9,6 +10,12 @@ export interface SetProjectsStartIndex
     index?: number
 }
 
-export type HomeProjectsActions = SetProjectsStartIndex;
+export interface ToggleProjectModalActive
+{
+    type: string,
+    active?: boolean
+}
+
+export type HomeProjectsActions = SetProjectsStartIndex & ToggleProjectModalActive;
 
 export type HomeActions = HomeProjectsActions;

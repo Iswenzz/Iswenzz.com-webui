@@ -1,4 +1,5 @@
 import * as actions from '../../../../store/actions';
+import * as homeActions from '../../store/actions';
 import React, { FunctionComponent, memo, useState} from "react";
 import { DialogContent, Fab, Grid, Modal, Fade, Backdrop, Tooltip, DialogTitle } from "@material-ui/core";
 import { Close, Lock } from '@material-ui/icons';
@@ -38,12 +39,13 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 	});
 	const [width, height] = useWindowSize();
 
-	const isModalActive = useSelector((state: AppState) => state.app.isModalActive);
 	const projectsStartIndex = useSelector((state: AppState) => state.home.projectsStartIndex);
+	const projectModalActive = useSelector((state: AppState) => state.home.projectModalActive);
 	const dispatch = useDispatch();
 
 	const onClickClose = (): void => 
     {
+        dispatch(homeActions.toggleProjectModalActive(false));
         dispatch(actions.toggleModalActive(false));
 	}
 
@@ -206,17 +208,17 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 
 	return (
 		<Modal aria-labelledby="project-modal" aria-describedby="viewpager-project" 
-		open={isModalActive} keepMounted onClose={onClickClose} closeAfterTransition 
+		open={projectModalActive} keepMounted onClose={onClickClose} closeAfterTransition 
 		BackdropComponent={Backdrop} 
 		BackdropProps={{ timeout: 500 }}>
-			<Fade in={isModalActive}>
+			<Fade in={projectModalActive}>
 				<>
-					<Tooltip open={isModalActive} placement="right" arrow disableFocusListener 
+					<Tooltip open={projectModalActive} placement="right" arrow disableFocusListener 
 					disableTouchListener title="Drag the window!">
 						<img onDragStart={(e) => e.preventDefault()} style={{margin: '10 10 10 10'}} alt='drag'
 						src={require('../../../../assets/images/misc/icons8-hand-drag-64.png')} />
 					</Tooltip>
-					{isModalActive ? 
+					{projectModalActive ? 
 						isDarkMode ? <VS2015>{getViewPager()}</VS2015> : <AtomOneLight>{getViewPager()}</AtomOneLight>
 						: null}
 				</>

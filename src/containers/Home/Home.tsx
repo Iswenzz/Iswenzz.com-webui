@@ -20,6 +20,7 @@ import SplitText from 'react-pose-text';
 import Spacing from '../../components/Spacing/Spacing';
 import VisibilitySensor from 'react-visibility-sensor';
 import ProjectPopup from './UI/ProjectPopup/ProjectPopup';
+import { Element } from 'react-scroll';
 import '../../Text.scss';
 
 const charPoses = {
@@ -40,9 +41,10 @@ const Home: FunctionComponent = (): JSX.Element =>
     return (
         <>
             {/* Header */}
+            <Element name="header-section" />
             <NavBar style={{ background: 'rgba(50, 50, 60, 0.3)'}} />
 
-            {/* Intro */}
+            {/* About */}
             <VisibilitySensor partialVisibility>
             {({ isVisible }) => {
                 if (isVisible === isPastIntro)
@@ -65,7 +67,7 @@ const Home: FunctionComponent = (): JSX.Element =>
             bgImage={require(`../../assets/images/index/${isDarkMode ? '2.jpg' : '2.jpg'}`)} 
             bgImageAlt="index" strength={-200} blur={0}>
                 <Spacing height='200px' />
-                <Typography align="center" variant="h1" component="h1">
+                <Typography style={{ userSelect: 'none' }} align="center" variant="h1" component="h1">
                     <SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
                         Projects
                     </SplitText>
@@ -80,7 +82,7 @@ const Home: FunctionComponent = (): JSX.Element =>
             bgImage={require(`../../assets/images/index/${isDarkMode ? '6.jpg' : '20.jpg'}`)} 
             bgImageAlt="index" strength={-200} blur={0}>
                 <Spacing height='200px' />
-                <Typography align="center" variant="h1" component="h1">
+                <Typography style={{ userSelect: 'none' }} align="center" variant="h1" component="h1">
                     <SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
                         Level Design
                     </SplitText>
@@ -94,7 +96,7 @@ const Home: FunctionComponent = (): JSX.Element =>
             bgImage={require(`../../assets/images/index/${isDarkMode ? '55.jpg' : 't1.jpg'}`)} 
             bgImageAlt="index" strength={200} blur={0}>
                 <Spacing height='200px' />
-                <Typography align="center" variant="h1" component="h1">
+                <Typography style={{ userSelect: 'none' }} align="center" variant="h1" component="h1">
                     <SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
                         Contact
                     </SplitText>
@@ -112,12 +114,14 @@ const Home: FunctionComponent = (): JSX.Element =>
 interface LinkStateProps 
 {
     projects: LinkedProjectProps[],
-    projectsStartIndex: number
+    projectsStartIndex: number,
+    projectModalActive: boolean
 }
 
 interface LinkDispatchProps 
 {
-    setProjectsIndex: (index: number) => void
+    setProjectsIndex: (index: number) => void,
+    toggleProjectModalActive: (active: boolean) => void
 }
 
 export type ReduxHomeProps = LinkStateProps & LinkDispatchProps;
@@ -125,12 +129,14 @@ export type ReduxHomeProps = LinkStateProps & LinkDispatchProps;
 const mapStateToProps = (state: AppState, ownProps: any): LinkStateProps => 
 ({
     projects: state.home.projects,
-    projectsStartIndex: state.home.projectsStartIndex
+    projectsStartIndex: state.home.projectsStartIndex,
+    projectModalActive: state.home.projectModalActive
 });
 
 const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, HomeActions>, ownProps: any): LinkDispatchProps => 
 ({
-    setProjectsIndex: bindActionCreators(actions.setProjectsIndex, dispatch)
+    setProjectsIndex: bindActionCreators(actions.setProjectsIndex, dispatch),
+    toggleProjectModalActive: bindActionCreators(actions.toggleProjectModalActive, dispatch)
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
