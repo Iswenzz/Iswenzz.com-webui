@@ -7,9 +7,11 @@ export let initialState: ReduxAppProps = {
 	browserInfo: detect(),
 	isDarkMode: localStorage.getItem('isDarkMode') === 'true',
 	isModalActive: false,
+	isPastIntro: false,
 
 	toggleDarkMode: () => null,
-	toggleModalActive: () => null
+	toggleModalActive: () => null,
+	togglePastIntro: () => null,
 };
 
 const reducer = (state: ReduxAppProps = initialState, action: AppActions): ReduxAppProps =>
@@ -24,6 +26,11 @@ const reducer = (state: ReduxAppProps = initialState, action: AppActions): Redux
 		case AppActionEnum.TOGGLE_MODAL_ACTIVE:
 			return updateObject(state, {
 				isModalActive: action.active
+			});
+
+		case AppActionEnum.TOGGLE_PAST_INTRO:
+			return updateObject(state, {
+				isPastIntro: action.active
 			});
 
 		default:

@@ -10,11 +10,39 @@ import { Fab } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppState } from '../../../application';
 import { Flare, Brightness3 } from '@material-ui/icons';
+import posed, { PoseGroup } from 'react-pose';
 
-export const NavBar: FunctionComponent = (): JSX.Element =>
+const Animation = posed.div({
+	enter: { 
+		opacity: 1,
+		scale: 1,
+		transition: { 
+			duration: 500,
+			ease: 'easeOut'
+		}
+	},
+	exit: {
+		opacity: 0,
+		scale: 1.5,
+		transition: { 
+			duration: 500,
+			ease: 'easeIn'
+		}
+	}
+});
+
+export interface NavBarProps
+{
+	variant?: 'regular' | 'dense',
+	style?: React.CSSProperties,
+	id?: string
+}
+
+export const NavBar: FunctionComponent<NavBarProps> = (props: NavBarProps): JSX.Element =>
 {
 	const dispatch = useDispatch();
 	const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
+	const isPastIntro = useSelector((state: AppState) => state.app.isPastIntro);
 	const isTabletOrMobileDevice = useMediaQuery({ query: '(max-device-width: 1224px)' });
 
 	const toggleDarkMode = (): void =>
@@ -23,9 +51,9 @@ export const NavBar: FunctionComponent = (): JSX.Element =>
 		localStorage.setItem('isDarkMode', (!isDarkMode).toString());
 	}
 
-	return (
-		<AppBar id="Navbar" position="absolute" style={{ background: 'transparent' }}>
-			<Toolbar variant="dense">
+	const navBar: JSX.Element = (
+		<AppBar id={props.id} position={isPastIntro ? "fixed" : "absolute"} style={{ ...props.style }}>
+			<Toolbar variant={props.variant || "dense"}>
 				<Grid container direction="row" justify="space-around" alignItems="center">
 					<Link to="projects-section" smooth
 					offset={isTabletOrMobileDevice ? 200 : 100}>
@@ -36,7 +64,7 @@ export const NavBar: FunctionComponent = (): JSX.Element =>
 						<Button size='large' color="inherit">Level Design</Button>
 					</Link>
 					<Link to="contact-section" smooth
-					offset={isTabletOrMobileDevice ? 100 : 70}>
+					offset={isTabletOrMobileDevice ? 100 : 60}>
 						<Button size='large' color="inherit">Contact</Button>
 					</Link>
 					<Fab style={{ backgroundColor: 'transparent', color: isDarkMode ? 'goldenrod' : 'gainsboro' }} 
@@ -46,6 +74,20 @@ export const NavBar: FunctionComponent = (): JSX.Element =>
 				</Grid>
 			</Toolbar>
 		</AppBar>
+	);
+
+	return (
+		<PoseGroup flipMove={false}>
+		{isPastIntro ? [
+			<Animation style={{ zIndex: 4000, top: 0, position: "fixed", width: '100%' }} key="navBar-anim">
+			{navBar}
+			</Animation>
+		] : [
+			<div key="navBar-noanim">
+			{navBar}
+			</div>
+		]}
+		</PoseGroup>
 	);
 }
 
