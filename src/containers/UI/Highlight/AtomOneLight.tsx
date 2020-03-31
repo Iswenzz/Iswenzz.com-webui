@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 Atom One Light by Daniel Gamage
 Original One Light Syntax theme from https://github.com/atom/one-light-syntax
+Edited by Iswenzz
 
 base:    #fafafa
 mono-1:  #383a42
@@ -23,7 +24,13 @@ export default styled.div`
     .hljs {
         display: block;
         overflow-x: auto;
-        padding: 0.5em;
+        padding: 0.8em;
+        color: #383a42;
+        background: #fafafa;
+    }
+
+    *:not(pre) > code {
+        padding: 0.3em;
         color: #383a42;
         background: #fafafa;
     }

@@ -3,14 +3,21 @@ import styled from 'styled-components';
 /*
  * Visual Studio 2015 dark style
  * Author: Nicolas LLOBERA <nllobera@gmail.com>
+ * Edited: Iswenzz
  */
 export default styled.div`
     .hljs {
         display: block;
         overflow-x: auto;
-        padding: 0.5em;
+        padding: 0.8em;
         background: #1E1E1E;
         color: #DCDCDC;
+    }
+
+    *:not(pre) > code {
+        padding: 0.3em;
+        color: #DCDCDC;
+        background: #1E1E1E;
     }
     
     .hljs-keyword,

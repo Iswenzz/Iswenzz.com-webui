@@ -3,6 +3,7 @@ import styled from 'styled-components';
 /*
 
 Night Owl for highlight.js (c) Carl Baxter <carl@cbax.tech>
+Edited by Iswenzz
 
 An adaptation of Sarah Drasner's Night Owl VS Code Theme 
 https://github.com/sdras/night-owl-vscode-theme 
@@ -32,9 +33,15 @@ export default styled.div`
     .hljs {
         display: block;
         overflow-x: auto;
-        padding: 0.5em;
+        padding: 0.8em;
         background: #011627;
         color: #d6deeb;
+    }
+
+    *:not(pre) > code {
+        padding: 0.3em;
+        color: #d6deeb;
+        background: #011627;
     }
     
     /* General Purpose */

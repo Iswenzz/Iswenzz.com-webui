@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 Atom One Dark by Daniel Gamage
 Original One Dark Syntax theme from https://github.com/atom/one-dark-syntax
+Edited by Iswenzz
 
 base:    #282c34
 mono-1:  #abb2bf
@@ -23,7 +24,13 @@ export default styled.div`
     .hljs {
         display: block;
         overflow-x: auto;
-        padding: 0.5em;
+        padding: 0.8em;
+        color: #abb2bf;
+        background: #282c34;
+    }
+
+    *:not(pre) > code {
+        padding: 0.3em;
         color: #abb2bf;
         background: #282c34;
     }

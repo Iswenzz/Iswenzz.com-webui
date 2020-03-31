@@ -15,13 +15,28 @@
 }
 
 .project-md {
-   article * {
-       max-width: 100%;
-   }
-}
-
-hr {
-    border-style: none;
-    background-color: rgba(100, 100, 100, 0.2);
-    min-height: 5px;
+    article * {
+        max-width: 100%;
+    }
+    hr {
+        border-style: none;
+        background-color: rgba(100, 100, 100, 0.2);
+        min-height: 5px;
+    }
+    h1 {
+        font-size: 2em;
+    }
+    h2 {
+        font-weight: 600;
+    }
+    h1, h2 {
+        margin: 0 0 18px 0;
+        padding-bottom: .3em;
+        border-bottom: 1px solid;
+        border-bottom-color: rgba(100, 100, 100, 0.2);
+    }
+    a {
+        color: rgb(77, 172, 253);
+        text-decoration: none;
+    }
 }
