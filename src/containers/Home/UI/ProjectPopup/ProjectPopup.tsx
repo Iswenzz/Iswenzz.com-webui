@@ -25,25 +25,29 @@ export interface ProjectPopupState
 	projectsLength: number,
 	projects: JSX.Element[] | null,
 	isDarkMode: boolean,
-	isPortrait: boolean
+	isPortrait: boolean,
+	isTabletOrMobileDevice: boolean
 }
 
 export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 {
 	const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
 	const projects = useSelector((state: AppState) => state.home.projects);
+	const projectsStartIndex = useSelector((state: AppState) => state.home.projectsStartIndex);
+	const projectModalActive = useSelector((state: AppState) => state.home.projectModalActive);
+	const dispatch = useDispatch();
+
 	const isPortrait = useMediaQuery({ orientation: 'portrait' });
+	const isTabletOrMobileDevice = useMediaQuery({ query: '(max-device-width: 1224px)' });
+	const [width, height] = useWindowSize();
+
 	const [renderedProj, setRenderedProject] = useState<ProjectPopupState>({
 		projectsLength: 0,
 		projects: null,
 		isDarkMode: isDarkMode,
-		isPortrait: isPortrait
+		isPortrait: isPortrait,
+		isTabletOrMobileDevice: isTabletOrMobileDevice
 	});
-	const [width, height] = useWindowSize();
-
-	const projectsStartIndex = useSelector((state: AppState) => state.home.projectsStartIndex);
-	const projectModalActive = useSelector((state: AppState) => state.home.projectModalActive);
-	const dispatch = useDispatch();
 
 	const onClickClose = (): void => 
     {
@@ -104,7 +108,7 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 	{
 		const openSource: JSX.Element = (
 			<Tooltip arrow disableFocusListener disableTouchListener title="View Source">
-				<Fab size={isPortrait ? "small" : "large"}  href={project.sourceURL} 
+				<Fab size={isPortrait || isTabletOrMobileDevice ? "small" : "large"}  href={project.sourceURL} 
 				style={{ margin: '0 8px 0 8px'}} color="primary">
 					<FontAwesomeIcon color='silver' icon={faOsi} size='2x' />
 				</Fab>
@@ -114,7 +118,7 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 		const privateSource: JSX.Element = (
 			<Tooltip arrow disableFocusListener disableTouchListener title="Private Source">
 				<span>
-					<Fab size={isPortrait ? "small" : "large"} disabled 
+					<Fab size={isPortrait || isTabletOrMobileDevice ? "small" : "large"} disabled 
 					style={{ margin: '0 8px 0 8px'}} color="primary">
 						<Lock />
 					</Fab>
@@ -131,14 +135,17 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 							{project.renderIcons!.map(icon => (
 								<Tooltip key={uuid.v4()} arrow disableFocusListener disableTouchListener title={icon.name}>
 									<img onDragStart={(e) => e.preventDefault()} 
-									style={{ margin: '0 4px 0 4px' }} width={isPortrait ? '42px' : '64px'} 
-									height={isPortrait ? '42px' : '64px'} alt='lang' src={icon.src} />
+									style={{ margin: '0 4px 0 4px' }} 
+									width={isPortrait || isTabletOrMobileDevice ? '42px' : '64px'} 
+									height={isPortrait || isTabletOrMobileDevice ? '42px' : '64px'} 
+									alt='lang' src={icon.src} />
 								</Tooltip>
 							))}
 						</div>
 						<div>
 							{project.isOpenSource ? openSource : privateSource}
-							<Fab id="fab_modal_close" onClick={onClickClose} size={isPortrait ? "small" : "large"} 
+							<Fab id="fab_modal_close" onClick={onClickClose} 
+							size={isPortrait || isTabletOrMobileDevice ? "small" : "large"} 
 							style={{ margin: '0 8px 0 8px' }} 
 							color="secondary">
 								<Close color="primary" />
@@ -148,7 +155,8 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 				</DialogTitle>
 
 				{/* Modal Content */}
-				<DialogContent className='project-modal'>
+				<DialogContent onMouseDown={e => e.stopPropagation()} 
+				onTouchStart={e => e.stopPropagation()} className='project-modal'>
 					{project.showTitle ? project.title : null}
 					{project.desc}
 					<div className="project-md" id={`popupProjectMd-${project.title}`} /> 
@@ -164,17 +172,21 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 	{
 		const responsiveRes = {
 			height: height / 1.3,
-			width: width / 1.5
+			width: width / 1.5,
 		}
-		if (isPortrait) return {
+		if (isPortrait || isTabletOrMobileDevice) return {
 			height: height / 1.2,
 			width: width,
+			maxWidth: '100vw',
+			maxHeight: '80vh'
 		}
 		else return {
 			height: responsiveRes.height,
 			width: responsiveRes.width,
 			top: (height / 2) - responsiveRes.height / 2,
-			right: (width / 2) - responsiveRes.width / 2
+			right: (width / 2) - responsiveRes.width / 2,
+			maxWidth: '100vw',
+			maxHeight: '80vh'
 		}
 	}
 
@@ -185,7 +197,8 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 	{
 		if (projects.length !== renderedProj.projectsLength
 			|| isDarkMode !== renderedProj.isDarkMode
-			|| isPortrait !== renderedProj.isPortrait)
+			|| isPortrait !== renderedProj.isPortrait
+			|| isTabletOrMobileDevice !== renderedProj.isTabletOrMobileDevice)
 		{
 			let p: JSX.Element[] = projects?.map(
 				(proj: LinkedProjectProps, i: number): JSX.Element => renderProject(proj, i));
@@ -193,7 +206,8 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 				projectsLength: p.length,
 				projects: p,
 				isDarkMode: isDarkMode,
-				isPortrait: isPortrait
+				isPortrait: isPortrait,
+				isTabletOrMobileDevice: isTabletOrMobileDevice
 			});
 		}
 	}
