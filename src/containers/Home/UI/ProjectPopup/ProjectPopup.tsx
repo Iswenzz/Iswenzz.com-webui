@@ -102,7 +102,8 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 	{
 		const openSource: JSX.Element = (
 			<Tooltip arrow disableFocusListener disableTouchListener title="View Source">
-				<Fab href={project.sourceURL} style={{ margin: '0 8px 0 8px'}} color="primary">
+				<Fab size={isPortrait ? "small" : "large"}  href={project.sourceURL} 
+				style={{ margin: '0 8px 0 8px'}} color="primary">
 					<FontAwesomeIcon color='silver' icon={faOsi} size='2x' />
 				</Fab>
 			</Tooltip>
@@ -111,7 +112,8 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 		const privateSource: JSX.Element = (
 			<Tooltip arrow disableFocusListener disableTouchListener title="Private Source">
 				<span>
-					<Fab disabled style={{ margin: '0 8px 0 8px'}} color="primary">
+					<Fab size={isPortrait ? "small" : "large"} disabled 
+					style={{ margin: '0 8px 0 8px'}} color="primary">
 						<Lock />
 					</Fab>
 				</span>
@@ -127,14 +129,15 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 							{project.renderIcons!.map(icon => (
 								<Tooltip key={uuid.v4()} arrow disableFocusListener disableTouchListener title={icon.name}>
 									<img onDragStart={(e) => e.preventDefault()} 
-									style={{ margin: '0 4px 0 4px' }} width={isPortrait ? '32px' : '64px'} 
-									height={isPortrait ? '32px' : '64px'}  alt='lang' src={icon.src} />
+									style={{ margin: '0 4px 0 4px' }} width={isPortrait ? '42px' : '64px'} 
+									height={isPortrait ? '42px' : '64px'} alt='lang' src={icon.src} />
 								</Tooltip>
 							))}
 						</div>
 						<div>
 							{project.isOpenSource ? openSource : privateSource}
-							<Fab id="fab_modal_close" onClick={onClickClose} style={{ margin: '0 8px 0 8px' }} 
+							<Fab id="fab_modal_close" onClick={onClickClose} size={isPortrait ? "small" : "large"} 
+							style={{ margin: '0 8px 0 8px' }} 
 							color="secondary">
 								<Close color="primary" />
 							</Fab>
