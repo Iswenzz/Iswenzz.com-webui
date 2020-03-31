@@ -43,7 +43,7 @@ export const Levels: FunctionComponent = (): JSX.Element =>
 		position: 'ellipse at bottom', 
 		colors: [
 			{ color: '#001C51', colorPercent: '0%' },
-			{ color: '#090A0A', colorPercent: '100%' }
+			{ color: '#090A0A', colorPercent: '50%' }
 		]
 	} : {
 		position: 'circle at bottom', 

@@ -64,7 +64,7 @@ const Home: FunctionComponent = (): JSX.Element =>
 
             {/* Projects */}
             <Parallax style={{boxShadow: '0 0 5px 6px rgba(60, 60, 60, .3)'}} 
-            bgImage={require(`../../assets/images/index/${isDarkMode ? '2.jpg' : '2.jpg'}`)} 
+            bgImage={require(`../../assets/images/index/projects.jpg`)} 
             bgImageAlt="index" strength={-200} blur={0}>
                 <Spacing height='200px' />
                 <Typography style={{ userSelect: 'none' }} align="center" variant="h1" component="h1">
@@ -79,7 +79,7 @@ const Home: FunctionComponent = (): JSX.Element =>
 
             {/* Levels */}
             <Parallax style={{boxShadow: '0 0 5px 6px rgba(60, 60, 60, .3)'}} 
-            bgImage={require(`../../assets/images/index/${isDarkMode ? '6.jpg' : '20.jpg'}`)} 
+            bgImage={require(`../../assets/images/index/leveldesign.jpg`)} 
             bgImageAlt="index" strength={-200} blur={0}>
                 <Spacing height='200px' />
                 <Typography style={{ userSelect: 'none' }} align="center" variant="h1" component="h1">

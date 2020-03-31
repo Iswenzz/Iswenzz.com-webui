@@ -23,7 +23,7 @@ export const Projects: FunctionComponent = (): JSX.Element =>
 		position: 'ellipse at bottom', 
 		colors: [
 			{ color: '#3c0084', colorPercent: '0%' },
-            { color: '#090A0A', colorPercent: '100%' }
+            { color: '#181a21', colorPercent: '50%' }
 		]
 	} : {
 		linear: true,
