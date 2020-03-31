@@ -60,7 +60,7 @@ export const ViewPager: FunctionComponent<ViewPagerProps> = (props: ViewPagerPro
 
 	const bind = useDrag(({ down, movement: [mx], direction: [xDir], distance, cancel }) => 
 	{
-		if (down && distance > window.innerWidth / 2) 
+		if (down && distance > window.innerWidth / 4) 
 		{
 			setIndex(clamp(index + (xDir > 0 ? -1 : 1), 0, items.length - 1));
 			cancel!();
