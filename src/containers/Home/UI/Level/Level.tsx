@@ -10,6 +10,11 @@ import uuid from "uuid";
 import '../../../../Text.scss';
 import './Level.scss';
 
+const youtubePlayerVar: Object = { 
+	disablekb: false,
+	controls: true
+}
+
 export interface LevelProps
 {
 	currentLevel: LevelProject,
@@ -63,12 +68,13 @@ export const Level: FunctionComponent<LevelProps> = (props: LevelProps): JSX.Ele
 					<h1 className="calli-title" style={{ color: 'silver' }}>{props.currentLevel.name}</h1>
 				</GridListTile>
 				<GridListTile key={uuid.v4()} cols={1} rows={1} style={{width: '70%', height: '500px'}}>
-					{!isFlipped ? <ReactPlayer width='100%' height='100%' url={props.currentLevel.videoUrl} /> : null}
+					{!isFlipped ? <ReactPlayer youtubeConfig={{ playerVars: youtubePlayerVar }} width='100%' height='100%' url={props.currentLevel.videoUrl} /> : null}
 				</GridListTile>
 				<GridListTile key={uuid.v4()} cols={1} rows={1} style={{width: '30%'}}>
 					<Grid container direction="row" justify="center" alignItems="center">
 						<Container>
-							<Typography className="ubuntu-text" align="left" color="textPrimary" paragraph component="h3">
+							<Typography className="ubuntu-text" align="left" color="textPrimary" component="h2"
+							style={{ fontSize: '20px' }}>
 								{props.currentLevel.description}
 							</Typography>
 						</Container>
@@ -84,7 +90,7 @@ export const Level: FunctionComponent<LevelProps> = (props: LevelProps): JSX.Ele
 				<h3 className="calli-title" style={{ fontSize: '30px', color: 'silver' }}>{props.currentLevel.name}</h3>
 				{!isFlipped ? <ReactPlayer width='100%' height='50%' url={props.currentLevel.videoUrl} /> : null}
 				<Container>
-					<Typography className="ubuntu-text" align="left" color="textPrimary" paragraph component="h3">
+					<Typography className="ubuntu-text" align="left" color="textPrimary" component="h3">
 						{props.currentLevel.description}
 					</Typography>
 				</Container>
