@@ -52,6 +52,7 @@ const useStyles = makeStyles(theme => ({
 export const Level: FunctionComponent<LevelProps> = (props: LevelProps): JSX.Element =>
 {
 	const isPortrait = useMediaQuery({ orientation: 'portrait' });
+	const isTabletOrMobileDevice = useMediaQuery({ query: '(max-device-width: 1224px)' });
 	const [isFlipped, setFlipped] = useState<boolean>(true);
 	const classes = useStyles();
 	const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
@@ -72,12 +73,10 @@ export const Level: FunctionComponent<LevelProps> = (props: LevelProps): JSX.Ele
 				</GridListTile>
 				<GridListTile key={uuid.v4()} cols={1} rows={1} style={{width: '30%'}}>
 					<Grid container direction="row" justify="center" alignItems="center">
-						<Container>
-							<Typography className="ubuntu-text" align="left" color="textPrimary" component="h2"
-							style={{ fontSize: '20px' }}>
-								{props.currentLevel.description}
-							</Typography>
-						</Container>
+						<Typography style={{ margin: '10px' }} variant="subtitle1" align="left" 
+						color="textPrimary" component="h3">
+							{props.currentLevel.description}
+						</Typography>
 					</Grid>
 				</GridListTile>
 			</GridList>
@@ -87,13 +86,12 @@ export const Level: FunctionComponent<LevelProps> = (props: LevelProps): JSX.Ele
 	const mobileCard: JSX.Element = (
 		<Container className={isDarkMode ? classes.darkCard : classes.whiteCard}>
 			<Grid container className="level-grid" direction="row" justify="center" alignItems="center">
-				<h3 className="calli-title" style={{ fontSize: '30px', color: 'silver' }}>{props.currentLevel.name}</h3>
+				<h3 className="calli-title" style={{ fontSize: '30px', color: 'silver', margin: 0 }}>{props.currentLevel.name}</h3>
 				{!isFlipped ? <ReactPlayer width='100%' height='50%' url={props.currentLevel.videoUrl} /> : null}
-				<Container>
-					<Typography className="ubuntu-text" align="left" color="textPrimary" component="h3">
-						{props.currentLevel.description}
-					</Typography>
-				</Container>
+				<Typography style={{ margin: '10px' }} variant="subtitle1" align="left" 
+				color="textPrimary" component="h3">
+					{props.currentLevel.description}
+				</Typography>
 			</Grid>
 		</Container>
 	);
@@ -110,14 +108,15 @@ export const Level: FunctionComponent<LevelProps> = (props: LevelProps): JSX.Ele
 						{props.currentLevel.renderIcons?.map(icon => (
 							<Tooltip key={uuid.v4()} arrow disableFocusListener disableTouchListener title={icon.name}>
 								<img onDragStart={(e) => e.preventDefault()} style={{ margin: '0 4px 0 4px' }} 
-								width={isPortrait ? '32' : '64'} height={isPortrait ? '32' : '64'} 
+								width={isPortrait || isTabletOrMobileDevice ? '32' : '64'} 
+								height={isPortrait || isTabletOrMobileDevice ? '32' : '64'} 
 								alt='lang' src={icon.src} />
 							</Tooltip>
 						))}
 					</Grid>
 				</Grid>
 			</Container>
-		)} front={isPortrait ? mobileCard : desktopCard} />
+		)} front={isPortrait || isTabletOrMobileDevice ? mobileCard : desktopCard} />
 	);
 }
 
