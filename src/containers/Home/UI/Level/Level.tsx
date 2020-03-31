@@ -24,7 +24,6 @@ export interface LevelProject
 	videoUrl?: string,
 	width?: string,
 	height?: string,
-	hintColor?: string,
 	renderIcons?: IconProps[]
 }
 
@@ -97,9 +96,10 @@ export const Level: FunctionComponent<LevelProps> = (props: LevelProps): JSX.Ele
 		<FlipCard flipCallback={flipCallback} back={(
 			<Container className="level" style={{ backgroundImage: `url(${props.currentLevel.image})` }}>
 				<Grid container direction="row" alignItems="center" justify="space-between">
-					<h4 className="calli-text" style={{ color: props.currentLevel.hintColor }}>
-						Click Me!
-					</h4>
+					<Tooltip placement="right" arrow disableFocusListener title="Click Me!">
+						<img onDragStart={(e) => e.preventDefault()} alt='click-me' width={55} height={64}
+						src={require('../../../../assets/images/misc/icons8-natural-user-interface-2-64.png')} />
+					</Tooltip>
 					<Grid container direction="column" justify="space-evenly" alignItems="flex-end">
 						{props.currentLevel.renderIcons?.map(icon => (
 							<Tooltip key={uuid.v4()} arrow disableFocusListener disableTouchListener title={icon.name}>

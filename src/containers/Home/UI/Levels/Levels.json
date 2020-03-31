@@ -4,7 +4,6 @@
 		"image": "https://iswenzz.com:1337/iswenzz/levels/mp_dr_mirrors_edge/1.jpg",
 		"description": "This is a recreation of the prologue level of the game Mirror's Edge. This map utilizes the entirety of the Call of Duty 4 game engine, and pushes the game to it's limits.",
 		"videoUrl": "https://www.youtube.com/watch?v=DgjmWXsrc8E",
-		"hintColor": "black",
 		"renderIcons": [
 			{"name": "Radiant", "src": "https://iswenzz.com:1337/iswenzz/devicons/radiant.svg"},
             {"name": "Maya", "src": "https://iswenzz.com:1337/iswenzz/devicons/maya.svg"},
@@ -21,7 +20,6 @@
 		"image": "https://iswenzz.com:1337/iswenzz/levels/mp_dr_train_rush/1.jpg",
 		"description": "A recreation of the level Train Rush from the game A Hat in Time and also the level Time Rift - The Moon as a secret. This map took roughly 1 month to make.",
 		"videoUrl": "https://www.youtube.com/watch?v=PpfoMNMNZ5w",
-		"hintColor": "gray",
 		"renderIcons": [
 			{"name": "Radiant", "src": "https://iswenzz.com:1337/iswenzz/devicons/radiant.svg"},
             {"name": "Maya", "src": "https://iswenzz.com:1337/iswenzz/devicons/maya.svg"},
@@ -36,7 +34,6 @@
 		"image": "https://iswenzz.com:1337/iswenzz/levels/mp_slide_n64_bowser_c/1.jpg",
 		"description": "This map is a recreation of the level, N64 Bowser's Castle from Mario Kart Wii, This map took roughly one week to create.",
 		"videoUrl": "https://www.youtube.com/watch?v=tKMtIIM5eGU",
-		"hintColor": "gainsboro",
 		"renderIcons": [
 			{"name": "Radiant", "src": "https://iswenzz.com:1337/iswenzz/devicons/radiant.svg"},
             {"name": "Maya", "src": "https://iswenzz.com:1337/iswenzz/devicons/maya.svg"},
@@ -51,7 +48,6 @@
 		"image": "https://iswenzz.com:1337/iswenzz/levels/mp_br_blackout/2.jpg",
 		"description": "This map is designed for 30+ players, and was created for the Sr- Battleroyale mod. This map utilizes the entirety of the Call of Duty 4 game engine, and pushes the game to it's limits. ",
 		"videoUrl": "",
-		"hintColor": "gainsboro",
 		"renderIcons": [
 			{"name": "Radiant", "src": "https://iswenzz.com:1337/iswenzz/devicons/radiant.svg"},
             {"name": "Maya", "src": "https://iswenzz.com:1337/iswenzz/devicons/maya.svg"},
@@ -66,7 +62,6 @@
 		"image": "https://iswenzz.com:1337/iswenzz/levels/medieval_village/3.jpg",
 		"description": "This is a Medieval village scene. I made this in roughly 1 week using Unreal Engine 4. ",
 		"videoUrl": "https://www.youtube.com/watch?v=3qs9xnKlGlU",
-		"hintColor": "white",
 		"renderIcons": [
             {"name": "Unreal Engine 4", "src": "https://iswenzz.com:1337/iswenzz/devicons/unreal-engine.svg"},
             {"name": "Maya", "src": "https://iswenzz.com:1337/iswenzz/devicons/maya.svg"},
@@ -80,7 +75,6 @@
 		"image": "https://iswenzz.com:1337/iswenzz/levels/mp_dr_sm64/2.jpg",
 		"description": "This map is a recreation of the Peach Castle and the first level Bob-omb Battlefield. This is recreated from the classic game Super Mario 64. ",
 		"videoUrl": "https://www.youtube.com/watch?v=4S_twub-mZo",
-		"hintColor": "black",
 		"renderIcons": [
 			{"name": "Radiant", "src": "https://iswenzz.com:1337/iswenzz/devicons/radiant.svg"},
             {"name": "Blender", "src": "https://iswenzz.com:1337/iswenzz/devicons/blender.svg"},
@@ -92,7 +86,6 @@
 		"image": "https://iswenzz.com:1337/iswenzz/levels/mp_dr_portal/2.jpg",
 		"description": "This map is a recreation of the introduction level of Portal 2.",
 		"videoUrl": "https://www.youtube.com/watch?v=lU5C_cHDvQQ",
-		"hintColor": "gainsboro",
 		"renderIcons": [
 			{"name": "Radiant", "src": "https://iswenzz.com:1337/iswenzz/devicons/radiant.svg"},
             {"name": "Maya", "src": "https://iswenzz.com:1337/iswenzz/devicons/maya.svg"},
@@ -107,7 +100,6 @@
 		"image": "https://iswenzz.com:1337/iswenzz/levels/mp_toujane/2.jpg",
 		"description": "The most popular map from the classic Call of Duty 2, ported and remastered in Call of Duty 4. ",
 		"videoUrl": "https://www.youtube.com/watch?v=ATimP1R-rJ4",
-		"hintColor": "gray",
 		"renderIcons": [
 			{"name": "Radiant", "src": "https://iswenzz.com:1337/iswenzz/devicons/radiant.svg"},
             {"name": "Maya", "src": "https://iswenzz.com:1337/iswenzz/devicons/maya.svg"},
