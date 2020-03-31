@@ -81,13 +81,15 @@ const Home: FunctionComponent = (): JSX.Element =>
             <Parallax style={{boxShadow: '0 0 5px 6px rgba(60, 60, 60, .3)'}} 
             bgImage={require(`../../assets/images/index/leveldesign.jpg`)} 
             bgImageAlt="index" strength={-200} blur={0}>
-                <Spacing height='200px' />
-                <Typography style={{ userSelect: 'none' }} align="center" variant="h1" component="h1">
-                    <SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
-                        Level Design
-                    </SplitText>
-                </Typography>
-                <Spacing height='200px' />
+                <div style={{ background: 'radial-gradient(transparent, black)' }}>
+                    <Spacing height='200px' />
+                    <Typography style={{ userSelect: 'none' }} align="center" variant="h1" component="h1">
+                        <SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
+                            Level Design
+                        </SplitText>
+                    </Typography>
+                    <Spacing height='200px' />
+                </div>
             </Parallax>
             <Levels />
 
