@@ -40,7 +40,7 @@ export const Levels: FunctionComponent = (): JSX.Element =>
 	const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
 
 	const config: GradiantProps = isDarkMode ? {
-		position: 'ellipse at bottom', 
+		position: `${isTabletOrMobileDevice ? 'circle' : 'ellipse'} at bottom`, 
 		colors: [
 			{ color: '#001C51', colorPercent: '0%' },
 			{ color: '#090A0A', colorPercent: '50%' }
