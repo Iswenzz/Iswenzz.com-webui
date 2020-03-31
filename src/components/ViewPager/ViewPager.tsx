@@ -26,7 +26,9 @@ export interface ViewPagerConfig
 	top?: string | number,
 	right?: string | number,
 	width?: string | number,
-	height?: string | number
+	height?: string | number,
+	maxWidth?: string | number,
+	maxHeight?: string | number,
 }
 
 export interface ViewPagerState
@@ -82,7 +84,8 @@ export const ViewPager: FunctionComponent<ViewPagerProps> = (props: ViewPagerPro
 				<animated.div className="carousel" {...bind()} key={i}
 				style={{display, x,
 				height: props.config?.height, width: props.config?.width,
-				top: props.config?.top, right: props.config?.right }}>
+				top: props.config?.top, right: props.config?.right,
+				maxWidth: props.config?.maxWidth, maxHeight: props.config?.maxHeight }}>
 					<animated.div ref={ref => setDivRef(ref)} style={{scale, background: props.bgcolor}}>
 						{items[i]}
 					</animated.div>
