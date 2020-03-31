@@ -25,6 +25,7 @@ export interface ProjectPopupState
 	projectsLength: number,
 	projects: JSX.Element[] | null,
 	isDarkMode: boolean,
+	isPortrait: boolean
 }
 
 export const ProjectPopup: FunctionComponent = (): JSX.Element =>
@@ -35,7 +36,8 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 	const [renderedProj, setRenderedProject] = useState<ProjectPopupState>({
 		projectsLength: 0,
 		projects: null,
-		isDarkMode: isDarkMode
+		isDarkMode: isDarkMode,
+		isPortrait: isPortrait
 	});
 	const [width, height] = useWindowSize();
 
@@ -182,14 +184,16 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 	const shouldRenderProjects = (): void =>
 	{
 		if (projects.length !== renderedProj.projectsLength
-			|| isDarkMode !== renderedProj.isDarkMode)
+			|| isDarkMode !== renderedProj.isDarkMode
+			|| isPortrait !== renderedProj.isPortrait)
 		{
 			let p: JSX.Element[] = projects?.map(
 				(proj: LinkedProjectProps, i: number): JSX.Element => renderProject(proj, i));
 			setRenderedProject({
 				projectsLength: p.length,
 				projects: p,
-				isDarkMode: isDarkMode
+				isDarkMode: isDarkMode,
+				isPortrait: isPortrait
 			});
 		}
 	}
