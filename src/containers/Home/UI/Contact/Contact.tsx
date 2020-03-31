@@ -18,7 +18,6 @@ const useStyles = makeStyles(theme => ({
 		height: '120px'
 	},
 	form: {
-		width: '100%', // Fix IE 11 issue.
 		marginTop: theme.spacing(1),
 	},
 	buttonDefault: {
@@ -146,8 +145,7 @@ export const Contact: FunctionComponent = (): JSX.Element =>
 	}
 
 	const form: JSX.Element = (
-		<Grid container 
-		direction="row" justify="center" alignItems="center">
+		<Grid container direction="column" justify="center" alignItems="center">
 			<Avatar alt='iswenzz avatar' src={require('../../../../assets/images/misc/iswenzz.png')} 
 			className={classes.avatar} />
 			<form onSubmit={sendEmail} className={classes.form}>

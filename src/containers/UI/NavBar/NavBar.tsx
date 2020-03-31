@@ -101,7 +101,7 @@ export const NavBar: FunctionComponent<NavBarProps> = (props: NavBarProps): JSX.
 				<Button size='large' color="inherit">Level Design</Button>
 			</Link>
 			<Link className="navbar-button" to="contact-section" smooth onClick={() => toggleDrawer(false)}
-			offset={isTabletOrMobileDevice ? 0 : 60}>
+			offset={0}>
 				<Button size='large' color="inherit">Contact</Button>
 			</Link>
 		</>
