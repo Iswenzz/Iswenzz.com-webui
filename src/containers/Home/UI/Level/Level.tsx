@@ -2,7 +2,7 @@ import React, { FunctionComponent, memo, useState } from "react";
 import { Grid, Tooltip, Container, Typography, GridList, GridListTile, makeStyles } from "@material-ui/core";
 import { IconProps } from 'containers/Home/UI/Project/Project';
 import FlipCard from 'components/FlipCard/FlipCard';
-import ReactPlayer from 'react-player';
+import ReactPlayer, { Config } from 'react-player';
 import { useMediaQuery } from "react-responsive";
 import { useSelector } from "react-redux";
 import { AppState } from "application";
@@ -10,9 +10,13 @@ import uuid from "uuid";
 import 'Text.scss';
 import './Level.scss';
 
-const youtubePlayerVar: Object = { 
-	disablekb: false,
-	controls: true
+const playerConfig: Config = { 
+	youtube: {
+		playerVars: {
+			disablekb: false,
+			controls: true
+		}
+	}
 }
 
 export interface LevelProps
@@ -69,7 +73,7 @@ export const Level: FunctionComponent<LevelProps> = (props: LevelProps): JSX.Ele
 					<h1 className="calli-title" style={{ color: 'silver' }}>{props.currentLevel.name}</h1>
 				</GridListTile>
 				<GridListTile key={uuid.v4()} cols={1} rows={1} style={{width: '70%', height: '500px'}}>
-					{!isFlipped ? <ReactPlayer youtubeConfig={{ playerVars: youtubePlayerVar }} width='100%' height='100%' url={props.currentLevel.videoUrl} /> : null}
+					{!isFlipped ? <ReactPlayer config={playerConfig} width='100%' height='100%' url={props.currentLevel.videoUrl} /> : null}
 				</GridListTile>
 				<GridListTile key={uuid.v4()} cols={1} rows={1} style={{width: '30%'}}>
 					<Grid container direction="row" justify="center" alignItems="center">
@@ -87,7 +91,7 @@ export const Level: FunctionComponent<LevelProps> = (props: LevelProps): JSX.Ele
 		<Container className={isDarkMode ? classes.darkCard : classes.whiteCard}>
 			<Grid container className="level-grid" direction="row" justify="center" alignItems="center">
 				<h3 className="calli-title" style={{ fontSize: '30px', color: 'silver', margin: 0 }}>{props.currentLevel.name}</h3>
-				{!isFlipped ? <ReactPlayer width='100%' height='50%' url={props.currentLevel.videoUrl} /> : null}
+				{!isFlipped ? <ReactPlayer config={playerConfig} width='100%' height='50%' url={props.currentLevel.videoUrl} /> : null}
 				<Typography style={{ margin: '10px' }} variant="subtitle1" align="left" 
 				color="textPrimary" component="h3">
 					{props.currentLevel.description}
