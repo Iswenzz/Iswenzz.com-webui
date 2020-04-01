@@ -1,21 +1,21 @@
-import * as actions from '../../../../store/actions';
-import * as homeActions from '../../store/actions';
+import * as actions from 'store/actions';
+import * as homeActions from 'containers/Home/store/actions';
 import React, { FunctionComponent, memo, useState} from "react";
 import { DialogContent, Fab, Grid, Modal, Fade, Backdrop, Tooltip, DialogTitle } from "@material-ui/core";
 import { Close, Lock } from '@material-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faOsi } from '@fortawesome/free-brands-svg-icons';
-import { LinkedProjectProps } from "../Project/Project";
-import ViewPager, { ViewPagerConfig } from '../../../../components/ViewPager/ViewPager';
-import { AppState } from "../../../../application";
-import useWindowSize from '../../../../utility/useWindowSize';
+import { LinkedProjectProps } from "containers/Home/UI/Project/Project";
+import ViewPager, { ViewPagerConfig } from 'components/ViewPager/ViewPager';
+import { AppState } from "application";
+import useWindowSize from 'utility/useWindowSize';
 import { useSelector, useDispatch } from "react-redux";
 import { useMediaQuery } from 'react-responsive';
 import * as MarkdownIt from 'markdown-it';
 import uuid from 'uuid';
-import VS2015 from '../../../UI/Highlight/VS1025';
-import AtomOneLight from '../../../UI/Highlight/AtomOneLight';
-import '../../../../Text.scss';
+import VS2015 from 'containers/UI/Highlight/VS1025';
+import AtomOneLight from 'containers/UI/Highlight/AtomOneLight';
+import 'Text.scss';
 import './ProjectPopup.scss';
 
 const hljs = require('highlight.js');
@@ -64,7 +64,7 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 				if (!div?.childElementCount)
 				{
 					if (text.includes('404: Not Found'))
-					text = "Work in progress...";
+						text = "Work in progress...";
 
 					// convert markdown to html
 					let md: MarkdownIt = MarkdownIt.default({
@@ -237,7 +237,7 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 					<Tooltip open={projectModalActive} placement="right" arrow disableFocusListener 
 					disableTouchListener title="Drag the window!">
 						<img onDragStart={(e) => e.preventDefault()} style={{margin: '10 10 10 10'}} alt='drag'
-						src={require('../../../../assets/images/misc/icons8-hand-drag-64.png')} />
+						src={require('assets/images/misc/icons8-hand-drag-64.png')} />
 					</Tooltip>
 					{projectModalActive ? 
 						isDarkMode ? <VS2015>{getViewPager()}</VS2015> : <AtomOneLight>{getViewPager()}</AtomOneLight>

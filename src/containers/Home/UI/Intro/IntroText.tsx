@@ -1,8 +1,8 @@
 import React, { memo, Component } from 'react';
-import TrailText from '../../../../components/TrailText/TrailText';
+import TrailText from 'components/TrailText/TrailText';
 import { Grid, Container } from '@material-ui/core';
 import VisibilitySensor from "react-visibility-sensor";
-import '../../../../Text.scss';
+import 'Text.scss';
 
 const intro: { desc: string } = {
     desc: `Hi there! My name is Alexis, I'm a Software Developer and a Level Designer. Here you can find all my work that I've done.

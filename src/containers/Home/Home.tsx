@@ -1,27 +1,27 @@
-import * as actions from './store/actions';
-import * as appActions from '../../store/actions';
+import * as actions from 'containers/Home/store/actions';
+import * as appActions from 'store/actions';
 import React, { FunctionComponent } from 'react';
-import { AppState } from "../../application";
+import { AppState } from "application";
 import { ThunkDispatch } from "redux-thunk";
 import { bindActionCreators } from "redux";
 import { connect, useSelector, useDispatch } from 'react-redux';
-import NavBar from '../UI/NavBar/NavBar';
-import Projects from './UI/Projects/Projects';
-import Footer from '../UI/Footer/Footer';
-import Intro from '../Home/UI/Intro/Intro';
-import IntroSkill from '../Home/UI/Intro/IntroSkill';
-import Contact from '../Home/UI/Contact/Contact';
-import Levels from '../Home/UI/Levels/Levels';
-import { HomeActions } from './store/types';
-import { LinkedProjectProps } from './UI/Project/Project';
+import NavBar from 'containers/UI/NavBar/NavBar';
+import Projects from 'containers/Home/UI/Projects/Projects';
+import Footer from 'containers/UI/Footer/Footer';
+import Intro from 'containers/Home/UI/Intro/Intro';
+import IntroSkill from 'containers/Home/UI/Intro/IntroSkill';
+import Contact from 'containers/Home/UI/Contact/Contact';
+import Levels from 'containers/Home/UI/Levels/Levels';
+import { HomeActions } from 'containers/Home/store/types';
+import { LinkedProjectProps } from 'containers/Home/UI/Project/Project';
 import { Parallax } from 'react-parallax';
 import { Typography } from '@material-ui/core';
 import SplitText from 'react-pose-text';
-import Spacing from '../../components/Spacing/Spacing';
+import Spacing from 'components/Spacing/Spacing';
 import VisibilitySensor from 'react-visibility-sensor';
-import ProjectPopup from './UI/ProjectPopup/ProjectPopup';
+import ProjectPopup from 'containers/Home/UI/ProjectPopup/ProjectPopup';
 import { Element } from 'react-scroll';
-import '../../Text.scss';
+import 'Text.scss';
 
 const charPoses = {
     exit: { opacity: 0, y: 20 },
@@ -51,7 +51,7 @@ const Home: FunctionComponent = (): JSX.Element =>
                     dispatch(appActions.togglePastIntro(!isPastIntro));
                 return (
                     <Parallax style={{boxShadow: '0 0 5px 6px rgba(60, 60, 60, .3)'}} 
-                    bgImage={require(`../../assets/images/index/${isDarkMode ? '20.jpg' : 'nature1.jpg'}`)} 
+                    bgImage={require(`assets/images/index/${isDarkMode ? '20.jpg' : 'nature1.jpg'}`)} 
                     bgImageAlt="index" strength={400} blur={0}>
                         <Spacing height='70px' />
                         <Intro />
@@ -64,7 +64,7 @@ const Home: FunctionComponent = (): JSX.Element =>
 
             {/* Projects */}
             <Parallax style={{boxShadow: '0 0 5px 6px rgba(60, 60, 60, .3)'}} 
-            bgImage={require(`../../assets/images/index/projects.jpg`)} 
+            bgImage={require(`assets/images/index/projects.jpg`)} 
             bgImageAlt="index" strength={-200} blur={0}>
                 <Spacing height='200px' />
                 <Typography style={{ userSelect: 'none' }} align="center" variant="h1" component="h1">
@@ -79,7 +79,7 @@ const Home: FunctionComponent = (): JSX.Element =>
 
             {/* Levels */}
             <Parallax style={{boxShadow: '0 0 5px 6px rgba(60, 60, 60, .3)'}} 
-            bgImage={require(`../../assets/images/index/leveldesign.jpg`)} 
+            bgImage={require(`assets/images/index/leveldesign.jpg`)} 
             bgImageAlt="index" strength={-200} blur={0}>
                 <div style={{ background: 'radial-gradient(transparent, black)' }}>
                     <Spacing height='200px' />
@@ -95,7 +95,7 @@ const Home: FunctionComponent = (): JSX.Element =>
 
             {/* Contact */}
             <Parallax style={{boxShadow: '0 0 5px 6px rgba(60, 60, 60, .3)'}} 
-            bgImage={require(`../../assets/images/index/${isDarkMode ? '55.jpg' : 't1.jpg'}`)} 
+            bgImage={require(`assets/images/index/${isDarkMode ? '55.jpg' : 't1.jpg'}`)} 
             bgImageAlt="index" strength={200} blur={0}>
                 <Spacing height='200px' />
                 <Typography style={{ userSelect: 'none' }} align="center" variant="h1" component="h1">

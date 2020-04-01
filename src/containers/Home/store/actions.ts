@@ -1,5 +1,5 @@
 import { HomeActionEnum, HomeActions } from './types';
-import { AppState } from '../../../application';
+import { AppState } from 'application';
 import { Dispatch } from 'react';
 
 export const setProjectsIndex = (index: number) =>

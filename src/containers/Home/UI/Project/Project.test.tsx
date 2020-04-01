@@ -3,7 +3,7 @@ import { mount, ReactWrapper } from 'enzyme';
 import { Project, LinkedProjectProps, ProjectProps } from './Project';
 import * as redux from 'react-redux';
 import { Card } from '@material-ui/core';
-import { store } from '../../../../application';
+import { store } from 'application';
 
 const project: LinkedProjectProps = {
     title: "AION Chat",

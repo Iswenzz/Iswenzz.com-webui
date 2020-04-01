@@ -1,13 +1,13 @@
 import React, { FunctionComponent, memo, useState } from "react";
 import { Grid, Tooltip, Container, Typography, GridList, GridListTile, makeStyles } from "@material-ui/core";
-import { IconProps } from '../Project/Project';
-import FlipCard from '../../../../components/FlipCard/FlipCard';
+import { IconProps } from 'containers/Home/UI/Project/Project';
+import FlipCard from 'components/FlipCard/FlipCard';
 import ReactPlayer from 'react-player';
 import { useMediaQuery } from "react-responsive";
 import { useSelector } from "react-redux";
-import { AppState } from "../../../../application";
+import { AppState } from "application";
 import uuid from "uuid";
-import '../../../../Text.scss';
+import 'Text.scss';
 import './Level.scss';
 
 const youtubePlayerVar: Object = { 
@@ -102,7 +102,7 @@ export const Level: FunctionComponent<LevelProps> = (props: LevelProps): JSX.Ele
 				<Grid container direction="row" alignItems="center" justify="space-between">
 					<Tooltip placement="right" arrow disableFocusListener title="Click Me!">
 						<img onDragStart={(e) => e.preventDefault()} alt='click-me' width={55} height={64}
-						src={require('../../../../assets/images/misc/icons8-natural-user-interface-2-64.png')} />
+						src={require('assets/images/misc/icons8-natural-user-interface-2-64.png')} />
 					</Tooltip>
 					<Grid container direction="column" justify="space-evenly" alignItems="flex-end">
 						{props.currentLevel.renderIcons?.map(icon => (

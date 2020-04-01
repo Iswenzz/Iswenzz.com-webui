@@ -3,9 +3,9 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 
-import App from './App';
-import appReducer from './store/reducer';
-import homeReducer from './containers/Home/store/reducer';
+import App from 'App';
+import appReducer from 'store/reducer';
+import homeReducer from 'containers/Home/store/reducer';
 
 export const composeEnhancers: any = process.env.NODE_ENV === 'development' 
     ? (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose : compose;

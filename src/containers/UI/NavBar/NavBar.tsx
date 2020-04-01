@@ -1,14 +1,14 @@
 import React, { FunctionComponent, useState, memo } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import * as actions from '../../../store/actions';
+import * as actions from 'store/actions';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import { Link } from "react-scroll";
 import { useMediaQuery } from 'react-responsive';
 import { Fab, Typography, Drawer } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
-import { AppState } from '../../../application';
+import { AppState } from 'application';
 import { Flare, Brightness3 } from '@material-ui/icons';
 import posed, { PoseGroup } from 'react-pose';
 import MenuIcon from '@material-ui/icons/Menu';

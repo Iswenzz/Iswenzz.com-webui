@@ -1,16 +1,16 @@
 import React, { FunctionComponent, memo } from 'react';
-import RadialGradient, { GradiantProps } from '../../../../components/RadialGradient/RadialGradient';
+import RadialGradient, { GradiantProps } from 'components/RadialGradient/RadialGradient';
 import { Grid } from '@material-ui/core';
-import Spacing from '../../../../components/Spacing/Spacing';
-import Project, { LinkedProjectProps } from '../Project/Project';
-import StonecutterGrid from '../../../../components/StonecutterGrid/StonecutterGrid';
+import Spacing from 'components/Spacing/Spacing';
+import Project, { LinkedProjectProps } from 'containers/Home/UI/Project/Project';
+import StonecutterGrid from 'components/StonecutterGrid/StonecutterGrid';
 import { useSelector } from 'react-redux';
-import { AppState } from '../../../../application';
+import { AppState } from 'application';
 import { enterExitStyle, layout } from 'react-stonecutter';
 import { useMediaQuery } from 'react-responsive';
 import { Element } from 'react-scroll';
 import { random } from 'lodash';
-import '../../../../Text.scss';
+import 'Text.scss';
 
 export const Projects: FunctionComponent = (): JSX.Element =>
 {
@@ -63,7 +63,7 @@ export const Projects: FunctionComponent = (): JSX.Element =>
             paddingTop: isTabletOrMobileDevice ? '90px' : '50px', 
             paddingBottom: '50px'}}>
                 {projectGrid}
-                <Spacing height={isPortrait ? '1500px' : '1000px'} />
+                <Spacing height={isPortrait ? '1500px' : isTabletOrMobileDevice ? '500px' : '1000px'} />
             </RadialGradient>     
         </Grid>
     );

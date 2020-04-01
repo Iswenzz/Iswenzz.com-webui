@@ -2,7 +2,7 @@ import React, { memo, Component } from 'react';
 import Typography from '@material-ui/core/Typography';
 import { Grid } from '@material-ui/core';
 import SplitText from 'react-pose-text';
-import '../../../../Text.scss';
+import 'Text.scss';
 
 const charPoses = {
     exit: { opacity: 0, y: 20 },

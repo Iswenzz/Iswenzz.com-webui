@@ -1,9 +1,9 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { App } from './App';
+import { App } from 'App';
 import * as redux from 'react-redux';
 import { Context } from 'react-responsive';
-import { store } from './application';
+import { store } from 'application';
 
 describe('[Root] <App>', () => 
 {

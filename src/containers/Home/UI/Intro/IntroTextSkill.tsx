@@ -1,10 +1,10 @@
 import React, { memo, FunctionComponent } from 'react';
-import TrailText from '../../../../components/TrailText/TrailText';
+import TrailText from 'components/TrailText/TrailText';
 import { Grid, Container } from '@material-ui/core';
 import VisibilitySensor from "react-visibility-sensor";
-import Spacing from '../../../../components/Spacing/Spacing';
-import '../../../../Text.scss';
+import Spacing from 'components/Spacing/Spacing';
 import { useMediaQuery } from 'react-responsive';
+import 'Text.scss';
 
 const webDev: { title: string, points: string[] } = {
     title: "Web Development",

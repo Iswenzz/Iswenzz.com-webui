@@ -2,10 +2,10 @@ import React from 'react';
 import { mount, ReactWrapper } from 'enzyme';
 import { Level, LevelProps, LevelProject } from './Level';
 import * as redux from 'react-redux';
-import { FlipCard } from '../../../../components/FlipCard/FlipCard';
-import { store } from '../../../../application';
+import { FlipCard } from 'components/FlipCard/FlipCard';
+import { store } from 'application';
 
-const levels: LevelProject[] = require('../Levels/Levels.json');
+const levels: LevelProject[] = require('containers/Home/UI/Levels/Levels.json');
 
 describe('[Container] <Level>', () => 
 {

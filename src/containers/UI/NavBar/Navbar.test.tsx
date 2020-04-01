@@ -3,7 +3,7 @@ import { mount, ReactWrapper } from 'enzyme';
 import { NavBar } from './NavBar';
 import * as redux from 'react-redux';
 import { Fab } from '@material-ui/core';
-import { store } from '../../../application';
+import { store } from 'application';
 
 describe('[Container] <NavBar>', () => 
 {

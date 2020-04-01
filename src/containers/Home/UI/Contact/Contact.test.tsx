@@ -2,7 +2,7 @@ import React from 'react';
 import { mount, ReactWrapper } from 'enzyme';
 import { Contact } from './Contact';
 import * as redux from 'react-redux';
-import { store } from '../../../../application';
+import { store } from 'application';
 import { Button } from '@material-ui/core';
 
 describe('[Container] <Contact>', () => 

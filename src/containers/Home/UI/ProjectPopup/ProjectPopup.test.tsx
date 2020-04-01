@@ -2,8 +2,8 @@ import React from 'react';
 import { mount, ReactWrapper } from 'enzyme';
 import { ProjectPopup } from './ProjectPopup';
 import * as redux from 'react-redux';
-import { Modal, Fab } from '@material-ui/core';
-import { store } from '../../../../application';
+import { Fab } from '@material-ui/core';
+import { store } from 'application';
 
 describe('[Container] <ProjectPopup>', () => 
 {

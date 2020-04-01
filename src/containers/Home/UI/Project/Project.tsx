@@ -1,11 +1,11 @@
-import * as homeActions from '../../store/actions';
-import * as appActions from '../../../../store/actions';
+import * as homeActions from 'containers/Home/store/actions';
+import * as appActions from 'store/actions';
 import React, { FunctionComponent } from 'react';
 import { Card, CardActionArea, Typography } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
 import posed from 'react-pose';
-import '../../../../Text.scss';
+import 'Text.scss';
 
 export interface ProjectRenderProps
 {

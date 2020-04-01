@@ -1,6 +1,6 @@
 import { AppActions, AppActionEnum } from './types';
-import { updateObject } from '../utility/utility';
-import { ReduxAppProps } from '../App';
+import { updateObject } from 'utility/utility';
+import { ReduxAppProps } from 'App';
 import { detect } from 'detect-browser';
 
 export let initialState: ReduxAppProps = {

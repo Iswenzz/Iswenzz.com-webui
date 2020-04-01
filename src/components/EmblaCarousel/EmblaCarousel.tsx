@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, FunctionComponent, memo } from "react";
 import EmblaCarouselReact from "embla-carousel-react";
-import useInterval from "../../utility/useInterval";
+import useInterval from "utility/useInterval";
 import { DotButton, PrevButton, NextButton } from "./EmblaCarouselButtons/EmblaCarouselButtons";
 import { Grid } from "@material-ui/core";
 import "./Embla.css";

@@ -1,15 +1,15 @@
 import React, { FunctionComponent, memo, useState } from 'react';
-import RadialGradient, { GradiantProps } from '../../../../components/RadialGradient/RadialGradient';
+import RadialGradient, { GradiantProps } from 'components/RadialGradient/RadialGradient';
 import { Grid, Container, Avatar, TextField, Button, makeStyles, CircularProgress } from '@material-ui/core';
 import axios from 'axios';
-import Spacing from '../../../../components/Spacing/Spacing';
+import Spacing from 'components/Spacing/Spacing';
 import posed, { PoseGroup } from 'react-pose';
 import VisibilitySensor from "react-visibility-sensor";
 import { useMediaQuery } from 'react-responsive';
 import { Element } from 'react-scroll';
 import { useSelector } from 'react-redux';
-import { AppState } from '../../../../application';
-import '../../../../Text.scss';
+import { AppState } from 'application';
+import 'Text.scss';
 
 const useStyles = makeStyles(theme => ({
 	avatar: {
@@ -146,7 +146,7 @@ export const Contact: FunctionComponent = (): JSX.Element =>
 
 	const form: JSX.Element = (
 		<Grid container direction="column" justify="center" alignItems="center">
-			<Avatar alt='iswenzz avatar' src={require('../../../../assets/images/misc/iswenzz.png')} 
+			<Avatar alt='iswenzz avatar' src={require('assets/images/misc/iswenzz.png')} 
 			className={classes.avatar} />
 			<form onSubmit={sendEmail} className={classes.form}>
 				<TextField name="email" id="email" color="secondary" variant="outlined" 

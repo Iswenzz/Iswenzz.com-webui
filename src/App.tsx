@@ -1,10 +1,10 @@
 import React, { FunctionComponent } from 'react';
-import * as actions from './store/actions';
-import { AppActions } from './store/types';
-import { AppState } from './application';
+import * as actions from 'store/actions';
+import { AppActions } from 'store/types';
+import { AppState } from 'application';
 import { Theme, createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/core/styles';
-import Home from './containers/Home/Home';
+import Home from 'containers/Home/Home';
 import { connect } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { bindActionCreators } from 'redux';

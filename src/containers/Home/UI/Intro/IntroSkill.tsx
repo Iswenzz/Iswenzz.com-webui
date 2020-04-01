@@ -1,12 +1,12 @@
 import React, { memo, FunctionComponent } from 'react';
 import IntroText from './IntroText';
 import IntroTextSkill from './IntroTextSkill';
-import Spacing from '../../../../components/Spacing/Spacing';
-import RadialGradient from '../../../../components/RadialGradient/RadialGradient';
+import Spacing from 'components/Spacing/Spacing';
+import RadialGradient from 'components/RadialGradient/RadialGradient';
 import { Grid } from '@material-ui/core';
 import { Parallax } from 'react-parallax';
 import { useSelector } from 'react-redux';
-import { AppState } from '../../../../application';
+import { AppState } from 'application';
 
 export const IntroSkill: FunctionComponent = (): JSX.Element =>
 {
@@ -22,7 +22,7 @@ export const IntroSkill: FunctionComponent = (): JSX.Element =>
             </RadialGradient>
 
             <Parallax style={{backgroundColor: 'black'}} bgImageAlt="index" strength={400}
-            bgImage={require(`../../../../assets/images/index/${isDarkMode ? 'stars' : 'clouds'}.svg`)}>
+            bgImage={require(`assets/images/index/${isDarkMode ? 'stars' : 'clouds'}.svg`)}>
                 <Spacing height='100px' />
             </Parallax>
 

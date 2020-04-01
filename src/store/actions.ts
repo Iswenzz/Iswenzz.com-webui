@@ -1,5 +1,5 @@
 import { AppActionEnum, AppActions } from './types';
-import { AppState } from '../application';
+import { AppState } from 'application';
 import { Dispatch } from 'react';
 
 export const toggleDarkMode = (active: boolean) =>
