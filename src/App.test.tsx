@@ -27,6 +27,17 @@ describe('[Root] <App>', () =>
         ));
     });
 
+    it('Mobile mode', () =>
+    {
+        mount((
+            <redux.Provider store={store}>
+                <Context.Provider value={{maxDeviceWidth: '1224px'}}>
+                    <App {...store.getState().app} />
+                </Context.Provider>
+            </redux.Provider>
+        ));
+    });
+
     it('Dark mode', () =>
     {
         mount((

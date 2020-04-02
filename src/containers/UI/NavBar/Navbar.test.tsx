@@ -2,8 +2,9 @@ import React from 'react';
 import { mount, ReactWrapper } from 'enzyme';
 import { NavBar } from './NavBar';
 import * as redux from 'react-redux';
-import { Fab } from '@material-ui/core';
+import { Fab, Drawer } from '@material-ui/core';
 import { store } from 'application';
+import { Link } from 'react-scroll';
 
 describe('[Container] <NavBar>', () => 
 {
@@ -20,6 +21,8 @@ describe('[Container] <NavBar>', () =>
 
 	it('Testing component', () => 
 	{
-        wrapper.find(Fab).last().simulate("click");
+        wrapper.find(Link).map(i => i.simulate("click"));
+        wrapper.find(Fab).map(i => i.simulate("click"));
+        wrapper.find(Drawer).map(i => i.simulate("click"));
     });
 });
