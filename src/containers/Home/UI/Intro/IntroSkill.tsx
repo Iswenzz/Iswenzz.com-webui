@@ -21,7 +21,8 @@ export const IntroSkill: FunctionComponent = (): JSX.Element =>
                 <IntroText />
             </RadialGradient>
 
-            <Parallax style={{backgroundColor: 'black'}} bgImageAlt="index" strength={400}
+            <Parallax style={{backgroundColor: isDarkMode ? 'black' : 'rgb(122, 206, 255)'}} 
+            bgImageAlt="index" strength={400}
             bgImage={require(`assets/images/index/${isDarkMode ? 'stars' : 'clouds'}.svg`)}>
                 <Spacing height='100px' />
             </Parallax>
