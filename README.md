@@ -8,3 +8,13 @@
 This website, as it stands right now, mainly serves as a portfolio for me to share my projects with the world. In the future, I plan to integrate things such as documentation for software I've created, as well as the ability to purchase some of the larger products i've worked on that aren't open source.
 
 ![](https://i.imgur.com/29q1UnQ.jpg)
+
+## Building (Any Platform)
+_Pre-Requisites:_
+1. [NodeJS (version 12+)](https://nodejs.org/en/)
+2. [Node Package Manager (npm)](https://www.npmjs.com/)
+
+_Build Command:_
+
+    npm install
+    npm run build
