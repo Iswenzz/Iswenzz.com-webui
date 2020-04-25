@@ -5,10 +5,10 @@ import VisibilitySensor from "react-visibility-sensor";
 import 'Text.scss';
 
 const intro: { desc: string } = {
-    desc: `Hi there! My name is Alexis, I'm a Software Developer and a Level Designer. Here you can find all my work that I've done.
+    desc: `Hi there! My name is Alexis, I'm a Software Engineer and a Level Designer. Here you can find all my work that I've done.
 
     I've experience working on a diverse set of programming topics for the past 5 years 
-    such as web development, database design, graphics programming, game development, automation, 
+    such as software development, web development, database design, graphics programming, game development,
     UI/UX design, and reverse engineering.`
 }
 
