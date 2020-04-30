@@ -22,7 +22,7 @@ const webDevStack: { title: string, points: string[] } = {
         "• React",
         "• Redux",
         "• JQuery",
-        "• MySQL / MangoDB",
+        "• MySQL / MongoDB",
         "• Bootstrap / Material UI",
     ]
 };
