@@ -8,7 +8,6 @@ export interface TrailProps extends TypographyProps
 	height?: number,
 	items: string[],
 	active?: boolean,
-	style?: React.CSSProperties,
 	className?: string
 }
 
@@ -24,19 +23,20 @@ export const TrailText: FunctionComponent<TrailProps> = (props: TrailProps): JSX
 	});
 
   	return (
-		<div className={props.className} style={props.style}>
-			{trail.map(({ x, height, ...rest }, index) => (
-				<animated.div key={uuid.v4()}  
-					style={{ ...rest, transform: `translate3d(0,${x}px,0)` }}>
-					<animated.div style={{ height: props.height }}>
-						<Typography align={props.align} color={props.color} paragraph={props.paragraph} 
-						component={props.component}>
-							{props.items[index]} 
-						</Typography>
-					</animated.div>
+		<>
+		{trail.map(({ x, height, ...rest }, index) => (
+			<animated.div key={uuid.v4()}  
+				style={{ ...rest, transform: `translate3d(0,${x}px,0)` }}>
+				<animated.div>
+					<Typography style={props.style} className={props.className} noWrap={props.noWrap} 
+					align={props.align} color={props.color} paragraph={props.paragraph} 
+					component={props.component} variant={props.variant}>
+						{props.items[index]} 
+					</Typography>
 				</animated.div>
-			))}
-		</div>
+			</animated.div>
+		))}
+		</>
 	);
 }
 
