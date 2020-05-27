@@ -1,126 +1,113 @@
 import React, { memo, FunctionComponent } from 'react';
 import TrailText from 'components/TrailText/TrailText';
-import { Grid, Container } from '@material-ui/core';
+import { Grid, Container, Tooltip, Divider } from '@material-ui/core';
 import VisibilitySensor from "react-visibility-sensor";
-import Spacing from 'components/Spacing/Spacing';
-import { useMediaQuery } from 'react-responsive';
+import uuid from 'uuid';
 import 'Text.scss';
 
-const webDev: { title: string, points: string[] } = {
+const webDev: { title: string, points: any[] } = {
     title: "Web Development",
     points: [
-        "• Javascript ES7+",
-        "• Typescript",
-        "• HTML5",
-        "• CSS & SCSS / SASS",
+        {"name": "HTML5", "src": "https://iswenzz.com:1337/iswenzz/devicons/html5.svg"},
+        {"name": "CSS3", "src": "https://iswenzz.com:1337/iswenzz/devicons/css3.svg"},
+        {"name": "SASS", "src": "https://iswenzz.com:1337/iswenzz/devicons/sass.svg"},
+        {"name": "Javacript", "src": "https://iswenzz.com:1337/iswenzz/devicons/javascript.svg"},
+        {"name": "Typescript", "src": "https://iswenzz.com:1337/iswenzz/devicons/typescript.svg"},
+        {"name": "React", "src": "https://iswenzz.com:1337/iswenzz/devicons/react.svg"},
+        {"name": "Redux", "src": "https://iswenzz.com:1337/iswenzz/devicons/redux.svg"},
+        {"name": "MySQL", "src": "https://iswenzz.com:1337/iswenzz/devicons/mysql.svg"},
+        {"name": "JQuery", "src": "https://iswenzz.com:1337/iswenzz/devicons/jquery.svg"},
+        {"name": "Bootstrap", "src": "https://iswenzz.com:1337/iswenzz/devicons/bootstrap-wordmark.svg"},
+        {"name": "Material UI", "src": "https://iswenzz.com:1337/iswenzz/devicons/material-ui.svg"},
     ]
 };
 
-const webDevStack: { title: string, points: string[] } = {
-    title: "Web Stacks",
-    points: [
-        "• React",
-        "• Redux",
-        "• JQuery",
-        "• MySQL / MongoDB",
-        "• Bootstrap / Material UI",
-    ]
-};
-
-const softDev: { title: string, points: string[] } = {
+const softDev: { title: string, points: any[] } = {
     title: "Software Development",
     points: [
-        "• C C++",
-        "• C# VB C++/CLI",
-        "• Java",
-        "• Python",
-        "• GSC",
-        "• Bash / Shell / Powershell",
-        "• Assembly x86 / x64",
+        {"name": "C", "src": "https://iswenzz.com:1337/iswenzz/devicons/c.svg"},
+        {"name": "C++", "src": "https://iswenzz.com:1337/iswenzz/devicons/cpp.svg"},
+        {"name": "C#", "src": "https://iswenzz.com:1337/iswenzz/devicons/csharp.svg"},
+        {"name": "VB", "src": "https://iswenzz.com:1337/iswenzz/devicons/vb.svg"},
+        {"name": ".NET", "src": "https://iswenzz.com:1337/iswenzz/devicons/dotnet.svg"},
+        {"name": "Java", "src": "https://iswenzz.com:1337/iswenzz/devicons/java.svg"},
+        {"name": "Python", "src": "https://iswenzz.com:1337/iswenzz/devicons/python.svg"},
+        {"name": "GSC", "src": "https://iswenzz.com:1337/iswenzz/devicons/gsc.svg"},
+        {"name": "Assembly", "src": "https://iswenzz.com:1337/iswenzz/devicons/assembly.svg"},
+        {"name": "Selenium", "src": "https://iswenzz.com:1337/iswenzz/devicons/selenium.svg"},
+        {"name": "SharpDX", "src": "https://iswenzz.com:1337/iswenzz/devicons/sharpdx.svg"},
+        {"name": "DirectX", "src": "https://iswenzz.com:1337/iswenzz/devicons/directx.svg"},
+        {"name": "Qt", "src": "https://iswenzz.com:1337/iswenzz/devicons/qt.svg"},
     ]
 };
 
-const softDevStack: { title: string, points: string[] } = {
-    title: "Software Stacks",
-    points: [
-        "• .NET",
-        "• Qt",
-        "• Winform & WPF",
-        "• DirectX",
-        "• Selenium",
-    ]
-};
-
-const levelDesign: { title: string, points: string[] } = {
+const levelDesign: { title: string, points: any[] } = {
     title: "Level Design",
     points: [
-        "• BSP Blockout & Landscape",
-        "• Detail geometry",
-        "• Shader / Material creation",
-        "• Lighting, FX / SFX placement",
-        "• Level optimization & Portaling"
-    ]
-};
-
-const levelDesignEditors: { title: string, points: string[] } = {
-    title: "Editors",
-    points: [
-        "• Unreal Engine 4",
-        "• Unity 5",
-        "• Radiant / GtkRadiant",
+        {"name": "Unreal Engine 4", "src": "https://iswenzz.com:1337/iswenzz/devicons/unreal-engine2.svg"},
+        {"name": "Unity 5", "src": "https://iswenzz.com:1337/iswenzz/devicons/unity.svg"},
+        {"name": "Radiant", "src": "https://iswenzz.com:1337/iswenzz/devicons/radiant.svg"},
+        {"name": "Maya", "src": "https://iswenzz.com:1337/iswenzz/devicons/maya.svg"},
+        {"name": "3DS Max", "src": "https://iswenzz.com:1337/iswenzz/devicons/3ds-max.svg"},
     ]
 };
 
 const IntroText: FunctionComponent = (): JSX.Element =>
 {
-    const isTabletOrMobileDevice = useMediaQuery({ query: '(max-device-width: 1224px)' });
-
     return (
         <VisibilitySensor partialVisibility>
         {({ isVisible }) => (
             <Container>
-                <Grid style={{paddingTop: '50px', paddingBottom: '70px'}} container alignItems="center"
-                direction="row" justify={isTabletOrMobileDevice ? 'center' : 'space-between'}>
+                <Grid style={{paddingTop: '50px', paddingBottom: '50px'}} container direction="column" alignItems="center" justify="center">
+                    <TrailText align="center" color="textPrimary" component="h1" variant="h1"
+                    className='poiret-h1' active={isVisible} items={["Technological Skills"]} />
+                    <Divider style={{ width: '400px', height: '2px', alignItems: "center" }} variant="middle" />
+                </Grid>
+                <Grid style={{paddingBottom: '100px'}} container alignItems="flex-start"
+                direction="column" justify="space-evenly">
                     
+                    {/* Software Development */}
+                    <TrailText align="left" variant="h5" component="h5" color="textPrimary" 
+                        className='poiret-h2' active={isVisible} items={[softDev.title]} />
+                    <Grid style={{ padding: "10px 0px 10px 0px" }} container 
+                    alignItems="center" justify="flex-start" direction="row">
+                    {softDev.points.map((icon: any): JSX.Element => (
+                        <Tooltip key={uuid.v4()} title={icon.name} arrow disableFocusListener disableTouchListener>
+                            <img onDragStart={(e) => e.preventDefault()} 
+                            style={{ margin: '0 4px 0 4px' }} width="64px" height="64px"
+                            alt='lang' src={icon.src} />
+                        </Tooltip>
+                    ))}
+                    </Grid>
+
                     {/* Web Development */}
-                    <div style={{paddingBottom: '20px'}}>
-                        <TrailText align="left" variant="h5" component="h5" color="textPrimary" 
-                        className='poiret-text' active={isVisible} items={[webDev.title]} />
-                        <TrailText align="left" variant="h5" component="h5" color="textPrimary"
-                        className='ubuntu-p-left' active={isVisible} items={webDev.points} />
-                        <Spacing height='40px' />
-                        <TrailText align="left" variant="h5" component="h5" color="textPrimary"
-                        className='poiret-text' active={isVisible} items={[webDevStack.title]} />
-                        <TrailText align="left" variant="h5" component="h5" color="textPrimary"
-                        className='ubuntu-p-left' active={isVisible} items={webDevStack.points} />
-                    </div>
-    
-                    {/* Software Development */} 
-                    <div style={{paddingBottom: '20px'}}>
-                        <TrailText align="left" variant="h5" component="h5" color="textPrimary"
-                        className='poiret-text' active={isVisible} items={[softDev.title]} />
-                        <TrailText align="left" variant="h5" component="h5" color="textPrimary"
-                        className='ubuntu-p-left' active={isVisible} items={softDev.points} />
-                        <Spacing height='40px' />
-                        <TrailText align="left" variant="h5" component="h5" color="textPrimary"
-                        className='poiret-text' active={isVisible} items={[softDevStack.title]} />
-                        <TrailText align="left" variant="h5" component="h5" color="textPrimary"
-                        className='ubuntu-p-left' active={isVisible} items={softDevStack.points} />
-                    </div>
-    
+                    <TrailText align="left" variant="h5" component="h5" color="textPrimary" 
+                        className='poiret-h2' active={isVisible} items={[webDev.title]} />
+                    <Grid style={{ padding: "10px 0px 10px 0px" }} container 
+                    alignItems="center" justify="flex-start" direction="row">
+                    {webDev.points.map((icon: any): JSX.Element => (
+                        <Tooltip key={uuid.v4()} title={icon.name} arrow disableFocusListener disableTouchListener>
+                            <img onDragStart={(e) => e.preventDefault()} 
+                            style={{ margin: '0 4px 0 4px' }} width="64px" height="64px"
+                            alt='lang' src={icon.src} />
+                        </Tooltip>
+                    ))}
+                    </Grid>
+
                     {/* Level Design */}
-                    <div style={{paddingBottom: '20px'}}>
-                        <TrailText align="left" variant="h5" component="h5" color="textPrimary"
-                        className='poiret-text' active={isVisible} items={[levelDesign.title]} />
-                        <TrailText align="left" variant="h5" component="h5" color="textPrimary"
-                        className='ubuntu-p-left' active={isVisible} items={levelDesign.points} />
-                        <Spacing height='40px' />
-                        <TrailText align="left" variant="h5" component="h5" color="textPrimary"
-                        className='poiret-text' active={isVisible} items={[levelDesignEditors.title]} />
-                        <TrailText align="left" variant="h5" component="h5" color="textPrimary"
-                        className='ubuntu-p-left' active={isVisible} items={levelDesignEditors.points} />
-                    </div>
-    
+                    <TrailText align="left" variant="h5" component="h5" color="textPrimary" 
+                        className='poiret-h2' active={isVisible} items={[levelDesign.title]} />
+                    <Grid style={{ padding: "10px 0px 10px 0px" }} container 
+                    alignItems="center" justify="flex-start" direction="row">
+                    {levelDesign.points.map((icon: any): JSX.Element => (
+                        <Tooltip key={uuid.v4()} title={icon.name} arrow disableFocusListener disableTouchListener>
+                            <img onDragStart={(e) => e.preventDefault()} 
+                            style={{ margin: '0 4px 0 4px' }} width="64px" height="64px"
+                            alt='lang' src={icon.src} />
+                        </Tooltip>
+                    ))}
+                    </Grid>
+
                 </Grid>
             </Container>
         )}

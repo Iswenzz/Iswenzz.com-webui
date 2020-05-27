@@ -13,7 +13,13 @@ const charPoses = {
     }
 };
 
-export class Intro extends Component
+export interface IntroProps
+{
+    title?: string,
+    desc?: string,
+}
+
+export class Intro extends Component<IntroProps>
 {
     render(): JSX.Element
     {
@@ -22,16 +28,16 @@ export class Intro extends Component
                 <Typography align="center" variant="h3" component="h2">
     
                     {/* Iswenzz */}
-                    <div className='calli-title'>
+                    <div className='calli-h1'>
                         <SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
-                            Iswenzz
+                            {this.props.title}
                         </SplitText>
                     </div>
     
                     {/* Text Below */}
-                    <div className='poiret-title'>
+                    <div className='poiret-h1'>
                         <SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
-                            Software Engineer and Level Designer
+                            {this.props.desc}
                         </SplitText>
                     </div>
     

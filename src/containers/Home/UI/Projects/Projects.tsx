@@ -1,6 +1,6 @@
 import React, { FunctionComponent, memo } from 'react';
 import RadialGradient, { GradiantProps } from 'components/RadialGradient/RadialGradient';
-import { Grid } from '@material-ui/core';
+import { Grid, Divider } from '@material-ui/core';
 import Spacing from 'components/Spacing/Spacing';
 import Project, { LinkedProjectProps } from 'containers/Home/UI/Project/Project';
 import StonecutterGrid from 'components/StonecutterGrid/StonecutterGrid';
@@ -10,7 +10,17 @@ import { enterExitStyle, layout } from 'react-stonecutter';
 import { useMediaQuery } from 'react-responsive';
 import { Element } from 'react-scroll';
 import { random } from 'lodash';
+import { TrailText } from 'components/TrailText/TrailText';
 import 'Text.scss';
+
+const charPoses = {
+    exit: { opacity: 0, y: 20 },
+    enter: {
+        opacity: 1,
+        y: 0,
+        delay: ({ charIndex }: any) => charIndex * 30
+    }
+};
 
 export const Projects: FunctionComponent = (): JSX.Element =>
 {
@@ -62,6 +72,11 @@ export const Projects: FunctionComponent = (): JSX.Element =>
             <RadialGradient config={config} style={{listStyleType: 'none', 
             paddingTop: isTabletOrMobileDevice ? '90px' : '50px', 
             paddingBottom: '50px'}}>
+                <Grid style={{paddingTop: '50px'}} container direction="column" alignItems="center" justify="center">
+                    <TrailText align="center" color="textPrimary" component="h1" variant="h1"
+                    className='poiret-h1' active items={["Projects"]} />
+                    <Divider style={{ width: '400px', height: '2px', alignItems: "center" }} variant="middle" />
+                </Grid>
                 {projectGrid}
                 <Spacing height={isPortrait ? '1500px' : isTabletOrMobileDevice ? '500px' : '1000px'} />
             </RadialGradient>     

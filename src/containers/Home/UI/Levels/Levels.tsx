@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useState, memo } from 'react';
 import RadialGradient, { GradiantProps } from 'components/RadialGradient/RadialGradient';
-import { Grid } from '@material-ui/core';
+import { Grid, Divider } from '@material-ui/core';
 import EmblaCarousel from 'components/EmblaCarousel/EmblaCarousel';
 import Spacing from 'components/Spacing/Spacing';
 import Level, { LevelProject } from 'containers/Home/UI/Level/Level';
@@ -10,7 +10,17 @@ import { Element } from 'react-scroll';
 import { useMediaQuery } from 'react-responsive';
 import { useSelector } from 'react-redux';
 import { AppState } from 'application';
+import { TrailText } from 'components/TrailText/TrailText';
 import 'Text.scss';
+
+const charPoses = {
+    exit: { opacity: 0, y: 20 },
+    enter: {
+        opacity: 1,
+        y: 0,
+        delay: ({ charIndex }: any) => charIndex * 30
+    }
+};
 
 const Animation = posed.div({
 	enter: { 
@@ -59,21 +69,19 @@ export const Levels: FunctionComponent = (): JSX.Element =>
         {({ isVisible }) => (
 			<Grid container direction="column" justify="center" alignItems="center">
 				<Element name="level-design-section" />
-				<RadialGradient config={config}>
-					<PoseGroup>
-					{isVisible || process.env.NODE_ENV === "test" ? [
-						<Animation key="carousel-anim" style={{width: '100%', height: '100%'}}>
-							<EmblaCarousel style={{ padding: '5% 0 5% 0' }} 
-							height={isPortrait ? '500px' : isTabletOrMobileDevice ? '350px' : '700px' } width='100%' 
-							delayLength={10000} autoplay={false}>
-								{levels.map((level: LevelProject) => (
-									<Level key={level.name} levels={levels} currentLevel={level} />
-								))}
-							</EmblaCarousel>
-						</Animation>	
-					]: []}
-					</PoseGroup>
-					<Spacing height={isPortrait ? '800px' : '1100px'} />
+				<RadialGradient direction="column" config={config} style={{padding: '80px 0px 200px 0px'}}>
+					<Grid style={{paddingBottom: '80px'}} container direction="column" alignItems="center" justify="center">
+						<TrailText align="center" color="textPrimary" component="h1" variant="h1"
+						className='poiret-h1' active={isVisible} items={["Level Design"]} />
+						<Divider style={{ width: '400px', height: '2px', alignItems: "center" }} variant="middle" />
+					</Grid>
+					<EmblaCarousel  
+					height={isPortrait ? '500px' : isTabletOrMobileDevice ? '350px' : '700px' } width='100%' 
+					delayLength={10000} autoplay={false}>
+						{levels.map((level: LevelProject) => (
+							<Level key={level.name} levels={levels} currentLevel={level} />
+						))}
+					</EmblaCarousel>
 				</RadialGradient>	
 			</Grid>
 		)}

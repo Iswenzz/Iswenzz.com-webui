@@ -70,7 +70,7 @@ export const Level: FunctionComponent<LevelProps> = (props: LevelProps): JSX.Ele
 		<Container className={isDarkMode ? classes.darkCard : classes.whiteCard}>
 			<GridList className="level-grid-list" cellHeight='auto' spacing={1}>
 				<GridListTile key={uuid.v4()} cols={2} rows={2} style={{height: '150px'}}>
-					<h1 className="calli-title" style={{ color: 'silver' }}>{props.currentLevel.name}</h1>
+					<h1 className="calli-h1" style={{ color: 'silver' }}>{props.currentLevel.name}</h1>
 				</GridListTile>
 				<GridListTile key={uuid.v4()} cols={1} rows={1} style={{width: '70%', height: '500px'}}>
 					{!isFlipped ? <ReactPlayer config={playerConfig} width='100%' height='100%' url={props.currentLevel.videoUrl} /> : null}
@@ -90,7 +90,7 @@ export const Level: FunctionComponent<LevelProps> = (props: LevelProps): JSX.Ele
 	const mobileCard: JSX.Element = (
 		<Container className={isDarkMode ? classes.darkCard : classes.whiteCard}>
 			<Grid container className="level-grid" direction="row" justify="center" alignItems="center">
-				<h3 className="calli-title" style={{ fontSize: '30px', color: 'silver', margin: 0 }}>{props.currentLevel.name}</h3>
+				<h3 className="calli-h1" style={{ fontSize: '30px', color: 'silver', margin: 0 }}>{props.currentLevel.name}</h3>
 				{!isFlipped ? <ReactPlayer config={playerConfig} width='100%' height='50%' url={props.currentLevel.videoUrl} /> : null}
 				<Typography style={{ margin: '10px' }} variant="subtitle1" align="left" 
 				color="textPrimary" component="h3">
