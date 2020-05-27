@@ -4,5 +4,5 @@ import * as serviceWorker from 'serviceWorker';
 import ReactDOM from 'react-dom';
 import application from 'application';
 
-ReactDOM.render(application, document.getElementById('root'));
+ReactDOM.render(application, document.getElementById('iswenzz-react-root'));
 serviceWorker.unregister();
