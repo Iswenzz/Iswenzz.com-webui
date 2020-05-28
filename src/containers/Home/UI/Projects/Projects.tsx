@@ -58,7 +58,7 @@ export const Projects: FunctionComponent = (): JSX.Element =>
     );
 
     return (
-        <Grid container direction="column" justify="center" alignItems="center">
+        <div>
             <Element name="projects-section" />
             <RadialGradient config={config} style={{listStyleType: 'none', 
             paddingTop: isTabletOrMobileDevice ? '90px' : '50px', paddingBottom: '50px'}}>
@@ -70,7 +70,7 @@ export const Projects: FunctionComponent = (): JSX.Element =>
                 {projectGrid}
                 <Spacing height={isPortrait ? '1500px' : isTabletOrMobileDevice ? '500px' : '1000px'} />
             </RadialGradient>     
-        </Grid>
+        </div>
     );
 }
 

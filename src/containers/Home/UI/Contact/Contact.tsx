@@ -2,8 +2,7 @@ import React, { FunctionComponent, memo, useState } from 'react';
 import RadialGradient, { GradiantProps } from 'components/RadialGradient/RadialGradient';
 import { Grid, Container, Avatar, TextField, Button, makeStyles, CircularProgress } from '@material-ui/core';
 import axios from 'axios';
-import Spacing from 'components/Spacing/Spacing';
-import posed, { PoseGroup } from 'react-pose';
+import posed from 'react-pose';
 import VisibilitySensor from "react-visibility-sensor";
 import { useMediaQuery } from 'react-responsive';
 import { Element } from 'react-scroll';
@@ -61,7 +60,7 @@ const Animation = posed.div({
 	exit: {
 		y: '-100%',
 		opacity: 0,
-		scale: 1.4,
+		scale: 0.4,
 		transition: { 
 			duration: 1000,
 			ease: 'easeIn'
@@ -175,21 +174,16 @@ export const Contact: FunctionComponent = (): JSX.Element =>
 	return (
 		<VisibilitySensor partialVisibility>
 		{({ isVisible }) => (
-			<Grid container direction="column" justify="center" alignItems="center">
+			<div>
 				<Element name="contact-section" />
 				<RadialGradient config={config} style={{ paddingTop: '80px', paddingBottom: '120px' }}>
-					{isTabletOrMobileDevice ? form : (
-						<PoseGroup>
-						{isVisible || process.env.NODE_ENV === "test" ? [
-							<Animation key="contact-anim">
-								{form}
-							</Animation>
-						] : []}
-						</PoseGroup>
-					)}
-					<Spacing height={isTabletOrMobileDevice ? '50px' : '600px'} />
+					<Container>
+						<Animation pose={isVisible ? "enter" : "exit"} key="contact-anim">
+							{form}
+						</Animation>
+					</Container>
 				</RadialGradient>	
-			</Grid>
+			</div>
 		)}
 		</VisibilitySensor>
 	);

@@ -93,11 +93,11 @@ export const NavBar: FunctionComponent<NavBarProps> = (props: NavBarProps): JSX.
 				<Button size='large' color="inherit">About</Button>
 			</Link>
 			<Link className="navbar-button" to="projects-section" smooth onClick={() => toggleDrawer(false)}
-			offset={isTabletOrMobileDevice ? 180 : 100}>
+			offset={isTabletOrMobileDevice ? 50 : 10}>
 				<Button size='large' color="inherit">Projects</Button>
 			</Link>
 			<Link className="navbar-button" to="level-design-section" smooth onClick={() => toggleDrawer(false)}
-			offset={isTabletOrMobileDevice ? 30 : 125}>
+			offset={isTabletOrMobileDevice ? 30 : 230}>
 				<Button size='large' color="inherit">Level Design</Button>
 			</Link>
 			<Link className="navbar-button" to="contact-section" smooth onClick={() => toggleDrawer(false)}

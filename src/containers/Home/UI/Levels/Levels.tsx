@@ -58,7 +58,7 @@ export const Levels: FunctionComponent = (): JSX.Element =>
 	return (
 		<VisibilitySensor partialVisibility>
         {({ isVisible }) => (
-			<Grid container direction="column" justify="center" alignItems="center">
+			<div>
 				<Element name="level-design-section" />
 				<RadialGradient direction="column" config={config} style={{padding: '80px 0px 200px 0px'}}>
 					<Container style={{paddingTop: '30px', paddingBottom: '120px'}}>
@@ -66,15 +66,19 @@ export const Levels: FunctionComponent = (): JSX.Element =>
 						className='poiret-h1' active={true} items={["Level Design"]} />
 						<Divider style={{ margin: '10px 0px 10px 0px', width: '100%', height: '2px'}} />
 					</Container>
-					<EmblaCarousel  
-					height={isPortrait ? '500px' : isTabletOrMobileDevice ? '350px' : '700px' } width='100%' 
-					delayLength={10000} autoplay={false}>
-						{levels.map((level: LevelProject) => (
-							<Level key={level.name} levels={levels} currentLevel={level} />
-						))}
-					</EmblaCarousel>
+					<Container>
+						<Animation pose={isVisible ? "enter" : "exit"} key="carousel-anim">
+							<EmblaCarousel  
+							height={isPortrait ? '500px' : isTabletOrMobileDevice ? '350px' : '700px' } 
+							width='100%' delayLength={10000} autoplay={false}>
+								{levels.map((level: LevelProject) => (
+									<Level key={level.name} levels={levels} currentLevel={level} />
+								))}
+							</EmblaCarousel>
+						</Animation>
+					</Container>
 				</RadialGradient>	
-			</Grid>
+			</div>
 		)}
 		</VisibilitySensor>
 	);

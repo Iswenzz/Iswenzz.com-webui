@@ -18,8 +18,8 @@ import { Typography } from '@material-ui/core';
 import SplitText from 'react-pose-text';
 import ProjectPopup from 'containers/Home/UI/ProjectPopup/ProjectPopup';
 import { Element } from 'react-scroll';
-import 'Text.scss';
 import { Spacing } from 'components/Spacing/Spacing';
+import 'Text.scss';
 
 const charPoses = {
     exit: { opacity: 0, y: 20 },
