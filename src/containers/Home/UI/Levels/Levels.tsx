@@ -1,10 +1,9 @@
 import React, { FunctionComponent, useState, memo } from 'react';
 import RadialGradient, { GradiantProps } from 'components/RadialGradient/RadialGradient';
-import { Grid, Divider, Container } from '@material-ui/core';
+import { Divider, Container, Box, Grid } from '@material-ui/core';
 import EmblaCarousel from 'components/EmblaCarousel/EmblaCarousel';
-import Spacing from 'components/Spacing/Spacing';
 import Level, { LevelProject } from 'containers/Home/UI/Level/Level';
-import posed, { PoseGroup } from 'react-pose';
+import posed from 'react-pose';
 import VisibilitySensor from "react-visibility-sensor";
 import { Element } from 'react-scroll';
 import { useMediaQuery } from 'react-responsive';
@@ -61,12 +60,12 @@ export const Levels: FunctionComponent = (): JSX.Element =>
 			<div>
 				<Element name="level-design-section" />
 				<RadialGradient direction="column" config={config} style={{padding: '80px 0px 200px 0px'}}>
-					<Container style={{paddingTop: '30px', paddingBottom: '120px'}}>
+					<Container style={{paddingBottom: '90px'}}>
 						<TrailText align="center" color="textPrimary" component="h1" variant="h1"
-						className='poiret-h1' active={true} items={["Level Design"]} />
+						className='poiret-h1' active={isVisible} items={["Level Design"]} />
 						<Divider style={{ margin: '10px 0px 10px 0px', width: '100%', height: '2px'}} />
 					</Container>
-					<Container>
+					<Container maxWidth="xl">
 						<Animation pose={isVisible ? "enter" : "exit"} key="carousel-anim">
 							<EmblaCarousel  
 							height={isPortrait ? '500px' : isTabletOrMobileDevice ? '350px' : '700px' } 
