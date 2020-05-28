@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useState, memo } from 'react';
 import RadialGradient, { GradiantProps } from 'components/RadialGradient/RadialGradient';
-import { Grid, Divider } from '@material-ui/core';
+import { Grid, Divider, Container } from '@material-ui/core';
 import EmblaCarousel from 'components/EmblaCarousel/EmblaCarousel';
 import Spacing from 'components/Spacing/Spacing';
 import Level, { LevelProject } from 'containers/Home/UI/Level/Level';
@@ -12,15 +12,6 @@ import { useSelector } from 'react-redux';
 import { AppState } from 'application';
 import { TrailText } from 'components/TrailText/TrailText';
 import 'Text.scss';
-
-const charPoses = {
-    exit: { opacity: 0, y: 20 },
-    enter: {
-        opacity: 1,
-        y: 0,
-        delay: ({ charIndex }: any) => charIndex * 30
-    }
-};
 
 const Animation = posed.div({
 	enter: { 
@@ -70,11 +61,11 @@ export const Levels: FunctionComponent = (): JSX.Element =>
 			<Grid container direction="column" justify="center" alignItems="center">
 				<Element name="level-design-section" />
 				<RadialGradient direction="column" config={config} style={{padding: '80px 0px 200px 0px'}}>
-					<Grid style={{paddingBottom: '80px'}} container direction="column" alignItems="center" justify="center">
+					<Container style={{paddingTop: '30px', paddingBottom: '120px'}}>
 						<TrailText align="center" color="textPrimary" component="h1" variant="h1"
-						className='poiret-h1' active={isVisible} items={["Level Design"]} />
-						<Divider style={{ width: '400px', height: '2px', alignItems: "center" }} variant="middle" />
-					</Grid>
+						className='poiret-h1' active={true} items={["Level Design"]} />
+						<Divider style={{ margin: '10px 0px 10px 0px', width: '100%', height: '2px'}} />
+					</Container>
 					<EmblaCarousel  
 					height={isPortrait ? '500px' : isTabletOrMobileDevice ? '350px' : '700px' } width='100%' 
 					delayLength={10000} autoplay={false}>
