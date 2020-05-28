@@ -29,6 +29,12 @@
     font-size: 13px !important;
 }
 
+.poiret-big {
+    font-family: 'Poiret One', sans-serif !important;
+    font-size: 70px !important;
+    user-select: none !important;
+}
+
 .poiret-h1 {
     font-family: 'Poiret One', sans-serif !important;
     font-size: 50px !important;
@@ -82,6 +88,10 @@
 
 .title-color {
     color: rgba(220, 220, 220, 0.9);
+}
+
+.bold {
+    font-weight: bold !important;
 }
 
 .pre-line {
