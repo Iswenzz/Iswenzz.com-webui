@@ -22,91 +22,91 @@ import { Spacing } from 'components/Spacing/Spacing';
 import 'Text.scss';
 
 const charPoses = {
-    exit: { opacity: 0, y: 20 },
-    enter: {
-        opacity: 1,
-        y: 0,
-        delay: ({ charIndex }: any) => charIndex * 30
-    }
+	exit: { opacity: 0, y: 20 },
+	enter: {
+		opacity: 1,
+		y: 0,
+		delay: ({ charIndex }: any) => charIndex * 30
+	}
 };
 
 const Home: FunctionComponent = (): JSX.Element =>
 {
-    const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
+	const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
 
-    return (
-        <>
-            {/* Header */}
-            <Element name="header-section" />
-            <NavBar style={{ background: 'rgba(50, 50, 60, 0.3)'}} />
+	return (
+		<>
+			{/* Header */}
+			<Element name="header-section" />
+			<NavBar style={{ background: 'rgba(50, 50, 60, 0.3)'}} />
 
-            {/* About */}
-            <IntroHeader title="Iswenzz" desc="Software Engineer and Level Designer" 
-            bgImage={require(`assets/images/index/${isDarkMode ? '20.jpg' : 'nature1.jpg'}`)} />
-            <IntroSkill />
-            <Parallax style={{backgroundColor: isDarkMode ? 'black' : 'rgb(122, 206, 255)'}} 
-            bgImageAlt="index" strength={400}
-            bgImage={require(`assets/images/index/${isDarkMode ? 'stars' : 'clouds'}.svg`)}>
-                <Spacing height='100px' />
-            </Parallax>
+			{/* About */}
+			<IntroHeader title="Iswenzz" desc="Software Engineer and Level Designer" 
+			bgImage={require(`assets/images/index/${isDarkMode ? '20.jpg' : 'nature1.jpg'}`)} />
+			<IntroSkill />
+			<Parallax style={{backgroundColor: isDarkMode ? 'black' : 'rgb(122, 206, 255)'}} 
+			bgImageAlt="index" strength={400}
+			bgImage={require(`assets/images/index/${isDarkMode ? 'stars' : 'clouds'}.svg`)}>
+				<Spacing height='100px' />
+			</Parallax>
 
-            {/* Projects */}
-            <ProjectPopup />
-            <Projects />
-            <Parallax style={{backgroundColor: isDarkMode ? 'black' : 'rgb(122, 206, 255)'}} 
-            bgImageAlt="index" strength={400}
-            bgImage={require(`assets/images/index/${isDarkMode ? 'stars' : 'clouds'}.svg`)}>
-                <Spacing height='100px' />
-            </Parallax>
+			{/* Projects */}
+			<ProjectPopup />
+			<Projects />
+			<Parallax style={{backgroundColor: isDarkMode ? 'black' : 'rgb(122, 206, 255)'}} 
+			bgImageAlt="index" strength={400}
+			bgImage={require(`assets/images/index/${isDarkMode ? 'stars' : 'clouds'}.svg`)}>
+				<Spacing height='100px' />
+			</Parallax>
 
-            {/* Levels */}
-            <Levels />
+			{/* Levels */}
+			<Levels />
 
-            {/* Contact */}
-            <Parallax style={{boxShadow: '0 0 5px 6px rgba(60, 60, 60, .3)'}} 
-            bgImage={require(`assets/images/index/${isDarkMode ? '55.jpg' : 't1.jpg'}`)} 
-            bgImageAlt="index" strength={200} blur={0}>
-                <Typography style={{ userSelect: 'none', paddingTop: '200px', paddingBottom: '200px' }} 
-                align="center" variant="h1" component="h1">
-                    <SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
-                        Contact
-                    </SplitText>
+			{/* Contact */}
+			<Parallax style={{boxShadow: '0 0 5px 6px rgba(60, 60, 60, .3)'}} 
+			bgImage={require(`assets/images/index/${isDarkMode ? '55.jpg' : 't1.jpg'}`)} 
+			bgImageAlt="index" strength={200} blur={1}>
+				<Typography className="poiret-big bold" style={{ userSelect: 'none', paddingTop: '200px', paddingBottom: '200px' }} 
+				align="center" variant="h1" component="h1">
+					<SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
+						Contact
+					</SplitText>
 				</Typography>
-            </Parallax>
-            <Contact />
+			</Parallax>
+			<Contact />
 
-            {/* Footer */}
-            <Footer />
-        </>
-    );
+			{/* Footer */}
+			<Footer />
+		</>
+	);
 }
 
 interface LinkStateProps 
 {
-    projects: LinkedProjectProps[],
-    projectsStartIndex: number,
-    projectModalActive: boolean
+	projects: LinkedProjectProps[],
+	projectsStartIndex: number,
+	projectModalActive: boolean
 }
 
 interface LinkDispatchProps 
 {
-    setProjectsIndex: (index: number) => void,
-    toggleProjectModalActive: (active: boolean) => void
+	setProjectsIndex: (index: number) => void,
+	toggleProjectModalActive: (active: boolean) => void
 }
 
 export type ReduxHomeProps = LinkStateProps & LinkDispatchProps;
 
 const mapStateToProps = (state: AppState, ownProps: any): LinkStateProps => 
 ({
-    projects: state.home.projects,
-    projectsStartIndex: state.home.projectsStartIndex,
-    projectModalActive: state.home.projectModalActive
+	projects: state.home.projects,
+	projectsStartIndex: state.home.projectsStartIndex,
+	projectModalActive: state.home.projectModalActive
 });
 
 const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, HomeActions>, ownProps: any): LinkDispatchProps => 
 ({
-    setProjectsIndex: bindActionCreators(actions.setProjectsIndex, dispatch),
-    toggleProjectModalActive: bindActionCreators(actions.toggleProjectModalActive, dispatch)
+	setProjectsIndex: bindActionCreators(actions.setProjectsIndex, dispatch),
+	toggleProjectModalActive: bindActionCreators(actions.toggleProjectModalActive, dispatch)
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

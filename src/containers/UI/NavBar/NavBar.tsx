@@ -97,7 +97,7 @@ export const NavBar: FunctionComponent<NavBarProps> = (props: NavBarProps): JSX.
 				<Button size='large' color="inherit">Projects</Button>
 			</Link>
 			<Link className="navbar-button" to="level-design-section" smooth onClick={() => toggleDrawer(false)}
-			offset={isTabletOrMobileDevice ? 30 : 230}>
+			offset={isTabletOrMobileDevice ? 30 : 180}>
 				<Button size='large' color="inherit">Level Design</Button>
 			</Link>
 			<Link className="navbar-button" to="contact-section" smooth onClick={() => toggleDrawer(false)}
