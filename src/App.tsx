@@ -10,6 +10,8 @@ import { ThunkDispatch } from 'redux-thunk';
 import { bindActionCreators } from 'redux';
 import { CssBaseline } from '@material-ui/core';
 import { detect } from 'detect-browser';
+import { Route, Switch, BrowserRouter } from 'react-router-dom';
+import Docx from 'containers/Docx/Docx';
 
 export const App: FunctionComponent<ReduxAppProps> = (props: ReduxAppProps): JSX.Element =>
 {
@@ -30,6 +32,10 @@ export const App: FunctionComponent<ReduxAppProps> = (props: ReduxAppProps): JSX
 				color: 'rgba(220, 220, 220, 1)'
 			},
 			h2: {
+				fontFamily: "Calligraffitti",
+				color: 'rgba(220, 220, 220, 1)'
+			},
+			h3: {
 				fontFamily: "Calligraffitti",
 				color: 'rgba(220, 220, 220, 1)'
 			},
@@ -124,7 +130,12 @@ export const App: FunctionComponent<ReduxAppProps> = (props: ReduxAppProps): JSX
 	return (
 		<ThemeProvider theme={theme}> 
 			<CssBaseline />
-			<Home />
+			<BrowserRouter>
+				<Switch>
+					<Route path="/" exact component={Home} />
+					<Route path="/docs" component={Docx} />
+				</Switch>
+			</BrowserRouter>
 		</ThemeProvider>
 	);
 }
