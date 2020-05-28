@@ -2,10 +2,20 @@ import * as appActions from 'store/actions';
 import React, { FunctionComponent } from 'react';
 import { AppState } from "application";
 import { useSelector, useDispatch } from 'react-redux';
-import Intro from 'containers/Home/UI/Intro/Intro';
 import { Parallax } from 'react-parallax';
 import Spacing from 'components/Spacing/Spacing';
 import VisibilitySensor from 'react-visibility-sensor';
+import SplitText from 'react-pose-text';
+import { Grid, Typography } from '@material-ui/core';
+
+const charPoses = {
+    exit: { opacity: 0, y: 20 },
+    enter: {
+        opacity: 1,
+        y: 0,
+        delay: ({ charIndex }: any) => charIndex * 30
+    }
+};
 
 export interface IntroHeaderProps
 {
@@ -33,7 +43,21 @@ const IntroHeader: FunctionComponent<IntroHeaderProps> = (props: IntroHeaderProp
                 bgImage={props.bgImage} bgImageAlt="index" blur={props.parallaxBlur || 0}
                 strength={props.parallaxStrength || 400}>
                     <Spacing height={props.spaceTop || '70px'} />
-                    <Intro title={props.title} desc={props.desc} />
+                    <Grid style={{paddingTop: '200px'}} container 
+                    direction="column" justify="center" alignItems="center">
+                        <Typography align="center" variant="h3" component="h2">
+                            <div className='calli-h1' style={{fontWeight: 'bold'}}>
+                                <SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
+                                    {props.title}
+                                </SplitText>
+                            </div>
+                            <div className='poiret-h1' style={{fontWeight: 'bold'}}>
+                                <SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
+                                    {props.desc}
+                                </SplitText>
+                            </div>
+                        </Typography>
+                    </Grid>
                     <Spacing height={props.spaceBottom || '300px'} />
                 </Parallax>
             );
