@@ -1,5 +1,6 @@
 import React, { memo, Component } from 'react';
 import { Typography, TypographyProps } from '@material-ui/core';
+import uuid from 'uuid';
 
 export interface TextProps extends TypographyProps
 {
@@ -15,7 +16,7 @@ class Text extends Component<TextProps>
 			{this.props.items.map(item => (
 				<Typography style={this.props.style} className={this.props.className} noWrap={this.props.noWrap} 
 				align={this.props.align} color={this.props.color} paragraph={this.props.paragraph} 
-				component={this.props.component} variant={this.props.variant}>
+				component={this.props.component} variant={this.props.variant} key={uuid.v4()}>
 					{item} 
 				</Typography>
 			))}
