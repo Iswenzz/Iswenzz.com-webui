@@ -6,7 +6,7 @@ import Project, { LinkedProjectProps } from 'containers/Home/UI/Project/Project'
 import StonecutterGrid from 'components/StonecutterGrid/StonecutterGrid';
 import { useSelector } from 'react-redux';
 import { AppState } from 'application';
-import { enterExitStyle, layout } from 'react-stonecutter';
+import { enterExitStyle, layout, SpringGridProps } from 'react-stonecutter';
 import { useMediaQuery } from 'react-responsive';
 import { Element } from 'react-scroll';
 import { random } from 'lodash';
@@ -35,27 +35,18 @@ export const Projects: FunctionComponent = (): JSX.Element =>
 		]
     }
 
-    const projectGrid: JSX.Element = (
-        <Grid container direction="row" alignItems="center" justify="center">
-            <StonecutterGrid responsive animStyle={enterExitStyle.skew} 
-            config={{ component: 'div', columns: 5,
-            perspective: 600, columnWidth: isTabletOrMobileDevice ? 85 : 200, gutterWidth: 30, 
-            gutterHeight: isTabletOrMobileDevice ? -70 : 0, 
-            layout: isTabletOrMobileDevice ? layout.simple : layout.pinterest,
-            springConfig: { stiffness: 100, damping: 12 } }}>
-            {projects!.map((project: LinkedProjectProps) => {
-                let r = isTabletOrMobileDevice ? undefined : random(100, 220);
-                return (
-                    //@ts-ignore - for itemHeight custom attribute
-                    <li key={project.title} itemHeight={r}> 
-                        <Project projects={projects!} currentProj={project} 
-                        itemHeight={r} /> 
-                    </li>
-                )
-            })}
-            </StonecutterGrid>
-        </Grid>
-    );
+    const gridConfig: SpringGridProps = { 
+        component: 'div', 
+        columns: 5,
+        perspective: 600, 
+        columnWidth: isTabletOrMobileDevice ? 85 : 200, gutterWidth: 30, 
+        gutterHeight: isTabletOrMobileDevice ? -70 : 0, 
+        layout: isTabletOrMobileDevice ? layout.simple : layout.pinterest,
+        springConfig: { 
+            stiffness: 100, 
+            damping: 12 
+        } 
+    }
 
     return (
         <div>
@@ -67,7 +58,20 @@ export const Projects: FunctionComponent = (): JSX.Element =>
                     className='poiret-h1' active={true} items={["Projects"]} />
                     <Divider style={{ margin: '10px 0px 10px 0px', width: '100%', height: '2px'}} />
                 </Container>
-                {projectGrid}
+                <Grid container direction="row" alignItems="center" justify="center">
+                    <StonecutterGrid responsive animStyle={enterExitStyle.skew} config={gridConfig}>
+                    {projects!.map((project: LinkedProjectProps) => {
+                        let r = isTabletOrMobileDevice ? undefined : random(100, 220);
+                        return (
+                            //@ts-ignore - for itemHeight custom attribute
+                            <li key={project.title} itemHeight={r}> 
+                                <Project projects={projects!} currentProj={project} 
+                                itemHeight={r} /> 
+                            </li>
+                        )
+                    })}
+                    </StonecutterGrid>
+                </Grid>
                 <Spacing height={isPortrait ? '1500px' : isTabletOrMobileDevice ? '500px' : '1000px'} />
             </RadialGradient>     
         </div>
