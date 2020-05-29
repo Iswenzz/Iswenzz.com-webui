@@ -9,7 +9,7 @@ import { Element } from 'react-scroll';
 import { useMediaQuery } from 'react-responsive';
 import { useSelector } from 'react-redux';
 import { AppState } from 'application';
-import { TrailText } from 'components/TrailText/TrailText';
+import Text from 'components/Text/Text';
 import 'Text.scss';
 
 const Animation = posed.div({
@@ -55,15 +55,17 @@ export const Levels: FunctionComponent = (): JSX.Element =>
 	}
 
 	return (
-		<VisibilitySensor partialVisibility>
+		<VisibilitySensor partialVisibility offset={{ bottom: 400 }}>
         {({ isVisible }) => (
 			<div>
 				<Element name="level-design-section" />
 				<RadialGradient direction="column" config={config} style={{padding: '80px 0px 200px 0px'}}>
 					<Container style={{paddingBottom: '90px'}}>
-						<TrailText align="center" color="textPrimary" component="h1" variant="h1"
-						className='poiret-h1' active={isVisible} items={["Level Design"]} />
-						<Divider style={{ margin: '10px 0px 10px 0px', width: '100%', height: '2px'}} />
+						<Animation pose={isVisible ? "enter" : "exit"} key="carousel-header-anim">
+							<Text align="center" color="textPrimary" component="h1" variant="h1"
+							className='poiret-h1' items={["Level Design"]} />
+							<Divider style={{ margin: '10px 0px 10px 0px', width: '100%', height: '2px'}} />
+						</Animation>
 					</Container>
 					<Container maxWidth="xl">
 						<Animation pose={isVisible ? "enter" : "exit"} key="carousel-anim">
