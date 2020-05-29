@@ -4,11 +4,12 @@ import RadialGradient from 'components/RadialGradient/RadialGradient';
 import { Parallax } from 'react-parallax';
 import { useSelector } from 'react-redux';
 import { AppState } from 'application';
-import TrailText from 'components/TrailText/TrailText';
+import Text from 'components/Text/Text';
 import { Grid, Container, Divider } from '@material-ui/core';
 import VisibilitySensor from "react-visibility-sensor";
-import 'Text.scss';
 import posed from 'react-pose';
+import TrailText from 'components/TrailText/TrailText';
+import 'Text.scss';
 
 const intro = {
 	header: `Hello there!`,
@@ -158,22 +159,22 @@ export const IntroSkill: FunctionComponent = (): JSX.Element =>
                 { color: isDarkMode ? '#0e0f14' : '#e5e5e5', colorPercent: '0%' },
                 { color: isDarkMode ? '#181a21' : '#f4f4f4', colorPercent: '100%' }
             ]}>
-                <VisibilitySensor partialVisibility>
+                <VisibilitySensor partialVisibility offset={{ bottom: 200 }}>
                 {({ isVisible }) => (
                     <Grid style={{paddingTop: '100px', paddingBottom: '100px'}} container direction="row" 
                     justify="center" alignItems="center">
                         {/* About me */}
                         <AnimationUp pose={isVisible ? "enter" : "exit"} key="about-animation">
                             <Container maxWidth="md">
-                                <TrailText align="left" color="textPrimary" component="h1" variant="h1"
-                                className='poiret-h1' active={isVisible} items={[intro.header]} />
+                                <Text align="left" color="textPrimary" component="h1" variant="h1"
+                                className='poiret-h1' items={[intro.header]} />
                                 <Divider style={{ width: '350px', height: '2px', marginTop: '16px', 
                                 marginBottom: '16px' }} />
-                                <TrailText align="left" style={{marginTop: '16px', marginBottom: '16px'}} 
+                                <Text align="left" style={{marginTop: '16px', marginBottom: '16px'}} 
                                 color="textPrimary" component="h3" variant="h3"
-                                className='ubuntu-h3' active={isVisible} items={[intro.title]} />
-                                <TrailText align="left" color="textPrimary" paragraph component="h4" variant="h4"
-                                className='ubuntu-h4' active={isVisible} items={[intro.desc]} />
+                                className='ubuntu-h3' items={[intro.title]} />
+                                <Text align="left" color="textPrimary" paragraph component="h4" variant="h4"
+                                className='ubuntu-h4' items={[intro.desc]} />
                             </Container>
                         </AnimationUp>
                     </Grid>
@@ -192,7 +193,7 @@ export const IntroSkill: FunctionComponent = (): JSX.Element =>
                 { color: isDarkMode ? '#0e0f14' : '#e5e5e5', colorPercent: '0%' },
                 { color: isDarkMode ? '#181a21' : '#f4f4f4', colorPercent: '100%' }
             ]}>
-                <VisibilitySensor partialVisibility>
+                <VisibilitySensor partialVisibility offset={{ bottom: 200 }}>
                 {({ isVisible }) => (
                     <Container>
                         <AnimationLeft pose={isVisible ? "enter" : "exit"} key="about-skill-animation">
@@ -208,29 +209,29 @@ export const IntroSkill: FunctionComponent = (): JSX.Element =>
                                 
                                 {/* Web Development */}
                                 <div style={{padding: '20px 0px 20px 0px'}}>
-                                    <TrailText className='poiret-h2' active={isVisible} items={[webDev.title]} />
-                                    <TrailText className='ubuntu-h4' active={isVisible} items={webDev.points} />
+                                    <Text className='poiret-h2' items={[webDev.title]} />
+                                    <Text className='ubuntu-h4' items={webDev.points} />
                                     <Spacing height='20px' />
-                                    <TrailText className='poiret-h2' active={isVisible} items={[webDevStack.title]} />
-                                    <TrailText className='ubuntu-h4' active={isVisible} items={webDevStack.points} />
+                                    <Text className='poiret-h2' items={[webDevStack.title]} />
+                                    <Text className='ubuntu-h4' items={webDevStack.points} />
                                 </div>
 
                                 {/* Software Development */} 
                                 <div style={{padding: '20px 0px 20px 0px'}}>
-                                    <TrailText className='poiret-h2' active={isVisible} items={[softDev.title]} />
-                                    <TrailText className='ubuntu-h4' active={isVisible} items={softDev.points} />
+                                    <Text className='poiret-h2' items={[softDev.title]} />
+                                    <Text className='ubuntu-h4' items={softDev.points} />
                                     <Spacing height='20px' />
-                                    <TrailText className='poiret-h2' active={isVisible} items={[softDevStack.title]} />
-                                    <TrailText className='ubuntu-h4' active={isVisible} items={softDevStack.points} />
+                                    <Text className='poiret-h2' items={[softDevStack.title]} />
+                                    <Text className='ubuntu-h4' items={softDevStack.points} />
                                 </div>
 
                                 {/* Level Design */}
                                 <div style={{padding: '20px 0px 20px 0px'}}>
-                                    <TrailText className='poiret-h2' active={isVisible} items={[levelDesign.title]} />
-                                    <TrailText className='ubuntu-h4' active={isVisible} items={levelDesign.points} />
+                                    <Text className='poiret-h2' items={[levelDesign.title]} />
+                                    <Text className='ubuntu-h4' items={levelDesign.points} />
                                     <Spacing height='20px' />
-                                    <TrailText className='poiret-h2' active={isVisible} items={[levelDesignEditors.title]} />
-                                    <TrailText className='ubuntu-h4' active={isVisible} items={levelDesignEditors.points} />
+                                    <Text className='poiret-h2' items={[levelDesignEditors.title]} />
+                                    <Text className='ubuntu-h4' items={levelDesignEditors.points} />
                                 </div>
 
                             </Grid>
