@@ -1,6 +1,6 @@
 import * as homeActions from 'containers/Home/store/actions';
 import * as appActions from 'store/actions';
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, memo } from 'react';
 import { Card, CardActionArea, Typography } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
@@ -52,7 +52,7 @@ export interface ProjectProps
     itemHeight?: number
 }
 
-const Animation = posed.div({
+const ZoomAnimation = posed.div({
     hoverable: true,
     pressable: true,
     init: {
@@ -90,21 +90,21 @@ export const Project: FunctionComponent<ProjectProps> = (props: ProjectProps): J
     }
 
     return (
-        <Animation>
+        <ZoomAnimation>
             <Card onClick={onToggle} 
             style={{ backgroundImage: `url(${props.currentProj.cardImage})`, backgroundSize: 'cover',
-            width: cardSize.width, height: cardSize.height, 
-            borderRadius: '2px', borderColor: 'rgba(40, 40, 40, 1)', borderWidth: '2px', borderStyle: 'dashed',
+            width: cardSize.width, height: cardSize.height, borderRadius: '2px', 
+            borderColor: 'rgba(40, 40, 40, 1)', borderWidth: '2px', borderStyle: 'dashed',
             boxShadow: '0 3px 5px 2px rgba(60, 60, 60, .3)'}}>
                 <CardActionArea style={{ height: '100%', width: '100%' }}>
-                    <Typography variant="caption" align="center" 
-                    paragraph component="p" style={{ fontSize: isTabletOrMobileDevice ? 14 : 20, height: cardSize.height / 3 }}>
+                    <Typography variant="caption" align="center" paragraph component="p" 
+                    style={{ fontSize: isTabletOrMobileDevice ? 14 : 20, height: cardSize.height / 3 }}>
                         {props.currentProj.title}
                     </Typography>
                 </CardActionArea>
             </Card>
-        </Animation>
+        </ZoomAnimation>
     );
 }
 
-export default Project;
+export default memo(Project);
