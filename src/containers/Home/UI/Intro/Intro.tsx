@@ -196,7 +196,7 @@ export const IntroSkill: FunctionComponent = (): JSX.Element =>
                 <VisibilitySensor partialVisibility offset={{ bottom: 200 }}>
                 {({ isVisible }) => (
                     <Container>
-                        <AnimationLeft pose={isVisible ? "enter" : "exit"} key="about-skill-animation">
+                        <AnimationLeft pose={isVisible ? "enter" : "exit"} key="about-skill-header-animation">
                             <Container style={{paddingTop: '50px', paddingBottom: '50px'}}>
                                 <TrailText align="center" color="textPrimary" component="h1" variant="h1"
                                 className='poiret-h1' active={isVisible} items={["Technological Skills"]} />
