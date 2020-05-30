@@ -44,7 +44,7 @@ export const Projects: FunctionComponent = (): JSX.Element =>
         layout: isTabletOrMobileDevice ? layout.simple : layout.pinterest,
         springConfig: { 
             stiffness: 100, 
-            damping: 70 
+            damping: 12 
         } 
     }
 
