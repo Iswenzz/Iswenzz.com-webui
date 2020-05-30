@@ -1,5 +1,5 @@
 import * as appActions from 'store/actions';
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, memo } from 'react';
 import { AppState } from "application";
 import { useSelector, useDispatch } from 'react-redux';
 import { Parallax } from 'react-parallax';
@@ -45,17 +45,17 @@ const IntroHeader: FunctionComponent<IntroHeaderProps> = (props: IntroHeaderProp
                     <Spacing height={props.spaceTop || '70px'} />
                     <Grid style={{paddingTop: '200px'}} container 
                     direction="column" justify="center" alignItems="center">
-                        <Typography align="center" variant="h3" component="h2">
+                        <Typography align="center" variant="h3" component="div">
                             <div className='calli-h1' style={{fontWeight: 'bold'}}>
                                 <SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
                                     {props.title}
                                 </SplitText>
                             </div>
-                            <div className='poiret-h1' style={{fontWeight: 'bold'}}>
+                            <Typography className="poiret-header" align="center" variant="h3" component="h3">
                                 <SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
                                     {props.desc}
                                 </SplitText>
-                            </div>
+                            </Typography>
                         </Typography>
                     </Grid>
                     <Spacing height={props.spaceBottom || '300px'} />
@@ -66,4 +66,4 @@ const IntroHeader: FunctionComponent<IntroHeaderProps> = (props: IntroHeaderProp
     );
 }
 
-export default IntroHeader;
+export default memo(IntroHeader);
