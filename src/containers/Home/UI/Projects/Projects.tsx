@@ -44,37 +44,37 @@ export const Projects: FunctionComponent = (): JSX.Element =>
         layout: isTabletOrMobileDevice ? layout.simple : layout.pinterest,
         springConfig: { 
             stiffness: 100, 
-            damping: 12 
+            damping: 70 
         } 
     }
 
     return (
-        <div>
-            <Element name="projects-section" />
-            <RadialGradient config={config} style={{listStyleType: 'none', 
-            paddingTop: isTabletOrMobileDevice ? '90px' : '50px', paddingBottom: '50px'}}>
-                <Container style={{paddingTop: '50px'}}>
-                    <TrailText align="center" color="textPrimary" component="h1" variant="h1"
-                    className='poiret-h1' active={true} items={["Projects"]} />
-                    <Divider style={{ margin: '10px 0px 10px 0px', width: '100%', height: '2px'}} />
-                </Container>
-                <Grid container direction="row" alignItems="center" justify="center">
-                    <StonecutterGrid responsive animStyle={enterExitStyle.skew} config={gridConfig}>
-                    {projects!.map((project: LinkedProjectProps) => {
-                        let r = isTabletOrMobileDevice ? undefined : random(100, 220);
-                        return (
-                            //@ts-ignore - for itemHeight custom attribute
-                            <li key={project.title} itemHeight={r}> 
-                                <Project projects={projects!} currentProj={project} 
-                                itemHeight={r} /> 
-                            </li>
-                        )
-                    })}
-                    </StonecutterGrid>
-                </Grid>
-                <Spacing height={isPortrait ? '1500px' : isTabletOrMobileDevice ? '500px' : '1000px'} />
-            </RadialGradient>     
-        </div>
+		<div>
+			<Element name="projects-section" />
+			<RadialGradient config={config} style={{listStyleType: 'none', 
+			paddingTop: isTabletOrMobileDevice ? '90px' : '50px', paddingBottom: '50px'}}>
+				<Container style={{paddingTop: '50px'}}>
+					<TrailText align="center" color="textPrimary" component="h1" variant="h1"
+					className='poiret-h1' active={true} items={["Projects"]} />
+					<Divider style={{ margin: '10px 0px 10px 0px', width: '100%', height: '2px'}} />
+				</Container>
+				<Grid container direction="row" alignItems="center" justify="center">
+					<StonecutterGrid responsive animStyle={enterExitStyle.skew} config={gridConfig}>
+					{projects!.map((project: LinkedProjectProps) => {
+						let r = isTabletOrMobileDevice ? undefined : random(100, 220);
+						return (
+							//@ts-ignore - for itemHeight custom attribute
+							<li key={project.title} itemHeight={r}> 
+								<Project projects={projects!} currentProj={project}
+								itemHeight={r} /> 
+							</li>
+						)
+					})}
+					</StonecutterGrid>
+				</Grid>
+				<Spacing height={isPortrait ? '1500px' : isTabletOrMobileDevice ? '500px' : '1000px'} />
+			</RadialGradient>     
+		</div>
     );
 }
 
