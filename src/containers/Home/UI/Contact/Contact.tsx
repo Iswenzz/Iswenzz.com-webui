@@ -172,7 +172,7 @@ export const Contact: FunctionComponent = (): JSX.Element =>
 	);
 
 	return (
-		<VisibilitySensor partialVisibility offset={{ bottom: 200 }}>
+		<VisibilitySensor partialVisibility offset={{ bottom: isTabletOrMobileDevice ? 0 : 200 }}>
 		{({ isVisible }) => (
 			<div>
 				<Element name="contact-section" />

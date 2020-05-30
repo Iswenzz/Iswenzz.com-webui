@@ -10,6 +10,7 @@ import VisibilitySensor from "react-visibility-sensor";
 import posed from 'react-pose';
 import TrailText from 'components/TrailText/TrailText';
 import 'Text.scss';
+import { useMediaQuery } from 'react-responsive';
 
 const intro = {
 	header: `Hello there!`,
@@ -150,6 +151,7 @@ const AnimationLeft = posed.div({
 export const IntroSkill: FunctionComponent = (): JSX.Element =>
 {
     const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
+    const isTabletOrMobileDevice = useMediaQuery({ query: '(max-device-width: 1224px)' });
 
 	return (
         <Grid container direction="column" justify="center" alignItems="stretch">
@@ -159,7 +161,7 @@ export const IntroSkill: FunctionComponent = (): JSX.Element =>
                 { color: isDarkMode ? '#0e0f14' : '#e5e5e5', colorPercent: '0%' },
                 { color: isDarkMode ? '#181a21' : '#f4f4f4', colorPercent: '100%' }
             ]}>
-                <VisibilitySensor partialVisibility offset={{ bottom: 200 }}>
+                <VisibilitySensor partialVisibility offset={{ bottom: isTabletOrMobileDevice ? 20 : 200 }}>
                 {({ isVisible }) => (
                     <Grid style={{paddingTop: '100px', paddingBottom: '100px'}} container direction="row" 
                     justify="center" alignItems="center">
@@ -193,7 +195,7 @@ export const IntroSkill: FunctionComponent = (): JSX.Element =>
                 { color: isDarkMode ? '#0e0f14' : '#e5e5e5', colorPercent: '0%' },
                 { color: isDarkMode ? '#181a21' : '#f4f4f4', colorPercent: '100%' }
             ]}>
-                <VisibilitySensor partialVisibility offset={{ bottom: 200 }}>
+                <VisibilitySensor partialVisibility offset={{ bottom: isTabletOrMobileDevice ? 10 : 200 }}>
                 {({ isVisible }) => (
                     <Container>
                         <AnimationLeft pose={isVisible ? "enter" : "exit"} key="about-skill-header-animation">

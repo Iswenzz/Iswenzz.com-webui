@@ -55,7 +55,7 @@ export const Levels: FunctionComponent = (): JSX.Element =>
 	}
 
 	return (
-		<VisibilitySensor partialVisibility offset={{ bottom: 400 }}>
+		<VisibilitySensor partialVisibility offset={{ bottom: isTabletOrMobileDevice ? 100 : 400 }}>
         {({ isVisible }) => (
 			<div>
 				<Element name="level-design-section" />
