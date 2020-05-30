@@ -49,7 +49,8 @@ export interface ProjectProps
 {
     projects: LinkedProjectProps[],
     currentProj: LinkedProjectProps,
-    itemHeight?: number
+    itemHeight?: number,
+    visible?: boolean
 }
 
 const ZoomAnimation = posed.div({
