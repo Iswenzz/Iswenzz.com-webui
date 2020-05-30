@@ -1,4 +1,4 @@
-import React, { Component, memo } from 'react';
+import React, { PureComponent, memo } from 'react';
 
 export interface SpacingProps
 {
@@ -6,7 +6,7 @@ export interface SpacingProps
     style?: React.CSSProperties
 }
 
-export class Spacing extends Component<SpacingProps>
+export class Spacing extends PureComponent<SpacingProps>
 {
     render(): JSX.Element
     {

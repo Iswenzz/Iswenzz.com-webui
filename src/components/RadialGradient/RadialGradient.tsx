@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Grid, GridDirection, GridJustification, GridItemsAlignment, Box } from '@material-ui/core';
 
 export interface IGradientColor
@@ -19,7 +19,7 @@ export interface GradiantProps extends React.HTMLAttributes<HTMLDivElement>
     colors?: IGradientColor[],
 }  
 
-class RadialGradient extends Component<GradiantProps>
+class RadialGradient extends PureComponent<GradiantProps>
 {
     processBackgroundColor = (position?: string, propsColors?: IGradientColor[], isLinear?: boolean): string =>
     {

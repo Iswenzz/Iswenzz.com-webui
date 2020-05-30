@@ -9,8 +9,20 @@ export interface TextProps extends TypographyProps
 
 class Text extends Component<TextProps>
 {
-	  render(): JSX.Element
-	  {
+	shouldComponentUpdate(nextProps: TextProps): boolean
+	{
+		if (nextProps.items.length !== this.props.items.length)
+			return true;
+		for (let i = 0; i < nextProps.items.length; i++)
+		{
+			if (nextProps.items[i] !== this.props.items[i])
+				return true;
+		}
+		return false;
+	}
+
+	render(): JSX.Element
+	{
 		return (
 			<>
 			{this.props.items.map(item => (
@@ -22,7 +34,7 @@ class Text extends Component<TextProps>
 			))}
 			</>
 		);
-	  }
+	}
 }
 
 export default memo(Text);

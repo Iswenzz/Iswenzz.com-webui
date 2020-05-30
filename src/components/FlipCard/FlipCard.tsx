@@ -36,6 +36,11 @@ export class FlipCard extends Component<FlipCardProps, FlipCardState>
 			this.props.flipCallback(this.state.isFlipped);
 	}
 
+	shouldComponentUpdate(nextProps: FlipCardProps, nextState: FlipCardState): boolean
+	{
+		return nextState.isFlipped !== this.state.isFlipped;
+	}
+
 	render(): JSX.Element
 	{
 		return (
