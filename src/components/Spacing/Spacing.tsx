@@ -1,4 +1,4 @@
-import React, { PureComponent, memo } from 'react';
+import React, { PureComponent } from 'react';
 
 export interface SpacingProps
 {
@@ -16,4 +16,4 @@ export class Spacing extends PureComponent<SpacingProps>
     }
 }
 
-export default memo(Spacing);
+export default Spacing;

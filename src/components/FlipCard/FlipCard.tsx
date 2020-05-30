@@ -57,4 +57,4 @@ export class FlipCard extends Component<FlipCardProps, FlipCardState>
 	}
 }
 
-export default memo(FlipCard);
+export default FlipCard;
