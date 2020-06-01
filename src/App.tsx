@@ -133,7 +133,7 @@ export const App: FunctionComponent<ReduxAppProps> = (props: ReduxAppProps): JSX
 			<BrowserRouter>
 				<Switch>
 					<Route path="/" exact component={Home} />
-					<Route path="/docs" component={Docx} />
+					{/* <Route path="/docs" component={Docx} /> */} {/* WIP */}
 				</Switch>
 			</BrowserRouter>
 		</ThemeProvider>
