@@ -66,7 +66,8 @@ const Home: FunctionComponent = (): JSX.Element =>
 			<Parallax style={{boxShadow: '0 0 5px 6px rgba(60, 60, 60, .3)'}} 
 			bgImage={require(`assets/images/index/${isDarkMode ? '55.jpg' : 't1.jpg'}`)} 
 			bgImageAlt="index" strength={200} blur={1}>
-				<Typography className="poiret-big bold" style={{ userSelect: 'none', paddingTop: '200px', paddingBottom: '200px' }} 
+				<Typography className="poiret-big bold" 
+				style={{ userSelect: 'none', paddingTop: '200px', paddingBottom: '200px' }} 
 				align="center" variant="h1" component="h1">
 					<SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
 						Contact
