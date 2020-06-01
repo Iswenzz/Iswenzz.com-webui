@@ -9,6 +9,7 @@ import { Element } from 'react-scroll';
 
 const Docx: FunctionComponent = (): JSX.Element =>
 {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
 
     return (

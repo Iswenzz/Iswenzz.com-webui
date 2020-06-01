@@ -1,5 +1,5 @@
 import React, { FunctionComponent, memo, useState } from "react";
-import { Grid, Tooltip, Container, Typography, GridList, GridListTile, makeStyles, Divider } from "@material-ui/core";
+import { Grid, Tooltip, Container, Typography, GridList, GridListTile, makeStyles } from "@material-ui/core";
 import { IconProps } from 'containers/Home/UI/Project/Project';
 import FlipCard from 'components/FlipCard/FlipCard';
 import ReactPlayer, { Config } from 'react-player';

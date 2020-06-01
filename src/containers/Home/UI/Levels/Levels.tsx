@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useState, memo } from 'react';
 import RadialGradient, { GradiantProps } from 'components/RadialGradient/RadialGradient';
-import { Divider, Container, Box, Grid } from '@material-ui/core';
+import { Divider, Container } from '@material-ui/core';
 import EmblaCarousel from 'components/EmblaCarousel/EmblaCarousel';
 import Level, { LevelProject } from 'containers/Home/UI/Level/Level';
 import posed from 'react-pose';

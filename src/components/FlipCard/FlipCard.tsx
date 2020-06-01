@@ -1,4 +1,4 @@
-import React, { Component, memo } from 'react';
+import React, { Component } from 'react';
 import ReactCardFlip from 'react-card-flip';
 import './FlipCard.scss';
 

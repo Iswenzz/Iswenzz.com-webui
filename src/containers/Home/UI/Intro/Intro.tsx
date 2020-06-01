@@ -7,7 +7,7 @@ import { AppState } from 'application';
 import Text from 'components/Text/Text';
 import { Grid, Container, Divider } from '@material-ui/core';
 import VisibilitySensor from "react-visibility-sensor";
-import posed, { PoseGroup } from 'react-pose';
+import posed from 'react-pose';
 import TrailText from 'components/TrailText/TrailText';
 import 'Text.scss';
 import { useMediaQuery } from 'react-responsive';
