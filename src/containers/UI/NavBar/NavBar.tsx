@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState, memo } from 'react';
+import React, { FunctionComponent, useState, memo, useEffect } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import * as actions from 'store/actions';
@@ -12,6 +12,7 @@ import { AppState } from 'application';
 import { Flare, Brightness3 } from '@material-ui/icons';
 import posed, { PoseGroup } from 'react-pose';
 import MenuIcon from '@material-ui/icons/Menu';
+import { useScroll } from 'react-use-gesture';
 import './NavBar.scss';
 
 const AnimationFixed = posed.div({
@@ -59,16 +60,30 @@ export interface NavBarProps
 	id?: string
 }
 
+const scrollConfig = {
+	domTarget: window,
+	eventOptions: { passive: true }
+}
+
 export const NavBar: FunctionComponent<NavBarProps> = (props: NavBarProps): JSX.Element =>
 {
 	const dispatch = useDispatch();
 	const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
-	const isPastIntro = useSelector((state: AppState) => state.app.isPastIntro);
 	const projectModalActive = useSelector((state: AppState) => state.home.projectModalActive);
 
 	const isPortrait = useMediaQuery({ orientation: 'portrait' });
 	const isTabletOrMobileDevice = useMediaQuery({ query: '(max-device-width: 1224px)' });
 	const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
+	const [isFixedNavbar, setFixedNavbar] = useState<boolean>(false);
+
+	const scroll: any = useScroll(({ event }: any) => 
+	{
+		let isPastHeader: boolean = window.scrollY >= window.innerHeight;
+		if (isPastHeader !== isFixedNavbar)
+			setFixedNavbar(isPastHeader);
+	}, scrollConfig);
+	  
+	useEffect(scroll, [scroll]);
 
 	const toggleDarkMode = (): void =>
 	{
@@ -84,7 +99,7 @@ export const NavBar: FunctionComponent<NavBarProps> = (props: NavBarProps): JSX.
 
 	const canShowFixedNavBar = (): boolean =>
 	{
-		return (isPastIntro && !projectModalActive);
+		return !projectModalActive && isFixedNavbar;
 	}
 
 	const navBarElements: JSX.Element = (
