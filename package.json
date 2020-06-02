@@ -34,6 +34,8 @@
 		"enquire.js": "^2.1.6",
 		"enzyme": "^3.11.0",
 		"enzyme-adapter-react-16": "^1.15.2",
+		"formik": "^2.1.4",
+		"formik-material-ui": "^2.0.0-beta.1",
 		"highlight.js": "^9.18.1",
 		"lodash": "^4.17.15",
 		"markdown-it": "^10.0.0",
