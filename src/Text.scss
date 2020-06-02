@@ -1,59 +1,105 @@
-.calli-title {
-    @extend .title-color;
-    font-family: 'Calligraffitti', cursive;
-    font-weight: bold;
-    font-size: 60px;
-    user-select: none;
+.calli-h1 {
+    font-family: 'Calligraffitti', cursive !important;
+    font-weight: bold !important;
+    font-size: 60px !important;
+    user-select: none !important;
 }
 
-.calli-text {
-    font-family: 'Calligraffitti', cursive;
-    font-weight: bold;
-    font-size: 24px;
+.calli-h2 {
+    font-family: 'Calligraffitti', cursive !important;
+    font-weight: bold !important;
+    font-size: 24px !important;
 }
 
-.text-stroke {
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
+.calli-h3 {
+    font-family: 'Calligraffitti', cursive !important;
+    font-weight: bold !important;
+    font-size: 19px !important;
 }
 
-.pre-line {
-    white-space: pre-line;
+.calli-h4 {
+    font-family: 'Calligraffitti', cursive !important;
+    font-weight: bold !important;
+    font-size: 16px !important;
 }
 
-.poiret-title {
-    @extend .title-color;
-    font-family: 'Poiret One', sans-serif;
-    font-weight: bold;
-    user-select: none;
+.calli-h5 {
+    font-family: 'Calligraffitti', cursive !important;
+    font-weight: bold !important;
+    font-size: 13px !important;
 }
 
-.poiret-text {
-    font-family: 'Poiret One', sans-serif;
-    font-size: 24px;
+.poiret-header {
+    font-family: 'Poiret One', sans-serif !important;
+    user-select: none !important;
+    font-weight: 700 !important;
 }
 
-.ubuntu-text {
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 20px;
+.poiret-big {
+    font-family: 'Poiret One', sans-serif !important;
+    font-size: 70px !important;
+    user-select: none !important;
 }
 
-.ubuntu-text-center {
-    @extend .ubuntu-text;
-    text-align: center;
+.poiret-h1 {
+    font-family: 'Poiret One', sans-serif !important;
+    font-size: 50px !important;
+    user-select: none !important;
 }
 
-.ubuntu-p {
-    font-family: 'Ubuntu', sans-serif;
-    font-weight: 200;
-    font-size: 14px;
+.poiret-h2 {
+    font-family: 'Poiret One', sans-serif !important;
+    font-size: 24px !important;
 }
 
-.ubuntu-p-left {
-    @extend .ubuntu-p;
-    text-align: left;
+.poiret-h3 {
+    font-family: 'Poiret One', sans-serif !important;
+    font-size: 19px !important;
+}
+
+.poiret-h4 {
+    font-family: 'Poiret One', sans-serif !important;
+    font-size: 16px !important;
+}
+
+.poiret-h5 {
+    font-family: 'Poiret One', sans-serif !important;
+    font-size: 13px !important;
+}
+
+.ubuntu-h1 {
+    font-family: 'Ubuntu', sans-serif !important;
+    font-size: 50px !important;
+}
+
+.ubuntu-h2 {
+    font-family: 'Ubuntu', sans-serif !important;
+    font-size: 24px !important;
+}
+
+.ubuntu-h3 {
+    font-family: 'Ubuntu', sans-serif !important;
+    font-size: 19px !important;
+}
+
+.ubuntu-h4 {
+    font-family: 'Ubuntu', sans-serif !important;
+    font-size: 16px !important;
+}
+
+.ubuntu-h5 {
+    font-family: 'Ubuntu', sans-serif !important;
+    font-size: 13px !important;
 }
 
 .title-color {
     color: rgba(220, 220, 220, 0.9);
+}
+
+.bold {
+    font-weight: bold !important;
+}
+
+.pre-line {
+    white-space: pre-line !important;
 }

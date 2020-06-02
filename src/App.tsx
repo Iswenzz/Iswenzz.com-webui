@@ -10,6 +10,8 @@ import { ThunkDispatch } from 'redux-thunk';
 import { bindActionCreators } from 'redux';
 import { CssBaseline } from '@material-ui/core';
 import { detect } from 'detect-browser';
+import { Route, Switch, BrowserRouter } from 'react-router-dom';
+import Docx from 'containers/Docx/Docx';
 
 export const App: FunctionComponent<ReduxAppProps> = (props: ReduxAppProps): JSX.Element =>
 {
@@ -30,6 +32,10 @@ export const App: FunctionComponent<ReduxAppProps> = (props: ReduxAppProps): JSX
 				color: 'rgba(220, 220, 220, 1)'
 			},
 			h2: {
+				fontFamily: "Calligraffitti",
+				color: 'rgba(220, 220, 220, 1)'
+			},
+			h3: {
 				fontFamily: "Calligraffitti",
 				color: 'rgba(220, 220, 220, 1)'
 			},
@@ -124,7 +130,12 @@ export const App: FunctionComponent<ReduxAppProps> = (props: ReduxAppProps): JSX
 	return (
 		<ThemeProvider theme={theme}> 
 			<CssBaseline />
-			<Home />
+			<BrowserRouter>
+				<Switch>
+					<Route path="/" exact component={Home} />
+					{/* <Route path="/docs" component={Docx} /> */} {/* WIP */}
+				</Switch>
+			</BrowserRouter>
 		</ThemeProvider>
 	);
 }
@@ -133,15 +144,13 @@ interface LinkStateProps
 {
 	browserInfo: ReturnType<typeof detect>,
 	isDarkMode: boolean,
-	isModalActive: boolean,
-	isPastIntro: boolean
+	isModalActive: boolean
 }
 
 interface LinkDispatchProps
 {
 	toggleDarkMode: (active: boolean) => void,
-	toggleModalActive: (active: boolean) => void,
-	togglePastIntro: (active: boolean) => void
+	toggleModalActive: (active: boolean) => void
 }
 
 export type ReduxAppProps = LinkStateProps & LinkDispatchProps;
@@ -150,15 +159,13 @@ const mapStateToProps = (state: AppState, ownProps: any): LinkStateProps =>
 ({
 	browserInfo: state.app.browserInfo,
 	isDarkMode: state.app.isDarkMode,
-	isModalActive: state.app.isModalActive,
-	isPastIntro: state.app.isPastIntro
+	isModalActive: state.app.isModalActive
 });
 
 const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, AppActions>, ownProps: any): LinkDispatchProps => 
 ({
 	toggleDarkMode: bindActionCreators(actions.toggleDarkMode, dispatch),
-	toggleModalActive: bindActionCreators(actions.toggleModalActive, dispatch),
-	togglePastIntro: bindActionCreators(actions.togglePastIntro, dispatch)
+	toggleModalActive: bindActionCreators(actions.toggleModalActive, dispatch)
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

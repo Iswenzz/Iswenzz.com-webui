@@ -1,4 +1,4 @@
-import React, { Component, memo } from 'react';
+import React, { Component } from 'react';
 import ReactCardFlip from 'react-card-flip';
 import './FlipCard.scss';
 
@@ -36,6 +36,11 @@ export class FlipCard extends Component<FlipCardProps, FlipCardState>
 			this.props.flipCallback(this.state.isFlipped);
 	}
 
+	shouldComponentUpdate(nextProps: FlipCardProps, nextState: FlipCardState): boolean
+	{
+		return nextState.isFlipped !== this.state.isFlipped;
+	}
+
 	render(): JSX.Element
 	{
 		return (
@@ -52,4 +57,4 @@ export class FlipCard extends Component<FlipCardProps, FlipCardState>
 	}
 }
 
-export default memo(FlipCard);
+export default FlipCard;

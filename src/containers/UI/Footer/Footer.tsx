@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, memo } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Fab from '@material-ui/core/Fab';
 import RadialGradient from 'components/RadialGradient/RadialGradient';
@@ -47,4 +47,4 @@ const Footer: FunctionComponent = (): JSX.Element =>
     );
 }
 
-export default Footer;
+export default memo(Footer);
