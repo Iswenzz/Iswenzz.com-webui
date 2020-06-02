@@ -11,6 +11,7 @@ import posed from 'react-pose';
 import TrailText from 'components/TrailText/TrailText';
 import 'Text.scss';
 import { useMediaQuery } from 'react-responsive';
+import { Element } from 'react-scroll';
 
 const intro = {
 	header: `Hello there!`,
@@ -189,6 +190,7 @@ export const IntroSkill: FunctionComponent = (): JSX.Element =>
 
 	return (
 		<Grid container direction="column" justify="center" alignItems="stretch">
+			<Element name="intro-section" />
 
 			{/* First Section */}
 			<RadialGradient position='ellipse at bottom' colors={[
