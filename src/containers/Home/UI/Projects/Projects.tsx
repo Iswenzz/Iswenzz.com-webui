@@ -55,7 +55,7 @@ export const Projects: FunctionComponent = (): JSX.Element =>
 			paddingTop: isTabletOrMobileDevice ? '90px' : '50px', paddingBottom: '50px'}}>
 				<Container style={{paddingTop: '50px'}}>
 					<TrailText align="center" color="textPrimary" component="h1" variant="h1"
-					className='poiret-h1' active={true} items={["Projects"]} />
+					className='poiret-h1' active items={["Projects"]} />
 					<Divider style={{ margin: '10px 0px 10px 0px', width: '100%', height: '2px'}} />
 				</Container>
 				<Grid container direction="row" alignItems="center" justify="center">

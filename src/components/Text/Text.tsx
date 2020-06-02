@@ -7,6 +7,9 @@ export interface TextProps extends TypographyProps
 	items: string[]
 }
 
+/**
+ * Typography wrapper for multiple strings.
+ */
 class Text extends Component<TextProps>
 {
 	shouldComponentUpdate(nextProps: TextProps): boolean
@@ -26,9 +29,7 @@ class Text extends Component<TextProps>
 		return (
 			<>
 			{this.props.items.map(item => (
-				<Typography style={this.props.style} className={this.props.className} noWrap={this.props.noWrap} 
-				align={this.props.align} color={this.props.color} paragraph={this.props.paragraph} 
-				component={this.props.component} variant={this.props.variant} key={uuid.v4()}>
+				<Typography {...this.props} key={uuid.v4()}>
 					{item} 
 				</Typography>
 			))}

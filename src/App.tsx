@@ -11,6 +11,7 @@ import { bindActionCreators } from 'redux';
 import { CssBaseline } from '@material-ui/core';
 import { detect } from 'detect-browser';
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import Docx from 'containers/Docx/Docx';
 
 export const App: FunctionComponent<ReduxAppProps> = (props: ReduxAppProps): JSX.Element =>

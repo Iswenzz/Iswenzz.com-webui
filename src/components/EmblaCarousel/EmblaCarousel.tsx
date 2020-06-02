@@ -15,6 +15,11 @@ export interface EmblaCarouselProps
 	style?: React.CSSProperties
 }
 
+/**
+ * A carousel component that use all JSX children as carousel items.
+ * The carousel provides a next/prev arrow and buttons to scroll through the carousel.
+ * @param props - EmblaCarouselProps
+ */
 export const EmblaCarouselComponent: FunctionComponent<EmblaCarouselProps> = (props: EmblaCarouselProps) => 
 {
 	const [embla, setEmbla] = useState<any>(null);
@@ -35,9 +40,7 @@ export const EmblaCarouselComponent: FunctionComponent<EmblaCarouselProps> = (pr
 			scrollTo(0);
 		else
 			scrollNext();
-		},
-		isRunning ? delay : null
-	);
+	}, isRunning ? delay : null);
 
 	useEffect(() => 
 	{

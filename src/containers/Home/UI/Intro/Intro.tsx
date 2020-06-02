@@ -9,9 +9,9 @@ import { Grid, Container, Divider } from '@material-ui/core';
 import VisibilitySensor from "react-visibility-sensor";
 import posed from 'react-pose';
 import TrailText from 'components/TrailText/TrailText';
-import 'Text.scss';
 import { useMediaQuery } from 'react-responsive';
 import { Element } from 'react-scroll';
+import 'Text.scss';
 
 const intro = {
 	header: `Hello there!`,

@@ -19,6 +19,9 @@ export interface GradiantProps extends React.HTMLAttributes<HTMLDivElement>
     colors?: IGradientColor[],
 }  
 
+/**
+ * Radial gradient grid container.
+ */
 class RadialGradient extends PureComponent<GradiantProps>
 {
     processBackgroundColor = (position?: string, propsColors?: IGradientColor[], isLinear?: boolean): string =>
@@ -38,7 +41,7 @@ class RadialGradient extends PureComponent<GradiantProps>
         }
     }
 
-    render() : JSX.Element
+    render(): JSX.Element
     {
         const { container, id, justify, alignItems, direction, 
             position, colors, linear } = this.props.config !== undefined ? this.props.config : this.props;
