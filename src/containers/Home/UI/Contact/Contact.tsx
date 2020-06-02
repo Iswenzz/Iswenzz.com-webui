@@ -1,6 +1,6 @@
 import React, { FunctionComponent, memo, useState } from 'react';
 import RadialGradient, { GradiantProps } from 'components/RadialGradient/RadialGradient';
-import { Grid, Container, Avatar, TextField, Button, makeStyles, CircularProgress } from '@material-ui/core';
+import { Grid, Container, Avatar, Button, makeStyles, CircularProgress } from '@material-ui/core';
 import axios from 'axios';
 import posed from 'react-pose';
 import VisibilitySensor from "react-visibility-sensor";
@@ -8,6 +8,8 @@ import { useMediaQuery } from 'react-responsive';
 import { Element } from 'react-scroll';
 import { useSelector } from 'react-redux';
 import { AppState } from 'application';
+import { Formik, Field, Form, FormikHelpers } from 'formik';
+import { TextField } from 'formik-material-ui';
 import 'Text.scss';
 
 const useStyles = makeStyles(theme => ({
@@ -36,15 +38,21 @@ const useStyles = makeStyles(theme => ({
 	},
 	buttonProgress: {
 		color: 'cyan',
-    	margin: theme.spacing(-6.2, 0, 2),
+		margin: theme.spacing(-6.2, 0, 2),
 	},
 }));
 
-export interface ContactState
+export interface ContactFormValues
 {
 	email?: string,
 	subject?: string,
 	message?: string
+}
+
+export const contactFormInitial: ContactFormValues = {
+	email: '',
+	subject: '',
+	message: ''
 }
 
 const Animation = posed.div({
@@ -68,65 +76,17 @@ const Animation = posed.div({
 	}
 });
 
+/**
+ * Contact container to send an email.
+ */
 export const Contact: FunctionComponent = (): JSX.Element =>
 {
 	const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
 	const isTabletOrMobileDevice = useMediaQuery({ query: '(max-device-width: 1224px)' });
 	const classes = useStyles();
-	const [state, setState] = useState<ContactState>({
-		email: undefined,
-		subject: undefined,
-		message: undefined
-	});
 	const [loading, setLoading] = useState(false);
-	  const [success, setSuccess] = useState(false);
-	  const [fail, setFail] = useState(false);
-
-	const onMailChange = (event: any): void => 
-	{
-		event.persist();
-		setState(prevState => ({ ...prevState, email: event.target.value }));
-	}
-
-	const onSubjectChange = (event: any): void => 
-	{
-		event.persist();
-		setState(prevState => ({ ...prevState, subject: event.target.value }));
-	}
-
-	const onMessageChange = (event: any): void => 
-	{
-		event.persist();
-		setState(prevState => ({ ...prevState, message: event.target.value }));
-	}
-
-	const sendEmail = async (e: any): Promise<void> =>
-	{
-		e.preventDefault();
-
-		if (!loading) 
-		{
-			setSuccess(false);
-			setFail(false);
-			setLoading(true);
-		}
-		// if the form as valid information send a post req
-		if (Object.values(state).every(item => item !== undefined && item !== null))
-		{
-			await axios.post('https://iswenzz.com/contact', state, { 
-				headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' } 
-			}).then(res => {
-				setSuccess(true);
-				setLoading(false);
-				setTimeout(() => setSuccess(false), 3000);
-			}).catch(err => {
-				console.log(err);
-				setLoading(false);
-				setFail(true);
-				setTimeout(() => setFail(false), 3000);
-			});
-		}
-	}
+	const [success, setSuccess] = useState(false);
+	const [fail, setFail] = useState(false);
 
 	const config: GradiantProps = isDarkMode ? {
 		position: `${isTabletOrMobileDevice ? 'circle' : 'ellipse'} at bottom`, 
@@ -143,31 +103,67 @@ export const Contact: FunctionComponent = (): JSX.Element =>
 		]
 	}
 
+	const sendEmail = async (values: ContactFormValues, { setSubmitting }: FormikHelpers<ContactFormValues>) =>
+	{
+		if (!loading) 
+		{
+			setSuccess(false);
+			setFail(false);
+			setLoading(true);
+		}
+		// if the form as valid information send a post req
+		if (Object.values(values).every(item => item !== undefined && item !== null))
+		{
+			await axios.post('https://iswenzz.com/contact', values, { 
+				headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' } 
+			}).then(res => {
+				if (res.data.status === "success")
+				{
+					setSuccess(true);
+					setLoading(false);
+					setSubmitting(true);
+					setTimeout(() => setSuccess(false), 3000);
+				}
+				else
+				{
+					setLoading(false);
+					setFail(true);
+					setSubmitting(false);
+					setTimeout(() => setFail(false), 3000);
+				}
+			}).catch(err => {
+				console.log(err);
+				setLoading(false);
+				setFail(true);
+				setSubmitting(false);
+				setTimeout(() => setFail(false), 3000);
+			});
+		}
+	}
+
 	const form: JSX.Element = (
 		<Grid container direction="column" justify="center" alignItems="center">
 			<Avatar alt='iswenzz avatar' src={require('assets/images/misc/iswenzz.png')} 
 			className={classes.avatar} />
-			<form onSubmit={sendEmail} className={classes.form}>
-				<TextField name="email" id="email" color="secondary" variant="outlined" 
-				margin="normal" required fullWidth label="Email Address" autoComplete="email" 
-				onChange={onMailChange} />
-				<TextField name="subject" id="subject" color="secondary" variant="outlined" 
-				margin="normal" required fullWidth label="Subject"
-				onChange={onSubjectChange} />
-				<TextField name="message" id="message" multiline rows="6" color="secondary" 
-				variant="outlined" margin="normal" required fullWidth label="Message"
-				onChange={onMessageChange} />
-				<Container maxWidth="xs">
-					<Grid container direction="row" justify="center" alignItems="center">
-						<Button fullWidth variant="contained" type="submit" 
-						color="secondary" disabled={loading}
-						className={success ? classes.buttonSuccess : fail ? classes.buttonFail : classes.buttonDefault}>
-							Send
-						</Button>
-						{loading && <CircularProgress size={32} className={classes.buttonProgress} />}
-					</Grid>
-				</Container>
-			</form>
+			<Formik initialValues={contactFormInitial} onSubmit={sendEmail} render={() => (
+				<Form>
+					<Field component={TextField} required label="Email Address" id="email" name="email" type="email"
+					fullWidth color="secondary" variant="outlined" margin="normal" autoComplete="email" />
+					<Field component={TextField} required label="Subject" id="subject" name="subject" type="text"
+					fullWidth color="secondary" variant="outlined" margin="normal" />
+					<Field component={TextField} required label="Message" id="message" name="message" type="text"
+					fullWidth multiline rows="6" color="secondary" variant="outlined" margin="normal" />
+					<Container maxWidth="xs">
+						<Grid container direction="row" justify="center" alignItems="center">
+							<Button fullWidth variant="contained" type="submit" color="secondary" disabled={loading}
+							className={success ? classes.buttonSuccess : fail ? classes.buttonFail : classes.buttonDefault}>
+								Send
+							</Button>
+							{loading && <CircularProgress size={32} className={classes.buttonProgress} />}
+						</Grid>
+					</Container>
+				</Form>
+			)}/>
 		</Grid>
 	);
 
