@@ -14,8 +14,15 @@ import { Route, Switch, BrowserRouter } from 'react-router-dom';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import Docx from 'containers/Docx/Docx';
 
+/**
+ * Application main container.
+ * @param props - ReduxAppProps
+ */
 export const App: FunctionComponent<ReduxAppProps> = (props: ReduxAppProps): JSX.Element =>
 {
+	/**
+	 * Material UI custom dark/white theme.
+	 */
 	let theme: Theme = responsiveFontSizes(createMuiTheme(
 	{
 		typography: {
