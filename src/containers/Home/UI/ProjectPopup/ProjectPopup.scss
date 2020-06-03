@@ -11,6 +11,22 @@
 
 .project-icons {
     padding-top: 4px;
+    img {
+        margin: 0 4px 0 4px;
+    }
+}
+
+.project-modal-title {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.project-tooltip-fab {
+    margin: 0 8px 0 8px !important;
+}
+
+.project-tooltip-drag {
+    margin: 10px;
 }
 
 .project-md {

@@ -20,6 +20,7 @@ import ProjectPopup from 'containers/Home/UI/ProjectPopup/ProjectPopup';
 import { Element } from 'react-scroll';
 import { Spacing } from 'components/Spacing/Spacing';
 import 'Text.scss';
+import './Home.scss';
 
 const charPoses = {
 	exit: { opacity: 0, y: 20 },
@@ -30,6 +31,9 @@ const charPoses = {
 	}
 };
 
+/**
+ * Home page container.
+ */
 const Home: FunctionComponent = (): JSX.Element =>
 {
 	const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
@@ -38,7 +42,7 @@ const Home: FunctionComponent = (): JSX.Element =>
 		<>
 			{/* Header */}
 			<Element name="header-section" />
-			<NavBar style={{ background: 'rgba(50, 50, 60, 0.3)'}} />
+			<NavBar className="navbar" />
 
 			{/* About */}
 			<IntroHeader title="Iswenzz" desc="Software Engineer and Level Designer" 
@@ -63,12 +67,9 @@ const Home: FunctionComponent = (): JSX.Element =>
 			<Levels />
 
 			{/* Contact */}
-			<Parallax style={{boxShadow: '0 0 5px 6px rgba(60, 60, 60, .3)'}} 
-			bgImage={require(`assets/images/index/${isDarkMode ? '55.jpg' : 't1.jpg'}`)} 
-			bgImageAlt="index" strength={200} blur={1}>
-				<Typography className="poiret-big bold" 
-				style={{ userSelect: 'none', paddingTop: '200px', paddingBottom: '200px' }} 
-				align="center" variant="h1" component="h1">
+			<Parallax className="contact-parallax" bgImageAlt="index" strength={200} blur={1}
+			bgImage={require(`assets/images/index/${isDarkMode ? '55.jpg' : 't1.jpg'}`)}>
+				<Typography className="poiret-big bold contact-typo" align="center" variant="h1" component="h1">
 					<SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
 						Contact
 					</SplitText>

@@ -103,6 +103,11 @@ export const Contact: FunctionComponent = (): JSX.Element =>
 		]
 	}
 
+	/**
+	 * Submit callback - post req to send an email
+	 * @param values - formik values
+	 * @param param1 - formik helpers
+	 */
 	const sendEmail = async (values: ContactFormValues, { setSubmitting }: FormikHelpers<ContactFormValues>) =>
 	{
 		if (!loading) 
