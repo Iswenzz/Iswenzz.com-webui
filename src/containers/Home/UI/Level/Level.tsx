@@ -53,6 +53,10 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
+/**
+ * Flip card container, map previs and stacks on the front, and video/description on the back.
+ * @param props - LevelProps
+ */
 export const Level: FunctionComponent<LevelProps> = (props: LevelProps): JSX.Element =>
 {
 	const isPortrait = useMediaQuery({ orientation: 'portrait' });
@@ -69,20 +73,20 @@ export const Level: FunctionComponent<LevelProps> = (props: LevelProps): JSX.Ele
 	const desktopCard: JSX.Element = (
 		<Container className={isDarkMode ? classes.darkCard : classes.whiteCard}>
 			<GridList className="level-grid-list" cellHeight='auto' spacing={1}>
-				<GridListTile key={uuid.v4()} cols={2} rows={2} style={{height: '150px'}}>
-					<Typography style={{ margin: '40px 0px 0px 0px' }} variant="h2" align="center" 
+				<GridListTile className="level-desktop-tile-name" key={uuid.v4()} cols={2} rows={2}>
+					<Typography className="level-desktop-typo" variant="h2" align="center" 
 					color="textPrimary" component="h2">
 						{props.currentLevel.name}
 					</Typography>
 				</GridListTile>
-				<GridListTile key={uuid.v4()} cols={1} rows={1} style={{width: '70%', height: '500px'}}>
-					{!isFlipped ? <ReactPlayer config={playerConfig} width='100%' height='100%' url={props.currentLevel.videoUrl} /> : null}
+				<GridListTile key={uuid.v4()} cols={1} rows={1} className="level-desktop-tile-player">
+					{!isFlipped ? <ReactPlayer config={playerConfig} width='100%' height='100%' 
+					url={props.currentLevel.videoUrl} /> : null}
 				</GridListTile>
-				<GridListTile key={uuid.v4()} cols={1} rows={1} style={{width: '30%'}}>
+				<GridListTile key={uuid.v4()} cols={1} rows={1} className="level-desktop-tile-desc">
 					<Grid container direction="row" justify="center" alignItems="center">
-						<Typography 
-						style={{ marginLeft: '10px', paddingLeft: '10px', borderLeft: '3px solid red' }} 
-						variant="subtitle1" align="left" color="textPrimary" component="h3">
+						<Typography className="level-desktop-tile-desc-typo" variant="subtitle1" 
+						align="left" color="textPrimary" component="h3">
 							{props.currentLevel.description}
 						</Typography>
 					</Grid>
@@ -94,9 +98,10 @@ export const Level: FunctionComponent<LevelProps> = (props: LevelProps): JSX.Ele
 	const mobileCard: JSX.Element = (
 		<Container className={isDarkMode ? classes.darkCard : classes.whiteCard}>
 			<Grid container className="level-grid" direction="row" justify="center" alignItems="center">
-				<h3 className="calli-h2" style={{ fontSize: '30px', color: 'silver', margin: 0 }}>{props.currentLevel.name}</h3>
-				{!isFlipped ? <ReactPlayer config={playerConfig} width='100%' height='50%' url={props.currentLevel.videoUrl} /> : null}
-				<Typography style={{ paddingTop: '5px', borderTop: '3px solid red' }} variant="subtitle1" align="left" 
+				<h3 className="calli-h2 level-mobile-name">{props.currentLevel.name}</h3>
+				{!isFlipped ? <ReactPlayer config={playerConfig} width='100%' height='50%' 
+				url={props.currentLevel.videoUrl} /> : null}
+				<Typography className="level-mobile-typo" variant="subtitle1" align="left" 
 				color="textPrimary" component="h3">
 					{props.currentLevel.description}
 				</Typography>
@@ -115,7 +120,7 @@ export const Level: FunctionComponent<LevelProps> = (props: LevelProps): JSX.Ele
 					<Grid container direction="column" justify="space-evenly" alignItems="flex-end">
 						{props.currentLevel.renderIcons?.map(icon => (
 							<Tooltip key={uuid.v4()} arrow disableFocusListener disableTouchListener title={icon.name}>
-								<img onDragStart={(e) => e.preventDefault()} style={{ margin: '0 4px 0 4px' }} 
+								<img onDragStart={(e) => e.preventDefault()} className="level-tooltip-img"
 								width={isPortrait || isTabletOrMobileDevice ? '32' : '64'} 
 								height={isPortrait || isTabletOrMobileDevice ? '32' : '64'} 
 								alt='lang' src={icon.src} />

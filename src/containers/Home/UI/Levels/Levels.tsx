@@ -11,6 +11,7 @@ import { useSelector } from 'react-redux';
 import { AppState } from 'application';
 import Text from 'components/Text/Text';
 import 'Text.scss';
+import './Levels.scss';
 
 const Animation = posed.div({
 	enter: { 
@@ -33,6 +34,9 @@ const Animation = posed.div({
 	}
 });
 
+/**
+ * Embla carousel container with all level design flip cards.
+ */
 export const Levels: FunctionComponent = (): JSX.Element =>
 {
 	const [levels,] = useState<LevelProject[]>(require('./Levels.json'));
@@ -59,12 +63,12 @@ export const Levels: FunctionComponent = (): JSX.Element =>
         {({ isVisible }) => (
 			<div>
 				<Element name="level-design-section" />
-				<RadialGradient direction="column" config={config} style={{padding: '80px 0px 200px 0px'}}>
-					<Container style={{paddingBottom: '90px'}}>
+				<RadialGradient direction="column" config={config} className="levels-gradient-grid">
+					<Container className="levels-container">
 						<Animation pose={isVisible ? "enter" : "exit"} key="carousel-header-anim">
 							<Text align="center" color="textPrimary" component="h1" variant="h1"
 							className='poiret-h1' items={["Level Design"]} />
-							<Divider style={{ margin: '10px 0px 10px 0px', width: '100%', height: '2px'}} />
+							<Divider className="levels-divider" />
 						</Animation>
 					</Container>
 					<Container maxWidth="xl">

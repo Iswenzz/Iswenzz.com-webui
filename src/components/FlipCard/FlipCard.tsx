@@ -16,6 +16,9 @@ export interface FlipCardState
 	isFlipped: boolean
 }
 
+/**
+ * Card component that flip on mouse click event.
+ */
 export class FlipCard extends Component<FlipCardProps, FlipCardState>
 {
 	constructor(props: FlipCardProps) 
@@ -28,7 +31,7 @@ export class FlipCard extends Component<FlipCardProps, FlipCardState>
 		isFlipped: false
 	}
 
-	handleClick(e: any) 
+	handleClick(e: React.MouseEvent<HTMLDivElement, MouseEvent>): void
 	{
 		e.preventDefault();
 		this.setState(prevState => ({ isFlipped: !prevState.isFlipped }));

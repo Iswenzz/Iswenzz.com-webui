@@ -1,3 +1,8 @@
+/**
+ * Updating objects immutably.
+ * @param oldObject - The old object.
+ * @param updatedProperties - Updated properties object.
+ */
 export const updateObject = (oldObject: Object, updatedProperties: Object): any => {
 	return {
 		...oldObject,
@@ -5,6 +10,11 @@ export const updateObject = (oldObject: Object, updatedProperties: Object): any 
 	};
 };
 
+/**
+ * Get a DOM Element by XPath.
+ * @param xpath - XPath pattern.
+ * @param contextNode - The target document.
+ */
 export const getElementsByXPath = (xpath: string, contextNode?: Document) =>
 {
 	let xpathResult = null;
@@ -24,6 +34,11 @@ export const getElementsByXPath = (xpath: string, contextNode?: Document) =>
 	return array;
 }
 
+/**
+ * Get multiple DOM Elements by XPath.
+ * @param xpath - The XPath pattern.
+ * @param contextNode - The target document.
+ */
 export const getElementByXPath = (xpath: string, contextNode?: Document) =>
 {
 	let xpathResult = null;

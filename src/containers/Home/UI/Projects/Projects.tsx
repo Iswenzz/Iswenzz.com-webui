@@ -12,7 +12,11 @@ import { Element } from 'react-scroll';
 import { random } from 'lodash';
 import { TrailText } from 'components/TrailText/TrailText';
 import 'Text.scss';
+import './Projects.scss';
 
+/**
+ * Stonecutter responsive grid container with all Project cards.
+ */
 export const Projects: FunctionComponent = (): JSX.Element =>
 {
     const isPortrait = useMediaQuery({ orientation: 'portrait' });
@@ -35,6 +39,9 @@ export const Projects: FunctionComponent = (): JSX.Element =>
 		]
     }
 
+	/**
+	 * Stonecutter grid config.
+	 */
     const gridConfig: SpringGridProps = { 
         component: 'div', 
         columns: 5,
@@ -51,12 +58,11 @@ export const Projects: FunctionComponent = (): JSX.Element =>
     return (
 		<div>
 			<Element name="projects-section" />
-			<RadialGradient config={config} style={{listStyleType: 'none', 
-			paddingTop: isTabletOrMobileDevice ? '90px' : '50px', paddingBottom: '50px'}}>
-				<Container style={{paddingTop: '50px'}}>
+			<RadialGradient config={config} className="projects-gradient-grid">
+				<Container className="projects-container">
 					<TrailText align="center" color="textPrimary" component="h1" variant="h1"
-					className='poiret-h1' active={true} items={["Projects"]} />
-					<Divider style={{ margin: '10px 0px 10px 0px', width: '100%', height: '2px'}} />
+					className='poiret-h1' active items={["Projects"]} />
+					<Divider className="projects-divider" />
 				</Container>
 				<Grid container direction="row" alignItems="center" justify="center">
 					<StonecutterGrid responsive animStyle={enterExitStyle.skew} config={gridConfig}>

@@ -1,5 +1,5 @@
 import React, { FunctionComponent, memo } from 'react';
-import { useTrail, animated } from 'react-spring';
+import { useTrail, animated, SpringConfig } from 'react-spring';
 import { Typography, TypographyProps } from '@material-ui/core';
 import uuid from 'uuid';
 
@@ -7,11 +7,20 @@ export interface TrailProps extends TypographyProps
 {
 	height?: number,
 	items: string[],
-	active?: boolean,
+	active: boolean,
 	className?: string
 }
 
-const config = { mass: 5, tension: 2000, friction: 200 }
+const config: SpringConfig = {
+	mass: 5, 
+	tension: 2000, 
+	friction: 200 
+};
+
+/**
+ * Typography wrapper for multiple strings with react-spring trail animation.
+ * @param props - TrailProps
+ */
 export const TrailText: FunctionComponent<TrailProps> = (props: TrailProps): JSX.Element =>
 {
 	const trail = useTrail(props.items.length, {

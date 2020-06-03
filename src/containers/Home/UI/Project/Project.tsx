@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
 import posed from 'react-pose';
 import 'Text.scss';
+import './Project.scss';
 
 export interface ProjectRenderProps
 {
@@ -70,11 +71,18 @@ const ZoomAnimation = posed.div({
     }
 });
 
+/**
+ * Project card container with a preview image, and dispatch ProjectPopup modal on click.
+ * @param props - ProjectProps
+ */
 export const Project: FunctionComponent<ProjectProps> = (props: ProjectProps): JSX.Element =>
 {
     const isTabletOrMobileDevice = useMediaQuery({ query: '(max-device-width: 1224px)' });
     const dispatch = useDispatch();
 
+    /**
+     * Card click handler: toggle the ProjectPopup modal.
+     */
     const onToggle = () =>
     {
         dispatch(homeActions.setProjectsIndex(props.projects.indexOf(props.currentProj)));
@@ -92,12 +100,10 @@ export const Project: FunctionComponent<ProjectProps> = (props: ProjectProps): J
 
     return (
         <ZoomAnimation>
-            <Card onClick={onToggle} 
-            style={{ backgroundImage: `url(${props.currentProj.cardImage})`, backgroundSize: 'cover',
-            width: cardSize.width, height: cardSize.height, borderRadius: '2px', 
-            borderColor: 'rgba(40, 40, 40, 1)', borderWidth: '2px', borderStyle: 'dashed',
-            boxShadow: '0 3px 5px 2px rgba(60, 60, 60, .3)'}}>
-                <CardActionArea style={{ height: '100%', width: '100%' }}>
+            <Card onClick={onToggle} className="project-card" 
+            style={{ backgroundImage: `url(${props.currentProj.cardImage})`,
+            width: cardSize.width, height: cardSize.height}}>
+                <CardActionArea className="project-card-action">
                     <Typography variant="caption" align="center" paragraph component="p" 
                     style={{ fontSize: isTabletOrMobileDevice ? 14 : 20, height: cardSize.height / 3 }}>
                         {props.currentProj.title}

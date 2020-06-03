@@ -1,5 +1,10 @@
 import { useEffect, useRef } from "react";
 
+/**
+ * Interval react hook.
+ * @param callback - Function to call.
+ * @param delay - Interval delay.
+ */
 export default function useInterval(callback: () => any, delay: number | null) 
 {
   	const savedCallback = useRef<any>();

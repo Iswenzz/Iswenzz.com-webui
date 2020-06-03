@@ -10,6 +10,44 @@
     justify-content: space-around;
 }
 
+.level-desktop-tile-name {
+    height: 150px !important;
+}
+
+.level-desktop-typo {
+    margin: 40px 0px 0px 0px !important;
+}
+
+.level-desktop-tile-player {
+    width: 70% !important;
+    height: 500px !important;
+}
+
+.level-desktop-tile-desc {
+    width: 30% !important;
+}
+
+.level-desktop-tile-desc-typo {
+    margin-left: 10px !important;
+    padding-left: 10px !important;
+    border-left: 3px solid red !important;
+}
+
+.level-mobile-name {
+    font-size: 30px !important;
+    color: silver !important;
+    margin: 0 !important;
+}
+
+.level-mobile-typo {
+    padding-top: 5px !important;
+    border-top: 3px solid red !important;
+}
+
+.level-tooltip-img {
+    margin: 0 4px 0 4px !important;
+}
+
 .level-grid {
     height: 100%; 
     width: 100%;

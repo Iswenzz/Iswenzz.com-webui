@@ -7,6 +7,9 @@ import IntroHeader from 'containers/UI/IntroHeader/IntroHeader';
 import DocViewer from 'containers/Docx/UI/DocViewer';
 import { Element } from 'react-scroll';
 
+/**
+ * Docx container page.
+ */
 const Docx: FunctionComponent = (): JSX.Element =>
 {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -16,7 +19,7 @@ const Docx: FunctionComponent = (): JSX.Element =>
         <>
             {/* Header */}
             <Element name="header-section" />
-            <NavBar style={{ background: 'rgba(50, 50, 60, 0.3)'}} />
+            <NavBar className="navbar" />
             {/* About */}
             <IntroHeader title="CGSC" desc="Documentation" spaceTop='0px' spaceBottom='170px' 
             bgImage={require(`assets/images/docx/2.jpg`)} />

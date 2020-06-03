@@ -8,7 +8,7 @@ describe('[Component] <TrailText>', () =>
 
 	beforeEach(() => 
 	{
-		wrapper = shallow(<TrailText items={["test"]} />);
+		wrapper = shallow(<TrailText active items={["test"]} />);
 	});
 
 	it('Testing component', () => 

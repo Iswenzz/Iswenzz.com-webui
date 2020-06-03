@@ -37,6 +37,10 @@ export interface ViewPagerState
 	mainRef?: RefObject<HTMLDivElement>
 }
 
+/**
+ * 3D Carousel with gesture features.
+ * @param props - ViewPagerProps
+ */
 export const ViewPager: FunctionComponent<ViewPagerProps> = (props: ViewPagerProps): JSX.Element => 
 {
 	const [items,] = useState(props.items !== undefined ? props.items : defaultItems);
@@ -55,8 +59,7 @@ export const ViewPager: FunctionComponent<ViewPagerProps> = (props: ViewPagerPro
 		// TODO better way to get the right item
 		setIndex(props.startIndex!);
 		divRef?.dispatchEvent(new MouseEvent('mousedown', { bubbles: true, cancelable: false }));
-	}, 
-	[props.startIndex, divRef]);
+	}, [props.startIndex, divRef]);
 
 	const bind = useDrag(({ down, movement: [mx], direction: [xDir], distance, cancel }) => 
 	{
@@ -82,10 +85,7 @@ export const ViewPager: FunctionComponent<ViewPagerProps> = (props: ViewPagerPro
 		<div style={props.style}>
 			{springProps.map(({ x, display, scale }, i) => (
 				<animated.div className="carousel" {...bind()} key={i}
-				style={{display, x,
-				height: props.config?.height, width: props.config?.width,
-				top: props.config?.top, right: props.config?.right,
-				maxWidth: props.config?.maxWidth, maxHeight: props.config?.maxHeight }}>
+				style={{display, x, ...props.config }}>
 					<animated.div ref={ref => setDivRef(ref)} style={{scale, background: props.bgcolor}}>
 						{items[i]}
 					</animated.div>

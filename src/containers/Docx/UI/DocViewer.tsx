@@ -80,6 +80,10 @@ export const DocViewer: FunctionComponent = (): JSX.Element =>
 		});
 	}
 
+	/**
+	 * Docx div click handler.
+	 * @param e - Mouse event.
+	 */
 	const onClickHandler = (e: React.MouseEvent<HTMLDivElement, globalThis.MouseEvent>): void =>
 	{
 		e.preventDefault();

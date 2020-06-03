@@ -29,6 +29,9 @@ export interface ProjectPopupState
 	isTabletOrMobileDevice: boolean
 }
 
+/**
+ * Modal container that shows all projects markdown in a ViewPager.
+ */
 export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 {
 	const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
@@ -49,12 +52,19 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 		isTabletOrMobileDevice: isTabletOrMobileDevice
 	});
 
+	/**
+	 * Modal close handler
+	 */
 	const onClickClose = (): void => 
     {
         dispatch(homeActions.toggleProjectModalActive(false));
         dispatch(actions.toggleModalActive(false));
 	}
 
+	/**
+	 * Fetch all markdown files and parse them using MarkdownIt
+	 * and highlight code snipet with HighlightJS.
+	 */
 	const renderMds = (): void =>
 	{
 		projects.map((project: LinkedProjectProps): Promise<void> =>
@@ -108,8 +118,8 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 	{
 		const openSource: JSX.Element = (
 			<Tooltip arrow disableFocusListener disableTouchListener title="View Source">
-				<Fab size={isPortrait || isTabletOrMobileDevice ? "small" : "large"}  href={project.sourceURL} 
-				style={{ margin: '0 8px 0 8px'}} color="primary">
+				<Fab size={isPortrait || isTabletOrMobileDevice ? "small" : "large"} href={project.sourceURL} 
+				className="project-tooltip-fab" color="primary">
 					<FontAwesomeIcon color='silver' icon={faOsi} size='2x' />
 				</Fab>
 			</Tooltip>
@@ -119,7 +129,7 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 			<Tooltip arrow disableFocusListener disableTouchListener title="Private Source">
 				<span>
 					<Fab size={isPortrait || isTabletOrMobileDevice ? "small" : "large"} disabled 
-					style={{ margin: '0 8px 0 8px'}} color="primary">
+					className="project-tooltip-fab" color="primary">
 						<Lock />
 					</Fab>
 				</span>
@@ -129,13 +139,12 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 		return (
 			<div key={uuid.v4()}>
 				{/* Modal Navbar */}
-				<DialogTitle style={{margin: 0, padding: 0}}>
+				<DialogTitle className="project-modal-title">
 					<Grid className="project-title" container direction="row" justify="space-between" alignItems="center">
 						<div className='project-icons'>
 							{project.renderIcons!.map(icon => (
 								<Tooltip key={uuid.v4()} arrow disableFocusListener disableTouchListener title={icon.name}>
 									<img onDragStart={(e) => e.preventDefault()} 
-									style={{ margin: '0 4px 0 4px' }} 
 									width={isPortrait || isTabletOrMobileDevice ? '42px' : '64px'} 
 									height={isPortrait || isTabletOrMobileDevice ? '42px' : '64px'} 
 									alt='lang' src={icon.src} />
@@ -146,8 +155,7 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 							{project.isOpenSource ? openSource : privateSource}
 							<Fab id="fab_modal_close" onClick={onClickClose} 
 							size={isPortrait || isTabletOrMobileDevice ? "small" : "large"} 
-							style={{ margin: '0 8px 0 8px' }} 
-							color="secondary">
+							className="project-tooltip-fab" color="secondary">
 								<Close color="primary" />
 							</Fab>
 						</div>
@@ -230,13 +238,12 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 	return (
 		<Modal aria-labelledby="project-modal" aria-describedby="viewpager-project" 
 		open={projectModalActive} keepMounted onClose={onClickClose} closeAfterTransition 
-		BackdropComponent={Backdrop} 
-		BackdropProps={{ timeout: 500 }}>
+		BackdropComponent={Backdrop} BackdropProps={{ timeout: 500 }}>
 			<Fade in={projectModalActive}>
 				<>
 					<Tooltip open={projectModalActive} placement="right" arrow disableFocusListener 
 					disableTouchListener title="Drag the window!">
-						<img onDragStart={(e) => e.preventDefault()} style={{margin: '10 10 10 10'}} alt='drag'
+						<img onDragStart={(e) => e.preventDefault()} className="project-tooltip-drag" alt='drag'
 						src={require('assets/images/misc/icons8-hand-drag-64.png')} />
 					</Tooltip>
 					{projectModalActive ? 
