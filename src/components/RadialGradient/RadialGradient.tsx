@@ -47,12 +47,12 @@ class RadialGradient extends PureComponent<GradiantProps>
             position, colors, linear } = this.props.config !== undefined ? this.props.config : this.props;
             
         return container ? (
-            <Box id={id} style={{ ...this.props.style, margin: '0', 
+            <Box className={this.props.className} id={id} style={{ ...this.props.style, margin: '0', 
             background: this.processBackgroundColor(position, colors, linear) }}>
                 {this.props.children}
             </Box>
         ) : (
-            <Grid id={id} container direction={direction || 'row'} 
+            <Grid className={this.props.className} id={id} container direction={direction || 'row'} 
             justify={justify || 'center'} alignItems={alignItems || 'center'} 
             style={{ ...this.props.style, background: this.processBackgroundColor(position, colors, linear) }}>
                 {this.props.children}
