@@ -6,7 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import { Link } from "react-scroll";
 import { useMediaQuery } from 'react-responsive';
-import { Fab, Typography, Drawer } from '@material-ui/core';
+import { Fab, Typography, Drawer, AppBarProps } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppState } from 'application';
 import { Flare, Brightness3 } from '@material-ui/icons';
@@ -53,19 +53,12 @@ const AnimationAbsolute = posed.div({
 	}
 });
 
-export interface NavBarProps
-{
-	variant?: 'regular' | 'dense',
-	style?: React.CSSProperties,
-	id?: string
-}
-
 const scrollConfig = {
 	domTarget: window,
 	eventOptions: { passive: true }
 }
 
-export const NavBar: FunctionComponent<NavBarProps> = (props: NavBarProps): JSX.Element =>
+export const NavBar: FunctionComponent<AppBarProps> = (props: AppBarProps): JSX.Element =>
 {
 	const dispatch = useDispatch();
 	const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
@@ -154,8 +147,8 @@ export const NavBar: FunctionComponent<NavBarProps> = (props: NavBarProps): JSX.
 	);
 
 	const navBar: JSX.Element = (
-		<AppBar id={props.id} position={canShowFixedNavBar() ? "fixed" : "absolute"} style={{ ...props.style }}>
-			<Toolbar variant={props.variant || "dense"}>
+		<AppBar {...props} position={canShowFixedNavBar() ? "fixed" : "absolute"}>
+			<Toolbar variant="dense">
 				<Grid container spacing={3}>
 					<Grid item xs={3}>
 						<Typography className="navbar-logo" align="center" variant="h4" component="h4">
