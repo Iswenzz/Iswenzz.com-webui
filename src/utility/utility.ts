@@ -1,4 +1,10 @@
 /**
+ * Async delay.
+ * @param ms - Delay time in millisec.
+ */
+export const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
+/**
  * Updating objects immutably.
  * @param oldObject - The old object.
  * @param updatedProperties - Updated properties object.
