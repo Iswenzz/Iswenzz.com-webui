@@ -103,3 +103,13 @@
 .pre-line {
     white-space: pre-line !important;
 }
+
+.link {
+    color: steelblue;
+    &:visited {
+        color: rgb(136, 0, 233);
+    }
+    &:hover {
+        color: slateblue;
+    }
+}

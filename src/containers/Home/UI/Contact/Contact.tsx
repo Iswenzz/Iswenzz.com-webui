@@ -1,7 +1,7 @@
-import React, { FunctionComponent, memo, useState } from 'react';
+import React, { FunctionComponent, memo, useState, useRef, useEffect } from 'react';
 import RadialGradient, { GradiantProps } from 'components/RadialGradient/RadialGradient';
-import { Grid, Container, Avatar, Button, makeStyles, CircularProgress } from '@material-ui/core';
-import axios from 'axios';
+import { Grid, Container, Avatar, Button, makeStyles, CircularProgress, Typography } from '@material-ui/core';
+import axios, { AxiosResponse } from 'axios';
 import posed from 'react-pose';
 import VisibilitySensor from "react-visibility-sensor";
 import { useMediaQuery } from 'react-responsive';
@@ -10,7 +10,10 @@ import { useSelector } from 'react-redux';
 import { AppState } from 'application';
 import { Formik, Field, Form, FormikHelpers } from 'formik';
 import { TextField } from 'formik-material-ui';
+import ReCAPTCHA from 'react-google-recaptcha';
 import 'Text.scss';
+import './Contact.scss';
+import { delay } from 'utility/utility';
 
 const useStyles = makeStyles(theme => ({
 	avatar: {
@@ -46,7 +49,8 @@ export interface ContactFormValues
 {
 	email?: string,
 	subject?: string,
-	message?: string
+	message?: string,
+	token?: string
 }
 
 export const contactFormInitial: ContactFormValues = {
@@ -84,6 +88,8 @@ export const Contact: FunctionComponent = (): JSX.Element =>
 	const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
 	const isTabletOrMobileDevice = useMediaQuery({ query: '(max-device-width: 1224px)' });
 	const classes = useStyles();
+	const recaptchaRef = useRef<ReCAPTCHA>(null);
+
 	const [loading, setLoading] = useState(false);
 	const [success, setSuccess] = useState(false);
 	const [fail, setFail] = useState(false);
@@ -110,40 +116,60 @@ export const Contact: FunctionComponent = (): JSX.Element =>
 	 */
 	const sendEmail = async (values: ContactFormValues, { setSubmitting }: FormikHelpers<ContactFormValues>) =>
 	{
-		if (!loading) 
-		{
-			setSuccess(false);
-			setFail(false);
-			setLoading(true);
-		}
 		// if the form as valid information send a post req
 		if (Object.values(values).every(item => item !== undefined && item !== null))
 		{
-			await axios.post('https://iswenzz.com/contact', values, { 
-				headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' } 
-			}).then(res => {
-				if (res.data.status === "success")
-				{
-					setSuccess(true);
-					setLoading(false);
-					setSubmitting(true);
-					setTimeout(() => setSuccess(false), 3000);
-				}
-				else
-				{
-					setLoading(false);
-					setFail(true);
-					setSubmitting(false);
-					setTimeout(() => setFail(false), 3000);
-				}
-			}).catch(err => {
-				console.log(err);
-				setLoading(false);
-				setFail(true);
-				setSubmitting(false);
-				setTimeout(() => setFail(false), 3000);
-			});
+			await (recaptchaRef.current as any).executeAsync();
+			// show progress circle
+			if (!loading) 
+			{
+				setSuccess(false);
+				setFail(false);
+				setLoading(true);
+			}
+			const captcha_value = recaptchaRef.current?.getValue();
+
+			try
+			{
+				let res: AxiosResponse<any> = await axios.post('https://iswenzz.com/contact', {
+					...values,
+					token: captcha_value ? captcha_value : ''
+				}, { 
+					headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' } 
+				});
+				res.data.status === "success" ? await mailSuccess() : await mailFail();
+				recaptchaRef.current?.reset();
+			}
+			catch (err)
+			{
+				await mailFail(err);
+			}
 		}
+	}
+
+	/**
+	 * Change button color to green and stop the progress circle.
+	 */
+	const mailSuccess = async (): Promise<void> =>
+	{
+		setSuccess(true);
+		setLoading(false);
+		await delay(3000);
+		setSuccess(false);
+	}
+
+	/**
+	 * Change button color to red and stop the progress circle.
+	 * @param err - Fail reason.
+	 */
+	const mailFail = async (err?: any): Promise<void> =>
+	{
+		if (err)
+			console.log(err);
+		setLoading(false);
+		setFail(true);
+		await delay(3000);
+		setFail(false);
 	}
 
 	const form: JSX.Element = (
@@ -160,11 +186,18 @@ export const Contact: FunctionComponent = (): JSX.Element =>
 					fullWidth multiline rows="6" color="secondary" variant="outlined" margin="normal" />
 					<Container maxWidth="xs">
 						<Grid container direction="row" justify="center" alignItems="center">
-							<Button fullWidth variant="contained" type="submit" color="secondary" disabled={loading}
+							<Button fullWidth variant="contained" type="submit" color="secondary" disabled={loading || success || fail}
 							className={success ? classes.buttonSuccess : fail ? classes.buttonFail : classes.buttonDefault}>
 								Send
 							</Button>
 							{loading && <CircularProgress size={32} className={classes.buttonProgress} />}
+							<Typography variant="subtitle2" align="center" component="p" paragraph color="textPrimary">
+								This site is protected by reCAPTCHA and the Google&nbsp;
+								<a className="link" href="https://policies.google.com/privacy">Privacy Policy</a> and&nbsp;
+								<a className="link" href="https://policies.google.com/terms">Terms of Service</a> apply.
+							</Typography>
+							<ReCAPTCHA ref={recaptchaRef} sitekey="6LdE8QAVAAAAAKvBLdna3qVhf6ml05DKXRXwDxmn"
+							size="invisible" badge="inline" theme={isDarkMode ? "dark" : "light"} />
 						</Grid>
 					</Container>
 				</Form>
