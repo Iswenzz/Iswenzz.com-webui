@@ -196,10 +196,10 @@ export const Contact: FunctionComponent = (): JSX.Element =>
 								<a className="link" href="https://policies.google.com/privacy">Privacy Policy</a> and&nbsp;
 								<a className="link" href="https://policies.google.com/terms">Terms of Service</a> apply.
 							</Typography>
+							<ReCAPTCHA ref={recaptchaRef} sitekey="6LdE8QAVAAAAAKvBLdna3qVhf6ml05DKXRXwDxmn"
+							size="invisible" badge="inline" theme={isDarkMode ? "dark" : "light"} />
 						</Grid>
 					</Container>
-					<ReCAPTCHA ref={recaptchaRef} sitekey="6LdE8QAVAAAAAKvBLdna3qVhf6ml05DKXRXwDxmn"
-					size="invisible" theme={isDarkMode ? "dark" : "light"} />
 				</Form>
 			)}/>
 		</Grid>
