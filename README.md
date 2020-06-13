@@ -7,7 +7,16 @@
 
 This website, as it stands right now, mainly serves as a portfolio for me to share my projects with the world. In the future, I plan to integrate things such as documentation for software I've created, as well as the ability to purchase some of the larger products i've worked on that aren't open source.
 
-![](https://i.imgur.com/29q1UnQ.jpg)
+![](https://i.imgur.com/i6DO98s.jpg)
+
+## Projects
+![](https://i.imgur.com/Dg53ai0.jpg)
+
+## Level Design
+![](https://i.imgur.com/cZOJbXK.jpg)
+
+## Contact
+![](https://i.imgur.com/JnUWPSq.jpg)
 
 ## Building (Any Platform)
 _Pre-Requisites:_
