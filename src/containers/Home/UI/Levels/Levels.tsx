@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useState, memo } from 'react';
 import RadialGradient, { GradiantProps } from 'components/RadialGradient/RadialGradient';
-import { Divider, Container } from '@material-ui/core';
+import { Divider, Container, Grid } from '@material-ui/core';
 import EmblaCarousel from 'components/EmblaCarousel/EmblaCarousel';
 import Level, { LevelProject } from 'containers/Home/UI/Level/Level';
 import posed from 'react-pose';
@@ -63,25 +63,26 @@ export const Levels: FunctionComponent = (): JSX.Element =>
         {({ isVisible }) => (
 			<div>
 				<Element name="level-design-section" />
-				<RadialGradient direction="column" config={config} className="levels-gradient-grid">
-					<Container className="levels-container">
-						<Animation pose={isVisible ? "enter" : "exit"} key="carousel-header-anim">
-							<Text align="center" color="textPrimary" component="h1" variant="h1"
-							className='poiret-h1' items={["Level Design"]} />
-							<Divider className="levels-divider" />
-						</Animation>
-					</Container>
-					<Container maxWidth="xl">
-						<Animation pose={isVisible ? "enter" : "exit"} key="carousel-anim">
-							<EmblaCarousel  
-							height={isPortrait ? '500px' : isTabletOrMobileDevice ? '350px' : '700px' } 
-							width='100%' delayLength={10000} autoplay={false}>
-								{levels.map((level: LevelProject) => (
-									<Level key={level.name} levels={levels} currentLevel={level} />
-								))}
-							</EmblaCarousel>
-						</Animation>
-					</Container>
+				<RadialGradient config={config} className="levels-gradient-grid">
+					<Grid container direction="column" justify="center" alignItems="center">
+						<Container className="levels-container">
+							<Animation pose={isVisible ? "enter" : "exit"} key="carousel-header-anim">
+								<Text align="center" color="textPrimary" component="h1" variant="h1"
+								className='poiret-h1' items={["Level Design"]} />
+								<Divider className="levels-divider" />
+							</Animation>
+						</Container>
+						<Container maxWidth={false}>
+							<Animation pose={isVisible ? "enter" : "exit"} key="carousel-anim">
+								<EmblaCarousel width='100%' delayLength={10000} autoplay={false}
+								height={isPortrait ? '500px' : isTabletOrMobileDevice ? '350px' : '700px' }>
+									{levels.map((level: LevelProject) => (
+										<Level key={level.name} levels={levels} currentLevel={level} />
+									))}
+								</EmblaCarousel>
+							</Animation>
+						</Container>
+					</Grid>
 				</RadialGradient>	
 			</div>
 		)}
