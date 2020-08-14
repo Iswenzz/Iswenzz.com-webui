@@ -9,7 +9,7 @@ import Spacing from 'components/Spacing/Spacing';
 import { Tooltip, Typography } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 import { AppState } from 'application';
-import 'Text.scss';
+import 'Common.scss';
 
 const Footer: FunctionComponent = (): JSX.Element =>
 {

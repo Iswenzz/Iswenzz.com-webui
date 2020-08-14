@@ -15,7 +15,7 @@ import * as MarkdownIt from 'markdown-it';
 import uuid from 'uuid';
 import VS2015 from 'containers/UI/Highlight/VS1025';
 import AtomOneLight from 'containers/UI/Highlight/AtomOneLight';
-import 'Text.scss';
+import 'Common.scss';
 import './ProjectPopup.scss';
 
 const hljs = require('highlight.js');

@@ -5,7 +5,7 @@ import { Card, CardActionArea, Typography } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
 import posed from 'react-pose';
-import 'Text.scss';
+import 'Common.scss';
 import './Project.scss';
 
 export interface ProjectRenderProps

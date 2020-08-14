@@ -19,7 +19,7 @@ import SplitText from 'react-pose-text';
 import ProjectPopup from 'containers/Home/UI/ProjectPopup/ProjectPopup';
 import { Element } from 'react-scroll';
 import { Spacing } from 'components/Spacing/Spacing';
-import 'Text.scss';
+import 'Common.scss';
 import './Home.scss';
 
 const charPoses = {

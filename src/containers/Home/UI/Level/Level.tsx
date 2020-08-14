@@ -7,7 +7,7 @@ import { useMediaQuery } from "react-responsive";
 import { useSelector } from "react-redux";
 import { AppState } from "application";
 import uuid from "uuid";
-import 'Text.scss';
+import 'Common.scss';
 import './Level.scss';
 
 const playerConfig: Config = { 

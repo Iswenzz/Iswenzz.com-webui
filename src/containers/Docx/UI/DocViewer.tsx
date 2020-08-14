@@ -3,7 +3,7 @@ import { useHistory } from 'react-router';
 import { animateScroll as scroll } from 'react-scroll';
 import { getElementByXPath } from 'utility/utility';
 import './DocViewer.scss';
-import 'Text.scss';
+import 'Common.scss';
 
 /**
  * Doxygen document viewer container.

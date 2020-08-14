@@ -11,7 +11,7 @@ import posed from 'react-pose';
 import TrailText from 'components/TrailText/TrailText';
 import { useMediaQuery } from 'react-responsive';
 import { Element } from 'react-scroll';
-import 'Text.scss';
+import 'Common.scss';
 import './Intro.scss';
 
 const intro = {

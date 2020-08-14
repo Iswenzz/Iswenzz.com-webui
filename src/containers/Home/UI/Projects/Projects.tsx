@@ -11,7 +11,7 @@ import { useMediaQuery } from 'react-responsive';
 import { Element } from 'react-scroll';
 import { random } from 'lodash';
 import { TrailText } from 'components/TrailText/TrailText';
-import 'Text.scss';
+import 'Common.scss';
 import './Projects.scss';
 
 /**

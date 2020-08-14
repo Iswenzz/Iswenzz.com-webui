@@ -11,7 +11,7 @@ import { AppState } from 'application';
 import { Formik, Field, Form, FormikHelpers } from 'formik';
 import { TextField } from 'formik-material-ui';
 import ReCAPTCHA from 'react-google-recaptcha';
-import 'Text.scss';
+import 'Common.scss';
 import './Contact.scss';
 import { delay } from 'utility/utility';
 

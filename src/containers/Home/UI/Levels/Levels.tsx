@@ -10,7 +10,7 @@ import { useMediaQuery } from 'react-responsive';
 import { useSelector } from 'react-redux';
 import { AppState } from 'application';
 import Text from 'components/Text/Text';
-import 'Text.scss';
+import 'Common.scss';
 import './Levels.scss';
 
 const Animation = posed.div({
