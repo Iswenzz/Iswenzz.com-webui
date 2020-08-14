@@ -213,8 +213,8 @@ export const IntroSkill: FunctionComponent = (): JSX.Element =>
 						<AnimationUp className="intro-anim" pose={isVisible ? "enter" : "exit"} 
 						key="about-animation">
 							<Container maxWidth="md">
-								<Text align="left" color="textPrimary" component="h1" variant="h1"
-								className='poiret-h1' items={[intro.header]} />
+								<Text align="left" color="textPrimary" component="h2" variant="h2"
+								className='poiret-h1 noselect' items={[intro.header]} />
 								<Divider className="intro-divider" />
 								<Text align="left" className="intro-second-text ubuntu-h3" color="textPrimary" 
 								component="h3" variant="h3" items={[intro.title]} />
@@ -240,8 +240,8 @@ export const IntroSkill: FunctionComponent = (): JSX.Element =>
 					<Container>
 						<AnimationLeft pose={isVisible ? "enter" : "exit"} key="about-skill-header-animation">
 							<Container className="skill-container">
-								<TrailText align="center" color="textPrimary" component="h1" variant="h1"
-								className='poiret-h1' active={isVisible} items={["Technological Skills"]} />
+								<TrailText align="center" color="textPrimary" component="h2" variant="h2"
+								className='poiret-h1 noselect' active={isVisible} items={["Technological Skills"]} />
 								<Divider className="skill-divider" />
 							</Container>
 						</AnimationLeft>

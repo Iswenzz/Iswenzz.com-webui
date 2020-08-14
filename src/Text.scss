@@ -1,115 +1,55 @@
-.calli-h1 {
-    font-family: 'Calligraffitti', cursive !important;
-    font-weight: bold !important;
-    font-size: 60px !important;
-    user-select: none !important;
+@import url("https://fonts.googleapis.com/css?family=Exo:100|Permanent+Marker|Ubuntu|Press+Start+2P|Roboto:300,400,500,700|Calligraffitti|Poiret+One|Raleway+Dots|Roboto+Mono|Raleway&display=swap");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+$font-sizes: (
+	60px,
+	24px,
+	19px,
+	16px,
+	13px
+);
+
+.calli { font-family: 'Calligraffitti', cursive !important; }
+.poiret { font-family: 'Poiret One', sans-serif !important; }
+.ubuntu { font-family: 'Ubuntu', sans-serif !important; }
+
+@each $size in $font-sizes {
+	$i: index($font-sizes, $size);
+
+	.calli-h#{$i} {
+		font-family: 'Calligraffitti', cursive !important;
+		font-size: $size !important;
+	}
+
+	.poiret-h#{$i} {
+		font-family: 'Poiret One', sans-serif !important;
+		font-size: $size !important;
+	}
+
+	.ubuntu-h#{$i} {
+		font-family: 'Ubuntu', sans-serif !important;
+		font-size: $size !important;
+	}
 }
 
-.calli-h2 {
-    font-family: 'Calligraffitti', cursive !important;
-    font-weight: bold !important;
-    font-size: 24px !important;
-}
-
-.calli-h3 {
-    font-family: 'Calligraffitti', cursive !important;
-    font-weight: bold !important;
-    font-size: 19px !important;
-}
-
-.calli-h4 {
-    font-family: 'Calligraffitti', cursive !important;
-    font-weight: bold !important;
-    font-size: 16px !important;
-}
-
-.calli-h5 {
-    font-family: 'Calligraffitti', cursive !important;
-    font-weight: bold !important;
-    font-size: 13px !important;
-}
-
-.poiret-header {
-    font-family: 'Poiret One', sans-serif !important;
-    user-select: none !important;
-    font-weight: 700 !important;
-}
-
-.poiret-big {
-    font-family: 'Poiret One', sans-serif !important;
-    font-size: 70px !important;
-    user-select: none !important;
-}
-
-.poiret-h1 {
-    font-family: 'Poiret One', sans-serif !important;
-    font-size: 50px !important;
-    user-select: none !important;
-}
-
-.poiret-h2 {
-    font-family: 'Poiret One', sans-serif !important;
-    font-size: 24px !important;
-}
-
-.poiret-h3 {
-    font-family: 'Poiret One', sans-serif !important;
-    font-size: 19px !important;
-}
-
-.poiret-h4 {
-    font-family: 'Poiret One', sans-serif !important;
-    font-size: 16px !important;
-}
-
-.poiret-h5 {
-    font-family: 'Poiret One', sans-serif !important;
-    font-size: 13px !important;
-}
-
-.ubuntu-h1 {
-    font-family: 'Ubuntu', sans-serif !important;
-    font-size: 50px !important;
-}
-
-.ubuntu-h2 {
-    font-family: 'Ubuntu', sans-serif !important;
-    font-size: 24px !important;
-}
-
-.ubuntu-h3 {
-    font-family: 'Ubuntu', sans-serif !important;
-    font-size: 19px !important;
-}
-
-.ubuntu-h4 {
-    font-family: 'Ubuntu', sans-serif !important;
-    font-size: 16px !important;
-}
-
-.ubuntu-h5 {
-    font-family: 'Ubuntu', sans-serif !important;
-    font-size: 13px !important;
-}
-
-.title-color {
-    color: rgba(220, 220, 220, 0.9);
+.noselect {
+	user-select: none !important;
 }
 
 .bold {
-    font-weight: bold !important;
+	font-weight: bold !important;
 }
 
 .pre-line {
-    white-space: pre-line !important;
+	white-space: pre-line !important;
 }
 
 .link {
-    color: steelblue;
-    &:visited {
-        color: rgb(136, 0, 233);
-    }
-    &:hover {
-        color: slateblue;
-    }
+	color: steelblue;
+	&:visited {
+		color: rgb(136, 0, 233);
+	}
+	&:hover {
+		color: slateblue;
+	}
 }

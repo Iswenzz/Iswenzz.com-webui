@@ -35,12 +35,12 @@ const IntroHeader: FunctionComponent<IntroHeaderProps> = (props: IntroHeaderProp
 			bgImage={props.bgImage} bgImageAlt="index" blur={props.parallaxBlur || 0}
 			strength={props.parallaxStrength || 400}>
 				<Grid container className="introheader-grid" direction="column" justify="center" alignItems="center">
-					<Typography className="calli-h1" align="center" variant="h3" component="div">
+					<Typography className="calli-h1 bold noselect" align="center" variant="h1" component="h1">
 						<SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
 							{props.title}
 						</SplitText>
 					</Typography>
-					<Typography className="poiret-header" align="center" variant="h3" component="div">
+					<Typography className="poiret bold noselect" align="center" variant="h3" component="h3">
 						<SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
 							{props.desc}
 						</SplitText>

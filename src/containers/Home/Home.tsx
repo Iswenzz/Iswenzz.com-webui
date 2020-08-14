@@ -69,7 +69,7 @@ const Home: FunctionComponent = (): JSX.Element =>
 			{/* Contact */}
 			<Parallax className="contact-parallax" bgImageAlt="index" strength={200} blur={1}
 			bgImage={require(`assets/images/index/${isDarkMode ? '55.jpg' : 't1.jpg'}`)}>
-				<Typography className="poiret-big bold contact-typo" align="center" variant="h1" component="h1">
+				<Typography className="poiret-h1 bold noselect contact-typo" align="center" variant="h2" component="h2">
 					<SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
 						Contact
 					</SplitText>

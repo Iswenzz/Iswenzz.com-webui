@@ -29,7 +29,7 @@ describe('[Component] <ViewPager>', () =>
         wrapper.find(animated.div).map(i => i.simulate("mousedown", {}));
         wrapper.find(animated.div).map(i => i.simulate("drag", {}));
         wrapper.setProps({ startIndex: 0, items: [
-            <h1>test</h1>
+            <h2>test</h2>
         ]});
     });
     

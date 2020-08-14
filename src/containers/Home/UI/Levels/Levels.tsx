@@ -67,8 +67,8 @@ export const Levels: FunctionComponent = (): JSX.Element =>
 					<Grid container direction="column" justify="center" alignItems="center">
 						<Container className="levels-container">
 							<Animation pose={isVisible ? "enter" : "exit"} key="carousel-header-anim">
-								<Text align="center" color="textPrimary" component="h1" variant="h1"
-								className='poiret-h1' items={["Level Design"]} />
+								<Text align="center" color="textPrimary" component="h2" variant="h2"
+								className='poiret-h1 noselect' items={["Level Design"]} />
 								<Divider className="levels-divider" />
 							</Animation>
 						</Container>
