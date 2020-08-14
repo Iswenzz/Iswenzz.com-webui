@@ -82,7 +82,7 @@ export const ViewPager: FunctionComponent<ViewPagerProps> = (props: ViewPagerPro
 	});
 	
 	return (
-		<div style={props.style}>
+		<section style={props.style}>
 			{springProps.map(({ x, display, scale }, i) => (
 				<animated.div className="carousel" {...bind()} key={i}
 				style={{display, x, ...props.config }}>
@@ -91,7 +91,7 @@ export const ViewPager: FunctionComponent<ViewPagerProps> = (props: ViewPagerPro
 					</animated.div>
 				</animated.div>
 			))}
-		</div>
+		</section>
 	);
 }
 

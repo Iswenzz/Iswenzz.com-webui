@@ -14,7 +14,8 @@ export interface GradiantProps extends React.HTMLAttributes<HTMLDivElement>
     linear?: boolean,
     direction?: GridDirection,
     justify?: GridJustification,
-    alignItems?: GridItemsAlignment
+    alignItems?: GridItemsAlignment,
+    component?: React.ElementType,
     position?: string,
     colors?: IGradientColor[],
 }  
@@ -47,12 +48,12 @@ class RadialGradient extends PureComponent<GradiantProps>
             position, colors, linear } = this.props.config !== undefined ? this.props.config : this.props;
             
         return container ? (
-            <Box className={this.props.className} id={id} style={{ ...this.props.style, margin: '0', 
+            <Box className={this.props.className} id={id} component={this.props.component ?? "div"} style={{ ...this.props.style, margin: '0', 
             background: this.processBackgroundColor(position, colors, linear) }}>
                 {this.props.children}
             </Box>
         ) : (
-            <Grid className={this.props.className} id={id} container direction={direction || 'row'} 
+            <Grid className={this.props.className} id={id} component={this.props.component ?? "div"} container direction={direction || 'row'} 
             justify={justify || 'center'} alignItems={alignItems || 'center'} 
             style={{ ...this.props.style, background: this.processBackgroundColor(position, colors, linear) }}>
                 {this.props.children}

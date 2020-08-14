@@ -49,12 +49,12 @@ export class FlipCard extends Component<FlipCardProps, FlipCardState>
 		return (
 			<ReactCardFlip containerStyle={{ width: '100%', height: '100%' }}
 			isFlipped={this.state.isFlipped} flipDirection="vertical">
-				<div className="c-flip" onClick={this.handleClick}>
+				<section className="flipcard" onClick={this.handleClick}>
 					{this.props.back}
-				</div>
-				<div className="c-flip" onClick={this.handleClick}>
+				</section>
+				<section className="flipcard" onClick={this.handleClick}>
 					{this.props.front}
-				</div>
+				</section>
 			</ReactCardFlip>
 		);
 	}
