@@ -75,6 +75,9 @@ export const App: FunctionComponent<ReduxAppProps> = (props: ReduxAppProps): JSX
 						backgroundColor: props.isDarkMode ? 'black' : 'silver', 
 						margin: 0
 					},
+					ul: {
+						listStyle: "none"
+					},
 					'::-webkit-scrollbar': {
 						width: '12px'
 					},
