@@ -3,7 +3,7 @@ import EmblaCarouselReact from "embla-carousel-react";
 import useInterval from "utility/useInterval";
 import { DotButton, PrevButton, NextButton } from "./EmblaCarouselButtons/EmblaCarouselButtons";
 import { Grid } from "@material-ui/core";
-import "./Embla.css";
+import "./Embla.scss";
 
 export interface EmblaCarouselProps
 {
@@ -60,27 +60,28 @@ export const EmblaCarouselComponent: FunctionComponent<EmblaCarouselProps> = (pr
 	}, [embla]);
 
 	return (
-		<Grid style={props.style} container direction="row" justify="center" alignItems="center">
-			<div style={{ width: props.width, height: props.height }} className="embla">
-				<EmblaCarouselReact className="embla__viewport" emblaRef={setEmbla} 
-				options={{ loop: false, draggable: false }} htmlTagName="div">
-				<div style={{ width: props.width, height: props.height }} 
-				className="embla__container">
-					{props.children.map((Child, index) => (
-						<div className="embla__slide" key={index}>
-							{Child}
-						</div>
-					))}
-				</div>
+		<Grid style={props.style} container direction="row" justify="center" alignItems="center"
+		component="article">
+			<section style={{ width: props.width, height: props.height }} className="embla">
+				<EmblaCarouselReact className="embla-viewport" emblaRef={setEmbla} 
+				options={{ loop: false, draggable: false }} htmlTagName="section">
+					<ul style={{ width: props.width, height: props.height }} 
+					className="embla-container">
+						{props.children.map((Child, index) => (
+							<li className="embla-slide" key={index}>
+								{Child}
+							</li>
+						))}
+					</ul>
 				</EmblaCarouselReact>
-				<div className="embla__dots">
+				<section className="embla-dots">
 					{scrollSnaps.map((snap, index) => (
 						<DotButton selected={index === selectedIndex} onClick={() => scrollTo(index)} key={index} />
 					))}
-				</div>
+				</section>
 				<PrevButton onClick={scrollPrev} enabled={prevBtnEnabled} />
 				<NextButton onClick={scrollNext} enabled={nextBtnEnabled} />
-			</div>
+			</section>
 		</Grid>
 	);
 };
