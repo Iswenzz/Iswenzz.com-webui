@@ -61,18 +61,18 @@ export const Levels: FunctionComponent = (): JSX.Element =>
 	return (
 		<VisibilitySensor partialVisibility offset={{ bottom: isTabletOrMobileDevice ? 100 : 400 }}>
         {({ isVisible }) => (
-			<div>
+			<section className="levels">
 				<Element name="level-design-section" />
 				<RadialGradient config={config} className="levels-gradient-grid">
 					<Grid container direction="column" justify="center" alignItems="center">
-						<Container className="levels-container">
+						<Container component="header" className="levels-container">
 							<Animation pose={isVisible ? "enter" : "exit"} key="carousel-header-anim">
 								<Text align="center" color="textPrimary" component="h2" variant="h2"
 								className='poiret-h1 noselect' items={["Level Design"]} />
 								<Divider className="levels-divider" />
 							</Animation>
 						</Container>
-						<Container maxWidth={false}>
+						<Container component="article" maxWidth={false}>
 							<Animation pose={isVisible ? "enter" : "exit"} key="carousel-anim">
 								<EmblaCarousel width='100%' delayLength={10000} autoplay={false}
 								height={isPortrait ? '500px' : isTabletOrMobileDevice ? '350px' : '700px' }>
@@ -84,7 +84,7 @@ export const Levels: FunctionComponent = (): JSX.Element =>
 						</Container>
 					</Grid>
 				</RadialGradient>	
-			</div>
+			</section>
 		)}
 		</VisibilitySensor>
 	);

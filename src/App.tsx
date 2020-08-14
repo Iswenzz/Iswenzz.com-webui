@@ -76,7 +76,9 @@ export const App: FunctionComponent<ReduxAppProps> = (props: ReduxAppProps): JSX
 						margin: 0
 					},
 					ul: {
-						listStyle: "none"
+						listStyle: "none",
+						margin: 0,
+						padding: 0
 					},
 					'::-webkit-scrollbar': {
 						width: '12px'

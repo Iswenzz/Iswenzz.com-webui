@@ -1,40 +1,40 @@
-.info-div {
-	padding: 20px 0 20px 0;
+.intro {
+	#{&}-div {
+		padding: 20px 0;
+	}
+
+	#{&}-grid {
+		padding: 100px 0;
+	}
+
+	#{&}-anim {
+		width: 100%;
+		height: 100%;
+	}
+
+	#{&}-divider {
+		width: 350px !important;
+		height: 2px !important;
+		margin: 16px 0 !important;
+	}
+
+	#{&}-second-text {
+		margin: 16px 0 !important;
+	}
 }
 
-.skill-grid {
-	padding-bottom: 100px;
-}
+.skill {
+	#{&}-grid {
+		padding-bottom: 100px;
+	}
 
-.intro-grid {
-	padding-top: 100px;
-	padding-bottom: 100px;
-}
+	#{&}-container {
+		padding: 50px 0;
+	}
 
-.intro-anim {
-	width: 100%;
-	height: 100%;
-}
-
-.intro-divider {
-	width: 350px !important;
-	height: 2px !important;
-	margin-top: 16px !important;
-	margin-bottom: 16px !important;
-}
-
-.intro-second-text {
-	margin-top: 16px !important;
-	margin-bottom: 16px !important;
-}
-
-.skill-container {
-	padding-top: 50px;
-	padding-bottom: 50px;
-}
-
-.skill-divider {
-	margin: 10px 0 10px 0 !important;
-	width: 100% !important;
-	height: 2px !important;
+	#{&}-divider {
+		margin: 10px 0 !important;
+		width: 100% !important;
+		height: 2px !important;
+	}
 }

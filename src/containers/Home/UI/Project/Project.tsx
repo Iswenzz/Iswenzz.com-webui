@@ -54,7 +54,7 @@ export interface ProjectProps
     visible?: boolean
 }
 
-const ZoomAnimation = posed.div({
+const ZoomAnimation = posed.article({
     hoverable: true,
     pressable: true,
     init: {
@@ -99,7 +99,7 @@ export const Project: FunctionComponent<ProjectProps> = (props: ProjectProps): J
     }
 
     return (
-        <ZoomAnimation>
+        <ZoomAnimation className="project">
             <Card onClick={onToggle} className="project-card" 
             style={{ backgroundImage: `url(${props.currentProj.cardImage})`,
             width: cardSize.width, height: cardSize.height}}>

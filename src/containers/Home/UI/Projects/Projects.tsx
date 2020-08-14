@@ -43,7 +43,7 @@ export const Projects: FunctionComponent = (): JSX.Element =>
 	 * Stonecutter grid config.
 	 */
     const gridConfig: SpringGridProps = { 
-        component: 'div', 
+        component: 'ul', 
         columns: 5,
         perspective: 600, 
         columnWidth: isTabletOrMobileDevice ? 85 : 200, gutterWidth: 30, 
@@ -56,20 +56,20 @@ export const Projects: FunctionComponent = (): JSX.Element =>
     }
 
     return (
-		<div>
+		<section className="projects">
 			<Element name="projects-section" />
 			<RadialGradient config={config} className="projects-gradient-grid">
-				<Container className="projects-container">
+				<Container component="header" className="projects-container">
 					<TrailText align="center" color="textPrimary" component="h2" variant="h2"
 					className='poiret-h1 noselect' active items={["Projects"]} />
 					<Divider className="projects-divider" />
 				</Container>
-				<Grid container direction="row" alignItems="center" justify="center">
+				<Grid container component="section" direction="row" alignItems="center" justify="center">
 					<StonecutterGrid responsive animStyle={enterExitStyle.skew} config={gridConfig}>
 					{projects!.map((project: LinkedProjectProps) => {
 						let r = isTabletOrMobileDevice ? undefined : random(100, 220);
 						return (
-							//@ts-ignore - for itemHeight custom attribute
+							// @ts-ignore - for itemHeight custom attribute
 							<li key={project.title} itemHeight={r}> 
 								<Project projects={projects!} currentProj={project}
 								itemHeight={r} /> 
@@ -80,7 +80,7 @@ export const Projects: FunctionComponent = (): JSX.Element =>
 				</Grid>
 				<Spacing height={isPortrait ? '1500px' : isTabletOrMobileDevice ? '500px' : '1000px'} />
 			</RadialGradient>     
-		</div>
+		</section>
     );
 }
 

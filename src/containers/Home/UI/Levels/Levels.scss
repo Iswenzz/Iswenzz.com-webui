@@ -1,13 +1,15 @@
-.levels-gradient-grid {
-    padding: 80px 0 200px 0;
-}
-
-.levels-container {
-    padding-bottom: 90px;
-}
-
-.levels-divider {
-    margin: 10px 0 10px 0 !important;
-    width: 100% !important;
-    height: 2px !important;
+.levels {
+	#{&}-gradient-grid {
+		padding: 80px 0 200px 0;
+	}
+	
+	#{&}-container {
+		padding-bottom: 90px;
+	}
+	
+	#{&}-divider {
+		margin: 10px 0 !important;
+		width: 100% !important;
+		height: 2px !important;
+	}
 }

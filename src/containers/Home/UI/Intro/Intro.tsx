@@ -169,50 +169,51 @@ export const IntroSkill: FunctionComponent = (): JSX.Element =>
 	];
 
 	const skillGrid: JSX.Element = (
-		<Grid className="skill-grid" container alignItems="center" direction="row" justify="space-around">
+		<Grid className="skill-grid" container component="section"
+		alignItems="center" direction="row" justify="space-around">
 			
 			{/* Web Development */}
-			<div className="info-div">
-				<Text className='poiret-h2' items={[webDev.title]} />
-				<Text className='ubuntu-h4' items={webDev.points} />
+			<article className="info-div">
+				<Text component="h2" className='poiret-h2' items={[webDev.title]} />
+				<Text component="h4" className='ubuntu-h4' items={webDev.points} />
 				<Spacing height='20px' />
-				<Text className='poiret-h2' items={[webDevStack.title]} />
-				<Text className='ubuntu-h4' items={webDevStack.points} />
-			</div>
+				<Text component="h2" className='poiret-h2' items={[webDevStack.title]} />
+				<Text component="h4" className='ubuntu-h4' items={webDevStack.points} />
+			</article>
 
 			{/* Software Development */} 
-			<div className="info-div">
-				<Text className='poiret-h2' items={[softDev.title]} />
-				<Text className='ubuntu-h4' items={softDev.points} />
+			<article className="info-div">
+				<Text component="h2" className='poiret-h2' items={[softDev.title]} />
+				<Text component="h4" className='ubuntu-h4' items={softDev.points} />
 				<Spacing height='20px' />
-				<Text className='poiret-h2' items={[softDevStack.title]} />
-				<Text className='ubuntu-h4' items={softDevStack.points} />
-			</div>
+				<Text component="h2" className='poiret-h2' items={[softDevStack.title]} />
+				<Text component="h4" className='ubuntu-h4' items={softDevStack.points} />
+			</article>
 
 			{/* Level Design */}
-			<div className="info-div">
-				<Text className='poiret-h2' items={[levelDesign.title]} />
-				<Text className='ubuntu-h4' items={levelDesign.points} />
+			<article className="info-div">
+				<Text component="h2" className='poiret-h2' items={[levelDesign.title]} />
+				<Text component="h4" className='ubuntu-h4' items={levelDesign.points} />
 				<Spacing height='20px' />
-				<Text className='poiret-h2' items={[levelDesignEditors.title]} />
-				<Text className='ubuntu-h4' items={levelDesignEditors.points} />
-			</div>
+				<Text component="h2" className='poiret-h2' items={[levelDesignEditors.title]} />
+				<Text component="h4" className='ubuntu-h4' items={levelDesignEditors.points} />
+			</article>
 
 		</Grid>
 	)
 
 	return (
-		<Grid container direction="column" justify="center" alignItems="stretch">
+		<Grid container component="section" direction="column" justify="center" alignItems="stretch">
 			<Element name="intro-section" />
 
 			{/* First Section (About) */}
-			<RadialGradient position='ellipse at bottom' colors={gradientColor}>
+			<RadialGradient className="intro" component="section" position='ellipse at bottom' colors={gradientColor}>
 				<VisibilitySensor partialVisibility offset={{ bottom: isTabletOrMobileDevice ? 20 : 200 }}>
 				{({ isVisible }) => (
 					<Grid className="intro-grid" container direction="row" justify="center" alignItems="center">
 						<AnimationUp className="intro-anim" pose={isVisible ? "enter" : "exit"} 
 						key="about-animation">
-							<Container maxWidth="md">
+							<Container component="header" maxWidth="md">
 								<Text align="left" color="textPrimary" component="h2" variant="h2"
 								className='poiret-h1 noselect' items={[intro.header]} />
 								<Divider className="intro-divider" />
@@ -234,12 +235,12 @@ export const IntroSkill: FunctionComponent = (): JSX.Element =>
 			</Parallax>
 
 			{/* Second Section (Skills) */}
-			<RadialGradient position='ellipse at top' colors={gradientColor}>
+			<RadialGradient className="skill" component="section" position='ellipse at top' colors={gradientColor}>
 				<VisibilitySensor partialVisibility offset={{ bottom: isTabletOrMobileDevice ? 10 : 200 }}>
 				{({ isVisible }) => (
 					<Container>
 						<AnimationLeft pose={isVisible ? "enter" : "exit"} key="about-skill-header-animation">
-							<Container className="skill-container">
+							<Container component="header" className="skill-container">
 								<TrailText align="center" color="textPrimary" component="h2" variant="h2"
 								className='poiret-h1 noselect' active={isVisible} items={["Technological Skills"]} />
 								<Divider className="skill-divider" />

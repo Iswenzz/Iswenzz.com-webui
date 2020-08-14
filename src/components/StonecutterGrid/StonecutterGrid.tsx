@@ -19,12 +19,9 @@ export const StonecutterGrid: FunctionComponent<StonecutterGridProps> = (props: 
     const ResponsiveGrid = makeResponsive(SpringGrid, { maxWidth: 1920, minPadding: 100 });
 
     return (
-        <ResponsiveGrid enter={props.animStyle?.enter} entered={props.animStyle?.entered} exit={props.animStyle?.exit} 
-        component={props.config?.component} perspective={props.config?.perspective}
-        columns={props.responsive !== undefined && props.responsive ? 5 : props.config?.columns} 
-        columnWidth={props.config?.columnWidth} gutterWidth={props.config?.gutterWidth} 
-        gutterHeight={props.config?.gutterHeight} springConfig={props.config?.springConfig}
-        layout={props.config?.layout}>
+        <ResponsiveGrid {...props.config} enter={props.animStyle?.enter} 
+        entered={props.animStyle?.entered} exit={props.animStyle?.exit}
+        columns={props.responsive !== undefined && props.responsive ? 5 : props.config?.columns}>
             {props.children}
         </ResponsiveGrid>
     );

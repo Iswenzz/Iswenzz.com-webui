@@ -1,4 +1,4 @@
-import React, { FunctionComponent, memo, useState, useRef, useEffect } from 'react';
+import React, { FunctionComponent, memo, useState, useRef } from 'react';
 import RadialGradient, { GradiantProps } from 'components/RadialGradient/RadialGradient';
 import { Grid, Container, Avatar, Button, makeStyles, CircularProgress, Typography } from '@material-ui/core';
 import axios, { AxiosResponse } from 'axios';
@@ -11,9 +11,9 @@ import { AppState } from 'application';
 import { Formik, Field, Form, FormikHelpers } from 'formik';
 import { TextField } from 'formik-material-ui';
 import ReCAPTCHA from 'react-google-recaptcha';
+import { delay } from 'utility/utility';
 import 'Common.scss';
 import './Contact.scss';
-import { delay } from 'utility/utility';
 
 const useStyles = makeStyles(theme => ({
 	avatar: {
@@ -173,9 +173,11 @@ export const Contact: FunctionComponent = (): JSX.Element =>
 	}
 
 	const form: JSX.Element = (
-		<Grid container direction="column" justify="center" alignItems="center">
-			<Avatar alt='iswenzz avatar' src={require('assets/images/misc/iswenzz.png')} 
-			className={classes.avatar} />
+		<Grid container component="section" direction="column" justify="center" alignItems="center">
+			<header>
+				<Avatar alt='iswenzz avatar' src={require('assets/images/misc/iswenzz.png')} 
+				className={classes.avatar} />
+			</header>
 			<Formik initialValues={contactFormInitial} onSubmit={sendEmail} render={() => (
 				<Form>
 					<Field component={TextField} required label="Email Address" id="email" name="email" type="email"
@@ -208,7 +210,7 @@ export const Contact: FunctionComponent = (): JSX.Element =>
 	return (
 		<VisibilitySensor partialVisibility offset={{ bottom: isTabletOrMobileDevice ? 0 : 200 }}>
 		{({ isVisible }) => (
-			<div>
+			<section className="contact">
 				<Element name="contact-section" />
 				<RadialGradient config={config} style={{ paddingTop: '80px', paddingBottom: '120px' }}>
 					<Container>
@@ -217,7 +219,7 @@ export const Contact: FunctionComponent = (): JSX.Element =>
 						</Animation>
 					</Container>
 				</RadialGradient>	
-			</div>
+			</section>
 		)}
 		</VisibilitySensor>
 	);

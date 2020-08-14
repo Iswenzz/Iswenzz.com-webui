@@ -119,7 +119,7 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 		const openSource: JSX.Element = (
 			<Tooltip arrow disableFocusListener disableTouchListener title="View Source">
 				<Fab size={isPortrait || isTabletOrMobileDevice ? "small" : "large"} href={project.sourceURL} 
-				className="project-tooltip-fab" color="primary">
+				className="projectpopup-tooltip-fab" color="primary">
 					<FontAwesomeIcon color='silver' icon={faOsi} size='2x' />
 				</Fab>
 			</Tooltip>
@@ -129,7 +129,7 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 			<Tooltip arrow disableFocusListener disableTouchListener title="Private Source">
 				<span>
 					<Fab size={isPortrait || isTabletOrMobileDevice ? "small" : "large"} disabled 
-					className="project-tooltip-fab" color="primary">
+					className="projectpopup-tooltip-fab" color="primary">
 						<Lock />
 					</Fab>
 				</span>
@@ -137,39 +137,48 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 		);
 		
 		return (
-			<div key={uuid.v4()}>
+			<article key={uuid.v4()}>
 				{/* Modal Navbar */}
-				<DialogTitle className="project-modal-title">
-					<Grid className="project-title" container direction="row" justify="space-between" alignItems="center">
-						<div className='project-icons'>
-							{project.renderIcons!.map(icon => (
-								<Tooltip key={uuid.v4()} arrow disableFocusListener disableTouchListener title={icon.name}>
-									<img onDragStart={(e) => e.preventDefault()} 
-									width={isPortrait || isTabletOrMobileDevice ? '42px' : '64px'} 
-									height={isPortrait || isTabletOrMobileDevice ? '42px' : '64px'} 
-									alt='lang' src={icon.src} />
-								</Tooltip>
-							))}
-						</div>
-						<div>
-							{project.isOpenSource ? openSource : privateSource}
-							<Fab id="fab_modal_close" onClick={onClickClose} 
-							size={isPortrait || isTabletOrMobileDevice ? "small" : "large"} 
-							className="project-tooltip-fab" color="secondary">
-								<Close color="primary" />
-							</Fab>
-						</div>
-					</Grid> 
-				</DialogTitle>
+				<header>
+					<DialogTitle disableTypography className="projectpopup-modal-title">
+						<Grid className="projectpopup-title" container
+						direction="row" justify="space-between" alignItems="center">
+							<ul className='projectpopup-icons'>
+								{project.renderIcons!.map(icon => (
+									<li key={uuid.v4()}>
+										<Tooltip arrow disableFocusListener disableTouchListener title={icon.name}>
+											<img onDragStart={(e) => e.preventDefault()} 
+											width={isPortrait || isTabletOrMobileDevice ? '42px' : '64px'} 
+											height={isPortrait || isTabletOrMobileDevice ? '42px' : '64px'} 
+											alt='lang' src={icon.src} />
+										</Tooltip>
+									</li>
+								))}
+							</ul>
+							<div>
+								{project.isOpenSource ? openSource : privateSource}
+								<Fab id="fab_modal_close" onClick={onClickClose} 
+								size={isPortrait || isTabletOrMobileDevice ? "small" : "large"} 
+								className="projectpopup-tooltip-fab" color="secondary">
+									<Close color="primary" />
+								</Fab>
+							</div>
+						</Grid> 
+					</DialogTitle>
+				</header>
 
 				{/* Modal Content */}
-				<DialogContent onMouseDown={e => e.stopPropagation()} 
-				onTouchStart={e => e.stopPropagation()} className='project-modal'>
-					{project.showTitle ? project.title : null}
-					{project.desc}
-					<div className="project-md" id={`popupProjectMd-${project.title}`} /> 
-				</DialogContent>
-			</div>
+				<section>
+					<DialogContent onMouseDown={e => e.stopPropagation()} 
+					onTouchStart={e => e.stopPropagation()} className='projectpopup-modal'>
+						<header>
+							{project.showTitle ? project.title : null}
+							{project.desc}
+						</header>
+						<article className="projectpopup-md" id={`popupProjectMd-${project.title}`} /> 
+					</DialogContent>
+				</section>
+			</article>
 		);
 	}
 
@@ -236,20 +245,20 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 	}
 
 	return (
-		<Modal aria-labelledby="project-modal" aria-describedby="viewpager-project" 
+		<Modal aria-labelledby="projectpopup-modal" aria-describedby="viewpager-project" 
 		open={projectModalActive} keepMounted onClose={onClickClose} closeAfterTransition 
 		BackdropComponent={Backdrop} BackdropProps={{ timeout: 500 }}>
 			<Fade in={projectModalActive}>
-				<>
+				<section className="projectpopup">
 					<Tooltip open={projectModalActive} placement="right" arrow disableFocusListener 
 					disableTouchListener title="Drag the window!">
-						<img onDragStart={(e) => e.preventDefault()} className="project-tooltip-drag" alt='drag'
+						<img onDragStart={(e) => e.preventDefault()} className="projectpopup-tooltip-drag" alt='drag'
 						src={require('assets/images/misc/icons8-hand-drag-64.png')} />
 					</Tooltip>
 					{projectModalActive ? 
 						isDarkMode ? <VS2015>{getViewPager()}</VS2015> : <AtomOneLight>{getViewPager()}</AtomOneLight>
 						: null}
-				</>
+				</section>
 			</Fade>
 		</Modal>
 	)

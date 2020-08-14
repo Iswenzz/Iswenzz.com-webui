@@ -65,15 +65,19 @@ export const Level: FunctionComponent<LevelProps> = (props: LevelProps): JSX.Ele
 	const classes = useStyles();
 	const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
 
+	/**
+	 * Flip the card.
+	 * @param flipState - Flip card state.
+	 */
 	const flipCallback = (flipState: boolean): void =>
 	{
 		setFlipped(flipState);
 	}
 
 	const desktopCard: JSX.Element = (
-		<Container className={isDarkMode ? classes.darkCard : classes.whiteCard}>
+		<Container component="section" className={`level ${isDarkMode ? classes.darkCard : classes.whiteCard}`}>
 			<GridList className="level-grid-list" cellHeight='auto' spacing={1}>
-				<GridListTile className="level-desktop-tile-name" key={uuid.v4()} cols={2} rows={2}>
+				<GridListTile component="header" className="level-desktop-tile-name" key={uuid.v4()} cols={2} rows={2}>
 					<Typography className="level-desktop-typo" variant="h2" align="center" 
 					color="textPrimary" component="h2">
 						{props.currentLevel.name}
@@ -86,7 +90,7 @@ export const Level: FunctionComponent<LevelProps> = (props: LevelProps): JSX.Ele
 				<GridListTile key={uuid.v4()} cols={1} rows={1} className="level-desktop-tile-desc">
 					<Grid container direction="row" justify="center" alignItems="center">
 						<Typography className="level-desktop-tile-desc-typo" variant="subtitle1" 
-						align="left" color="textPrimary" component="h3">
+						align="left" color="textPrimary" paragraph component="p">
 							{props.currentLevel.description}
 						</Typography>
 					</Grid>
@@ -96,13 +100,15 @@ export const Level: FunctionComponent<LevelProps> = (props: LevelProps): JSX.Ele
 	);
 
 	const mobileCard: JSX.Element = (
-		<Container className={isDarkMode ? classes.darkCard : classes.whiteCard}>
+		<Container component="section" className={`level ${isDarkMode ? classes.darkCard : classes.whiteCard}`}>
 			<Grid container className="level-grid" direction="row" justify="center" alignItems="center">
-				<h3 className="calli-h2 level-mobile-name">{props.currentLevel.name}</h3>
+				<header>
+					<h3 className="calli-h2 level-mobile-name">{props.currentLevel.name}</h3>
+				</header>
 				{!isFlipped ? <ReactPlayer config={playerConfig} width='100%' height='50%' 
 				url={props.currentLevel.videoUrl} /> : null}
-				<Typography className="level-mobile-typo" variant="subtitle1" align="left" 
-				color="textPrimary" component="h3">
+				<Typography className="level-mobile-typo" paragraph variant="subtitle1" align="left" 
+				color="textPrimary" component="p">
 					{props.currentLevel.description}
 				</Typography>
 			</Grid>
@@ -111,20 +117,22 @@ export const Level: FunctionComponent<LevelProps> = (props: LevelProps): JSX.Ele
 
 	return (
 		<FlipCard flipCallback={flipCallback} back={(
-			<Container className="level" style={{ backgroundImage: `url(${props.currentLevel.image})` }}>
+			<Container component="section" className="level" style={{ backgroundImage: `url(${props.currentLevel.image})` }}>
 				<Grid container direction="row" alignItems="center" justify="space-between">
 					<Tooltip placement="right" arrow disableFocusListener title="Click Me!">
 						<img onDragStart={(e) => e.preventDefault()} alt='click-me' width={55} height={64}
 						src={require('assets/images/misc/icons8-natural-user-interface-2-64.png')} />
 					</Tooltip>
-					<Grid container direction="column" justify="space-evenly" alignItems="flex-end">
+					<Grid container component="ul" direction="column" justify="space-evenly" alignItems="flex-end">
 						{props.currentLevel.renderIcons?.map(icon => (
-							<Tooltip key={uuid.v4()} arrow disableFocusListener disableTouchListener title={icon.name}>
-								<img onDragStart={(e) => e.preventDefault()} className="level-tooltip-img"
-								width={isPortrait || isTabletOrMobileDevice ? '32' : '64'} 
-								height={isPortrait || isTabletOrMobileDevice ? '32' : '64'} 
-								alt='lang' src={icon.src} />
-							</Tooltip>
+							<li key={uuid.v4()}>
+								<Tooltip arrow disableFocusListener disableTouchListener title={icon.name}>
+									<img onDragStart={(e) => e.preventDefault()} className="level-tooltip-img"
+									width={isPortrait || isTabletOrMobileDevice ? '32' : '64'} 
+									height={isPortrait || isTabletOrMobileDevice ? '32' : '64'} 
+									alt='lang' src={icon.src} />
+								</Tooltip>
+							</li>
 						))}
 					</Grid>
 				</Grid>
