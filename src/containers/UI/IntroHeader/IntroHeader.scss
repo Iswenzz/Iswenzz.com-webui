@@ -1,12 +1,18 @@
-.introheader-grid {
-	height: 100vh;
-}
+.introheader {
+	#{&}-grid {
+		height: 100vh;
+	}
+	
+	#{&}-arrow {
+		cursor: pointer;
+		color: gainsboro;
+		margin-top: 40px;
+		animation: downarrow 1s infinite alternate ease-in-out;
+	}
 
-.introheader-arrow {
-	cursor: pointer;
-	color: gainsboro;
-	margin-top: 40px;
-	animation: downarrow 1s infinite alternate ease-in-out;
+	#{&}-plx {
+		box-shadow: 0 5px 6px rgba(60, 60, 60, .3);
+	}
 }
 
 @keyframes downarrow {

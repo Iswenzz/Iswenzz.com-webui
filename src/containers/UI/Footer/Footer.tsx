@@ -11,6 +11,9 @@ import { useSelector } from 'react-redux';
 import { AppState } from 'application';
 import 'Common.scss';
 
+/**
+ * Footer container with links to social medias & copyrights.
+ */
 const Footer: FunctionComponent = (): JSX.Element =>
 {
 	const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);

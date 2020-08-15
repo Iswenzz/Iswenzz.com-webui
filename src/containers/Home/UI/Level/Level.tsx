@@ -54,7 +54,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 /**
- * Flip card container, map previs and stacks on the front, and video/description on the back.
+ * Flip card container, map preview and stacks on the front, and video/description on the back.
  * @param props - LevelProps
  */
 export const Level: FunctionComponent<LevelProps> = (props: LevelProps): JSX.Element =>

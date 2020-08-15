@@ -27,14 +27,19 @@ export interface IntroHeaderProps
 	parallaxBlur?: number
 }
 
+/**
+ * Page header with a parallax background & title.
+ * @param props - IntroHeaderProps
+ */
 const IntroHeader: FunctionComponent<IntroHeaderProps> = (props: IntroHeaderProps): JSX.Element =>
 {
 	return (
-		<div style={{height: '100vh'}}>
-			<Parallax style={{boxShadow: '0 0 5px 6px rgba(60, 60, 60, .3)'}} 
-			bgImage={props.bgImage} bgImageAlt="index" blur={props.parallaxBlur || 0}
+		<header className="introheader">
+			<Parallax className="introheader-plx" bgImage={props.bgImage} 
+			bgImageAlt="index" blur={props.parallaxBlur || 0}
 			strength={props.parallaxStrength || 400}>
-				<Grid container className="introheader-grid" direction="column" justify="center" alignItems="center">
+				<Grid component="section" container className="introheader-grid" 
+				direction="column" justify="center" alignItems="center">
 					<Typography className="calli-h1 bold noselect" align="center" variant="h1" component="h1">
 						<SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
 							{props.title}
@@ -50,7 +55,7 @@ const IntroHeader: FunctionComponent<IntroHeaderProps> = (props: IntroHeaderProp
 					</Link>
 				</Grid>
 			</Parallax>
-		</div>
+		</header>
 	);
 }
 
