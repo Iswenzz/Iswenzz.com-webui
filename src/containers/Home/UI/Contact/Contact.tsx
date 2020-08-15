@@ -181,7 +181,7 @@ export const Contact: FunctionComponent = (): JSX.Element =>
 				<Avatar alt='iswenzz avatar' src={require('assets/images/misc/iswenzz.png')} 
 				className={classes.avatar} />
 			</header>
-			<Formik initialValues={contactFormInitial} onSubmit={sendEmail} render={() => (
+			<Formik initialValues={contactFormInitial} onSubmit={sendEmail}>
 				<Form>
 					<Field component={TextField} required label="Email Address" id="email" name="email" type="email"
 					fullWidth color="secondary" variant="outlined" margin="normal" autoComplete="email" />
@@ -206,7 +206,7 @@ export const Contact: FunctionComponent = (): JSX.Element =>
 						</Grid>
 					</Container>
 				</Form>
-			)}/>
+			</Formik>
 		</Grid>
 	);
 
