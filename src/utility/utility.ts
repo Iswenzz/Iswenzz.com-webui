@@ -9,7 +9,7 @@ export const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, 
  * @param oldObject - The old object.
  * @param updatedProperties - Updated properties object.
  */
-export const updateObject = (oldObject: Object, updatedProperties: Object): any => {
+export const updateObject = <T, U>(oldObject: T, updatedProperties: U): T => {
 	return {
 		...oldObject,
 		...updatedProperties

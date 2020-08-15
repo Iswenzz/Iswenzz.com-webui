@@ -5,7 +5,7 @@ const isLocalhost: boolean = Boolean(
 	// 127.0.0.0/8 are considered localhost for IPv4.
 	window.location.hostname.match(/^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/));
   
-export function register(config: any): void
+export const register = (config: any): void =>
 {
 	if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) 
 	{
@@ -28,7 +28,7 @@ export function register(config: any): void
 	}
 }
   
-function registerValidSW(swUrl: string, config: any): void
+const registerValidSW = (swUrl: string, config: any): void =>
 {
 	navigator.serviceWorker.register(swUrl).then(registration => 
 	{
@@ -60,7 +60,7 @@ function registerValidSW(swUrl: string, config: any): void
 	}).catch(error => console.error('Error during service worker registration:', error));
 }
   
-function checkValidServiceWorker(swUrl: string, config: any): void
+const checkValidServiceWorker = (swUrl: string, config: any): void =>
 {
 	// Check if the service worker can be found. If it can't reload the page.
 	fetch(swUrl, { headers: { 'Service-Worker': 'script' }}).then(response => 
@@ -81,7 +81,7 @@ function checkValidServiceWorker(swUrl: string, config: any): void
 		'No internet connection found. App is running in offline mode.'));
 }
   
-export function unregister(): void
+export const unregister = (): void =>
 {
 	if ('serviceWorker' in navigator) 
 		navigator.serviceWorker.ready.then(registration => registration.unregister());
