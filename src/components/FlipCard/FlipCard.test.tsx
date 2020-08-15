@@ -15,10 +15,10 @@ describe('[Component] <FlipCard>', () =>
 
 	it('Flipping the card.', () => 
 	{
-		wrapper.find('div').first().simulate('click', { preventDefault() {} });
+		wrapper.find('section').first().simulate('click', { preventDefault() {} });
 		expect(wrapper.state().isFlipped).toEqual(true);
 		wrapper.setProps({flipCallback: (flipState: boolean) => flipCallback(flipState)});
-		wrapper.find('div').first().simulate('click', { preventDefault() {} });
+		wrapper.find('section').first().simulate('click', { preventDefault() {} });
 		expect(wrapper.state().isFlipped).toEqual(false);
 	});
 });
