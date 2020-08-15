@@ -1,10 +1,12 @@
 .projectpopup {
+	outline: none;
+
 	#{&}-modal {
 		overflow: hidden;
 	}
 	
 	#{&}-title {
-		padding: 8px 8px 8px 8px;
+		padding: 8px;
 		position: static;
 		overflow: hidden;
 		cursor: grab;
@@ -18,7 +20,7 @@
 		}
 	
 		img {
-			margin: 0 4px 0 4px;
+			margin: 0 4px;
 		}
 	}
 	
@@ -28,7 +30,7 @@
 	}
 	
 	#{&}-tooltip-fab {
-		margin: 0 8px 0 8px !important;
+		margin: 0 8px !important;
 	}
 	
 	#{&}-tooltip-drag {
