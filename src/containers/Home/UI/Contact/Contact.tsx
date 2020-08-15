@@ -172,6 +172,9 @@ export const Contact: FunctionComponent = (): JSX.Element =>
 		setFail(false);
 	}
 
+	/**
+	 * Contact form element.
+	 */
 	const form: JSX.Element = (
 		<Grid container component="section" direction="column" justify="center" alignItems="center">
 			<header>

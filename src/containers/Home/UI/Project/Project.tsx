@@ -90,6 +90,9 @@ export const Project: FunctionComponent<ProjectProps> = (props: ProjectProps): J
         dispatch(appActions.toggleModalActive(true));
     }
 
+    /**
+     * Responsive card size.
+     */
     const cardSize: { width: number, height: number } = isTabletOrMobileDevice ? {
         width: parseInt(props.currentProj.width!, 10) / 2,
         height: (props.itemHeight === undefined) ? parseInt(props.currentProj.height!, 10) / 2 : props.itemHeight! / 2,

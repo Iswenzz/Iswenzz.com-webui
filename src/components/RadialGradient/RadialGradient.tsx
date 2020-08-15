@@ -25,6 +25,12 @@ export interface GradiantProps extends React.HTMLAttributes<HTMLDivElement>
  */
 class RadialGradient extends PureComponent<GradiantProps>
 {
+    /**
+     * Generate a linear/radial gradient CSS string.
+     * @param position - The position or degree.
+     * @param propsColors - The gradient colors.
+     * @param isLinear - true = linear, false = radial.
+     */
     processBackgroundColor = (position?: string, propsColors?: IGradientColor[], isLinear?: boolean): string =>
     {
         let colors: string = '';

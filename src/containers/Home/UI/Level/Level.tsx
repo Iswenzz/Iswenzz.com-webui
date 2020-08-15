@@ -74,6 +74,9 @@ export const Level: FunctionComponent<LevelProps> = (props: LevelProps): JSX.Ele
 		setFlipped(flipState);
 	}
 
+	/**
+	 * Component for the desktop version.
+	 */
 	const desktopCard: JSX.Element = (
 		<Container component="section" className={`level ${isDarkMode ? classes.darkCard : classes.whiteCard}`}>
 			<GridList className="level-grid-list" cellHeight='auto' spacing={1}>
@@ -99,6 +102,9 @@ export const Level: FunctionComponent<LevelProps> = (props: LevelProps): JSX.Ele
 		</Container>
 	);
 
+	/**
+	 * Component for the mobile version.
+	 */
 	const mobileCard: JSX.Element = (
 		<Container component="section" className={`level ${isDarkMode ? classes.darkCard : classes.whiteCard}`}>
 			<Grid container className="level-grid" direction="row" justify="center" alignItems="center">

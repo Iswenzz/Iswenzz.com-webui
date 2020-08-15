@@ -16,7 +16,10 @@ export interface StonecutterGridProps
  */
 export const StonecutterGrid: FunctionComponent<StonecutterGridProps> = (props: StonecutterGridProps): JSX.Element =>
 {
-    const ResponsiveGrid = makeResponsive(SpringGrid, { maxWidth: 1920, minPadding: 100 });
+    const ResponsiveGrid: typeof SpringGrid = makeResponsive(SpringGrid, { 
+        maxWidth: 1920, 
+        minPadding: 100 
+    });
 
     return (
         <ResponsiveGrid {...props.config} enter={props.animStyle?.enter} 

@@ -168,6 +168,9 @@ export const IntroSkill: FunctionComponent = (): JSX.Element =>
 		{ color: isDarkMode ? '#181a21' : '#f4f4f4', colorPercent: '100%' }
 	];
 
+	/**
+	 * Grid containing skills informations.
+	 */
 	const skillGrid: JSX.Element = (
 		<Grid className="skill-grid" container component="section"
 		alignItems="center" direction="row" justify="space-around">

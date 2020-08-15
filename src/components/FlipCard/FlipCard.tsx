@@ -21,16 +21,24 @@ export interface FlipCardState
  */
 export class FlipCard extends Component<FlipCardProps, FlipCardState>
 {
+	state: FlipCardState = {
+		isFlipped: false
+	}
+	
+	/**
+	 * Initialize a new FlipCard component.
+	 * @param props - FlipCardProps
+	 */
 	constructor(props: FlipCardProps) 
 	{
 		super(props);
 		this.handleClick = this.handleClick.bind(this);
 	}
 
-	state: FlipCardState = {
-		isFlipped: false
-	}
-
+	/**
+	 * FlipCard click callback.
+	 * @param e - Click event args.
+	 */
 	handleClick(e: React.MouseEvent<HTMLDivElement, MouseEvent>): void
 	{
 		e.preventDefault();

@@ -61,6 +61,9 @@ export const ViewPager: FunctionComponent<ViewPagerProps> = (props: ViewPagerPro
 		divRef?.dispatchEvent(new MouseEvent('mousedown', { bubbles: true, cancelable: false }));
 	}, [props.startIndex, divRef]);
 
+	/**
+	 * Page dragging callback.
+	 */
 	const bind = useDrag(({ down, movement: [mx], direction: [xDir], distance, cancel }) => 
 	{
 		if (down && distance > window.innerWidth / 4) 

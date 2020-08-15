@@ -7,10 +7,18 @@ export interface CarouselButtonProps
 	onClick?: () => any
 }
 
+/**
+ * Indicator button.
+ * @param param0 - Object with the indicator click callback & selected state.
+ */
 export const DotButton = ({ selected, onClick }: CarouselButtonProps) => (
 	<button className={`embla-dot${selected ? " is-selected" : ""}`} onClick={onClick} />
 );
 
+/**
+ * Prev arrow button.
+ * @param param0 - Object with the indicator click callback & selected state. 
+ */
 export const PrevButton = ({ enabled, onClick }: CarouselButtonProps) => (
 	<button className="embla-button embla-button--prev"
 	onClick={onClick} disabled={!enabled}>
@@ -20,6 +28,10 @@ export const PrevButton = ({ enabled, onClick }: CarouselButtonProps) => (
 	</button>
 );
 
+/**
+ * Next arrow button.
+ * @param param0 - Object with the indicator click callback & selected state.
+ */
 export const NextButton = ({ enabled, onClick }: CarouselButtonProps) => (
 	<button className="embla-button embla-button--next"
 	onClick={onClick} disabled={!enabled}>

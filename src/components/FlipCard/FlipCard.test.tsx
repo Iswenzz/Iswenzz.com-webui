@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
 import { FlipCard, FlipCardProps, FlipCardState } from './FlipCard';
 
-function flipCallback(flipState: boolean) { }
+const flipCallback = (flipState: boolean): void => { };
 
 describe('[Component] <FlipCard>', () => 
 {
