@@ -6,6 +6,11 @@
 	#{&}-container {
 		padding-bottom: 90px;
 	}
+
+	#{&}-carousel-container {
+		max-width: 100%;
+		padding: 0;
+	}
 	
 	#{&}-divider {
 		margin: 10px 0 !important;

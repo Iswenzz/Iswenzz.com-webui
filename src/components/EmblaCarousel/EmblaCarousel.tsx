@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback, FunctionComponent, memo } from "react";
 import EmblaCarouselReact from "embla-carousel-react";
+import EmblaCarousel from "embla-carousel";
 import useInterval from "utility/useInterval";
 import { DotButton, PrevButton, NextButton } from "./EmblaCarouselButtons/EmblaCarouselButtons";
 import { Grid } from "@material-ui/core";
@@ -15,6 +16,17 @@ export interface EmblaCarouselProps
 	style?: React.CSSProperties
 }
 
+export interface EmblaCarouselState
+{
+	embla: ReturnType<typeof EmblaCarousel> | null,
+	prevBtnEnabled: boolean,
+	nextBtnEnabled: boolean,
+	selectedIndex: number,
+	scrollSnaps: number[],
+	delay: number,
+	isRunning: boolean
+}
+
 /**
  * A carousel component that use all JSX children as carousel items.
  * The carousel provides a next/prev arrow and buttons to scroll through the carousel.
@@ -22,42 +34,60 @@ export interface EmblaCarouselProps
  */
 export const EmblaCarouselComponent: FunctionComponent<EmblaCarouselProps> = (props: EmblaCarouselProps) => 
 {
-	const [embla, setEmbla] = useState<any>(null);
-	const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
-	const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
-	const [selectedIndex, setSelectedIndex] = useState(0);
-	const [scrollSnaps, setScrollSnaps] = useState([]);
-	const [delay,] = useState(props.delayLength);
-	const [isRunning,] = useState(props.autoplay);
+	const [state, setState] = useState<EmblaCarouselState>({
+		embla: null,
+		prevBtnEnabled: false,
+		nextBtnEnabled: false,
+		selectedIndex: 0,
+		scrollSnaps: [],
+		delay: props.delayLength,
+		isRunning: props.autoplay
+	});
 
-	const scrollTo = useCallback(index => embla.scrollTo(index), [embla]);
-	const scrollPrev = useCallback(() => embla.scrollPrev(), [embla]);
-	const scrollNext = useCallback(() => embla.scrollNext(), [embla]);
+	const setEmbla = useCallback(embla => setState((prevState: EmblaCarouselState) => ({
+		...prevState,
+		embla: embla
+	})), []);
+	const scrollTo = useCallback(index => state.embla?.scrollTo(index), [state.embla]);
+	const scrollPrev = useCallback(() => state.embla?.scrollPrev(), [state.embla]);
+	const scrollNext = useCallback(() => state.embla?.scrollNext(), [state.embla]);
 
+	/**
+	 * Autoplay function.
+	 */
 	useInterval(() => 
 	{
-		if (selectedIndex === scrollSnaps.length - 1)
+		if (state.selectedIndex === state.scrollSnaps.length - 1)
 			scrollTo(0);
 		else
 			scrollNext();
-	}, isRunning ? delay : null);
+	}, state.isRunning ? state.delay : null);
 
 	useEffect(() => 
 	{
+		/**
+		 * Carousel select callback.
+		 */
 		const onSelect = () => 
-		{ 
-			setSelectedIndex(embla.selectedScrollSnap());
-			setPrevBtnEnabled(embla.canScrollPrev());
-			setNextBtnEnabled(embla.canScrollNext());
-		};
-		if (embla) 
 		{
-			setScrollSnaps(embla.scrollSnapList());
-			embla.on("select", onSelect);
+			setState((prevState: EmblaCarouselState) => ({
+				...prevState,
+				selectedIndex: state.embla!.selectedScrollSnap(),
+				prevBtnEnabled: state.embla!.canScrollPrev(),
+				nextBtnEnabled: state.embla!.canScrollNext()
+			}));
+		};
+		if (state.embla) 
+		{
+			setState((prevState: EmblaCarouselState) => ({
+				...prevState,
+				scrollSnaps: state.embla!.scrollSnapList()
+			}));
+			state.embla.on("select", onSelect);
 			onSelect();
 		}
-		return () => embla && embla.destroy();
-	}, [embla]);
+		return () => state.embla! && state.embla!.destroy();
+	}, [state.embla]);
 
 	return (
 		<Grid style={props.style} container direction="row" justify="center" alignItems="center"
@@ -75,12 +105,12 @@ export const EmblaCarouselComponent: FunctionComponent<EmblaCarouselProps> = (pr
 					</ul>
 				</EmblaCarouselReact>
 				<section className="embla-dots">
-					{scrollSnaps.map((snap, index) => (
-						<DotButton selected={index === selectedIndex} onClick={() => scrollTo(index)} key={index} />
+					{state.scrollSnaps.map((snap: number, index: number) => (
+						<DotButton selected={index === state.selectedIndex} onClick={() => scrollTo(index)} key={index} />
 					))}
 				</section>
-				<PrevButton onClick={scrollPrev} enabled={prevBtnEnabled} />
-				<NextButton onClick={scrollNext} enabled={nextBtnEnabled} />
+				<PrevButton onClick={scrollPrev} enabled={state.prevBtnEnabled} />
+				<NextButton onClick={scrollNext} enabled={state.nextBtnEnabled} />
 			</section>
 		</Grid>
 	);

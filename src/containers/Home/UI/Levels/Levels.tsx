@@ -63,7 +63,7 @@ export const Levels: FunctionComponent = (): JSX.Element =>
         {({ isVisible }) => (
 			<section className="levels">
 				<Element name="level-design-section" />
-				<RadialGradient config={config} className="levels-gradient-grid">
+				<RadialGradient component="section" config={config} className="levels-gradient-grid">
 					<Grid container direction="column" justify="center" alignItems="center">
 						<Container component="header" className="levels-container">
 							<Animation pose={isVisible ? "enter" : "exit"} key="carousel-header-anim">
@@ -72,7 +72,7 @@ export const Levels: FunctionComponent = (): JSX.Element =>
 								<Divider className="levels-divider" />
 							</Animation>
 						</Container>
-						<Container component="article" maxWidth={false}>
+						<Container className="levels-carousel-container" component="article">
 							<Animation pose={isVisible ? "enter" : "exit"} key="carousel-anim">
 								<EmblaCarousel width='100%' delayLength={10000} autoplay={false}
 								height={isPortrait ? '500px' : isTabletOrMobileDevice ? '350px' : '700px' }>
