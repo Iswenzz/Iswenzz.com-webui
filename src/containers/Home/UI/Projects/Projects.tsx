@@ -67,7 +67,7 @@ export const Projects: FunctionComponent = (): JSX.Element =>
 				<Grid container component="section" direction="row" alignItems="center" justify="center">
 					<StonecutterGrid responsive animStyle={enterExitStyle.skew} config={gridConfig}>
 					{projects!.map((project: LinkedProjectProps) => {
-						let r = isTabletOrMobileDevice ? undefined : random(100, 220);
+						const r = isTabletOrMobileDevice ? undefined : random(100, 220);
 						return (
 							// @ts-ignore - for itemHeight custom attribute
 							<li key={project.title} itemHeight={r}> 
