@@ -11,15 +11,11 @@
 		"@fortawesome/react-fontawesome": "^0.1.8",
 		"@material-ui/core": "^4.8.0",
 		"@material-ui/icons": "^4.5.1",
-		"@testing-library/jest-dom": "^4.2.4",
-		"@testing-library/react": "^9.3.2",
-		"@testing-library/user-event": "^7.1.2",
 		"@types/enquire.js": "^2.1.2",
-		"@types/enzyme": "^3.10.5",
-		"@types/enzyme-adapter-react-16": "^1.0.6",
 		"@types/lodash": "^4.14.149",
 		"@types/markdown-it": "0.0.9",
 		"@types/marked": "^0.7.2",
+		"@types/react-dom": "^16.9.8",
 		"@types/react-google-recaptcha": "^1.1.2",
 		"@types/react-redux": "^7.1.5",
 		"@types/react-responsive": "^8.0.2",
@@ -29,13 +25,10 @@
 		"@types/styled-components": "^4.4.2",
 		"@types/uuid": "^3.4.6",
 		"axios": "^0.19.1",
-		"css-loader": "^3.4.0",
 		"detect-browser": "^4.8.0",
 		"embla-carousel": "^3.0.26",
 		"embla-carousel-react": "^1.2.10",
 		"enquire.js": "^2.1.6",
-		"enzyme": "^3.11.0",
-		"enzyme-adapter-react-16": "^1.15.2",
 		"formik": "^2.1.4",
 		"formik-material-ui": "^2.0.0-beta.1",
 		"highlight.js": "^9.18.1",
@@ -80,7 +73,10 @@
 		"eject": "react-scripts eject"
 	},
 	"eslintConfig": {
-		"extends": ["react-app", ".eslintrc"]
+		"extends": [
+			"react-app",
+			".eslintrc"
+		]
 	},
 	"browserslist": {
 		"production": [
@@ -95,7 +91,14 @@
 		]
 	},
 	"devDependencies": {
+		"@testing-library/jest-dom": "^5.11.3",
+		"@testing-library/react": "^10.4.8",
+		"@testing-library/user-event": "^12.1.1",
+		"@types/enzyme": "^3.10.5",
+		"@types/enzyme-adapter-react-16": "^1.0.6",
 		"@types/jest": "^25.1.2",
+		"enzyme": "^3.11.0",
+		"enzyme-adapter-react-16": "^1.15.3",
 		"raw-loader": "^4.0.0"
 	},
 	"jest": {
