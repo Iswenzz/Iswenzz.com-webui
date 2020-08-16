@@ -1,46 +1,46 @@
-import React, { FunctionComponent, memo, useState, useRef } from 'react';
-import RadialGradient, { GradiantProps } from 'components/RadialGradient/RadialGradient';
-import { Grid, Container, Avatar, Button, makeStyles, CircularProgress, Typography } from '@material-ui/core';
-import axios, { AxiosResponse } from 'axios';
-import posed from 'react-pose';
+import React, { FunctionComponent, memo, useState, useRef } from "react";
+import RadialGradient, { GradiantProps } from "components/RadialGradient/RadialGradient";
+import { Grid, Container, Avatar, Button, makeStyles, CircularProgress, Typography } from "@material-ui/core";
+import axios, { AxiosResponse } from "axios";
+import posed from "react-pose";
 import VisibilitySensor from "react-visibility-sensor";
-import { useMediaQuery } from 'react-responsive';
-import { Element } from 'react-scroll';
-import { useSelector } from 'react-redux';
-import { AppState } from 'application';
-import { Formik, Field, Form, FormikHelpers } from 'formik';
-import { TextField } from 'formik-material-ui';
-import ReCAPTCHA from 'react-google-recaptcha';
-import { delay } from 'utility/utility';
-import 'Common.scss';
-import './Contact.scss';
+import { useMediaQuery } from "react-responsive";
+import { Element } from "react-scroll";
+import { useSelector } from "react-redux";
+import { AppState } from "application";
+import { Formik, Field, Form, FormikHelpers } from "formik";
+import { TextField } from "formik-material-ui";
+import ReCAPTCHA from "react-google-recaptcha";
+import { delay } from "utility/utility";
+import "Common.scss";
+import "./Contact.scss";
 
 const useStyles = makeStyles(theme => ({
 	avatar: {
 		margin: theme.spacing(1),
-		width: '120px',
-		height: '120px'
+		width: "120px",
+		height: "120px"
 	},
 	form: {
 		marginTop: theme.spacing(1),
 	},
 	buttonDefault: {
-		background: 'linear-gradient(45deg, #c51162 30%, #FF8E53 90%)',
-		boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+		background: "linear-gradient(45deg, #c51162 30%, #FF8E53 90%)",
+		boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
 		margin: theme.spacing(4, 0, 2),
 	},
 	buttonSuccess: {
-		background: 'linear-gradient(45deg, #174b0f 30%, #1c9209 90%)',
-		boxShadow: '0 3px 5px 2px rgba(18, 74, 9, .7)',
+		background: "linear-gradient(45deg, #174b0f 30%, #1c9209 90%)",
+		boxShadow: "0 3px 5px 2px rgba(18, 74, 9, .7)",
 		margin: theme.spacing(4, 0, 2),
 	},
 	buttonFail: {
-		background: 'linear-gradient(45deg, #450301 30%, #7a0905 90%)',
-		boxShadow: '0 3px 5px 2px rgba(69, 3, 1, .7)',
+		background: "linear-gradient(45deg, #450301 30%, #7a0905 90%)",
+		boxShadow: "0 3px 5px 2px rgba(69, 3, 1, .7)",
 		margin: theme.spacing(4, 0, 2),
 	},
 	buttonProgress: {
-		color: 'cyan',
+		color: "cyan",
 		margin: theme.spacing(-6.2, 0, 2),
 	},
 }));
@@ -54,28 +54,28 @@ export interface ContactFormValues
 }
 
 export const contactFormInitial: ContactFormValues = {
-	email: '',
-	subject: '',
-	message: ''
-}
+	email: "",
+	subject: "",
+	message: ""
+};
 
 const Animation = posed.div({
 	enter: { 
-		y: '0%', 
+		y: "0%", 
 		opacity: 1,
 		scale: 1,
 		transition: { 
 			duration: 1000,
-			ease: 'easeOut'
+			ease: "easeOut"
 		}
 	},
 	exit: {
-		y: '-100%',
+		y: "-100%",
 		opacity: 0,
 		scale: 0.4,
 		transition: { 
 			duration: 1000,
-			ease: 'easeIn'
+			ease: "easeIn"
 		}
 	}
 });
@@ -86,7 +86,7 @@ const Animation = posed.div({
 export const Contact: FunctionComponent = (): JSX.Element =>
 {
 	const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
-	const isTabletOrMobileDevice = useMediaQuery({ query: '(max-device-width: 1224px)' });
+	const isTabletOrMobileDevice = useMediaQuery({ query: "(max-device-width: 1224px)" });
 	const classes = useStyles();
 	const recaptchaRef = useRef<ReCAPTCHA>(null);
 
@@ -95,19 +95,19 @@ export const Contact: FunctionComponent = (): JSX.Element =>
 	const [fail, setFail] = useState(false);
 
 	const config: GradiantProps = isDarkMode ? {
-		position: `${isTabletOrMobileDevice ? 'circle' : 'ellipse'} at bottom`, 
+		position: `${isTabletOrMobileDevice ? "circle" : "ellipse"} at bottom`, 
 		colors: [
-			{ color: '#841A2A', colorPercent: '0%' },
-			{ color: '#151243', colorPercent: '70%' }
+			{ color: "#841A2A", colorPercent: "0%" },
+			{ color: "#151243", colorPercent: "70%" }
 		]
 	} : {
 		linear: true,
-		position: '-45deg', 
+		position: "-45deg", 
 		colors: [
-			{ color: '#ffdf00' },
-			{ color: '#f4f4f4' }
+			{ color: "#ffdf00" },
+			{ color: "#f4f4f4" }
 		]
-	}
+	};
 
 	/**
 	 * Submit callback - post req to send an email
@@ -131,11 +131,11 @@ export const Contact: FunctionComponent = (): JSX.Element =>
 
 			try
 			{
-				let res: AxiosResponse<any> = await axios.post('https://iswenzz.com/contact', {
+				let res: AxiosResponse<any> = await axios.post("https://iswenzz.com/contact", {
 					...values,
-					token: captcha_value ? captcha_value : ''
+					token: captcha_value ? captcha_value : ""
 				}, { 
-					headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' } 
+					headers: { "Accept": "application/json", "Content-Type": "application/json" } 
 				});
 				res.data.status === "success" ? await mailSuccess() : await mailFail();
 				recaptchaRef.current?.reset();
@@ -145,7 +145,7 @@ export const Contact: FunctionComponent = (): JSX.Element =>
 				await mailFail(err);
 			}
 		}
-	}
+	};
 
 	/**
 	 * Change button color to green and stop the progress circle.
@@ -156,7 +156,7 @@ export const Contact: FunctionComponent = (): JSX.Element =>
 		setLoading(false);
 		await delay(3000);
 		setSuccess(false);
-	}
+	};
 
 	/**
 	 * Change button color to red and stop the progress circle.
@@ -170,7 +170,7 @@ export const Contact: FunctionComponent = (): JSX.Element =>
 		setFail(true);
 		await delay(3000);
 		setFail(false);
-	}
+	};
 
 	/**
 	 * Contact form element.
@@ -178,21 +178,21 @@ export const Contact: FunctionComponent = (): JSX.Element =>
 	const form: JSX.Element = (
 		<Grid container component="section" direction="column" justify="center" alignItems="center">
 			<header>
-				<Avatar alt='iswenzz avatar' src={require('assets/images/misc/iswenzz.png')} 
-				className={classes.avatar} />
+				<Avatar alt='iswenzz avatar' src={require("assets/images/misc/iswenzz.png")} 
+					className={classes.avatar} />
 			</header>
 			<Formik initialValues={contactFormInitial} onSubmit={sendEmail}>
 				<Form>
 					<Field component={TextField} required label="Email Address" id="email" name="email" type="email"
-					fullWidth color="secondary" variant="outlined" margin="normal" autoComplete="email" />
+						fullWidth color="secondary" variant="outlined" margin="normal" autoComplete="email" />
 					<Field component={TextField} required label="Subject" id="subject" name="subject" type="text"
-					fullWidth color="secondary" variant="outlined" margin="normal" />
+						fullWidth color="secondary" variant="outlined" margin="normal" />
 					<Field component={TextField} required label="Message" id="message" name="message" type="text"
-					fullWidth multiline rows="6" color="secondary" variant="outlined" margin="normal" />
+						fullWidth multiline rows="6" color="secondary" variant="outlined" margin="normal" />
 					<Container maxWidth="xs">
 						<Grid container direction="row" justify="center" alignItems="center">
 							<Button fullWidth variant="contained" type="submit" color="secondary" disabled={loading || success || fail}
-							className={success ? classes.buttonSuccess : fail ? classes.buttonFail : classes.buttonDefault}>
+								className={success ? classes.buttonSuccess : fail ? classes.buttonFail : classes.buttonDefault}>
 								Send
 							</Button>
 							{loading && <CircularProgress size={32} className={classes.buttonProgress} />}
@@ -202,7 +202,7 @@ export const Contact: FunctionComponent = (): JSX.Element =>
 								<a className="link" href="https://policies.google.com/terms">Terms of Service</a> apply.
 							</Typography>
 							<ReCAPTCHA ref={recaptchaRef} sitekey="6LdE8QAVAAAAAKvBLdna3qVhf6ml05DKXRXwDxmn"
-							size="invisible" badge="inline" theme={isDarkMode ? "dark" : "light"} />
+								size="invisible" badge="inline" theme={isDarkMode ? "dark" : "light"} />
 						</Grid>
 					</Container>
 				</Form>
@@ -212,20 +212,20 @@ export const Contact: FunctionComponent = (): JSX.Element =>
 
 	return (
 		<VisibilitySensor partialVisibility offset={{ bottom: isTabletOrMobileDevice ? 0 : 200 }}>
-		{({ isVisible }) => (
-			<section className="contact">
-				<Element name="contact-section" />
-				<RadialGradient config={config} style={{ paddingTop: '80px', paddingBottom: '120px' }}>
-					<Container>
-						<Animation pose={isVisible ? "enter" : "exit"} key="contact-anim">
-							{form}
-						</Animation>
-					</Container>
-				</RadialGradient>	
-			</section>
-		)}
+			{({ isVisible }) => (
+				<section className="contact">
+					<Element name="contact-section" />
+					<RadialGradient config={config} style={{ paddingTop: "80px", paddingBottom: "120px" }}>
+						<Container>
+							<Animation pose={isVisible ? "enter" : "exit"} key="contact-anim">
+								{form}
+							</Animation>
+						</Container>
+					</RadialGradient>	
+				</section>
+			)}
 		</VisibilitySensor>
 	);
-}
+};
 
 export default memo(Contact);

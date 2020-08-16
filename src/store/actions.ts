@@ -1,6 +1,6 @@
-import { AppActionEnum, AppActions } from './types';
-import { AppState } from 'application';
-import { Dispatch } from 'react';
+import { AppActionEnum, AppActions } from "./types";
+import { AppState } from "application";
+import { Dispatch } from "react";
 
 /**
  * Toggle dark/light theme.
@@ -8,13 +8,13 @@ import { Dispatch } from 'react';
  */
 export const toggleDarkMode = (active: boolean) =>
 {
-    return (dispatch: Dispatch<AppActions>, getState: () => AppState) =>
-    {
-        return dispatch({
-            type: AppActionEnum.TOGGLE_DARK_MODE,
-            active
-        });
-    }
+	return (dispatch: Dispatch<AppActions>, getState: () => AppState) =>
+	{
+		return dispatch({
+			type: AppActionEnum.TOGGLE_DARK_MODE,
+			active
+		});
+	};
 };
 
 /**
@@ -23,11 +23,11 @@ export const toggleDarkMode = (active: boolean) =>
  */
 export const toggleModalActive = (active: boolean) =>
 {
-    return (dispatch: Dispatch<AppActions>, getState: () => AppState) =>
-    {
-        return dispatch({
-            type: AppActionEnum.TOGGLE_MODAL_ACTIVE,
-            active
-        });
-    }
+	return (dispatch: Dispatch<AppActions>, getState: () => AppState) =>
+	{
+		return dispatch({
+			type: AppActionEnum.TOGGLE_MODAL_ACTIVE,
+			active
+		});
+	};
 };

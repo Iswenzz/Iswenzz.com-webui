@@ -91,12 +91,12 @@ export const EmblaCarouselComponent: FunctionComponent<EmblaCarouselProps> = (pr
 
 	return (
 		<Grid style={props.style} container direction="row" justify="center" alignItems="center"
-		component="article">
+			component="article">
 			<section style={{ width: props.width, height: props.height }} className="embla">
 				<EmblaCarouselReact className="embla-viewport" emblaRef={setEmbla} 
-				options={{ loop: false, draggable: false }} htmlTagName="section">
+					options={{ loop: false, draggable: false }} htmlTagName="section">
 					<ul style={{ width: props.width, height: props.height }} 
-					className="embla-container">
+						className="embla-container">
 						{props.children.map((Child, index) => (
 							<li className="embla-slide" key={index}>
 								{Child}

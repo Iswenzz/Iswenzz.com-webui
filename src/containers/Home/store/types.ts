@@ -1,19 +1,19 @@
 export enum HomeActionEnum
-{
-    SET_PROJECTS_INDEX = 'SET_PROJECTS_INDEX',
-    TOGGLE_PROJECT_MODAL_ACTIVE = 'TOGGLE_PROJECT_MODAL_ACTIVE'
+	{
+	SET_PROJECTS_INDEX = "SET_PROJECTS_INDEX",
+	TOGGLE_PROJECT_MODAL_ACTIVE = "TOGGLE_PROJECT_MODAL_ACTIVE"
 }
 
 export interface SetProjectsStartIndex
 {
-    type: string,
-    index?: number
+	type: string,
+	index?: number
 }
 
 export interface ToggleProjectModalActive
 {
-    type: string,
-    active?: boolean
+	type: string,
+	active?: boolean
 }
 
 export type HomeProjectsActions = SetProjectsStartIndex & ToggleProjectModalActive;

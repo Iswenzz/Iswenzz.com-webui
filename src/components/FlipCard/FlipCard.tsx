@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import ReactCardFlip from 'react-card-flip';
-import './FlipCard.scss';
+import React, { Component } from "react";
+import ReactCardFlip from "react-card-flip";
+import "./FlipCard.scss";
 
 export interface FlipCardProps
 {
@@ -23,7 +23,7 @@ export class FlipCard extends Component<FlipCardProps, FlipCardState>
 {
 	state: FlipCardState = {
 		isFlipped: false
-	}
+	};
 	
 	/**
 	 * Initialize a new FlipCard component.
@@ -55,8 +55,8 @@ export class FlipCard extends Component<FlipCardProps, FlipCardState>
 	render(): JSX.Element
 	{
 		return (
-			<ReactCardFlip containerStyle={{ width: '100%', height: '100%' }}
-			isFlipped={this.state.isFlipped} flipDirection="vertical">
+			<ReactCardFlip containerStyle={{ width: "100%", height: "100%" }}
+				isFlipped={this.state.isFlipped} flipDirection="vertical">
 				<section className="flipcard" onClick={this.handleClick}>
 					{this.props.back}
 				</section>

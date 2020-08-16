@@ -1,8 +1,8 @@
-import React, { useState, useEffect, RefObject, memo, FunctionComponent } from 'react';
-import clamp from 'lodash/clamp';
-import { useSprings, animated } from 'react-spring';
-import { useDrag } from 'react-use-gesture';
-import './ViewPager.scss';
+import React, { useState, useEffect, RefObject, memo, FunctionComponent } from "react";
+import clamp from "lodash/clamp";
+import { useSprings, animated } from "react-spring";
+import { useDrag } from "react-use-gesture";
+import "./ViewPager.scss";
 
 const defaultItems: JSX.Element[] = [
 	<img onDragStart={e => e.preventDefault()} src='https://images.pexels.com/photos/62689/pexels-photo-62689.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' alt='carousel' />,
@@ -48,17 +48,17 @@ export const ViewPager: FunctionComponent<ViewPagerProps> = (props: ViewPagerPro
 	const [divRef, setDivRef] = useState<HTMLElement | null>(null);
 	
 	const [springProps, set] = useSprings(items.length, i => 
-	({
-		x: i * window.innerWidth,
-		scale: 1,
-		display: 'block'
-	}));
+		({
+			x: i * window.innerWidth,
+			scale: 1,
+			display: "block"
+		}));
 
 	useEffect(() =>
 	{
 		// TODO better way to get the right item
 		setIndex(props.startIndex!);
-		divRef?.dispatchEvent(new MouseEvent('mousedown', { bubbles: true, cancelable: false }));
+		divRef?.dispatchEvent(new MouseEvent("mousedown", { bubbles: true, cancelable: false }));
 	}, [props.startIndex, divRef]);
 
 	/**
@@ -75,12 +75,12 @@ export const ViewPager: FunctionComponent<ViewPagerProps> = (props: ViewPagerPro
 		set(i => 
 		{
 			if (i < index - 1 || i > index + 1) 
-				return { display: 'none' };
+				return { display: "none" };
 
 			const x = (i - index) * window.innerWidth + (down ? mx : 0);
 			const scale = down ? 1 - distance / window.innerWidth / 2 : 1;
 
-			return { x, scale, display: 'block' };
+			return { x, scale, display: "block" };
 		});
 	});
 	
@@ -88,7 +88,7 @@ export const ViewPager: FunctionComponent<ViewPagerProps> = (props: ViewPagerPro
 		<section style={props.style}>
 			{springProps.map(({ x, display, scale }, i) => (
 				<animated.div className="carousel" {...bind()} key={i}
-				style={{display, x, ...props.config }}>
+					style={{display, x, ...props.config }}>
 					<animated.div ref={setDivRef} style={{scale, background: props.bgcolor}}>
 						{items[i]}
 					</animated.div>
@@ -96,6 +96,6 @@ export const ViewPager: FunctionComponent<ViewPagerProps> = (props: ViewPagerPro
 			))}
 		</section>
 	);
-}
+};
 
 export default memo(ViewPager);

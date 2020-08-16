@@ -1,11 +1,11 @@
-import { AppActions, AppActionEnum } from './types';
-import { updateObject } from 'utility/utility';
-import { ReduxAppProps } from 'App';
-import { detect } from 'detect-browser';
+import { AppActions, AppActionEnum } from "./types";
+import { updateObject } from "utility/utility";
+import { ReduxAppProps } from "App";
+import { detect } from "detect-browser";
 
 export let initialState: ReduxAppProps = {
 	browserInfo: detect(),
-	isDarkMode: localStorage.getItem('isDarkMode') === 'true',
+	isDarkMode: localStorage.getItem("isDarkMode") === "true",
 	isModalActive: false,
 
 	toggleDarkMode: () => null,

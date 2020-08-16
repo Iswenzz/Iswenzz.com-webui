@@ -1,26 +1,26 @@
-import React from 'react';
-import { mount, ReactWrapper } from 'enzyme';
-import { Contact } from './Contact';
-import * as redux from 'react-redux';
-import { store } from 'application';
+import React from "react";
+import { mount, ReactWrapper } from "enzyme";
+import { Contact } from "./Contact";
+import * as redux from "react-redux";
+import { store } from "application";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { Button } from '@material-ui/core';
+import { Button } from "@material-ui/core";
 
-describe('[Container] <Contact>', () => 
+describe("[Container] <Contact>", () => 
 {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    let wrapper: ReactWrapper;
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	let wrapper: ReactWrapper;
 
 	beforeEach(() => 
 	{
 		wrapper = mount((
-            <redux.Provider store={store}>
-                <Contact />
-            </redux.Provider>
-        )); 
+			<redux.Provider store={store}>
+				<Contact />
+			</redux.Provider>
+		)); 
 	});
 
-	it('Sending email', () => 
+	it("Sending email", () => 
 	{
 		// wrapper.find("input").at(0).simulate("change", {
 		// 	target: { name: "email", value: "Test@gmail.com" },
@@ -35,5 +35,5 @@ describe('[Container] <Contact>', () =>
 		// 	persist: jest.fn()
 		// });
 		// wrapper.find(Button).simulate("submit");
-    });
+	});
 });

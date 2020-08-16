@@ -23,13 +23,13 @@ export const useInterval = (callback: () => any, delay: number | null): void =>
 		{
 			if (savedCallback !== undefined)
 				savedCallback.current();
-		}
+		};
 		if (delay !== null) 
 		{
 			let id = setInterval(tick, delay);
 			return () => clearInterval(id);
 		}
 	}, [delay]);
-}
+};
 
 export default useInterval;

@@ -1,4 +1,4 @@
-declare module 'react-stonecutter' 
+declare module "react-stonecutter" 
 {
 	export type Coordinates = [number, number];
 	export interface Layout {
@@ -17,8 +17,8 @@ declare module 'react-stonecutter'
 		 */
 		gridHeight: number;
 	}
-	export type LengthUnit = 'px' | 'em' | 'rem';
-	export type AngleUnit = 'deg';
+	export type LengthUnit = "px" | "em" | "rem";
+	export type AngleUnit = "deg";
 
 	export type Easing = string;
 	export interface Easings {

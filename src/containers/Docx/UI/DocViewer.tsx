@@ -1,9 +1,9 @@
-import React, { FunctionComponent, useEffect } from 'react';
-import { useHistory } from 'react-router';
-import { animateScroll as scroll } from 'react-scroll';
-import { getElementByXPath } from 'utility/utility';
-import './DocViewer.scss';
-import 'Common.scss';
+import React, { FunctionComponent, useEffect } from "react";
+import { useHistory } from "react-router";
+import { animateScroll as scroll } from "react-scroll";
+import { getElementByXPath } from "utility/utility";
+import "./DocViewer.scss";
+import "Common.scss";
 
 /**
  * Doxygen document viewer container.
@@ -35,7 +35,7 @@ export const DocViewer: FunctionComponent = (): JSX.Element =>
 	{
 		fetch(`https://iswenzz.com:1337/iswenzz/docs/cgsc/${link}`).then(response => response.text()).then(text => 
 		{
-			let div = document.getElementById(`doc-test`);
+			let div = document.getElementById("doc-test");
 			if (div)
 			{
 				// remove all link tags
@@ -78,7 +78,7 @@ export const DocViewer: FunctionComponent = (): JSX.Element =>
 				*/
 			}
 		});
-	}
+	};
 
 	/**
 	 * Docx div click handler.
@@ -88,7 +88,7 @@ export const DocViewer: FunctionComponent = (): JSX.Element =>
 	{
 		e.preventDefault();
 
-		const c_docpath: string = `/docs/cgsc/`;
+		const c_docpath: string = "/docs/cgsc/";
 		const c_pathname: string = history.location.pathname;
 		const c_file: string = c_pathname.substring(c_pathname.indexOf(c_docpath) 
 			+ c_docpath.length, c_pathname.length);
@@ -124,11 +124,11 @@ export const DocViewer: FunctionComponent = (): JSX.Element =>
 			else // stay on the page and add hash to url
 				history.push(`${c_docpath}${c_file}${link}`);
 		}
-	}
+	};
 
 	return (
 		<div id="doc-test" onClick={onClickHandler} className="iswenzz-doxygen ubuntu-h2" />
 	);
-}
+};
 
 export default DocViewer;

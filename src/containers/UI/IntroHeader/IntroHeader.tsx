@@ -1,11 +1,11 @@
-import React, { FunctionComponent, memo } from 'react';
-import { Parallax } from 'react-parallax';
-import SplitText from 'react-pose-text';
-import { Grid, Typography } from '@material-ui/core';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-scroll';
-import './IntroHeader.scss';
+import React, { FunctionComponent, memo } from "react";
+import { Parallax } from "react-parallax";
+import SplitText from "react-pose-text";
+import { Grid, Typography } from "@material-ui/core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-scroll";
+import "./IntroHeader.scss";
 
 const charPoses = {
 	exit: { opacity: 0, y: 20 },
@@ -36,10 +36,10 @@ const IntroHeader: FunctionComponent<IntroHeaderProps> = (props: IntroHeaderProp
 	return (
 		<header className="introheader">
 			<Parallax className="introheader-plx" bgImage={props.bgImage} 
-			bgImageAlt="index" blur={props.parallaxBlur || 0}
-			strength={props.parallaxStrength || 400}>
+				bgImageAlt="index" blur={props.parallaxBlur || 0}
+				strength={props.parallaxStrength || 400}>
 				<Grid component="section" container className="introheader-grid" 
-				direction="column" justify="center" alignItems="center">
+					direction="column" justify="center" alignItems="center">
 					<Typography className="calli-h1 bold noselect" align="center" variant="h1" component="h1">
 						<SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
 							{props.title}
@@ -57,6 +57,6 @@ const IntroHeader: FunctionComponent<IntroHeaderProps> = (props: IntroHeaderProp
 			</Parallax>
 		</header>
 	);
-}
+};
 
 export default memo(IntroHeader);

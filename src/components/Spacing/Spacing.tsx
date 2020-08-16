@@ -1,8 +1,8 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent } from "react";
 
 export interface SpacingProps extends React.HTMLAttributes<HTMLDivElement>
 {
-    height?: string
+	height?: string
 }
 
 /**
@@ -10,12 +10,12 @@ export interface SpacingProps extends React.HTMLAttributes<HTMLDivElement>
  */
 export class Spacing extends PureComponent<SpacingProps>
 {
-    render(): JSX.Element
-    {
-        return (
-            <div {...this.props} style={{...this.props.style, height: this.props.height}} />
-        );
-    }
+	render(): JSX.Element
+	{
+		return (
+			<div {...this.props} style={{...this.props.style, height: this.props.height}} />
+		);
+	}
 }
 
 export default Spacing;

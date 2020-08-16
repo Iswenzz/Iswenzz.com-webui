@@ -1,15 +1,15 @@
-import React, { FunctionComponent, memo } from 'react';
-import Grid from '@material-ui/core/Grid';
-import Fab from '@material-ui/core/Fab';
-import RadialGradient from 'components/RadialGradient/RadialGradient';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDiscord, faYoutube, faGithub } from '@fortawesome/free-brands-svg-icons';
-import { Parallax } from 'react-parallax';
-import Spacing from 'components/Spacing/Spacing';
-import { Tooltip, Typography } from '@material-ui/core';
-import { useSelector } from 'react-redux';
-import { AppState } from 'application';
-import 'Common.scss';
+import React, { FunctionComponent, memo } from "react";
+import Grid from "@material-ui/core/Grid";
+import Fab from "@material-ui/core/Fab";
+import RadialGradient from "components/RadialGradient/RadialGradient";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDiscord, faYoutube, faGithub } from "@fortawesome/free-brands-svg-icons";
+import { Parallax } from "react-parallax";
+import Spacing from "components/Spacing/Spacing";
+import { Tooltip, Typography } from "@material-ui/core";
+import { useSelector } from "react-redux";
+import { AppState } from "application";
+import "Common.scss";
 
 /**
  * Footer container with links to social medias & copyrights.
@@ -21,8 +21,8 @@ const Footer: FunctionComponent = (): JSX.Element =>
 	return (
 		<>
 			<RadialGradient component="footer" position='ellipse at bottom' colors={[
-			{ color: isDarkMode ? '#23272A' : '#f2f2f2', colorPercent: '0%' },
-			{ color: isDarkMode ? '#23272F' : '#f4f4f4', colorPercent: '100%' }
+				{ color: isDarkMode ? "#23272A" : "#f2f2f2", colorPercent: "0%" },
+				{ color: isDarkMode ? "#23272F" : "#f4f4f4", colorPercent: "100%" }
 			]}>
 				<Grid component="ul" container direction="row" justify="center" alignItems="center">
 					<li>
@@ -44,8 +44,8 @@ const Footer: FunctionComponent = (): JSX.Element =>
 					</li>
 				</Grid>
 			</RadialGradient>
-			<Parallax style={{backgroundColor: 'black'}} bgImageAlt="index" strength={-400}
-			bgImage={require(`assets/images/index/${isDarkMode ? 'stars' : 'clouds'}.svg`)}>
+			<Parallax style={{backgroundColor: "black"}} bgImageAlt="index" strength={-400}
+				bgImage={require(`assets/images/index/${isDarkMode ? "stars" : "clouds"}.svg`)}>
 				<Spacing height='10px' />
 				<Typography align="center" color="textPrimary" variant="subtitle2" component="h3">
 					Copyright © Iswenzz 2017-2020
@@ -54,6 +54,6 @@ const Footer: FunctionComponent = (): JSX.Element =>
 			</Parallax>
 		</>
 	);
-}
+};
 
 export default memo(Footer);

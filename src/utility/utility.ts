@@ -38,7 +38,7 @@ export const getElementsByXPath = (xpath: string, contextNode?: Document) =>
 		element = xpathResult.iterateNext();
 	}
 	return array;
-}
+};
 
 /**
  * Get multiple DOM Elements by XPath.
@@ -53,4 +53,4 @@ export const getElementByXPath = (xpath: string, contextNode?: Document) =>
 	else
 		xpathResult = contextNode.evaluate(xpath, contextNode, null, XPathResult.ANY_TYPE, null);
 	return xpathResult.iterateNext();
-}
+};
