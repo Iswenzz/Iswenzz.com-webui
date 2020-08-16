@@ -89,7 +89,7 @@ export const ViewPager: FunctionComponent<ViewPagerProps> = (props: ViewPagerPro
 			{springProps.map(({ x, display, scale }, i) => (
 				<animated.div className="carousel" {...bind()} key={i}
 				style={{display, x, ...props.config }}>
-					<animated.div ref={ref => setDivRef(ref)} style={{scale, background: props.bgcolor}}>
+					<animated.div ref={setDivRef} style={{scale, background: props.bgcolor}}>
 						{items[i]}
 					</animated.div>
 				</animated.div>
