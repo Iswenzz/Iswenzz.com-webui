@@ -111,10 +111,8 @@ export const Level: FunctionComponent<LevelProps> = (props: LevelProps): JSX.Ele
 				<header>
 					<h3 itemProp="name" className="calli-h2 level-mobile-name">{props.currentLevel.name}</h3>
 				</header>
-				<section>
-					{!isFlipped ? <ReactPlayer config={playerConfig} width='100%' height='50%' 
-						url={props.currentLevel.videoUrl} /> : null}
-				</section>
+				{!isFlipped ? <ReactPlayer config={playerConfig} width='100%' height='50%' 
+					url={props.currentLevel.videoUrl} /> : null}
 				<Typography itemProp="description" className="level-mobile-typo" paragraph variant="subtitle1" align="left" 
 					color="textPrimary" component="p">
 					{props.currentLevel.description}
