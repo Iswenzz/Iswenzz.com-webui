@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import ReactCardFlip from 'react-card-flip';
-import './FlipCard.scss';
+import React, { Component } from "react";
+import ReactCardFlip from "react-card-flip";
+import "./FlipCard.scss";
 
 export interface FlipCardProps
 {
@@ -21,16 +21,24 @@ export interface FlipCardState
  */
 export class FlipCard extends Component<FlipCardProps, FlipCardState>
 {
+	state: FlipCardState = {
+		isFlipped: false
+	};
+	
+	/**
+	 * Initialize a new FlipCard component.
+	 * @param props - FlipCardProps
+	 */
 	constructor(props: FlipCardProps) 
 	{
 		super(props);
 		this.handleClick = this.handleClick.bind(this);
 	}
 
-	state: FlipCardState = {
-		isFlipped: false
-	}
-
+	/**
+	 * FlipCard click callback.
+	 * @param e - Click event args.
+	 */
 	handleClick(e: React.MouseEvent<HTMLDivElement, MouseEvent>): void
 	{
 		e.preventDefault();
@@ -47,14 +55,14 @@ export class FlipCard extends Component<FlipCardProps, FlipCardState>
 	render(): JSX.Element
 	{
 		return (
-			<ReactCardFlip containerStyle={{ width: '100%', height: '100%' }}
-			isFlipped={this.state.isFlipped} flipDirection="vertical">
-				<div className="c-flip" onClick={this.handleClick}>
+			<ReactCardFlip containerStyle={{ width: "100%", height: "100%" }}
+				isFlipped={this.state.isFlipped} flipDirection="vertical">
+				<section className="flipcard" onClick={this.handleClick}>
 					{this.props.back}
-				</div>
-				<div className="c-flip" onClick={this.handleClick}>
+				</section>
+				<section className="flipcard" onClick={this.handleClick}>
 					{this.props.front}
-				</div>
+				</section>
 			</ReactCardFlip>
 		);
 	}

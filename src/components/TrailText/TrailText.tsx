@@ -1,14 +1,15 @@
-import React, { FunctionComponent, memo } from 'react';
-import { useTrail, animated, SpringConfig } from 'react-spring';
-import { Typography, TypographyProps } from '@material-ui/core';
-import uuid from 'uuid';
+import React, { FunctionComponent, memo, ElementType } from "react";
+import { useTrail, animated, SpringConfig } from "react-spring";
+import { Typography, TypographyProps } from "@material-ui/core";
+import uuid from "uuid";
 
 export interface TrailProps extends TypographyProps
 {
 	height?: number,
 	items: string[],
 	active: boolean,
-	className?: string
+	className?: string,
+	component?: ElementType
 }
 
 const config: SpringConfig = {
@@ -33,20 +34,20 @@ export const TrailText: FunctionComponent<TrailProps> = (props: TrailProps): JSX
 
   	return (
 		<>
-		{trail.map(({ x, height, ...rest }, index) => (
-			<animated.div key={uuid.v4()}  
-				style={{ ...rest, transform: `translate3d(0,${x}px,0)` }}>
-				<animated.div>
-					<Typography style={props.style} className={props.className} noWrap={props.noWrap} 
-					align={props.align} color={props.color} paragraph={props.paragraph} 
-					component={props.component} variant={props.variant}>
-						{props.items[index]} 
-					</Typography>
+			{trail.map(({ x, height, ...rest }, index) => (
+				<animated.div key={uuid.v4()}  
+					style={{ ...rest, transform: `translate3d(0,${x}px,0)` }}>
+					<animated.div>
+						<Typography style={props.style} className={props.className} noWrap={props.noWrap} 
+							align={props.align} color={props.color} paragraph={props.paragraph} 
+							component={props.component ?? "h6"} variant={props.variant}>
+							{props.items[index]} 
+						</Typography>
+					</animated.div>
 				</animated.div>
-			</animated.div>
-		))}
+			))}
 		</>
 	);
-}
+};
 
 export default memo(TrailText);

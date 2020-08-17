@@ -1,11 +1,11 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import { Spacing } from './Spacing';
+import React from "react";
+import { shallow } from "enzyme";
+import { Spacing } from "./Spacing";
 
-describe('[Component] <Spacing>', () => 
+describe("[Component] <Spacing>", () => 
 {
-	it('Testing component', () => 
+	it("Testing component", () => 
 	{
-        shallow(<Spacing />);
+		shallow(<Spacing />);
 	});
 });

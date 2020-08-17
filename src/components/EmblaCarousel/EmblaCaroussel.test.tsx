@@ -1,37 +1,37 @@
-import React from 'react';
-import { mount, ReactWrapper } from 'enzyme';
-import { EmblaCarouselComponent, EmblaCarouselProps } from './EmblaCarousel';
-import { PrevButton, NextButton, DotButton } from './EmblaCarouselButtons/EmblaCarouselButtons';
+import React from "react";
+import { mount, ReactWrapper } from "enzyme";
+import { EmblaCarouselComponent, EmblaCarouselProps } from "./EmblaCarousel";
+import { PrevButton, NextButton, DotButton } from "./EmblaCarouselButtons/EmblaCarouselButtons";
 
-describe('[Component] <ViewPager>', () => 
+describe("[Component] <ViewPager>", () => 
 {
-    let wrapper: ReactWrapper<EmblaCarouselProps>;
+	let wrapper: ReactWrapper<EmblaCarouselProps>;
 
 	beforeEach(() => 
 	{
-        wrapper = mount((
-            <EmblaCarouselComponent delayLength={300} autoplay>
-                <h1>Test</h1>
-                <h1>Test</h1>
-            </EmblaCarouselComponent> 
-        ));
+		wrapper = mount((
+			<EmblaCarouselComponent delayLength={300} autoplay>
+				<h2>Test</h2>
+				<h2>Test</h2>
+			</EmblaCarouselComponent> 
+		));
 	});
 
-	it('Testing component', () => 
+	it("Testing component", () => 
 	{
-        wrapper.setProps({autoplay: false});
-    });
+		wrapper.setProps({autoplay: false});
+	});
 
-    it('Scroll to item', () => {
-        wrapper.find(DotButton).first().simulate("click");
-    });
+	it("Scroll to item", () => {
+		wrapper.find(DotButton).first().simulate("click");
+	});
 
-    it('Next item', () => {
-        wrapper.find(NextButton).simulate("click");
-    });
+	it("Next item", () => {
+		wrapper.find(NextButton).simulate("click");
+	});
     
-    it('Prev item', () => {
-        wrapper.find(NextButton).simulate("click");
-        wrapper.find(PrevButton).simulate("click");
-    });
+	it("Prev item", () => {
+		wrapper.find(NextButton).simulate("click");
+		wrapper.find(PrevButton).simulate("click");
+	});
 });

@@ -1,11 +1,11 @@
-import React, { FunctionComponent, memo } from 'react';
-import { Parallax } from 'react-parallax';
-import SplitText from 'react-pose-text';
-import { Grid, Typography } from '@material-ui/core';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-scroll';
-import './IntroHeader.scss';
+import React, { FunctionComponent, memo } from "react";
+import { Parallax } from "react-parallax";
+import SplitText from "react-pose-text";
+import { Grid, Typography } from "@material-ui/core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-scroll";
+import "./IntroHeader.scss";
 
 const charPoses = {
 	exit: { opacity: 0, y: 20 },
@@ -27,20 +27,25 @@ export interface IntroHeaderProps
 	parallaxBlur?: number
 }
 
+/**
+ * Page header with a parallax background & title.
+ * @param props - IntroHeaderProps
+ */
 const IntroHeader: FunctionComponent<IntroHeaderProps> = (props: IntroHeaderProps): JSX.Element =>
 {
 	return (
-		<div style={{height: '100vh'}}>
-			<Parallax style={{boxShadow: '0 0 5px 6px rgba(60, 60, 60, .3)'}} 
-			bgImage={props.bgImage} bgImageAlt="index" blur={props.parallaxBlur || 0}
-			strength={props.parallaxStrength || 400}>
-				<Grid container className="introheader-grid" direction="column" justify="center" alignItems="center">
-					<Typography className="calli-h1" align="center" variant="h3" component="div">
+		<header className="introheader">
+			<Parallax className="introheader-plx" bgImage={props.bgImage} 
+				bgImageAlt="index" blur={props.parallaxBlur || 0}
+				strength={props.parallaxStrength || 400}>
+				<Grid component="section" container className="introheader-grid" 
+					direction="column" justify="center" alignItems="center">
+					<Typography className="calli-h1 bold noselect" align="center" variant="h1" component="h1">
 						<SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
 							{props.title}
 						</SplitText>
 					</Typography>
-					<Typography className="poiret-header" align="center" variant="h3" component="div">
+					<Typography className="poiret bold noselect" align="center" variant="h3" component="h3">
 						<SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
 							{props.desc}
 						</SplitText>
@@ -50,8 +55,8 @@ const IntroHeader: FunctionComponent<IntroHeaderProps> = (props: IntroHeaderProp
 					</Link>
 				</Grid>
 			</Parallax>
-		</div>
+		</header>
 	);
-}
+};
 
 export default memo(IntroHeader);

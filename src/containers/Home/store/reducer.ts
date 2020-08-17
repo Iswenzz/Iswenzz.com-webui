@@ -1,9 +1,9 @@
-import { HomeActions, HomeActionEnum } from './types';
-import { updateObject } from 'utility/utility';
-import { ReduxHomeProps } from 'containers/Home/Home';
+import { HomeActions, HomeActionEnum } from "./types";
+import { updateObject } from "utility/utility";
+import { ReduxHomeProps } from "containers/Home/Home";
 
 export let initialState: ReduxHomeProps = {
-	projects: require('containers/Home/UI/Projects/Projects.json'),
+	projects: require("containers/Home/UI/Projects/Projects.json"),
 	projectsStartIndex: 0,
 	projectModalActive: false,
 

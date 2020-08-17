@@ -1,25 +1,25 @@
-import React from 'react';
-import thunk from 'redux-thunk';
-import { Provider } from 'react-redux';
-import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
+import React from "react";
+import thunk from "redux-thunk";
+import { Provider } from "react-redux";
+import { createStore, combineReducers, compose, applyMiddleware } from "redux";
 
-import App from 'App';
-import appReducer from 'store/reducer';
-import homeReducer from 'containers/Home/store/reducer';
+import App from "App";
+import appReducer from "store/reducer";
+import homeReducer from "containers/Home/store/reducer";
 
 /**
  * Redux compose enhancers for development environment,
  * Regular compose HOC for production.
  */
-export const composeEnhancers: any = process.env.NODE_ENV === 'development' 
-    ? (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose : compose;
+export const composeEnhancers: any = process.env.NODE_ENV === "development" 
+	? (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose : compose;
 
 /**
  * Redux reducers.
  */
 export const rootReducer = combineReducers({
-    app: appReducer,
-    home: homeReducer
+	app: appReducer,
+	home: homeReducer
 });
 export type AppState = ReturnType<typeof rootReducer>;
 
@@ -33,9 +33,9 @@ export const store = createStore(rootReducer, composeEnhancers(applyMiddleware(t
  * Application main container with redux store provider.
  */
 export const application: JSX.Element = (
-    <Provider store={store}>
-        <App />
-    </Provider>
+	<Provider store={store}>
+		<App />
+	</Provider>
 );
 
 export default application;

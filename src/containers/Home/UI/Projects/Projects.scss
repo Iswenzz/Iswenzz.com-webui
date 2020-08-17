@@ -1,15 +1,16 @@
-.projects-gradient-grid {
-    list-style-type: none;
-    padding-bottom: 50px;
-    padding-top: 50px;
-}
-
-.projects-container {
-    padding-top: 50px;
-}
-
-.projects-divider {
-    margin: 10px 0 10px 0 !important;
-    width: 100% !important;
-    height: 2px !important;
+.projects {
+	#{&}-gradient-grid {
+		list-style-type: none;
+		padding: 50px 0;
+	}
+	
+	#{&}-container {
+		padding-top: 50px;
+	}
+	
+	#{&}-divider {
+		margin: 10px 0 !important;
+		width: 100% !important;
+		height: 2px !important;
+	}
 }
