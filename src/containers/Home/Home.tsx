@@ -98,17 +98,15 @@ interface LinkDispatchProps
 
 export type ReduxHomeProps = LinkStateProps & LinkDispatchProps;
 
-const mapStateToProps = (state: AppState, ownProps: any): LinkStateProps => 
-	({
-		projects: state.home.projects,
-		projectsStartIndex: state.home.projectsStartIndex,
-		projectModalActive: state.home.projectModalActive
-	});
+const mapStateToProps = (state: AppState, ownProps: any): LinkStateProps => ({
+	projects: state.home.projects,
+	projectsStartIndex: state.home.projectsStartIndex,
+	projectModalActive: state.home.projectModalActive
+});
 
-const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, HomeActions>, ownProps: any): LinkDispatchProps => 
-	({
-		setProjectsIndex: bindActionCreators(actions.setProjectsIndex, dispatch),
-		toggleProjectModalActive: bindActionCreators(actions.toggleProjectModalActive, dispatch)
-	});
+const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, HomeActions>, ownProps: any): LinkDispatchProps => ({
+	setProjectsIndex: bindActionCreators(actions.setProjectsIndex, dispatch),
+	toggleProjectModalActive: bindActionCreators(actions.toggleProjectModalActive, dispatch)
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
