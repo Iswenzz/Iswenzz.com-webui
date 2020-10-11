@@ -1,0 +1,19 @@
+.languagepicker {
+	#{&}-button {
+		background-color: transparent !important;
+		margin: 0 5px !important;
+	}
+}
+
+.languagepickermenu {
+	#{&}-typo {
+		margin: 0 1em !important;
+		text-align: center !important;
+		font-family: Ubuntu, sans-serif !important;
+	}
+}
+
+.languagepicker-icon {
+	width: 30px !important;
+	height: auto !important;
+}

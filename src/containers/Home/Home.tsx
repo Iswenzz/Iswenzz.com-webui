@@ -48,7 +48,7 @@ const Home: FunctionComponent = (): JSX.Element =>
 			<IntroHeader title="Iswenzz" desc="Software Engineer and Level Designer" 
 				bgImage={require(`assets/images/index/${isDarkMode ? "20.jpg" : "nature1.jpg"}`)} />
 			<IntroSkill />
-			<Parallax style={{backgroundColor: isDarkMode ? "black" : "rgb(122, 206, 255)"}} 
+			<Parallax style={{backgroundColor: isDarkMode ? "black" : "rgb(122,206,255)"}}
 				bgImageAlt="index" strength={400}
 				bgImage={require(`assets/images/index/${isDarkMode ? "stars" : "clouds"}.svg`)}>
 				<Spacing height='100px' />

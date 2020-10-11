@@ -13,7 +13,9 @@ import { Flare, Brightness3 } from "@material-ui/icons";
 import posed, { PoseGroup } from "react-pose";
 import MenuIcon from "@material-ui/icons/Menu";
 import { useScroll } from "react-use-gesture";
+import {Language} from "i18n";
 import "./NavBar.scss";
+import LanguagePicker from "../LanguagePicker/LanguagePicker";
 
 const AnimationFixed = posed.div({
 	enter: { 
@@ -155,6 +157,9 @@ export const NavBar: FunctionComponent<AppBarProps> = (props: AppBarProps): JSX.
 					{isDarkMode ? <Flare /> : <Brightness3 />}
 				</Fab>
 			</li>
+			<li>
+				<LanguagePicker />
+			</li>
 		</Grid>
 	);
 
@@ -168,6 +173,9 @@ export const NavBar: FunctionComponent<AppBarProps> = (props: AppBarProps): JSX.
 					size='small' onClick={toggleDarkMode}>
 					{isDarkMode ? <Flare /> : <Brightness3 />}
 				</Fab>
+			</li>
+			<li>
+				<LanguagePicker />
 			</li>
 			<li>
 				<Fab className="navbar-button" color="inherit" size='small' 

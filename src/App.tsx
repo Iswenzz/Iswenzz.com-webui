@@ -99,6 +99,11 @@ export const App: FunctionComponent<ReduxAppProps> = (props: ReduxAppProps): JSX
 					fontSize: "1em",
 				}
 			},
+			MuiMenu: {
+				paper: {
+					backgroundColor: "transparent"
+				}
+			},
 			MuiFab: {
 				primary: {
 					backgroundColor: props.isDarkMode ? "#2c2f33" : "#e5e5e5"
