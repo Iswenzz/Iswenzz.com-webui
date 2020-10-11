@@ -2,12 +2,13 @@ import { AppActions, AppActionEnum } from "./types";
 import { updateObject } from "utility/utility";
 import { ReduxAppProps } from "App";
 import { detect } from "detect-browser";
+import {Language} from "i18n";
 
 export let initialState: ReduxAppProps = {
 	browserInfo: detect(),
 	isDarkMode: localStorage.getItem("isDarkMode") === "true",
 	isModalActive: false,
-	language: "en",
+	language: (localStorage.getItem("language") ?? "en") as Language,
 
 	toggleDarkMode: () => null,
 	toggleModalActive: () => null,
