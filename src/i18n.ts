@@ -19,6 +19,11 @@ const resources = {
  * Supported languages.
  */
 export type Language = "en" | "fr" | "es";
+export const i18nLanguages: Record<Language, string> = {
+	en: "English",
+	fr: "Français",
+	es: "Español"
+};
 
 const initOption: InitOptions = {
 	resources,

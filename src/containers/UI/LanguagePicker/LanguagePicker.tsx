@@ -1,6 +1,6 @@
 import React, {FunctionComponent} from "react";
-import {Fab, ListItemIcon, Menu, MenuItem, Typography} from "@material-ui/core";
-import {Language} from "../../../i18n";
+import {Fab, ListItemIcon, Menu, MenuItem, Typography, createMuiTheme, ThemeProvider, Grid} from "@material-ui/core";
+import {i18nLanguages, Language} from "../../../i18n";
 import * as actions from "../../../store/actions";
 import {useDispatch, useSelector} from "react-redux";
 import {AppState} from "../../../application";
@@ -11,6 +11,18 @@ export const languages: Record<Language, JSX.Element> = {
 	fr: <img className={"languagepicker-icon"} src={require("assets/images/flags/077-france.svg")} alt={"France"} />,
 	es: <img className={"languagepicker-icon"} src={require("assets/images/flags/044-spain.svg")} alt={"Spain"} />
 };
+
+const menuTheme = createMuiTheme({
+	overrides: {
+		MuiMenu: {
+			paper: {
+				top: "48px !important",
+				backgroundColor: "rgba(50, 50, 60, 0.3) !important",
+				color: "gainsboro"
+			}
+		}
+	}
+});
 
 export const LanguagePicker: FunctionComponent = (): JSX.Element =>
 {
@@ -26,6 +38,7 @@ export const LanguagePicker: FunctionComponent = (): JSX.Element =>
 	{
 		dispatch(actions.toggleLanguage(lang));
 		localStorage.setItem("language", lang);
+		handleClose();
 	};
 
 	/**
@@ -34,8 +47,13 @@ export const LanguagePicker: FunctionComponent = (): JSX.Element =>
 	 */
 	const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void =>
 	{
-		dispatch(actions.toggleModalActive(true));
-		setAnchorEl(event.currentTarget);
+		if (anchorEl === null)
+		{
+			dispatch(actions.toggleModalActive(true));
+			setAnchorEl(event.currentTarget);
+		}
+		else
+			handleClose();
 	};
 
 	/**
@@ -53,19 +71,23 @@ export const LanguagePicker: FunctionComponent = (): JSX.Element =>
 				 aria-haspopup="true" onClick={handleClick} size='small'>
 				{languages[currentLanguage]}
 			</Fab>
-			<Menu className={"languagepickermenu"} id="language-menu" anchorEl={anchorEl}
-				  keepMounted open={Boolean(anchorEl)} onClose={handleClose} disableScrollLock>
-				{Object.values(languages).map(langNode => (
-					<MenuItem onClick={handleClose}>
-						<Typography className={"languagepickermenu-typo"} variant={"h5"} component={"h5"} >
-							TODO
-						</Typography>
-						<ListItemIcon>
-							{langNode}
-						</ListItemIcon>
-					</MenuItem>
-				))}
-			</Menu>
+			<ThemeProvider theme={menuTheme}>
+				<Menu className={"languagepickermenu"} id="language-menu" anchorEl={anchorEl}
+					  keepMounted open={Boolean(anchorEl)} onClose={handleClose} disableScrollLock>
+					{Object.entries(languages).map(([lang, langNode]) => (
+						<MenuItem key={lang} onClick={() => toggleLanguage(lang as Language)}>
+							<Grid container justify={"space-between"} alignItems={"center"}>
+								<Typography className={"languagepickermenu-typo"} variant={"h5"} component={"h5"} >
+									{i18nLanguages[lang as Language]}
+								</Typography>
+								<ListItemIcon>
+									{langNode}
+								</ListItemIcon>
+							</Grid>
+						</MenuItem>
+					))}
+				</Menu>
+			</ThemeProvider>
 		</div>
 	);
 };

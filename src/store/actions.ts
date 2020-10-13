@@ -43,7 +43,7 @@ export const toggleLanguage = (active: Language) =>
 	{
 		i18n.changeLanguage(active);
 		return dispatch({
-			type: AppActionEnum.TOGGLE_MODAL_ACTIVE,
+			type: AppActionEnum.TOGGLE_LANGUAGE,
 			active
 		});
 	};
