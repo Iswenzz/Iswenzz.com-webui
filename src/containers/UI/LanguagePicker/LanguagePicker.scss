@@ -7,9 +7,21 @@
 
 .languagepickermenu {
 	#{&}-typo {
-		margin: 0 1em !important;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
 		text-align: center !important;
 		font-family: Ubuntu, sans-serif !important;
+		font-size: 1em !important;
+		padding-top: 5px;
+		margin-left: 1em;
+	}
+
+	#{&}-itemicon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		margin-left: 0.5em;
 	}
 }
 

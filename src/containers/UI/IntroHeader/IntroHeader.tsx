@@ -5,6 +5,7 @@ import { Grid, Typography } from "@material-ui/core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-scroll";
+import {useTranslation} from "react-i18next";
 import "./IntroHeader.scss";
 
 const charPoses = {
@@ -18,8 +19,8 @@ const charPoses = {
 
 export interface IntroHeaderProps
 {
-	title?: string,
-	desc?: string,
+	title: string,
+	desc: string,
 	spaceTop?: string,
 	spaceBottom?: string,
 	bgImage: string,
@@ -33,6 +34,8 @@ export interface IntroHeaderProps
  */
 const IntroHeader: FunctionComponent<IntroHeaderProps> = (props: IntroHeaderProps): JSX.Element =>
 {
+	const { t } = useTranslation();
+
 	return (
 		<header className="introheader">
 			<Parallax className="introheader-plx" bgImage={props.bgImage} 
@@ -42,12 +45,12 @@ const IntroHeader: FunctionComponent<IntroHeaderProps> = (props: IntroHeaderProp
 					direction="column" justify="center" alignItems="center">
 					<Typography className="calli-h1 bold noselect" align="center" variant="h1" component="h1">
 						<SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
-							{props.title}
+							{t(props.title)}
 						</SplitText>
 					</Typography>
 					<Typography className="poiret bold noselect" align="center" variant="h3" component="h3">
 						<SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
-							{props.desc}
+							{t(props.desc)}
 						</SplitText>
 					</Typography>
 					<Link to="intro-section" offset={5} smooth>

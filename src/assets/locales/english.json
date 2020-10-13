@@ -1,0 +1,12 @@
+{
+	"INTRO_HEADER": "Hello there!",
+	"INTRO_TITLE": "My name is Alexis, I'm a Software Engineer and a Level Designer.",
+	"INTRO_DESC": "I've experience working on a diverse set of programming topics for the past 5 years \nsuch as software development, web development, database design, graphics programming, game development,\nUI/UX design, and reverse engineering.",
+	"WEB_DEV": "Web Development",
+	"WEB_STACKS": "Web Stacks",
+	"SOFT_DEV": "Software Development",
+	"SOFT_STACKS": "Software Stacks",
+	"LEVEL_DESIGN": "Level Design",
+	"LEVEL_DESIGN_EDITORS": "Editors",
+	"TECHNO_SKILLS": "Technological Skills"
+}

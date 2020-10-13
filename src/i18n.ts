@@ -3,16 +3,8 @@ import detector from "i18next-browser-languagedetector";
 import { initReactI18next } from "react-i18next";
 
 const resources = {
-	en: {
-		translation: {
-			"fish": "The fish"
-		}
-	},
-	fr: {
-		translation: {
-			"fish": "Le fishe"
-		}
-	}
+	en: { translation: require("assets/locales/english.json") },
+	fr: { translation: require("assets/locales/french.json") }
 };
 
 /**

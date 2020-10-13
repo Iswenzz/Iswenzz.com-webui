@@ -39,6 +39,7 @@ export const LanguagePicker: FunctionComponent = (): JSX.Element =>
 		dispatch(actions.toggleLanguage(lang));
 		localStorage.setItem("language", lang);
 		handleClose();
+		window.location.reload();
 	};
 
 	/**
@@ -76,13 +77,17 @@ export const LanguagePicker: FunctionComponent = (): JSX.Element =>
 					  keepMounted open={Boolean(anchorEl)} onClose={handleClose} disableScrollLock>
 					{Object.entries(languages).map(([lang, langNode]) => (
 						<MenuItem key={lang} onClick={() => toggleLanguage(lang as Language)}>
-							<Grid container justify={"space-between"} alignItems={"center"}>
-								<Typography className={"languagepickermenu-typo"} variant={"h5"} component={"h5"} >
-									{i18nLanguages[lang as Language]}
-								</Typography>
-								<ListItemIcon>
-									{langNode}
-								</ListItemIcon>
+							<Grid container>
+								<Grid item xs={6}>
+									<Typography className={"languagepickermenu-typo"} variant={"h5"} component={"h5"} >
+										{i18nLanguages[lang as Language]}
+									</Typography>
+								</Grid>
+								<Grid item xs={6}>
+									<ListItemIcon className={"languagepickermenu-itemicon"}>
+										{langNode}
+									</ListItemIcon>
+								</Grid>
 							</Grid>
 						</MenuItem>
 					))}
