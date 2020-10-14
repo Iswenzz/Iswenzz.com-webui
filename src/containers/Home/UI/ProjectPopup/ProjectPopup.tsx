@@ -17,6 +17,7 @@ import VS2015 from "containers/UI/Highlight/VS1025";
 import AtomOneLight from "containers/UI/Highlight/AtomOneLight";
 import "Common.scss";
 import "./ProjectPopup.scss";
+import {useTranslation} from "react-i18next";
 
 const hljs = require("highlight.js");
 
@@ -34,6 +35,7 @@ export interface ProjectPopupState
  */
 export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 {
+	const { t } = useTranslation();
 	const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
 	const projects = useSelector((state: AppState) => state.home.projects);
 	const projectsStartIndex = useSelector((state: AppState) => state.home.projectsStartIndex);
@@ -74,7 +76,7 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 				if (!div?.childElementCount)
 				{
 					if (text.includes("404: Not Found"))
-						text = "Work in progress...";
+						text = `${t("PROJECT_WIP")}`;
 
 					// convert markdown to html
 					let md: MarkdownIt = MarkdownIt.default({
@@ -117,7 +119,7 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 	const renderProject = (project: LinkedProjectProps, i: number): JSX.Element =>
 	{
 		const openSource: JSX.Element = (
-			<Tooltip arrow disableFocusListener disableTouchListener title="View Source">
+			<Tooltip arrow disableFocusListener disableTouchListener title={t("PROJECT_TOOLTIP_SOURCE") as string}>
 				<Fab size={isPortrait || isTabletOrMobileDevice ? "small" : "large"} href={project.sourceURL} 
 					className="projectpopup-tooltip-fab" color="primary">
 					<FontAwesomeIcon color='silver' icon={faOsi} size='2x' />
@@ -126,7 +128,7 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 		);
 
 		const privateSource: JSX.Element = (
-			<Tooltip arrow disableFocusListener disableTouchListener title="Private Source">
+			<Tooltip arrow disableFocusListener disableTouchListener title={t("PROJECT_TOOLTIP_CLOSED_SOURCE") as string}>
 				<span>
 					<Fab size={isPortrait || isTabletOrMobileDevice ? "small" : "large"} disabled 
 						className="projectpopup-tooltip-fab" color="primary">
@@ -251,7 +253,7 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 			<Fade in={projectModalActive}>
 				<section className="projectpopup">
 					<Tooltip open={projectModalActive} placement="right" arrow disableFocusListener 
-						disableTouchListener title="Drag the window!">
+						disableTouchListener title={t("PROJECT_TOOLTIP_DRAG") as string}>
 						<img onDragStart={(e) => e.preventDefault()} className="projectpopup-tooltip-drag" alt='drag'
 							src={require("assets/images/misc/icons8-hand-drag-64.png")} />
 					</Tooltip>

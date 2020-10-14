@@ -21,6 +21,7 @@ import { Element } from "react-scroll";
 import { Spacing } from "components/Spacing/Spacing";
 import "Common.scss";
 import "./Home.scss";
+import {useTranslation} from "react-i18next";
 
 const charPoses = {
 	exit: { opacity: 0, y: 20 },
@@ -36,6 +37,7 @@ const charPoses = {
  */
 const Home: FunctionComponent = (): JSX.Element =>
 {
+	const { t } = useTranslation();
 	const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
 
 	return (
@@ -45,7 +47,7 @@ const Home: FunctionComponent = (): JSX.Element =>
 			<NavBar className="navbar" />
 
 			{/* About */}
-			<IntroHeader title="Iswenzz" desc="Software Engineer and Level Designer" 
+			<IntroHeader title="Iswenzz" desc="HOME_HEADER"
 				bgImage={require(`assets/images/index/${isDarkMode ? "20.jpg" : "nature1.jpg"}`)} />
 			<IntroSkill />
 			<Parallax style={{backgroundColor: isDarkMode ? "black" : "rgb(122,206,255)"}}
@@ -71,7 +73,7 @@ const Home: FunctionComponent = (): JSX.Element =>
 				bgImage={require(`assets/images/index/${isDarkMode ? "55.jpg" : "t1.jpg"}`)}>
 				<Typography className="poiret-h1 bold noselect contact-typo" align="center" variant="h2" component="h2">
 					<SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
-						Contact
+						{t("CONTACT_HEADER")}
 					</SplitText>
 				</Typography>
 			</Parallax>

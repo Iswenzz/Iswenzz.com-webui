@@ -9,6 +9,7 @@ import { AppState } from "application";
 import uuid from "uuid";
 import "Common.scss";
 import "./Level.scss";
+import {useTranslation} from "react-i18next";
 
 const playerConfig: Config = { 
 	youtube: {
@@ -59,6 +60,7 @@ const useStyles = makeStyles(theme => ({
  */
 export const Level: FunctionComponent<LevelProps> = (props: LevelProps): JSX.Element =>
 {
+	const { t } = useTranslation();
 	const isPortrait = useMediaQuery({ orientation: "portrait" });
 	const isTabletOrMobileDevice = useMediaQuery({ query: "(max-device-width: 1224px)" });
 	const [isFlipped, setFlipped] = useState<boolean>(true);
@@ -128,7 +130,7 @@ export const Level: FunctionComponent<LevelProps> = (props: LevelProps): JSX.Ele
 				<meta itemProp="image" content={props.currentLevel.image} />
 				<meta itemProp="embedUrl" content={props.currentLevel.videoUrl} />
 				<Grid container direction="row" alignItems="center" justify="space-between">
-					<Tooltip placement="right" arrow disableFocusListener title="Click Me!">
+					<Tooltip placement="right" arrow disableFocusListener title={t("TOOLTIP_CLICK_ME") as string}>
 						<img onDragStart={(e) => e.preventDefault()} alt='click-me' width={55} height={64}
 							src={require("assets/images/misc/icons8-natural-user-interface-2-64.png")} />
 					</Tooltip>

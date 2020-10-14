@@ -60,8 +60,8 @@ export const Projects: FunctionComponent = (): JSX.Element =>
 			<Element name="projects-section" />
 			<RadialGradient config={config} className="projects-gradient-grid">
 				<Container component="header" className="projects-container">
-					<TrailText align="center" color="textPrimary" component="h2" variant="h2"
-						className='poiret-h1 noselect' active items={["Projects"]} />
+					<TrailText i18n align="center" color="textPrimary" component="h2" variant="h2"
+						className='poiret-h1 noselect' active items={["PROJECTS"]} />
 					<Divider className="projects-divider" />
 				</Container>
 				<Grid container component="section" direction="row" alignItems="center" justify="center">

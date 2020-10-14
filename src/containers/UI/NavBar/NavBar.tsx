@@ -16,6 +16,7 @@ import { useScroll } from "react-use-gesture";
 import {Language} from "i18n";
 import "./NavBar.scss";
 import LanguagePicker from "../LanguagePicker/LanguagePicker";
+import {Trans} from "react-i18next";
 
 const AnimationFixed = posed.div({
 	enter: { 
@@ -121,25 +122,33 @@ export const NavBar: FunctionComponent<AppBarProps> = (props: AppBarProps): JSX.
 		<>
 			<li>
 				<Link className="navbar-button" to="header-section" smooth onClick={() => toggleDrawer(false)}>
-					<Button size='large' color="inherit">About</Button>
+					<Button size='large' color="inherit">
+						<Trans>NAVBAR_ABOUT</Trans>
+					</Button>
 				</Link>
 			</li>
 			<li>
 				<Link className="navbar-button" to="projects-section" smooth onClick={() => toggleDrawer(false)}
 					offset={isTabletOrMobileDevice ? 50 : 10}>
-					<Button size='large' color="inherit">Projects</Button>
+					<Button size='large' color="inherit">
+						<Trans>NAVBAR_PROJECTS</Trans>
+					</Button>
 				</Link>
 			</li>
 			<li>
 				<Link className="navbar-button" to="level-design-section" smooth onClick={() => toggleDrawer(false)}
 					offset={isTabletOrMobileDevice ? 30 : 180}>
-					<Button size='large' color="inherit">Level Design</Button>
+					<Button size='large' color="inherit">
+						<Trans>NAVBAR_LEVEL_DESIGN</Trans>
+					</Button>
 				</Link>
 			</li>
 			<li>
 				<Link className="navbar-button" to="contact-section" smooth onClick={() => toggleDrawer(false)}
 					offset={0}>
-					<Button size='large' color="inherit">Contact</Button>
+					<Button size='large' color="inherit">
+						<Trans>NAVBAR_CONTACT</Trans>
+					</Button>
 				</Link>
 			</li>
 		</>
