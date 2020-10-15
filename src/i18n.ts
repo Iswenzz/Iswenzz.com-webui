@@ -1,10 +1,11 @@
-import i18n, {InitOptions} from "i18next";
+import i18n, {InitOptions, Resource} from "i18next";
 import detector from "i18next-browser-languagedetector";
 import { initReactI18next } from "react-i18next";
 
-const resources = {
+const resources: Record<Language, Resource> = {
 	en: { translation: require("assets/locales/english.json") },
-	fr: { translation: require("assets/locales/french.json") }
+	fr: { translation: require("assets/locales/french.json") },
+	es: { translation: require("assets/locales/spanish.json") },
 };
 
 /**
