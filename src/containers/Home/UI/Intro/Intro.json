@@ -1,0 +1,66 @@
+{
+	"header": "INTRO_HEADER",
+	"title": "INTRO_TITLE",
+	"desc": "INTRO_DESC",
+	"skills": [
+		{
+			"title": "WEB_DEV",
+			"points": [
+				"• Javascript ES7+",
+				"• Typescript",
+				"• HTML5",
+				"• CSS & SCSS / SASS"
+			]
+		},
+		{
+			"title": "WEB_STACKS",
+			"points": [
+				"• React",
+				"• Redux",
+				"• JQuery",
+				"• MySQL / MangoDB",
+				"• Bootstrap / Material UI"
+			]
+		},
+		{
+			"title": "SOFT_DEV",
+			"points": [
+				"• C C++",
+				"• C# VB C++/CLI",
+				"• Java",
+				"• Python",
+				"• GSC",
+				"• Bash / Shell / Powershell",
+				"• Assembly x86 / x64"
+			]
+		},
+		{
+			"title": "SOFT_STACKS",
+			"points": [
+				"• .NET",
+				"• Qt",
+				"• Winform & WPF",
+				"• DirectX",
+				"• Selenium"
+			]
+		},
+		{
+			"title": "LEVEL_DESIGN",
+			"points": [
+				"• BSP Blockout & Landscape",
+				"• Detail geometry",
+				"• Shader / Material creation",
+				"• Lighting, FX / SFX placement",
+				"• Level optimization & Portaling"
+			]
+		},
+		{
+			"title": "LEVEL_DESIGN_EDITORS",
+			"points": [
+				"• Unreal Engine 4",
+				"• Unity 5",
+				"• Radiant / GtkRadiant"
+			]
+		}
+	]
+}

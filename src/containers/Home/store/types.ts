@@ -1,5 +1,4 @@
-export enum HomeActionEnum
-	{
+export enum HomeActionEnum {
 	SET_PROJECTS_INDEX = "SET_PROJECTS_INDEX",
 	TOGGLE_PROJECT_MODAL_ACTIVE = "TOGGLE_PROJECT_MODAL_ACTIVE"
 }

@@ -2,6 +2,7 @@ import React, { FunctionComponent, memo, ElementType } from "react";
 import { useTrail, animated, SpringConfig } from "react-spring";
 import { Typography, TypographyProps } from "@material-ui/core";
 import uuid from "uuid";
+import {useTranslation} from "react-i18next";
 
 export interface TrailProps extends TypographyProps
 {
@@ -9,7 +10,8 @@ export interface TrailProps extends TypographyProps
 	items: string[],
 	active: boolean,
 	className?: string,
-	component?: ElementType
+	component?: ElementType,
+	i18n?: boolean
 }
 
 const config: SpringConfig = {
@@ -24,7 +26,10 @@ const config: SpringConfig = {
  */
 export const TrailText: FunctionComponent<TrailProps> = (props: TrailProps): JSX.Element =>
 {
-	const trail = useTrail(props.items.length, {
+	const { t } = useTranslation();
+	const text: string[] = props.i18n ? props.items.map(i => t(i)) : props.items;
+
+	const trail = useTrail(text.length, {
 		config,
 		opacity: props.active ? 1 : 0,
 		x: props.active ? 0 : 20,
@@ -41,7 +46,7 @@ export const TrailText: FunctionComponent<TrailProps> = (props: TrailProps): JSX
 						<Typography style={props.style} className={props.className} noWrap={props.noWrap} 
 							align={props.align} color={props.color} paragraph={props.paragraph} 
 							component={props.component ?? "h6"} variant={props.variant}>
-							{props.items[index]} 
+							{text[index]}
 						</Typography>
 					</animated.div>
 				</animated.div>
