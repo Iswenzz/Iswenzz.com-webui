@@ -1,4 +1,4 @@
-import { HomeActionEnum, HomeActions } from "./types";
+import {HomeActionEnum, SetProjectsStartIndex, ToggleProjectModalActive} from "./types";
 import { AppState } from "application";
 import { Dispatch } from "react";
 
@@ -8,7 +8,7 @@ import { Dispatch } from "react";
  */
 export const setProjectsIndex = (index: number) =>
 {
-	return (dispatch: Dispatch<HomeActions>, getState: () => AppState) =>
+	return (dispatch: Dispatch<SetProjectsStartIndex>, getState: () => AppState) =>
 	{
 		return dispatch({
 			type: HomeActionEnum.SET_PROJECTS_INDEX,
@@ -23,7 +23,7 @@ export const setProjectsIndex = (index: number) =>
  */
 export const toggleProjectModalActive = (active: boolean) =>
 {
-	return (dispatch: Dispatch<HomeActions>, getState: () => AppState) =>
+	return (dispatch: Dispatch<ToggleProjectModalActive>, getState: () => AppState) =>
 	{
 		return dispatch({
 			type: HomeActionEnum.TOGGLE_PROJECT_MODAL_ACTIVE,

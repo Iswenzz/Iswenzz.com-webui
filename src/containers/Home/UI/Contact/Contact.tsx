@@ -14,6 +14,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { delay } from "utility/utility";
 import "Common.scss";
 import "./Contact.scss";
+import {Trans, useTranslation} from "react-i18next";
 
 const useStyles = makeStyles(theme => ({
 	avatar: {
@@ -85,6 +86,7 @@ const Animation = posed.div({
  */
 export const Contact: FunctionComponent = (): JSX.Element =>
 {
+	const { t } = useTranslation();
 	const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
 	const isTabletOrMobileDevice = useMediaQuery({ query: "(max-device-width: 1224px)" });
 	const classes = useStyles();
@@ -183,23 +185,27 @@ export const Contact: FunctionComponent = (): JSX.Element =>
 			</header>
 			<Formik initialValues={contactFormInitial} onSubmit={sendEmail}>
 				<Form>
-					<Field component={TextField} required label="Email Address" id="email" name="email" type="email"
+					<Field component={TextField} required label={t("CONTACT_EMAIL")} id="email" name="email" type="email"
 						fullWidth color="secondary" variant="outlined" margin="normal" autoComplete="email" />
-					<Field component={TextField} required label="Subject" id="subject" name="subject" type="text"
+					<Field component={TextField} required label={t("CONTACT_SUBJECT")} id="subject" name="subject" type="text"
 						fullWidth color="secondary" variant="outlined" margin="normal" />
-					<Field component={TextField} required label="Message" id="message" name="message" type="text"
+					<Field component={TextField} required label={t("CONTACT_MESSAGE")} id="message" name="message" type="text"
 						fullWidth multiline rows="6" color="secondary" variant="outlined" margin="normal" />
 					<Container maxWidth="xs">
 						<Grid container direction="row" justify="center" alignItems="center">
 							<Button fullWidth variant="contained" type="submit" color="secondary" disabled={loading || success || fail}
 								className={success ? classes.buttonSuccess : fail ? classes.buttonFail : classes.buttonDefault}>
-								Send
+								<Trans>CONTACT_SEND</Trans>
 							</Button>
 							{loading && <CircularProgress size={32} className={classes.buttonProgress} />}
 							<Typography variant="subtitle2" align="center" component="p" paragraph color="textPrimary">
-								This site is protected by reCAPTCHA and the Google&nbsp;
-								<a className="link" href="https://policies.google.com/privacy">Privacy Policy</a> and&nbsp;
-								<a className="link" href="https://policies.google.com/terms">Terms of Service</a> apply.
+								<Trans>GOOGLE_RECAPTCHA</Trans>&nbsp;
+								<a className="link" href="https://policies.google.com/privacy">
+									<Trans>GOOGLE_RECAPTCHA_POLICY</Trans>
+								</a> &&nbsp;
+								<a className="link" href="https://policies.google.com/terms">
+									<Trans>GOOGLE_RECAPTCHA_TERMS</Trans>
+								</a> <Trans>GOOGLE_RECAPTCHA_APPLY</Trans>
 							</Typography>
 							<ReCAPTCHA ref={recaptchaRef} sitekey="6LdE8QAVAAAAAKvBLdna3qVhf6ml05DKXRXwDxmn"
 								size="invisible" badge="inline" theme={isDarkMode ? "dark" : "light"} />

@@ -14,83 +14,20 @@ import { Element } from "react-scroll";
 import "Common.scss";
 import "./Intro.scss";
 
-const intro = {
-	header: "Hello there!",
-	title: "My name is Alexis, I'm a Software Engineer and a Level Designer.",
-	desc: `I've experience working on a diverse set of programming topics for the past 5 years 
-	such as software development, web development, database design, graphics programming, game development,
-	UI/UX design, and reverse engineering.`
-};
-
-export type Info = {
+export interface IntroSkill
+{
 	title: string,
 	points: string[]
-};
+}
 
-const webDev: Info = {
-	title: "Web Development",
-	points: [
-		"• Javascript ES7+",
-		"• Typescript",
-		"• HTML5",
-		"• CSS & SCSS / SASS",
-	]
-};
-
-const webDevStack: Info = {
-	title: "Web Stacks",
-	points: [
-		"• React",
-		"• Redux",
-		"• JQuery",
-		"• MySQL / MangoDB",
-		"• Bootstrap / Material UI",
-	]
-};
-
-const softDev: Info = {
-	title: "Software Development",
-	points: [
-		"• C C++",
-		"• C# VB C++/CLI",
-		"• Java",
-		"• Python",
-		"• GSC",
-		"• Bash / Shell / Powershell",
-		"• Assembly x86 / x64",
-	]
-};
-
-const softDevStack: Info = {
-	title: "Software Stacks",
-	points: [
-		"• .NET",
-		"• Qt",
-		"• Winform & WPF",
-		"• DirectX",
-		"• Selenium",
-	]
-};
-
-const levelDesign: Info = {
-	title: "Level Design",
-	points: [
-		"• BSP Blockout & Landscape",
-		"• Detail geometry",
-		"• Shader / Material creation",
-		"• Lighting, FX / SFX placement",
-		"• Level optimization & Portaling"
-	]
-};
-
-const levelDesignEditors: Info = {
-	title: "Editors",
-	points: [
-		"• Unreal Engine 4",
-		"• Unity 5",
-		"• Radiant / GtkRadiant",
-	]
-};
+export interface IntroInfo
+{
+	header: string,
+	title: string,
+	desc: string,
+	skills: IntroSkill[]
+}
+export const introJSON: IntroInfo = require("./Intro.json");
 
 const AnimationUp = posed.div({
 	enter: { 
@@ -177,29 +114,29 @@ export const IntroSkill: FunctionComponent = (): JSX.Element =>
 			
 			{/* Web Development */}
 			<article className="info-div">
-				<Text component="h2" className='poiret-h2' items={[webDev.title]} />
-				<Text component="h4" className='ubuntu-h4' items={webDev.points} />
+				<Text i18n component="h2" className='poiret-h2' items={[introJSON.skills[0].title]} />
+				<Text component="h4" className='ubuntu-h4' items={introJSON.skills[0].points} />
 				<Spacing height='20px' />
-				<Text component="h2" className='poiret-h2' items={[webDevStack.title]} />
-				<Text component="h4" className='ubuntu-h4' items={webDevStack.points} />
+				<Text i18n component="h2" className='poiret-h2' items={[introJSON.skills[1].title]} />
+				<Text component="h4" className='ubuntu-h4' items={introJSON.skills[1].points} />
 			</article>
 
 			{/* Software Development */} 
 			<article className="info-div">
-				<Text component="h2" className='poiret-h2' items={[softDev.title]} />
-				<Text component="h4" className='ubuntu-h4' items={softDev.points} />
+				<Text i18n component="h2" className='poiret-h2' items={[introJSON.skills[2].title]} />
+				<Text component="h4" className='ubuntu-h4' items={introJSON.skills[2].points} />
 				<Spacing height='20px' />
-				<Text component="h2" className='poiret-h2' items={[softDevStack.title]} />
-				<Text component="h4" className='ubuntu-h4' items={softDevStack.points} />
+				<Text i18n component="h2" className='poiret-h2' items={[introJSON.skills[3].title]} />
+				<Text component="h4" className='ubuntu-h4' items={introJSON.skills[3].points} />
 			</article>
 
 			{/* Level Design */}
 			<article className="info-div">
-				<Text component="h2" className='poiret-h2' items={[levelDesign.title]} />
-				<Text component="h4" className='ubuntu-h4' items={levelDesign.points} />
+				<Text i18n component="h2" className='poiret-h2' items={[introJSON.skills[4].title]} />
+				<Text component="h4" className='ubuntu-h4' items={introJSON.skills[4].points} />
 				<Spacing height='20px' />
-				<Text component="h2" className='poiret-h2' items={[levelDesignEditors.title]} />
-				<Text component="h4" className='ubuntu-h4' items={levelDesignEditors.points} />
+				<Text i18n component="h2" className='poiret-h2' items={[introJSON.skills[5].title]} />
+				<Text component="h4" className='ubuntu-h4' items={introJSON.skills[5].points} />
 			</article>
 
 		</Grid>
@@ -217,13 +154,13 @@ export const IntroSkill: FunctionComponent = (): JSX.Element =>
 							<AnimationUp className="intro-anim" pose={isVisible ? "enter" : "exit"} 
 								key="about-animation">
 								<Container component="header" maxWidth="md">
-									<Text align="left" color="textPrimary" component="h2" variant="h2"
-										className='poiret-h1 noselect' items={[intro.header]} />
+									<Text i18n align="left" color="textPrimary" component="h2" variant="h2"
+										className='poiret-h1 noselect' items={[introJSON.header]} />
 									<Divider className="intro-divider" />
-									<Text align="left" className="intro-second-text ubuntu-h3" color="textPrimary" 
-										component="h3" variant="h3" items={[intro.title]} />
-									<Text align="left" color="textPrimary" paragraph component="h4" variant="h4"
-										className='ubuntu-h4' items={[intro.desc]} />
+									<Text i18n align="left" className="intro-second-text ubuntu-h3" color="textPrimary"
+										component="h3" variant="h3" items={[introJSON.title]} />
+									<Text i18n align="left" color="textPrimary" paragraph component="h4" variant="h4"
+										className='ubuntu-h4' items={[introJSON.desc]} />
 								</Container>
 							</AnimationUp>
 						</Grid>
@@ -244,8 +181,8 @@ export const IntroSkill: FunctionComponent = (): JSX.Element =>
 						<Container>
 							<AnimationLeft pose={isVisible ? "enter" : "exit"} key="about-skill-header-animation">
 								<Container component="header" className="skill-container">
-									<TrailText align="center" color="textPrimary" component="h2" variant="h2"
-										className='poiret-h1 noselect' active={isVisible} items={["Technological Skills"]} />
+									<TrailText i18n align="center" color="textPrimary" component="h2" variant="h2"
+										className='poiret-h1 noselect' active={isVisible} items={["TECHNO_SKILLS"]} />
 									<Divider className="skill-divider" />
 								</Container>
 							</AnimationLeft>
