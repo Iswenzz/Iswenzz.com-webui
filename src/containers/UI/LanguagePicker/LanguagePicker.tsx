@@ -9,7 +9,8 @@ import "./LanguagePicker.scss";
 export const languages: Record<Language, JSX.Element> = {
 	en: <img className={"languagepicker-icon"} src={require("assets/images/flags/262-united-kingdom.svg")} alt={"United Kingdom"} />,
 	fr: <img className={"languagepicker-icon"} src={require("assets/images/flags/077-france.svg")} alt={"France"} />,
-	es: <img className={"languagepicker-icon"} src={require("assets/images/flags/044-spain.svg")} alt={"Spain"} />
+	es: <img className={"languagepicker-icon"} src={require("assets/images/flags/044-spain.svg")} alt={"Spain"} />,
+	it: <img className={"languagepicker-icon"} src={require("assets/images/flags/011-italy.svg")} alt={"Italy"} />
 };
 
 const menuTheme = createMuiTheme({
