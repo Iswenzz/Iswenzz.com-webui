@@ -6,16 +6,18 @@ const resources: Record<Language, Resource> = {
 	en: { translation: require("assets/locales/english.json") },
 	fr: { translation: require("assets/locales/french.json") },
 	es: { translation: require("assets/locales/spanish.json") },
+	it: { translation: require("assets/locales/italian.json") },
 };
 
 /**
  * Supported languages.
  */
-export type Language = "en" | "fr" | "es";
+export type Language = "en" | "fr" | "es" | "it";
 export const i18nLanguages: Record<Language, string> = {
 	en: "English",
 	fr: "Français",
-	es: "Español"
+	es: "Español",
+	it: "Italiano"
 };
 
 const initOption: InitOptions = {
