@@ -24,14 +24,22 @@ describe("[Component] <ViewPager>", () =>
 
 	it("Testing props", () => 
 	{
-		const props = {autoplay: false};
-		wrapper.setProps(props);
+		wrapper.setProps({autoplay: false});
 		expect(wrapper.prop("autoplay")).toBe(false);
 	});
 
 	it("Scroll to item", () => {
 		wrapper.find(DotButton).last().simulate("click");
 		expect(wrapper.find(".embla-dot").last()).toBeDefined();
+		expect(wrapper.find(".embla-dot").last().hasClass("is-selected")).toBe(true);
+	});
+
+	it("Next item", () => {
+		// setup : 1st slide
+		wrapper.find(DotButton).first().simulate("click");
+		expect(wrapper.find(".embla-dot").first().hasClass("is-selected")).toBe(true);
+		// test : next slide = last
+		wrapper.find(NextButton).simulate("click");
 		expect(wrapper.find(".embla-dot").last().hasClass("is-selected")).toBe(true);
 	});
     
@@ -42,15 +50,6 @@ describe("[Component] <ViewPager>", () =>
 		// test : prev slide = 1st
 		wrapper.find(PrevButton).simulate("click");
 		expect(wrapper.find(".embla-dot").first().hasClass("is-selected")).toBe(true);
-	});
-
-	it("Next item", () => {
-		// setup : 1st slide
-		wrapper.find(DotButton).first().simulate("click");
-		expect(wrapper.find(".embla-dot").first().hasClass("is-selected")).toBe(true);
-		// test : next slide = last
-		wrapper.find(NextButton).simulate("click");
-		expect(wrapper.find(".embla-dot").last().hasClass("is-selected")).toBe(true);
 	});
 
 	/* AUTOPLAY TESTS
