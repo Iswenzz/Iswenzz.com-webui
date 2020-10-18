@@ -10,7 +10,8 @@ export const languages: Record<Language, JSX.Element> = {
 	en: <img className={"languagepicker-icon"} src={require("assets/images/flags/262-united-kingdom.svg")} alt={"United Kingdom"} />,
 	fr: <img className={"languagepicker-icon"} src={require("assets/images/flags/077-france.svg")} alt={"France"} />,
 	es: <img className={"languagepicker-icon"} src={require("assets/images/flags/044-spain.svg")} alt={"Spain"} />,
-	it: <img className={"languagepicker-icon"} src={require("assets/images/flags/011-italy.svg")} alt={"Italy"} />
+	it: <img className={"languagepicker-icon"} src={require("assets/images/flags/011-italy.svg")} alt={"Italy"} />,
+	zh: <img className={"languagepicker-icon"} src={require("assets/images/flags/261-china.svg")} alt={"Chinese"} />
 };
 
 const menuTheme = createMuiTheme({

@@ -13,10 +13,9 @@ import { Flare, Brightness3 } from "@material-ui/icons";
 import posed, { PoseGroup } from "react-pose";
 import MenuIcon from "@material-ui/icons/Menu";
 import { useScroll } from "react-use-gesture";
-import {Language} from "i18n";
-import "./NavBar.scss";
 import LanguagePicker from "../LanguagePicker/LanguagePicker";
 import {Trans} from "react-i18next";
+import "./NavBar.scss";
 
 const AnimationFixed = posed.div({
 	enter: { 
