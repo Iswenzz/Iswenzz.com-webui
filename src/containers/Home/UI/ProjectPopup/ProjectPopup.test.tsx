@@ -21,17 +21,37 @@ describe("[Container] <ProjectPopup>", () =>
 
 	it("Testing component", () => 
 	{
-		// open modal TODO
+		expect(wrapper.find(ProjectPopup)).toBeDefined();
+	});
 
+	it("Open modal", () => {
+		// open modal TODO
+	});
+
+	it("Image drag", () => {
 		// dragging images
 		wrapper.find("img").forEach(img => img.simulate("dragstart", {
 			preventDefault() {}
 		}));
+	});
+
+	it("Close modal", () => {
 		// close modal
 		wrapper.find(Fab).forEach(fab => 
 		{
 			if (fab.props().id === "fab_modal_close")
 				fab.simulate("click");
 		});
+	});
+
+	it("Portrait", () => {
+		const Context = React.createContext({orientation: "portrait"});
+		mount((
+			<redux.Provider store={store}>
+				<Context.Consumer>
+					{value => <ProjectPopup />}
+				</Context.Consumer>
+			</redux.Provider>
+		));
 	});
 });
