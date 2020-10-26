@@ -18,6 +18,7 @@ describe("[Root] <App>", () =>
     
 	it("Portrait mode", () =>
 	{
+		const Context = React.createContext({});
 		mount((
 			<redux.Provider store={store}>
 				<Context.Provider value={{orientation: "portrait"}}>
@@ -29,6 +30,7 @@ describe("[Root] <App>", () =>
 
 	it("Mobile mode", () =>
 	{
+		const Context = React.createContext({});
 		mount((
 			<redux.Provider store={store}>
 				<Context.Provider value={{maxDeviceWidth: "1224px"}}>
