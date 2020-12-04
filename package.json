@@ -32,7 +32,7 @@
 		"enquire.js": "^2.1.6",
 		"formik": "^2.1.5",
 		"formik-material-ui": "^2.0.1",
-		"highlight.js": "^9.18.3",
+		"highlight.js": "^10.4.1",
 		"i18next": "^19.8.2",
 		"i18next-browser-languagedetector": "^6.0.1",
 		"lodash": "^4.17.20",
