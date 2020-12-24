@@ -1,6 +1,6 @@
 import React, { memo, FunctionComponent } from "react";
 import Spacing from "components/Spacing/Spacing";
-import RadialGradient, { IGradientColor } from "components/RadialGradient/RadialGradient";
+import RadialGradient, { GradientColor } from "components/RadialGradient/RadialGradient";
 import { Parallax } from "react-parallax";
 import { useSelector } from "react-redux";
 import { AppState } from "application";
@@ -14,19 +14,18 @@ import { Element } from "react-scroll";
 import "Common.scss";
 import "./Intro.scss";
 
-export interface IntroSkill
-{
+export type IntroSkill = {
 	title: string,
 	points: string[]
-}
+};
 
-export interface IntroInfo
-{
+export type IntroInfo = {
 	header: string,
 	title: string,
 	desc: string,
 	skills: IntroSkill[]
-}
+};
+
 export const introJSON: IntroInfo = require("./Intro.json");
 
 const AnimationUp = posed.div({
@@ -100,7 +99,7 @@ export const IntroSkill: FunctionComponent = (): JSX.Element =>
 	const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
 	const isTabletOrMobileDevice = useMediaQuery({ query: "(max-device-width: 1224px)" });
 
-	const gradientColor: IGradientColor[] = [
+	const gradientColor: GradientColor[] = [
 		{ color: isDarkMode ? "#0e0f14" : "#e5e5e5", colorPercent: "0%" },
 		{ color: isDarkMode ? "#181a21" : "#f4f4f4", colorPercent: "100%" }
 	];

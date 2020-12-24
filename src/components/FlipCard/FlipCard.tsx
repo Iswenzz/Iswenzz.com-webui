@@ -2,19 +2,17 @@ import React, { Component } from "react";
 import ReactCardFlip from "react-card-flip";
 import "./FlipCard.scss";
 
-export interface FlipCardProps
-{
+export type FlipCardProps = {
 	className?: string,
 	style?: React.CSSProperties,
 	back?: React.ReactNode,
 	front?: React.ReactNode,
 	flipCallback?: (flipState: boolean) => void,
-}
+};
 
-export interface FlipCardState
-{
+export type FlipCardState = {
 	isFlipped: boolean
-}
+};
 
 /**
  * Card component that flip on mouse click event.

@@ -1,11 +1,10 @@
 import React from "react";
 
-export interface CarouselButtonProps
-{
+export type CarouselButtonProps = {
 	selected?: boolean,
 	enabled?: boolean,
 	onClick?: () => any
-}
+};
 
 /**
  * Indicator button.

@@ -17,8 +17,7 @@ const charPoses = {
 	}
 };
 
-export interface IntroHeaderProps
-{
+export type IntroHeaderProps = {
 	title: string,
 	desc: string,
 	spaceTop?: string,
@@ -26,13 +25,13 @@ export interface IntroHeaderProps
 	bgImage: string,
 	parallaxStrength?: number,
 	parallaxBlur?: number
-}
+};
 
 /**
  * Page header with a parallax background & title.
  * @param props - IntroHeaderProps
  */
-const IntroHeader: FunctionComponent<IntroHeaderProps> = (props: IntroHeaderProps): JSX.Element =>
+export const IntroHeader: FunctionComponent<IntroHeaderProps> = (props: IntroHeaderProps): JSX.Element =>
 {
 	const { t } = useTranslation();
 

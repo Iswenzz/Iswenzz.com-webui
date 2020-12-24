@@ -12,30 +12,27 @@ const defaultItems: JSX.Element[] = [
 	<img onDragStart={e => e.preventDefault()} src='https://images.pexels.com/photos/924675/pexels-photo-924675.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' alt='carousel' />
 ];
 
-export interface ViewPagerProps
-{
+export type ViewPagerProps = {
 	items?: JSX.Element[],
 	style?: React.CSSProperties,
 	bgcolor?: string,
 	startIndex?: number,
 	config?: ViewPagerConfig
-}
+};
 
-export interface ViewPagerConfig
-{
+export type ViewPagerConfig = {
 	top?: string | number,
 	right?: string | number,
 	width?: string | number,
 	height?: string | number,
 	maxWidth?: string | number,
 	maxHeight?: string | number,
-}
+};
 
-export interface ViewPagerState
-{
+export type ViewPagerState = {
 	items?: JSX.Element[],
 	mainRef?: RefObject<HTMLDivElement>
-}
+};
 
 /**
  * 3D Carousel with gesture features.

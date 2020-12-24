@@ -6,18 +6,16 @@ import { DotButton, PrevButton, NextButton } from "./EmblaCarouselButtons/EmblaC
 import { Grid } from "@material-ui/core";
 import "./Embla.scss";
 
-export interface EmblaCarouselProps
-{
+export type EmblaCarouselProps = {
 	autoplay: boolean,
 	delayLength: number,
 	children: any[],
 	height?: string,
 	width?: string,
 	style?: React.CSSProperties
-}
+};
 
-export interface EmblaCarouselState
-{
+export type EmblaCarouselState = {
 	embla: ReturnType<typeof EmblaCarousel> | null,
 	prevBtnEnabled: boolean,
 	nextBtnEnabled: boolean,
@@ -25,7 +23,7 @@ export interface EmblaCarouselState
 	scrollSnaps: number[],
 	delay: number,
 	isRunning: boolean
-}
+};
 
 /**
  * A carousel component that use all JSX children as carousel items.

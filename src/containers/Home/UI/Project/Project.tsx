@@ -8,28 +8,24 @@ import posed from "react-pose";
 import "Common.scss";
 import "./Project.scss";
 
-export interface ProjectRenderProps
-{
+export type ProjectRenderProps = {
 	renderUrl?: string,
 	renderStyle?: React.CSSProperties,
 	renderIcons?: IconProps[],
 	renderFile?: JSX.Element[]
-}
+};
 
-export interface IconProps
-{
+export type IconProps = {
 	src: string,
 	name: string
-}
+};
 
-export interface ProjectCarouselProps
-{
+export type ProjectCarouselProps = {
 	carouselImages?: string[],
 	carouselStyle?: React.CSSProperties
-}
+};
 
-export interface CardProps
-{
+export type CardProps = {
 	title?: string,
 	showTitle?: boolean,
 	desc?: string,
@@ -42,17 +38,16 @@ export interface CardProps
 	width?: string,
 	height?: string,
 	carousel?: boolean
-}
+};
 
 export type LinkedProjectProps = CardProps & ProjectRenderProps & ProjectCarouselProps;
 
-export interface ProjectProps
-{
+export type ProjectProps = {
 	projects: LinkedProjectProps[],
 	currentProj: LinkedProjectProps,
 	itemHeight?: number,
 	visible?: boolean
-}
+};
 
 const ZoomAnimation = posed.article({
 	hoverable: true,

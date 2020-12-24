@@ -42,6 +42,7 @@ export const toggleLanguage = (active: Language) =>
 	return (dispatch: Dispatch<ToggleLanguage>, getState: () => AppState) =>
 	{
 		i18n.changeLanguage(active);
+		localStorage.setItem("language", active);
 		return dispatch({
 			type: AppActionEnum.TOGGLE_LANGUAGE,
 			active

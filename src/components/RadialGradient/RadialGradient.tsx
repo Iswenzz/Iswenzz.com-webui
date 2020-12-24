@@ -1,14 +1,12 @@
 import React, { PureComponent } from "react";
 import { Grid, GridDirection, GridJustification, GridItemsAlignment, Box } from "@material-ui/core";
 
-export interface IGradientColor
-{
+export type GradientColor = {
 	color: string,
 	colorPercent?: string
-}
+};
 
-export interface GradiantProps extends React.HTMLAttributes<HTMLDivElement>
-{
+export type GradiantProps = React.HTMLAttributes<HTMLDivElement> & {
 	config?: GradiantProps,
 	container?: boolean,
 	linear?: boolean,
@@ -17,8 +15,8 @@ export interface GradiantProps extends React.HTMLAttributes<HTMLDivElement>
 	alignItems?: GridItemsAlignment,
 	component?: React.ElementType,
 	position?: string,
-	colors?: IGradientColor[],
-}  
+	colors?: GradientColor[],
+};
 
 /**
  * Radial gradient grid container.
@@ -31,7 +29,7 @@ class RadialGradient extends PureComponent<GradiantProps>
      * @param propsColors - The gradient colors.
      * @param isLinear - true = linear, false = radial.
      */
-	processBackgroundColor = (position?: string, propsColors?: IGradientColor[], isLinear?: boolean): string =>
+	processBackgroundColor = (position?: string, propsColors?: GradientColor[], isLinear?: boolean): string =>
 	{
 		let colors: string = "";
 		if (isLinear)

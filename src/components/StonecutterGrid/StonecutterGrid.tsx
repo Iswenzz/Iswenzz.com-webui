@@ -1,14 +1,13 @@
 import React, { FunctionComponent, memo } from "react";
 import { SpringGrid, enterExitStyle, SpringGridProps, makeResponsive, layout } from "react-stonecutter";
 
-export interface StonecutterGridProps
-{
+export type StonecutterGridProps = {
 	config: SpringGridProps,
 	animStyle?: typeof enterExitStyle | any,
 	children?: JSX.Element[],
 	responsive?: boolean 
 	layout?: typeof layout;
-}
+};
 
 /**
  * Responsive grid component with layout/animation config.

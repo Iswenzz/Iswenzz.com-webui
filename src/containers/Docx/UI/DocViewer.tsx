@@ -7,6 +7,7 @@ import "Common.scss";
 
 /**
  * Doxygen document viewer container.
+ * @todo maybe find a html parser instead of using anti pattern XPath.
  * @todo loadDoc on history change / get req.
  * @todo change project folder with properties.
  * @todo when project load, load the readme.md from github.

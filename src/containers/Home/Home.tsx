@@ -85,18 +85,16 @@ const Home: FunctionComponent = (): JSX.Element =>
 	);
 };
 
-interface LinkStateProps 
-{
+type LinkStateProps = {
 	projects: LinkedProjectProps[],
 	projectsStartIndex: number,
 	projectModalActive: boolean
-}
+};
 
-interface LinkDispatchProps 
-{
+type LinkDispatchProps = {
 	setProjectsIndex: (index: number) => void,
 	toggleProjectModalActive: (active: boolean) => void
-}
+};
 
 export type ReduxHomeProps = LinkStateProps & LinkDispatchProps;
 

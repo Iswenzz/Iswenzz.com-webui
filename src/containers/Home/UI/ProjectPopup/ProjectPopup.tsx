@@ -19,19 +19,19 @@ import "Common.scss";
 import "./ProjectPopup.scss";
 import {useTranslation} from "react-i18next";
 
-const hljs = require("highlight.js");
+const hljs = require("highlight.js"); // @todo ES6?
 
-export interface ProjectPopupState
-{
+export type ProjectPopupState = {
 	projectsLength: number,
 	projects: JSX.Element[] | null,
 	isDarkMode: boolean,
 	isPortrait: boolean,
 	isTabletOrMobileDevice: boolean
-}
+};
 
 /**
  * Modal container that shows all projects markdown in a ViewPager.
+ * @todo - useMemo can prob be usefull here.
  */
 export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 {

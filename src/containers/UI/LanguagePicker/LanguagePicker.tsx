@@ -39,7 +39,6 @@ export const LanguagePicker: FunctionComponent = (): JSX.Element =>
 	const toggleLanguage = (lang: Language): void =>
 	{
 		dispatch(actions.toggleLanguage(lang));
-		localStorage.setItem("language", lang);
 		handleClose();
 		window.location.reload();
 	};

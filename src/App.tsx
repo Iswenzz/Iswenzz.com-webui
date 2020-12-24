@@ -158,20 +158,18 @@ export const App: FunctionComponent<ReduxAppProps> = (props: ReduxAppProps): JSX
 	);
 };
 
-interface LinkStateProps
-{
+type LinkStateProps = {
 	browserInfo: ReturnType<typeof detect>,
 	isDarkMode: boolean,
 	isModalActive: boolean,
 	language: Language
-}
+};
 
-interface LinkDispatchProps
-{
+type LinkDispatchProps = {
 	toggleDarkMode: (active: boolean) => void,
 	toggleModalActive: (active: boolean) => void,
 	toggleLanguage: (active: Language) => void
-}
+};
 
 export type ReduxAppProps = LinkStateProps & LinkDispatchProps;
 

@@ -1,9 +1,8 @@
 import React, { PureComponent } from "react";
 
-export interface SpacingProps extends React.HTMLAttributes<HTMLDivElement>
-{
+export type SpacingProps = React.HTMLAttributes<HTMLDivElement> & {
 	height?: string
-}
+};
 
 /**
  * Spacing div component.

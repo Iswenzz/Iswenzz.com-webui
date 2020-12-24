@@ -6,22 +6,19 @@ export enum AppActionEnum {
 	TOGGLE_LANGUAGE = "TOGGLE_LANGUAGE"
 }
 
-export interface ToggleDarkMode
-{
+export type ToggleDarkMode = {
 	type: string,
 	active?: boolean
-}
+};
 
-export interface ToggleModalActive
-{
+export type ToggleModalActive = {
 	type: string,
 	active?: boolean
-}
+};
 
-export interface  ToggleLanguage
-{
+export type  ToggleLanguage = {
 	type: string,
 	active?: Language
-}
+};
 
 export type AppActions = ToggleDarkMode & ToggleModalActive & ToggleLanguage;

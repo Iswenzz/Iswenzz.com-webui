@@ -4,15 +4,14 @@ import { Typography, TypographyProps } from "@material-ui/core";
 import uuid from "uuid";
 import {useTranslation} from "react-i18next";
 
-export interface TrailProps extends TypographyProps
-{
+export type TrailProps = TypographyProps & {
 	height?: number,
 	items: string[],
 	active: boolean,
 	className?: string,
 	component?: ElementType,
 	i18n?: boolean
-}
+};
 
 const config: SpringConfig = {
 	mass: 5, 

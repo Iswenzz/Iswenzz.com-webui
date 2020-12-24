@@ -46,13 +46,12 @@ const useStyles = makeStyles(theme => ({
 	},
 }));
 
-export interface ContactFormValues
-{
+export type ContactFormValues = {
 	email?: string,
 	subject?: string,
 	message?: string,
 	token?: string
-}
+};
 
 export const contactFormInitial: ContactFormValues = {
 	email: "",
@@ -133,7 +132,7 @@ export const Contact: FunctionComponent = (): JSX.Element =>
 
 			try
 			{
-				let res: AxiosResponse<any> = await axios.post("https://iswenzz.com/contact", {
+				let res: AxiosResponse = await axios.post("https://iswenzz.com/contact", {
 					...values,
 					token: captcha_value ? captcha_value : ""
 				}, { 

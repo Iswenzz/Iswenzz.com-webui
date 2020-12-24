@@ -20,14 +20,12 @@ const playerConfig: Config = {
 	}
 };
 
-export interface LevelProps
-{
+export type LevelProps = {
 	currentLevel: LevelProject,
 	levels: LevelProject[]
-}
+};
 
-export interface LevelProject
-{
+export type LevelProject = {
 	name: string,
 	image: string,
 	description?: string,
@@ -35,7 +33,7 @@ export interface LevelProject
 	width?: string,
 	height?: string,
 	renderIcons?: IconProps[]
-}
+};
 
 const useStyles = makeStyles(theme => ({
 	darkCard: {

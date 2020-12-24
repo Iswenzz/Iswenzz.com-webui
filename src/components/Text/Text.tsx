@@ -3,12 +3,11 @@ import { Typography, TypographyProps } from "@material-ui/core";
 import uuid from "uuid";
 import {Trans} from "react-i18next";
 
-export interface TextProps extends TypographyProps
-{
+export type TextProps = TypographyProps & {
 	items: string[],
 	component?: ElementType,
 	i18n?: boolean
-}
+};
 
 /**
  * Typography wrapper for multiple strings.
