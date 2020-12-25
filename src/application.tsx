@@ -6,6 +6,8 @@ import { createStore, combineReducers, compose, applyMiddleware } from "redux";
 import App from "App";
 import appReducer from "store/reducer";
 import homeReducer from "containers/Home/store/reducer";
+import {ApolloClient, ApolloLink, ApolloProvider, HttpLink, InMemoryCache} from "@apollo/client";
+import {onError} from "@apollo/client/link/error";
 
 /**
  * Redux compose enhancers for development environment,
@@ -30,12 +32,49 @@ export type AppState = ReturnType<typeof rootReducer>;
 export const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
 
 /**
+ * Apollo Link for error handling.
+ */
+const linkError = onError(({ graphQLErrors, networkError }) =>
+{
+	if (graphQLErrors)
+	{
+		graphQLErrors.map(({ message, locations, path }) =>
+			console.error(
+				`[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`,
+			),
+		);
+	}
+	if (networkError)
+		console.error(`[Network error]: ${networkError}`);
+});
+
+/**
+ * Apollo Link server.
+ */
+const linkHttp = new HttpLink({
+	uri: "https://localhost/graphql",
+	headers: {
+		authorization: localStorage.getItem("token") || ""
+	}
+});
+
+/**
+ * GraphQL Apollo Client.
+ */
+export const apolloClient = new ApolloClient({
+	cache: new InMemoryCache(),
+	link: ApolloLink.from([linkError, linkHttp])
+});
+
+/**
  * Application main container with redux store provider.
  */
 export const application: JSX.Element = (
-	<Provider store={store}>
-		<App />
-	</Provider>
+	<ApolloProvider client={apolloClient}>
+		<Provider store={store}>
+			<App />
+		</Provider>
+	</ApolloProvider>
 );
 
 export default application;
