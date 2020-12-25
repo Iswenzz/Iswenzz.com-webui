@@ -7,6 +7,7 @@ import { useMediaQuery } from "react-responsive";
 import {motion, Variants} from "framer-motion";
 import "Common.scss";
 import "./Project.scss";
+import LazyLoad from "react-lazyload";
 
 export type ProjectRenderProps = {
 	renderUrl?: string,
@@ -84,16 +85,18 @@ export const Project: FunctionComponent<ProjectProps> = (props: ProjectProps): J
 			itemScope itemType="http://schema.org/SoftwareApplication" className="project">
 			<meta itemProp="image" content={props.currentProj.cardImage} />
 			<meta itemProp="downloadUrl" content={props.currentProj.sourceURL} />
-			<Card onClick={onToggle} className="project-card" 
-				style={{ backgroundImage: `url(${props.currentProj.cardImage})`,
-					width: cardSize.width, height: cardSize.height}}>
-				<CardActionArea className="project-card-action">
-					<Typography itemProp="name" variant="caption" align="center" paragraph component="p" 
-						style={{ fontSize: isTabletOrMobileDevice ? 14 : 20, height: cardSize.height / 3 }}>
-						{props.currentProj.title}
-					</Typography>
-				</CardActionArea>
-			</Card>
+			<LazyLoad height={cardSize.height}>
+				<Card onClick={onToggle} className="project-card"
+					  style={{ backgroundImage: `url(${props.currentProj.cardImage})`,
+						  width: cardSize.width, height: cardSize.height}}>
+					<CardActionArea className="project-card-action">
+						<Typography itemProp="name" variant="caption" align="center" paragraph component="p"
+							style={{ fontSize: isTabletOrMobileDevice ? 14 : 20, height: cardSize.height / 3 }}>
+							{props.currentProj.title}
+						</Typography>
+					</CardActionArea>
+				</Card>
+			</LazyLoad>
 		</motion.div>
 	);
 };

@@ -18,6 +18,8 @@ import AtomOneLight from "containers/UI/Highlight/AtomOneLight";
 import "Common.scss";
 import "./ProjectPopup.scss";
 import {useTranslation} from "react-i18next";
+import LazyLoad from "react-lazyload";
+import LazyImage from "../../../../components/LazyImage/LazyImage";
 
 const hljs = require("highlight.js"); // @todo ES6?
 
@@ -149,10 +151,10 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 								{project.renderIcons!.map(icon => (
 									<li key={uuid.v4()}>
 										<Tooltip arrow disableFocusListener disableTouchListener title={icon.name}>
-											<img onDragStart={(e) => e.preventDefault()} 
-												width={isPortrait || isTabletOrMobileDevice ? "42px" : "64px"} 
-												height={isPortrait || isTabletOrMobileDevice ? "42px" : "64px"} 
-												alt='lang' src={icon.src} />
+											<LazyImage onDragStart={(e) => e.preventDefault()}
+												 width={isPortrait || isTabletOrMobileDevice ? "42px" : "64px"}
+												 height={isPortrait || isTabletOrMobileDevice ? "42px" : "64px"}
+												 alt='lang' src={icon.src} />
 										</Tooltip>
 									</li>
 								))}
@@ -254,8 +256,8 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 				<section className="projectpopup">
 					<Tooltip open={projectModalActive} placement="right" arrow disableFocusListener 
 						disableTouchListener title={t("PROJECT_TOOLTIP_DRAG") as string}>
-						<img onDragStart={(e) => e.preventDefault()} className="projectpopup-tooltip-drag" alt='drag'
-							src={require("assets/images/misc/icons8-hand-drag-64.png")} />
+						<LazyImage onDragStart={(e) => e.preventDefault()} className="projectpopup-tooltip-drag" alt='drag'
+							 src={require("assets/images/misc/icons8-hand-drag-64.png")} />
 					</Tooltip>
 					{projectModalActive ? 
 						isDarkMode ? <VS2015>{getViewPager()}</VS2015> : <AtomOneLight>{getViewPager()}</AtomOneLight>
