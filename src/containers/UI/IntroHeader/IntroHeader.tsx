@@ -1,21 +1,12 @@
 import React, { FunctionComponent, memo } from "react";
 import { Parallax } from "react-parallax";
-import SplitText from "react-pose-text";
 import { Grid, Typography } from "@material-ui/core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-scroll";
 import {useTranslation} from "react-i18next";
 import "./IntroHeader.scss";
-
-const charPoses = {
-	exit: { opacity: 0, y: 20 },
-	enter: {
-		opacity: 1,
-		y: 0,
-		delay: ({ charIndex }: any) => charIndex * 30
-	}
-};
+import SplitText from "../../../components/SplitText/SplitText";
 
 export type IntroHeaderProps = {
 	title: string,
@@ -43,12 +34,12 @@ export const IntroHeader: FunctionComponent<IntroHeaderProps> = (props: IntroHea
 				<Grid component="section" container className="introheader-grid" 
 					direction="column" justify="center" alignItems="center">
 					<Typography className="calli-h1 bold noselect" align="center" variant="h1" component="h1">
-						<SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
+						<SplitText>
 							{t(props.title)}
 						</SplitText>
 					</Typography>
 					<Typography className="poiret bold noselect" align="center" variant="h3" component="h3">
-						<SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
+						<SplitText>
 							{t(props.desc)}
 						</SplitText>
 					</Typography>

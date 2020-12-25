@@ -1,8 +1,6 @@
 import React, { FunctionComponent, memo, useState, useRef } from "react";
 import RadialGradient, { GradiantProps } from "components/RadialGradient/RadialGradient";
 import { Grid, Container, Avatar, Button, makeStyles, CircularProgress, Typography } from "@material-ui/core";
-import axios, { AxiosResponse } from "axios";
-import posed from "react-pose";
 import VisibilitySensor from "react-visibility-sensor";
 import { useMediaQuery } from "react-responsive";
 import { Element } from "react-scroll";
@@ -12,11 +10,12 @@ import { Formik, Field, Form, FormikHelpers } from "formik";
 import { TextField } from "formik-material-ui";
 import ReCAPTCHA from "react-google-recaptcha";
 import { delay } from "utility/utility";
-import "Common.scss";
-import "./Contact.scss";
 import {Trans, useTranslation} from "react-i18next";
 import {gql, useMutation} from "@apollo/client";
 import {Mutation, MutationContactArgs} from "../../../../definitions/graphql";
+import {motion, Variants} from "framer-motion";
+import "Common.scss";
+import "./Contact.scss";
 
 const useStyles = makeStyles(theme => ({
 	avatar: {
@@ -62,13 +61,13 @@ export const contactFormInitial: ContactFormValues = {
 	token: ""
 };
 
-const Animation = posed.div({
+const animation: Variants = {
 	enter: { 
 		y: "0%", 
 		opacity: 1,
 		scale: 1,
 		transition: { 
-			duration: 1000,
+			duration: 1,
 			ease: "easeOut"
 		}
 	},
@@ -77,11 +76,11 @@ const Animation = posed.div({
 		opacity: 0,
 		scale: 0.4,
 		transition: { 
-			duration: 1000,
+			duration: 1,
 			ease: "easeIn"
 		}
 	}
-});
+};
 
 export const GRAPHQL_CONTACT = gql`
 mutation Contact($input: ContactInput!) {
@@ -147,12 +146,8 @@ export const Contact: FunctionComponent = (): JSX.Element =>
 				const res = await contact({
 					variables: {
 						input: {
-							subject: "",
-							email: "",
-							message: "",
-							token: "",
-							// ...values,
-							// token: captcha_value ? captcha_value : ""
+							...values,
+							token: captcha_value ? captcha_value : ""
 						}
 					}
 				});
@@ -241,11 +236,11 @@ export const Contact: FunctionComponent = (): JSX.Element =>
 					<Element name="contact-section" />
 					<RadialGradient config={config} style={{ paddingTop: "80px", paddingBottom: "120px" }}>
 						<Container>
-							<Animation pose={isVisible ? "enter" : "exit"} key="contact-anim">
+							<motion.div initial={"exit"} animate={isVisible ? "enter" : "exit"} variants={animation}>
 								{form}
-							</Animation>
+							</motion.div>
 						</Container>
-					</RadialGradient>	
+					</RadialGradient>
 				</section>
 			)}
 		</VisibilitySensor>

@@ -7,7 +7,7 @@ import { AppState } from "application";
 import Text from "components/Text/Text";
 import { Grid, Container, Divider } from "@material-ui/core";
 import VisibilitySensor from "react-visibility-sensor";
-import posed from "react-pose";
+import {motion, Variants} from "framer-motion";
 import TrailText from "components/TrailText/TrailText";
 import { useMediaQuery } from "react-responsive";
 import { Element } from "react-scroll";
@@ -28,13 +28,13 @@ export type IntroInfo = {
 
 export const introJSON: IntroInfo = require("./Intro.json");
 
-const AnimationUp = posed.div({
+const animationUp: Variants = {
 	enter: { 
 		y: "0%", 
 		opacity: 1,
 		scale: 1,
 		transition: { 
-			duration: 1000,
+			duration: 1,
 			ease: "easeOut"
 		}
 	},
@@ -43,19 +43,19 @@ const AnimationUp = posed.div({
 		opacity: 0,
 		scale: 1,
 		transition: { 
-			duration: 1000,
+			duration: 1,
 			ease: "easeIn"
 		}
 	}
-});
+};
 
-const AnimationRight = posed.div({
+const animationRight: Variants = {
 	enter: { 
 		x: "0%", 
 		opacity: 1,
 		scale: 1,
 		transition: { 
-			duration: 1000,
+			duration: 1,
 			ease: "easeOut"
 		}
 	},
@@ -64,19 +64,19 @@ const AnimationRight = posed.div({
 		opacity: 0,
 		scale: 1,
 		transition: { 
-			duration: 1000,
+			duration: 1,
 			ease: "easeIn"
 		}
 	}
-});
+};
 
-const AnimationLeft = posed.div({
+const animationLeft: Variants = {
 	enter: { 
 		x: "0%", 
 		opacity: 1,
 		scale: 1,
 		transition: { 
-			duration: 1000,
+			duration: 1,
 			ease: "easeOut"
 		}
 	},
@@ -85,11 +85,11 @@ const AnimationLeft = posed.div({
 		opacity: 0,
 		scale: 1,
 		transition: { 
-			duration: 1000,
+			duration: 1,
 			ease: "easeIn"
 		}
 	}
-});
+};
 
 /**
  * Container to introduce my portfolio and technological skills.
@@ -150,8 +150,7 @@ export const IntroSkill: FunctionComponent = (): JSX.Element =>
 				<VisibilitySensor partialVisibility offset={{ bottom: isTabletOrMobileDevice ? 20 : 200 }}>
 					{({ isVisible }) => (
 						<Grid className="intro-grid" container direction="row" justify="center" alignItems="center">
-							<AnimationUp className="intro-anim" pose={isVisible ? "enter" : "exit"} 
-								key="about-animation">
+							<motion.div className="intro-anim" initial={"exit"} animate={isVisible ? "enter" : "exit"}>
 								<Container component="header" maxWidth="md">
 									<Text i18n align="left" color="textPrimary" component="h2" variant="h2"
 										className='poiret-h1 noselect' items={[introJSON.header]} />
@@ -161,7 +160,7 @@ export const IntroSkill: FunctionComponent = (): JSX.Element =>
 									<Text i18n align="left" color="textPrimary" paragraph component="h4" variant="h4"
 										className='ubuntu-h4' items={[introJSON.desc]} />
 								</Container>
-							</AnimationUp>
+							</motion.div>
 						</Grid>
 					)}
 				</VisibilitySensor>
@@ -178,17 +177,17 @@ export const IntroSkill: FunctionComponent = (): JSX.Element =>
 				<VisibilitySensor partialVisibility offset={{ bottom: isTabletOrMobileDevice ? 10 : 200 }}>
 					{({ isVisible }) => (
 						<Container>
-							<AnimationLeft pose={isVisible ? "enter" : "exit"} key="about-skill-header-animation">
+							<motion.div variants={animationLeft} initial={"exit"} animate={isVisible ? "enter" : "exit"}>
 								<Container component="header" className="skill-container">
 									<TrailText i18n align="center" color="textPrimary" component="h2" variant="h2"
-										className='poiret-h1 noselect' active={isVisible} items={["TECHNO_SKILLS"]} />
+										className="poiret-h1 noselect" active={isVisible} items={["TECHNO_SKILLS"]} />
 									<Divider className="skill-divider" />
 								</Container>
-							</AnimationLeft>
+							</motion.div>
 							{isTabletOrMobileDevice ? skillGrid : (
-								<AnimationRight pose={isVisible ? "enter" : "exit"} key="about-skill-animation">
+								<motion.div variants={animationRight} initial={"exit"} animate={isVisible ? "enter" : "exit"}>
 									{skillGrid}
-								</AnimationRight>
+								</motion.div>
 							)}
 						</Container>
 					)}

@@ -4,7 +4,7 @@ import React, { FunctionComponent, memo } from "react";
 import { Card, CardActionArea, Typography } from "@material-ui/core";
 import { useDispatch } from "react-redux";
 import { useMediaQuery } from "react-responsive";
-import posed from "react-pose";
+import {motion, Variants} from "framer-motion";
 import "Common.scss";
 import "./Project.scss";
 
@@ -49,23 +49,6 @@ export type ProjectProps = {
 	visible?: boolean
 };
 
-const ZoomAnimation = posed.article({
-	hoverable: true,
-	pressable: true,
-	init: {
-		scale: 1,
-		boxShadow: "0px 0px 0px rgba(0,0,0,0)"
-	},
-	hover: {
-		scale: 1.2,
-		boxShadow: "0px 5px 10px rgba(0,0,0,0.2)"
-	},
-	press: {
-		scale: 1.1,
-		boxShadow: "0px 2px 5px rgba(0,0,0,0.1)"
-	}
-});
-
 /**
  * Project card container with a preview image, and dispatch ProjectPopup modal on click.
  * @param props - ProjectProps
@@ -97,7 +80,8 @@ export const Project: FunctionComponent<ProjectProps> = (props: ProjectProps): J
 	};
 
 	return (
-		<ZoomAnimation itemScope itemType="http://schema.org/SoftwareApplication" className="project">
+		<motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }}
+			itemScope itemType="http://schema.org/SoftwareApplication" className="project">
 			<meta itemProp="image" content={props.currentProj.cardImage} />
 			<meta itemProp="downloadUrl" content={props.currentProj.sourceURL} />
 			<Card onClick={onToggle} className="project-card" 
@@ -110,7 +94,7 @@ export const Project: FunctionComponent<ProjectProps> = (props: ProjectProps): J
 					</Typography>
 				</CardActionArea>
 			</Card>
-		</ZoomAnimation>
+		</motion.div>
 	);
 };
 

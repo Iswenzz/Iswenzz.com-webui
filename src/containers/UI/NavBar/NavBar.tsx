@@ -10,19 +10,19 @@ import { Fab, Typography, Drawer, AppBarProps } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 import { AppState } from "application";
 import { Flare, Brightness3 } from "@material-ui/icons";
-import posed, { PoseGroup } from "react-pose";
+import {motion, Variants} from "framer-motion";
 import MenuIcon from "@material-ui/icons/Menu";
 import { useScroll } from "react-use-gesture";
 import LanguagePicker from "../LanguagePicker/LanguagePicker";
 import {Trans} from "react-i18next";
 import "./NavBar.scss";
 
-const AnimationFixed = posed.div({
+const animationFixed: Variants = {
 	enter: { 
 		opacity: 1,
 		scale: 1,
 		transition: { 
-			duration: 500,
+			duration: 0.5,
 			ease: "easeOut"
 		}
 	},
@@ -30,18 +30,18 @@ const AnimationFixed = posed.div({
 		opacity: 0,
 		scale: 1.5,
 		transition: { 
-			duration: 500,
+			duration: 0.5,
 			ease: "easeIn"
 		}
 	}
-});
+};
 
-const AnimationAbsolute = posed.div({
+const animationAbsolute: Variants = {
 	enter: { 
 		opacity: 1,
 		scale: 1,
 		transition: { 
-			duration: 250,
+			duration: 0.25,
 			ease: "easeOut"
 		}
 	},
@@ -49,11 +49,11 @@ const AnimationAbsolute = posed.div({
 		opacity: 0,
 		scale: 0,
 		transition: { 
-			duration: 250,
+			duration: 0.25,
 			ease: "easeIn"
 		}
 	}
-});
+};
 
 const scrollConfig = {
 	domTarget: window,
@@ -226,17 +226,15 @@ export const NavBar: FunctionComponent<AppBarProps> = (props: AppBarProps): JSX.
 
 	return (
 		<nav className="navbar">
-			<PoseGroup flipMove={false}>
-				{canShowFixedNavBar() || process.env.NODE_ENV === "test" ? [
-					<AnimationFixed className="navbar-fixed" key="navBar-anim">
-						{navBar}
-					</AnimationFixed>
-				] : [
-					<AnimationAbsolute className="navbar-absolute" key="navBar-noanim">
-						{navBar}
-					</AnimationAbsolute>
-				]}
-			</PoseGroup>
+			{canShowFixedNavBar() || process.env.NODE_ENV === "test" ? (
+				<motion.div variants={animationFixed} className="navbar-fixed">
+					{navBar}
+				</motion.div>
+			) : (
+				<motion.div variants={animationAbsolute} className="navbar-absolute">
+					{navBar}
+				</motion.div>
+			)}
 		</nav>
 	);
 };

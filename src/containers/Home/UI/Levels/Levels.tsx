@@ -3,7 +3,7 @@ import RadialGradient, { GradiantProps } from "components/RadialGradient/RadialG
 import { Divider, Container, Grid } from "@material-ui/core";
 import EmblaCarousel from "components/EmblaCarousel/EmblaCarousel";
 import Level, { LevelProject } from "containers/Home/UI/Level/Level";
-import posed from "react-pose";
+import {motion, Variants} from "framer-motion";
 import VisibilitySensor from "react-visibility-sensor";
 import { Element } from "react-scroll";
 import { useMediaQuery } from "react-responsive";
@@ -13,13 +13,13 @@ import Text from "components/Text/Text";
 import "Common.scss";
 import "./Levels.scss";
 
-const Animation = posed.div({
+const animation: Variants = {
 	enter: { 
 		y: "0%", 
 		opacity: 1,
 		scale: 1,
 		transition: { 
-			duration: 1000,
+			duration: 1,
 			ease: "easeOut"
 		}
 	},
@@ -28,11 +28,11 @@ const Animation = posed.div({
 		opacity: 0,
 		scale: 0.4,
 		transition: { 
-			duration: 1000,
+			duration: 1,
 			ease: "easeIn"
 		}
 	}
-});
+};
 
 /**
  * Embla carousel container with all level design flip cards.
@@ -66,21 +66,21 @@ export const Levels: FunctionComponent = (): JSX.Element =>
 					<RadialGradient component="section" config={config} className="levels-gradient-grid">
 						<Grid container direction="column" justify="center" alignItems="center">
 							<Container component="header" className="levels-container">
-								<Animation pose={isVisible ? "enter" : "exit"} key="carousel-header-anim">
+								<motion.div variants={animation} initial={"exit"} animate={isVisible ? "enter" : "exit"}>
 									<Text i18n align="center" color="textPrimary" component="h2" variant="h2"
-										className='poiret-h1 noselect' items={["LEVEL_DESIGN"]} />
+										className="poiret-h1 noselect" items={["LEVEL_DESIGN"]} />
 									<Divider className="levels-divider" />
-								</Animation>
+								</motion.div>
 							</Container>
 							<Container className="levels-carousel-container" component="article">
-								<Animation pose={isVisible ? "enter" : "exit"} key="carousel-anim">
+								<motion.div variants={animation} initial={"exit"} animate={isVisible ? "enter" : "exit"}>
 									<EmblaCarousel width='100%' delayLength={10000} autoplay={false}
 										height={isPortrait ? "500px" : isTabletOrMobileDevice ? "350px" : "700px" }>
 										{levels.map((level: LevelProject) => (
 											<Level key={level.name} levels={levels} currentLevel={level} />
 										))}
 									</EmblaCarousel>
-								</Animation>
+								</motion.div>
 							</Container>
 						</Grid>
 					</RadialGradient>	

@@ -15,22 +15,13 @@ import { HomeActions } from "containers/Home/store/types";
 import { LinkedProjectProps } from "containers/Home/UI/Project/Project";
 import { Parallax } from "react-parallax";
 import { Typography } from "@material-ui/core";
-import SplitText from "react-pose-text";
 import ProjectPopup from "containers/Home/UI/ProjectPopup/ProjectPopup";
 import { Element } from "react-scroll";
 import { Spacing } from "components/Spacing/Spacing";
+import {useTranslation} from "react-i18next";
 import "Common.scss";
 import "./Home.scss";
-import {useTranslation} from "react-i18next";
-
-const charPoses = {
-	exit: { opacity: 0, y: 20 },
-	enter: {
-		opacity: 1,
-		y: 0,
-		delay: ({ charIndex }: any) => charIndex * 30
-	}
-};
+import SplitText from "../../components/SplitText/SplitText";
 
 /**
  * Home page container.
@@ -72,7 +63,7 @@ const Home: FunctionComponent = (): JSX.Element =>
 			<Parallax className="contact-parallax" bgImageAlt="index" strength={200} blur={1}
 				bgImage={require(`assets/images/index/${isDarkMode ? "55.jpg" : "t1.jpg"}`)}>
 				<Typography className="poiret-h1 bold noselect contact-typo" align="center" variant="h2" component="h2">
-					<SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
+					<SplitText>
 						{t("CONTACT_HEADER")}
 					</SplitText>
 				</Typography>
