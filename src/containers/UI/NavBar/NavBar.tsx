@@ -224,17 +224,15 @@ export const NavBar: FunctionComponent<AppBarProps> = (props: AppBarProps): JSX.
 		</AppBar>
 	);
 
+	const showFixed = canShowFixedNavBar() || process.env.NODE_ENV === "test";
 	return (
 		<nav className="navbar">
-			{canShowFixedNavBar() || process.env.NODE_ENV === "test" ? (
-				<motion.div variants={animationFixed} className="navbar-fixed">
-					{navBar}
-				</motion.div>
-			) : (
-				<motion.div variants={animationAbsolute} className="navbar-absolute">
-					{navBar}
-				</motion.div>
-			)}
+			<motion.div variants={animationFixed} animate={showFixed ? "enter" : "exit"} className="navbar-fixed">
+				{navBar}
+			</motion.div>
+			<motion.div variants={animationAbsolute} animate={!showFixed ? "enter" : "exit"} className="navbar-absolute">
+				{navBar}
+			</motion.div>
 		</nav>
 	);
 };
