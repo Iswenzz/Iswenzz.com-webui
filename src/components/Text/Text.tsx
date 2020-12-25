@@ -28,10 +28,11 @@ class Text extends Component<TextProps>
 
 	render(): JSX.Element
 	{
+		const { i18n , ...rest } = this.props;
 		return (
 			<>
 				{this.props.items.map(item => (
-					<Typography {...this.props} key={uuid.v4()}>
+					<Typography {...rest} key={uuid.v4()}>
 						{this.props.i18n ? <Trans>{item}</Trans> : item}
 					</Typography>
 				))}

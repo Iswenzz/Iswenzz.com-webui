@@ -15,6 +15,8 @@ import { delay } from "utility/utility";
 import "Common.scss";
 import "./Contact.scss";
 import {Trans, useTranslation} from "react-i18next";
+import {gql, useMutation} from "@apollo/client";
+import {Mutation, MutationContactArgs} from "../../../../definitions/graphql";
 
 const useStyles = makeStyles(theme => ({
 	avatar: {
@@ -47,16 +49,17 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export type ContactFormValues = {
-	email?: string,
-	subject?: string,
-	message?: string,
-	token?: string
+	email: string,
+	subject: string,
+	message: string,
+	token: string
 };
 
 export const contactFormInitial: ContactFormValues = {
 	email: "",
 	subject: "",
-	message: ""
+	message: "",
+	token: ""
 };
 
 const Animation = posed.div({
@@ -80,6 +83,11 @@ const Animation = posed.div({
 	}
 });
 
+export const GRAPHQL_CONTACT = gql`
+mutation Contact($input: ContactInput!) {
+  contact(input: $input)
+}`;
+
 /**
  * Contact container to send an email.
  */
@@ -90,6 +98,7 @@ export const Contact: FunctionComponent = (): JSX.Element =>
 	const isTabletOrMobileDevice = useMediaQuery({ query: "(max-device-width: 1224px)" });
 	const classes = useStyles();
 	const recaptchaRef = useRef<ReCAPTCHA>(null);
+	const [contact] = useMutation<Mutation, MutationContactArgs>(GRAPHQL_CONTACT);
 
 	const [loading, setLoading] = useState(false);
 	const [success, setSuccess] = useState(false);
@@ -120,9 +129,11 @@ export const Contact: FunctionComponent = (): JSX.Element =>
 		// if the form as valid information send a post req
 		if (Object.values(values).every(item => item !== undefined && item !== null))
 		{
+			// init ReCAPTCHA
 			await (recaptchaRef.current as any).executeAsync();
+
 			// show progress circle
-			if (!loading) 
+			if (!loading)
 			{
 				setSuccess(false);
 				setFail(false);
@@ -132,13 +143,21 @@ export const Contact: FunctionComponent = (): JSX.Element =>
 
 			try
 			{
-				let res: AxiosResponse = await axios.post("https://iswenzz.com/contact", {
-					...values,
-					token: captcha_value ? captcha_value : ""
-				}, { 
-					headers: { "Accept": "application/json", "Content-Type": "application/json" } 
+				// send graphql contact req
+				const res = await contact({
+					variables: {
+						input: {
+							subject: "",
+							email: "",
+							message: "",
+							token: "",
+							// ...values,
+							// token: captcha_value ? captcha_value : ""
+						}
+					}
 				});
-				res.data.status === "success" ? await mailSuccess() : await mailFail();
+				console.log(res);
+				res.data?.contact ? await mailSuccess() : await mailFail();
 				recaptchaRef.current?.reset();
 			}
 			catch (err)
