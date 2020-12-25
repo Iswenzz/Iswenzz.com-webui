@@ -6,11 +6,11 @@
         "showTitle": false,
         "width": "200px",
         "height": "100px",
-        "cardImage": "https://iswenzz.com:1337/iswenzz/projects/aion_chat.jpg",
+        "cardImage": "https://iswenzz.com/iswenzz/projects/aion_chat.jpg",
         "renderUrl": "https://raw.githubusercontent.com/Iswenzz/AION-Chat/master/README.md",
         "renderIcons": [
-            {"name": "C#", "src": "https://iswenzz.com:1337/iswenzz/devicons/csharp.svg"},
-            {"name": ".NET", "src": "https://iswenzz.com:1337/iswenzz/devicons/dotnet.svg"}
+            {"name": "C#", "src": "https://iswenzz.com/iswenzz/devicons/csharp.svg"},
+            {"name": ".NET", "src": "https://iswenzz.com/iswenzz/devicons/dotnet.svg"}
         ]
     },
     {
@@ -19,13 +19,13 @@
         "showTitle": false,
         "width": "200px",
         "height": "100px",
-        "cardImage": "https://iswenzz.com:1337/iswenzz/projects/izengine.jpg",
-        "renderUrl": "https://iswenzz.com:1337/iswenzz/md/IzEngine.md",
+        "cardImage": "https://iswenzz.com/iswenzz/projects/izengine.jpg",
+        "renderUrl": "https://iswenzz.com/iswenzz/md/IzEngine.md",
         "renderIcons": [
-            {"name": "C#", "src": "https://iswenzz.com:1337/iswenzz/devicons/csharp.svg"},
-            {"name": ".NET", "src": "https://iswenzz.com:1337/iswenzz/devicons/dotnet.svg"},
-            {"name": "SharpDX", "src": "https://iswenzz.com:1337/iswenzz/devicons/sharpdx.svg"},
-            {"name": "DirectX", "src": "https://iswenzz.com:1337/iswenzz/devicons/directx.svg"}
+            {"name": "C#", "src": "https://iswenzz.com/iswenzz/devicons/csharp.svg"},
+            {"name": ".NET", "src": "https://iswenzz.com/iswenzz/devicons/dotnet.svg"},
+            {"name": "SharpDX", "src": "https://iswenzz.com/iswenzz/devicons/sharpdx.svg"},
+            {"name": "DirectX", "src": "https://iswenzz.com/iswenzz/devicons/directx.svg"}
         ]
     },
     {
@@ -35,11 +35,11 @@
         "showTitle": false,
         "width": "200px",
         "height": "100px",
-        "cardImage": "https://iswenzz.com:1337/iswenzz/projects/aion_encdec.jpg",
+        "cardImage": "https://iswenzz.com/iswenzz/projects/aion_encdec.jpg",
         "renderUrl": "https://raw.githubusercontent.com/Iswenzz/AION-Encdec/master/README.md",
         "renderIcons": [
-            {"name": "C#", "src": "https://iswenzz.com:1337/iswenzz/devicons/csharp.svg"},
-            {"name": ".NET", "src": "https://iswenzz.com:1337/iswenzz/devicons/dotnet.svg"}
+            {"name": "C#", "src": "https://iswenzz.com/iswenzz/devicons/csharp.svg"},
+            {"name": ".NET", "src": "https://iswenzz.com/iswenzz/devicons/dotnet.svg"}
         ]
     },
     {
@@ -49,12 +49,12 @@
         "showTitle": false,
         "width": "200px",
         "height": "100px",
-        "cardImage": "https://iswenzz.com:1337/iswenzz/projects/cod4x_utility.jpg",
+        "cardImage": "https://iswenzz.com/iswenzz/projects/cod4x_utility.jpg",
         "renderUrl": "https://raw.githubusercontent.com/Iswenzz/CoD4x-Utility/master/README.md",
         "renderIcons": [
-            {"name": "Assembly", "src": "https://iswenzz.com:1337/iswenzz/devicons/assembly.svg"},
-            {"name": "C#", "src": "https://iswenzz.com:1337/iswenzz/devicons/csharp.svg"},
-            {"name": ".NET", "src": "https://iswenzz.com:1337/iswenzz/devicons/dotnet.svg"}
+            {"name": "Assembly", "src": "https://iswenzz.com/iswenzz/devicons/assembly.svg"},
+            {"name": "C#", "src": "https://iswenzz.com/iswenzz/devicons/csharp.svg"},
+            {"name": ".NET", "src": "https://iswenzz.com/iswenzz/devicons/dotnet.svg"}
         ]
     },
     {
@@ -64,10 +64,10 @@
         "showTitle": false,
         "width": "200px",
         "height": "100px",
-        "cardImage": "https://iswenzz.com:1337/iswenzz/projects/cgsc.jpg",
+        "cardImage": "https://iswenzz.com/iswenzz/projects/cgsc.jpg",
         "renderUrl": "https://raw.githubusercontent.com/Iswenzz/CGSC/master/README.md",
         "renderIcons": [
-            {"name": "C", "src": "https://iswenzz.com:1337/iswenzz/devicons/c.svg"}
+            {"name": "C", "src": "https://iswenzz.com/iswenzz/devicons/c.svg"}
         ]
     },
     {
@@ -77,10 +77,10 @@
         "showTitle": false,
         "width": "200px",
         "height": "100px",
-        "cardImage": "https://iswenzz.com:1337/iswenzz/projects/gsclib.jpg",
+        "cardImage": "https://iswenzz.com/iswenzz/projects/gsclib.jpg",
         "renderUrl": "https://raw.githubusercontent.com/Iswenzz/gsclib/master/README.md",
         "renderIcons": [
-            {"name": "C", "src": "https://iswenzz.com:1337/iswenzz/devicons/c.svg"}
+            {"name": "C", "src": "https://iswenzz.com/iswenzz/devicons/c.svg"}
         ]
     },
     {
@@ -89,13 +89,13 @@
         "showTitle": false,
         "width": "200px",
         "height": "100px",
-        "cardImage": "https://iswenzz.com:1337/iswenzz/projects/sr_speedrun.jpg",
-        "renderUrl": "https://iswenzz.com:1337/iswenzz/md/sr_speedrun.md",
+        "cardImage": "https://iswenzz.com/iswenzz/projects/sr_speedrun.jpg",
+        "renderUrl": "https://iswenzz.com/iswenzz/md/sr_speedrun.md",
         "renderIcons": [
-            {"name": "GSC", "src": "https://iswenzz.com:1337/iswenzz/devicons/gsc.svg"},
-            {"name": "C", "src": "https://iswenzz.com:1337/iswenzz/devicons/c.svg"},
-            {"name": "Maya", "src": "https://iswenzz.com:1337/iswenzz/devicons/maya.svg"},
-            {"name": "3DS Max", "src": "https://iswenzz.com:1337/iswenzz/devicons/3ds-max.svg"}
+            {"name": "GSC", "src": "https://iswenzz.com/iswenzz/devicons/gsc.svg"},
+            {"name": "C", "src": "https://iswenzz.com/iswenzz/devicons/c.svg"},
+            {"name": "Maya", "src": "https://iswenzz.com/iswenzz/devicons/maya.svg"},
+            {"name": "3DS Max", "src": "https://iswenzz.com/iswenzz/devicons/3ds-max.svg"}
         ]
     },
     {
@@ -104,12 +104,12 @@
         "showTitle": false,
         "width": "200px",
         "height": "100px",
-        "cardImage": "https://iswenzz.com:1337/iswenzz/projects/sr_deathrun.jpg",
-        "renderUrl": "https://iswenzz.com:1337/iswenzz/md/sr_deathrun.md",
+        "cardImage": "https://iswenzz.com/iswenzz/projects/sr_deathrun.jpg",
+        "renderUrl": "https://iswenzz.com/iswenzz/md/sr_deathrun.md",
         "renderIcons": [
-            {"name": "GSC", "src": "https://iswenzz.com:1337/iswenzz/devicons/gsc.svg"},
-            {"name": "Maya", "src": "https://iswenzz.com:1337/iswenzz/devicons/maya.svg"},
-            {"name": "3DS Max", "src": "https://iswenzz.com:1337/iswenzz/devicons/3ds-max.svg"}
+            {"name": "GSC", "src": "https://iswenzz.com/iswenzz/devicons/gsc.svg"},
+            {"name": "Maya", "src": "https://iswenzz.com/iswenzz/devicons/maya.svg"},
+            {"name": "3DS Max", "src": "https://iswenzz.com/iswenzz/devicons/3ds-max.svg"}
         ]
     },
     {
@@ -119,12 +119,12 @@
         "showTitle": false,
         "width": "200px",
         "height": "100px",
-        "cardImage": "https://iswenzz.com:1337/iswenzz/projects/sr_battleroyale.jpg",
+        "cardImage": "https://iswenzz.com/iswenzz/projects/sr_battleroyale.jpg",
         "renderUrl": "https://raw.githubusercontent.com/Iswenzz/CoD4-Battleroyale/master/README.md",
         "renderIcons": [
-            {"name": "GSC", "src": "https://iswenzz.com:1337/iswenzz/devicons/gsc.svg"},
-            {"name": "Maya", "src": "https://iswenzz.com:1337/iswenzz/devicons/maya.svg"},
-            {"name": "3DS Max", "src": "https://iswenzz.com:1337/iswenzz/devicons/3ds-max.svg"}
+            {"name": "GSC", "src": "https://iswenzz.com/iswenzz/devicons/gsc.svg"},
+            {"name": "Maya", "src": "https://iswenzz.com/iswenzz/devicons/maya.svg"},
+            {"name": "3DS Max", "src": "https://iswenzz.com/iswenzz/devicons/3ds-max.svg"}
         ]
     },
     {
@@ -134,11 +134,11 @@
         "showTitle": false,
         "width": "200px",
         "height": "100px",
-        "cardImage": "https://iswenzz.com:1337/iswenzz/projects/ctgpr_ghost_downloader.jpg",
+        "cardImage": "https://iswenzz.com/iswenzz/projects/ctgpr_ghost_downloader.jpg",
         "renderUrl": "https://raw.githubusercontent.com/Iswenzz/CTGP-R-Ghost-Downloader/master/README.md",
         "renderIcons": [
-            {"name": "VB", "src": "https://iswenzz.com:1337/iswenzz/devicons/vb.svg"},
-            {"name": ".NET", "src": "https://iswenzz.com:1337/iswenzz/devicons/dotnet.svg"}
+            {"name": "VB", "src": "https://iswenzz.com/iswenzz/devicons/vb.svg"},
+            {"name": ".NET", "src": "https://iswenzz.com/iswenzz/devicons/dotnet.svg"}
         ]
     },
     {
@@ -148,10 +148,10 @@
         "showTitle": false,
         "width": "200px",
         "height": "100px",
-        "cardImage": "https://iswenzz.com:1337/iswenzz/projects/q3_to_cod4_map_converter.jpg",
+        "cardImage": "https://iswenzz.com/iswenzz/projects/q3_to_cod4_map_converter.jpg",
         "renderUrl": "https://raw.githubusercontent.com/Iswenzz/Q3-Map-Converter/master/README.md",
         "renderIcons": [
-            {"name": "Python", "src": "https://iswenzz.com:1337/iswenzz/devicons/python.svg"}
+            {"name": "Python", "src": "https://iswenzz.com/iswenzz/devicons/python.svg"}
         ]
     },
     {
@@ -161,13 +161,13 @@
         "showTitle": false,
         "width": "200px",
         "height": "100px",
-        "cardImage": "https://iswenzz.com:1337/iswenzz/projects/sr_app.jpg",
+        "cardImage": "https://iswenzz.com/iswenzz/projects/sr_app.jpg",
         "renderUrl": "https://raw.githubusercontent.com/Iswenzz/SR-App/master/README.md",
         "renderIcons": [
-            {"name": "Javascript", "src": "https://iswenzz.com:1337/iswenzz/devicons/javascript.svg"},
-            {"name": "ElectronJS", "src": "https://iswenzz.com:1337/iswenzz/devicons/electronjs.svg"},
-            {"name": "ExpressJS", "src": "https://iswenzz.com:1337/iswenzz/devicons/expressjs.svg"},
-            {"name": "JQuery", "src": "https://iswenzz.com:1337/iswenzz/devicons/jquery.svg"}
+            {"name": "Javascript", "src": "https://iswenzz.com/iswenzz/devicons/javascript.svg"},
+            {"name": "ElectronJS", "src": "https://iswenzz.com/iswenzz/devicons/electronjs.svg"},
+            {"name": "ExpressJS", "src": "https://iswenzz.com/iswenzz/devicons/expressjs.svg"},
+            {"name": "JQuery", "src": "https://iswenzz.com/iswenzz/devicons/jquery.svg"}
         ]
     },
     {
@@ -177,12 +177,12 @@
         "showTitle": false,
         "width": "200px",
         "height": "100px",
-        "cardImage": "https://iswenzz.com:1337/iswenzz/projects/cod4x_velocity_meter.jpg",
+        "cardImage": "https://iswenzz.com/iswenzz/projects/cod4x_velocity_meter.jpg",
         "renderUrl": "https://raw.githubusercontent.com/Iswenzz/CoD4x-Velocity-Meter/master/README.md",
         "renderIcons": [
-            {"name": "C++", "src": "https://iswenzz.com:1337/iswenzz/devicons/cpp.svg"},
-            {"name": "C#", "src": "https://iswenzz.com:1337/iswenzz/devicons/csharp.svg"},
-            {"name": ".NET", "src": "https://iswenzz.com:1337/iswenzz/devicons/dotnet.svg"}
+            {"name": "C++", "src": "https://iswenzz.com/iswenzz/devicons/cpp.svg"},
+            {"name": "C#", "src": "https://iswenzz.com/iswenzz/devicons/csharp.svg"},
+            {"name": ".NET", "src": "https://iswenzz.com/iswenzz/devicons/dotnet.svg"}
         ]
     },
     {
@@ -192,10 +192,10 @@
         "showTitle": false,
         "width": "200px",
         "height": "100px",
-        "cardImage": "https://iswenzz.com:1337/iswenzz/projects/izinjector.jpg",
+        "cardImage": "https://iswenzz.com/iswenzz/projects/izinjector.jpg",
         "renderUrl": "https://raw.githubusercontent.com/Iswenzz/IzInjector/master/README.md",
         "renderIcons": [
-            {"name": "C", "src": "https://iswenzz.com:1337/iswenzz/devicons/c.svg"}
+            {"name": "C", "src": "https://iswenzz.com/iswenzz/devicons/c.svg"}
         ]
     },
     {
@@ -205,11 +205,11 @@
         "showTitle": false,
         "width": "200px",
         "height": "100px",
-        "cardImage": "https://iswenzz.com:1337/iswenzz/projects/auto_clicker.jpg",
+        "cardImage": "https://iswenzz.com/iswenzz/projects/auto_clicker.jpg",
         "renderUrl": "https://raw.githubusercontent.com/Iswenzz/Auto-Clicker/master/README.md",
         "renderIcons": [
-            {"name": "C#", "src": "https://iswenzz.com:1337/iswenzz/devicons/csharp.svg"},
-            {"name": ".NET", "src": "https://iswenzz.com:1337/iswenzz/devicons/dotnet.svg"}
+            {"name": "C#", "src": "https://iswenzz.com/iswenzz/devicons/csharp.svg"},
+            {"name": ".NET", "src": "https://iswenzz.com/iswenzz/devicons/dotnet.svg"}
         ]
     },
     {
@@ -219,12 +219,12 @@
         "showTitle": false,
         "width": "200px",
         "height": "100px",
-        "cardImage": "https://iswenzz.com:1337/iswenzz/projects/xml_id_checker.jpg",
+        "cardImage": "https://iswenzz.com/iswenzz/projects/xml_id_checker.jpg",
         "renderUrl": "https://raw.githubusercontent.com/Iswenzz/XML-ID-Checker/master/README.md",
         "renderIcons": [
-            {"name": "C++", "src": "https://iswenzz.com:1337/iswenzz/devicons/cpp.svg"},
-            {"name": "C#", "src": "https://iswenzz.com:1337/iswenzz/devicons/csharp.svg"},
-            {"name": ".NET", "src": "https://iswenzz.com:1337/iswenzz/devicons/dotnet.svg"}
+            {"name": "C++", "src": "https://iswenzz.com/iswenzz/devicons/cpp.svg"},
+            {"name": "C#", "src": "https://iswenzz.com/iswenzz/devicons/csharp.svg"},
+            {"name": ".NET", "src": "https://iswenzz.com/iswenzz/devicons/dotnet.svg"}
         ]
     },
     {
@@ -234,12 +234,12 @@
         "showTitle": false,
         "width": "200px",
         "height": "100px",
-        "cardImage": "https://iswenzz.com:1337/iswenzz/projects/iswenzz.jpg",
+        "cardImage": "https://iswenzz.com/iswenzz/projects/iswenzz.jpg",
         "renderUrl": "https://raw.githubusercontent.com/Iswenzz/Iswenzz.com/master/README.md",
         "renderIcons": [
-            {"name": "Typescript", "src": "https://iswenzz.com:1337/iswenzz/devicons/typescript.svg"},
-            {"name": "React", "src": "https://iswenzz.com:1337/iswenzz/devicons/react.svg"},
-            {"name": "Redux", "src": "https://iswenzz.com:1337/iswenzz/devicons/redux.svg"}
+            {"name": "Typescript", "src": "https://iswenzz.com/iswenzz/devicons/typescript.svg"},
+            {"name": "React", "src": "https://iswenzz.com/iswenzz/devicons/react.svg"},
+            {"name": "Redux", "src": "https://iswenzz.com/iswenzz/devicons/redux.svg"}
         ]
     },
     {
@@ -249,11 +249,11 @@
         "showTitle": false,
         "width": "200px",
         "height": "100px",
-        "cardImage": "https://iswenzz.com:1337/iswenzz/projects/gsc_parser.jpg",
+        "cardImage": "https://iswenzz.com/iswenzz/projects/gsc_parser.jpg",
         "renderUrl": "https://raw.githubusercontent.com/Iswenzz/GSC-Parser/master/README.md",
         "renderIcons": [
-            {"name": "C#", "src": "https://iswenzz.com:1337/iswenzz/devicons/csharp.svg"},
-            {"name": ".NET", "src": "https://iswenzz.com:1337/iswenzz/devicons/dotnet.svg"}
+            {"name": "C#", "src": "https://iswenzz.com/iswenzz/devicons/csharp.svg"},
+            {"name": ".NET", "src": "https://iswenzz.com/iswenzz/devicons/dotnet.svg"}
         ]
     },
     {
@@ -262,11 +262,11 @@
         "showTitle": false,
         "width": "200px",
         "height": "100px",
-        "cardImage": "https://iswenzz.com:1337/iswenzz/projects/aion_client.jpg",
-        "renderUrl": "https://iswenzz.com:1337/iswenzz/md/aion_client.md",
+        "cardImage": "https://iswenzz.com/iswenzz/projects/aion_client.jpg",
+        "renderUrl": "https://iswenzz.com/iswenzz/md/aion_client.md",
         "renderIcons": [
-            {"name": "Assembly", "src": "https://iswenzz.com:1337/iswenzz/devicons/assembly.svg"},
-            {"name": "C++", "src": "https://iswenzz.com:1337/iswenzz/devicons/cpp.svg"}
+            {"name": "Assembly", "src": "https://iswenzz.com/iswenzz/devicons/assembly.svg"},
+            {"name": "C++", "src": "https://iswenzz.com/iswenzz/devicons/cpp.svg"}
         ]
     },
     {
@@ -275,10 +275,10 @@
         "showTitle": false,
         "width": "200px",
         "height": "100px",
-        "cardImage": "https://iswenzz.com:1337/iswenzz/projects/aion_project.jpg",
-        "renderUrl": "https://iswenzz.com:1337/iswenzz/md/aion_project.md",
+        "cardImage": "https://iswenzz.com/iswenzz/projects/aion_project.jpg",
+        "renderUrl": "https://iswenzz.com/iswenzz/md/aion_project.md",
         "renderIcons": [
-            {"name": "Java", "src": "https://iswenzz.com:1337/iswenzz/devicons/java.svg"}
+            {"name": "Java", "src": "https://iswenzz.com/iswenzz/devicons/java.svg"}
         ]
     },
     {
@@ -287,14 +287,14 @@
         "showTitle": false,
         "width": "200px",
         "height": "100px",
-        "cardImage": "https://iswenzz.com:1337/iswenzz/projects/aion_project_website.jpg",
-        "renderUrl": "https://iswenzz.com:1337/iswenzz/md/aion_project_website.md",
+        "cardImage": "https://iswenzz.com/iswenzz/projects/aion_project_website.jpg",
+        "renderUrl": "https://iswenzz.com/iswenzz/md/aion_project_website.md",
         "renderIcons": [
-            {"name": "Typescript", "src": "https://iswenzz.com:1337/iswenzz/devicons/typescript.svg"},
-            {"name": "React", "src": "https://iswenzz.com:1337/iswenzz/devicons/react.svg"},
-            {"name": "Redux", "src": "https://iswenzz.com:1337/iswenzz/devicons/redux.svg"},
-            {"name": "WebGL", "src": "https://iswenzz.com:1337/iswenzz/devicons/webgl.svg"},
-            {"name": "MySQL", "src": "https://iswenzz.com:1337/iswenzz/devicons/mysql.svg"}
+            {"name": "Typescript", "src": "https://iswenzz.com/iswenzz/devicons/typescript.svg"},
+            {"name": "React", "src": "https://iswenzz.com/iswenzz/devicons/react.svg"},
+            {"name": "Redux", "src": "https://iswenzz.com/iswenzz/devicons/redux.svg"},
+            {"name": "WebGL", "src": "https://iswenzz.com/iswenzz/devicons/webgl.svg"},
+            {"name": "MySQL", "src": "https://iswenzz.com/iswenzz/devicons/mysql.svg"}
         ]
     },
     {
@@ -304,11 +304,11 @@
         "showTitle": false,
         "width": "200px",
         "height": "100px",
-        "cardImage": "https://iswenzz.com:1337/iswenzz/projects/speedrun_bot.jpg",
+        "cardImage": "https://iswenzz.com/iswenzz/projects/speedrun_bot.jpg",
         "renderUrl": "https://raw.githubusercontent.com/Iswenzz/Speedrun-BOT/master/README.md",
         "renderIcons": [
-            {"name": "C#", "src": "https://iswenzz.com:1337/iswenzz/devicons/csharp.svg"},
-            {"name": ".NET", "src": "https://iswenzz.com:1337/iswenzz/devicons/dotnet.svg"}
+            {"name": "C#", "src": "https://iswenzz.com/iswenzz/devicons/csharp.svg"},
+            {"name": ".NET", "src": "https://iswenzz.com/iswenzz/devicons/dotnet.svg"}
         ]
     },
     {
@@ -318,10 +318,10 @@
         "showTitle": false,
         "width": "200px",
         "height": "100px",
-        "cardImage": "https://iswenzz.com:1337/iswenzz/projects/iwd_optimizer.jpg",
+        "cardImage": "https://iswenzz.com/iswenzz/projects/iwd_optimizer.jpg",
         "renderUrl": "https://raw.githubusercontent.com/Iswenzz/IWD-Optimizer/master/README.md",
         "renderIcons": [
-            {"name": "Python", "src": "https://iswenzz.com:1337/iswenzz/devicons/python.svg"}
+            {"name": "Python", "src": "https://iswenzz.com/iswenzz/devicons/python.svg"}
         ]
     },
     {
@@ -331,13 +331,13 @@
         "showTitle": false,
         "width": "200px",
         "height": "100px",
-        "cardImage": "https://iswenzz.com:1337/iswenzz/projects/aion_database_parser.jpg",
+        "cardImage": "https://iswenzz.com/iswenzz/projects/aion_database_parser.jpg",
         "renderUrl": "https://raw.githubusercontent.com/Iswenzz/AION-Database-Parser/master/README.md",
         "renderIcons": [
-            {"name": "C#", "src": "https://iswenzz.com:1337/iswenzz/devicons/csharp.svg"},
-            {"name": ".NET", "src": "https://iswenzz.com:1337/iswenzz/devicons/dotnet.svg"},
-            {"name": "Selenium", "src": "https://iswenzz.com:1337/iswenzz/devicons/selenium.svg"},
-            {"name": "PhantomJS", "src": "https://iswenzz.com:1337/iswenzz/devicons/phantomjs.svg"}
+            {"name": "C#", "src": "https://iswenzz.com/iswenzz/devicons/csharp.svg"},
+            {"name": ".NET", "src": "https://iswenzz.com/iswenzz/devicons/dotnet.svg"},
+            {"name": "Selenium", "src": "https://iswenzz.com/iswenzz/devicons/selenium.svg"},
+            {"name": "PhantomJS", "src": "https://iswenzz.com/iswenzz/devicons/phantomjs.svg"}
         ]
     },
     {
@@ -347,11 +347,11 @@
         "showTitle": false,
         "width": "200px",
         "height": "100px",
-        "cardImage": "https://iswenzz.com:1337/iswenzz/projects/iswenzz_ui.jpg",
+        "cardImage": "https://iswenzz.com/iswenzz/projects/iswenzz_ui.jpg",
         "renderUrl": "https://raw.githubusercontent.com/Iswenzz/Iswenzz-UI/master/README.md",
         "renderIcons": [
-            {"name": "C#", "src": "https://iswenzz.com:1337/iswenzz/devicons/csharp.svg"},
-            {"name": ".NET", "src": "https://iswenzz.com:1337/iswenzz/devicons/dotnet.svg"}
+            {"name": "C#", "src": "https://iswenzz.com/iswenzz/devicons/csharp.svg"},
+            {"name": ".NET", "src": "https://iswenzz.com/iswenzz/devicons/dotnet.svg"}
         ]
     },
     {
@@ -361,10 +361,10 @@
         "showTitle": false,
         "width": "200px",
         "height": "100px",
-        "cardImage": "https://iswenzz.com:1337/iswenzz/projects/aion_music.jpg",
+        "cardImage": "https://iswenzz.com/iswenzz/projects/aion_music.jpg",
         "renderUrl": "https://raw.githubusercontent.com/Iswenzz/AION-Music/master/README.md",
         "renderIcons": [
-            {"name": "Java", "src": "https://iswenzz.com:1337/iswenzz/devicons/java.svg"}
+            {"name": "Java", "src": "https://iswenzz.com/iswenzz/devicons/java.svg"}
         ]
     }
 ]

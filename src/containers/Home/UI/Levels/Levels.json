@@ -1,110 +1,110 @@
 [
 	{
 		"name": "Mirrors Edge",
-		"image": "https://iswenzz.com:1337/iswenzz/levels/mp_dr_mirrors_edge/1.jpg",
+		"image": "https://iswenzz.com/iswenzz/levels/mp_dr_mirrors_edge/1.jpg",
 		"description": "This is a recreation of the prologue level of the game Mirror's Edge. This map utilizes the entirety of the Call of Duty 4 game engine, and pushes the game to it's limits.",
 		"videoUrl": "https://www.youtube.com/watch?v=DgjmWXsrc8E",
 		"renderIcons": [
-			{"name": "Radiant", "src": "https://iswenzz.com:1337/iswenzz/devicons/radiant.svg"},
-            {"name": "Maya", "src": "https://iswenzz.com:1337/iswenzz/devicons/maya.svg"},
-			{"name": "3DS Max", "src": "https://iswenzz.com:1337/iswenzz/devicons/3ds-max.svg"},
-			{"name": "Photoshop", "src": "https://iswenzz.com:1337/iswenzz/devicons/photoshop.svg"},
-			{"name": "Crazy Bump", "src": "https://iswenzz.com:1337/iswenzz/devicons/crazybump.svg"},
-			{"name": "Vegas Pro", "src": "https://iswenzz.com:1337/iswenzz/devicons/vegas.svg"},
-			{"name": "Milkshape 3D", "src": "https://iswenzz.com:1337/iswenzz/devicons/milkshape.svg"},
-			{"name": "Meshlab", "src": "https://iswenzz.com:1337/iswenzz/devicons/meshlab.svg"}
+			{"name": "Radiant", "src": "https://iswenzz.com/iswenzz/devicons/radiant.svg"},
+            {"name": "Maya", "src": "https://iswenzz.com/iswenzz/devicons/maya.svg"},
+			{"name": "3DS Max", "src": "https://iswenzz.com/iswenzz/devicons/3ds-max.svg"},
+			{"name": "Photoshop", "src": "https://iswenzz.com/iswenzz/devicons/photoshop.svg"},
+			{"name": "Crazy Bump", "src": "https://iswenzz.com/iswenzz/devicons/crazybump.svg"},
+			{"name": "Vegas Pro", "src": "https://iswenzz.com/iswenzz/devicons/vegas.svg"},
+			{"name": "Milkshape 3D", "src": "https://iswenzz.com/iswenzz/devicons/milkshape.svg"},
+			{"name": "Meshlab", "src": "https://iswenzz.com/iswenzz/devicons/meshlab.svg"}
         ]
 	},
 	{
 		"name": "Train Rush",
-		"image": "https://iswenzz.com:1337/iswenzz/levels/mp_dr_train_rush/1.jpg",
+		"image": "https://iswenzz.com/iswenzz/levels/mp_dr_train_rush/1.jpg",
 		"description": "A recreation of the level Train Rush from the game A Hat in Time and also the level Time Rift - The Moon as a secret. This map took roughly 1 month to make.",
 		"videoUrl": "https://www.youtube.com/watch?v=PpfoMNMNZ5w",
 		"renderIcons": [
-			{"name": "Radiant", "src": "https://iswenzz.com:1337/iswenzz/devicons/radiant.svg"},
-            {"name": "Maya", "src": "https://iswenzz.com:1337/iswenzz/devicons/maya.svg"},
-			{"name": "3DS Max", "src": "https://iswenzz.com:1337/iswenzz/devicons/3ds-max.svg"},
-			{"name": "Photoshop", "src": "https://iswenzz.com:1337/iswenzz/devicons/photoshop.svg"},
-			{"name": "Crazy Bump", "src": "https://iswenzz.com:1337/iswenzz/devicons/crazybump.svg"},
-			{"name": "Ninja Ripper", "src": "https://iswenzz.com:1337/iswenzz/devicons/ninjaripper.svg"}
+			{"name": "Radiant", "src": "https://iswenzz.com/iswenzz/devicons/radiant.svg"},
+            {"name": "Maya", "src": "https://iswenzz.com/iswenzz/devicons/maya.svg"},
+			{"name": "3DS Max", "src": "https://iswenzz.com/iswenzz/devicons/3ds-max.svg"},
+			{"name": "Photoshop", "src": "https://iswenzz.com/iswenzz/devicons/photoshop.svg"},
+			{"name": "Crazy Bump", "src": "https://iswenzz.com/iswenzz/devicons/crazybump.svg"},
+			{"name": "Ninja Ripper", "src": "https://iswenzz.com/iswenzz/devicons/ninjaripper.svg"}
         ]
 	},
 	{
 		"name": "N64 Bowser Castle",
-		"image": "https://iswenzz.com:1337/iswenzz/levels/mp_slide_n64_bowser_c/1.jpg",
+		"image": "https://iswenzz.com/iswenzz/levels/mp_slide_n64_bowser_c/1.jpg",
 		"description": "This map is a recreation of the level, N64 Bowser's Castle from Mario Kart Wii, the creation of this map took approximately one week.",
 		"videoUrl": "https://www.youtube.com/watch?v=tKMtIIM5eGU",
 		"renderIcons": [
-			{"name": "Radiant", "src": "https://iswenzz.com:1337/iswenzz/devicons/radiant.svg"},
-            {"name": "Maya", "src": "https://iswenzz.com:1337/iswenzz/devicons/maya.svg"},
-			{"name": "Blender", "src": "https://iswenzz.com:1337/iswenzz/devicons/blender.svg"},
-			{"name": "Photoshop", "src": "https://iswenzz.com:1337/iswenzz/devicons/photoshop.svg"},
-			{"name": "Wii Scrubber", "src": "https://iswenzz.com:1337/iswenzz/devicons/wiiscrubber.svg"},
-			{"name": "SZS Modifier", "src": "https://iswenzz.com:1337/iswenzz/devicons/szsmodifier.svg"}
+			{"name": "Radiant", "src": "https://iswenzz.com/iswenzz/devicons/radiant.svg"},
+            {"name": "Maya", "src": "https://iswenzz.com/iswenzz/devicons/maya.svg"},
+			{"name": "Blender", "src": "https://iswenzz.com/iswenzz/devicons/blender.svg"},
+			{"name": "Photoshop", "src": "https://iswenzz.com/iswenzz/devicons/photoshop.svg"},
+			{"name": "Wii Scrubber", "src": "https://iswenzz.com/iswenzz/devicons/wiiscrubber.svg"},
+			{"name": "SZS Modifier", "src": "https://iswenzz.com/iswenzz/devicons/szsmodifier.svg"}
         ]
 	},
 	{
 		"name": "Blackout",
-		"image": "https://iswenzz.com:1337/iswenzz/levels/mp_br_blackout/2.jpg",
+		"image": "https://iswenzz.com/iswenzz/levels/mp_br_blackout/2.jpg",
 		"description": "This map is designed for 30+ players, and was created for the Sr- Battleroyale mod. This map utilizes the entirety of the Call of Duty 4 game engine, and pushes the game to it's limits. ",
 		"videoUrl": "",
 		"renderIcons": [
-			{"name": "Radiant", "src": "https://iswenzz.com:1337/iswenzz/devicons/radiant.svg"},
-            {"name": "Maya", "src": "https://iswenzz.com:1337/iswenzz/devicons/maya.svg"},
-			{"name": "3DS Max", "src": "https://iswenzz.com:1337/iswenzz/devicons/3ds-max.svg"},
-			{"name": "Photoshop", "src": "https://iswenzz.com:1337/iswenzz/devicons/photoshop.svg"},
-			{"name": "World Machine", "src": "https://iswenzz.com:1337/iswenzz/devicons/worldmachine.svg"},
-			{"name": "UModel", "src": "https://iswenzz.com:1337/iswenzz/devicons/unreal-engine.svg"}
+			{"name": "Radiant", "src": "https://iswenzz.com/iswenzz/devicons/radiant.svg"},
+            {"name": "Maya", "src": "https://iswenzz.com/iswenzz/devicons/maya.svg"},
+			{"name": "3DS Max", "src": "https://iswenzz.com/iswenzz/devicons/3ds-max.svg"},
+			{"name": "Photoshop", "src": "https://iswenzz.com/iswenzz/devicons/photoshop.svg"},
+			{"name": "World Machine", "src": "https://iswenzz.com/iswenzz/devicons/worldmachine.svg"},
+			{"name": "UModel", "src": "https://iswenzz.com/iswenzz/devicons/unreal-engine.svg"}
         ]
 	},
 	{
 		"name": "Medieval Village",
-		"image": "https://iswenzz.com:1337/iswenzz/levels/medieval_village/3.jpg",
+		"image": "https://iswenzz.com/iswenzz/levels/medieval_village/3.jpg",
 		"description": "This is a Medieval village scene. I made this in roughly 1 week using Unreal Engine 4. ",
 		"videoUrl": "https://www.youtube.com/watch?v=3qs9xnKlGlU",
 		"renderIcons": [
-            {"name": "Unreal Engine 4", "src": "https://iswenzz.com:1337/iswenzz/devicons/unreal-engine.svg"},
-            {"name": "Maya", "src": "https://iswenzz.com:1337/iswenzz/devicons/maya.svg"},
-			{"name": "Speedtree", "src": "https://iswenzz.com:1337/iswenzz/devicons/speedtree.svg"},
-			{"name": "Photoshop", "src": "https://iswenzz.com:1337/iswenzz/devicons/photoshop.svg"},
-			{"name": "World Machine", "src": "https://iswenzz.com:1337/iswenzz/devicons/worldmachine.svg"}
+            {"name": "Unreal Engine 4", "src": "https://iswenzz.com/iswenzz/devicons/unreal-engine.svg"},
+            {"name": "Maya", "src": "https://iswenzz.com/iswenzz/devicons/maya.svg"},
+			{"name": "Speedtree", "src": "https://iswenzz.com/iswenzz/devicons/speedtree.svg"},
+			{"name": "Photoshop", "src": "https://iswenzz.com/iswenzz/devicons/photoshop.svg"},
+			{"name": "World Machine", "src": "https://iswenzz.com/iswenzz/devicons/worldmachine.svg"}
         ]
 	},
 	{
 		"name": "Super Mario 64",
-		"image": "https://iswenzz.com:1337/iswenzz/levels/mp_dr_sm64/2.jpg",
+		"image": "https://iswenzz.com/iswenzz/levels/mp_dr_sm64/2.jpg",
 		"description": "This map is a recreation of the Peach Castle and the first level Bob-omb Battlefield. This is recreated from the classic game Super Mario 64. ",
 		"videoUrl": "https://www.youtube.com/watch?v=4S_twub-mZo",
 		"renderIcons": [
-			{"name": "Radiant", "src": "https://iswenzz.com:1337/iswenzz/devicons/radiant.svg"},
-            {"name": "Blender", "src": "https://iswenzz.com:1337/iswenzz/devicons/blender.svg"},
-			{"name": "Photoshop", "src": "https://iswenzz.com:1337/iswenzz/devicons/photoshop.svg"}
+			{"name": "Radiant", "src": "https://iswenzz.com/iswenzz/devicons/radiant.svg"},
+            {"name": "Blender", "src": "https://iswenzz.com/iswenzz/devicons/blender.svg"},
+			{"name": "Photoshop", "src": "https://iswenzz.com/iswenzz/devicons/photoshop.svg"}
         ]
 	},
 	{
 		"name": "Portal 2",
-		"image": "https://iswenzz.com:1337/iswenzz/levels/mp_dr_portal/2.jpg",
+		"image": "https://iswenzz.com/iswenzz/levels/mp_dr_portal/2.jpg",
 		"description": "This map is a recreation of the introduction level of Portal 2.",
 		"videoUrl": "https://www.youtube.com/watch?v=lU5C_cHDvQQ",
 		"renderIcons": [
-			{"name": "Radiant", "src": "https://iswenzz.com:1337/iswenzz/devicons/radiant.svg"},
-            {"name": "Maya", "src": "https://iswenzz.com:1337/iswenzz/devicons/maya.svg"},
-			{"name": "GCFScape", "src": "https://iswenzz.com:1337/iswenzz/devicons/gcfscape.svg"},
-			{"name": "VTFEdit", "src": "https://iswenzz.com:1337/iswenzz/devicons/vtfedit.svg"},
-			{"name": "Photoshop", "src": "https://iswenzz.com:1337/iswenzz/devicons/photoshop.svg"},
-			{"name": "Crazy Bump", "src": "https://iswenzz.com:1337/iswenzz/devicons/crazybump.svg"}
+			{"name": "Radiant", "src": "https://iswenzz.com/iswenzz/devicons/radiant.svg"},
+            {"name": "Maya", "src": "https://iswenzz.com/iswenzz/devicons/maya.svg"},
+			{"name": "GCFScape", "src": "https://iswenzz.com/iswenzz/devicons/gcfscape.svg"},
+			{"name": "VTFEdit", "src": "https://iswenzz.com/iswenzz/devicons/vtfedit.svg"},
+			{"name": "Photoshop", "src": "https://iswenzz.com/iswenzz/devicons/photoshop.svg"},
+			{"name": "Crazy Bump", "src": "https://iswenzz.com/iswenzz/devicons/crazybump.svg"}
         ]
 	},
 	{
 		"name": "Toujane",
-		"image": "https://iswenzz.com:1337/iswenzz/levels/mp_toujane/2.jpg",
+		"image": "https://iswenzz.com/iswenzz/levels/mp_toujane/2.jpg",
 		"description": "The most popular map from the classic Call of Duty 2, ported and remastered in Call of Duty 4. ",
 		"videoUrl": "https://www.youtube.com/watch?v=ATimP1R-rJ4",
 		"renderIcons": [
-			{"name": "Radiant", "src": "https://iswenzz.com:1337/iswenzz/devicons/radiant.svg"},
-            {"name": "Maya", "src": "https://iswenzz.com:1337/iswenzz/devicons/maya.svg"},
-			{"name": "Photoshop", "src": "https://iswenzz.com:1337/iswenzz/devicons/photoshop.svg"},
-			{"name": "Crazy Bump", "src": "https://iswenzz.com:1337/iswenzz/devicons/crazybump.svg"}
+			{"name": "Radiant", "src": "https://iswenzz.com/iswenzz/devicons/radiant.svg"},
+            {"name": "Maya", "src": "https://iswenzz.com/iswenzz/devicons/maya.svg"},
+			{"name": "Photoshop", "src": "https://iswenzz.com/iswenzz/devicons/photoshop.svg"},
+			{"name": "Crazy Bump", "src": "https://iswenzz.com/iswenzz/devicons/crazybump.svg"}
         ]
 	}
 ]

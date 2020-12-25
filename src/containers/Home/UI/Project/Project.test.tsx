@@ -15,8 +15,8 @@ const project: LinkedProjectProps = {
 	cardImage: "https://i.imgur.com/tyhB0rJ.png",
 	renderUrl: "https://raw.githubusercontent.com/Iswenzz/AION-Chat/master/README.md",
 	renderIcons: [
-		{"name": "C#", "src": "https://iswenzz.com:1337/iswenzz/devicons/csharp.svg"},
-		{"name": ".NET", "src": "https://iswenzz.com:1337/iswenzz/devicons/dotnet.svg"}
+		{"name": "C#", "src": "https://iswenzz.com/iswenzz/devicons/csharp.svg"},
+		{"name": ".NET", "src": "https://iswenzz.com/iswenzz/devicons/dotnet.svg"}
 	]
 };
 

@@ -150,7 +150,7 @@ export const IntroSkill: FunctionComponent = (): JSX.Element =>
 				<VisibilitySensor partialVisibility offset={{ bottom: isTabletOrMobileDevice ? 20 : 200 }}>
 					{({ isVisible }) => (
 						<Grid className="intro-grid" container direction="row" justify="center" alignItems="center">
-							<motion.div className="intro-anim" initial={"exit"} animate={isVisible ? "enter" : "exit"}>
+							<motion.div className="intro-anim" variants={animationUp} initial={"exit"} animate={isVisible ? "enter" : "exit"}>
 								<Container component="header" maxWidth="md">
 									<Text i18n align="left" color="textPrimary" component="h2" variant="h2"
 										className='poiret-h1 noselect' items={[introJSON.header]} />

@@ -34,7 +34,7 @@ export const DocViewer: FunctionComponent = (): JSX.Element =>
 	 */
 	const loadDoc = (link: string, hash?: string): void =>
 	{
-		fetch(`https://iswenzz.com:1337/iswenzz/docs/cgsc/${link}`).then(response => response.text()).then(text => 
+		fetch(`https://iswenzz.com/iswenzz/docs/cgsc/${link}`).then(response => response.text()).then(text =>
 		{
 			let div = document.getElementById("doc-test");
 			if (div)
@@ -62,7 +62,7 @@ export const DocViewer: FunctionComponent = (): JSX.Element =>
 					iframe.setAttribute("frameborder", "0");
 
 					// @todo test url first
-					let url: string = `https://iswenzz.com:1337/iswenzz/docs/cgsc/${link.replace(".html", "")}`;
+					let url: string = `https://iswenzz.com/iswenzz/docs/cgsc/${link.replace(".html", "")}`;
 					switch (i)
 					{
 						case 0: // deps
