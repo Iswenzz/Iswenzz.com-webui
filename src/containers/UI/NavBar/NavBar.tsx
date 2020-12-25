@@ -10,14 +10,14 @@ import { Fab, Typography, Drawer, AppBarProps } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 import { AppState } from "application";
 import { Flare, Brightness3 } from "@material-ui/icons";
-import {motion, Variants} from "framer-motion";
+import {AnimatePresence, motion, Variants} from "framer-motion";
 import MenuIcon from "@material-ui/icons/Menu";
 import { useScroll } from "react-use-gesture";
 import LanguagePicker from "../LanguagePicker/LanguagePicker";
 import {Trans} from "react-i18next";
 import "./NavBar.scss";
 
-const animationFixed: Variants = {
+const animationFixed = {
 	enter: { 
 		opacity: 1,
 		scale: 1,
@@ -36,7 +36,7 @@ const animationFixed: Variants = {
 	}
 };
 
-const animationAbsolute: Variants = {
+const animationAbsolute = {
 	enter: { 
 		opacity: 1,
 		scale: 1,
@@ -227,12 +227,22 @@ export const NavBar: FunctionComponent<AppBarProps> = (props: AppBarProps): JSX.
 	const showFixed = canShowFixedNavBar() || process.env.NODE_ENV === "test";
 	return (
 		<nav className="navbar">
-			<motion.div variants={animationFixed} animate={showFixed ? "enter" : "exit"} className="navbar-fixed">
-				{navBar}
-			</motion.div>
-			<motion.div variants={animationAbsolute} animate={!showFixed ? "enter" : "exit"} className="navbar-absolute">
-				{navBar}
-			</motion.div>
+			<AnimatePresence>
+				{showFixed && (
+					<motion.div initial={animationFixed.exit} animate={animationFixed.enter} exit={animationFixed.exit}
+						className="navbar-fixed">
+						{navBar}
+					</motion.div>
+				)}
+			</AnimatePresence>
+			<AnimatePresence>
+				{!showFixed && (
+					<motion.div initial={animationAbsolute.enter} animate={animationAbsolute.enter} exit={animationAbsolute.exit}
+						className="navbar-absolute">
+						{navBar}
+					</motion.div>
+				)}
+			</AnimatePresence>
 		</nav>
 	);
 };

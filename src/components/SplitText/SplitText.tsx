@@ -22,11 +22,12 @@ export const SplitText: FunctionComponent<SplitTextProps> = (props: SplitTextPro
 			{words.map((c, i) => (
 				<div key={props.children + i} style={{ display: "inline-block" }}>
 					<motion.div
-						initial={{ y: "100%" }}
+						initial={{ y: "100%", opacity: 0 }}
 						animate="visible"
 						variants={{
 							visible: i => ({
 								y: 0,
+								opacity: 1,
 								transition: {
 									delay: i * 0.05
 								}
