@@ -33,6 +33,7 @@
 		"enquire.js": "^2.1.6",
 		"formik": "^2.2.6",
 		"formik-material-ui": "^2.0.1",
+		"graphql": "^15.4.0",
 		"highlight.js": "^10.5.0",
 		"i18next": "^19.8.4",
 		"i18next-browser-languagedetector": "^6.0.1",
