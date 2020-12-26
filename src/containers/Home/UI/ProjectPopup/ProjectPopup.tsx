@@ -96,10 +96,16 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 	 */
 	const renderProject = useCallback(async (project: LinkedProjectProps): Promise<JSX.Element> =>
 	{
-		const res: AxiosResponse<string> = await axios.get(project.renderUrl!);
-		let text = res.data;
-		if (text.includes("404: Not Found"))
-			text = `${t("PROJECT_WIP")}`;
+		let text: string;
+		try
+		{
+			const res: AxiosResponse<string> = await axios.get(project.renderUrl!);
+			text = res.data;
+		}
+		catch (e)
+		{
+			text = t("PROJECT_WIP");
+		}
 
 		// convert markdown to html
 		let md: MarkdownIt = MarkdownIt.default({
