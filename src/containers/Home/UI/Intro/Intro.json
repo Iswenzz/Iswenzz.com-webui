@@ -8,18 +8,23 @@
 			"points": [
 				"• Javascript ES7+",
 				"• Typescript",
+				"• PHP 7+",
 				"• HTML5",
-				"• CSS & SCSS / SASS"
+				"• CSS3 & SCSS / SASS",
+				"• REST & GraphQL APIs"
 			]
 		},
 		{
 			"title": "WEB_STACKS",
 			"points": [
-				"• React",
-				"• Redux",
-				"• JQuery",
-				"• MySQL / MangoDB",
-				"• Bootstrap / Material UI"
+				"• React Redux Apollo",
+				"• Mithril Webpack",
+				"• MySQL MariaDB MongoDB",
+				"• Express Electron TypeORM TypeGraphQL",
+				"• Bootstrap / Material UI",
+				"• Three MapboxGL",
+				"• Symfony",
+				"• JQuery"
 			]
 		},
 		{
@@ -40,7 +45,7 @@
 				"• .NET",
 				"• Qt",
 				"• Winform & WPF",
-				"• DirectX",
+				"• DirectX & SharpDX",
 				"• Selenium"
 			]
 		},
