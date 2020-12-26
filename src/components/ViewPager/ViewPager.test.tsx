@@ -21,7 +21,12 @@ describe("[Component] <ViewPager>", () =>
 
 	beforeEach(() => 
 	{
-		wrapper = mount(<ViewPager bgcolor={"#202326"} config={{...getConfig()}} />);
+		wrapper = mount(<ViewPager bgcolor={"#202326"} config={{...getConfig()}} items={[
+			<p>1</p>,
+			<p>2</p>,
+			<p>3</p>,
+			<p>4</p>
+		]} />);
 	});
 
 	it("Testing component", () => 

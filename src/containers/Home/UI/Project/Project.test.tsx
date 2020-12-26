@@ -4,6 +4,7 @@ import { Project, LinkedProjectProps, ProjectProps } from "./Project";
 import * as redux from "react-redux";
 import { Card } from "@material-ui/core";
 import { store } from "application";
+import LazyLoad from "react-lazyload";
 
 const project: LinkedProjectProps = {
 	title: "AION Chat",
@@ -35,6 +36,6 @@ describe("[Container] <Project>", () =>
 
 	it("Testing component", () => 
 	{
-		wrapper.find(Card).simulate("click");
+		wrapper.find(LazyLoad).children().simulate("click");
 	});
 });

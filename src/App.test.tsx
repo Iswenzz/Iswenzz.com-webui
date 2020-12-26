@@ -4,15 +4,18 @@ import { App } from "App";
 import * as redux from "react-redux";
 import { Context } from "react-responsive";
 import { store } from "application";
+import {MockedProvider} from "@apollo/client/testing";
 
 describe("[Root] <App>", () => 
 {
 	it("Starting application", () => 
 	{
 		mount((
-			<redux.Provider store={store}>
-				<App {...store.getState().app} />
-			</redux.Provider>
+			<MockedProvider>
+				<redux.Provider store={store}>
+					<App {...store.getState().app} />
+				</redux.Provider>
+			</MockedProvider>
 		));
 	});
     
@@ -20,11 +23,13 @@ describe("[Root] <App>", () =>
 	{
 		const Context = React.createContext({});
 		mount((
-			<redux.Provider store={store}>
-				<Context.Provider value={{orientation: "portrait"}}>
-					<App {...store.getState().app} />
-				</Context.Provider>
-			</redux.Provider>
+			<MockedProvider>
+				<redux.Provider store={store}>
+					<Context.Provider value={{orientation: "portrait"}}>
+						<App {...store.getState().app} />
+					</Context.Provider>
+				</redux.Provider>
+			</MockedProvider>
 		));
 	});
 
@@ -32,29 +37,35 @@ describe("[Root] <App>", () =>
 	{
 		const Context = React.createContext({});
 		mount((
-			<redux.Provider store={store}>
-				<Context.Provider value={{maxDeviceWidth: "1224px"}}>
-					<App {...store.getState().app} />
-				</Context.Provider>
-			</redux.Provider>
+			<MockedProvider>
+				<redux.Provider store={store}>
+					<Context.Provider value={{maxDeviceWidth: "1224px"}}>
+						<App {...store.getState().app} />
+					</Context.Provider>
+				</redux.Provider>
+			</MockedProvider>
 		));
 	});
 
 	it("Dark mode", () =>
 	{
 		mount((
-			<redux.Provider store={store}>
-				<App {...store.getState().app} isDarkMode={true} />
-			</redux.Provider>
+			<MockedProvider>
+				<redux.Provider store={store}>
+					<App {...store.getState().app} isDarkMode={true} />
+				</redux.Provider>
+			</MockedProvider>
 		));
 	});
 
 	it("Modal active", () =>
 	{
 		mount((
-			<redux.Provider store={store}>
-				<App {...store.getState().app} isModalActive={true} />
-			</redux.Provider>
+			<MockedProvider>
+				<redux.Provider store={store}>
+					<App {...store.getState().app} isModalActive={true} />
+				</redux.Provider>
+			</MockedProvider>
 		));
 	});
 });
