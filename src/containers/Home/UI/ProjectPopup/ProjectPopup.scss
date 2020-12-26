@@ -36,6 +36,14 @@
 	#{&}-tooltip-drag {
 		margin: 10px;
 	}
+
+	#{&}-loader {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		height: 100%;
+	}
 	
 	#{&}-md {
 		article * {

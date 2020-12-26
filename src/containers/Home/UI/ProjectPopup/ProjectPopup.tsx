@@ -1,7 +1,17 @@
 import * as actions from "store/actions";
 import * as homeActions from "containers/Home/store/actions";
 import React, {FunctionComponent, memo, useCallback, useEffect, useMemo, useState} from "react";
-import { DialogContent, Fab, Grid, Modal, Fade, Backdrop, Tooltip, DialogTitle } from "@material-ui/core";
+import {
+	DialogContent,
+	Fab,
+	Grid,
+	Modal,
+	Fade,
+	Backdrop,
+	Tooltip,
+	DialogTitle,
+	CircularProgress
+} from "@material-ui/core";
 import { Close, Lock } from "@material-ui/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faOsi } from "@fortawesome/free-brands-svg-icons";
@@ -89,7 +99,7 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 	 * @param project - Project to render.
 	 * @param i - Project index.
 	 */
-	const renderProject = useCallback(async (project: LinkedProjectProps, i: number): Promise<JSX.Element> =>
+	const renderProject = useCallback(async (project: LinkedProjectProps): Promise<JSX.Element> =>
 	{
 		const res: AxiosResponse<string> = await axios.get(project.renderUrl!);
 		let text = res.data;
@@ -194,9 +204,20 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 	 */
 	const onIndexChange = (index: number): void =>
 	{
-		renderProject(projects[index], index).then((page: JSX.Element) =>
+		// Loader
+		const updatedProjects = state.projects;
+		updatedProjects[index] = (
+			<section className={"projectpopup-loader"}>
+				<CircularProgress color={"secondary"} />
+			</section>
+		);
+		setState({
+			projects: updatedProjects
+		});
+
+		// Render the page
+		renderProject(projects[index]).then((page: JSX.Element) =>
 		{
-			const updatedProjects = state.projects;
 			updatedProjects[index] = page;
 			setState({
 				projects: updatedProjects
