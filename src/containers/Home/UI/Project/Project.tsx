@@ -4,7 +4,7 @@ import React, { FunctionComponent, memo } from "react";
 import { Card, CardActionArea, Typography } from "@material-ui/core";
 import { useDispatch } from "react-redux";
 import { useMediaQuery } from "react-responsive";
-import {motion, Variants} from "framer-motion";
+import {motion} from "framer-motion";
 import "Common.scss";
 import "./Project.scss";
 import LazyLoad from "react-lazyload";

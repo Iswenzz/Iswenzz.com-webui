@@ -140,7 +140,7 @@ export const Level: FunctionComponent<LevelProps> = (props: LevelProps): JSX.Ele
 									<LazyImage onDragStart={(e) => e.preventDefault()} className="level-tooltip-img"
 										width={isPortrait || isTabletOrMobileDevice ? "32" : "64"}
 										height={isPortrait || isTabletOrMobileDevice ? "32" : "64"}
-										alt='lang' src={icon.src} />
+										alt="" src={icon.src} />
 								</Tooltip>
 							</li>
 						))}

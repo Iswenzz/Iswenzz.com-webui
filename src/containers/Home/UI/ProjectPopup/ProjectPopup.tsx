@@ -1,6 +1,6 @@
 import * as actions from "store/actions";
 import * as homeActions from "containers/Home/store/actions";
-import React, {FunctionComponent, memo, useCallback, useEffect, useMemo, useState} from "react";
+import React, {FunctionComponent, memo, useCallback, useMemo, useState} from "react";
 import {
 	DialogContent,
 	Fab,
@@ -163,7 +163,7 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 											<LazyImage onDragStart={(e) => e.preventDefault()}
 												 width={isPortrait || isTabletOrMobileDevice ? "42px" : "64px"}
 												 height={isPortrait || isTabletOrMobileDevice ? "42px" : "64px"}
-												 alt='lang' src={icon.src} />
+												 alt="" src={icon.src} />
 										</Tooltip>
 									</li>
 								))}

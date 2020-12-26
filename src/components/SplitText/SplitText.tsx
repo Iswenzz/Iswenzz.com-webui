@@ -1,4 +1,4 @@
-import React, {FunctionComponent, useMemo, useState} from "react";
+import React, {FunctionComponent, useMemo} from "react";
 import { motion } from "framer-motion";
 
 export type SplitTextProps = {

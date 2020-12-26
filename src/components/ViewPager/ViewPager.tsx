@@ -35,7 +35,7 @@ export const ViewPager: FunctionComponent<ViewPagerProps> = (props: ViewPagerPro
 {
 	const [index, setIndex] = useState(props.startIndex !== undefined ? props.startIndex : 0);
 	const [divRef, setDivRef] = useState<HTMLElement | null>(null);
-	
+
 	const [springProps, set] = useSprings(props.items.length, i => ({
 		x: i * window.innerWidth,
 		scale: 1,

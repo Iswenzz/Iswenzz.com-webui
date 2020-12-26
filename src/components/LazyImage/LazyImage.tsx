@@ -9,11 +9,11 @@ export type LazyImageProps = LazyLoadProps & React.DetailedHTMLProps<React.ImgHT
 export const LazyImage = forwardRef<LazyLoad, LazyImageProps>((props: LazyImageProps, ref: Ref<LazyLoad>): JSX.Element =>
 {
 	const { children, once, height, offset, overflow, resize, scroll, throttle, debounce, placeholder, scrollContainer,
-		unmountIfInvisible, preventLoading, classNamePrefix, ...rest } = props;
+		unmountIfInvisible, preventLoading, classNamePrefix, alt, ...rest } = props;
 
 	return (
 		<LazyLoad ref={ref} once={once} height={height} offset={offset} overflow={overflow}>
-			<img {...rest} height={height} />
+			<img alt={alt || ""} {...rest} height={height} />
 		</LazyLoad>
 	);
 });

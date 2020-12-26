@@ -10,7 +10,7 @@ import { Fab, Typography, Drawer, AppBarProps } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 import { AppState } from "application";
 import { Flare, Brightness3 } from "@material-ui/icons";
-import {AnimatePresence, motion, Variants} from "framer-motion";
+import {AnimatePresence, motion} from "framer-motion";
 import MenuIcon from "@material-ui/icons/Menu";
 import { useScroll } from "react-use-gesture";
 import LanguagePicker from "../LanguagePicker/LanguagePicker";
