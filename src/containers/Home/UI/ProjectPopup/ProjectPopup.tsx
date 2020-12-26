@@ -28,17 +28,12 @@ import AtomOneLight from "containers/UI/Highlight/AtomOneLight";
 import {useTranslation} from "react-i18next";
 import LazyImage from "../../../../components/LazyImage/LazyImage";
 import axios, {AxiosResponse} from "axios";
+import hljs from "highlight.js";
 import "Common.scss";
 import "./ProjectPopup.scss";
 
-const hljs = require("highlight.js"); // @todo ES6?
-
 export type ProjectPopupState = {
-	projectsLength: number,
-	projects: JSX.Element[] | null,
-	isDarkMode: boolean,
-	isPortrait: boolean,
-	isTabletOrMobileDevice: boolean
+	projects: JSX.Element[]
 };
 
 /**
@@ -52,7 +47,7 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 	const projectsStartIndex = useSelector((state: AppState) => state.home.projectsStartIndex);
 	const projectModalActive = useSelector((state: AppState) => state.home.projectModalActive);
 	const dispatch = useDispatch();
-	const [state, setState] = useState({
+	const [state, setState] = useState<ProjectPopupState>({
 		projects: new Array(projects.length).fill("")
 	});
 
@@ -239,7 +234,7 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 				<section className="projectpopup">
 					<Tooltip open={projectModalActive} placement="right" arrow disableFocusListener 
 						disableTouchListener title={t("PROJECT_TOOLTIP_DRAG") as string}>
-						<LazyImage onDragStart={(e) => e.preventDefault()} className="projectpopup-tooltip-drag" alt='drag'
+						<img onDragStart={(e) => e.preventDefault()} className="projectpopup-tooltip-drag" alt='drag'
 							 src={require("assets/images/misc/icons8-hand-drag-64.png")} />
 					</Tooltip>
 					{projectModalActive ? 
