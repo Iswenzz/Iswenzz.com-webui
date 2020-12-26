@@ -1,6 +1,6 @@
 import * as actions from "store/actions";
 import * as homeActions from "containers/Home/store/actions";
-import React, { FunctionComponent, memo, useState} from "react";
+import React, {FunctionComponent, memo, useCallback, useEffect, useMemo, useState} from "react";
 import { DialogContent, Fab, Grid, Modal, Fade, Backdrop, Tooltip, DialogTitle } from "@material-ui/core";
 import { Close, Lock } from "@material-ui/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -15,11 +15,11 @@ import * as MarkdownIt from "markdown-it";
 import uuid from "uuid";
 import VS2015 from "containers/UI/Highlight/VS1025";
 import AtomOneLight from "containers/UI/Highlight/AtomOneLight";
+import {useTranslation} from "react-i18next";
+import LazyImage from "../../../../components/LazyImage/LazyImage";
+import axios, {AxiosResponse} from "axios";
 import "Common.scss";
 import "./ProjectPopup.scss";
-import {useTranslation} from "react-i18next";
-import LazyLoad from "react-lazyload";
-import LazyImage from "../../../../components/LazyImage/LazyImage";
 
 const hljs = require("highlight.js"); // @todo ES6?
 
@@ -33,7 +33,6 @@ export type ProjectPopupState = {
 
 /**
  * Modal container that shows all projects markdown in a ViewPager.
- * @todo - useMemo can prob be usefull here.
  */
 export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 {
@@ -43,83 +42,83 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 	const projectsStartIndex = useSelector((state: AppState) => state.home.projectsStartIndex);
 	const projectModalActive = useSelector((state: AppState) => state.home.projectModalActive);
 	const dispatch = useDispatch();
+	const [state, setState] = useState({
+		projects: new Array(projects.length).fill("")
+	});
 
 	const isPortrait = useMediaQuery({ orientation: "portrait" });
 	const isTabletOrMobileDevice = useMediaQuery({ query: "(max-device-width: 1224px)" });
 	const [width, height] = useWindowSize();
 
-	const [renderedProj, setRenderedProject] = useState<ProjectPopupState>({
-		projectsLength: 0,
-		projects: null,
-		isDarkMode: isDarkMode,
-		isPortrait: isPortrait,
-		isTabletOrMobileDevice: isTabletOrMobileDevice
-	});
+	/**
+	 * Viewpager resolution / position.
+	 */
+	const viewPagerConfig = useMemo<ViewPagerConfig>(() =>
+	{
+		const responsiveRes = {
+			height: height / 1.3,
+			width: width / 1.5,
+		};
+		if (isPortrait || isTabletOrMobileDevice) return {
+			height: height / 1.2,
+			width: width,
+			maxWidth: "100vw",
+			maxHeight: "80vh"
+		};
+		else return {
+			height: responsiveRes.height,
+			width: responsiveRes.width,
+			top: (height / 2) - responsiveRes.height / 2,
+			right: (width / 2) - responsiveRes.width / 2,
+			maxWidth: "100vw",
+			maxHeight: "80vh"
+		};
+	}, [height, isPortrait, isTabletOrMobileDevice, width]);
 
 	/**
 	 * Modal close handler
 	 */
-	const onClickClose = (): void => 
+	const onClickClose = useCallback(() => 
 	{
 		dispatch(homeActions.toggleProjectModalActive(false));
 		dispatch(actions.toggleModalActive(false));
-	};
-
-	/**
-	 * Fetch all markdown files and parse them using MarkdownIt
-	 * and highlight code snipet with HighlightJS.
-	 */
-	const renderMds = (): void =>
-	{
-		projects.map((project: LinkedProjectProps): Promise<void> =>
-			fetch(project.renderUrl!).then(response => response.text()).then(text => 
-			{
-				let div = document.getElementById(`popupProjectMd-${project.title}`);
-				if (!div?.childElementCount)
-				{
-					if (text.includes("404: Not Found"))
-						text = `${t("PROJECT_WIP")}`;
-
-					// convert markdown to html
-					let md: MarkdownIt = MarkdownIt.default({
-						html:         true,
-						xhtmlOut:     false,
-						breaks:       false,
-						langPrefix:   "language-",
-						linkify:      true,
-						typographer:  false,
-						highlight: function (str: string, lang: string)
-						{
-							if (lang && hljs.getLanguage(lang)) 
-							{
-								try {
-									return "<pre class=\"hljs\"><code>"
-										+ hljs.highlight(lang, str, true).value 
-										+ "</code></pre>";
-								} catch (__) { }
-							}
-							return "<pre class=\"hljs\"><code>" + md.utils.escapeHtml(str) + "</code></pre>";
-						}
-					});
-
-					// render md file in the right div
-					let article = document.createElement("article");
-					article.innerHTML = md.render(text);
-					let section = document.createElement("section");
-					section.appendChild(article);
-					div?.appendChild(section);
-				}
-			})
-		);
-	};
+	}, [dispatch]);
 
 	/**
 	 * Render a single project JSX.Element.
 	 * @param project - Project to render.
 	 * @param i - Project index.
 	 */
-	const renderProject = (project: LinkedProjectProps, i: number): JSX.Element =>
+	const renderProject = useCallback(async (project: LinkedProjectProps, i: number): Promise<JSX.Element> =>
 	{
+		const res: AxiosResponse<string> = await axios.get(project.renderUrl!);
+		let text = res.data;
+		if (text.includes("404: Not Found"))
+			text = `${t("PROJECT_WIP")}`;
+
+		// convert markdown to html
+		let md: MarkdownIt = MarkdownIt.default({
+			html:         true,
+			xhtmlOut:     false,
+			breaks:       false,
+			langPrefix:   "language-",
+			linkify:      true,
+			typographer:  false,
+			highlight: function (str: string, lang: string)
+			{
+				if (lang && hljs.getLanguage(lang))
+				{
+					try {
+						return "<pre class=\"hljs\"><code>"
+							+ hljs.highlight(lang, str, true).value
+							+ "</code></pre>";
+					} catch (_) { }
+				}
+				return "<pre class=\"hljs\"><code>" + md.utils.escapeHtml(str) + "</code></pre>";
+			}
+		});
+		const markdownHTML = md.render(text);
+
 		const openSource: JSX.Element = (
 			<Tooltip arrow disableFocusListener disableTouchListener title={t("PROJECT_TOOLTIP_SOURCE") as string}>
 				<Fab size={isPortrait || isTabletOrMobileDevice ? "small" : "large"} href={project.sourceURL} 
@@ -179,74 +178,37 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 							{project.showTitle ? project.title : null}
 							{project.desc}
 						</header>
-						<article className="projectpopup-md" id={`popupProjectMd-${project.title}`} /> 
+						<section className="projectpopup-md">
+							<article dangerouslySetInnerHTML={{ __html: markdownHTML }} />
+						</section>
 					</DialogContent>
 				</section>
 			</article>
 		);
-	};
+	}, [isPortrait, isTabletOrMobileDevice, onClickClose, t]);
 
 	/**
-	 * Set viewpager resolution / position.
+	 * On ViewPager index change.
+	 * Load the right project.
+	 * @param index - The ViewPager index.
 	 */
-	const getConfig = (): ViewPagerConfig => 
+	const onIndexChange = (index: number): void =>
 	{
-		const responsiveRes = {
-			height: height / 1.3,
-			width: width / 1.5,
-		};
-		if (isPortrait || isTabletOrMobileDevice) return {
-			height: height / 1.2,
-			width: width,
-			maxWidth: "100vw",
-			maxHeight: "80vh"
-		};
-		else return {
-			height: responsiveRes.height,
-			width: responsiveRes.width,
-			top: (height / 2) - responsiveRes.height / 2,
-			right: (width / 2) - responsiveRes.width / 2,
-			maxWidth: "100vw",
-			maxHeight: "80vh"
-		};
-	};
-
-	/**
-	 * Rerender the projects when projects/isDarkMode state changes.
-	 */
-	const shouldRenderProjects = (): void =>
-	{
-		if (projects.length !== renderedProj.projectsLength
-			|| isDarkMode !== renderedProj.isDarkMode
-			|| isPortrait !== renderedProj.isPortrait
-			|| isTabletOrMobileDevice !== renderedProj.isTabletOrMobileDevice)
+		renderProject(projects[index], index).then((page: JSX.Element) =>
 		{
-			let p: JSX.Element[] = projects?.map(
-				(proj: LinkedProjectProps, i: number): JSX.Element => renderProject(proj, i));
-			setRenderedProject({
-				projectsLength: p.length,
-				projects: p,
-				isDarkMode: isDarkMode,
-				isPortrait: isPortrait,
-				isTabletOrMobileDevice: isTabletOrMobileDevice
+			const updatedProjects = state.projects;
+			updatedProjects[index] = page;
+			setState({
+				projects: updatedProjects
 			});
-		}
+		});
 	};
 
-	/**
-	 * Get the view pager component when modal is open, 
-	 * check if projects need to be rerendered and request mds.
-	 */
-	const getViewPager = (): JSX.Element =>
-	{
-		renderMds();
-		shouldRenderProjects();
-		return (
-			<ViewPager bgcolor={isDarkMode ? "#202326" : "#f4f4f4"} 
-				startIndex={projectsStartIndex} config={{...getConfig()}}
-				items={renderedProj.projects!} />
-		);
-	};
+	const viewPager = (
+		<ViewPager bgcolor={isDarkMode ? "#202326" : "#f4f4f4"}
+			startIndex={projectsStartIndex} config={{...viewPagerConfig}}
+			items={state.projects} onIndexChange={onIndexChange} />
+	);
 
 	return (
 		<Modal aria-labelledby="projectpopup-modal" aria-describedby="viewpager-project" 
@@ -260,7 +222,7 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 							 src={require("assets/images/misc/icons8-hand-drag-64.png")} />
 					</Tooltip>
 					{projectModalActive ? 
-						isDarkMode ? <VS2015>{getViewPager()}</VS2015> : <AtomOneLight>{getViewPager()}</AtomOneLight>
+						isDarkMode ? <VS2015>{viewPager}</VS2015> : <AtomOneLight>{viewPager}</AtomOneLight>
 						: null}
 				</section>
 			</Fade>

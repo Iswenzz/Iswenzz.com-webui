@@ -4,20 +4,13 @@ import { useSprings, animated } from "react-spring";
 import { useDrag } from "react-use-gesture";
 import "./ViewPager.scss";
 
-const defaultItems: JSX.Element[] = [
-	<img onDragStart={e => e.preventDefault()} src='https://images.pexels.com/photos/62689/pexels-photo-62689.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' alt='carousel' />,
-	<img onDragStart={e => e.preventDefault()} src='https://images.pexels.com/photos/296878/pexels-photo-296878.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' alt='carousel' />,
-	<img onDragStart={e => e.preventDefault()} src='https://images.pexels.com/photos/1509428/pexels-photo-1509428.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' alt='carousel' />,
-	<img onDragStart={e => e.preventDefault()} src='https://images.pexels.com/photos/351265/pexels-photo-351265.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' alt='carousel' />,
-	<img onDragStart={e => e.preventDefault()} src='https://images.pexels.com/photos/924675/pexels-photo-924675.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' alt='carousel' />
-];
-
 export type ViewPagerProps = {
-	items?: JSX.Element[],
+	items: JSX.Element[],
 	style?: React.CSSProperties,
 	bgcolor?: string,
 	startIndex?: number,
-	config?: ViewPagerConfig
+	config?: ViewPagerConfig,
+	onIndexChange?: (index: number) => void
 };
 
 export type ViewPagerConfig = {
@@ -40,20 +33,29 @@ export type ViewPagerState = {
  */
 export const ViewPager: FunctionComponent<ViewPagerProps> = (props: ViewPagerProps): JSX.Element => 
 {
-	const [items,] = useState(props.items !== undefined ? props.items : defaultItems);
 	const [index, setIndex] = useState(props.startIndex !== undefined ? props.startIndex : 0);
 	const [divRef, setDivRef] = useState<HTMLElement | null>(null);
 	
-	const [springProps, set] = useSprings(items.length, i => 
-		({
-			x: i * window.innerWidth,
-			scale: 1,
-			display: "block"
-		}));
+	const [springProps, set] = useSprings(props.items.length, i => ({
+		x: i * window.innerWidth,
+		scale: 1,
+		display: "block"
+	}));
 
+	/**
+	 * Refresh the page on index change.
+	 */
 	useEffect(() =>
 	{
-		// TODO better way to get the right item
+		if (props.onIndexChange)
+			props.onIndexChange(index);
+	}, [index]);
+
+	/**
+	 * Goes to the right pages on startIndex change.
+	 */
+	useEffect(() =>
+	{
 		setIndex(props.startIndex!);
 		divRef?.dispatchEvent(new MouseEvent("mousedown", { bubbles: true, cancelable: false }));
 	}, [props.startIndex, divRef]);
@@ -65,7 +67,9 @@ export const ViewPager: FunctionComponent<ViewPagerProps> = (props: ViewPagerPro
 	{
 		if (down && distance > window.innerWidth / 4) 
 		{
-			setIndex(clamp(index + (xDir > 0 ? -1 : 1), 0, items.length - 1));
+			setIndex(clamp(index + (xDir > 0 ? -1 : 1), 0, props.items.length - 1));
+			if (props.onIndexChange)
+				props.onIndexChange(index);
 			cancel!();
 		}
 
@@ -87,7 +91,7 @@ export const ViewPager: FunctionComponent<ViewPagerProps> = (props: ViewPagerPro
 				<animated.div className="carousel" {...bind()} key={i}
 					style={{display, x, ...props.config }}>
 					<animated.div ref={setDivRef} style={{scale, background: props.bgcolor}}>
-						{items[i]}
+						{props.items[i]}
 					</animated.div>
 				</animated.div>
 			))}
