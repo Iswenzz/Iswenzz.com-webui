@@ -52,7 +52,7 @@ const linkError = onError(({ graphQLErrors, networkError }) =>
  * Apollo Link server.
  */
 const linkHttp = new HttpLink({
-	uri: "https://localhost/graphql",
+	uri: process.env.REACT_APP_GRAPHQL_URL,
 	headers: {
 		authorization: localStorage.getItem("token") || ""
 	}
