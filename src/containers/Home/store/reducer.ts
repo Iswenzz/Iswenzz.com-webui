@@ -1,27 +1,27 @@
-import { HomeActions, HomeActionEnum } from "./types";
-import { updateObject } from "utility/utility";
-import { ReduxHomeProps } from "containers/Home/Home";
+import {HomeActions, HomeActionEnum, SetProjectsStartIndex, ToggleProjectModalActive} from "./types";
+import {updateObjectPartial} from "utility/utility";
+import { HomeProps } from "containers/Home/Home";
 
-export let initialState: ReduxHomeProps = {
+export let initialState: HomeProps = {
 	projects: require("containers/Home/UI/Projects/Projects.json"),
 	projectsStartIndex: 0,
-	projectModalActive: false,
-
-	setProjectsIndex: () => null,
-	toggleProjectModalActive: () => null
+	projectModalActive: false
 };
 
-const reducer = (state: ReduxHomeProps = initialState, action: HomeActions): ReduxHomeProps =>
+const reducer = (state: HomeProps = initialState, action: HomeActions): HomeProps =>
 {
 	switch (action.type)
 	{
 		case HomeActionEnum.SET_PROJECTS_INDEX:
-			return updateObject(state, {
-				projectsStartIndex: action.index
+			action = action as SetProjectsStartIndex;
+			return updateObjectPartial<HomeProps, SetProjectsStartIndex>(state, {
+				projectsStartIndex: action.projectsStartIndex
 			});
+
 		case HomeActionEnum.TOGGLE_PROJECT_MODAL_ACTIVE:
-			return updateObject(state, {
-				projectModalActive: action.active
+			action = action as ToggleProjectModalActive;
+			return updateObjectPartial<HomeProps, ToggleProjectModalActive>(state, {
+				projectModalActive: action.projectModalActive
 			});
 
 		default:

@@ -17,6 +17,18 @@ export const updateObject = <T, U>(oldObject: T, updatedProperties: U): T => {
 };
 
 /**
+ * Updating partial objects immutably.
+ * @param oldObject - The old object.
+ * @param updatedProperties - Updated properties object.
+ */
+export const updateObjectPartial = <T, U>(oldObject: T, updatedProperties: Partial<U>): T => {
+	return {
+		...oldObject,
+		...updatedProperties
+	};
+};
+
+/**
  * Get a DOM Element by XPath.
  * @param xpath - XPath pattern.
  * @param contextNode - The target document.

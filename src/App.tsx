@@ -19,7 +19,7 @@ import Docx from "containers/Docx/Docx";
  * Application main container.
  * @param props - ReduxAppProps
  */
-export const App: FunctionComponent<ReduxAppProps> = (props: ReduxAppProps): JSX.Element =>
+export const App: FunctionComponent<AppProps> = (props: AppProps): JSX.Element =>
 {
 	/**
 	 * Material UI custom dark/white theme.
@@ -158,29 +158,27 @@ export const App: FunctionComponent<ReduxAppProps> = (props: ReduxAppProps): JSX
 	);
 };
 
-type LinkStateProps = {
+export type AppProps = {
 	browserInfo: ReturnType<typeof detect>,
 	isDarkMode: boolean,
 	isModalActive: boolean,
 	language: Language
 };
 
-type LinkDispatchProps = {
+export type AppDispatchProps = {
 	toggleDarkMode: (active: boolean) => void,
 	toggleModalActive: (active: boolean) => void,
 	toggleLanguage: (active: Language) => void
 };
 
-export type ReduxAppProps = LinkStateProps & LinkDispatchProps;
-
-const mapStateToProps = (state: AppState, ownProps: any): LinkStateProps => ({
+const mapStateToProps = (state: AppState, ownProps: any): AppProps => ({
 	browserInfo: state.app.browserInfo,
 	isDarkMode: state.app.isDarkMode,
 	isModalActive: state.app.isModalActive,
 	language: state.app.language
 });
 
-const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, AppActions>, ownProps: any): LinkDispatchProps => ({
+const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, AppActions>, ownProps: any): AppDispatchProps => ({
 	toggleDarkMode: bindActionCreators(actions.toggleDarkMode, dispatch),
 	toggleModalActive: bindActionCreators(actions.toggleModalActive, dispatch),
 	toggleLanguage: bindActionCreators(actions.toggleLanguage, dispatch)

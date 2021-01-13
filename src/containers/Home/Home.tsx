@@ -19,14 +19,14 @@ import ProjectPopup from "containers/Home/UI/ProjectPopup/ProjectPopup";
 import { Element } from "react-scroll";
 import { Spacing } from "components/Spacing/Spacing";
 import {useTranslation} from "react-i18next";
+import SplitText from "../../components/SplitText/SplitText";
 import "Common.scss";
 import "./Home.scss";
-import SplitText from "../../components/SplitText/SplitText";
 
 /**
  * Home page container.
  */
-const Home: FunctionComponent = (): JSX.Element =>
+const Home: FunctionComponent<HomeProps> = (props: HomeProps): JSX.Element =>
 {
 	const { t } = useTranslation();
 	const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
@@ -76,26 +76,24 @@ const Home: FunctionComponent = (): JSX.Element =>
 	);
 };
 
-type LinkStateProps = {
+export type HomeProps = {
 	projects: LinkedProjectProps[],
 	projectsStartIndex: number,
 	projectModalActive: boolean
 };
 
-type LinkDispatchProps = {
+export type HomeDispatchProps = {
 	setProjectsIndex: (index: number) => void,
 	toggleProjectModalActive: (active: boolean) => void
 };
 
-export type ReduxHomeProps = LinkStateProps & LinkDispatchProps;
-
-const mapStateToProps = (state: AppState, ownProps: any): LinkStateProps => ({
+const mapStateToProps = (state: AppState, ownProps: any): HomeProps => ({
 	projects: state.home.projects,
 	projectsStartIndex: state.home.projectsStartIndex,
 	projectModalActive: state.home.projectModalActive
 });
 
-const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, HomeActions>, ownProps: any): LinkDispatchProps => ({
+const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, HomeActions>, ownProps: any): HomeDispatchProps => ({
 	setProjectsIndex: bindActionCreators(actions.setProjectsIndex, dispatch),
 	toggleProjectModalActive: bindActionCreators(actions.toggleProjectModalActive, dispatch)
 });
