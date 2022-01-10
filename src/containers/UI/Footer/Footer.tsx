@@ -1,4 +1,4 @@
-import React, { FunctionComponent, memo } from "react";
+import React, { FC, memo } from "react";
 import Grid from "@material-ui/core/Grid";
 import Fab from "@material-ui/core/Fab";
 import RadialGradient from "components/RadialGradient/RadialGradient";
@@ -8,13 +8,13 @@ import { Parallax } from "react-parallax";
 import Spacing from "components/Spacing/Spacing";
 import { Tooltip, Typography } from "@material-ui/core";
 import { useSelector } from "react-redux";
-import { AppState } from "application";
-import "Common.scss";
+import { AppState } from "../../App";
+import "../../App/Common.scss";
 
 /**
  * Footer container with links to social medias & copyrights.
  */
-const Footer: FunctionComponent = (): JSX.Element =>
+const Footer: FC = (): JSX.Element =>
 {
 	const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
 

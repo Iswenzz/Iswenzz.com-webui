@@ -1,13 +1,13 @@
-import * as homeActions from "containers/Home/store/actions";
-import * as appActions from "store/actions";
-import React, { FunctionComponent, memo } from "react";
+import React, { FC, memo } from "react";
 import { Card, CardActionArea, Typography } from "@material-ui/core";
 import { useDispatch } from "react-redux";
 import { useMediaQuery } from "react-responsive";
 import {motion} from "framer-motion";
-import "Common.scss";
+import "../../../App/Common.scss";
 import "./Project.scss";
 import LazyLoad from "react-lazyload";
+import { setProjectsIndex, toggleProjectModalActive } from "containers/Home/redux";
+import { toggleModalActive } from "containers/App/redux";
 
 export type ProjectRenderProps = {
 	renderUrl?: string,
@@ -54,7 +54,7 @@ export type ProjectProps = {
  * Project card container with a preview image, and dispatch ProjectPopup modal on click.
  * @param props - ProjectProps
  */
-export const Project: FunctionComponent<ProjectProps> = (props: ProjectProps): JSX.Element =>
+export const Project: FC<ProjectProps> = (props: ProjectProps): JSX.Element =>
 {
 	const isTabletOrMobileDevice = useMediaQuery({ query: "(max-device-width: 1224px)" });
 	const dispatch = useDispatch();
@@ -64,9 +64,9 @@ export const Project: FunctionComponent<ProjectProps> = (props: ProjectProps): J
      */
 	const onToggle = () =>
 	{
-		dispatch(homeActions.setProjectsIndex(props.projects.indexOf(props.currentProj)));
-		dispatch(homeActions.toggleProjectModalActive(true));
-		dispatch(appActions.toggleModalActive(true));
+		dispatch(setProjectsIndex(props.projects.indexOf(props.currentProj)));
+		dispatch(toggleProjectModalActive(true));
+		dispatch(toggleModalActive(true));
 	};
 
 	/**

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, RefObject, memo, FunctionComponent } from "react";
+import React, { useState, useEffect, RefObject, memo, FC } from "react";
 import clamp from "lodash/clamp";
 import { useSprings, animated } from "react-spring";
 import { useDrag } from "react-use-gesture";
@@ -31,7 +31,7 @@ export type ViewPagerState = {
  * 3D Carousel with gesture features.
  * @param props - ViewPagerProps
  */
-export const ViewPager: FunctionComponent<ViewPagerProps> = (props: ViewPagerProps): JSX.Element => 
+export const ViewPager: FC<ViewPagerProps> = (props: ViewPagerProps): JSX.Element => 
 {
 	const [index, setIndex] = useState(props.startIndex !== undefined ? props.startIndex : 0);
 	const [divRef, setDivRef] = useState<HTMLElement | null>(null);

@@ -1,9 +1,9 @@
-import React, { FunctionComponent, useEffect } from "react";
+import React, { FC, useEffect } from "react";
 import { useHistory } from "react-router";
 import { animateScroll as scroll } from "react-scroll";
-import { getElementByXPath } from "utility/utility";
+import { getElementByXPath } from "utils";
 import "./DocViewer.scss";
-import "Common.scss";
+import "../../App/Common.scss";
 
 /**
  * Doxygen document viewer container.
@@ -17,7 +17,7 @@ import "Common.scss";
  * @todo syntax highlight VS2015 for dark and AtomOneLight for light theme.
  * @todo show diagrams with no interaction except moving/zoom.
  */
-export const DocViewer: FunctionComponent = (): JSX.Element =>
+export const DocViewer: FC = (): JSX.Element =>
 {
 	let history = useHistory();
 

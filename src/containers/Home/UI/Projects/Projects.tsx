@@ -1,23 +1,23 @@
-import React, { FunctionComponent, memo } from "react";
+import React, { FC, memo } from "react";
 import RadialGradient, { GradiantProps } from "components/RadialGradient/RadialGradient";
 import { Grid, Divider, Container } from "@material-ui/core";
 import Spacing from "components/Spacing/Spacing";
 import Project, { LinkedProjectProps } from "containers/Home/UI/Project/Project";
 import StonecutterGrid from "components/StonecutterGrid/StonecutterGrid";
 import { useSelector } from "react-redux";
-import { AppState } from "application";
+import { AppState } from "../../../App";
 import { enterExitStyle, layout, SpringGridProps } from "react-stonecutter";
 import { useMediaQuery } from "react-responsive";
 import { Element } from "react-scroll";
 import { random } from "lodash";
 import { TrailText } from "components/TrailText/TrailText";
-import "Common.scss";
+import "../../../App/Common.scss";
 import "./Projects.scss";
 
 /**
  * Stonecutter responsive grid container with all Project cards.
  */
-export const Projects: FunctionComponent = (): JSX.Element =>
+export const Projects: FC = (): JSX.Element =>
 {
 	const isPortrait = useMediaQuery({ orientation: "portrait" });
 	const isTabletOrMobileDevice = useMediaQuery({ query: "(max-device-width: 1224px)" });

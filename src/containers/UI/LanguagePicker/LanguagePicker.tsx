@@ -1,9 +1,9 @@
-import React, {FunctionComponent} from "react";
+import React, {FC} from "react";
 import {Fab, ListItemIcon, Menu, MenuItem, Typography, createMuiTheme, ThemeProvider, Grid} from "@material-ui/core";
-import {i18nLanguages, Language} from "../../../i18n";
-import * as actions from "../../../store/actions";
+import {i18nLanguages, Language} from "../../App/i18n";
 import {useDispatch, useSelector} from "react-redux";
-import {AppState} from "../../../application";
+import { toggleLanguage, toggleModalActive } from "containers/App/redux";
+import {AppState} from "../../App";
 import "./LanguagePicker.scss";
 
 export const languages: Record<Language, JSX.Element> = {
@@ -26,7 +26,7 @@ const menuTheme = createMuiTheme({
 	}
 });
 
-export const LanguagePicker: FunctionComponent = (): JSX.Element =>
+export const LanguagePicker: FC = (): JSX.Element =>
 {
 	const dispatch = useDispatch();
 	const currentLanguage: Language = useSelector((state: AppState) => state.app.language);
@@ -36,9 +36,9 @@ export const LanguagePicker: FunctionComponent = (): JSX.Element =>
 	 * Change the application language.
 	 * @param lang - The language.
 	 */
-	const toggleLanguage = (lang: Language): void =>
+	const toggle = (lang: Language): void =>
 	{
-		dispatch(actions.toggleLanguage(lang));
+		dispatch(toggleLanguage(lang));
 		handleClose();
 		window.location.reload();
 	};
@@ -51,7 +51,7 @@ export const LanguagePicker: FunctionComponent = (): JSX.Element =>
 	{
 		if (anchorEl === null)
 		{
-			dispatch(actions.toggleModalActive(true));
+			dispatch(toggleModalActive(true));
 			setAnchorEl(event.currentTarget);
 		}
 		else
@@ -63,7 +63,7 @@ export const LanguagePicker: FunctionComponent = (): JSX.Element =>
 	 */
 	const handleClose = (): void =>
 	{
-		dispatch(actions.toggleModalActive(false));
+		dispatch(toggleModalActive(false));
 		setAnchorEl(null);
 	};
 
@@ -77,7 +77,7 @@ export const LanguagePicker: FunctionComponent = (): JSX.Element =>
 				<Menu className={"languagepickermenu"} id="language-menu" anchorEl={anchorEl}
 					  keepMounted open={Boolean(anchorEl)} onClose={handleClose} disableScrollLock>
 					{Object.entries(languages).map(([lang, langNode]) => (
-						<MenuItem key={lang} onClick={() => toggleLanguage(lang as Language)}>
+						<MenuItem key={lang} onClick={() => toggle(lang as Language)}>
 							<Grid container>
 								<Grid item xs={6}>
 									<Typography className={"languagepickermenu-typo"} variant={"h5"} component={"h5"} >

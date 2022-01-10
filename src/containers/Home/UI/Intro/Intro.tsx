@@ -1,9 +1,9 @@
-import React, { memo, FunctionComponent } from "react";
+import React, { memo, FC } from "react";
 import Spacing from "components/Spacing/Spacing";
 import RadialGradient, { GradientColor } from "components/RadialGradient/RadialGradient";
 import { Parallax } from "react-parallax";
 import { useSelector } from "react-redux";
-import { AppState } from "application";
+import { AppState } from "../../../App";
 import Text from "components/Text/Text";
 import { Grid, Container, Divider } from "@material-ui/core";
 import VisibilitySensor from "react-visibility-sensor";
@@ -11,7 +11,7 @@ import {motion, Variants} from "framer-motion";
 import TrailText from "components/TrailText/TrailText";
 import { useMediaQuery } from "react-responsive";
 import { Element } from "react-scroll";
-import "Common.scss";
+import "../../../App/Common.scss";
 import "./Intro.scss";
 
 export type IntroSkill = {
@@ -94,7 +94,7 @@ const animationLeft: Variants = {
 /**
  * Container to introduce my portfolio and technological skills.
  */
-export const IntroSkill: FunctionComponent = (): JSX.Element =>
+export const IntroSkill: FC = (): JSX.Element =>
 {
 	const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
 	const isTabletOrMobileDevice = useMediaQuery({ query: "(max-device-width: 1224px)" });

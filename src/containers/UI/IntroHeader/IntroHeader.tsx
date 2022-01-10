@@ -1,4 +1,4 @@
-import React, { FunctionComponent, memo } from "react";
+import React, { FC, memo } from "react";
 import { Parallax } from "react-parallax";
 import { Grid, Typography } from "@material-ui/core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -22,7 +22,7 @@ export type IntroHeaderProps = {
  * Page header with a parallax background & title.
  * @param props - IntroHeaderProps
  */
-export const IntroHeader: FunctionComponent<IntroHeaderProps> = (props: IntroHeaderProps): JSX.Element =>
+export const IntroHeader: FC<IntroHeaderProps> = (props: IntroHeaderProps): JSX.Element =>
 {
 	const { t } = useTranslation();
 

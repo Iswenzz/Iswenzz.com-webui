@@ -1,14 +1,13 @@
-import React, { FunctionComponent, useState, memo, useEffect } from "react";
+import React, { FC, useState, memo, useEffect } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import * as actions from "store/actions";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-scroll";
 import { useMediaQuery } from "react-responsive";
 import { Fab, Typography, Drawer, AppBarProps } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
-import { AppState } from "application";
+import { AppState } from "../../App";
 import { Flare, Brightness3 } from "@material-ui/icons";
 import {AnimatePresence, motion} from "framer-motion";
 import MenuIcon from "@material-ui/icons/Menu";
@@ -16,6 +15,7 @@ import { useScroll } from "react-use-gesture";
 import LanguagePicker from "../LanguagePicker/LanguagePicker";
 import {Trans} from "react-i18next";
 import "./NavBar.scss";
+import { toggleDarkMode, toggleModalActive } from "containers/App/redux";
 
 const animationFixed = {
 	enter: { 
@@ -64,7 +64,7 @@ const scrollConfig = {
  * Navigation container with links to different sections.
  * @param props - AppBarProps
  */
-export const NavBar: FunctionComponent<AppBarProps> = (props: AppBarProps): JSX.Element =>
+export const NavBar: FC<AppBarProps> = (props: AppBarProps): JSX.Element =>
 {
 	const dispatch = useDispatch();
 	const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
@@ -90,9 +90,9 @@ export const NavBar: FunctionComponent<AppBarProps> = (props: AppBarProps): JSX.
 	/**
 	 * Toggle dark/light mode callback.
 	 */
-	const toggleDarkMode = (): void =>
+	const toggleColorMode = (): void =>
 	{
-		dispatch(actions.toggleDarkMode(!isDarkMode));
+		dispatch(toggleDarkMode(!isDarkMode));
 		localStorage.setItem("isDarkMode", (!isDarkMode).toString());
 	};
 
@@ -103,7 +103,7 @@ export const NavBar: FunctionComponent<AppBarProps> = (props: AppBarProps): JSX.
 	const toggleDrawer = (visible: boolean): void =>
 	{
 		setDrawerOpen(visible);
-		dispatch(actions.toggleModalActive(visible));
+		dispatch(toggleModalActive(visible));
 	};
 
 	/**
@@ -161,7 +161,7 @@ export const NavBar: FunctionComponent<AppBarProps> = (props: AppBarProps): JSX.
 			{navBarElements}
 			<li>
 				<Fab className="navbar-button" style={{ color: isDarkMode ? "goldenrod" : "gainsboro" }} 
-					size='small' onClick={toggleDarkMode}>
+					size='small' onClick={toggleColorMode}>
 					{isDarkMode ? <Flare /> : <Brightness3 />}
 				</Fab>
 			</li>
@@ -178,7 +178,7 @@ export const NavBar: FunctionComponent<AppBarProps> = (props: AppBarProps): JSX.
 		<Grid component="ul" container direction="row" justify="flex-end" alignItems="center">
 			<li>
 				<Fab className="navbar-button" style={{ color: isDarkMode ? "goldenrod" : "gainsboro" }} 
-					size='small' onClick={toggleDarkMode}>
+					size='small' onClick={toggleColorMode}>
 					{isDarkMode ? <Flare /> : <Brightness3 />}
 				</Fab>
 			</li>

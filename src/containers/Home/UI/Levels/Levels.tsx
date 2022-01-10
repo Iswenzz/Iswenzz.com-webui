@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState, memo } from "react";
+import React, { FC, useState, memo } from "react";
 import RadialGradient, { GradiantProps } from "components/RadialGradient/RadialGradient";
 import { Divider, Container, Grid } from "@material-ui/core";
 import EmblaCarousel from "components/EmblaCarousel/EmblaCarousel";
@@ -8,9 +8,9 @@ import VisibilitySensor from "react-visibility-sensor";
 import { Element } from "react-scroll";
 import { useMediaQuery } from "react-responsive";
 import { useSelector } from "react-redux";
-import { AppState } from "application";
+import { AppState } from "../../../App";
 import Text from "components/Text/Text";
-import "Common.scss";
+import "../../../App/Common.scss";
 import "./Levels.scss";
 
 const animation: Variants = {
@@ -37,7 +37,7 @@ const animation: Variants = {
 /**
  * Embla carousel container with all level design flip cards.
  */
-export const Levels: FunctionComponent = (): JSX.Element =>
+export const Levels: FC = (): JSX.Element =>
 {
 	const [levels,] = useState<LevelProject[]>(require("./Levels.json"));
 	const isPortrait = useMediaQuery({ orientation: "portrait" });

@@ -1,5 +1,5 @@
-import React, { FunctionComponent } from "react";
-import { AppState } from "application";
+import React, { FC } from "react";
+import { AppState } from "../App";
 import { useSelector } from "react-redux";
 import NavBar from "containers/UI/NavBar/NavBar";
 import Footer from "containers/UI/Footer/Footer";
@@ -10,7 +10,7 @@ import { Element } from "react-scroll";
 /**
  * Docx container page.
  */
-const Docx: FunctionComponent = (): JSX.Element =>
+const Docx: FC = (): JSX.Element =>
 {
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);

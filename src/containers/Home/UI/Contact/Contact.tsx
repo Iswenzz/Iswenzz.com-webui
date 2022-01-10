@@ -1,20 +1,20 @@
-import React, { FunctionComponent, memo, useState, useRef } from "react";
+import React, { FC, memo, useState, useRef } from "react";
 import RadialGradient, { GradiantProps } from "components/RadialGradient/RadialGradient";
 import { Grid, Container, Avatar, Button, makeStyles, CircularProgress, Typography } from "@material-ui/core";
 import VisibilitySensor from "react-visibility-sensor";
 import { useMediaQuery } from "react-responsive";
 import { Element } from "react-scroll";
 import { useSelector } from "react-redux";
-import { AppState } from "application";
+import { AppState } from "../../../App";
 import { Formik, Field, Form, FormikHelpers } from "formik";
 import { TextField } from "formik-material-ui";
 import ReCAPTCHA from "react-google-recaptcha";
-import { delay } from "utility/utility";
+import { delay } from "utils";
 import {Trans, useTranslation} from "react-i18next";
 import {gql, useMutation} from "@apollo/client";
 import {Mutation, MutationContactArgs} from "../../../../definitions/graphql";
 import {motion, Variants} from "framer-motion";
-import "Common.scss";
+import "../../../App/Common.scss";
 import "./Contact.scss";
 
 const useStyles = makeStyles(theme => ({
@@ -90,7 +90,7 @@ mutation Contact($input: ContactInput!) {
 /**
  * Contact container to send an email.
  */
-export const Contact: FunctionComponent = (): JSX.Element =>
+export const Contact: FC = (): JSX.Element =>
 {
 	const { t } = useTranslation();
 	const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);

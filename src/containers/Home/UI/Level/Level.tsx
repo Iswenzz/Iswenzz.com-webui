@@ -1,13 +1,13 @@
-import React, { FunctionComponent, memo, useState } from "react";
+import React, { FC, memo, useState } from "react";
 import { Grid, Tooltip, Container, Typography, GridList, GridListTile, makeStyles } from "@material-ui/core";
 import { IconProps } from "containers/Home/UI/Project/Project";
 import FlipCard from "components/FlipCard/FlipCard";
 import ReactPlayer, { Config } from "react-player";
 import { useMediaQuery } from "react-responsive";
 import { useSelector } from "react-redux";
-import { AppState } from "application";
+import { AppState } from "../../../App";
 import uuid from "uuid";
-import "Common.scss";
+import "../../../App/Common.scss";
 import "./Level.scss";
 import {useTranslation} from "react-i18next";
 import LazyImage from "../../../../components/LazyImage/LazyImage";
@@ -57,7 +57,7 @@ const useStyles = makeStyles(theme => ({
  * Flip card container, map preview and stacks on the front, and video/description on the back.
  * @param props - LevelProps
  */
-export const Level: FunctionComponent<LevelProps> = (props: LevelProps): JSX.Element =>
+export const Level: FC<LevelProps> = (props: LevelProps): JSX.Element =>
 {
 	const { t } = useTranslation();
 	const isPortrait = useMediaQuery({ orientation: "portrait" });

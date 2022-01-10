@@ -1,9 +1,13 @@
-import * as actions from "containers/Home/store/actions";
-import React, { FunctionComponent } from "react";
-import { AppState } from "application";
+import React, { FC } from "react";
+import { connect, useSelector } from "react-redux";
+import { Parallax } from "react-parallax";
+import { Element } from "react-scroll";
+import {useTranslation} from "react-i18next";
 import { ThunkDispatch } from "redux-thunk";
 import { bindActionCreators } from "redux";
-import { connect, useSelector } from "react-redux";
+
+import { Typography } from "@material-ui/core";
+
 import NavBar from "containers/UI/NavBar/NavBar";
 import Projects from "containers/Home/UI/Projects/Projects";
 import Footer from "containers/UI/Footer/Footer";
@@ -11,22 +15,21 @@ import IntroHeader from "containers/UI/IntroHeader/IntroHeader";
 import IntroSkill from "containers/Home/UI/Intro/Intro";
 import Contact from "containers/Home/UI/Contact/Contact";
 import Levels from "containers/Home/UI/Levels/Levels";
-import { HomeActions } from "containers/Home/store/types";
 import { LinkedProjectProps } from "containers/Home/UI/Project/Project";
-import { Parallax } from "react-parallax";
-import { Typography } from "@material-ui/core";
 import ProjectPopup from "containers/Home/UI/ProjectPopup/ProjectPopup";
-import { Element } from "react-scroll";
 import { Spacing } from "components/Spacing/Spacing";
-import {useTranslation} from "react-i18next";
-import SplitText from "../../components/SplitText/SplitText";
-import "Common.scss";
+import SplitText from "components/SplitText/SplitText";
+
+import { HomeActions, setProjectsIndex, toggleProjectModalActive } from "./redux";
+import { AppState } from "../App";
+
+import "../App/Common.scss";
 import "./Home.scss";
 
 /**
  * Home page container.
  */
-const Home: FunctionComponent<HomeProps> = (props: HomeProps): JSX.Element =>
+const Home: FC<HomeProps> = (props: HomeProps): JSX.Element =>
 {
 	const { t } = useTranslation();
 	const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
@@ -94,8 +97,8 @@ const mapStateToProps = (state: AppState, ownProps: any): HomeProps => ({
 });
 
 const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, HomeActions>, ownProps: any): HomeDispatchProps => ({
-	setProjectsIndex: bindActionCreators(actions.setProjectsIndex, dispatch),
-	toggleProjectModalActive: bindActionCreators(actions.toggleProjectModalActive, dispatch)
+	setProjectsIndex: bindActionCreators(setProjectsIndex, dispatch),
+	toggleProjectModalActive: bindActionCreators(toggleProjectModalActive, dispatch)
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

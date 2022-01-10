@@ -1,4 +1,4 @@
-import React, { FunctionComponent, memo, ElementType } from "react";
+import React, { FC, memo, ElementType } from "react";
 import { useTrail, animated, SpringConfig } from "react-spring";
 import { Typography, TypographyProps } from "@material-ui/core";
 import uuid from "uuid";
@@ -23,7 +23,7 @@ const config: SpringConfig = {
  * Typography wrapper for multiple strings with react-spring trail animation.
  * @param props - TrailProps
  */
-export const TrailText: FunctionComponent<TrailProps> = (props: TrailProps): JSX.Element =>
+export const TrailText: FC<TrailProps> = (props: TrailProps): JSX.Element =>
 {
 	const { t } = useTranslation();
 	const text: string[] = props.i18n ? props.items.map(i => t(i)) : props.items;

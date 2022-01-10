@@ -1,6 +1,4 @@
-import * as actions from "store/actions";
-import * as homeActions from "containers/Home/store/actions";
-import React, {FunctionComponent, memo, useCallback, useMemo, useState} from "react";
+import React, {FC, memo, useCallback, useMemo, useState} from "react";
 import {
 	DialogContent,
 	Fab,
@@ -17,8 +15,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faOsi } from "@fortawesome/free-brands-svg-icons";
 import { LinkedProjectProps } from "containers/Home/UI/Project/Project";
 import ViewPager, { ViewPagerConfig } from "components/ViewPager/ViewPager";
-import { AppState } from "application";
-import useWindowSize from "utility/useWindowSize";
+import { AppState } from "../../../App";
+import useWindowSize from "utils/hooks/useWindowSize";
 import { useSelector, useDispatch } from "react-redux";
 import { useMediaQuery } from "react-responsive";
 import * as MarkdownIt from "markdown-it";
@@ -29,8 +27,10 @@ import {useTranslation} from "react-i18next";
 import LazyImage from "../../../../components/LazyImage/LazyImage";
 import axios, {AxiosResponse} from "axios";
 import hljs from "highlight.js";
-import "Common.scss";
+import "../../../App/Common.scss";
 import "./ProjectPopup.scss";
+import { toggleProjectModalActive } from "containers/Home/redux";
+import { toggleModalActive } from "containers/App/redux";
 
 export type ProjectPopupState = {
 	projects: JSX.Element[]
@@ -39,7 +39,7 @@ export type ProjectPopupState = {
 /**
  * Modal container that shows all projects markdown in a ViewPager.
  */
-export const ProjectPopup: FunctionComponent = (): JSX.Element =>
+export const ProjectPopup: FC = (): JSX.Element =>
 {
 	const { t } = useTranslation();
 	const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
@@ -85,8 +85,8 @@ export const ProjectPopup: FunctionComponent = (): JSX.Element =>
 	 */
 	const onClickClose = useCallback(() => 
 	{
-		dispatch(homeActions.toggleProjectModalActive(false));
-		dispatch(actions.toggleModalActive(false));
+		dispatch(toggleProjectModalActive(false));
+		dispatch(toggleModalActive(false));
 	}, [dispatch]);
 
 	/**

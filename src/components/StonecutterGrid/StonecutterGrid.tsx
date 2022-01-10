@@ -1,4 +1,4 @@
-import React, { FunctionComponent, memo } from "react";
+import React, { FC, memo } from "react";
 import { SpringGrid, enterExitStyle, SpringGridProps, makeResponsive, layout } from "react-stonecutter";
 
 export type StonecutterGridProps = {
@@ -13,7 +13,7 @@ export type StonecutterGridProps = {
  * Responsive grid component with layout/animation config.
  * @param props - StonecutterGridProps
  */
-export const StonecutterGrid: FunctionComponent<StonecutterGridProps> = (props: StonecutterGridProps): JSX.Element =>
+export const StonecutterGrid: FC<StonecutterGridProps> = (props: StonecutterGridProps): JSX.Element =>
 {
 	const ResponsiveGrid: typeof SpringGrid = makeResponsive(SpringGrid, { 
 		maxWidth: 1920, 

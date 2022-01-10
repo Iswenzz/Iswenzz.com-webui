@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useCallback, FunctionComponent, memo } from "react";
+import React, { useState, useEffect, useCallback, FC, memo } from "react";
 import EmblaCarouselReact from "embla-carousel-react";
 import EmblaCarousel from "embla-carousel";
-import useInterval from "utility/useInterval";
+import useInterval from "utils/hooks/useInterval";
 import { DotButton, PrevButton, NextButton } from "./EmblaCarouselButtons/EmblaCarouselButtons";
 import { Grid } from "@material-ui/core";
 import "./Embla.scss";
@@ -30,7 +30,7 @@ export type EmblaCarouselState = {
  * The carousel provides a next/prev arrow and buttons to scroll through the carousel.
  * @param props - EmblaCarouselProps
  */
-export const EmblaCarouselComponent: FunctionComponent<EmblaCarouselProps> = (props: EmblaCarouselProps) => 
+export const EmblaCarouselComponent: FC<EmblaCarouselProps> = (props: EmblaCarouselProps) => 
 {
 	const [state, setState] = useState<EmblaCarouselState>({
 		embla: null,

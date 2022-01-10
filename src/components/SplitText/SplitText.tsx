@@ -1,4 +1,4 @@
-import React, {FunctionComponent, useMemo} from "react";
+import React, {FC, useMemo} from "react";
 import { motion } from "framer-motion";
 
 export type SplitTextProps = {
@@ -10,7 +10,7 @@ export type SplitTextProps = {
  * @param props
  * @constructor
  */
-export const SplitText: FunctionComponent<SplitTextProps> = (props: SplitTextProps): JSX.Element =>
+export const SplitText: FC<SplitTextProps> = (props: SplitTextProps): JSX.Element =>
 {
 	let words = useMemo(() =>
 	{
