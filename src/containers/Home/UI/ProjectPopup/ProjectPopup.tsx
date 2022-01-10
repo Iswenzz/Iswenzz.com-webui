@@ -19,8 +19,8 @@ import { AppState } from "../../../App";
 import useWindowSize from "utils/hooks/useWindowSize";
 import { useSelector, useDispatch } from "react-redux";
 import { useMediaQuery } from "react-responsive";
-import * as MarkdownIt from "markdown-it";
-import uuid from "uuid";
+import MarkdownIt from "markdown-it";
+import { v4 as uuidv4 } from "uuid";
 import VS2015 from "UI/Highlight/VS1025";
 import AtomOneLight from "UI/Highlight/AtomOneLight";
 import {useTranslation} from "react-i18next";
@@ -108,7 +108,7 @@ export const ProjectPopup: FC = (): JSX.Element =>
 		}
 
 		// convert markdown to html
-		let md: MarkdownIt = MarkdownIt.default({
+		let md: MarkdownIt = MarkdownIt({
 			html:         true,
 			xhtmlOut:     false,
 			breaks:       false,
@@ -151,15 +151,15 @@ export const ProjectPopup: FC = (): JSX.Element =>
 		);
 		
 		return (
-			<article key={uuid.v4()}>
+			<article key={uuidv4()}>
 				{/* Modal Navbar */}
 				<header>
 					<DialogTitle disableTypography className="projectpopup-modal-title">
 						<Grid className="projectpopup-title" container
-							direction="row" justify="space-between" alignItems="center">
+							direction="row" justifyContent="space-between" alignItems="center">
 							<ul className='projectpopup-icons'>
 								{project.renderIcons!.map(icon => (
-									<li key={uuid.v4()}>
+									<li key={uuidv4()}>
 										<Tooltip arrow disableFocusListener disableTouchListener title={icon.name}>
 											<LazyImage onDragStart={(e) => e.preventDefault()}
 												 width={isPortrait || isTabletOrMobileDevice ? "42px" : "64px"}

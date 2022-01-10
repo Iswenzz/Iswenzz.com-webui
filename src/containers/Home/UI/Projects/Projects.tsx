@@ -6,7 +6,7 @@ import Project, { LinkedProjectProps } from "Home/UI/Project/Project";
 import StonecutterGrid from "Components/StonecutterGrid/StonecutterGrid";
 import { useSelector } from "react-redux";
 import { AppState } from "../../../App";
-import { enterExitStyle, layout, SpringGridProps } from "react-stonecutter";
+// import { enterExitStyle, layout, SpringGridProps } from "react-stonecutter";
 import { useMediaQuery } from "react-responsive";
 import { Element } from "react-scroll";
 import { random } from "lodash";
@@ -42,18 +42,18 @@ export const Projects: FC = (): JSX.Element =>
 	/**
 	 * Stonecutter grid config.
 	 */
-	const gridConfig: SpringGridProps = { 
-		component: "ul", 
-		columns: 5,
-		perspective: 600, 
-		columnWidth: isTabletOrMobileDevice ? 85 : 200, gutterWidth: 30, 
-		gutterHeight: isTabletOrMobileDevice ? -70 : 0, 
-		layout: isTabletOrMobileDevice ? layout.simple : layout.pinterest,
-		springConfig: { 
-			stiffness: 100, 
-			damping: 12 
-		} 
-	};
+	// const gridConfig: SpringGridProps = { 
+	// 	component: "ul", 
+	// 	columns: 5,
+	// 	perspective: 600, 
+	// 	columnWidth: isTabletOrMobileDevice ? 85 : 200, gutterWidth: 30, 
+	// 	gutterHeight: isTabletOrMobileDevice ? -70 : 0, 
+	// 	layout: isTabletOrMobileDevice ? layout.simple : layout.pinterest,
+	// 	springConfig: { 
+	// 		stiffness: 100, 
+	// 		damping: 12 
+	// 	} 
+	// };
 
 	return (
 		<section className="projects">
@@ -64,8 +64,8 @@ export const Projects: FC = (): JSX.Element =>
 						className='poiret-h1 noselect' active items={["PROJECTS"]} />
 					<Divider className="projects-divider" />
 				</Container>
-				<Grid container component="section" direction="row" alignItems="center" justify="center">
-					<StonecutterGrid responsive animStyle={enterExitStyle.skew} config={gridConfig}>
+				<Grid container component="section" direction="row" alignItems="center" justifyContent="center">
+					{/* <StonecutterGrid responsive animStyle={enterExitStyle.skew} config={gridConfig}>
 						{projects!.map((project: LinkedProjectProps) => {
 							const r = isTabletOrMobileDevice ? undefined : random(100, 220);
 							return (
@@ -76,7 +76,7 @@ export const Projects: FC = (): JSX.Element =>
 								</li>
 							);
 						})}
-					</StonecutterGrid>
+					</StonecutterGrid> */}
 				</Grid>
 				<Spacing height={isPortrait ? "1500px" : isTabletOrMobileDevice ? "500px" : "1000px"} />
 			</RadialGradient>     

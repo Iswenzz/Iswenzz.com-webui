@@ -24,7 +24,7 @@ const Footer: FC = (): JSX.Element =>
 				{ color: isDarkMode ? "#23272A" : "#f2f2f2", colorPercent: "0%" },
 				{ color: isDarkMode ? "#23272F" : "#f4f4f4", colorPercent: "100%" }
 			]}>
-				<Grid component="ul" container direction="row" justify="center" alignItems="center">
+				<Grid component="ul" container direction="row" justifyContent="center" alignItems="center">
 					<li>
 						<Fab href='https://github.com/iswenzz' color="primary" style={{ margin: 20 }}>
 							<FontAwesomeIcon color='silver' icon={faGithub} size='2x' />

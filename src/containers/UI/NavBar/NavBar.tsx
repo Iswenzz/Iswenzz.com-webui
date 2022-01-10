@@ -157,7 +157,7 @@ export const NavBar: FC<AppBarProps> = (props: AppBarProps): JSX.Element =>
 	 * Desktop navbar.
 	 */
 	const navBarButtonsDesktop: JSX.Element = (
-		<Grid component="ul" container direction="row" justify="flex-end" alignItems="center">
+		<Grid component="ul" container direction="row" justifyContent="flex-end" alignItems="center">
 			{navBarElements}
 			<li>
 				<Fab className="navbar-button" style={{ color: isDarkMode ? "goldenrod" : "gainsboro" }} 
@@ -175,7 +175,7 @@ export const NavBar: FC<AppBarProps> = (props: AppBarProps): JSX.Element =>
 	 * Mobile navbar.
 	 */
 	const navBarButtonsMobile: JSX.Element = (
-		<Grid component="ul" container direction="row" justify="flex-end" alignItems="center">
+		<Grid component="ul" container direction="row" justifyContent="flex-end" alignItems="center">
 			<li>
 				<Fab className="navbar-button" style={{ color: isDarkMode ? "goldenrod" : "gainsboro" }} 
 					size='small' onClick={toggleColorMode}>
@@ -195,7 +195,7 @@ export const NavBar: FC<AppBarProps> = (props: AppBarProps): JSX.Element =>
 				<Drawer variant="persistent" anchor="top" open={drawerOpen} onClose={() => toggleDrawer(false)} 
 					PaperProps={{ style: { backgroundColor: "rgba(50, 50, 50, 0.3)", color: "gainsboro", top: "48px" }}}>
 					<section role="presentation" onClick={() => toggleDrawer(false)} onKeyDown={() => toggleDrawer(false)}>
-						<Grid component="ul" container direction="column" justify="center" alignItems="center">
+						<Grid component="ul" container direction="column" justifyContent="center" alignItems="center">
 							{navBarElements}
 						</Grid>
 					</section>

@@ -191,7 +191,7 @@ export const Contact: FC = (): JSX.Element =>
 	 * Contact form element.
 	 */
 	const form: JSX.Element = (
-		<Grid container component="section" direction="column" justify="center" alignItems="center">
+		<Grid container component="section" direction="column" justifyContent="center" alignItems="center">
 			<header>
 				<Avatar alt='iswenzz avatar' src={require("assets/images/misc/iswenzz.png")} 
 					className={classes.avatar} />
@@ -205,7 +205,7 @@ export const Contact: FC = (): JSX.Element =>
 					<Field component={TextField} required label={t("CONTACT_MESSAGE")} id="message" name="message" type="text"
 						fullWidth multiline rows="6" color="secondary" variant="outlined" margin="normal" />
 					<Container maxWidth="xs">
-						<Grid container direction="row" justify="center" alignItems="center">
+						<Grid container direction="row" justifyContent="center" alignItems="center">
 							<Button fullWidth variant="contained" type="submit" color="secondary" disabled={loading || success || fail}
 								className={success ? classes.buttonSuccess : fail ? classes.buttonFail : classes.buttonDefault}>
 								<Trans>CONTACT_SEND</Trans>

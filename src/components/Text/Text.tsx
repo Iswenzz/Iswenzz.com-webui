@@ -1,6 +1,6 @@
 import React, { memo, Component, ElementType } from "react";
 import { Typography, TypographyProps } from "@material-ui/core";
-import uuid from "uuid";
+import { v4 as uuidv4 } from "uuid";
 import {Trans} from "react-i18next";
 
 export type TextProps = TypographyProps & {
@@ -32,7 +32,7 @@ class Text extends Component<TextProps>
 		return (
 			<>
 				{this.props.items.map(item => (
-					<Typography {...rest} key={uuid.v4()}>
+					<Typography {...rest} key={uuidv4()}>
 						{this.props.i18n ? <Trans>{item}</Trans> : item}
 					</Typography>
 				))}

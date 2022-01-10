@@ -109,7 +109,7 @@ export const IntroSkill: FC = (): JSX.Element =>
 	 */
 	const skillGrid: JSX.Element = (
 		<Grid className="skill-grid" container component="section"
-			alignItems="center" direction="row" justify="space-around">
+			alignItems="center" direction="row" justifyContent="space-around">
 			
 			{/* Web Development */}
 			<article className="info-div">
@@ -142,14 +142,14 @@ export const IntroSkill: FC = (): JSX.Element =>
 	);
 
 	return (
-		<Grid container component="section" direction="column" justify="center" alignItems="stretch">
+		<Grid container component="section" direction="column" justifyContent="center" alignItems="stretch">
 			<Element name="intro-section" />
 
 			{/* First Section (About) */}
 			<RadialGradient className="intro" component="section" position='ellipse at bottom' colors={gradientColor}>
 				<VisibilitySensor partialVisibility offset={{ bottom: isTabletOrMobileDevice ? 20 : 200 }}>
 					{({ isVisible }) => (
-						<Grid className="intro-grid" container direction="row" justify="center" alignItems="center">
+						<Grid className="intro-grid" container direction="row" justifyContent="center" alignItems="center">
 							<motion.div className="intro-anim" variants={animationUp} initial={"exit"} animate={isVisible ? "enter" : "exit"}>
 								<Container component="header" maxWidth="md">
 									<Text i18n align="left" color="textPrimary" component="h2" variant="h2"

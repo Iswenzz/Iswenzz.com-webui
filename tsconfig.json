@@ -25,7 +25,8 @@
     "build",
     "webpack",
     "jest",
-    "src/setupTests.ts"
+    "src/setupTests.ts",
+    "**/__test__/**/*.{js,jsx,ts,tsx}"
   ],
   "include": [
     "src"

@@ -32,7 +32,7 @@ export const IntroHeader: FC<IntroHeaderProps> = (props: IntroHeaderProps): JSX.
 				bgImageAlt="index" blur={props.parallaxBlur || 0}
 				strength={props.parallaxStrength || 400}>
 				<Grid component="section" container className="introheader-grid" 
-					direction="column" justify="center" alignItems="center">
+					direction="column" justifyContent="center" alignItems="center">
 					<Typography className="calli-h1 bold noselect" align="center" variant="h1" component="h1">
 						<SplitText>
 							{t(props.title)}

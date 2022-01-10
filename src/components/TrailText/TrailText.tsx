@@ -1,7 +1,7 @@
 import React, { FC, memo, ElementType } from "react";
 import { useTrail, animated, SpringConfig } from "react-spring";
 import { Typography, TypographyProps } from "@material-ui/core";
-import uuid from "uuid";
+import { v4 as uuidv4 } from "uuid";
 import {useTranslation} from "react-i18next";
 
 export type TrailProps = TypographyProps & {
@@ -39,7 +39,7 @@ export const TrailText: FC<TrailProps> = (props: TrailProps): JSX.Element =>
   	return (
 		<>
 			{trail.map(({ x, height, ...rest }, index) => (
-				<animated.div key={uuid.v4()}  
+				<animated.div key={uuidv4()}  
 					style={{ ...rest, transform: `translate3d(0,${x}px,0)` }}>
 					<animated.div>
 						<Typography style={props.style} className={props.className} noWrap={props.noWrap} 

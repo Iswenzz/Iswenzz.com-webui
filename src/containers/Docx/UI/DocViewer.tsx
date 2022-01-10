@@ -1,5 +1,5 @@
 import React, { FC, useEffect } from "react";
-import { useHistory } from "react-router";
+import { useNavigate } from "react-router";
 import { animateScroll as scroll } from "react-scroll";
 import { getElementByXPath } from "utils/elements";
 import "./DocViewer.scss";
@@ -19,7 +19,7 @@ import "../../App/Common.scss";
  */
 export const DocViewer: FC = (): JSX.Element =>
 {
-	let history = useHistory();
+	let navigate = useNavigate();
 
 	useEffect(() =>
 	{
@@ -90,7 +90,7 @@ export const DocViewer: FC = (): JSX.Element =>
 		e.preventDefault();
 
 		const c_docpath: string = "/docs/cgsc/";
-		const c_pathname: string = history.location.pathname;
+		const c_pathname: string = navigate.name;
 		const c_file: string = c_pathname.substring(c_pathname.indexOf(c_docpath) 
 			+ c_docpath.length, c_pathname.length);
 
@@ -113,17 +113,17 @@ export const DocViewer: FC = (): JSX.Element =>
 						if (elem && elem instanceof HTMLAnchorElement)
 							scroll.scrollTo(elem.offsetTop - 48);
 					}
-					history.push(`/docs/cgsc/${url}${hash || ""}`);
+					navigate(`/docs/cgsc/${url}${hash || ""}`);
 				}
 				// change html page with no selected anchor.
 				else if (link.endsWith(".html") && link !== c_file)
 				{
 					loadDoc(link);
-					history.push(`/docs/cgsc/${link}`);
+					navigate(`/docs/cgsc/${link}`);
 				}
 			}
 			else // stay on the page and add hash to url
-				history.push(`${c_docpath}${c_file}${link}`);
+				navigate(`${c_docpath}${c_file}${link}`);
 		}
 	};
 

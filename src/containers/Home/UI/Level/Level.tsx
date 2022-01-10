@@ -6,7 +6,7 @@ import ReactPlayer, { Config } from "react-player";
 import { useMediaQuery } from "react-responsive";
 import { useSelector } from "react-redux";
 import { AppState } from "../../../App";
-import uuid from "uuid";
+import { v4 as uuidv4 } from "uuid";
 import "../../../App/Common.scss";
 import "./Level.scss";
 import {useTranslation} from "react-i18next";
@@ -81,18 +81,18 @@ export const Level: FC<LevelProps> = (props: LevelProps): JSX.Element =>
 	const desktopCard: JSX.Element = (
 		<Container component="section" className={`level ${isDarkMode ? classes.darkCard : classes.whiteCard}`}>
 			<GridList className="level-grid-list" cellHeight='auto' spacing={1}>
-				<GridListTile component="header" className="level-desktop-tile-name" key={uuid.v4()} cols={2} rows={2}>
+				<GridListTile component="header" className="level-desktop-tile-name" key={uuidv4()} cols={2} rows={2}>
 					<Typography itemProp="name" className="level-desktop-typo" variant="h2" align="center" 
 						color="textPrimary" component="h2">
 						{props.currentLevel.name}
 					</Typography>
 				</GridListTile>
-				<GridListTile key={uuid.v4()} cols={1} rows={1} className="level-desktop-tile-player">
+				<GridListTile key={uuidv4()} cols={1} rows={1} className="level-desktop-tile-player">
 					{!isFlipped ? <ReactPlayer config={playerConfig} width='100%' height='100%' 
 						url={props.currentLevel.videoUrl} /> : null}
 				</GridListTile>
-				<GridListTile key={uuid.v4()} cols={1} rows={1} className="level-desktop-tile-desc">
-					<Grid container direction="row" justify="center" alignItems="center">
+				<GridListTile key={uuidv4()} cols={1} rows={1} className="level-desktop-tile-desc">
+					<Grid container direction="row" justifyContent="center" alignItems="center">
 						<Typography itemProp="description" className="level-desktop-tile-desc-typo" variant="subtitle1" 
 							align="left" color="textPrimary" paragraph component="p">
 							{props.currentLevel.description}
@@ -108,7 +108,7 @@ export const Level: FC<LevelProps> = (props: LevelProps): JSX.Element =>
 	 */
 	const mobileCard: JSX.Element = (
 		<Container component="section" className={`level ${isDarkMode ? classes.darkCard : classes.whiteCard}`}>
-			<Grid container className="level-grid" direction="row" justify="center" alignItems="center">
+			<Grid container className="level-grid" direction="row" justifyContent="center" alignItems="center">
 				<header>
 					<h3 itemProp="name" className="calli-h2 level-mobile-name">{props.currentLevel.name}</h3>
 				</header>
@@ -128,14 +128,14 @@ export const Level: FC<LevelProps> = (props: LevelProps): JSX.Element =>
 				style={{ backgroundImage: `url(${props.currentLevel.image})` }}>
 				<meta itemProp="image" content={props.currentLevel.image} />
 				<meta itemProp="embedUrl" content={props.currentLevel.videoUrl} />
-				<Grid container direction="row" alignItems="center" justify="space-between">
+				<Grid container direction="row" alignItems="center" justifyContent="space-between">
 					<Tooltip placement="right" arrow disableFocusListener title={t("TOOLTIP_CLICK_ME") as string}>
 						<LazyImage onDragStart={(e) => e.preventDefault()} alt='click-me' width={55} height={64}
 							src={require("assets/images/misc/icons8-natural-user-interface-2-64.png")} />
 					</Tooltip>
-					<Grid container component="ul" direction="column" justify="space-evenly" alignItems="flex-end">
+					<Grid container component="ul" direction="column" justifyContent="space-evenly" alignItems="flex-end">
 						{props.currentLevel.renderIcons?.map(icon => (
-							<li key={uuid.v4()}>
+							<li key={uuidv4()}>
 								<Tooltip arrow disableFocusListener disableTouchListener title={icon.name}>
 									<LazyImage onDragStart={(e) => e.preventDefault()} className="level-tooltip-img"
 										width={isPortrait || isTabletOrMobileDevice ? "32" : "64"}

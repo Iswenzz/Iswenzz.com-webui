@@ -88,10 +88,10 @@ export const EmblaCarouselComponent: FC<EmblaCarouselProps> = (props: EmblaCarou
 	}, [state.embla]);
 
 	return (
-		<Grid style={props.style} container direction="row" justify="center" alignItems="center"
+		<Grid style={props.style} container direction="row" justifyContent="center" alignItems="center"
 			component="article">
 			<section style={{ width: props.width, height: props.height }} className="embla">
-				<EmblaCarouselReact className="embla-viewport" emblaRef={setEmbla} 
+				{/* <EmblaCarouselReact className="embla-viewport" emblaRef={setEmbla} 
 					options={{ loop: false, draggable: false }} htmlTagName="section">
 					<ul style={{ width: props.width, height: props.height }} 
 						className="embla-container">
@@ -101,7 +101,7 @@ export const EmblaCarouselComponent: FC<EmblaCarouselProps> = (props: EmblaCarou
 							</li>
 						))}
 					</ul>
-				</EmblaCarouselReact>
+				</EmblaCarouselReact> */}
 				<section className="embla-dots">
 					{state.scrollSnaps.map((snap: number, index: number) => (
 						<DotButton selected={index === state.selectedIndex} onClick={() => scrollTo(index)} key={index} />

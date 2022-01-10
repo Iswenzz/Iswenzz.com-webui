@@ -1,21 +1,21 @@
 import React from "react";
-import { mount, ReactWrapper } from "enzyme";
-import * as redux from "react-redux";
-import { store } from "../../App";
-import Docx from "../Docx";
+// import { mount, ReactWrapper } from "enzyme";
+// import * as redux from "react-redux";
+// import { store } from "../../App";
+// import Docx from "../Docx";
 
-describe("[Container] <Docx>", () => {
+// describe("[Container] <Docx>", () => {
 
-	let wrapper: ReactWrapper;
+// 	let wrapper: ReactWrapper;
 
-	beforeEach(() => {
-		wrapper = mount((
-			<redux.Provider store={store}>
-				<Docx />
-			</redux.Provider>));
-	});
+// 	beforeEach(() => {
+// 		wrapper = mount((
+// 			<redux.Provider store={store}>
+// 				<Docx />
+// 			</redux.Provider>));
+// 	});
 
-	it("Mount test", () => {
-		expect(wrapper).toBeDefined();
-	});
-});
+// 	it("Mount test", () => {
+// 		expect(wrapper).toBeDefined();
+// 	});
+// });

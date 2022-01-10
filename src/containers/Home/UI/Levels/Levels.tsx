@@ -64,7 +64,7 @@ export const Levels: FC = (): JSX.Element =>
 				<section className="levels">
 					<Element name="level-design-section" />
 					<RadialGradient component="section" config={config} className="levels-gradient-grid">
-						<Grid container direction="column" justify="center" alignItems="center">
+						<Grid container direction="column" justifyContent="center" alignItems="center">
 							<Container component="header" className="levels-container">
 								<motion.div variants={animation} initial={"exit"} animate={isVisible ? "enter" : "exit"}>
 									<Text i18n align="center" color="textPrimary" component="h2" variant="h2"

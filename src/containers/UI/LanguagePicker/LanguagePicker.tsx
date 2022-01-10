@@ -1,5 +1,5 @@
 import React, {FC} from "react";
-import {Fab, ListItemIcon, Menu, MenuItem, Typography, createMuiTheme, ThemeProvider, Grid} from "@material-ui/core";
+import {Fab, ListItemIcon, Menu, MenuItem, Typography, createTheme, ThemeProvider, Grid} from "@material-ui/core";
 import {i18nLanguages, Language} from "../../App/i18n";
 import {useDispatch, useSelector} from "react-redux";
 import { toggleLanguage, toggleModalActive } from "../../../containers/App/redux";
@@ -14,7 +14,7 @@ export const languages: Record<Language, JSX.Element> = {
 	zh: <img className={"languagepicker-icon"} src={require("assets/images/flags/261-china.svg")} alt={"Chinese"} />
 };
 
-const menuTheme = createMuiTheme({
+const menuTheme = createTheme({
 	overrides: {
 		MuiMenu: {
 			paper: {

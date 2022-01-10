@@ -1,12 +1,12 @@
 import React, { FC } from "react";
-import { Route, Switch, BrowserRouter } from "react-router-dom";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { ThunkDispatch } from "redux-thunk";
 import { bindActionCreators } from "redux";
 import { detect } from "detect-browser";
 
 import { CssBaseline } from "@material-ui/core";
-import { Theme, createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
+import { Theme, createTheme, responsiveFontSizes } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/core/styles";
 
 import { AppState } from "../App";
@@ -23,7 +23,7 @@ export const App: FC<AppProps> = (props: AppProps): JSX.Element =>
 	/**
 	 * Material UI custom dark/white theme.
 	 */
-	let theme: Theme = responsiveFontSizes(createMuiTheme({
+	let theme: Theme = responsiveFontSizes(createTheme({
 		typography: {
 			subtitle1: {
 				fontFamily: "Ubuntu",
@@ -148,10 +148,11 @@ export const App: FC<AppProps> = (props: AppProps): JSX.Element =>
 		<ThemeProvider theme={theme}> 
 			<CssBaseline />
 			<BrowserRouter>
-				<Switch>
-					<Route path="/" exact component={Home} />
-					{/* <Route path="/docs" component={Docx} /> */} {/* WIP */}
-				</Switch>
+				<Routes>
+					<Route path="/" element={<Home />}>
+						{/* <Route path="/docs" element={<Docx />} /> */} {/* WIP */}
+					</Route>
+				</Routes>
 			</BrowserRouter>
 		</ThemeProvider>
 	);
