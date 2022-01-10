@@ -1,7 +1,7 @@
 import React, { FC, useEffect } from "react";
 import { useHistory } from "react-router";
 import { animateScroll as scroll } from "react-scroll";
-import { getElementByXPath } from "utils";
+import { getElementByXPath } from "utils/elements";
 import "./DocViewer.scss";
 import "../../App/Common.scss";
 

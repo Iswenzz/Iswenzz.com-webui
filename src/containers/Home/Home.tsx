@@ -8,17 +8,17 @@ import { bindActionCreators } from "redux";
 
 import { Typography } from "@material-ui/core";
 
-import NavBar from "containers/UI/NavBar/NavBar";
-import Projects from "containers/Home/UI/Projects/Projects";
-import Footer from "containers/UI/Footer/Footer";
-import IntroHeader from "containers/UI/IntroHeader/IntroHeader";
-import IntroSkill from "containers/Home/UI/Intro/Intro";
-import Contact from "containers/Home/UI/Contact/Contact";
-import Levels from "containers/Home/UI/Levels/Levels";
-import { LinkedProjectProps } from "containers/Home/UI/Project/Project";
-import ProjectPopup from "containers/Home/UI/ProjectPopup/ProjectPopup";
-import { Spacing } from "components/Spacing/Spacing";
-import SplitText from "components/SplitText/SplitText";
+import NavBar from "UI/NavBar/NavBar";
+import Projects from "Home/UI/Projects/Projects";
+import Footer from "UI/Footer/Footer";
+import IntroHeader from "UI/IntroHeader/IntroHeader";
+import IntroSkill from "Home/UI/Intro/Intro";
+import Contact from "Home/UI/Contact/Contact";
+import Levels from "Home/UI/Levels/Levels";
+import { LinkedProjectProps } from "Home/UI/Project/Project";
+import ProjectPopup from "Home/UI/ProjectPopup/ProjectPopup";
+import { Spacing } from "Components/Spacing/Spacing";
+import SplitText from "Components/SplitText/SplitText";
 
 import { HomeActions, setProjectsIndex, toggleProjectModalActive } from "./redux";
 import { AppState } from "../App";

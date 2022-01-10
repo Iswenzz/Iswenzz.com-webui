@@ -1,7 +1,7 @@
 import React, { FC, memo, useState } from "react";
 import { Grid, Tooltip, Container, Typography, GridList, GridListTile, makeStyles } from "@material-ui/core";
-import { IconProps } from "containers/Home/UI/Project/Project";
-import FlipCard from "components/FlipCard/FlipCard";
+import { IconProps } from "Home/UI/Project/Project";
+import FlipCard from "Components/FlipCard/FlipCard";
 import ReactPlayer, { Config } from "react-player";
 import { useMediaQuery } from "react-responsive";
 import { useSelector } from "react-redux";

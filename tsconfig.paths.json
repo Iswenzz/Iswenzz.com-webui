@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"Components/*": ["src/components/*"],
+			"App/*": ["src/containers/App/*"],
+			"Home/*": ["src/containers/Home/*"],
+			"Docx/*": ["src/containers/Docx/*"],
+			"UI/*": ["src/containers/UI/*"],
+			"assets/*": ["src/assets/*"],
+			"definitions/*": ["src/definitions/*"],
+			"utils/*": ["src/utils/*"]
+		}
+	}
+}

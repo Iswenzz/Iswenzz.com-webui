@@ -1,11 +1,11 @@
 import React, { FC, memo } from "react";
 import Grid from "@material-ui/core/Grid";
 import Fab from "@material-ui/core/Fab";
-import RadialGradient from "components/RadialGradient/RadialGradient";
+import RadialGradient from "Components/RadialGradient/RadialGradient";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDiscord, faYoutube, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { Parallax } from "react-parallax";
-import Spacing from "components/Spacing/Spacing";
+import Spacing from "Components/Spacing/Spacing";
 import { Tooltip, Typography } from "@material-ui/core";
 import { useSelector } from "react-redux";
 import { AppState } from "../../App";

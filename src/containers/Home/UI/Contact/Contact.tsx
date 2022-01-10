@@ -1,5 +1,5 @@
 import React, { FC, memo, useState, useRef } from "react";
-import RadialGradient, { GradiantProps } from "components/RadialGradient/RadialGradient";
+import RadialGradient, { GradiantProps } from "Components/RadialGradient/RadialGradient";
 import { Grid, Container, Avatar, Button, makeStyles, CircularProgress, Typography } from "@material-ui/core";
 import VisibilitySensor from "react-visibility-sensor";
 import { useMediaQuery } from "react-responsive";
@@ -9,7 +9,7 @@ import { AppState } from "../../../App";
 import { Formik, Field, Form, FormikHelpers } from "formik";
 import { TextField } from "formik-material-ui";
 import ReCAPTCHA from "react-google-recaptcha";
-import { delay } from "utils";
+import { delay } from "utils/misc";
 import {Trans, useTranslation} from "react-i18next";
 import {gql, useMutation} from "@apollo/client";
 import {Mutation, MutationContactArgs} from "../../../../definitions/graphql";

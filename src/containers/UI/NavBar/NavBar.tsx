@@ -15,7 +15,7 @@ import { useScroll } from "react-use-gesture";
 import LanguagePicker from "../LanguagePicker/LanguagePicker";
 import {Trans} from "react-i18next";
 import "./NavBar.scss";
-import { toggleDarkMode, toggleModalActive } from "containers/App/redux";
+import { toggleDarkMode, toggleModalActive } from "App/redux";
 
 const animationFixed = {
 	enter: { 

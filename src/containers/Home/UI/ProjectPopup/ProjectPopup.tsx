@@ -13,24 +13,24 @@ import {
 import { Close, Lock } from "@material-ui/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faOsi } from "@fortawesome/free-brands-svg-icons";
-import { LinkedProjectProps } from "containers/Home/UI/Project/Project";
-import ViewPager, { ViewPagerConfig } from "components/ViewPager/ViewPager";
+import { LinkedProjectProps } from "Home/UI/Project/Project";
+import ViewPager, { ViewPagerConfig } from "Components/ViewPager/ViewPager";
 import { AppState } from "../../../App";
 import useWindowSize from "utils/hooks/useWindowSize";
 import { useSelector, useDispatch } from "react-redux";
 import { useMediaQuery } from "react-responsive";
 import * as MarkdownIt from "markdown-it";
 import uuid from "uuid";
-import VS2015 from "containers/UI/Highlight/VS1025";
-import AtomOneLight from "containers/UI/Highlight/AtomOneLight";
+import VS2015 from "UI/Highlight/VS1025";
+import AtomOneLight from "UI/Highlight/AtomOneLight";
 import {useTranslation} from "react-i18next";
 import LazyImage from "../../../../components/LazyImage/LazyImage";
 import axios, {AxiosResponse} from "axios";
 import hljs from "highlight.js";
 import "../../../App/Common.scss";
 import "./ProjectPopup.scss";
-import { toggleProjectModalActive } from "containers/Home/redux";
-import { toggleModalActive } from "containers/App/redux";
+import { toggleProjectModalActive } from "Home/redux";
+import { toggleModalActive } from "App/redux";
 
 export type ProjectPopupState = {
 	projects: JSX.Element[]

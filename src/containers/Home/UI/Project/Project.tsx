@@ -6,8 +6,8 @@ import {motion} from "framer-motion";
 import "../../../App/Common.scss";
 import "./Project.scss";
 import LazyLoad from "react-lazyload";
-import { setProjectsIndex, toggleProjectModalActive } from "containers/Home/redux";
-import { toggleModalActive } from "containers/App/redux";
+import { setProjectsIndex, toggleProjectModalActive } from "Home/redux";
+import { toggleModalActive } from "App/redux";
 
 export type ProjectRenderProps = {
 	renderUrl?: string,

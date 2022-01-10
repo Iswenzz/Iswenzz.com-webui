@@ -1,9 +1,9 @@
 import {HomeActions, HomeActionEnum, SetProjectsStartIndex, ToggleProjectModalActive} from ".";
-import {updateObjectPartial} from "utils";
-import { HomeProps } from "containers/Home/Home";
+import {updateObjectPartial} from "utils/objects";
+import { HomeProps } from "Home/Home";
 
 export let initialState: HomeProps = {
-	projects: require("containers/Home/UI/Projects/Projects.json"),
+	projects: require("Home/UI/Projects/Projects.json"),
 	projectsStartIndex: 0,
 	projectModalActive: false
 };

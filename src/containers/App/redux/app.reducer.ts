@@ -1,6 +1,6 @@
 import { detect } from "detect-browser";
 import {AppActions, AppActionEnum, ToggleDarkMode, ToggleModalActive, ToggleLanguage} from ".";
-import {updateObjectPartial} from "utils";
+import { updateObjectPartial } from "utils/objects";
 import {Language} from "../i18n";
 import { AppProps } from "../App";
 

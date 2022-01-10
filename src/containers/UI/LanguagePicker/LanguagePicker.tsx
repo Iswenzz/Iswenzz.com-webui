@@ -2,7 +2,7 @@ import React, {FC} from "react";
 import {Fab, ListItemIcon, Menu, MenuItem, Typography, createMuiTheme, ThemeProvider, Grid} from "@material-ui/core";
 import {i18nLanguages, Language} from "../../App/i18n";
 import {useDispatch, useSelector} from "react-redux";
-import { toggleLanguage, toggleModalActive } from "containers/App/redux";
+import { toggleLanguage, toggleModalActive } from "../../../containers/App/redux";
 import {AppState} from "../../App";
 import "./LanguagePicker.scss";
 
