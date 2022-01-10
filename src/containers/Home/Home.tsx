@@ -8,15 +8,15 @@ import { bindActionCreators } from "redux";
 
 import { Typography } from "@material-ui/core";
 
-import NavBar from "UI/NavBar/NavBar";
-import Projects from "Home/UI/Projects/Projects";
-import Footer from "UI/Footer/Footer";
-import IntroHeader from "UI/IntroHeader/IntroHeader";
-import IntroSkill from "Home/UI/Intro/Intro";
-import Contact from "Home/UI/Contact/Contact";
-import Levels from "Home/UI/Levels/Levels";
-import { LinkedProjectProps } from "Home/UI/Project/Project";
-import ProjectPopup from "Home/UI/ProjectPopup/ProjectPopup";
+import NavBar from "App/NavBar/NavBar";
+import Projects from "Home/Projects/Projects";
+import Footer from "App/Footer/Footer";
+import IntroHeader from "App/IntroHeader/IntroHeader";
+import IntroSkill from "Home/Intro/Intro";
+import Contact from "Home/Contact/Contact";
+import Levels from "Home/Levels/Levels";
+import { LinkedProjectProps } from "Home/Project/Project";
+import ProjectPopup from "Home/ProjectPopup/ProjectPopup";
 import { Spacing } from "Components/Spacing/Spacing";
 import SplitText from "Components/SplitText/SplitText";
 

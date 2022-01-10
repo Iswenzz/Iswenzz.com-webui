@@ -5,16 +5,16 @@ import VisibilitySensor from "react-visibility-sensor";
 import { useMediaQuery } from "react-responsive";
 import { Element } from "react-scroll";
 import { useSelector } from "react-redux";
-import { AppState } from "../../../App";
+import { AppState } from "../../App";
 import { Formik, Field, Form, FormikHelpers } from "formik";
 import { TextField } from "formik-material-ui";
 import ReCAPTCHA from "react-google-recaptcha";
 import { delay } from "utils/misc";
 import {Trans, useTranslation} from "react-i18next";
 import {gql, useMutation} from "@apollo/client";
-import {Mutation, MutationContactArgs} from "../../../../definitions/graphql";
+import {Mutation, MutationContactArgs} from "definitions/graphql";
 import {motion, Variants} from "framer-motion";
-import "../../../App/Common.scss";
+import "../../App/Common.scss";
 import "./Contact.scss";
 
 const useStyles = makeStyles(theme => ({

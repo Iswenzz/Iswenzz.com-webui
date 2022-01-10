@@ -2,7 +2,7 @@ import React from "react";
 // import { mount, ReactWrapper } from "enzyme";
 // import { Contact } from "../Contact";
 // import * as redux from "react-redux";
-// import { store } from "../../../../App";
+// import { store } from "../../../App";
 // // eslint-disable-next-line @typescript-eslint/no-unused-vars
 // import { Button } from "@material-ui/core";
 // import {MockedProvider} from "@apollo/client/testing";

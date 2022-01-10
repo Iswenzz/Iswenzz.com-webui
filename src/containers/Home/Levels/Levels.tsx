@@ -2,15 +2,15 @@ import React, { FC, useState, memo } from "react";
 import RadialGradient, { GradiantProps } from "Components/RadialGradient/RadialGradient";
 import { Divider, Container, Grid } from "@material-ui/core";
 import EmblaCarousel from "Components/EmblaCarousel/EmblaCarousel";
-import Level, { LevelProject } from "Home/UI/Level/Level";
+import Level, { LevelProject } from "Home/Level/Level";
 import {motion, Variants} from "framer-motion";
 import VisibilitySensor from "react-visibility-sensor";
 import { Element } from "react-scroll";
 import { useMediaQuery } from "react-responsive";
 import { useSelector } from "react-redux";
-import { AppState } from "../../../App";
+import { AppState } from "../../App";
 import Text from "Components/Text/Text";
-import "../../../App/Common.scss";
+import "../../App/Common.scss";
 import "./Levels.scss";
 
 const animation: Variants = {

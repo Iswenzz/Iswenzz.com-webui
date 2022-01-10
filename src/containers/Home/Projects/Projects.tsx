@@ -2,16 +2,16 @@ import React, { FC, memo } from "react";
 import RadialGradient, { GradiantProps } from "Components/RadialGradient/RadialGradient";
 import { Grid, Divider, Container } from "@material-ui/core";
 import Spacing from "Components/Spacing/Spacing";
-import Project, { LinkedProjectProps } from "Home/UI/Project/Project";
+import Project, { LinkedProjectProps } from "Home/Project/Project";
 import StonecutterGrid from "Components/StonecutterGrid/StonecutterGrid";
 import { useSelector } from "react-redux";
-import { AppState } from "../../../App";
+import { AppState } from "../../App";
 // import { enterExitStyle, layout, SpringGridProps } from "react-stonecutter";
 import { useMediaQuery } from "react-responsive";
 import { Element } from "react-scroll";
 import { random } from "lodash";
 import { TrailText } from "Components/TrailText/TrailText";
-import "../../../App/Common.scss";
+import "../../App/Common.scss";
 import "./Projects.scss";
 
 /**

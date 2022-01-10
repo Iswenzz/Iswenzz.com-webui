@@ -3,7 +3,7 @@ import React from "react";
 // import { ProjectPopup } from "../ProjectPopup";
 // import * as redux from "react-redux";
 // import { Fab } from "@material-ui/core";
-// import { store } from "../../../../App";
+// import { store } from "../../../App";
 
 // describe("[Container] <ProjectPopup>", () => 
 // {

@@ -3,7 +3,7 @@ import Spacing from "Components/Spacing/Spacing";
 import RadialGradient, { GradientColor } from "Components/RadialGradient/RadialGradient";
 import { Parallax } from "react-parallax";
 import { useSelector } from "react-redux";
-import { AppState } from "../../../App";
+import { AppState } from "../../App";
 import Text from "Components/Text/Text";
 import { Grid, Container, Divider } from "@material-ui/core";
 import VisibilitySensor from "react-visibility-sensor";
@@ -11,7 +11,7 @@ import {motion, Variants} from "framer-motion";
 import TrailText from "Components/TrailText/TrailText";
 import { useMediaQuery } from "react-responsive";
 import { Element } from "react-scroll";
-import "../../../App/Common.scss";
+import "../../App/Common.scss";
 import "./Intro.scss";
 
 export type IntroSkill = {

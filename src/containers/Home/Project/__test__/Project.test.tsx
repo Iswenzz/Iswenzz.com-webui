@@ -2,7 +2,7 @@ import React from "react";
 // import { mount, ReactWrapper } from "enzyme";
 // import { Project, LinkedProjectProps, ProjectProps } from "../Project";
 // import * as redux from "react-redux";
-// import { store } from "../../../../App";
+// import { store } from "../../../App";
 // import LazyLoad from "react-lazyload";
 
 // const project: LinkedProjectProps = {

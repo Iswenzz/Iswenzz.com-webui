@@ -3,9 +3,9 @@ import React from "react";
 // import { Level, LevelProps, LevelProject } from "../Level";
 // import * as redux from "react-redux";
 // import { FlipCard } from "Components/FlipCard/FlipCard";
-// import { store } from "../../../../App";
+// import { store } from "../../../App";
 
-// const levels: LevelProject[] = require("Home/UI/Levels/Levels.json");
+// const levels: LevelProject[] = require("Home/Levels/Levels.json");
 
 // describe("[Container] <Level>", () => 
 // {

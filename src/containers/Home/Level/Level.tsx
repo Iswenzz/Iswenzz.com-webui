@@ -1,16 +1,16 @@
 import React, { FC, memo, useState } from "react";
 import { Grid, Tooltip, Container, Typography, GridList, GridListTile, makeStyles } from "@material-ui/core";
-import { IconProps } from "Home/UI/Project/Project";
+import { IconProps } from "Home/Project/Project";
 import FlipCard from "Components/FlipCard/FlipCard";
 import ReactPlayer, { Config } from "react-player";
 import { useMediaQuery } from "react-responsive";
 import { useSelector } from "react-redux";
-import { AppState } from "../../../App";
+import { AppState } from "../../App";
 import { v4 as uuidv4 } from "uuid";
-import "../../../App/Common.scss";
+import "../../App/Common.scss";
 import "./Level.scss";
 import {useTranslation} from "react-i18next";
-import LazyImage from "../../../../components/LazyImage/LazyImage";
+import LazyImage from "Components/LazyImage/LazyImage";
 
 const playerConfig: Config = { 
 	youtube: {
