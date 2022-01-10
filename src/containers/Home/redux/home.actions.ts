@@ -1,5 +1,5 @@
 import {HomeActionEnum, SetProjectsStartIndex, ToggleProjectModalActive} from ".";
-import { AppState } from "../../App";
+import { AppState } from "App";
 import { Dispatch } from "react";
 
 /**

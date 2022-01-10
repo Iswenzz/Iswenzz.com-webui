@@ -4,8 +4,8 @@ import { Provider } from "react-redux";
 import { createStore, combineReducers, compose, applyMiddleware } from "redux";
 
 import App from "./App";
-import appReducer from "./redux";
-import homeReducer from "../Home/redux";
+import appReducer from "App/redux";
+import homeReducer from "Home/redux";
 import {ApolloClient, ApolloLink, ApolloProvider, HttpLink, InMemoryCache} from "@apollo/client";
 import {onError} from "@apollo/client/link/error";
 

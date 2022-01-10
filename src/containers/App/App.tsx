@@ -9,7 +9,7 @@ import { CssBaseline } from "@material-ui/core";
 import { Theme, createTheme, responsiveFontSizes } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/core/styles";
 
-import { AppState } from "../App";
+import { AppState } from "App";
 import { toggleDarkMode, toggleModalActive, toggleLanguage, AppActions } from "./redux";
 import Home from "../Home/Home";
 import {Language} from "./i18n";

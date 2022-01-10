@@ -3,7 +3,7 @@ import {updateObjectPartial} from "utils/objects";
 import { HomeProps } from "Home/Home";
 
 export let initialState: HomeProps = {
-	projects: require("Home/Projects/Projects.json"),
+	projects: require("Home/components/Projects/Projects.json"),
 	projectsStartIndex: 0,
 	projectModalActive: false
 };

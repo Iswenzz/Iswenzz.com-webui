@@ -1,7 +1,7 @@
 import React from "react";
 // import { mount, ReactWrapper } from "enzyme";
 // import * as redux from "react-redux";
-// import { store } from "../../App";
+// import { store } from "App";
 // import Docx from "../Docx";
 
 // describe("[Container] <Docx>", () => {

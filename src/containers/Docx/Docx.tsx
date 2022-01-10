@@ -1,10 +1,10 @@
 import React, { FC } from "react";
-import { AppState } from "../App";
+import { AppState } from "App";
 import { useSelector } from "react-redux";
-import NavBar from "App/NavBar/NavBar";
-import Footer from "App/Footer/Footer";
-import IntroHeader from "App/IntroHeader/IntroHeader";
-import DocViewer from "Docx/DocViewer/DocViewer";
+import NavBar from "App/components/NavBar/NavBar";
+import Footer from "App/components/Footer/Footer";
+import IntroHeader from "App/components/IntroHeader/IntroHeader";
+import DocViewer from "Docx/components/DocViewer/DocViewer";
 import { Element } from "react-scroll";
 
 /**
