@@ -7,10 +7,9 @@ import { useMediaQuery } from "react-responsive";
 import { useSelector } from "react-redux";
 import { AppState } from "../../App";
 import { v4 as uuidv4 } from "uuid";
-import "../../App/Common.scss";
 import "./Level.scss";
 import {useTranslation} from "react-i18next";
-import LazyImage from "Components/LazyImage/LazyImage";
+import {LazyImage} from "Components";
 
 const playerConfig: Config = { 
 	youtube: {

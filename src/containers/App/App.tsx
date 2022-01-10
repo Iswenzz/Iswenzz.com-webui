@@ -14,6 +14,8 @@ import { toggleDarkMode, toggleModalActive, toggleLanguage, AppActions } from ".
 import Home from "../Home/Home";
 import {Language} from "./i18n";
 
+import "./Common.scss";
+
 /**
  * Application main container.
  * @param props - ReduxAppProps

@@ -3,7 +3,6 @@ import { Card, CardActionArea, Typography } from "@material-ui/core";
 import { useDispatch } from "react-redux";
 import { useMediaQuery } from "react-responsive";
 import {motion} from "framer-motion";
-import "../../App/Common.scss";
 import "./Project.scss";
 import LazyLoad from "react-lazyload";
 import { setProjectsIndex, toggleProjectModalActive } from "Home/redux";

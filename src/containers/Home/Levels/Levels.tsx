@@ -10,7 +10,6 @@ import { useMediaQuery } from "react-responsive";
 import { useSelector } from "react-redux";
 import { AppState } from "../../App";
 import Text from "Components/Text/Text";
-import "../../App/Common.scss";
 import "./Levels.scss";
 
 const animation: Variants = {

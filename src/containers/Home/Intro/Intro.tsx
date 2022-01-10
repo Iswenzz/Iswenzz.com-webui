@@ -11,7 +11,6 @@ import {motion, Variants} from "framer-motion";
 import TrailText from "Components/TrailText/TrailText";
 import { useMediaQuery } from "react-responsive";
 import { Element } from "react-scroll";
-import "../../App/Common.scss";
 import "./Intro.scss";
 
 export type IntroSkill = {

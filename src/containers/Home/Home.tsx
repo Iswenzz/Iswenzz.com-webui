@@ -23,7 +23,6 @@ import SplitText from "Components/SplitText/SplitText";
 import { HomeActions, setProjectsIndex, toggleProjectModalActive } from "./redux";
 import { AppState } from "../App";
 
-import "../App/Common.scss";
 import "./Home.scss";
 
 /**

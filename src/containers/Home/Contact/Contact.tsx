@@ -14,7 +14,6 @@ import {Trans, useTranslation} from "react-i18next";
 import {gql, useMutation} from "@apollo/client";
 import {Mutation, MutationContactArgs} from "definitions/graphql";
 import {motion, Variants} from "framer-motion";
-import "../../App/Common.scss";
 import "./Contact.scss";
 
 const useStyles = makeStyles(theme => ({

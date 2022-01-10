@@ -27,7 +27,6 @@ import {useTranslation} from "react-i18next";
 import LazyImage from "Components/LazyImage/LazyImage";
 import axios, {AxiosResponse} from "axios";
 import hljs from "highlight.js";
-import "../../App/Common.scss";
 import "./ProjectPopup.scss";
 import { toggleProjectModalActive } from "Home/redux";
 import { toggleModalActive } from "App/redux";

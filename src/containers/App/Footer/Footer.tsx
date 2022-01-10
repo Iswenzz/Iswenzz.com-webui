@@ -9,7 +9,6 @@ import Spacing from "Components/Spacing/Spacing";
 import { Tooltip, Typography } from "@material-ui/core";
 import { useSelector } from "react-redux";
 import { AppState } from "../../App";
-import "../../App/Common.scss";
 
 /**
  * Footer container with links to social medias & copyrights.

@@ -3,7 +3,6 @@ import { useNavigate } from "react-router";
 import { animateScroll as scroll } from "react-scroll";
 import { getElementByXPath } from "utils/elements";
 import "./DocViewer.scss";
-import "../../App/Common.scss";
 
 /**
  * Doxygen document viewer container.
