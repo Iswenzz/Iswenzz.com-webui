@@ -15,12 +15,11 @@ import IntroHeader from "App/components/IntroHeader/IntroHeader";
 import IntroSkill from "Home/components/Intro/Intro";
 import Contact from "Home/components/Contact/Contact";
 import Levels from "Home/components/Levels/Levels";
-import { LinkedProjectProps } from "Home/components/Project/Project";
 import ProjectPopup from "Home/components/ProjectPopup/ProjectPopup";
 import { Spacing } from "Components/Spacing/Spacing";
 import SplitText from "Components/SplitText/SplitText";
 
-import { HomeActions, setProjectsIndex, toggleProjectModalActive } from "./redux";
+import { HomeActions, HomeDispatch, HomeRedux, setProjectsIndex, toggleProjectModalActive } from "./redux";
 import { AppState } from "App";
 
 import "./Home.scss";
@@ -28,7 +27,7 @@ import "./Home.scss";
 /**
  * Home page container.
  */
-const Home: FC<HomeProps> = (props: HomeProps): JSX.Element =>
+const Home: FC<HomeRedux> = (props: HomeRedux): JSX.Element =>
 {
 	const { t } = useTranslation();
 	const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
@@ -78,24 +77,13 @@ const Home: FC<HomeProps> = (props: HomeProps): JSX.Element =>
 	);
 };
 
-export type HomeProps = {
-	projects: LinkedProjectProps[],
-	projectsStartIndex: number,
-	projectModalActive: boolean
-};
-
-export type HomeDispatchProps = {
-	setProjectsIndex: (index: number) => void,
-	toggleProjectModalActive: (active: boolean) => void
-};
-
-const mapStateToProps = (state: AppState, ownProps: any): HomeProps => ({
+const mapStateToProps = (state: AppState, ownProps: any): HomeRedux => ({
 	projects: state.home.projects,
 	projectsStartIndex: state.home.projectsStartIndex,
 	projectModalActive: state.home.projectModalActive
 });
 
-const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, HomeActions>, ownProps: any): HomeDispatchProps => ({
+const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, HomeActions>, ownProps: any): HomeDispatch => ({
 	setProjectsIndex: bindActionCreators(setProjectsIndex, dispatch),
 	toggleProjectModalActive: bindActionCreators(toggleProjectModalActive, dispatch)
 });

@@ -10,7 +10,7 @@ import { Theme, createTheme, responsiveFontSizes } from "@material-ui/core/style
 import { ThemeProvider } from "@material-ui/core/styles";
 
 import { AppState } from "App";
-import { toggleDarkMode, toggleModalActive, toggleLanguage, AppActions } from "./redux";
+import { toggleDarkMode, toggleModalActive, toggleLanguage, AppActions, AppRedux, AppDispatch } from "./redux";
 import Home from "../Home/Home";
 import {Language} from "./i18n";
 
@@ -20,7 +20,7 @@ import "./Common.scss";
  * Application main container.
  * @param props - ReduxAppProps
  */
-export const App: FC<AppProps> = (props: AppProps): JSX.Element =>
+export const App: FC<AppRedux> = (props: AppRedux): JSX.Element =>
 {
 	/**
 	 * Material UI custom dark/white theme.
@@ -160,27 +160,14 @@ export const App: FC<AppProps> = (props: AppProps): JSX.Element =>
 	);
 };
 
-export type AppProps = {
-	browserInfo: ReturnType<typeof detect>,
-	isDarkMode: boolean,
-	isModalActive: boolean,
-	language: Language
-};
-
-export type AppDispatchProps = {
-	toggleDarkMode: (active: boolean) => void,
-	toggleModalActive: (active: boolean) => void,
-	toggleLanguage: (active: Language) => void
-};
-
-const mapStateToProps = (state: AppState, ownProps: any): AppProps => ({
+const mapStateToProps = (state: AppState, ownProps: any): AppRedux => ({
 	browserInfo: state.app.browserInfo,
 	isDarkMode: state.app.isDarkMode,
 	isModalActive: state.app.isModalActive,
 	language: state.app.language
 });
 
-const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, AppActions>, ownProps: any): AppDispatchProps => ({
+const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, AppActions>, ownProps: any): AppDispatch => ({
 	toggleDarkMode: bindActionCreators(toggleDarkMode, dispatch),
 	toggleModalActive: bindActionCreators(toggleModalActive, dispatch),
 	toggleLanguage: bindActionCreators(toggleLanguage, dispatch)

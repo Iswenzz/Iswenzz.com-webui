@@ -1,0 +1,30 @@
+{
+	"setupFilesAfterEnv": ["<rootDir>/src/__test__/setupTests.ts"],
+	"testMatch": ["<rootDir>/src/**/*.(test).{js,jsx,ts,tsx}"],
+	"collectCoverageFrom": [
+		"<rootDir>/src/**/*.{js,jsx,ts,tsx}",
+		"!**/node_modules/**",
+		"!**/__test__/**/*.js"
+	],
+	"transform": {
+		"^.+\\.(js|jsx|ts|tsx)$": "ts-jest"
+	},
+	"moduleNameMapper": {
+		".*\\.scss$": "identity-obj-proxy",
+		"^Components": "<rootDir>/src/components",
+		"^Components(.*)$": "<rootDir>/src/components$1",
+		"^App": "<rootDir>/src/containers/App",
+		"^App(.*)$": "<rootDir>/src/containers/App$1",
+		"^Home(.*)$": "<rootDir>/src/containers/Home$1",
+		"^Docx(.*)$": "<rootDir>/src/containers/Docx$1",
+		"^UI(.*)$": "<rootDir>/src/containers/UI$1",
+		"^assets(.*)$": "<rootDir>/src/assets$1",
+		"^definitions(.*)$": "<rootDir>/src/definitions$1",
+		"^utils(.*)$": "<rootDir>/src/utils$1",
+		"^test(.*)$": "<rootDir>/src/__test__$1"
+	},
+	"testURL": "http://localhost/",
+	"testEnvironment": "jsdom",
+	"moduleFileExtensions": ["js", "jsx", "ts", "tsx", "json", "scss"],
+	"coverageReporters": ["text", "cobertura", "lcov"]
+}

@@ -11,7 +11,8 @@
 			"UI/*": ["src/containers/UI/*"],
 			"assets/*": ["src/assets/*"],
 			"definitions/*": ["src/definitions/*"],
-			"utils/*": ["src/utils/*"]
+			"utils/*": ["src/utils/*"],
+			"test/*": ["src/__test__/*"]
 		}
 	}
 }

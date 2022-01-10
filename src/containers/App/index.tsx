@@ -1,13 +1,14 @@
-import React from "react";
 import thunk from "redux-thunk";
 import { Provider } from "react-redux";
 import { createStore, combineReducers, compose, applyMiddleware } from "redux";
+import fetch from "cross-fetch";
+
+import {ApolloClient, ApolloLink, ApolloProvider, HttpLink, InMemoryCache} from "@apollo/client";
+import {onError} from "@apollo/client/link/error";
 
 import App from "./App";
 import appReducer from "App/redux";
 import homeReducer from "Home/redux";
-import {ApolloClient, ApolloLink, ApolloProvider, HttpLink, InMemoryCache} from "@apollo/client";
-import {onError} from "@apollo/client/link/error";
 
 /**
  * Redux compose enhancers for development environment,
@@ -52,6 +53,7 @@ const linkError = onError(({ graphQLErrors, networkError }) =>
  * Apollo Link server.
  */
 const linkHttp = new HttpLink({
+	fetch,
 	uri: process.env.REACT_APP_GRAPHQL_URL,
 	headers: {
 		authorization: localStorage.getItem("token") || ""
