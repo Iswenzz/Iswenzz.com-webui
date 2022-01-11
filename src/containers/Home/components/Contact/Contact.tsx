@@ -12,7 +12,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { delay } from "utils/misc";
 import {Trans, useTranslation} from "react-i18next";
 import {gql, useMutation} from "@apollo/client";
-import {Mutation, MutationContactArgs} from "definitions/graphql";
+import {Mutation, MutationContactArgs} from "generated/graphql";
 import {motion, Variants} from "framer-motion";
 import "./Contact.scss";
 

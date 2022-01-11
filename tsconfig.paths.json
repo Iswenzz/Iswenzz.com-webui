@@ -10,7 +10,7 @@
 			"Docx/*": ["src/containers/Docx/*"],
 			"UI/*": ["src/containers/UI/*"],
 			"assets/*": ["src/assets/*"],
-			"definitions/*": ["src/definitions/*"],
+			"generated/*": ["src/generated/*"],
 			"utils/*": ["src/utils/*"],
 			"test/*": ["src/__test__/*"]
 		}

@@ -19,12 +19,12 @@
 		"^Docx(.*)$": "<rootDir>/src/containers/Docx$1",
 		"^UI(.*)$": "<rootDir>/src/containers/UI$1",
 		"^assets(.*)$": "<rootDir>/src/assets$1",
-		"^definitions(.*)$": "<rootDir>/src/definitions$1",
+		"^generated(.*)$": "<rootDir>/src/generated$1",
 		"^utils(.*)$": "<rootDir>/src/utils$1",
 		"^test(.*)$": "<rootDir>/src/__test__$1"
 	},
 	"testURL": "http://localhost/",
-	"testEnvironment": "jsdom",
+	"testEnvironment": "jest-environment-jsdom",
 	"moduleFileExtensions": ["js", "jsx", "ts", "tsx", "json", "scss"],
 	"coverageReporters": ["text", "cobertura", "lcov"]
 }
