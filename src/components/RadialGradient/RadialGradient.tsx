@@ -31,7 +31,7 @@ class RadialGradient extends PureComponent<GradiantProps>
 	 */
 	processBackgroundColor = (position?: string, propsColors?: GradientColor[], isLinear?: boolean): string =>
 	{
-		let colors: string = "";
+		let colors = "";
 		if (isLinear)
 		{
 			propsColors?.forEach((c, index, arr) => 

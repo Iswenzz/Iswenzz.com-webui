@@ -18,7 +18,7 @@ import "./DocViewer.scss";
  */
 export const DocViewer: FC = (): JSX.Element =>
 {
-	let navigate = useNavigate();
+	const navigate = useNavigate();
 
 	useEffect(() =>
 	{
@@ -35,7 +35,7 @@ export const DocViewer: FC = (): JSX.Element =>
 	{
 		fetch(`https://iswenzz.com/iswenzz/docs/cgsc/${link}`).then(response => response.text()).then(text =>
 		{
-			let div = document.getElementById("doc-test");
+			const div = document.getElementById("doc-test");
 			if (div)
 			{
 				// remove all link tags
@@ -88,7 +88,7 @@ export const DocViewer: FC = (): JSX.Element =>
 	{
 		e.preventDefault();
 
-		const c_docpath: string = "/docs/cgsc/";
+		const c_docpath = "/docs/cgsc/";
 		const c_pathname: string = navigate.name;
 		const c_file: string = c_pathname.substring(c_pathname.indexOf(c_docpath) 
 			+ c_docpath.length, c_pathname.length);

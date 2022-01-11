@@ -107,7 +107,7 @@ export const ProjectPopup: FC = (): JSX.Element =>
 		}
 
 		// convert markdown to html
-		let md: MarkdownIt = MarkdownIt({
+		const md: MarkdownIt = MarkdownIt({
 			html:         true,
 			xhtmlOut:     false,
 			breaks:       false,
@@ -118,11 +118,13 @@ export const ProjectPopup: FC = (): JSX.Element =>
 			{
 				if (lang && hljs.getLanguage(lang))
 				{
-					try {
+					try 
+					{
 						return "<pre class=\"hljs\"><code>"
 							+ hljs.highlight(lang, str, true).value
 							+ "</code></pre>";
-					} catch (_) { }
+					}
+					catch (_) { }
 				}
 				return "<pre class=\"hljs\"><code>" + md.utils.escapeHtml(str) + "</code></pre>";
 			}

@@ -38,6 +38,6 @@ class StateBuilder
 	{
 		return this.state;
 	}
-};
+}
 
 export default (defaultState = initState) => new StateBuilder(defaultState);

@@ -13,7 +13,7 @@ export type HomeDispatch = {
 	toggleProjectModalActive: (active: boolean) => void
 };
 
-export let initialState: HomeRedux = {
+export const initialState: HomeRedux = {
 	projects: require("Home/components/Projects/Projects.json"),
 	projectsStartIndex: 0,
 	projectModalActive: false

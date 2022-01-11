@@ -11,7 +11,7 @@ export const getElementsByXPath = (xpath: string, contextNode?: Document) =>
 	else
 		xpathResult = contextNode.evaluate(xpath, contextNode, null, XPathResult.ANY_TYPE, null);
 
-	let array = [];
+	const array = [];
 	let element;
 	element = xpathResult.iterateNext();
 	while(element)

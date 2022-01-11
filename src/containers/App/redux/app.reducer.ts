@@ -16,7 +16,7 @@ export type AppDispatch = {
 	toggleLanguage: (active: Language) => void
 };
 
-export let initialState: AppRedux = {
+export const initialState: AppRedux = {
 	browserInfo: detect(),
 	isDarkMode: localStorage.getItem("isDarkMode") === "true",
 	isModalActive: false,

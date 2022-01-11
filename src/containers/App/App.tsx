@@ -25,7 +25,7 @@ export const App: FC<AppRedux> = (props: AppRedux): JSX.Element =>
 	/**
 	 * Material UI custom dark/white theme.
 	 */
-	let theme: Theme = responsiveFontSizes(createTheme({
+	const theme: Theme = responsiveFontSizes(createTheme({
 		typography: {
 			subtitle1: {
 				fontFamily: "Ubuntu",

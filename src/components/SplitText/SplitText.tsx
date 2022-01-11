@@ -12,7 +12,7 @@ export type SplitTextProps = {
  */
 export const SplitText: FC<SplitTextProps> = (props: SplitTextProps): JSX.Element =>
 {
-	let words = useMemo(() =>
+	const words = useMemo(() =>
 	{
 		return props.children.split(" ").join("\u00A0").split("");
 	}, [props.children]);

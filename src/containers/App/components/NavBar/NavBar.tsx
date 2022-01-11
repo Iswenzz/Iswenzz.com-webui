@@ -80,7 +80,7 @@ export const NavBar: FC<AppBarProps> = (props: AppBarProps): JSX.Element =>
 	 */
 	const scroll = useScroll(({ event }: any) => 
 	{
-		let isPastHeader: boolean = window.scrollY >= window.innerHeight;
+		const isPastHeader: boolean = window.scrollY >= window.innerHeight;
 		if (isPastHeader !== isFixedNavbar)
 			setFixedNavbar(isPastHeader);
 	}, scrollConfig);
