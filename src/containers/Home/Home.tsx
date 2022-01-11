@@ -1,10 +1,7 @@
 import React, { FC } from "react";
-import { connect, useSelector } from "react-redux";
 import { Parallax } from "react-parallax";
 import { Element } from "react-scroll";
 import {useTranslation} from "react-i18next";
-import { ThunkDispatch } from "redux-thunk";
-import { bindActionCreators } from "redux";
 
 import { Typography } from "@material-ui/core";
 
@@ -19,18 +16,16 @@ import ProjectPopup from "Home/components/ProjectPopup/ProjectPopup";
 import { Spacing } from "Components/Spacing/Spacing";
 import SplitText from "Components/SplitText/SplitText";
 
-import { HomeActions, HomeDispatch, HomeRedux, setProjectsIndex, toggleProjectModalActive } from "./redux";
-import { AppState } from "App";
-
 import "./Home.scss";
 
 /**
  * Home page container.
  */
-const Home: FC<HomeRedux> = (props: HomeRedux): JSX.Element =>
+const Home: FC = (): JSX.Element =>
 {
 	const { t } = useTranslation();
-	const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
+	// const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
+	const isDarkMode = true;
 
 	return (
 		<>
@@ -77,15 +72,4 @@ const Home: FC<HomeRedux> = (props: HomeRedux): JSX.Element =>
 	);
 };
 
-const mapStateToProps = (state: AppState, ownProps: any): HomeRedux => ({
-	projects: state.home.projects,
-	projectsStartIndex: state.home.projectsStartIndex,
-	projectModalActive: state.home.projectModalActive
-});
-
-const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, HomeActions>, ownProps: any): HomeDispatch => ({
-	setProjectsIndex: bindActionCreators(setProjectsIndex, dispatch),
-	toggleProjectModalActive: bindActionCreators(toggleProjectModalActive, dispatch)
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default Home;

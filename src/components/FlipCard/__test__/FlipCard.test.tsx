@@ -1,4 +1,4 @@
-import { buildRender, fireEvent } from "test/utils";
+import { buildRender, fireEvent } from "test/react";
 import FlipCard, { FlipCardProps } from "../FlipCard";
 
 const setup = buildRender<FlipCardProps, Query>({ 

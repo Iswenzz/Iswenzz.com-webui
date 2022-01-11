@@ -1,9 +1,8 @@
 import React, {FC} from "react";
-import {Fab, ListItemIcon, Menu, MenuItem, Typography, createTheme, ThemeProvider, Grid} from "@material-ui/core";
-import {i18nLanguages, Language} from "App/i18n";
-import {useDispatch, useSelector} from "react-redux";
-import { toggleLanguage, toggleModalActive } from "App/redux";
-import {AppState} from "App";
+import { useDispatch, useSelector } from "react-redux";
+import { Fab, ListItemIcon, Menu, MenuItem, Typography, createTheme, ThemeProvider, Grid } from "@material-ui/core";
+import { i18nLanguages, Language } from "App/i18n";
+import { getLanguage, setLanguage, setModalActive } from "App/redux";
 import "./LanguagePicker.scss";
 
 export const languages: Record<Language, JSX.Element> = {
@@ -26,19 +25,22 @@ const menuTheme = createTheme({
 	}
 });
 
+/**
+ * Pick the application language.
+ */
 export const LanguagePicker: FC = (): JSX.Element =>
 {
 	const dispatch = useDispatch();
-	const currentLanguage: Language = useSelector((state: AppState) => state.app.language);
+	const currentLanguage = useSelector(getLanguage);
 	const [anchorEl, setAnchorEl] = React.useState<null | HTMLButtonElement>(null);
 
 	/**
 	 * Change the application language.
-	 * @param lang - The language.
+	 * @param language - The language.
 	 */
-	const toggle = (lang: Language): void =>
+	const toggle = (language: Language): void =>
 	{
-		dispatch(toggleLanguage(lang));
+		dispatch(setLanguage(language));
 		handleClose();
 		window.location.reload();
 	};
@@ -51,7 +53,7 @@ export const LanguagePicker: FC = (): JSX.Element =>
 	{
 		if (anchorEl === null)
 		{
-			dispatch(toggleModalActive(true));
+			dispatch(setModalActive(true));
 			setAnchorEl(event.currentTarget);
 		}
 		else
@@ -63,7 +65,7 @@ export const LanguagePicker: FC = (): JSX.Element =>
 	 */
 	const handleClose = (): void =>
 	{
-		dispatch(toggleModalActive(false));
+		dispatch(setModalActive(false));
 		setAnchorEl(null);
 	};
 

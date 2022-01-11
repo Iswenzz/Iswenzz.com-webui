@@ -1,6 +1,5 @@
-import React, { FC, memo } from "react";
-import Grid from "@material-ui/core/Grid";
-import Fab from "@material-ui/core/Fab";
+import { FC, memo } from "react";
+import { Grid, Fab } from "@material-ui/core";
 import RadialGradient from "Components/RadialGradient/RadialGradient";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDiscord, faYoutube, faGithub } from "@fortawesome/free-brands-svg-icons";
@@ -8,14 +7,13 @@ import { Parallax } from "react-parallax";
 import Spacing from "Components/Spacing/Spacing";
 import { Tooltip, Typography } from "@material-ui/core";
 import { useSelector } from "react-redux";
-import { AppState } from "App";
 
 /**
- * Footer container with links to social medias & copyrights.
+ * Footer with links to social medias & copyrights.
  */
-const Footer: FC = (): JSX.Element =>
+const Footer: FC = () =>
 {
-	const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
+	const isDarkMode = true;
 
 	return (
 		<>
@@ -47,7 +45,7 @@ const Footer: FC = (): JSX.Element =>
 				bgImage={require(`assets/images/index/${isDarkMode ? "stars" : "clouds"}.svg`)}>
 				<Spacing height='10px' />
 				<Typography align="center" color="textPrimary" variant="subtitle2" component="h3">
-					Copyright © Iswenzz 2017-2020
+					Copyright © Iswenzz 2017-2022
 				</Typography>
 				<Spacing height='190px' />
 			</Parallax>

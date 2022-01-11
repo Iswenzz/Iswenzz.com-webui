@@ -3,7 +3,7 @@
  * @param oldObject - The old object.
  * @param updatedProperties - Updated properties object.
  */
-export const updateObject = <T, U>(oldObject: T, updatedProperties: U): T => ({
+export const updateObject = <T>(oldObject: T, updatedProperties: T): T => ({
 	...oldObject,
 	...updatedProperties
 });
@@ -13,7 +13,7 @@ export const updateObject = <T, U>(oldObject: T, updatedProperties: U): T => ({
  * @param oldObject - The old object.
  * @param updatedProperties - Updated properties object.
  */
-export const updateObjectPartial = <T, U>(oldObject: T, updatedProperties: Partial<U>): T => ({
+export const updateObjectPartial = <T>(oldObject: T, updatedProperties: Partial<T>): T => ({
 	...oldObject,
 	...updatedProperties
 });

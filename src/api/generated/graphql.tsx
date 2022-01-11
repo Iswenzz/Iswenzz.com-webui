@@ -167,7 +167,8 @@ export type ContactMutationFn = Apollo.MutationFunction<ContactMutation, Contact
  *   },
  * });
  */
-export function useContactMutation(baseOptions?: Apollo.MutationHookOptions<ContactMutation, ContactMutationVariables>) {
+export function useContactMutation(baseOptions?: Apollo.MutationHookOptions<ContactMutation, ContactMutationVariables>) 
+{
 	return Apollo.useMutation<ContactMutation, ContactMutationVariables>(ContactDocument, baseOptions);
 }
 export type ContactMutationHookResult = ReturnType<typeof useContactMutation>;
@@ -203,7 +204,8 @@ export type LoginMutationFn = Apollo.MutationFunction<LoginMutation, LoginMutati
  *   },
  * });
  */
-export function useLoginMutation(baseOptions?: Apollo.MutationHookOptions<LoginMutation, LoginMutationVariables>) {
+export function useLoginMutation(baseOptions?: Apollo.MutationHookOptions<LoginMutation, LoginMutationVariables>) 
+{
 	return Apollo.useMutation<LoginMutation, LoginMutationVariables>(LoginDocument, baseOptions);
 }
 export type LoginMutationHookResult = ReturnType<typeof useLoginMutation>;
@@ -230,10 +232,12 @@ export const LogoutDocument = gql`
  *   },
  * });
  */
-export function useLogoutQuery(baseOptions?: Apollo.QueryHookOptions<LogoutQuery, LogoutQueryVariables>) {
+export function useLogoutQuery(baseOptions?: Apollo.QueryHookOptions<LogoutQuery, LogoutQueryVariables>) 
+{
 	return Apollo.useQuery<LogoutQuery, LogoutQueryVariables>(LogoutDocument, baseOptions);
 }
-export function useLogoutLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<LogoutQuery, LogoutQueryVariables>) {
+export function useLogoutLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<LogoutQuery, LogoutQueryVariables>) 
+{
 	return Apollo.useLazyQuery<LogoutQuery, LogoutQueryVariables>(LogoutDocument, baseOptions);
 }
 export type LogoutQueryHookResult = ReturnType<typeof useLogoutQuery>;
@@ -263,10 +267,12 @@ export const MeDocument = gql`
  *   },
  * });
  */
-export function useMeQuery(baseOptions?: Apollo.QueryHookOptions<MeQuery, MeQueryVariables>) {
+export function useMeQuery(baseOptions?: Apollo.QueryHookOptions<MeQuery, MeQueryVariables>) 
+{
 	return Apollo.useQuery<MeQuery, MeQueryVariables>(MeDocument, baseOptions);
 }
-export function useMeLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<MeQuery, MeQueryVariables>) {
+export function useMeLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<MeQuery, MeQueryVariables>) 
+{
 	return Apollo.useLazyQuery<MeQuery, MeQueryVariables>(MeDocument, baseOptions);
 }
 export type MeQueryHookResult = ReturnType<typeof useMeQuery>;
@@ -296,7 +302,8 @@ export type RegisterMutationFn = Apollo.MutationFunction<RegisterMutation, Regis
  *   },
  * });
  */
-export function useRegisterMutation(baseOptions?: Apollo.MutationHookOptions<RegisterMutation, RegisterMutationVariables>) {
+export function useRegisterMutation(baseOptions?: Apollo.MutationHookOptions<RegisterMutation, RegisterMutationVariables>) 
+{
 	return Apollo.useMutation<RegisterMutation, RegisterMutationVariables>(RegisterDocument, baseOptions);
 }
 export type RegisterMutationHookResult = ReturnType<typeof useRegisterMutation>;

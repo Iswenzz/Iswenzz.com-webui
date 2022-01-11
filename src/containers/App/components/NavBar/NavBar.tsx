@@ -1,4 +1,4 @@
-import React, { FC, useState, memo, useEffect } from "react";
+import { FC, useState, memo, useEffect } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Grid from "@material-ui/core/Grid";
@@ -6,16 +6,15 @@ import Button from "@material-ui/core/Button";
 import { Link } from "react-scroll";
 import { useMediaQuery } from "react-responsive";
 import { Fab, Typography, Drawer, AppBarProps } from "@material-ui/core";
-import { useDispatch, useSelector } from "react-redux";
-import { AppState } from "App";
+import { useDispatch } from "react-redux";
 import { Flare, Brightness3 } from "@material-ui/icons";
 import {AnimatePresence, motion} from "framer-motion";
 import MenuIcon from "@material-ui/icons/Menu";
 import { useScroll } from "react-use-gesture";
 import LanguagePicker from "../LanguagePicker/LanguagePicker";
 import {Trans} from "react-i18next";
+import { setTheme, setModalActive } from "App/redux";
 import "./NavBar.scss";
-import { toggleDarkMode, toggleModalActive } from "App/redux";
 
 const animationFixed = {
 	enter: { 
@@ -64,11 +63,13 @@ const scrollConfig = {
  * Navigation container with links to different sections.
  * @param props - AppBarProps
  */
-export const NavBar: FC<AppBarProps> = (props: AppBarProps): JSX.Element =>
+const NavBar: FC<AppBarProps> = (props: AppBarProps): JSX.Element =>
 {
 	const dispatch = useDispatch();
-	const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
-	const projectModalActive = useSelector((state: AppState) => state.home.projectModalActive);
+	const isDarkMode = true;
+	const projectModalActive = false;
+	// const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
+	// const projectModalActive = useSelector((state: AppState) => state.home.projectModalActive);
 
 	const isPortrait = useMediaQuery({ orientation: "portrait" });
 	const isTabletOrMobileDevice = useMediaQuery({ query: "(max-device-width: 1224px)" });
@@ -92,7 +93,7 @@ export const NavBar: FC<AppBarProps> = (props: AppBarProps): JSX.Element =>
 	 */
 	const toggleColorMode = (): void =>
 	{
-		dispatch(toggleDarkMode(!isDarkMode));
+		// dispatch(toggleDarkMode(!isDarkMode));
 		localStorage.setItem("isDarkMode", (!isDarkMode).toString());
 	};
 
@@ -103,7 +104,7 @@ export const NavBar: FC<AppBarProps> = (props: AppBarProps): JSX.Element =>
 	const toggleDrawer = (visible: boolean): void =>
 	{
 		setDrawerOpen(visible);
-		dispatch(toggleModalActive(visible));
+		dispatch(setModalActive(visible));
 	};
 
 	/**
