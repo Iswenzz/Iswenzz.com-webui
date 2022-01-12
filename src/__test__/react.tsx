@@ -14,7 +14,7 @@ const mockQueries = <Queries,>() => ({ }) as Queries;
 const AllTheProviders = (store: MockStoreEnhanced<unknown, {}>): FC => 
 	({ children }) => <Provider store={store}>{children}</Provider>;
 
-const customRender = (ui: ReactElement, { store = mockStore(initState) } = {}) => ({
+export const customRender = (ui: ReactElement, { store = mockStore(initState) } = {}) => ({
 	...render(ui, { wrapper: AllTheProviders(store) }),
 	store
 });
@@ -81,4 +81,4 @@ const mockObserverFunc = jest.fn().mockImplementation(() => ({
 window.ResizeObserver = window.ResizeObserver || mockObserverFunc;
 window.MutationObserver = window.MutationObserver || mockObserverFunc;
 
-export { fireEvent, buildRender, aState };
+export { fireEvent, buildRender, customRender as render, aState };
