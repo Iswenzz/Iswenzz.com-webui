@@ -20,15 +20,6 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "exclude": [
-    "node_modules",
-    "build",
-    "webpack",
-    "jest",
-    "src/setupTests.ts",
-    "**/__test__/**/*.{js,jsx,ts,tsx}"
-  ],
-  "include": [
-    "src"
-  ]
+  "include": ["src"],
+  "exclude": ["**/__test__/**/*.{js,jsx,ts,tsx}"]
 }

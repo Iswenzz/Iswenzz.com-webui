@@ -1,6 +1,34 @@
-const { alias, aliasJest, configPaths } = require("react-app-rewire-alias");
+const path = require("path");
+const paths = require("react-scripts/config/paths");
+const tsConfigPaths = require("./tsconfig.paths.json");
+const StylelintPlugin = require("stylelint-webpack-plugin");
 
-const aliasMap = configPaths("./tsconfig.paths.json");
+const { 
+	override,
+	overrideDevServer,
+	watchAll,
+	addWebpackAlias,
+	addWebpackPlugin
+} = require("customize-cra");
 
-module.exports = alias(aliasMap);
-module.exports.jest = aliasJest(aliasMap);
+const createWebpackAliasesFromTSConfig = () =>
+{
+	const aliasPaths = tsConfigPaths.compilerOptions.paths;
+	return Object.keys(aliasPaths).reduce((alias, currentPath) => 
+	{
+		const value = aliasPaths[currentPath];
+		const target = Array.isArray(value) ? value[0] : value;
+
+		alias[currentPath.replace(/\/\*$/, "")] = path.resolve(paths.appPath, target.replace(/\/\*$/, ""));
+		return alias;
+	}, {});
+};
+
+module.exports.webpack = override(
+	addWebpackAlias(createWebpackAliasesFromTSConfig()),
+	addWebpackPlugin(new StylelintPlugin({ configPaths: ".stylelintrc" }))
+);
+
+module.exports.devServer = overrideDevServer(
+	watchAll()
+);

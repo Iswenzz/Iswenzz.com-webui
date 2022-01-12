@@ -19,10 +19,10 @@ $queries: (
 $sizes: (0, 25, 50, 75, 100) !default;
 @each $size in $sizes {
 	.w-#{$size} {
-		width: percentage($size);
+		width: math.percentage($size);
 	}
 	
 	.h-#{$size} {
-		height: percentage($size);
+		height: math.percentage($size);
 	}
 }

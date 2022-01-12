@@ -9,25 +9,25 @@ $font-sizes: (
 	13px
 );
 
-.calli { font-family: 'Calligraffitti', cursive !important; }
-.poiret { font-family: 'Poiret One', sans-serif !important; }
-.ubuntu { font-family: 'Ubuntu', sans-serif !important; }
+.calli { font-family: "Calligraffitti", cursive !important; }
+.poiret { font-family: "Poiret One", sans-serif !important; }
+.ubuntu { font-family: "Ubuntu", sans-serif !important; }
 
 @each $size in $font-sizes {
-	$i: index($font-sizes, $size);
+	$i: list.index($font-sizes, $size);
 
 	.calli-h#{$i} {
-		font-family: 'Calligraffitti', cursive !important;
+		font-family: "Calligraffitti", cursive !important;
 		font-size: $size !important;
 	}
 
 	.poiret-h#{$i} {
-		font-family: 'Poiret One', sans-serif !important;
+		font-family: "Poiret One", sans-serif !important;
 		font-size: $size !important;
 	}
 
 	.ubuntu-h#{$i} {
-		font-family: 'Ubuntu', sans-serif !important;
+		font-family: "Ubuntu", sans-serif !important;
 		font-size: $size !important;
 	}
 }

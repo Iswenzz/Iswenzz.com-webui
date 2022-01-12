@@ -1,13 +1,5 @@
 .iswenzz-doxygen {
-	/* Light background: #3 5 3 6 2 9; */
-	/* New light dark background #3 2 3 6 3 d */
-	/* Dark background: #d f e 5 f 2; */
-
 	background-color: #0e0f14;
-
-	.contents {
-		display: grid;
-	}
 
 	#top, .header, .footer, .lineno {
 		display: none;
@@ -18,24 +10,10 @@
 		height: 300px;
 	}
 
-	/* TOP MENU */
-	.sm-dox {
-		background: #dfe5f2 !important;
-	}
-
-	.sm-dox a {
-		background: none;
-	}
-
 	body {
 		background: #282923;
 		background-image: none;
 		color: #D8D8D8;
-	}
-
-	div.fragment, pre.fragment {
-		border: 1px solid #000000;
-		background: #32363d;
 	}
 
 	a, a:link, a:visited {
@@ -59,6 +37,11 @@
 	/*********************************************/
 	/**              Top main menu              **/
 	/*********************************************/
+	.sm-dox {
+		text-shadow: none !important;
+		box-shadow: none !important;
+	}
+	
 	#main-nav {
 		/* display: none; */
 		border-bottom: 1px solid #32363d;
@@ -69,21 +52,16 @@
 	}
 
 	.sm-dox a {
-		text-shadow: none !important;
 		background: transparent !important;
+		text-shadow: none !important;
 	}
 
 	.sm-dox a:hover {
 		background: #282923 !important;
 	}
 
-	.sm-dox {
-		text-shadow: none !important;
-		box-shadow: none !important;
-	}
-
 	.sm-dox ul {
-		border: 1px solid #000000;
+		border: 1px solid black;
 		background: #32363d;
 	}
 
@@ -96,7 +74,7 @@
 	/**               Top search                **/
 	/*********************************************/
 	#MSearchSelectWindow {
-		border: 1px solid #000000;
+		border: 1px solid black;
 		background: #32363d;
 	}
 
@@ -109,9 +87,9 @@
 	}
 
 	#MSearchResultsWindow {
-		border: 1px solid #000000;
+		border: 1px solid black;
 		background: #32363d;
-		color: #67d8ef !important;;
+		color: #67d8ef !important;
 	}
 
 	/*********************************************/
@@ -122,26 +100,8 @@
 	}
 
 	#nav-tree .selected {
-		background-image: none;
 		background: #32363d;
-	}
-
-	/*********************************************/
-	/**               Main content              **/
-	/*********************************************/
-
-	/*********************************************/
-	/**               Inline code               **/
-	/*********************************************/
-	p code,
-	li code,
-	td code,
-	dd code {
-		background-color: #000000;
-		border: 1px solid #A8B8D9;
-		
-
-		color: #D8D8D8;
+		background-image: none;
 	}
 
 	/*********************************************/
@@ -149,7 +109,9 @@
 	/*********************************************/
 	div.toc {
 		background: #32363d;
-		border: 1px solid #000000;
+		border: 1px solid black;
+		margin: 0 !important;
+		border-radius: 4px !important;
 	}
 
 	div.toc h3 {
@@ -198,46 +160,10 @@
 	.tablist a:hover,
 	.tablist li.current a {
 		text-decoration: none;
-		color: #000000;
+		color: black;
 		background: #CCCCCC;
 		background-image: none;
-	}
-
-	/*********************************************/
-	/**              H1 in textblocks           **/
-	/*********************************************/
-
-	/*********************************************/
-	/**               Note, warning             **/
-	/*********************************************/
-
-	/*********************************************/
-	/**               Reference list            **/
-	/**Similar to warning/note/todo/... messages**/
-	/*********************************************/
-	dl.reflist {
-
-	}
-
-
-	/*********************************************/
-	/**               Note, warning             **/
-	/*********************************************/
-	#docs_list {
-		background: #32363d;
-	}
-
-	#docs_list ul li {
-		border-right: 1px solid #BFBFBF;
-	}
-
-	#docs_list ul li a {
-		color: #1b1e21;
-	}
-
-	#docs_list ul li a:hover,
-	#docs_list ul li a.docs_current {
-		background: #282923;
+		text-shadow: none;
 	}
 
 	/*********************************************/
@@ -245,14 +171,11 @@
 	/*********************************************/
 	.ui-resizable-e {
 		background: #32363d;
+		width: 3px;
 	}
 
 	/*********************************************/
-	/**               Download url              **/
-	/*********************************************/
-
-	/*********************************************/
-	/**               Syntax folor              **/
+	/**               Syntax color              **/
 	/*********************************************/
 	div.line {
 		background: transparent;
@@ -261,6 +184,7 @@
 
 	div.line a {
 		color: inherit;
+		text-decoration: underline;
 	}
 
 	span.keyword {
@@ -295,11 +219,11 @@
 	}
 
 	span.vhdldigit { 
-		color: #ff00ff;
+		color: magenta;
 	}
 
 	span.vhdlchar { 
-		color: #000000;
+		color: black;
 	}
 
 	span.vhdlkeyword { 
@@ -307,7 +231,7 @@
 	}
 
 	span.vhdllogic { 
-		color: #ff0000;
+		color: red;
 	}
 
 	span.lineno {
@@ -316,6 +240,7 @@
 
 	span.lineno a {
 		background: transparent;
+		text-decoration: none;
 	}
 
 	/*********************************************/
@@ -342,8 +267,6 @@
 	/*********************************************/
 	/**                 Mem items               **/
 	/*********************************************/
-	.memtitle {}
-
 	.memitem {
 		background: #2a2d36 !important;
 		box-shadow: 7px 7px 5px 0px rgba(0,0,0,0.3) !important;
@@ -369,10 +292,12 @@
 
 	.paramname, .paramname em {
 		color: #bf5f82;
+		font-style: italic;
 	}
 
 	.memdoc {
 		background: #2a2d36 !important;
+		text-shadow: none;
 	}
 
 	.ttc {
@@ -460,6 +385,7 @@
 		padding-bottom: 40px;
 		margin: auto auto !important;
 		max-width: 1200px;
+		display: grid;
 	}
 
 	/*********************************************/
@@ -483,19 +409,6 @@
 	}
 
 	/*********************************************/
-	/**         Table of Contents (ToC)         **/
-	/*********************************************/
-	div.toc {
-		margin: 0 !important;
-		border-radius: 4px !important;
-	}
-
-	div.toc h3 {
-		font-size: 150%;
-		color: inherit;
-	}
-
-	/*********************************************/
 	/**              Content table              **/
 	/*********************************************/
 	.contents table.doxtable {
@@ -506,9 +419,9 @@
 	/**               Field table               **/
 	/*********************************************/
 	.fieldtable {
-		box-shadow: none !important;
 		-webkit-box-shadow: none;
 		-moz-box-shadow: none;
+		box-shadow: none !important;
 	}
 
 	/*********************************************/
@@ -517,20 +430,10 @@
 	.memitem,
 	.memproto,
 	.memdoc {
-		box-shadow: none;
 		-webkit-box-shadow: none;
 		-moz-box-shadow: none;
+		box-shadow: none;
 		background-image: none;
-	}
-
-	/*********************************************/
-	/**             TOP navigation              **/
-	/*********************************************/
-	.tablist a:hover,
-	.tablist li.current a {
-		text-shadow: none;
-		-moz-text-shadow: none;
-		-webkit-text-shadow: none;
 	}
 
 	/*********************************************/
@@ -578,11 +481,11 @@
 
 		font-weight: bold;
 		text-transform: uppercase;
-		color: #FFFFFF !important;
-
-		box-shadow: none;
+		color: white !important;
 		-webkit-box-shadow: none;
 		-moz-box-shadow: none;
+
+		box-shadow: none;
 		text-shadow: none;
 	}
 
@@ -601,23 +504,18 @@
 		border-bottom-left-radius: 0px;
 		border-bottom-right-radius: 0px;
 		border-top: none;
-
-		box-shadow: none;
 		-webkit-box-shadow: none;
 		-moz-box-shadow: none;
+
+		box-shadow: none;
 		text-shadow: none;
 	}
 
 	dl.reflist dd {
 		margin-bottom: 15px;
+		background-color: #ffe0b2;
+		border-color: #cbae82;
 	}
-
-	/* Background colors */
-	dl.note {}
-	dl.warning {}
-	dl.todo {}
-	dl.deprecated {}
-	dl.reflist {}
 
 	/* Header */
 	dl.note dt {
@@ -661,24 +559,12 @@
 		border-color: #af8eb5;
 	}
 
-	dl.reflist dd {
-		background-color: #ffe0b2;
-		border-color: #cbae82;
-	}
-
-	/*********************************************/
-	/**               Reference list            **/
-	/**Similar to warning/note/todo/... messages**/
-	/*********************************************/
-	dl.reflist {
-
-	}
-
 	/*********************************************/
 	/**               Note, warning             **/
 	/*********************************************/
 	#docs_list {
 		padding: 0 10px;
+		background: #32363d;
 	}
 
 	#docs_list ul {
@@ -701,18 +587,13 @@
 		padding: 8px 13px;
 		font-weight: bold;
 		font-size: 15px;
+		color: #1b1e21;
 	}
 
 	#docs_list ul li a:hover,
 	#docs_list ul li a.docs_current {
 		text-decoration: underline;
-	}
-
-	/*********************************************/
-	/**               Resizable UI              **/
-	/*********************************************/
-	.ui-resizable-e {
-		width: 3px;
+		background: #282923;
 	}
 
 	/*********************************************/
@@ -722,17 +603,6 @@
 		font-weight: bold;
 		font-size: 150%;
 		line-height: 150%;
-	}
-
-	/*********************************************/
-	/**               Syntax folor              **/
-	/*********************************************/
-	div.line a {
-		text-decoration: underline;
-	}
-
-	span.lineno a {
-		text-decoration: none;
 	}
 
 	/*********************************************/
@@ -749,22 +619,6 @@
 	/*********************************************/
 	/**                 Mem items               **/
 	/*********************************************/
-	.memproto table td {
-		font-family: monospace, fixed !important;
-	}
-
-	td.memItemLeft, td.memItemRight {
-		font-family: monospace, fixed;
-	}
-
-	.paramname, .paramname em {
-		font-style: italic;
-	}
-
-	.memdoc {
-		text-shadow: none;
-	}
-
 	.memItem {
 		font-family: monospace, fixed;
 	}

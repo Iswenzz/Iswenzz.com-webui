@@ -1,7 +1,7 @@
-.level {
-	background-size: cover;
-	height: 100%; 
+.level { 
 	width: 100%;
+	height: 100%;
+	background-size: cover;
 
 	#{&}-grid-list {
 		display: flex;
@@ -47,8 +47,8 @@
 		margin: 0 4px !important;
 	}
 	
-	#{&}-grid {
-		height: 100%; 
+	#{&}-grid { 
 		width: 100%;
+		height: 100%;
 	}
 }
