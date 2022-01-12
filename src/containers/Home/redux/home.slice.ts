@@ -1,30 +1,29 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-import { LinkedProjectProps } from "Home/components";
-import { updateObjectPartial } from "utils/objects";
+import type { LinkedProjectProps } from "Home/components/Project/Project";
 
 export type HomeRedux = {
 	projects: LinkedProjectProps[],
-	projectsStartIndex: number,
-	projectModalActive: boolean
+	projectsStartIndex: number
 };
 
 export const initialState: HomeRedux = {
 	projects: require("Home/components/Projects/Projects.json"),
-	projectsStartIndex: 0,
-	projectModalActive: false
+	projectsStartIndex: 0
 };
 
 const slice = createSlice({
 	name: "home",
 	initialState,
 	reducers: {
-		/**
-		 * Set the projects start index.
-		 */
-		setProjectsStartIndex: (state, action: PayloadAction<number>) => updateObjectPartial<HomeRedux>(state, {
+		setProjectsStartIndex: (state: any, action: PayloadAction<number>) => ({
+			...state,
 			projectsStartIndex: action.payload
-		})
+		}),
+		setProjects: (state: any, action: PayloadAction<LinkedProjectProps[]>) => ({
+			...state,
+			projects: action.payload
+		}),
 	}
 });
 

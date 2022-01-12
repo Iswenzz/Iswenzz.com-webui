@@ -1,10 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Theme } from "@material-ui/core";
+import type { Theme } from "@material-ui/core";
 import { detect } from "detect-browser";
 
-import { Language } from "App/i18n";
+import type { Language } from "App/i18n";
 import { getThemeByName } from "App/components/Themes";
-import { updateObjectPartial } from "utils/objects";
 
 export type AppRedux = {
 	theme: Theme,
@@ -24,22 +23,16 @@ const slice = createSlice({
 	name: "app",
 	initialState,
 	reducers: {
-		/**
-		 * Set the application theme.
-		 */
-	  	setTheme: (state, action: PayloadAction<Theme>) => updateObjectPartial<AppRedux>(state, {
+	  	setTheme: (state: any, action: PayloadAction<Theme>) => ({
+			...state,
 			theme: action.payload
 		}),
-		/**
-		 * Toggle main modal.
-		 */
-		setModalActive: (state, action: PayloadAction<boolean>) => updateObjectPartial<AppRedux>(state, {
+		setModalActive: (state: any, action: PayloadAction<boolean>) => ({
+			...state,
 			isModalActive: action.payload
 		}),
-		/**
-		 * Set the application language.
-		 */
-		setLanguage: (state, action: PayloadAction<Language>) => updateObjectPartial<AppRedux>(state, {
+		setLanguage: (state: any, action: PayloadAction<Language>) => ({
+			...state,
 			language: action.payload
 		})
 	}
