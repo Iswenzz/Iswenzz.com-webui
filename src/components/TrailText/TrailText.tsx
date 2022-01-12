@@ -1,4 +1,4 @@
-import React, { FC, memo, ElementType } from "react";
+import { FC, memo, ElementType } from "react";
 import { useTrail, animated, SpringConfig } from "react-spring";
 import { Typography, TypographyProps } from "@material-ui/core";
 import { v4 as uuidv4 } from "uuid";

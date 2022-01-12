@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { Parallax } from "react-parallax";
 import { Element } from "react-scroll";
 import {useTranslation} from "react-i18next";

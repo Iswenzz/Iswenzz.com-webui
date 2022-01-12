@@ -1,4 +1,4 @@
-import React, { memo, Component, ElementType } from "react";
+import { memo, Component, ElementType } from "react";
 import { Typography, TypographyProps } from "@material-ui/core";
 import { v4 as uuidv4 } from "uuid";
 import {Trans} from "react-i18next";

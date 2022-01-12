@@ -13,7 +13,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import { useScroll } from "react-use-gesture";
 import LanguagePicker from "../LanguagePicker/LanguagePicker";
 import {Trans} from "react-i18next";
-import { setTheme, setModalActive } from "App/redux";
+import { setModalActive } from "App/redux";
 import "./NavBar.scss";
 
 const animationFixed = {

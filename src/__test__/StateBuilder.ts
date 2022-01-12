@@ -40,4 +40,6 @@ class StateBuilder
 	}
 }
 
-export default (defaultState = initState) => new StateBuilder(defaultState);
+const stateBuilder = (defaultState = initState) => new StateBuilder(defaultState);
+
+export default stateBuilder;

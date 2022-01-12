@@ -1,9 +1,8 @@
-import React, { memo, FC } from "react";
+import { memo, FC } from "react";
 import Spacing from "Components/Spacing/Spacing";
 import RadialGradient, { GradientColor } from "Components/RadialGradient/RadialGradient";
 import { Parallax } from "react-parallax";
-import { useSelector } from "react-redux";
-import { AppState } from "App";
+// import { useSelector } from "react-redux";
 import Text from "Components/Text/Text";
 import { Grid, Container, Divider } from "@material-ui/core";
 import VisibilitySensor from "react-visibility-sensor";
@@ -13,7 +12,7 @@ import { useMediaQuery } from "react-responsive";
 import { Element } from "react-scroll";
 import "./Intro.scss";
 
-export type IntroSkill = {
+export type Skill = {
 	title: string,
 	points: string[]
 };
@@ -22,7 +21,7 @@ export type IntroInfo = {
 	header: string,
 	title: string,
 	desc: string,
-	skills: IntroSkill[]
+	skills: Skill[]
 };
 
 export const introJSON: IntroInfo = require("./Intro.json");
@@ -95,7 +94,7 @@ const animationLeft: Variants = {
  */
 export const IntroSkill: FC = (): JSX.Element =>
 {
-	const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
+	const isDarkMode = true;
 	const isTabletOrMobileDevice = useMediaQuery({ query: "(max-device-width: 1224px)" });
 
 	const gradientColor: GradientColor[] = [

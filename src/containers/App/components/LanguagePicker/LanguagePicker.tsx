@@ -1,4 +1,4 @@
-import React, {FC} from "react";
+import { FC, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Fab, ListItemIcon, Menu, MenuItem, Typography, createTheme, ThemeProvider, Grid } from "@material-ui/core";
 import { i18nLanguages, Language } from "App/i18n";
@@ -32,7 +32,7 @@ export const LanguagePicker: FC = (): JSX.Element =>
 {
 	const dispatch = useDispatch();
 	const currentLanguage = useSelector(getLanguage);
-	const [anchorEl, setAnchorEl] = React.useState<null | HTMLButtonElement>(null);
+	const [anchorEl, setAnchorEl] = useState<null | HTMLButtonElement>(null);
 
 	/**
 	 * Change the application language.

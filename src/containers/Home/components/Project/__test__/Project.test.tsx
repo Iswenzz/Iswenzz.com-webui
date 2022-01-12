@@ -1,4 +1,3 @@
-import React from "react";
 // import { mount, ReactWrapper } from "enzyme";
 // import { Project, LinkedProjectProps, ProjectProps } from "../Project";
 // import * as redux from "react-redux";
@@ -38,3 +37,6 @@ import React from "react";
 // 		wrapper.find(LazyLoad).children().simulate("click");
 // 	});
 // });
+
+// eslint-disable-next-line import/no-anonymous-default-export
+export default () => <></>;

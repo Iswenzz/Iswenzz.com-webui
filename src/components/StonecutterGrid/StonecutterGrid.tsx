@@ -1,4 +1,4 @@
-import React, { FC, memo } from "react";
+import { FC, memo } from "react";
 // import { SpringGrid, enterExitStyle, SpringGridProps, makeResponsive, layout } from "react-stonecutter";
 
 export type StonecutterGridProps = {

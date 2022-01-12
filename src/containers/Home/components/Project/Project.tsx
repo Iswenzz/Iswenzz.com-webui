@@ -1,12 +1,12 @@
-import React, { FC, memo } from "react";
+import { FC, memo } from "react";
 import { Card, CardActionArea, Typography } from "@material-ui/core";
 import { useDispatch } from "react-redux";
 import { useMediaQuery } from "react-responsive";
 import {motion} from "framer-motion";
 import "./Project.scss";
 import LazyLoad from "react-lazyload";
-import { setProjectsIndex, toggleProjectModalActive } from "Home/redux";
-import { toggleModalActive } from "App/redux";
+import { setProjectsStartIndex } from "Home/redux";
+import { setModalActive } from "App/redux";
 
 export type ProjectRenderProps = {
 	renderUrl?: string,
@@ -35,8 +35,8 @@ export type CardProps = {
 	cardImage?: string,
 	altImage?: string,
 	style?: React.CSSProperties,
-	width?: string,
-	height?: string,
+	width: string,
+	height: string,
 	carousel?: boolean
 };
 
@@ -63,20 +63,19 @@ export const Project: FC<ProjectProps> = (props: ProjectProps): JSX.Element =>
      */
 	const onToggle = () =>
 	{
-		dispatch(setProjectsIndex(props.projects.indexOf(props.currentProj)));
-		dispatch(toggleProjectModalActive(true));
-		dispatch(toggleModalActive(true));
+		dispatch(setProjectsStartIndex(props.projects.indexOf(props.currentProj)));
+		dispatch(setModalActive(true));
 	};
 
 	/**
      * Responsive card size.
      */
 	const cardSize: { width: number, height: number } = isTabletOrMobileDevice ? {
-		width: parseInt(props.currentProj.width!, 10) / 2,
-		height: (props.itemHeight === undefined) ? parseInt(props.currentProj.height!, 10) / 2 : props.itemHeight! / 2,
+		width: parseInt(props.currentProj.width, 10) / 2,
+		height: (props.itemHeight === undefined) ? parseInt(props.currentProj.height, 10) / 2 : props.itemHeight / 2,
 	} : {
-		width: parseInt(props.currentProj.width!, 10),
-		height: (props.itemHeight === undefined) ? parseInt(props.currentProj.height!, 10) : props.itemHeight!
+		width: parseInt(props.currentProj.width, 10),
+		height: (props.itemHeight === undefined) ? parseInt(props.currentProj.height, 10) : props.itemHeight
 	};
 
 	return (

@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from "react";
+import { FC, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { animateScroll as scroll } from "react-scroll";
 import { getElementByXPath } from "utils/elements";

@@ -1,18 +1,17 @@
-import React, { FC, memo, useState, useRef } from "react";
+import { FC, memo, useState, useRef } from "react";
 import RadialGradient, { GradiantProps } from "Components/RadialGradient/RadialGradient";
 import { Grid, Container, Avatar, Button, makeStyles, CircularProgress, Typography } from "@material-ui/core";
 import VisibilitySensor from "react-visibility-sensor";
 import { useMediaQuery } from "react-responsive";
 import { Element } from "react-scroll";
-import { useSelector } from "react-redux";
-import { AppState } from "App";
+// import { useSelector } from "react-redux";
 import { Formik, Field, Form, FormikHelpers } from "formik";
 import { TextField } from "formik-material-ui";
 import ReCAPTCHA from "react-google-recaptcha";
 import { delay } from "utils/misc";
 import {Trans, useTranslation} from "react-i18next";
 import {gql, useMutation} from "@apollo/client";
-import {Mutation, MutationContactArgs} from "graphql/generated/graphql";
+import {Mutation, MutationContactArgs} from "api/generated/graphql";
 import {motion, Variants} from "framer-motion";
 import "./Contact.scss";
 
@@ -92,7 +91,7 @@ mutation Contact($input: ContactInput!) {
 export const Contact: FC = (): JSX.Element =>
 {
 	const { t } = useTranslation();
-	const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
+	const isDarkMode = true;
 	const isTabletOrMobileDevice = useMediaQuery({ query: "(max-device-width: 1224px)" });
 	const classes = useStyles();
 	const recaptchaRef = useRef<ReCAPTCHA>(null);

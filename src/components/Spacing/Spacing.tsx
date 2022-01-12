@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import { PureComponent } from "react";
 
 export type SpacingProps = React.HTMLAttributes<HTMLDivElement> & {
 	height?: string

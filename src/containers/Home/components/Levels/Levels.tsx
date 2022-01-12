@@ -1,4 +1,4 @@
-import React, { FC, useState, memo } from "react";
+import { FC, useState, memo } from "react";
 import RadialGradient, { GradiantProps } from "Components/RadialGradient/RadialGradient";
 import { Divider, Container, Grid } from "@material-ui/core";
 import EmblaCarousel from "Components/EmblaCarousel/EmblaCarousel";
@@ -7,8 +7,6 @@ import {motion, Variants} from "framer-motion";
 import VisibilitySensor from "react-visibility-sensor";
 import { Element } from "react-scroll";
 import { useMediaQuery } from "react-responsive";
-import { useSelector } from "react-redux";
-import { AppState } from "App";
 import Text from "Components/Text/Text";
 import "./Levels.scss";
 
@@ -41,7 +39,7 @@ export const Levels: FC = (): JSX.Element =>
 	const [levels,] = useState<LevelProject[]>(require("./Levels.json"));
 	const isPortrait = useMediaQuery({ orientation: "portrait" });
 	const isTabletOrMobileDevice = useMediaQuery({ query: "(max-device-width: 1224px)" });
-	const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
+	const isDarkMode = true;
 
 	const config: GradiantProps = isDarkMode ? {
 		position: `${isTabletOrMobileDevice ? "circle" : "ellipse"} at bottom`, 

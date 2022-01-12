@@ -1,4 +1,4 @@
-// import React, {FC, memo, useCallback, useMemo, useState} from "react";
+// import {FC, memo, useCallback, useMemo, useState} from "react";
 // import {
 // 	DialogContent,
 // 	Fab,
@@ -255,4 +255,5 @@
 
 // export default memo(ProjectPopup);
 
-export default <></>;
+// eslint-disable-next-line import/no-anonymous-default-export
+export default () => <></>;

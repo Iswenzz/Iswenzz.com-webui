@@ -1,4 +1,4 @@
-import React, { useState, useEffect, RefObject, memo, FC } from "react";
+import { useState, useEffect, RefObject, memo, FC } from "react";
 import clamp from "lodash/clamp";
 import { useSprings, animated } from "react-spring";
 import { useDrag } from "react-use-gesture";
@@ -49,14 +49,15 @@ export const ViewPager: FC<ViewPagerProps> = (props: ViewPagerProps): JSX.Elemen
 	{
 		if (props.onIndexChange)
 			props.onIndexChange(index);
-	}, [index]);
+	}, [index, props]);
 
 	/**
 	 * Goes to the right pages on startIndex change.
 	 */
 	useEffect(() =>
 	{
-		setIndex(props.startIndex!);
+		if (props.startIndex)
+			setIndex(props.startIndex);
 		divRef?.dispatchEvent(new MouseEvent("mousedown", { bubbles: true, cancelable: false }));
 	}, [props.startIndex, divRef]);
 
@@ -70,7 +71,8 @@ export const ViewPager: FC<ViewPagerProps> = (props: ViewPagerProps): JSX.Elemen
 			setIndex(clamp(index + (xDir > 0 ? -1 : 1), 0, props.items.length - 1));
 			if (props.onIndexChange)
 				props.onIndexChange(index);
-			cancel!();
+			if (cancel)
+				cancel();
 		}
 
 		set(i => 

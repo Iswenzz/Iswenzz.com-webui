@@ -6,7 +6,7 @@ import { faDiscord, faYoutube, faGithub } from "@fortawesome/free-brands-svg-ico
 import { Parallax } from "react-parallax";
 import Spacing from "Components/Spacing/Spacing";
 import { Tooltip, Typography } from "@material-ui/core";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 
 /**
  * Footer with links to social medias & copyrights.

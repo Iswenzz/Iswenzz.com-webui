@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import { PureComponent } from "react";
 import { Grid, GridDirection, GridJustification, GridItemsAlignment, Box } from "@material-ui/core";
 
 export type GradientColor = {

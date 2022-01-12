@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useCallback, FC, memo } from "react";
-import EmblaCarouselReact from "embla-carousel-react";
-import EmblaCarousel from "embla-carousel";
+import { useState, useEffect, useCallback, FC, memo, useRef } from "react";
+// import EmblaCarouselReact from "embla-carousel-react";
+import { EmblaCarouselType } from "embla-carousel";
 import useInterval from "utils/hooks/useInterval";
 import { DotButton, PrevButton, NextButton } from "./EmblaCarouselButtons/EmblaCarouselButtons";
 import { Grid } from "@material-ui/core";
@@ -16,7 +16,6 @@ export type EmblaCarouselProps = {
 };
 
 export type EmblaCarouselState = {
-	embla: ReturnType<typeof EmblaCarousel> | null,
 	prevBtnEnabled: boolean,
 	nextBtnEnabled: boolean,
 	selectedIndex: number,
@@ -33,7 +32,6 @@ export type EmblaCarouselState = {
 export const EmblaCarouselComponent: FC<EmblaCarouselProps> = (props: EmblaCarouselProps) => 
 {
 	const [state, setState] = useState<EmblaCarouselState>({
-		embla: null,
 		prevBtnEnabled: false,
 		nextBtnEnabled: false,
 		selectedIndex: 0,
@@ -41,14 +39,15 @@ export const EmblaCarouselComponent: FC<EmblaCarouselProps> = (props: EmblaCarou
 		delay: props.delayLength,
 		isRunning: props.autoplay
 	});
+	const embla: any = useRef<EmblaCarouselType>();
 
-	const setEmbla = useCallback(embla => setState((prevState: EmblaCarouselState) => ({
-		...prevState,
-		embla: embla
-	})), []);
-	const scrollTo = useCallback(index => state.embla?.scrollTo(index), [state.embla]);
-	const scrollPrev = useCallback(() => state.embla?.scrollPrev(), [state.embla]);
-	const scrollNext = useCallback(() => state.embla?.scrollNext(), [state.embla]);
+	// const setEmbla = useCallback(embla => setState((prevState: EmblaCarouselState) => ({
+	// 	...prevState,
+	// 	embla: embla
+	// })), []);
+	const scrollTo = useCallback(index => embla.current.scrollTo(index), [embla]);
+	const scrollPrev = useCallback(() => embla.current.scrollPrev(), [embla]);
+	const scrollNext = useCallback(() => embla.current.scrollNext(), [embla]);
 
 	/**
 	 * Autoplay function.
@@ -63,6 +62,7 @@ export const EmblaCarouselComponent: FC<EmblaCarouselProps> = (props: EmblaCarou
 
 	useEffect(() => 
 	{
+		const emblaRef = embla.current;
 		/**
 		 * Carousel select callback.
 		 */
@@ -70,22 +70,22 @@ export const EmblaCarouselComponent: FC<EmblaCarouselProps> = (props: EmblaCarou
 		{
 			setState((prevState: EmblaCarouselState) => ({
 				...prevState,
-				selectedIndex: state.embla!.selectedScrollSnap(),
-				prevBtnEnabled: state.embla!.canScrollPrev(),
-				nextBtnEnabled: state.embla!.canScrollNext()
+				selectedIndex: embla.current.selectedScrollSnap(),
+				prevBtnEnabled: embla.current.canScrollPrev(),
+				nextBtnEnabled: embla.current.canScrollNext()
 			}));
 		};
-		if (state.embla) 
+		if (embla.current) 
 		{
 			setState((prevState: EmblaCarouselState) => ({
 				...prevState,
-				scrollSnaps: state.embla!.scrollSnapList()
+				scrollSnaps: embla.current.scrollSnapList()
 			}));
-			state.embla.on("select", onSelect);
+			embla.current.on("select", onSelect);
 			onSelect();
 		}
-		return () => state.embla! && state.embla!.destroy();
-	}, [state.embla]);
+		return () => emblaRef && emblaRef.destroy();
+	}, [embla]);
 
 	return (
 		<Grid style={props.style} container direction="row" justifyContent="center" alignItems="center"

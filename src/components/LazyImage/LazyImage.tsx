@@ -1,4 +1,4 @@
-import React, {forwardRef, Ref} from "react";
+import {forwardRef, Ref} from "react";
 import LazyLoad, {LazyLoadProps} from "react-lazyload";
 
 export type LazyImageProps = LazyLoadProps & React.DetailedHTMLProps<React.ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>;

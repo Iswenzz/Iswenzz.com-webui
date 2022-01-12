@@ -1,11 +1,9 @@
-import React, { FC, memo, useState } from "react";
+import { FC, memo, useState } from "react";
 import { Grid, Tooltip, Container, Typography, GridList, GridListTile, makeStyles } from "@material-ui/core";
 import { IconProps } from "Home/components/Project/Project";
 import FlipCard from "Components/FlipCard/FlipCard";
 import ReactPlayer, { Config } from "react-player";
 import { useMediaQuery } from "react-responsive";
-import { useSelector } from "react-redux";
-import { AppState } from "App";
 import { v4 as uuidv4 } from "uuid";
 import "./Level.scss";
 import {useTranslation} from "react-i18next";
@@ -63,7 +61,7 @@ export const Level: FC<LevelProps> = (props: LevelProps): JSX.Element =>
 	const isTabletOrMobileDevice = useMediaQuery({ query: "(max-device-width: 1224px)" });
 	const [isFlipped, setFlipped] = useState<boolean>(true);
 	const classes = useStyles();
-	const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
+	const isDarkMode = true;
 
 	/**
 	 * Flip the card.

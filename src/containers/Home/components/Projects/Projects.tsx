@@ -1,15 +1,9 @@
-import React, { FC, memo } from "react";
+import { FC, memo } from "react";
 import RadialGradient, { GradiantProps } from "Components/RadialGradient/RadialGradient";
 import { Grid, Divider, Container } from "@material-ui/core";
 import Spacing from "Components/Spacing/Spacing";
-import Project, { LinkedProjectProps } from "Home/components/Project/Project";
-import StonecutterGrid from "Components/StonecutterGrid/StonecutterGrid";
-import { useSelector } from "react-redux";
-import { AppState } from "App";
-// import { enterExitStyle, layout, SpringGridProps } from "react-stonecutter";
 import { useMediaQuery } from "react-responsive";
 import { Element } from "react-scroll";
-import { random } from "lodash";
 import { TrailText } from "Components/TrailText/TrailText";
 import "./Projects.scss";
 
@@ -20,8 +14,8 @@ export const Projects: FC = (): JSX.Element =>
 {
 	const isPortrait = useMediaQuery({ orientation: "portrait" });
 	const isTabletOrMobileDevice = useMediaQuery({ query: "(max-device-width: 1224px)" });
-	const projects = useSelector((state: AppState) => state.home.projects);
-	const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
+	// const projects = useSelector(getProjects);
+	const isDarkMode = true;
 
 	const config: GradiantProps = isDarkMode ? {
 		position: `${isTabletOrMobileDevice ? "circle" : "ellipse"} at center`, 
