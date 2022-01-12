@@ -1,0 +1,29 @@
+.rdg-dark {
+	--color: #ddd;
+	--border-color: #444;
+	--summary-border-color: #555;
+	--background-color: #222;
+	--header-background-color: #1c1c1c;
+	--row-hover-background-color: #181818;
+	--row-selected-background-color: #1a73bc;
+	--row-selected-hover-background-color: #1868aa;
+	--checkbox-color: #95cfff;
+	--checkbox-focus-color: #c8e6ff;
+	--checkbox-disabled-border-color: #000;
+	--checkbox-disabled-background-color: #333;
+}
+
+.rdg-light {
+	--color: #000;
+	--border-color: #ddd;
+	--summary-border-color: #aaa;
+	--background-color: hsl(0deg 0% 100%);
+	--header-background-color: hsl(0deg 0% 97.5%);
+	--row-hover-background-color: hsl(0deg 0% 96%);
+	--row-selected-background-color: hsl(207deg 76% 92%);
+	--row-selected-hover-background-color: hsl(207deg 76% 88%);
+	--checkbox-color: hsl(207deg 100% 29%);
+	--checkbox-focus-color: hsl(207deg 100% 69%);
+	--checkbox-disabled-border-color: #ccc;
+	--checkbox-disabled-background-color: #ddd;
+}

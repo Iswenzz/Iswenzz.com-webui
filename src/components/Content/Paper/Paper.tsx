@@ -4,7 +4,7 @@ import { useMediaQuery } from "react-responsive";
 
 import "./Paper.scss";
 
-export const Paper: FC<PaperProps> = ({ className, paperStyle, title, description, image, previewStyle }) =>
+const Paper: FC<PaperProps> = ({ className, paperStyle, title, description, image, previewStyle }) =>
 {
 	const isPortrait = useMediaQuery({ orientation: "portrait" });
 	const isTabletOrMobileDevice = useMediaQuery({ query: "(max-device-width: 1224px)" });
