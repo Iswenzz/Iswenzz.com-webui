@@ -122,7 +122,7 @@ const NavBar: FC<AppBarProps> = (props: AppBarProps): JSX.Element =>
 		<>
 			<li>
 				<Link className="navbar-button" to="header-section" smooth onClick={() => toggleDrawer(false)}>
-					<Button size='large' color="inherit">
+					<Button size="large" color="inherit">
 						<Trans>NAVBAR_ABOUT</Trans>
 					</Button>
 				</Link>
@@ -130,7 +130,7 @@ const NavBar: FC<AppBarProps> = (props: AppBarProps): JSX.Element =>
 			<li>
 				<Link className="navbar-button" to="projects-section" smooth onClick={() => toggleDrawer(false)}
 					offset={isTabletOrMobileDevice ? 50 : 10}>
-					<Button size='large' color="inherit">
+					<Button size="large" color="inherit">
 						<Trans>NAVBAR_PROJECTS</Trans>
 					</Button>
 				</Link>
@@ -138,7 +138,7 @@ const NavBar: FC<AppBarProps> = (props: AppBarProps): JSX.Element =>
 			<li>
 				<Link className="navbar-button" to="level-design-section" smooth onClick={() => toggleDrawer(false)}
 					offset={isTabletOrMobileDevice ? 30 : 180}>
-					<Button size='large' color="inherit">
+					<Button size="large" color="inherit">
 						<Trans>NAVBAR_LEVEL_DESIGN</Trans>
 					</Button>
 				</Link>
@@ -146,7 +146,7 @@ const NavBar: FC<AppBarProps> = (props: AppBarProps): JSX.Element =>
 			<li>
 				<Link className="navbar-button" to="contact-section" smooth onClick={() => toggleDrawer(false)}
 					offset={0}>
-					<Button size='large' color="inherit">
+					<Button size="large" color="inherit">
 						<Trans>NAVBAR_CONTACT</Trans>
 					</Button>
 				</Link>
@@ -162,7 +162,7 @@ const NavBar: FC<AppBarProps> = (props: AppBarProps): JSX.Element =>
 			{navBarElements}
 			<li>
 				<Fab className="navbar-button" style={{ color: isDarkMode ? "goldenrod" : "gainsboro" }} 
-					size='small' onClick={toggleColorMode}>
+					size="small" onClick={toggleColorMode}>
 					{isDarkMode ? <Flare /> : <Brightness3 />}
 				</Fab>
 			</li>
@@ -179,7 +179,7 @@ const NavBar: FC<AppBarProps> = (props: AppBarProps): JSX.Element =>
 		<Grid component="ul" container direction="row" justifyContent="flex-end" alignItems="center">
 			<li>
 				<Fab className="navbar-button" style={{ color: isDarkMode ? "goldenrod" : "gainsboro" }} 
-					size='small' onClick={toggleColorMode}>
+					size="small" onClick={toggleColorMode}>
 					{isDarkMode ? <Flare /> : <Brightness3 />}
 				</Fab>
 			</li>
@@ -187,7 +187,7 @@ const NavBar: FC<AppBarProps> = (props: AppBarProps): JSX.Element =>
 				<LanguagePicker />
 			</li>
 			<li>
-				<Fab className="navbar-button" color="inherit" size='small' 
+				<Fab className="navbar-button" color="inherit" size="small" 
 					onClick={() => toggleDrawer(!drawerOpen)}>
 					<MenuIcon />
 				</Fab>

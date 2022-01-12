@@ -1,13 +1,9 @@
 import { memo, FC } from "react";
-import Spacing from "Components/Spacing/Spacing";
-import RadialGradient, { GradientColor } from "Components/RadialGradient/RadialGradient";
 import { Parallax } from "react-parallax";
-// import { useSelector } from "react-redux";
-import Text from "Components/Text/Text";
+import { Text, TrailText, Spacing, RadialGradient, GradientColor } from "Components";
 import { Grid, Container, Divider } from "@material-ui/core";
 import VisibilitySensor from "react-visibility-sensor";
-import {motion, Variants} from "framer-motion";
-import TrailText from "Components/TrailText/TrailText";
+import { motion, Variants } from "framer-motion";
 import { useMediaQuery } from "react-responsive";
 import { Element } from "react-scroll";
 import "./Intro.scss";
@@ -111,29 +107,29 @@ export const IntroSkill: FC = (): JSX.Element =>
 			
 			{/* Web Development */}
 			<article className="info-div">
-				<Text i18n component="h2" className='poiret-h2' items={[introJSON.skills[0].title]} />
-				<Text component="h4" className='ubuntu-h4' items={introJSON.skills[0].points} />
-				<Spacing height='20px' />
-				<Text i18n component="h2" className='poiret-h2' items={[introJSON.skills[1].title]} />
-				<Text component="h4" className='ubuntu-h4' items={introJSON.skills[1].points} />
+				<Text i18n component="h2" className="poiret-h2" items={[introJSON.skills[0].title]} />
+				<Text component="h4" className="ubuntu-h4" items={introJSON.skills[0].points} />
+				<Spacing height="20px" />
+				<Text i18n component="h2" className="poiret-h2" items={[introJSON.skills[1].title]} />
+				<Text component="h4" className="ubuntu-h4" items={introJSON.skills[1].points} />
 			</article>
 
 			{/* Software Development */} 
 			<article className="info-div">
-				<Text i18n component="h2" className='poiret-h2' items={[introJSON.skills[2].title]} />
-				<Text component="h4" className='ubuntu-h4' items={introJSON.skills[2].points} />
-				<Spacing height='20px' />
-				<Text i18n component="h2" className='poiret-h2' items={[introJSON.skills[3].title]} />
-				<Text component="h4" className='ubuntu-h4' items={introJSON.skills[3].points} />
+				<Text i18n component="h2" className="poiret-h2" items={[introJSON.skills[2].title]} />
+				<Text component="h4" className="ubuntu-h4" items={introJSON.skills[2].points} />
+				<Spacing height="20px" />
+				<Text i18n component="h2" className="poiret-h2" items={[introJSON.skills[3].title]} />
+				<Text component="h4" className="ubuntu-h4" items={introJSON.skills[3].points} />
 			</article>
 
 			{/* Level Design */}
 			<article className="info-div">
-				<Text i18n component="h2" className='poiret-h2' items={[introJSON.skills[4].title]} />
-				<Text component="h4" className='ubuntu-h4' items={introJSON.skills[4].points} />
-				<Spacing height='20px' />
-				<Text i18n component="h2" className='poiret-h2' items={[introJSON.skills[5].title]} />
-				<Text component="h4" className='ubuntu-h4' items={introJSON.skills[5].points} />
+				<Text i18n component="h2" className="poiret-h2" items={[introJSON.skills[4].title]} />
+				<Text component="h4" className="ubuntu-h4" items={introJSON.skills[4].points} />
+				<Spacing height="20px" />
+				<Text i18n component="h2" className="poiret-h2" items={[introJSON.skills[5].title]} />
+				<Text component="h4" className="ubuntu-h4" items={introJSON.skills[5].points} />
 			</article>
 
 		</Grid>
@@ -144,19 +140,19 @@ export const IntroSkill: FC = (): JSX.Element =>
 			<Element name="intro-section" />
 
 			{/* First Section (About) */}
-			<RadialGradient className="intro" component="section" position='ellipse at bottom' colors={gradientColor}>
+			<RadialGradient className="intro" component="section" position="ellipse at bottom" colors={gradientColor}>
 				<VisibilitySensor partialVisibility offset={{ bottom: isTabletOrMobileDevice ? 20 : 200 }}>
 					{({ isVisible }) => (
 						<Grid className="intro-grid" container direction="row" justifyContent="center" alignItems="center">
 							<motion.div className="intro-anim" variants={animationUp} initial={"exit"} animate={isVisible ? "enter" : "exit"}>
 								<Container component="header" maxWidth="md">
 									<Text i18n align="left" color="textPrimary" component="h2" variant="h2"
-										className='poiret-h1 noselect' items={[introJSON.header]} />
+										className="poiret-h1 noselect" items={[introJSON.header]} />
 									<Divider className="intro-divider" />
 									<Text i18n align="left" className="intro-second-text ubuntu-h3" color="textPrimary"
 										component="h3" variant="h3" items={[introJSON.title]} />
 									<Text i18n align="left" color="textPrimary" paragraph component="h4" variant="h4"
-										className='ubuntu-h4' items={[introJSON.desc]} />
+										className="ubuntu-h4" items={[introJSON.desc]} />
 								</Container>
 							</motion.div>
 						</Grid>
@@ -167,11 +163,11 @@ export const IntroSkill: FC = (): JSX.Element =>
 			<Parallax style={{backgroundColor: isDarkMode ? "black" : "rgb(122, 206, 255)"}} 
 				bgImageAlt="index" strength={400}
 				bgImage={require(`assets/images/index/${isDarkMode ? "stars" : "clouds"}.svg`)}>
-				<Spacing height='100px' />
+				<Spacing height="100px" />
 			</Parallax>
 
 			{/* Second Section (Skills) */}
-			<RadialGradient className="skill" component="section" position='ellipse at top' colors={gradientColor}>
+			<RadialGradient className="skill" component="section" position="ellipse at top" colors={gradientColor}>
 				<VisibilitySensor partialVisibility offset={{ bottom: isTabletOrMobileDevice ? 10 : 200 }}>
 					{({ isVisible }) => (
 						<Container>

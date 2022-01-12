@@ -1,10 +1,8 @@
 import { FC, memo } from "react";
-import RadialGradient, { GradiantProps } from "Components/RadialGradient/RadialGradient";
 import { Grid, Divider, Container } from "@material-ui/core";
-import Spacing from "Components/Spacing/Spacing";
+import { Spacing, TrailText, RadialGradient, GradiantProps } from "Components";
 import { useMediaQuery } from "react-responsive";
 import { Element } from "react-scroll";
-import { TrailText } from "Components/TrailText/TrailText";
 import "./Projects.scss";
 
 /**
@@ -54,7 +52,7 @@ export const Projects: FC = (): JSX.Element =>
 			<RadialGradient config={config} className="projects-gradient-grid">
 				<Container component="header" className="projects-container">
 					<TrailText i18n align="center" color="textPrimary" component="h2" variant="h2"
-						className='poiret-h1 noselect' active items={["PROJECTS"]} />
+						className="poiret-h1 noselect" active items={["PROJECTS"]} />
 					<Divider className="projects-divider" />
 				</Container>
 				<Grid container component="section" direction="row" alignItems="center" justifyContent="center">

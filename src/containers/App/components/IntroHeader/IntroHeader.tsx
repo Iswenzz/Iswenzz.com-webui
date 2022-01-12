@@ -5,8 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-scroll";
 import {useTranslation} from "react-i18next";
+import {SplitText} from "Components";
 import "./IntroHeader.scss";
-import SplitText from "Components/SplitText/SplitText";
 
 export type IntroHeaderProps = {
 	title: string,

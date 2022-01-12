@@ -14,7 +14,7 @@
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faOsi } from "@fortawesome/free-brands-svg-icons";
 // import { LinkedProjectProps } from "Home/components/Project/Project";
-// import ViewPager, { ViewPagerConfig } from "Components/ViewPager/ViewPager";
+// import { ViewPager, ViewPagerConfig, LazyImage } from "Components";
 // import { AppState } from "App";
 // import useWindowSize from "utils/hooks/useWindowSize";
 // import { useSelector, useDispatch } from "react-redux";
@@ -24,7 +24,6 @@
 // import VS2015 from "App/components/Highlight/VS1025";
 // import AtomOneLight from "App/components/Highlight/AtomOneLight";
 // import {useTranslation} from "react-i18next";
-// import LazyImage from "Components/LazyImage/LazyImage";
 // import axios, {AxiosResponse} from "axios";
 // import hljs from "highlight.js";
 // import "./ProjectPopup.scss";
@@ -135,7 +134,7 @@
 // 			<Tooltip arrow disableFocusListener disableTouchListener title={t("PROJECT_TOOLTIP_SOURCE") as string}>
 // 				<Fab size={isPortrait || isTabletOrMobileDevice ? "small" : "large"} href={project.sourceURL} 
 // 					className="projectpopup-tooltip-fab" color="primary">
-// 					<FontAwesomeIcon color='silver' icon={faOsi} size='2x' />
+// 					<FontAwesomeIcon color="silver" icon={faOsi} size="2x" />
 // 				</Fab>
 // 			</Tooltip>
 // 		);
@@ -158,7 +157,7 @@
 // 					<DialogTitle disableTypography className="projectpopup-modal-title">
 // 						<Grid className="projectpopup-title" container
 // 							direction="row" justifyContent="space-between" alignItems="center">
-// 							<ul className='projectpopup-icons'>
+// 							<ul className="projectpopup-icons">
 // 								{project.renderIcons!.map(icon => (
 // 									<li key={uuidv4()}>
 // 										<Tooltip arrow disableFocusListener disableTouchListener title={icon.name}>
@@ -185,7 +184,7 @@
 // 				{/* Modal Content */}
 // 				<section>
 // 					<DialogContent onMouseDown={e => e.stopPropagation()} 
-// 						onTouchStart={e => e.stopPropagation()} className='projectpopup-modal'>
+// 						onTouchStart={e => e.stopPropagation()} className="projectpopup-modal">
 // 						<header>
 // 							{project.showTitle ? project.title : null}
 // 							{project.desc}
@@ -241,7 +240,7 @@
 // 				<section className="projectpopup">
 // 					<Tooltip open={projectModalActive} placement="right" arrow disableFocusListener 
 // 						disableTouchListener title={t("PROJECT_TOOLTIP_DRAG") as string}>
-// 						<img onDragStart={(e) => e.preventDefault()} className="projectpopup-tooltip-drag" alt='drag'
+// 						<img onDragStart={(e) => e.preventDefault()} className="projectpopup-tooltip-drag" alt="drag"
 // 							 src={require("assets/images/misc/icons8-hand-drag-64.png")} />
 // 					</Tooltip>
 // 					{projectModalActive ? 

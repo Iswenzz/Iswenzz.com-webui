@@ -1,14 +1,19 @@
 import { FC } from "react";
+import { Outlet } from "react-router";
+import { Element } from "react-scroll";
+
 import { NavBar, Footer } from "App/components";
 
 /**
  * Page layout with navbar and footer.
  */
-const NavigationLayout: FC = ({ children }) => (
+const NavigationLayout: FC = () => (
 	<>
+		<Element name="header-section" />
 		<NavBar />
-		{children}
+		<Outlet />
 		<Footer />
+		<Element name="footer-section" />
 	</>
 );
 

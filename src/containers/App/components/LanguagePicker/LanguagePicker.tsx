@@ -72,7 +72,7 @@ export const LanguagePicker: FC = (): JSX.Element =>
 	return (
 		<div className={"languagepicker"}>
 			<Fab className={"languagepicker-button"} aria-controls="language-menu"
-				 aria-haspopup="true" onClick={handleClick} size='small'>
+				 aria-haspopup="true" onClick={handleClick} size="small">
 				{languages[currentLanguage]}
 			</Fab>
 			<ThemeProvider theme={menuTheme}>

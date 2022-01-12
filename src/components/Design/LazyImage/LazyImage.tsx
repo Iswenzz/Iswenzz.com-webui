@@ -1,7 +1,5 @@
-import {forwardRef, Ref} from "react";
-import LazyLoad, {LazyLoadProps} from "react-lazyload";
-
-export type LazyImageProps = LazyLoadProps & React.DetailedHTMLProps<React.ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>;
+import { forwardRef, Ref } from "react";
+import LazyLoad, { LazyLoadProps } from "react-lazyload";
 
 /**
  * Lazy load component for images.
@@ -17,5 +15,7 @@ export const LazyImage = forwardRef<LazyLoad, LazyImageProps>((props: LazyImageP
 		</LazyLoad>
 	);
 });
+
+export type LazyImageProps = LazyLoadProps & React.DetailedHTMLProps<React.ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>;
 
 export default LazyImage;

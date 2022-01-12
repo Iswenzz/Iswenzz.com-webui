@@ -1,10 +1,9 @@
 import { FC, memo, useState, useRef } from "react";
-import RadialGradient, { GradiantProps } from "Components/RadialGradient/RadialGradient";
+import { RadialGradient, GradiantProps } from "Components";
 import { Grid, Container, Avatar, Button, makeStyles, CircularProgress, Typography } from "@material-ui/core";
 import VisibilitySensor from "react-visibility-sensor";
 import { useMediaQuery } from "react-responsive";
 import { Element } from "react-scroll";
-// import { useSelector } from "react-redux";
 import { Formik, Field, Form, FormikHelpers } from "formik";
 import { TextField } from "formik-material-ui";
 import ReCAPTCHA from "react-google-recaptcha";
@@ -191,7 +190,7 @@ export const Contact: FC = (): JSX.Element =>
 	const form: JSX.Element = (
 		<Grid container component="section" direction="column" justifyContent="center" alignItems="center">
 			<header>
-				<Avatar alt='iswenzz avatar' src={require("assets/images/misc/iswenzz.png")} 
+				<Avatar alt="iswenzz avatar" src={require("assets/images/misc/iswenzz.png")} 
 					className={classes.avatar} />
 			</header>
 			<Formik initialValues={contactFormInitial} onSubmit={sendEmail}>
@@ -218,8 +217,8 @@ export const Contact: FC = (): JSX.Element =>
 									<Trans>GOOGLE_RECAPTCHA_TERMS</Trans>
 								</a> <Trans>GOOGLE_RECAPTCHA_APPLY</Trans>
 							</Typography>
-							<ReCAPTCHA ref={recaptchaRef} sitekey="6LdE8QAVAAAAAKvBLdna3qVhf6ml05DKXRXwDxmn"
-								size="invisible" badge="inline" theme={isDarkMode ? "dark" : "light"} />
+							{/* <ReCAPTCHA ref={recaptchaRef} sitekey="6LdE8QAVAAAAAKvBLdna3qVhf6ml05DKXRXwDxmn"
+								size="invisible" badge="inline" theme={isDarkMode ? "dark" : "light"} /> */}
 						</Grid>
 					</Container>
 				</Form>

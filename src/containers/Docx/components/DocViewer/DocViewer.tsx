@@ -46,13 +46,13 @@ export const DocViewer: FC = (): JSX.Element =>
 				div.innerHTML = text;
 
 				// scroll to hash if defined.
-				const elem = getElementByXPath(`//a[@href='${hash}']`);
+				const elem = getElementByXPath(`//a[@href="${hash}"]`);
 				if (elem && elem instanceof HTMLAnchorElement)
 					scroll.scrollTo(elem.offsetTop - 48);
 				
 				/*
 				// set uml iframes @todo
-				let dyncontents = getElementsByXPath("//div[@class='dyncontent']");
+				let dyncontents = getElementsByXPath("//div[@class="dyncontent"]");
 				for (let i = 0; i < dyncontents.length; i++)
 				{
 					let div = document.createElement("div");
@@ -108,7 +108,7 @@ export const DocViewer: FC = (): JSX.Element =>
 						loadDoc(url, hash);
 					else
 					{
-						const elem = getElementByXPath(`//a[@href='${hash}']`);
+						const elem = getElementByXPath(`//a[@href="${hash}"]`);
 						if (elem && elem instanceof HTMLAnchorElement)
 							scroll.scrollTo(elem.offsetTop - 48);
 					}

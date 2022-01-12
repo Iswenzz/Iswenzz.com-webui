@@ -10,7 +10,7 @@ const Docx: FC = (): JSX.Element =>
 	return (
 		<>
 			{/* About */}
-			<IntroHeader title="CGSC" desc="Documentation" spaceTop='0px' spaceBottom='170px' 
+			<IntroHeader title="CGSC" desc="Documentation" spaceTop="0px" spaceBottom="170px" 
 				bgImage={require("assets/images/docx/2.jpg")} />
 			<DocViewer />
 		</>
