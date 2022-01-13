@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Fab, ListItemIcon, Menu, MenuItem, Typography, createTheme, ThemeProvider, Grid } from "@material-ui/core";
+import { Fab, ListItemIcon, Menu, MenuItem, Typography, createTheme, ThemeProvider, Grid } from "@mui/material";
 import { i18nLanguages, Language } from "App/i18n";
 import { getLanguage, setLanguage, setModalActive } from "App/redux";
 import "./LanguagePicker.scss";
@@ -14,12 +14,14 @@ export const languages: Record<Language, JSX.Element> = {
 };
 
 const menuTheme = createTheme({
-	overrides: {
+	components: {
 		MuiMenu: {
-			paper: {
-				top: "48px !important",
-				backgroundColor: "rgba(50, 50, 60, 0.3) !important",
-				color: "gainsboro"
+			styleOverrides: {
+				paper: {
+					top: "48px !important",
+					backgroundColor: "rgba(50, 50, 60, 0.3) !important",
+					color: "gainsboro"
+				}
 			}
 		}
 	}

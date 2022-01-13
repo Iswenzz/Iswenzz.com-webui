@@ -1,7 +1,7 @@
 import { FC, memo } from "react";
-import { Card, CardActionArea, Typography } from "@material-ui/core";
+import { Card, CardActionArea, Typography } from "@mui/material";
 import { useDispatch } from "react-redux";
-import { useMediaQuery } from "react-responsive";
+import useTabletOrMobile from "utils/hooks/useTabletOrMobile";
 import {motion} from "framer-motion";
 import "./Project.scss";
 import LazyLoad from "react-lazyload";
@@ -55,7 +55,7 @@ export type ProjectProps = {
  */
 export const Project: FC<ProjectProps> = (props: ProjectProps): JSX.Element =>
 {
-	const isTabletOrMobileDevice = useMediaQuery({ query: "(max-device-width: 1224px)" });
+	const isTabletOrMobile = useTabletOrMobile();
 	const dispatch = useDispatch();
 
 	/**
@@ -70,7 +70,7 @@ export const Project: FC<ProjectProps> = (props: ProjectProps): JSX.Element =>
 	/**
      * Responsive card size.
      */
-	const cardSize: { width: number, height: number } = isTabletOrMobileDevice ? {
+	const cardSize: { width: number, height: number } = isTabletOrMobile ? {
 		width: parseInt(props.currentProj.width, 10) / 2,
 		height: (props.itemHeight === undefined) ? parseInt(props.currentProj.height, 10) / 2 : props.itemHeight / 2,
 	} : {
@@ -89,7 +89,7 @@ export const Project: FC<ProjectProps> = (props: ProjectProps): JSX.Element =>
 						  width: cardSize.width, height: cardSize.height}}>
 					<CardActionArea className="project-card-action">
 						<Typography itemProp="name" variant="caption" align="center" paragraph component="p"
-							style={{ fontSize: isTabletOrMobileDevice ? 14 : 20, height: cardSize.height / 3 }}>
+							style={{ fontSize: isTabletOrMobile ? 14 : 20, height: cardSize.height / 3 }}>
 							{props.currentProj.title}
 						</Typography>
 					</CardActionArea>

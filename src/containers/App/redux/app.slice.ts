@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import type { Theme } from "@material-ui/core";
+import type { Theme } from "@mui/material";
 import { detect } from "detect-browser";
 
 import type { Language } from "App/i18n";

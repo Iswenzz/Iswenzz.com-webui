@@ -1,4 +1,4 @@
-import type { Theme } from "@material-ui/core";
+import type { Theme } from "@mui/material";
 
 import type { Language } from "App/i18n";
 import type { RootRedux } from "App/store";

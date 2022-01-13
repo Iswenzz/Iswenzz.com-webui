@@ -1,13 +1,14 @@
 import { FC, memo, useState } from "react";
-import { Grid, Tooltip, Container, Typography, ImageList, ImageListItem, makeStyles } from "@material-ui/core";
+import { Grid, Tooltip, Container, Typography, ImageList, ImageListItem, useTheme } from "@mui/material";
 import { IconProps } from "Home/components/Project/Project";
-import {FlipCard} from "Components";
+import {Flip} from "Components";
 import ReactPlayer, { Config } from "react-player";
-import { useMediaQuery } from "react-responsive";
+import usePortrait from "utils/hooks/usePortrait";
+import useTabletOrMobile from "utils/hooks/useTabletOrMobile";
 import { v4 as uuidv4 } from "uuid";
-import "./Level.scss";
 import {useTranslation} from "react-i18next";
-import {LazyImage} from "Components";
+import {Image} from "Components";
+import "./Level.scss";
 
 const playerConfig: Config = { 
 	youtube: {
@@ -33,23 +34,6 @@ export type LevelProject = {
 	renderIcons?: IconProps[]
 };
 
-const useStyles = makeStyles(theme => ({
-	darkCard: {
-		height: "100%", 
-		width: "100%",
-		background: "radial-gradient(ellipse at 80%, rgb(0, 48, 138) 0%, rgb(14, 14, 14) 110%)",
-		borderColor: "rgba(0, 131, 255, .3)",
-		borderStyle: "dotted",
-	},
-	whiteCard: {
-		height: "100%", 
-		width: "100%",
-		background: "radial-gradient(ellipse at 80%, #eaeaea 0%, rgb(240, 240, 240) 110%)",
-		borderColor: "rgba(0, 131, 255, .3)",
-		borderStyle: "dotted",
-	}
-}));
-
 /**
  * Flip card container, map preview and stacks on the front, and video/description on the back.
  * @param props - LevelProps
@@ -57,11 +41,10 @@ const useStyles = makeStyles(theme => ({
 export const Level: FC<LevelProps> = (props: LevelProps): JSX.Element =>
 {
 	const { t } = useTranslation();
-	const isPortrait = useMediaQuery({ orientation: "portrait" });
-	const isTabletOrMobileDevice = useMediaQuery({ query: "(max-device-width: 1224px)" });
+	const isPortrait = usePortrait();
+	const isTabletOrMobile = useTabletOrMobile();
 	const [isFlipped, setFlipped] = useState<boolean>(true);
-	const classes = useStyles();
-	const isDarkMode = true;
+	const { themeName } = useTheme();
 
 	/**
 	 * Flip the card.
@@ -76,7 +59,7 @@ export const Level: FC<LevelProps> = (props: LevelProps): JSX.Element =>
 	 * Component for the desktop version.
 	 */
 	const desktopCard: JSX.Element = (
-		<Container component="section" className={`level ${isDarkMode ? classes.darkCard : classes.whiteCard}`}>
+		<Container component="section" className={`level ${themeName}`}>
 			<ImageList className="level-grid-list" rowHeight="auto" gap={1}>
 				<ImageListItem component="header" className="level-desktop-tile-name" key={uuidv4()} cols={2} rows={2}>
 					<Typography itemProp="name" className="level-desktop-typo" variant="h2" align="center" 
@@ -104,7 +87,7 @@ export const Level: FC<LevelProps> = (props: LevelProps): JSX.Element =>
 	 * Component for the mobile version.
 	 */
 	const mobileCard: JSX.Element = (
-		<Container component="section" className={`level ${isDarkMode ? classes.darkCard : classes.whiteCard}`}>
+		<Container component="section" className={`level ${themeName}`}>
 			<Grid container className="level-grid" direction="row" justifyContent="center" alignItems="center">
 				<header>
 					<h3 itemProp="name" className="calli-h2 level-mobile-name">{props.currentLevel.name}</h3>
@@ -120,23 +103,23 @@ export const Level: FC<LevelProps> = (props: LevelProps): JSX.Element =>
 	);
 
 	return (
-		<FlipCard flipCallback={flipCallback} back={(
+		<Flip flipCallback={flipCallback} back={(
 			<Container itemScope itemType="http://schema.org/3DModel" component="section" className="level" 
 				style={{ backgroundImage: `url(${props.currentLevel.image})` }}>
 				<meta itemProp="image" content={props.currentLevel.image} />
 				<meta itemProp="embedUrl" content={props.currentLevel.videoUrl} />
 				<Grid container direction="row" alignItems="center" justifyContent="space-between">
 					<Tooltip placement="right" arrow disableFocusListener title={t("TOOLTIP_CLICK_ME") as string}>
-						<LazyImage onDragStart={(e) => e.preventDefault()} alt="click-me" width={55} height={64}
+						<Image onDragStart={(e) => e.preventDefault()} alt="click-me" width={55} height={64}
 							src={require("assets/images/misc/icons8-natural-user-interface-2-64.png")} />
 					</Tooltip>
 					<Grid container component="ul" direction="column" justifyContent="space-evenly" alignItems="flex-end">
 						{props.currentLevel.renderIcons?.map(icon => (
 							<li key={uuidv4()}>
 								<Tooltip arrow disableFocusListener disableTouchListener title={icon.name}>
-									<LazyImage onDragStart={(e) => e.preventDefault()} className="level-tooltip-img"
-										width={isPortrait || isTabletOrMobileDevice ? "32" : "64"}
-										height={isPortrait || isTabletOrMobileDevice ? "32" : "64"}
+									<Image onDragStart={(e) => e.preventDefault()} className="level-tooltip-img"
+										width={isPortrait || isTabletOrMobile ? "32" : "64"}
+										height={isPortrait || isTabletOrMobile ? "32" : "64"}
 										alt="" src={icon.src} />
 								</Tooltip>
 							</li>
@@ -144,7 +127,7 @@ export const Level: FC<LevelProps> = (props: LevelProps): JSX.Element =>
 					</Grid>
 				</Grid>
 			</Container>
-		)} front={isPortrait || isTabletOrMobileDevice ? mobileCard : desktopCard} />
+		)} front={isPortrait || isTabletOrMobile ? mobileCard : desktopCard} />
 	);
 };
 

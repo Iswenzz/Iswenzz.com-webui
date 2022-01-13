@@ -1,6 +1,6 @@
 import { FC, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
-import { CssBaseline, MuiThemeProvider, responsiveFontSizes } from "@material-ui/core";
+import { CssBaseline, ThemeProvider, responsiveFontSizes } from "@mui/material";
 
 import { getModalActiveState, getTheme } from "App/redux";
 import { getElementByXPath } from "utils/elements";
@@ -24,10 +24,10 @@ export const Themes: FC = ({ children }): JSX.Element =>
 	}, [isModalActive]);
 
 	return (
-		<MuiThemeProvider theme={responsiveFontSizes(theme)}>
+		<ThemeProvider theme={responsiveFontSizes(theme)}>
 			<CssBaseline />
 			{children}
-		</MuiThemeProvider>
+		</ThemeProvider>
 	);
 };
 

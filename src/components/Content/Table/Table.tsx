@@ -1,16 +1,23 @@
 import { FC, useMemo, useState } from "react";
 import ReactDataGrid, { Column } from "react-data-grid";
-import { Pagination } from "@material-ui/lab";
+import { useTheme } from "@mui/material";
+import { Pagination } from "@mui/lab";
 
 import { Loader } from "Components";
+
 import "./Table.scss";
 
-const Table: FC<TableProps> = ({ loading, sortCompare, rows, columns, ...rest }) =>
+/**
+ * React data grid table.
+ * @returns 
+ */
+const Table: FC<TableProps> = ({ loading, sortCompare = defaultSortCompare, rows, columns = [], ...rest }) =>
 {
+	const { themeName } = useTheme();
+
 	const [page, setPage] = useState<number>(0);
 	const [[sortColumn, sortDirection], setSort] = useState<[string, SortDirection]>(["id", "NONE"]);
 
-	const isDarkMode = true;
 
 	/**
 	 * Sorted rows data.
@@ -41,7 +48,7 @@ const Table: FC<TableProps> = ({ loading, sortCompare, rows, columns, ...rest })
 	const onPageChange = () => setPage(page);
 
 	return (
-		<section className={`table-table ${isDarkMode ? "rdg-dark" : "rdg-light"}`}>
+		<section className={`table-table ${themeName}`}>
 			<ReactDataGrid
 				columns={columns}
 				rowGetter={sortedRows}
@@ -62,11 +69,19 @@ export type Row<R = any> = R;
 export type SortDirection = "ASC" | "DESC" | "NONE";
 
 export type TableProps = {
-	name: string,
-	columns: Column<Row>[],
+	name?: string,
+	columns?: Column<Row>[],
 	rows: Row[],
-	sortCompare: (sortColumn: string, a: Row, b: Row) => number,
+	sortCompare?: (sortColumn: string, a: Row, b: Row) => number,
 	loading?: boolean
 };
+
+/**
+ * Compare two string.
+ * @param a - String A.
+ * @param b - String B.
+ * @returns 
+ */
+const defaultSortCompare = (a: string, b: string) => a.localeCompare(b);
 
 export default Table;

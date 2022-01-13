@@ -9,8 +9,8 @@
 // 	Tooltip,
 // 	DialogTitle,
 // 	CircularProgress
-// } from "@material-ui/core";
-// import { Close, Lock } from "@material-ui/icons";
+// } from "@mui/material";
+// import { Close, Lock } from "@mui/icons-material";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faOsi } from "@fortawesome/free-brands-svg-icons";
 // import { LinkedProjectProps } from "Home/components/Project/Project";
@@ -18,7 +18,8 @@
 // import { AppState } from "App";
 // import useWindowSize from "utils/hooks/useWindowSize";
 // import { useSelector, useDispatch } from "react-redux";
-// import { useMediaQuery } from "react-responsive";
+// import usePortrait from "utils/hooks/usePortrait";
+// import useTabletOrMobile from "utils/hooks/useTabletOrMobile";
 // import MarkdownIt from "markdown-it";
 // import { v4 as uuidv4 } from "uuid";
 // import VS2015 from "App/components/Highlight/VS1025";
@@ -40,7 +41,8 @@
 // export const ProjectPopup: FC = (): JSX.Element =>
 // {
 // 	const { t } = useTranslation();
-// 	// const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
+// 	const { isDarkTheme } = useTheme();
+
 // 	// const projects = useSelector((state: AppState) => state.home.projects);
 // 	// const projectsStartIndex = useSelector((state: AppState) => state.home.projectsStartIndex);
 // 	// const projectModalActive = useSelector((state: AppState) => state.home.projectModalActive);
@@ -49,8 +51,8 @@
 // 		projects: new Array(projects.length).fill("")
 // 	});
 
-// 	const isPortrait = useMediaQuery({ orientation: "portrait" });
-// 	const isTabletOrMobileDevice = useMediaQuery({ query: "(max-device-width: 1224px)" });
+// 	const isPortrait = usePortrait();
+// 	const isTabletOrMobile = useTabletOrMobile();
 // 	const [width, height] = useWindowSize();
 
 // 	/**
@@ -62,7 +64,7 @@
 // 			height: height / 1.3,
 // 			width: width / 1.5,
 // 		};
-// 		if (isPortrait || isTabletOrMobileDevice) return {
+// 		if (isPortrait || isTabletOrMobile) return {
 // 			height: height / 1.2,
 // 			width: width,
 // 			maxWidth: "100vw",
@@ -76,7 +78,7 @@
 // 			maxWidth: "100vw",
 // 			maxHeight: "80vh"
 // 		};
-// 	}, [height, isPortrait, isTabletOrMobileDevice, width]);
+// 	}, [height, isPortrait, isTabletOrMobile, width]);
 
 // 	/**
 // 	 * Modal close handler
@@ -132,7 +134,7 @@
 
 // 		const openSource: JSX.Element = (
 // 			<Tooltip arrow disableFocusListener disableTouchListener title={t("PROJECT_TOOLTIP_SOURCE") as string}>
-// 				<Fab size={isPortrait || isTabletOrMobileDevice ? "small" : "large"} href={project.sourceURL} 
+// 				<Fab size={isPortrait || isTabletOrMobile ? "small" : "large"} href={project.sourceURL} 
 // 					className="projectpopup-tooltip-fab" color="primary">
 // 					<FontAwesomeIcon color="silver" icon={faOsi} size="2x" />
 // 				</Fab>
@@ -142,7 +144,7 @@
 // 		const privateSource: JSX.Element = (
 // 			<Tooltip arrow disableFocusListener disableTouchListener title={t("PROJECT_TOOLTIP_CLOSED_SOURCE") as string}>
 // 				<span>
-// 					<Fab size={isPortrait || isTabletOrMobileDevice ? "small" : "large"} disabled 
+// 					<Fab size={isPortrait || isTabletOrMobile ? "small" : "large"} disabled 
 // 						className="projectpopup-tooltip-fab" color="primary">
 // 						<Lock />
 // 					</Fab>
@@ -162,8 +164,8 @@
 // 									<li key={uuidv4()}>
 // 										<Tooltip arrow disableFocusListener disableTouchListener title={icon.name}>
 // 											<LazyImage onDragStart={(e) => e.preventDefault()}
-// 												 width={isPortrait || isTabletOrMobileDevice ? "42px" : "64px"}
-// 												 height={isPortrait || isTabletOrMobileDevice ? "42px" : "64px"}
+// 												 width={isPortrait || isTabletOrMobile ? "42px" : "64px"}
+// 												 height={isPortrait || isTabletOrMobile ? "42px" : "64px"}
 // 												 alt="" src={icon.src} />
 // 										</Tooltip>
 // 									</li>
@@ -172,7 +174,7 @@
 // 							<div>
 // 								{project.isOpenSource ? openSource : privateSource}
 // 								<Fab id="fab_modal_close" onClick={onClickClose} 
-// 									size={isPortrait || isTabletOrMobileDevice ? "small" : "large"} 
+// 									size={isPortrait || isTabletOrMobile ? "small" : "large"} 
 // 									className="projectpopup-tooltip-fab" color="secondary">
 // 									<Close color="primary" />
 // 								</Fab>
@@ -196,7 +198,7 @@
 // 				</section>
 // 			</article>
 // 		);
-// 	}, [isPortrait, isTabletOrMobileDevice, onClickClose, t]);
+// 	}, [isPortrait, isTabletOrMobile, onClickClose, t]);
 
 // 	/**
 // 	 * On ViewPager index change.
@@ -227,7 +229,7 @@
 // 	};
 
 // 	const viewPager = (
-// 		<ViewPager bgcolor={isDarkMode ? "#202326" : "#f4f4f4"}
+// 		<ViewPager bgcolor={isDarkTheme ? "#202326" : "#f4f4f4"}
 // 			startIndex={projectsStartIndex} config={{...viewPagerConfig}}
 // 			items={state.projects} onIndexChange={onIndexChange} />
 // 	);
@@ -244,7 +246,7 @@
 // 							 src={require("assets/images/misc/icons8-hand-drag-64.png")} />
 // 					</Tooltip>
 // 					{projectModalActive ? 
-// 						isDarkMode ? <VS2015>{viewPager}</VS2015> : <AtomOneLight>{viewPager}</AtomOneLight>
+// 						isDarkTheme ? <VS2015>{viewPager}</VS2015> : <AtomOneLight>{viewPager}</AtomOneLight>
 // 						: null}
 // 				</section>
 // 			</Fade>

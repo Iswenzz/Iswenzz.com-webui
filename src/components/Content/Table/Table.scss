@@ -1,4 +1,4 @@
-.rdg-dark {
+.darkTheme {
 	--color: #ddd;
 	--border-color: #444;
 	--summary-border-color: #555;
@@ -9,17 +9,17 @@
 	--row-selected-hover-background-color: #1868aa;
 	--checkbox-color: #95cfff;
 	--checkbox-focus-color: #c8e6ff;
-	--checkbox-disabled-border-color: #000;
+	--checkbox-disabled-border-color: black;
 	--checkbox-disabled-background-color: #333;
 }
 
-.rdg-light {
-	--color: #000;
+.lightTheme {
+	--color: black;
 	--border-color: #ddd;
 	--summary-border-color: #aaa;
-	--background-color: hsl(0deg 0% 100%);
+	--background-color: hsl(0deg 0% white);
 	--header-background-color: hsl(0deg 0% 97.5%);
-	--row-hover-background-color: hsl(0deg 0% 96%);
+	--row-hover-background-color: hsl(0deg 0% whitesmoke);
 	--row-selected-background-color: hsl(207deg 76% 92%);
 	--row-selected-hover-background-color: hsl(207deg 76% 88%);
 	--checkbox-color: hsl(207deg 100% 29%);

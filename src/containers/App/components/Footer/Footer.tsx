@@ -1,10 +1,10 @@
 import { FC, memo } from "react";
-import { Grid, Fab } from "@material-ui/core";
+import { Grid, Fab } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDiscord, faYoutube, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { Parallax } from "react-parallax";
-import { Spacing, RadialGradient } from "Components";
-import { Tooltip, Typography } from "@material-ui/core";
+import { Spacing, Gradient } from "Components";
+import { Tooltip, Typography, useTheme } from "@mui/material";
 // import { useSelector } from "react-redux";
 
 /**
@@ -12,13 +12,13 @@ import { Tooltip, Typography } from "@material-ui/core";
  */
 const Footer: FC = () =>
 {
-	const isDarkMode = true;
+	const { isDarkTheme } = useTheme();
 
 	return (
 		<>
-			<RadialGradient component="footer" position="ellipse at bottom" colors={[
-				{ color: isDarkMode ? "#23272A" : "#f2f2f2", colorPercent: "0%" },
-				{ color: isDarkMode ? "#23272F" : "#f4f4f4", colorPercent: "100%" }
+			<Gradient component="footer" gradientPosition="ellipse at bottom" colors={[
+				{ color: isDarkTheme ? "#23272A" : "#f2f2f2", colorPercent: "0%" },
+				{ color: isDarkTheme ? "#23272F" : "#f4f4f4", colorPercent: "100%" }
 			]}>
 				<Grid component="ul" container direction="row" justifyContent="center" alignItems="center">
 					<li>
@@ -39,9 +39,9 @@ const Footer: FC = () =>
 						</Tooltip>
 					</li>
 				</Grid>
-			</RadialGradient>
+			</Gradient>
 			<Parallax style={{backgroundColor: "black"}} bgImageAlt="index" strength={-400}
-				bgImage={require(`assets/images/index/${isDarkMode ? "stars" : "clouds"}.svg`)}>
+				bgImage={require(`assets/images/index/${isDarkTheme ? "stars" : "clouds"}.svg`)}>
 				<Spacing height="10px" />
 				<Typography align="center" color="textPrimary" variant="subtitle2" component="h3">
 					Copyright © Iswenzz 2017-2022

@@ -1,10 +1,11 @@
 import { memo, FC } from "react";
 import { Parallax } from "react-parallax";
-import { Text, TrailText, Spacing, RadialGradient, GradientColor } from "Components";
-import { Grid, Container, Divider } from "@material-ui/core";
+import { Text, TrailText, Spacing, Gradient, GradientColor } from "Components";
+import { Grid, Container, Divider, useTheme } from "@mui/material";
 import VisibilitySensor from "react-visibility-sensor";
 import { motion, Variants } from "framer-motion";
-import { useMediaQuery } from "react-responsive";
+// import usePortrait from "utils/hooks/usePortrait";
+import useTabletOrMobile from "utils/hooks/useTabletOrMobile";
 import { Element } from "react-scroll";
 import "./Intro.scss";
 
@@ -90,12 +91,12 @@ const animationLeft: Variants = {
  */
 export const IntroSkill: FC = (): JSX.Element =>
 {
-	const isDarkMode = true;
-	const isTabletOrMobileDevice = useMediaQuery({ query: "(max-device-width: 1224px)" });
+	const { isDarkTheme } = useTheme();
+	const isTabletOrMobile = useTabletOrMobile();
 
 	const gradientColor: GradientColor[] = [
-		{ color: isDarkMode ? "#0e0f14" : "#e5e5e5", colorPercent: "0%" },
-		{ color: isDarkMode ? "#181a21" : "#f4f4f4", colorPercent: "100%" }
+		{ color: isDarkTheme ? "#0e0f14" : "#e5e5e5", colorPercent: "0%" },
+		{ color: isDarkTheme ? "#181a21" : "#f4f4f4", colorPercent: "100%" }
 	];
 
 	/**
@@ -140,8 +141,8 @@ export const IntroSkill: FC = (): JSX.Element =>
 			<Element name="intro-section" />
 
 			{/* First Section (About) */}
-			<RadialGradient className="intro" component="section" position="ellipse at bottom" colors={gradientColor}>
-				<VisibilitySensor partialVisibility offset={{ bottom: isTabletOrMobileDevice ? 20 : 200 }}>
+			<Gradient className="intro" component="section" gradientPosition="ellipse at bottom" colors={gradientColor}>
+				<VisibilitySensor partialVisibility offset={{ bottom: isTabletOrMobile ? 20 : 200 }}>
 					{({ isVisible }) => (
 						<Grid className="intro-grid" container direction="row" justifyContent="center" alignItems="center">
 							<motion.div className="intro-anim" variants={animationUp} initial={"exit"} animate={isVisible ? "enter" : "exit"}>
@@ -158,17 +159,17 @@ export const IntroSkill: FC = (): JSX.Element =>
 						</Grid>
 					)}
 				</VisibilitySensor>
-			</RadialGradient>
+			</Gradient>
 
-			<Parallax style={{backgroundColor: isDarkMode ? "black" : "rgb(122, 206, 255)"}} 
+			<Parallax style={{backgroundColor: isDarkTheme ? "black" : "rgb(122, 206, 255)"}} 
 				bgImageAlt="index" strength={400}
-				bgImage={require(`assets/images/index/${isDarkMode ? "stars" : "clouds"}.svg`)}>
+				bgImage={require(`assets/images/index/${isDarkTheme ? "stars" : "clouds"}.svg`)}>
 				<Spacing height="100px" />
 			</Parallax>
 
 			{/* Second Section (Skills) */}
-			<RadialGradient className="skill" component="section" position="ellipse at top" colors={gradientColor}>
-				<VisibilitySensor partialVisibility offset={{ bottom: isTabletOrMobileDevice ? 10 : 200 }}>
+			<Gradient className="skill" component="section" gradientPosition="ellipse at top" colors={gradientColor}>
+				<VisibilitySensor partialVisibility offset={{ bottom: isTabletOrMobile ? 10 : 200 }}>
 					{({ isVisible }) => (
 						<Container>
 							<motion.div variants={animationLeft} initial={"exit"} animate={isVisible ? "enter" : "exit"}>
@@ -178,7 +179,7 @@ export const IntroSkill: FC = (): JSX.Element =>
 									<Divider className="skill-divider" />
 								</Container>
 							</motion.div>
-							{isTabletOrMobileDevice ? skillGrid : (
+							{isTabletOrMobile ? skillGrid : (
 								<motion.div variants={animationRight} initial={"exit"} animate={isVisible ? "enter" : "exit"}>
 									{skillGrid}
 								</motion.div>
@@ -186,7 +187,7 @@ export const IntroSkill: FC = (): JSX.Element =>
 						</Container>
 					)}
 				</VisibilitySensor>
-			</RadialGradient>
+			</Gradient>
 		</Grid>
 	);
 };

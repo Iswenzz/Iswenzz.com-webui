@@ -1,19 +1,17 @@
 import { FC, useState, memo, useEffect } from "react";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Grid from "@material-ui/core/Grid";
-import Button from "@material-ui/core/Button";
+import { AppBar, Toolbar, Grid, Button } from "@mui/material";
+import { Flare, Menu, Brightness3 } from "@mui/icons-material";
 import { Link } from "react-scroll";
-import { useMediaQuery } from "react-responsive";
-import { Fab, Typography, Drawer, AppBarProps } from "@material-ui/core";
+
+import { Fab, Typography, Drawer, AppBarProps, useTheme } from "@mui/material";
 import { useDispatch } from "react-redux";
-import { Flare, Brightness3 } from "@material-ui/icons";
 import {AnimatePresence, motion} from "framer-motion";
-import MenuIcon from "@material-ui/icons/Menu";
 import { useScroll } from "react-use-gesture";
 import LanguagePicker from "../LanguagePicker/LanguagePicker";
 import {Trans} from "react-i18next";
 import { setModalActive } from "App/redux";
+import usePortrait from "utils/hooks/usePortrait";
+import useTabletOrMobile from "utils/hooks/useTabletOrMobile";
 import "./NavBar.scss";
 
 const animationFixed = {
@@ -66,13 +64,11 @@ const scrollConfig = {
 const NavBar: FC<AppBarProps> = (props: AppBarProps): JSX.Element =>
 {
 	const dispatch = useDispatch();
-	const isDarkMode = true;
+	const { isDarkTheme } = useTheme();
 	const projectModalActive = false;
-	// const isDarkMode = useSelector((state: AppState) => state.app.isDarkMode);
-	// const projectModalActive = useSelector((state: AppState) => state.home.projectModalActive);
 
-	const isPortrait = useMediaQuery({ orientation: "portrait" });
-	const isTabletOrMobileDevice = useMediaQuery({ query: "(max-device-width: 1224px)" });
+	const isPortrait = usePortrait();
+	const isTabletOrMobile = useTabletOrMobile();
 	const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
 	const [isFixedNavbar, setFixedNavbar] = useState<boolean>(false);
 
@@ -93,8 +89,8 @@ const NavBar: FC<AppBarProps> = (props: AppBarProps): JSX.Element =>
 	 */
 	const toggleColorMode = (): void =>
 	{
-		// dispatch(toggleDarkMode(!isDarkMode));
-		localStorage.setItem("isDarkMode", (!isDarkMode).toString());
+		// dispatch(toggleDarkMode(!isDarkTheme));
+		localStorage.setItem("isDarkTheme", (!isDarkTheme).toString());
 	};
 
 	/**
@@ -129,7 +125,7 @@ const NavBar: FC<AppBarProps> = (props: AppBarProps): JSX.Element =>
 			</li>
 			<li>
 				<Link className="navbar-button" to="projects-section" smooth onClick={() => toggleDrawer(false)}
-					offset={isTabletOrMobileDevice ? 50 : 10}>
+					offset={isTabletOrMobile ? 50 : 10}>
 					<Button size="large" color="inherit">
 						<Trans>NAVBAR_PROJECTS</Trans>
 					</Button>
@@ -137,7 +133,7 @@ const NavBar: FC<AppBarProps> = (props: AppBarProps): JSX.Element =>
 			</li>
 			<li>
 				<Link className="navbar-button" to="level-design-section" smooth onClick={() => toggleDrawer(false)}
-					offset={isTabletOrMobileDevice ? 30 : 180}>
+					offset={isTabletOrMobile ? 30 : 180}>
 					<Button size="large" color="inherit">
 						<Trans>NAVBAR_LEVEL_DESIGN</Trans>
 					</Button>
@@ -161,9 +157,9 @@ const NavBar: FC<AppBarProps> = (props: AppBarProps): JSX.Element =>
 		<Grid component="ul" container direction="row" justifyContent="flex-end" alignItems="center">
 			{navBarElements}
 			<li>
-				<Fab className="navbar-button" style={{ color: isDarkMode ? "goldenrod" : "gainsboro" }} 
+				<Fab className="navbar-button" style={{ color: isDarkTheme ? "goldenrod" : "gainsboro" }} 
 					size="small" onClick={toggleColorMode}>
-					{isDarkMode ? <Flare /> : <Brightness3 />}
+					{isDarkTheme ? <Flare /> : <Brightness3 />}
 				</Fab>
 			</li>
 			<li>
@@ -178,9 +174,9 @@ const NavBar: FC<AppBarProps> = (props: AppBarProps): JSX.Element =>
 	const navBarButtonsMobile: JSX.Element = (
 		<Grid component="ul" container direction="row" justifyContent="flex-end" alignItems="center">
 			<li>
-				<Fab className="navbar-button" style={{ color: isDarkMode ? "goldenrod" : "gainsboro" }} 
+				<Fab className="navbar-button" style={{ color: isDarkTheme ? "goldenrod" : "gainsboro" }} 
 					size="small" onClick={toggleColorMode}>
-					{isDarkMode ? <Flare /> : <Brightness3 />}
+					{isDarkTheme ? <Flare /> : <Brightness3 />}
 				</Fab>
 			</li>
 			<li>
@@ -189,7 +185,7 @@ const NavBar: FC<AppBarProps> = (props: AppBarProps): JSX.Element =>
 			<li>
 				<Fab className="navbar-button" color="inherit" size="small" 
 					onClick={() => toggleDrawer(!drawerOpen)}>
-					<MenuIcon />
+					<Menu />
 				</Fab>
 			</li>
 			<li>
@@ -218,7 +214,7 @@ const NavBar: FC<AppBarProps> = (props: AppBarProps): JSX.Element =>
 						</Typography>
 					</Grid>
 					<Grid component="section" item xs={9}>
-						{isTabletOrMobileDevice || isPortrait ? navBarButtonsMobile : navBarButtonsDesktop}
+						{isTabletOrMobile || isPortrait ? navBarButtonsMobile : navBarButtonsDesktop}
 					</Grid>
 				</Grid>
 			</Toolbar>

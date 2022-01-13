@@ -1,6 +1,6 @@
 import { FC, memo } from "react";
 import { Parallax } from "react-parallax";
-import { Grid, Typography } from "@material-ui/core";
+import { Grid, Typography } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-scroll";

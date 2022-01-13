@@ -1,11 +1,11 @@
 import { FC, memo, useState, useRef } from "react";
-import { RadialGradient, GradiantProps } from "Components";
-import { Grid, Container, Avatar, Button, makeStyles, CircularProgress, Typography } from "@material-ui/core";
+import { Gradient, GradientProps } from "Components";
+import { Grid, Container, Avatar, Button, CircularProgress, Typography, useTheme, TextField } from "@mui/material";
 import VisibilitySensor from "react-visibility-sensor";
-import { useMediaQuery } from "react-responsive";
+// import usePortrait from "utils/hooks/usePortrait";
+import useTabletOrMobile from "utils/hooks/useTabletOrMobile";
 import { Element } from "react-scroll";
 import { Formik, Field, Form, FormikHelpers } from "formik";
-import { TextField } from "formik-material-ui";
 import ReCAPTCHA from "react-google-recaptcha";
 import { delay } from "utils/misc";
 import {Trans, useTranslation} from "react-i18next";
@@ -13,36 +13,6 @@ import {gql, useMutation} from "@apollo/client";
 import {Mutation, MutationContactArgs} from "api/generated/graphql";
 import {motion, Variants} from "framer-motion";
 import "./Contact.scss";
-
-const useStyles = makeStyles(theme => ({
-	avatar: {
-		margin: theme.spacing(1),
-		width: "120px",
-		height: "120px"
-	},
-	form: {
-		marginTop: theme.spacing(1),
-	},
-	buttonDefault: {
-		background: "linear-gradient(45deg, #c51162 30%, #FF8E53 90%)",
-		boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
-		margin: theme.spacing(4, 0, 2),
-	},
-	buttonSuccess: {
-		background: "linear-gradient(45deg, #174b0f 30%, #1c9209 90%)",
-		boxShadow: "0 3px 5px 2px rgba(18, 74, 9, .7)",
-		margin: theme.spacing(4, 0, 2),
-	},
-	buttonFail: {
-		background: "linear-gradient(45deg, #450301 30%, #7a0905 90%)",
-		boxShadow: "0 3px 5px 2px rgba(69, 3, 1, .7)",
-		margin: theme.spacing(4, 0, 2),
-	},
-	buttonProgress: {
-		color: "cyan",
-		margin: theme.spacing(-6.2, 0, 2),
-	},
-}));
 
 export type ContactFormValues = {
 	email: string,
@@ -90,9 +60,8 @@ mutation Contact($input: ContactInput!) {
 export const Contact: FC = (): JSX.Element =>
 {
 	const { t } = useTranslation();
-	const isDarkMode = true;
-	const isTabletOrMobileDevice = useMediaQuery({ query: "(max-device-width: 1224px)" });
-	const classes = useStyles();
+	const { isDarkTheme } = useTheme();
+	const isTabletOrMobile = useTabletOrMobile();
 	const recaptchaRef = useRef<ReCAPTCHA>(null);
 	const [contact] = useMutation<Mutation, MutationContactArgs>(GRAPHQL_CONTACT);
 
@@ -100,15 +69,15 @@ export const Contact: FC = (): JSX.Element =>
 	const [success, setSuccess] = useState(false);
 	const [fail, setFail] = useState(false);
 
-	const config: GradiantProps = isDarkMode ? {
-		position: `${isTabletOrMobileDevice ? "circle" : "ellipse"} at bottom`, 
+	const config: GradientProps = isDarkTheme ? {
+		gradientPosition: `${isTabletOrMobile ? "circle" : "ellipse"} at bottom`, 
 		colors: [
 			{ color: "#841A2A", colorPercent: "0%" },
 			{ color: "#151243", colorPercent: "70%" }
 		]
 	} : {
 		linear: true,
-		position: "-45deg", 
+		gradientPosition: "-45deg", 
 		colors: [
 			{ color: "#ffdf00" },
 			{ color: "#f4f4f4" }
@@ -191,7 +160,7 @@ export const Contact: FC = (): JSX.Element =>
 		<Grid container component="section" direction="column" justifyContent="center" alignItems="center">
 			<header>
 				<Avatar alt="iswenzz avatar" src={require("assets/images/misc/iswenzz.png")} 
-					className={classes.avatar} />
+					className={"avatar"} />
 			</header>
 			<Formik initialValues={contactFormInitial} onSubmit={sendEmail}>
 				<Form>
@@ -204,10 +173,10 @@ export const Contact: FC = (): JSX.Element =>
 					<Container maxWidth="xs">
 						<Grid container direction="row" justifyContent="center" alignItems="center">
 							<Button fullWidth variant="contained" type="submit" color="secondary" disabled={loading || success || fail}
-								className={success ? classes.buttonSuccess : fail ? classes.buttonFail : classes.buttonDefault}>
+								className={success ? "buttonSuccess" : fail ? "buttonFail" : "buttonDefault"}>
 								<Trans>CONTACT_SEND</Trans>
 							</Button>
-							{loading && <CircularProgress size={32} className={classes.buttonProgress} />}
+							{loading && <CircularProgress size={32} className={"buttonProgress"} />}
 							<Typography variant="subtitle2" align="center" component="p" paragraph color="textPrimary">
 								<Trans>GOOGLE_RECAPTCHA</Trans>&nbsp;
 								<a className="link" href="https://policies.google.com/privacy">
@@ -218,7 +187,7 @@ export const Contact: FC = (): JSX.Element =>
 								</a> <Trans>GOOGLE_RECAPTCHA_APPLY</Trans>
 							</Typography>
 							{/* <ReCAPTCHA ref={recaptchaRef} sitekey="6LdE8QAVAAAAAKvBLdna3qVhf6ml05DKXRXwDxmn"
-								size="invisible" badge="inline" theme={isDarkMode ? "dark" : "light"} /> */}
+								size="invisible" badge="inline" theme={isDarkTheme ? "dark" : "light"} /> */}
 						</Grid>
 					</Container>
 				</Form>
@@ -227,17 +196,17 @@ export const Contact: FC = (): JSX.Element =>
 	);
 
 	return (
-		<VisibilitySensor partialVisibility offset={{ bottom: isTabletOrMobileDevice ? 0 : 200 }}>
+		<VisibilitySensor partialVisibility offset={{ bottom: isTabletOrMobile ? 0 : 200 }}>
 			{({ isVisible }) => (
 				<section className="contact">
 					<Element name="contact-section" />
-					<RadialGradient config={config} style={{ paddingTop: "80px", paddingBottom: "120px" }}>
+					<Gradient config={config} style={{ paddingTop: "80px", paddingBottom: "120px" }}>
 						<Container>
 							<motion.div initial={"exit"} animate={isVisible ? "enter" : "exit"} variants={animation}>
 								{form}
 							</motion.div>
 						</Container>
-					</RadialGradient>
+					</Gradient>
 				</section>
 			)}
 		</VisibilitySensor>

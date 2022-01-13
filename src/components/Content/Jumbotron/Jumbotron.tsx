@@ -1,6 +1,5 @@
 import { CSSProperties, FC } from "react";
-import { Container, Grid, Typography } from "@material-ui/core";
-import { GridDirection, GridItemsAlignment, GridJustification } from "@material-ui/core/Grid/Grid";
+import { Container, Grid, Typography, GridProps } from "@mui/material";
 import { motion, MotionProps } from "framer-motion";
 
 import "./Jumbotron.scss";
@@ -10,25 +9,25 @@ import "./Jumbotron.scss";
  * @constructor
  */
 const Jumbotron: FC<JumbotronProps> = ({ className, children, backgroundImage, title, style,
-	description, titleClassName, descriptionClassName, justify = "center", 
-	direction = "column", alignItems = "flex-start", ...rest 
+	description, titleClassName, descriptionClassName, justifyContent = "center", 
+	direction = "column", alignItems = "flex-start", variants, initial, animate, exit
 }) => (
 	<article className={`jumbotron ${className}`} style={{ ...style, backgroundImage: `url(${backgroundImage})` }}>
 		<Container maxWidth={"lg"}>
-			<Grid container component={"ul"} direction={direction} justify={justify} alignItems={alignItems}>
-				<motion.li custom={0} {...rest}>
+			<Grid container component={"ul"} direction={direction} justifyContent={justifyContent} alignItems={alignItems}>
+				<motion.li custom={0} variants={variants} initial={initial} animate={animate} exit={exit}>
 					<Typography className={titleClassName} variant={"h3"} component={"h3"}>
 						{title}
 					</Typography>
 				</motion.li>
-				<motion.li custom={0.5} {...rest}>
+				<motion.li custom={0.5} variants={variants} initial={initial} animate={animate} exit={exit}>
 					<section className={"jumbotron-desc"}>
 						<Typography className={descriptionClassName} variant={"subtitle1"} component={"p"} paragraph>
 							{description}
 						</Typography>
 					</section>
 				</motion.li>
-				<motion.li custom={1} {...rest}>
+				<motion.li custom={1} variants={variants} initial={initial} animate={animate} exit={exit}>
 					<section>
 						{children}
 					</section>
@@ -38,14 +37,11 @@ const Jumbotron: FC<JumbotronProps> = ({ className, children, backgroundImage, t
 	</article>
 );
 
-export type JumbotronProps = MotionProps & {
+export type JumbotronProps = MotionProps & Partial<GridProps> & {
+	className?: string,
 	title: string,
 	description: string,
 	backgroundImage?: string,
-	direction?: GridDirection,
-	justify?: GridJustification,
-	alignItems?: GridItemsAlignment,
-	className?: string,
 	titleClassName?: string,
 	descriptionClassName?: string,
 	style?: CSSProperties
