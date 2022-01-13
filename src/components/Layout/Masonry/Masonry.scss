@@ -1,0 +1,9 @@
+.masonry {
+	padding: 2.5rem;
+
+	#{&}-item {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}

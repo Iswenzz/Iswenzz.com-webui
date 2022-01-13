@@ -1,20 +1,28 @@
 import { FC, memo } from "react";
+import { Element } from "react-scroll";
+import { useSelector } from "react-redux";
+import random from "lodash/random";
+
 import { Grid, Divider, Container, useTheme } from "@mui/material";
-import { Spacing, TrailText, Gradient, GradientProps } from "Components";
+
+import { Spacing, TrailText, Gradient, GradientProps, Masonry } from "Components";
 import usePortrait from "utils/hooks/usePortrait";
 import useTabletOrMobile from "utils/hooks/useTabletOrMobile";
-import { Element } from "react-scroll";
+import { getProjects } from "Home/redux";
+
+import Project from "../Project/Project";
 import "./Projects.scss";
 
 /**
- * Stonecutter responsive grid container with all Project cards.
+ * Display the projects in a masonry layout.
  */
-export const Projects: FC = (): JSX.Element =>
+const Projects: FC = () =>
 {
 	const isPortrait = usePortrait();
 	const isTabletOrMobile = useTabletOrMobile();
-	// const projects = useSelector(getProjects);
 	const { isDarkTheme } = useTheme();
+
+	const projects = useSelector(getProjects);
 
 	const config: GradientProps = isDarkTheme ? {
 		gradientPosition: `${isTabletOrMobile ? "circle" : "ellipse"} at center`, 
@@ -31,22 +39,6 @@ export const Projects: FC = (): JSX.Element =>
 		]
 	};
 
-	/**
-	 * Stonecutter grid config.
-	 */
-	// const gridConfig: SpringGridProps = { 
-	// 	component: "ul", 
-	// 	columns: 5,
-	// 	perspective: 600, 
-	// 	columnWidth: isTabletOrMobile ? 85 : 200, gutterWidth: 30, 
-	// 	gutterHeight: isTabletOrMobile ? -70 : 0, 
-	// 	layout: isTabletOrMobile ? layout.simple : layout.pinterest,
-	// 	springConfig: { 
-	// 		stiffness: 100, 
-	// 		damping: 12 
-	// 	} 
-	// };
-
 	return (
 		<section className="projects">
 			<Element name="projects-section" />
@@ -57,18 +49,16 @@ export const Projects: FC = (): JSX.Element =>
 					<Divider className="projects-divider" />
 				</Container>
 				<Grid container component="section" direction="row" alignItems="center" justifyContent="center">
-					{/* <StonecutterGrid responsive animStyle={enterExitStyle.skew} config={gridConfig}>
-						{projects!.map((project: LinkedProjectProps) => {
-							const r = isTabletOrMobile ? undefined : random(100, 220);
-							return (
-							// @ts-ignore - for itemHeight custom attribute
-								<li key={project.title} itemHeight={r}> 
-									<Project projects={projects!} currentProj={project}
-										itemHeight={r} /> 
-								</li>
-							);
-						})}
-					</StonecutterGrid> */}
+					<Masonry spacing={0}>
+						{projects.map((project, index) => (
+							<Project 
+								key={project.title}
+								projectIndex={index}
+								project={project} 
+								height={isTabletOrMobile ? undefined : random(100, 220)}
+							/> 
+						))}
+					</Masonry>
 				</Grid>
 				<Spacing height={isPortrait ? "1500px" : isTabletOrMobile ? "500px" : "1000px"} />
 			</Gradient>     

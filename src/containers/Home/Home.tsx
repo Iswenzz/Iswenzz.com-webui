@@ -25,29 +25,29 @@ const Home: FC = () =>
 	return (
 		<>
 			{/* About */}
-			<IntroHeader title="Iswenzz" desc="HOME_HEADER"
+			{/* <IntroHeader title="Iswenzz" desc="HOME_HEADER"
 				bgImage={require(`assets/images/index/${isDarkTheme ? "20.jpg" : "nature1.jpg"}`)} />
 			<IntroSkill />
 			<Parallax style={{backgroundColor: isDarkTheme ? "black" : "rgb(122,206,255)"}}
 				bgImageAlt="index" strength={400}
 				bgImage={require(`assets/images/index/${isDarkTheme ? "stars" : "clouds"}.svg`)}>
 				<Spacing height="100px" />
-			</Parallax>
+			</Parallax> */}
 
 			{/* Projects */}
-			<ProjectPopup />
+			{/* <ProjectPopup /> */}
 			<Projects />
-			<Parallax style={{backgroundColor: isDarkTheme ? "black" : "rgb(122, 206, 255)"}} 
+			{/* <Parallax style={{backgroundColor: isDarkTheme ? "black" : "rgb(122, 206, 255)"}} 
 				bgImageAlt="index" strength={400}
 				bgImage={require(`assets/images/index/${isDarkTheme ? "stars" : "clouds"}.svg`)}>
 				<Spacing height="100px" />
-			</Parallax>
+			</Parallax> */}
 
 			{/* Levels */}
-			<Levels />
+			{/* <Levels /> */}
 
 			{/* Contact */}
-			<Parallax className="contact-parallax" bgImageAlt="index" strength={200} blur={1}
+			{/* <Parallax className="contact-parallax" bgImageAlt="index" strength={200} blur={1}
 				bgImage={require(`assets/images/index/${isDarkTheme ? "55.jpg" : "t1.jpg"}`)}>
 				<Typography className="poiret-h1 bold noselect contact-typo" align="center" variant="h2" component="h2">
 					<SplitText>
@@ -55,7 +55,7 @@ const Home: FC = () =>
 					</SplitText>
 				</Typography>
 			</Parallax>
-			<Contact />
+			<Contact /> */}
 		</>
 	);
 };

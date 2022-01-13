@@ -3,9 +3,6 @@
         "title": "AION Chat",
         "sourceURL": "https://github.com/Iswenzz/AION-Chat",
         "isOpenSource": true,
-        "showTitle": false,
-        "width": "200px",
-        "height": "100px",
         "cardImage": "https://iswenzz.com/iswenzz/projects/aion_chat.jpg",
         "renderUrl": "https://raw.githubusercontent.com/Iswenzz/AION-Chat/master/README.md",
         "renderIcons": [
@@ -16,9 +13,6 @@
     {
         "title": "IzEngine",
         "isOpenSource": false,
-        "showTitle": false,
-        "width": "200px",
-        "height": "100px",
         "cardImage": "https://iswenzz.com/iswenzz/projects/izengine.jpg",
         "renderUrl": "https://iswenzz.com/iswenzz/md/IzEngine.md",
         "renderIcons": [
@@ -32,9 +26,6 @@
         "title": "AION Encdec",
         "sourceURL": "https://github.com/Iswenzz/AION-Encdec",
         "isOpenSource": true,
-        "showTitle": false,
-        "width": "200px",
-        "height": "100px",
         "cardImage": "https://iswenzz.com/iswenzz/projects/aion_encdec.jpg",
         "renderUrl": "https://raw.githubusercontent.com/Iswenzz/AION-Encdec/master/README.md",
         "renderIcons": [
@@ -46,9 +37,6 @@
         "title": "CoD4x Utility",
         "sourceURL": "https://github.com/Iswenzz/CoD4x-Utility",
         "isOpenSource": true,
-        "showTitle": false,
-        "width": "200px",
-        "height": "100px",
         "cardImage": "https://iswenzz.com/iswenzz/projects/cod4x_utility.jpg",
         "renderUrl": "https://raw.githubusercontent.com/Iswenzz/CoD4x-Utility/master/README.md",
         "renderIcons": [
@@ -61,9 +49,6 @@
         "title": "CGSC",
         "sourceURL": "https://github.com/Iswenzz/CGSC",
         "isOpenSource": true,
-        "showTitle": false,
-        "width": "200px",
-        "height": "100px",
         "cardImage": "https://iswenzz.com/iswenzz/projects/cgsc.jpg",
         "renderUrl": "https://raw.githubusercontent.com/Iswenzz/CGSC/master/README.md",
         "renderIcons": [
@@ -74,9 +59,6 @@
         "title": "GSCLIB",
         "sourceURL": "https://github.com/Iswenzz/GSCLIB",
         "isOpenSource": true,
-        "showTitle": false,
-        "width": "200px",
-        "height": "100px",
         "cardImage": "https://iswenzz.com/iswenzz/projects/gsclib.jpg",
         "renderUrl": "https://raw.githubusercontent.com/Iswenzz/gsclib/master/README.md",
         "renderIcons": [
@@ -86,9 +68,6 @@
     {
         "title": "Sr- Speedrun",
         "isOpenSource": false,
-        "showTitle": false,
-        "width": "200px",
-        "height": "100px",
         "cardImage": "https://iswenzz.com/iswenzz/projects/sr_speedrun.jpg",
         "renderUrl": "https://iswenzz.com/iswenzz/md/sr_speedrun.md",
         "renderIcons": [
@@ -101,9 +80,6 @@
     {
         "title": "Sr- Deathrun",
         "isOpenSource": false,
-        "showTitle": false,
-        "width": "200px",
-        "height": "100px",
         "cardImage": "https://iswenzz.com/iswenzz/projects/sr_deathrun.jpg",
         "renderUrl": "https://iswenzz.com/iswenzz/md/sr_deathrun.md",
         "renderIcons": [
@@ -116,9 +92,6 @@
         "title": "Sr- Battle Royale",
         "sourceURL": "https://github.com/Iswenzz/CoD4-Battleroyale",
         "isOpenSource": true,
-        "showTitle": false,
-        "width": "200px",
-        "height": "100px",
         "cardImage": "https://iswenzz.com/iswenzz/projects/sr_battleroyale.jpg",
         "renderUrl": "https://raw.githubusercontent.com/Iswenzz/CoD4-Battleroyale/master/README.md",
         "renderIcons": [
@@ -131,9 +104,6 @@
         "title": "CTGP-R Ghost Downloader",
         "sourceURL": "https://github.com/Iswenzz/CTGP-R-Ghost-Downloader",
         "isOpenSource": true,
-        "showTitle": false,
-        "width": "200px",
-        "height": "100px",
         "cardImage": "https://iswenzz.com/iswenzz/projects/ctgpr_ghost_downloader.jpg",
         "renderUrl": "https://raw.githubusercontent.com/Iswenzz/CTGP-R-Ghost-Downloader/master/README.md",
         "renderIcons": [
@@ -145,9 +115,6 @@
         "title": "Q3 Map Converter",
         "sourceURL": "https://github.com/Iswenzz/Q3-Map-Converter",
         "isOpenSource": true,
-        "showTitle": false,
-        "width": "200px",
-        "height": "100px",
         "cardImage": "https://iswenzz.com/iswenzz/projects/q3_to_cod4_map_converter.jpg",
         "renderUrl": "https://raw.githubusercontent.com/Iswenzz/Q3-Map-Converter/master/README.md",
         "renderIcons": [
@@ -158,9 +125,6 @@
         "title": "SR#App",
         "sourceURL": "https://github.com/Iswenzz/SR-App",
         "isOpenSource": true,
-        "showTitle": false,
-        "width": "200px",
-        "height": "100px",
         "cardImage": "https://iswenzz.com/iswenzz/projects/sr_app.jpg",
         "renderUrl": "https://raw.githubusercontent.com/Iswenzz/SR-App/master/README.md",
         "renderIcons": [
@@ -174,9 +138,6 @@
         "title": "CoD4x Velocity Meter",
         "sourceURL": "https://github.com/Iswenzz/CoD4x-Velocity-Meter",
         "isOpenSource": true,
-        "showTitle": false,
-        "width": "200px",
-        "height": "100px",
         "cardImage": "https://iswenzz.com/iswenzz/projects/cod4x_velocity_meter.jpg",
         "renderUrl": "https://raw.githubusercontent.com/Iswenzz/CoD4x-Velocity-Meter/master/README.md",
         "renderIcons": [
@@ -189,9 +150,6 @@
         "title": "IzInjector",
         "sourceURL": "https://github.com/Iswenzz/IzInjector",
         "isOpenSource": true,
-        "showTitle": false,
-        "width": "200px",
-        "height": "100px",
         "cardImage": "https://iswenzz.com/iswenzz/projects/izinjector.jpg",
         "renderUrl": "https://raw.githubusercontent.com/Iswenzz/IzInjector/master/README.md",
         "renderIcons": [
@@ -202,9 +160,6 @@
         "title": "Auto Clicker",
         "sourceURL": "https://github.com/Iswenzz/Auto-Clicker",
         "isOpenSource": true,
-        "showTitle": false,
-        "width": "200px",
-        "height": "100px",
         "cardImage": "https://iswenzz.com/iswenzz/projects/auto_clicker.jpg",
         "renderUrl": "https://raw.githubusercontent.com/Iswenzz/Auto-Clicker/master/README.md",
         "renderIcons": [
@@ -216,9 +171,6 @@
         "title": "XML ID Checker",
         "sourceURL": "https://github.com/Iswenzz/XML-ID-Checker",
         "isOpenSource": true,
-        "showTitle": false,
-        "width": "200px",
-        "height": "100px",
         "cardImage": "https://iswenzz.com/iswenzz/projects/xml_id_checker.jpg",
         "renderUrl": "https://raw.githubusercontent.com/Iswenzz/XML-ID-Checker/master/README.md",
         "renderIcons": [
@@ -231,9 +183,6 @@
         "title": "Iswenzz.com",
         "sourceURL": "https://github.com/Iswenzz/Iswenzz.com",
         "isOpenSource": true,
-        "showTitle": false,
-        "width": "200px",
-        "height": "100px",
         "cardImage": "https://iswenzz.com/iswenzz/projects/iswenzz.jpg",
         "renderUrl": "https://raw.githubusercontent.com/Iswenzz/Iswenzz.com/master/README.md",
         "renderIcons": [
@@ -246,9 +195,6 @@
         "title": "GSC Parser",
         "sourceURL": "https://github.com/Iswenzz/GSC-Parser",
         "isOpenSource": true,
-        "showTitle": false,
-        "width": "200px",
-        "height": "100px",
         "cardImage": "https://iswenzz.com/iswenzz/projects/gsc_parser.jpg",
         "renderUrl": "https://raw.githubusercontent.com/Iswenzz/GSC-Parser/master/README.md",
         "renderIcons": [
@@ -259,9 +205,6 @@
     {
         "title": "AION Client",
         "isOpenSource": false,
-        "showTitle": false,
-        "width": "200px",
-        "height": "100px",
         "cardImage": "https://iswenzz.com/iswenzz/projects/aion_client.jpg",
         "renderUrl": "https://iswenzz.com/iswenzz/md/aion_client.md",
         "renderIcons": [
@@ -272,9 +215,6 @@
     {
         "title": "AION Project",
         "isOpenSource": false,
-        "showTitle": false,
-        "width": "200px",
-        "height": "100px",
         "cardImage": "https://iswenzz.com/iswenzz/projects/aion_project.jpg",
         "renderUrl": "https://iswenzz.com/iswenzz/md/aion_project.md",
         "renderIcons": [
@@ -284,9 +224,6 @@
     {
         "title": "AION Project Website",
         "isOpenSource": false,
-        "showTitle": false,
-        "width": "200px",
-        "height": "100px",
         "cardImage": "https://iswenzz.com/iswenzz/projects/aion_project_website.jpg",
         "renderUrl": "https://iswenzz.com/iswenzz/md/aion_project_website.md",
         "renderIcons": [
@@ -301,9 +238,6 @@
         "title": "Speedrun BOT",
         "sourceURL": "https://github.com/Iswenzz/Speedrun-BOT",
         "isOpenSource": true,
-        "showTitle": false,
-        "width": "200px",
-        "height": "100px",
         "cardImage": "https://iswenzz.com/iswenzz/projects/speedrun_bot.jpg",
         "renderUrl": "https://raw.githubusercontent.com/Iswenzz/Speedrun-BOT/master/README.md",
         "renderIcons": [
@@ -315,9 +249,6 @@
         "title": "IWD Optimizer",
         "sourceURL": "https://github.com/Iswenzz/IWD-Optimizer",
         "isOpenSource": true,
-        "showTitle": false,
-        "width": "200px",
-        "height": "100px",
         "cardImage": "https://iswenzz.com/iswenzz/projects/iwd_optimizer.jpg",
         "renderUrl": "https://raw.githubusercontent.com/Iswenzz/IWD-Optimizer/master/README.md",
         "renderIcons": [
@@ -328,9 +259,6 @@
         "title": "AION Database Parser",
         "sourceURL": "https://github.com/Iswenzz/AION-Database-Parser",
         "isOpenSource": true,
-        "showTitle": false,
-        "width": "200px",
-        "height": "100px",
         "cardImage": "https://iswenzz.com/iswenzz/projects/aion_database_parser.jpg",
         "renderUrl": "https://raw.githubusercontent.com/Iswenzz/AION-Database-Parser/master/README.md",
         "renderIcons": [
@@ -344,9 +272,6 @@
         "title": "Iswenzz UI",
         "sourceURL": "https://github.com/Iswenzz/Iswenzz-UI",
         "isOpenSource": true,
-        "showTitle": false,
-        "width": "200px",
-        "height": "100px",
         "cardImage": "https://iswenzz.com/iswenzz/projects/iswenzz_ui.jpg",
         "renderUrl": "https://raw.githubusercontent.com/Iswenzz/Iswenzz-UI/master/README.md",
         "renderIcons": [
@@ -358,9 +283,6 @@
         "title": "AION Music",
         "sourceURL": "https://github.com/Iswenzz/AION-Music",
         "isOpenSource": true,
-        "showTitle": false,
-        "width": "200px",
-        "height": "100px",
         "cardImage": "https://iswenzz.com/iswenzz/projects/aion_music.jpg",
         "renderUrl": "https://raw.githubusercontent.com/Iswenzz/AION-Music/master/README.md",
         "renderIcons": [

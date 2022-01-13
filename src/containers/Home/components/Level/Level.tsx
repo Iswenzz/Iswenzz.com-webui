@@ -1,6 +1,6 @@
 import { FC, memo, useState } from "react";
 import { Grid, Tooltip, Container, Typography, ImageList, ImageListItem, useTheme } from "@mui/material";
-import { IconProps } from "Home/components/Project/Project";
+import { ProjectIcon } from "Home/components/Project/Project";
 import {Flip} from "Components";
 import ReactPlayer, { Config } from "react-player";
 import usePortrait from "utils/hooks/usePortrait";
@@ -31,7 +31,7 @@ export type LevelProject = {
 	videoUrl?: string,
 	width?: string,
 	height?: string,
-	renderIcons?: IconProps[]
+	renderIcons?: ProjectIcon[]
 };
 
 /**

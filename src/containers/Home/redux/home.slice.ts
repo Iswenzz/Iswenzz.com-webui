@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-import type { LinkedProjectProps } from "Home/components/Project/Project";
+import type { ProjectSource } from "Home/components/Project/Project";
 
 export type HomeRedux = {
-	projects: LinkedProjectProps[],
+	projects: ProjectSource[],
 	projectsStartIndex: number
 };
 
@@ -20,7 +20,7 @@ const slice = createSlice({
 			...state,
 			projectsStartIndex: action.payload
 		}),
-		setProjects: (state: any, action: PayloadAction<LinkedProjectProps[]>) => ({
+		setProjects: (state: any, action: PayloadAction<ProjectSource[]>) => ({
 			...state,
 			projects: action.payload
 		}),

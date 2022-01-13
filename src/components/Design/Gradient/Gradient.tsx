@@ -1,14 +1,14 @@
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 import { Grid, GridProps, Box } from "@mui/material";
 
 /**
  * Gradient grid container.
  */
-const Gradient: FC<GradientProps> = (props) =>
+const Gradient: FC<GradientProps> = ({ className, id, children, config, ...props }) =>
 {
-	const { className, container, id, gradientPosition, linear, style, children, 
-		colors = [], justifyContent = "center", alignItems = "center", direction = "row", 
-		margin = "0", component = "div" } = props.config || props;
+	const { gradientPosition, linear, style, colors = [], 
+		justifyContent = "center", alignItems = "center", 
+		direction = "row", component = "div" } = config || props;
 
 	/**
 	 * Format all gradient colors to a string separated by a coma.
@@ -25,12 +25,7 @@ const Gradient: FC<GradientProps> = (props) =>
 		`linear-gradient(${gradientPosition}, ${formatColors(colors)})`: 
 		`radial-gradient(${gradientPosition}, ${formatColors(colors)})`;
 
-	return container ? (
-		<Box className={className} id={id} component={component} 
-			style={{ ...style, margin, background: getBackground() }}>
-			{children}
-		</Box>
-	) : (
+	return (
 		<Grid className={className} id={id} component={component} container direction={direction} 
 			justifyContent={justifyContent} alignItems={alignItems} 
 			style={{ ...style, background: getBackground() }}>
@@ -50,8 +45,8 @@ export type GradientProps = Partial<GridProps> & {
 	linear?: boolean,
 	component?: React.ElementType,
 	gradientPosition?: string,
-	margin?: string,
 	colors?: GradientColor[],
+	children?: ReactNode[] | ReactNode
 };
 
 export default Gradient;
