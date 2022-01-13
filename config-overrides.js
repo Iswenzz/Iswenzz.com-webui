@@ -25,7 +25,10 @@ const createWebpackAliasesFromTSConfig = () =>
 };
 
 module.exports.webpack = override(
-	addWebpackAlias(createWebpackAliasesFromTSConfig()),
+	addWebpackAlias({ 
+		...createWebpackAliasesFromTSConfig(),
+		"react/jsx-runtime": require.resolve("react/jsx-runtime")
+	}),
 	addWebpackPlugin(new StylelintPlugin({ configPaths: ".stylelintrc" }))
 );
 
