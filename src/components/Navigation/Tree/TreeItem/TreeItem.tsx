@@ -1,8 +1,6 @@
 import { CSSProperties, FC, memo, useState } from "react";
 import { useSpring, animated } from "react-spring";
-
-import usePrevious from "utils/hooks/usePrevious";
-import useMeasures from "utils/hooks/useMeasures";
+import { useMeasure, usePrevious } from "react-use";
 
 import { CloseSquare , MinusSquare , PlusSquare } from "../TreeIcons/TreeIcons";
 import "./TreeItem.scss";
@@ -15,7 +13,7 @@ const TreeItem: FC<TreeProps> = ({ children, name, style, defaultOpen = false })
 	const [isOpen, setOpen] = useState(defaultOpen);
 	const previous = usePrevious(isOpen);
 
-	const [{ ref }, { height: viewHeight }] = useMeasures<HTMLDivElement>();
+	const [ref, { height: viewHeight }] = useMeasure<HTMLDivElement>();
 	const { height, opacity, transform } = useSpring({
 		from: {
 			height: 0,

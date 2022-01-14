@@ -1,9 +1,9 @@
 import { useCallback, FC, memo, ReactElement, CSSProperties, useState, useEffect } from "react";
+import { useInterval } from "react-use";
 import { Grid } from "@mui/material";
 import { EmblaOptionsType } from "embla-carousel";
 import useEmblaCarousel from "embla-carousel-react";
 
-import useInterval from "utils/hooks/useInterval";
 import { DotButton, PrevButton, NextButton } from "./CarouselButtons/CarouselButtons";
 
 import "./Carousel.scss";

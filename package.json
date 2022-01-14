@@ -81,7 +81,6 @@
 		"react-use": "^17.3.2",
 		"react-use-gesture": "^7.0.16",
 		"react-visibility-sensor": "^5.1.1",
-		"resize-observer-polyfill": "^1.5.1",
 		"styled-components": "^5.3.3",
 		"stylelint-config-recommended-scss": "^5.0.2",
 		"uuid": "^8.3.2"
