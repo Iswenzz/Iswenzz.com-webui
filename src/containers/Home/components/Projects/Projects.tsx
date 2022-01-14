@@ -5,7 +5,7 @@ import random from "lodash/random";
 
 import { Grid, Divider, Container, useTheme } from "@mui/material";
 
-import { Spacing, TrailText, Gradient, GradientProps, Masonry } from "Components";
+import { Spacing, TrailText, Gradient, GradientProps, SpringGrid } from "Components";
 import usePortrait from "utils/hooks/usePortrait";
 import useTabletOrMobile from "utils/hooks/useTabletOrMobile";
 import { getProjects } from "Home/redux";
@@ -49,16 +49,17 @@ const Projects: FC = () =>
 					<Divider className="projects-divider" />
 				</Container>
 				<Grid container component="section" direction="row" alignItems="center" justifyContent="center">
-					<Masonry spacing={0}>
+					<SpringGrid layout="masonry">
 						{projects.map((project, index) => (
 							<Project 
 								key={project.title}
 								projectIndex={index}
 								project={project} 
 								height={isTabletOrMobile ? undefined : random(100, 220)}
+								width={200}
 							/> 
 						))}
-					</Masonry>
+					</SpringGrid>
 				</Grid>
 				<Spacing height={isPortrait ? "1500px" : isTabletOrMobile ? "500px" : "1000px"} />
 			</Gradient>     

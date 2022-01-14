@@ -5,7 +5,7 @@ import { Breakpoint, useMediaQuery, useTheme } from "@mui/material";
  * @param values - The values to return when a breakpoint is triggered.
  * @returns 
  */
-const useBreakpoint = <T>(values: BreakpointValues<T>) => 
+const useBreakpoint = <T>(values: BreakpointValues<T>, defaultValue: T): T => 
 {
 	const theme = useTheme();
 
@@ -24,8 +24,8 @@ const useBreakpoint = <T>(values: BreakpointValues<T>) =>
 	const largestBreakpoint = validBreakpoints.pop();
   
 	if (!largestBreakpoint) 
-	  	return values["xs"];
-	return values[largestBreakpoint];
+	  	return values["xs"] || defaultValue;
+	return values[largestBreakpoint] || defaultValue;
 };
 
 export type BreakpointValues<T> = { 

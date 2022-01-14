@@ -7,6 +7,25 @@ declare global
 	type JSONValue = string | number | boolean | null | object | JSONValue[];
 	type Nullable<T> = T | null;
 	type Optional<T> = T | undefined;
+
+	type BoundingBox = Position & Size;
+
+	type Rectangle = {
+		top: number,
+		left: number,
+		bottom: number,
+		right: number
+	};
+
+	type Position = {
+		x: number,
+		y: number
+	};
+	
+	type Size = {
+		width: number,
+		height: number
+	};
 }
 
 declare module "@mui/material/styles" 

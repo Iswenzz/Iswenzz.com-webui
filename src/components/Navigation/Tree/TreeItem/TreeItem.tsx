@@ -1,5 +1,5 @@
 import { CSSProperties, FC, memo, useState } from "react";
-import {useSpring, animated} from "react-spring";
+import { useSpring, animated } from "react-spring";
 
 import usePrevious from "utils/hooks/usePrevious";
 import useMeasures from "utils/hooks/useMeasures";
@@ -15,7 +15,7 @@ const TreeItem: FC<TreeProps> = ({ children, name, style, defaultOpen = false })
 	const [isOpen, setOpen] = useState(defaultOpen);
 	const previous = usePrevious(isOpen);
 
-	const [bind, { height: viewHeight }] = useMeasures<HTMLDivElement>();
+	const [{ ref }, { height: viewHeight }] = useMeasures<HTMLDivElement>();
 	const { height, opacity, transform } = useSpring({
 		from: {
 			height: 0,
@@ -37,7 +37,7 @@ const TreeItem: FC<TreeProps> = ({ children, name, style, defaultOpen = false })
 			<span className={"treeitem-title"} style={style}>{name}</span>
 			<animated.div className={"treeitem-content"} 
 				style={{ opacity: opacity, height: isOpen && previous === isOpen ? "auto" : height }}>
-				<animated.div style={{ transform }} {...bind} children={children} />
+				<animated.div ref={ref} style={{ transform }} children={children} />
 			</animated.div>
 		</Frame>
 	);

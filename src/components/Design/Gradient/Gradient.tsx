@@ -21,9 +21,9 @@ const Gradient: FC<GradientProps> = ({ className, id, children, config, ...props
 	/**
 	 * Generate a linear/radial gradient CSS string.
 	 */
-	const getBackground = () => linear ? 
-		`linear-gradient(${gradientPosition}, ${formatColors(colors)})`: 
-		`radial-gradient(${gradientPosition}, ${formatColors(colors)})`;
+	const getBackground = () => linear 
+		? `linear-gradient(${gradientPosition}, ${formatColors(colors)})` 
+		: `radial-gradient(${gradientPosition}, ${formatColors(colors)})`;
 
 	return (
 		<Grid className={className} id={id} component={component} container direction={direction} 

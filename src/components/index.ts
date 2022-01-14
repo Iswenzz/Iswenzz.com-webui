@@ -14,7 +14,7 @@ import SplitText from "./Design/SplitText/SplitText";
 import Video from "./Design/Video/Video";
 import ButtonLink from "./Inputs/ButtonLink/ButtonLink";
 import Link from "./Inputs/Link/Link";
-import Masonry from "./Layout/Masonry/Masonry";
+import SpringGrid from "./Layout/SpringGrid/SpringGrid";
 import TabPanel from "./Navigation/TabPanel/TabPanel";
 import Tree from "./Navigation/Tree/Tree";
 import ViewPager from "./Navigation/ViewPager/ViewPager";
@@ -36,7 +36,7 @@ export * from "./Design/SplitText/SplitText";
 export * from "./Design/Video/Video";
 export * from "./Inputs/ButtonLink/ButtonLink";
 export * from "./Inputs/Link/Link";
-export * from "./Layout/Masonry/Masonry";
+export * from "./Layout/SpringGrid/SpringGrid";
 export * from "./Navigation/TabPanel/TabPanel";
 export * from "./Navigation/Tree/Tree";
 export * from "./Navigation/Tree/TreeIcons/TreeIcons";
@@ -60,7 +60,7 @@ export {
 	Video,
 	ButtonLink,
 	Link,
-	Masonry,
+	SpringGrid,
 	TabPanel,
 	Tree,
 	ViewPager
