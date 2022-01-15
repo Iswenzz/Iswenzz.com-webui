@@ -7,10 +7,9 @@ import { motion, Variants } from "framer-motion";
 // import usePortrait from "utils/hooks/usePortrait";
 import useTabletOrMobile from "utils/hooks/useTabletOrMobile";
 import { Element } from "react-scroll";
+import classNames from "classnames";
 
 import scss from "./Intro.module.scss";
-import classNames from "classnames";
-import { style } from "@mui/system";
 
 export type Skill = {
 	title: string,
@@ -107,7 +106,7 @@ export const IntroSkill: FC = (): JSX.Element =>
 	 */
 	const skillGrid: JSX.Element = (
 		<Grid className={scss.skillGrid} container component="section"
-			alignItems="center" direction="row" justifyContent="space-around">
+			alignItems="center" justifyContent="space-around">
 			
 			{/* Web Development */}
 			<article className={scss.article}>
@@ -147,7 +146,7 @@ export const IntroSkill: FC = (): JSX.Element =>
 			<Gradient component="section" gradientPosition="ellipse at bottom" colors={gradientColor}>
 				<VisibilitySensor partialVisibility offset={{ bottom: isTabletOrMobile ? 20 : 200 }}>
 					{({ isVisible }) => (
-						<Grid className={scss.introGrid} container direction="row" 
+						<Grid className={scss.introGrid} container 
 							justifyContent="center" alignItems="center">
 							<motion.div variants={animationUp} initial={"exit"} animate={isVisible ? "enter" : "exit"}>
 								<Container component="header" maxWidth="md">

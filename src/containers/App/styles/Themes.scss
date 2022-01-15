@@ -1,0 +1,31 @@
+// name: mode
+$themes: (
+	light: "light",
+	dark: "dark"
+);
+
+@mixin lightMode() {
+	@each $theme in $themes {
+		@if (map-get($themes, $theme) == "light") {
+			&.#{$theme} {
+				@content;
+			}
+		}
+	}
+}
+
+@mixin darkMode() {
+	@each $theme in $themes {
+		@if (map-get($themes, $theme) == "dark") {
+			&.#{$theme} {
+				@content;
+			}
+		}
+	}
+}
+
+@mixin theme($theme) {
+	&.#{$theme} {
+		@content;
+	}
+}

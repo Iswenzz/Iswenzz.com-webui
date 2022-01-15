@@ -1,6 +1,6 @@
 import { FC, memo } from "react";
 
-import useResponsiveComponent from "utils/hooks/useResponsiveComponent";
+import useResponsive from "utils/hooks/useResponsive";
 
 import PaperDesktop from "./PaperDesktop/PaperDesktop";
 import PaperMobile from "./PaperMobile/PaperMobile";
@@ -8,7 +8,7 @@ import PaperMobile from "./PaperMobile/PaperMobile";
 /**
  * Paper card component.
  */
-const Paper: FC<PaperProps> = (props) => useResponsiveComponent({
+const Paper: FC<PaperProps> = (props) => useResponsive({
 	desktop: <PaperDesktop {...props} />,
 	mobile: <PaperMobile {...props} />
 });

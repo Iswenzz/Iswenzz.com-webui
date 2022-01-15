@@ -1,4 +1,6 @@
-.darkTheme {
+@import "~App/styles/Themes";
+
+@include darkMode {
 	--color: #ddd;
 	--border-color: #444;
 	--summary-border-color: #555;
@@ -13,7 +15,7 @@
 	--checkbox-disabled-background-color: #333;
 }
 
-.lightTheme {
+@include lightMode {
 	--color: black;
 	--border-color: #ddd;
 	--summary-border-color: #aaa;

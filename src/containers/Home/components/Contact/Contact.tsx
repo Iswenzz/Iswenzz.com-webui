@@ -177,7 +177,7 @@ export const Contact: FC = (): JSX.Element =>
 					<Field component={TextField} required label={t("CONTACT_MESSAGE")} id="message" name="message" 
 						type="text" fullWidth multiline rows="6" color="secondary" variant="outlined" margin="normal" />
 					<Container maxWidth="xs">
-						<Grid container direction="row" justifyContent="center" alignItems="center">
+						<Grid container justifyContent="center" alignItems="center">
 							<Button fullWidth variant="contained" type="submit" 
 								color="secondary" disabled={loading || success || fail} className={buttonStyle}>
 								<Trans>CONTACT_SEND</Trans>

@@ -1,7 +1,19 @@
+@import "~App/styles/Themes";
+
 .level { 
 	width: 100%;
 	height: 100%;
 	background-size: cover;
+	border-color: rgba(0, 131, 255, .3);
+	border-style: dotted;
+
+	@include darkMode {
+		background: radial-gradient(ellipse at 80%, rgb(0, 48, 138) 0%, rgb(14, 14, 14) 110%);
+	}
+	
+	@include lightMode {
+		background: radial-gradient(ellipse at 80%, #eaeaea 0%, rgb(240, 240, 240) 110%);
+	}
 }
 
 .grid { 
@@ -51,20 +63,4 @@
 
 .tooltipImg {
 	margin: 0 4px !important;
-}
-
-.darkTheme {
-	width: 100%;
-	height: 100%;
-	background: radial-gradient(ellipse at 80%, rgb(0, 48, 138) 0%, rgb(14, 14, 14) 110%);
-	border-color: rgba(0, 131, 255, .3);
-	border-style: dotted;
-}
-
-.whiteTheme {
-	width: 100%;
-	height: 100%;
-	background: radial-gradient(ellipse at 80%, #eaeaea 0%, rgb(240, 240, 240) 110%);
-	border-color: rgba(0, 131, 255, .3);
-	border-style: dotted;
 }

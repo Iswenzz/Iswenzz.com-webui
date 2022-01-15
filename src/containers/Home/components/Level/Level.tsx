@@ -46,7 +46,7 @@ export const Level: FC<LevelProps> = (props: LevelProps): JSX.Element =>
 	const isPortrait = usePortrait();
 	const isTabletOrMobile = useTabletOrMobile();
 	const [isFlipped, setFlipped] = useState<boolean>(true);
-	const { themeName } = useTheme();
+	const { theme } = useTheme();
 
 	/**
 	 * Flip the card.
@@ -61,7 +61,7 @@ export const Level: FC<LevelProps> = (props: LevelProps): JSX.Element =>
 	 * Component for the desktop version.
 	 */
 	const desktopCard: JSX.Element = (
-		<Container component="section" className={classNames(scss.level, scss[themeName])}>
+		<Container component="section" className={classNames(scss.level, scss[theme])}>
 			<ImageList className={scss.gridList} rowHeight="auto" gap={1}>
 				<ImageListItem component="header" className="level-desktop-tile-name" key={uuidv4()} cols={2} rows={2}>
 					<Typography itemProp="name" className="level-desktop-typo" variant="h2" align="center" 
@@ -74,7 +74,7 @@ export const Level: FC<LevelProps> = (props: LevelProps): JSX.Element =>
 						url={props.currentLevel.videoUrl} /> : null}
 				</ImageListItem>
 				<ImageListItem key={uuidv4()} cols={1} rows={1} className="level-desktop-tile-desc">
-					<Grid container direction="row" justifyContent="center" alignItems="center">
+					<Grid container justifyContent="center" alignItems="center">
 						<Typography itemProp="description" className="level-desktop-tile-desc-typo" variant="subtitle1" 
 							align="left" color="textPrimary" paragraph component="p">
 							{props.currentLevel.description}
@@ -89,8 +89,8 @@ export const Level: FC<LevelProps> = (props: LevelProps): JSX.Element =>
 	 * Component for the mobile version.
 	 */
 	const mobileCard: JSX.Element = (
-		<Container component="section" className={classNames(scss.level, scss[themeName])}>
-			<Grid container className={scss.grid} direction="row" justifyContent="center" alignItems="center">
+		<Container component="section" className={classNames(scss.level, scss[theme])}>
+			<Grid container className={scss.grid} justifyContent="center" alignItems="center">
 				<header>
 					<h3 itemProp="name" className="calli-h2 level-mobile-name">{props.currentLevel.name}</h3>
 				</header>
@@ -106,11 +106,12 @@ export const Level: FC<LevelProps> = (props: LevelProps): JSX.Element =>
 
 	return (
 		<Flip flipCallback={flipCallback} back={(
-			<Container itemScope itemType="http://schema.org/3DModel" component="section" className={scss.level} 
+			<Container itemScope itemType="http://schema.org/3DModel" component="section" 
+				className={classNames(scss.level, scss[theme])} 
 				style={{ backgroundImage: `url(${props.currentLevel.image})` }}>
 				<meta itemProp="image" content={props.currentLevel.image} />
 				<meta itemProp="embedUrl" content={props.currentLevel.videoUrl} />
-				<Grid container direction="row" alignItems="center" justifyContent="space-between">
+				<Grid container alignItems="center" justifyContent="space-between">
 					<Tooltip placement="right" arrow disableFocusListener title={t("TOOLTIP_CLICK_ME") as string}>
 						<Forward>
 							<Image onDragStart={(e) => e.preventDefault()} alt="click-me" width={55} height={64}

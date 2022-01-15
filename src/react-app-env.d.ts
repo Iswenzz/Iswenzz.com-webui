@@ -32,13 +32,13 @@ declare module "@mui/material/styles"
 {
 	interface Theme
 	{
-		themeName: string,
+		theme: string,
 		isDarkTheme: boolean
 	}
 
 	interface ThemeOptions 
 	{ 
-		themeName?: string,
+		theme?: string,
 		isDarkTheme?: boolean
 	}
 }

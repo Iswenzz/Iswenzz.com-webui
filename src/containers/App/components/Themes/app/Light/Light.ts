@@ -1,7 +1,7 @@
 import { createTheme } from "@mui/material";
 
 const LightTheme = createTheme({
-	themeName: "lightTheme",
+	theme: "light",
 	isDarkTheme: true,
 	palette: {
 		mode: "light",

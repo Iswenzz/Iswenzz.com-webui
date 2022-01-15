@@ -1,0 +1,19 @@
+@import "~App/styles/Themes";
+
+.footer {
+	@include darkMode {
+		background: radial-gradient("elipse at bottom", #23272a 0%, #23272f 100%);
+	}
+
+	@include lightMode {
+		background: radial-gradient("elipse at bottom", #f2f2f2 0%, #f4f4f4 100%);
+	}
+}
+
+.icons {
+	margin: 20px;
+}
+
+.parallax {
+	background-color: black;
+}

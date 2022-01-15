@@ -155,7 +155,7 @@ export const ProjectPopup: FC = (): JSX.Element =>
 				<header>
 					<DialogTitle className={scss.modalTitle}>
 						<Grid className={scss.title} container
-							direction="row" justifyContent="space-between" alignItems="center">
+							justifyContent="space-between" alignItems="center">
 							<ul className={scss.icons}>
 								{project.renderIcons?.map(icon => (
 									<li key={uuidv4()}>

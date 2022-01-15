@@ -48,7 +48,7 @@ const Projects: FC = () =>
 						className="poiret-h1 noselect" active items={["PROJECTS"]} />
 					<Divider className={scss.divider} />
 				</Container>
-				<Grid container component="section" direction="row" alignItems="center" justifyContent="center">
+				<Grid container component="section" alignItems="center" justifyContent="center">
 					<SpringGrid layout="masonry">
 						{projects.map((project, index) => (
 							<Project 

@@ -5,7 +5,7 @@ import { CssBaseline, ThemeProvider, responsiveFontSizes } from "@mui/material";
 import { getModalActiveState, getTheme } from "App/redux";
 import { getElementByXPath } from "utils/elements";
 
-import "App/styles/Theme.scss";
+import "App/styles/Main.scss";
 
 /**
  * App themes.

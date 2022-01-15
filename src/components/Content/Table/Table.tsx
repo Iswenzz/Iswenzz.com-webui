@@ -13,7 +13,7 @@ import scss from "./Table.module.scss";
  */
 const Table: FC<TableProps> = ({ loading, sortCompare = defaultSortCompare, rows, columns = [], ...rest }) =>
 {
-	const { themeName } = useTheme();
+	const { theme } = useTheme();
 
 	const [page, setPage] = useState<number>(0);
 	const [[sortColumn, sortDirection], setSort] = useState<[string, SortDirection]>(["id", "NONE"]);
@@ -48,7 +48,7 @@ const Table: FC<TableProps> = ({ loading, sortCompare = defaultSortCompare, rows
 	const onPageChange = () => setPage(page);
 
 	return (
-		<section className={scss[themeName]}>
+		<section className={scss[theme]}>
 			<ReactDataGrid
 				columns={columns}
 				rowGetter={sortedRows}

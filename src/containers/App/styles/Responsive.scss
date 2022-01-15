@@ -6,6 +6,8 @@ $queries: (
 	big: "min-device-width: 1824px"
 );
 
+$sizes: (0, 25, 50, 75, 100) !default;
+
 @mixin media($keys...) {
 	@each $key in $keys {
 		@media (map-get($queries, $key)) {
@@ -14,7 +16,6 @@ $queries: (
 	}
 }
 
-$sizes: (0, 25, 50, 75, 100) !default;
 @each $size in $sizes {
 	.w-#{$size} {
 		width: math.percentage($size);

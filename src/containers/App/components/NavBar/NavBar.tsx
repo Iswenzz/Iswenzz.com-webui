@@ -155,7 +155,7 @@ const NavBar: FC<AppBarProps> = (props: AppBarProps): JSX.Element =>
 	 * Desktop navbar.
 	 */
 	const navBarButtonsDesktop: JSX.Element = (
-		<Grid component="ul" container direction="row" justifyContent="flex-end" alignItems="center">
+		<Grid component="ul" container justifyContent="flex-end" alignItems="center">
 			{navBarElements}
 			<li>
 				<Fab className={scss.button} style={{ color: isDarkTheme ? "goldenrod" : "gainsboro" }} 
@@ -173,7 +173,7 @@ const NavBar: FC<AppBarProps> = (props: AppBarProps): JSX.Element =>
 	 * Mobile navbar.
 	 */
 	const navBarButtonsMobile: JSX.Element = (
-		<Grid component="ul" container direction="row" justifyContent="flex-end" alignItems="center">
+		<Grid component="ul" container justifyContent="flex-end" alignItems="center">
 			<li>
 				<Fab className={scss.button} style={{ color: isDarkTheme ? "goldenrod" : "gainsboro" }} 
 					size="small" onClick={toggleColorMode}>
