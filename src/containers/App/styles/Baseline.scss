@@ -1,0 +1,27 @@
+$link-color: steelblue;
+$link-color-visited: rgb(136, 0, 233);
+$link-color-hover: slateblue;
+
+.link {
+	color: $link-color;
+
+	&:visited {
+		color: $link-color-visited;
+	}
+	
+	&:hover {
+		color: $link-color-hover;
+	}
+}
+
+.noselect {
+	user-select: none;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.pre-line {
+	white-space: pre-line;
+}
