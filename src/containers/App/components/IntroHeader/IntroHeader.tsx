@@ -6,7 +6,8 @@ import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-scroll";
 import {useTranslation} from "react-i18next";
 import {SplitText} from "Components";
-import "./IntroHeader.scss";
+
+import scss from "./IntroHeader.module.scss";
 
 export type IntroHeaderProps = {
 	title: string,
@@ -27,11 +28,11 @@ export const IntroHeader: FC<IntroHeaderProps> = (props: IntroHeaderProps): JSX.
 	const { t } = useTranslation();
 
 	return (
-		<header className="introheader">
-			<Parallax className="introheader-plx" bgImage={props.bgImage} 
+		<header>
+			<Parallax className={scss.parallax} bgImage={props.bgImage} 
 				bgImageAlt="index" blur={props.parallaxBlur || 0}
 				strength={props.parallaxStrength || 400}>
-				<Grid component="section" container className="introheader-grid" 
+				<Grid component="section" container className={scss.grid} 
 					direction="column" justifyContent="center" alignItems="center">
 					<Typography className="calli-h1 bold noselect" align="center" variant="h1" component="h1">
 						<SplitText>
@@ -44,7 +45,7 @@ export const IntroHeader: FC<IntroHeaderProps> = (props: IntroHeaderProps): JSX.
 						</SplitText>
 					</Typography>
 					<Link to="intro-section" offset={5} smooth>
-						<FontAwesomeIcon icon={faChevronDown} size="3x" className="introheader-arrow" />
+						<FontAwesomeIcon icon={faChevronDown} size="3x" className={scss.arrow} />
 					</Link>
 				</Grid>
 			</Parallax>

@@ -12,7 +12,9 @@ import {Trans, useTranslation} from "react-i18next";
 import {gql, useMutation} from "@apollo/client";
 import {Mutation, MutationContactArgs} from "api/generated/graphql";
 import {motion, Variants} from "framer-motion";
-import "./Contact.scss";
+
+import scss from "./Contact.module.scss";
+import classNames from "classnames";
 
 export type ContactFormValues = {
 	email: string,
@@ -51,7 +53,7 @@ const animation: Variants = {
 
 export const GRAPHQL_CONTACT = gql`
 mutation Contact($input: ContactInput!) {
-  contact(input: $input)
+	contact(input: $input)
 }`;
 
 /**
@@ -68,6 +70,10 @@ export const Contact: FC = (): JSX.Element =>
 	const [loading, setLoading] = useState(false);
 	const [success, setSuccess] = useState(false);
 	const [fail, setFail] = useState(false);
+
+	const buttonStyle = classNames(scss.buttonDefault, { 
+		[scss.buttonSuccess]: success, [scss.buttonFail]: fail 
+	});
 
 	const config: GradientProps = isDarkTheme ? {
 		gradientPosition: `${isTabletOrMobile ? "circle" : "ellipse"} at bottom`, 
@@ -160,23 +166,23 @@ export const Contact: FC = (): JSX.Element =>
 		<Grid container component="section" direction="column" justifyContent="center" alignItems="center">
 			<header>
 				<Avatar alt="iswenzz avatar" src={require("assets/images/misc/iswenzz.png")} 
-					className={"avatar"} />
+					className={scss.avatar} />
 			</header>
 			<Formik initialValues={contactFormInitial} onSubmit={sendEmail}>
 				<Form>
 					<Field component={TextField} required label={t("CONTACT_EMAIL")} id="email" name="email" type="email"
 						fullWidth color="secondary" variant="outlined" margin="normal" autoComplete="email" />
-					<Field component={TextField} required label={t("CONTACT_SUBJECT")} id="subject" name="subject" type="text"
-						fullWidth color="secondary" variant="outlined" margin="normal" />
-					<Field component={TextField} required label={t("CONTACT_MESSAGE")} id="message" name="message" type="text"
-						fullWidth multiline rows="6" color="secondary" variant="outlined" margin="normal" />
+					<Field component={TextField} required label={t("CONTACT_SUBJECT")} id="subject" name="subject" 
+						type="text" fullWidth color="secondary" variant="outlined" margin="normal" />
+					<Field component={TextField} required label={t("CONTACT_MESSAGE")} id="message" name="message" 
+						type="text" fullWidth multiline rows="6" color="secondary" variant="outlined" margin="normal" />
 					<Container maxWidth="xs">
 						<Grid container direction="row" justifyContent="center" alignItems="center">
-							<Button fullWidth variant="contained" type="submit" color="secondary" disabled={loading || success || fail}
-								className={success ? "buttonSuccess" : fail ? "buttonFail" : "buttonDefault"}>
+							<Button fullWidth variant="contained" type="submit" 
+								color="secondary" disabled={loading || success || fail} className={buttonStyle}>
 								<Trans>CONTACT_SEND</Trans>
 							</Button>
-							{loading && <CircularProgress size={32} className={"buttonProgress"} />}
+							{loading && <CircularProgress size={32} className={scss.buttonProgress} />}
 							<Typography variant="subtitle2" align="center" component="p" paragraph color="textPrimary">
 								<Trans>GOOGLE_RECAPTCHA</Trans>&nbsp;
 								<a className="link" href="https://policies.google.com/privacy">
@@ -198,7 +204,7 @@ export const Contact: FC = (): JSX.Element =>
 	return (
 		<VisibilitySensor partialVisibility offset={{ bottom: isTabletOrMobile ? 0 : 200 }}>
 			{({ isVisible }) => (
-				<section className="contact">
+				<section>
 					<Element name="contact-section" />
 					<Gradient config={config} style={{ paddingTop: "80px", paddingBottom: "120px" }}>
 						<Container>

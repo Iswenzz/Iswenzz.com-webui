@@ -1,0 +1,23 @@
+.button {
+	background-color: transparent !important; 
+	margin: 0 5px !important;
+}
+
+.logo {
+	padding-top: 5px; 
+	user-select: none;
+}
+
+.fixed {
+	top: 0;
+	position: fixed;
+	width: 100%;
+	z-index: 4000;
+}
+
+.absolute {
+	top: 0;
+	position: absolute;
+	width: 100%;
+	z-index: 4000;
+}

@@ -1,0 +1,32 @@
+.paper {
+	color: black;
+
+	h2 {
+		margin-top: 2em;
+		margin-bottom: 1em;
+		font-family: "Inknut Antiqua", serif;
+	}
+
+	p {
+		font-family: "Cormorant", serif;
+		font-size: 1.5em;
+		padding: 4em 1em;
+	}
+}
+
+.container {
+	background-size: 100% 100%;
+	padding: 1em;
+	margin: auto;
+}
+
+.preview {
+	padding: 0 2em;
+
+	img {
+		width: 100%;
+		height: 300px;
+		border-color: #007bff;
+		box-shadow: 0 0 20px #007bff;
+	}
+}

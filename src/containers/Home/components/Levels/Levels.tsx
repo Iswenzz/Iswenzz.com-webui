@@ -9,7 +9,7 @@ import { Divider, Container, Grid, useTheme } from "@mui/material";
 import { Gradient, GradientProps, Carousel, Text } from "Components";
 import Level, { LevelProject } from "Home/components/Level/Level";
 
-import "./Levels.scss";
+import scss from "./Levels.module.scss";
 
 const animation: Variants = {
 	enter: { 
@@ -59,20 +59,20 @@ export const Levels: FC = () =>
 	return (
 		<VisibilitySensor partialVisibility offset={{ bottom: isTabletOrMobile ? 100 : 400 }}>
 			{({ isVisible }) => (
-				<section className="levels">
+				<section>
 					<Element name="level-design-section" />
-					<Gradient component="section" config={config} className="levels-gradient-grid">
+					<Gradient component="section" config={config} className={scss.gradient}>
 						<Grid container direction="column" justifyContent="center" alignItems="center">
-							<Container component="header" className="levels-container">
+							<Container component="header" className={scss.container}>
 								<motion.div variants={animation} initial={"exit"} animate={isVisible ? "enter" : "exit"}>
 									<Text i18n align="center" color="textPrimary" component="h2" variant="h2"
 										className="poiret-h1 noselect" items={["LEVEL_DESIGN"]} />
-									<Divider className="levels-divider" />
+									<Divider className={scss.divider} />
 								</motion.div>
 							</Container>
-							<Container className="levels-carousel-container" component="article">
+							<Container className={scss.carouselContainer} component="article">
 								<motion.div variants={animation} initial={"exit"} animate={isVisible ? "enter" : "exit"}>
-									<Carousel buttonSize={55} width="100%" delay={10000}
+									<Carousel buttonSize={55} width="100%"
 										height={isPortrait ? "500px" : isTabletOrMobile ? "350px" : "700px" }>
 										{levels.map((level: LevelProject) => (
 											<Level key={level.name} levels={levels} currentLevel={level} />

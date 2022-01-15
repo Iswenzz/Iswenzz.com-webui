@@ -1,7 +1,3 @@
-.grecaptcha-badge { 
-	visibility: hidden;
-}
-
 .avatar {
 	margin: 8px;
 	width: 120px;
@@ -33,4 +29,14 @@ form {
 .buttonProgress {
 	color: cyan;
 	margin: -3rem 0 1rem;
+}
+
+.contactParallax {
+	box-shadow: 0 0 5px 6px rgba(60, 60, 60, .3);
+}
+
+.contactTypo {
+	user-select: none !important;
+	padding-top: 200px;
+	padding-bottom: 200px;
 }

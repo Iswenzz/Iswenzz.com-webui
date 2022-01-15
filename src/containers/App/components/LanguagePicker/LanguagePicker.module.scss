@@ -1,0 +1,27 @@
+.button {
+	background-color: transparent !important;
+	margin: 0 5px !important;
+}
+
+.typo {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center !important;
+	font-family: Ubuntu, sans-serif !important;
+	font-size: 1em !important;
+	padding-top: 5px;
+	margin-left: 1em;
+}
+
+.itemIcon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	margin-left: 0.5em;
+}
+
+.icon {
+	width: 30px !important;
+	height: auto !important;
+}

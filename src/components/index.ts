@@ -6,6 +6,7 @@ import Paper from "./Content/Paper/Paper";
 import Table from "./Content/Table/Table";
 import Text from "./Content/Text/Text";
 import TrailText from "./Content/TrailText/TrailText";
+import Forward from "./Design/Forward/Forward";
 import Gradient from "./Design/Gradient/Gradient";
 import Image from "./Design/Image/Image";
 import Loader from "./Design/Loader/Loader";
@@ -28,6 +29,7 @@ export * from "./Content/Paper/Paper";
 export * from "./Content/Table/Table";
 export * from "./Content/Text/Text";
 export * from "./Content/TrailText/TrailText";
+export * from "./Design/Forward/Forward";
 export * from "./Design/Gradient/Gradient";
 export * from "./Design/Image/Image";
 export * from "./Design/Loader/Loader";
@@ -52,6 +54,7 @@ export {
 	Table,
 	Text,
 	TrailText,
+	Forward,
 	Gradient,
 	Image,
 	Loader,

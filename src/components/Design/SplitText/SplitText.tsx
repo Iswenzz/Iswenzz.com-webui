@@ -1,7 +1,7 @@
-import {FC, useMemo} from "react";
+import { FC, useMemo } from "react";
 import { motion } from "framer-motion";
 
-import style from "./SplitText.module.scss";
+import scss from "./SplitText.module.scss";
 
 /**
  * Split text animation.
@@ -25,9 +25,9 @@ const SplitText: FC<SplitTextProps> = ({ children }) =>
 	return (
 		<>
 			{words.map((word, index) => (
-				<div key={children + index} className={style.word}>
+				<div key={children + index} className={scss.word}>
 					<motion.div
-						className={style.wordMotion}
+						className={scss.wordMotion}
 						initial={initial}
 						animate="visible"
 						variants={variants}

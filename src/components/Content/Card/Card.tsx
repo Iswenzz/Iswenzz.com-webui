@@ -1,13 +1,13 @@
 import { FC, ReactNode } from "react";
 import { Card as MUICard, CardActionArea, CardActions, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 
-import "./Card.scss";
+import scss from "./Card.module.scss";
 
 /**
  * Media card component.
  */
 const Card: FC<CardProps> = ({ className, mediaClass, image, icon, title, description, children }) => (
-	<MUICard className={`card ${className}`}>
+	<MUICard className={`${scss.card} ${className}`}>
 		{image && (
 			<CardActionArea component={"header"}>
 				<CardMedia component={"img"} className={mediaClass} image={image} title={title} />
@@ -18,7 +18,7 @@ const Card: FC<CardProps> = ({ className, mediaClass, image, icon, title, descri
 				{icon}
 			</figure>
 		)}
-		<Grid component={"section"} className={"card-container"} container direction={"column"}
+		<Grid component={"section"} className={scss.cardContainer} container direction={"column"}
 			  alignItems={"center"} justifyContent={"space-between"}>
 			<CardContent>
 				<Typography gutterBottom variant="h5" component="h2">

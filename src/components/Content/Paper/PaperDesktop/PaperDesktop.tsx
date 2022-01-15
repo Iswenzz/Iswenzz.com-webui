@@ -1,12 +1,16 @@
 import { FC } from "react";
 import { Container, Grid, Typography } from "@mui/material";
+import classNames from "classnames";
 
 import type { PaperProps } from "../Paper";
 
-const PaperDesktop: FC<PaperProps> = ({ className, paperStyle, title, description, image, previewStyle }) => (
-	<Grid container justifyContent={"center"} alignItems={"center"} className={`paper ${className}`}>
+import scss from "./PaperDesktop.module.scss";
+
+const PaperDesktop: FC<PaperProps> = ({ className, style, title, description, image, previewStyle }) => (
+	<Grid container justifyContent={"center"} alignItems={"center"} 
+		className={classNames(scss.paper, className)}>
 		<Grid container direction={"column"} justifyContent={"space-evenly"}
-			  alignItems={"center"} className={"paper-container"} style={paperStyle}>
+			  alignItems={"center"} className={scss.container} style={style}>
 			<header>
 				<Typography align={"center"} component={"h2"} variant={"h2"}>
 					{title}
@@ -17,7 +21,7 @@ const PaperDesktop: FC<PaperProps> = ({ className, paperStyle, title, descriptio
 					{description}
 				</Typography>
 			</Container>
-			<section className={"paper-preview"} style={previewStyle}>
+			<section className={scss.preview} style={previewStyle}>
 				<img src={image} alt={"Presentation Paper"} />
 			</section>
 		</Grid>

@@ -1,24 +1,22 @@
 import styled from "styled-components";
 
 /*
+    Atom One Light by Daniel Gamage
+    Original One Light Syntax theme from https://github.com/atom/one-light-syntax
+    Edited by Iswenzz
 
-Atom One Light by Daniel Gamage
-Original One Light Syntax theme from https://github.com/atom/one-light-syntax
-Edited by Iswenzz
-
-base:    #fafafa
-mono-1:  #383a42
-mono-2:  #686b77
-mono-3:  #a0a1a7
-hue-1:   #0184bb
-hue-2:   #4078f2
-hue-3:   #a626a4
-hue-4:   #50a14f
-hue-5:   #e45649
-hue-5-2: #c91243
-hue-6:   #986801
-hue-6-2: #c18401
-
+    base:    #fafafa
+    mono-1:  #383a42
+    mono-2:  #686b77
+    mono-3:  #a0a1a7
+    hue-1:   #0184bb
+    hue-2:   #4078f2
+    hue-3:   #a626a4
+    hue-4:   #50a14f
+    hue-5:   #e45649
+    hue-5-2: #c91243
+    hue-6:   #986801
+    hue-6-2: #c18401
 */
 export default styled.div`
     .hljs {

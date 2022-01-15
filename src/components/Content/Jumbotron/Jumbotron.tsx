@@ -1,8 +1,9 @@
 import { CSSProperties, FC } from "react";
 import { Container, Grid, Typography, GridProps } from "@mui/material";
 import { motion, MotionProps } from "framer-motion";
+import classNames from "classnames";
 
-import "./Jumbotron.scss";
+import scss from "./Jumbotron.module.scss";
 
 /**
  * Jumbotron component.
@@ -12,7 +13,8 @@ const Jumbotron: FC<JumbotronProps> = ({ className, children, backgroundImage, t
 	description, titleClassName, descriptionClassName, justifyContent = "center", 
 	direction = "column", alignItems = "flex-start", variants, initial, animate, exit
 }) => (
-	<article className={`jumbotron ${className}`} style={{ ...style, backgroundImage: `url(${backgroundImage})` }}>
+	<article className={classNames(scss.jumbotron, className)} 
+		style={{ ...style, backgroundImage: `url(${backgroundImage})` }}>
 		<Container maxWidth={"lg"}>
 			<Grid container component={"ul"} direction={direction} justifyContent={justifyContent} alignItems={alignItems}>
 				<motion.li custom={0} variants={variants} initial={initial} animate={animate} exit={exit}>
@@ -21,7 +23,7 @@ const Jumbotron: FC<JumbotronProps> = ({ className, children, backgroundImage, t
 					</Typography>
 				</motion.li>
 				<motion.li custom={0.5} variants={variants} initial={initial} animate={animate} exit={exit}>
-					<section className={"jumbotron-desc"}>
+					<section className={scss.description}>
 						<Typography className={descriptionClassName} variant={"subtitle1"} component={"p"} paragraph>
 							{description}
 						</Typography>

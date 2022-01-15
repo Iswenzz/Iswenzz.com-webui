@@ -1,5 +1,5 @@
 import { FC, ReactNode } from "react";
-import { Grid, GridProps, Box } from "@mui/material";
+import { Grid, GridProps } from "@mui/material";
 
 /**
  * Gradient grid container.

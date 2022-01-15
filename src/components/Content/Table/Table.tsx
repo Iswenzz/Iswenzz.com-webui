@@ -5,7 +5,7 @@ import { Pagination } from "@mui/lab";
 
 import { Loader } from "Components";
 
-import "./Table.scss";
+import scss from "./Table.module.scss";
 
 /**
  * React data grid table.
@@ -48,7 +48,7 @@ const Table: FC<TableProps> = ({ loading, sortCompare = defaultSortCompare, rows
 	const onPageChange = () => setPage(page);
 
 	return (
-		<section className={`table-table ${themeName}`}>
+		<section className={scss[themeName]}>
 			<ReactDataGrid
 				columns={columns}
 				rowGetter={sortedRows}
@@ -59,7 +59,7 @@ const Table: FC<TableProps> = ({ loading, sortCompare = defaultSortCompare, rows
 				onGridSort={onSort}
 				{...rest}
 			/>
-			{loading && <Loader className={"table-loader"} />}
+			{loading && <Loader className={scss.loader} />}
 			<Pagination count={Math.floor(rows.length / 10)} page={page} onChange={onPageChange} />
 		</section>
 	);

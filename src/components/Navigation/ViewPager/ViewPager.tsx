@@ -3,7 +3,7 @@ import { useSprings, animated } from "react-spring";
 import { useDrag } from "react-use-gesture";
 import clamp from "lodash/clamp";
 
-import "./ViewPager.scss";
+import scss from "./ViewPager.module.scss";
 
 /**
  * Carousel with gesture features.
@@ -67,8 +67,7 @@ const ViewPager: FC<ViewPagerProps> = ({ items, startIndex, background, style, c
 	return (
 		<section style={style}>
 			{springProps.map(({ x, display, scale }, i) => (
-				<animated.div className="carousel" {...bind()} key={i}
-					style={{display, x, ...config }}>
+				<animated.div className={scss.viewpager} {...bind()} key={i} style={{ display, x, ...config }}>
 					<animated.div ref={setDivRef} style={{ scale, background }}>
 						{items[i]}
 					</animated.div>

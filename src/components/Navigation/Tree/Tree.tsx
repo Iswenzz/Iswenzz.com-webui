@@ -1,11 +1,12 @@
 import { FC } from "react";
-import "./Tree.scss";
+
+import scss from "./Tree.module.scss";
 
 /**
  * Tree container.
  */
 const Tree: FC = ({ children }) => (
-	<ul className={"tree"}>
+	<ul className={scss.tree}>
 		{children}
 	</ul>
 );

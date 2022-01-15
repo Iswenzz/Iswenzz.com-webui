@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 /*
- * Visual Studio 2015 dark style
- * Author: Nicolas LLOBERA <nllobera@gmail.com>
- * Edited: Iswenzz
- */
+    Visual Studio 2015 dark style
+    Author: Nicolas LLOBERA <nllobera@gmail.com>
+    Edited: Iswenzz
+*/
 export default styled.div`
     .hljs {
         display: block;

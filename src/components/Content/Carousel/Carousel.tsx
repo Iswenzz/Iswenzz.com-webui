@@ -6,7 +6,7 @@ import useEmblaCarousel from "embla-carousel-react";
 
 import { DotButton, PrevButton, NextButton } from "./CarouselButtons/CarouselButtons";
 
-import "./Carousel.scss";
+import scss from "./Carousel.module.scss";
 
 /**
  * A carousel component that use all children as carousel items.
@@ -23,6 +23,8 @@ const Carousel: FC<CarouselProps> = ({
 	const [nextBtnEnabled, setNextBtnEnabled] = useState<boolean>(false);
 	const [selectedIndex, setSelectedIndex] = useState<number>(0);
 	const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
+
+	const loopDelay: Nullable<number> = loop ? (delay || 2000) : null;
 
 	/**
 	 * Scroll to a specific index.
@@ -72,22 +74,22 @@ const Carousel: FC<CarouselProps> = ({
 			scrollTo(0);
 		else
 			scrollNext();
-	}, loop ? (delay || 2000) : null);
+	}, loopDelay);
 
 	return (
-		<Grid style={style} container direction="row" justifyContent="center" alignItems="center" component="article">
-			<section style={{ width, height }} className="carousel">
-				<section className="carousel-viewport" ref={emblaRef}>
-					<ul style={{ width, height }} className="carousel-container">
+		<Grid style={style} container justifyContent="center" alignItems="center" component="article">
+			<section style={{ width, height }} className={scss.carousel}>
+				<section className={scss.viewport} ref={emblaRef}>
+					<ul style={{ width, height }} className={scss.container}>
 						{children.map((child, index) => (
-							<li className="carousel-slide" key={index}>
+							<li className={scss.slide} key={index}>
 								{child}
 							</li>
 						))}
 					</ul>
 				</section>
-				<section className="carousel-dots">
-					{scrollSnaps.map((_: number, index: number) => (
+				<section className={scss.dots}>
+					{scrollSnaps.map((_, index) => (
 						<DotButton 
 							key={index} 
 							size={buttonSize}

@@ -2,7 +2,7 @@ import { FC, useState } from "react";
 import ReactCardFlip from "react-card-flip";
 import classNames from "classnames";
 
-import style from "./Flip.module.scss";
+import scss from "./Flip.module.scss";
 
 /**
  * Card component that flips on mouse click.
@@ -10,7 +10,7 @@ import style from "./Flip.module.scss";
 const Flip: FC<FlipProps> = ({ flipped = false, flipCallback, back, front, direction = "vertical" }) =>
 {
 	const [isFlipped, setIsFlipped] = useState<boolean>(flipped);
-	const containerStyles = classNames(style.container, { back: isFlipped, front: !isFlipped });
+	const containerStyles = classNames(scss.container, { back: isFlipped, front: !isFlipped });
 
 	/**
 	 * FlipCard click callback.
@@ -28,10 +28,10 @@ const Flip: FC<FlipProps> = ({ flipped = false, flipCallback, back, front, direc
 	return (
 		<ReactCardFlip containerClassName={containerStyles} 
 			isFlipped={isFlipped} flipDirection={direction}>
-			<section className={style.flip} onClick={handleClick}>
+			<section className={scss.flip} onClick={handleClick}>
 				{back}
 			</section>
-			<section className={style.flip} onClick={handleClick}>
+			<section className={scss.flip} onClick={handleClick}>
 				{front}
 			</section>
 		</ReactCardFlip>

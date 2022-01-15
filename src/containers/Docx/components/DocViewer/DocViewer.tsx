@@ -2,11 +2,13 @@ import { FC, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { animateScroll as scroll } from "react-scroll";
 import { getElementByXPath } from "utils/elements";
-import "./DocViewer.scss";
+
+import scss from "./DocViewer.module.scss";
 
 /**
- * Doxygen document viewer container.
- * @todo maybe find a html parser instead of using anti pattern XPath.
+ * Document viewer container.
+ * @todo jsdoc phpdoc doxygen
+ * @todo remove anti patterns.
  * @todo loadDoc on history change / get req.
  * @todo change project folder with properties.
  * @todo when project load, load the readme.md from github.
@@ -35,7 +37,7 @@ export const DocViewer: FC = (): JSX.Element =>
 	{
 		fetch(`https://iswenzz.com/iswenzz/docs/cgsc/${link}`).then(response => response.text()).then(text =>
 		{
-			const div = document.getElementById("doc-test");
+			const div = document.getElementById("docx");
 			if (div)
 			{
 				// remove all link tags
@@ -127,7 +129,7 @@ export const DocViewer: FC = (): JSX.Element =>
 	};
 
 	return (
-		<div id="doc-test" onClick={onClickHandler} className="iswenzz-doxygen ubuntu-h2" />
+		<div id="docx" onClick={onClickHandler} className={scss.doxygen} />
 	);
 };
 

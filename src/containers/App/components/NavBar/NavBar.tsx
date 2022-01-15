@@ -12,7 +12,8 @@ import {Trans} from "react-i18next";
 import { setModalActive } from "App/redux";
 import usePortrait from "utils/hooks/usePortrait";
 import useTabletOrMobile from "utils/hooks/useTabletOrMobile";
-import "./NavBar.scss";
+
+import scss from "./NavBar.module.scss";
 
 const animationFixed = {
 	enter: { 
@@ -117,14 +118,14 @@ const NavBar: FC<AppBarProps> = (props: AppBarProps): JSX.Element =>
 	const navBarElements: JSX.Element = (
 		<>
 			<li>
-				<Link className="navbar-button" to="header-section" smooth onClick={() => toggleDrawer(false)}>
+				<Link className={scss.button} to="header-section" smooth onClick={() => toggleDrawer(false)}>
 					<Button size="large" color="inherit">
 						<Trans>NAVBAR_ABOUT</Trans>
 					</Button>
 				</Link>
 			</li>
 			<li>
-				<Link className="navbar-button" to="projects-section" smooth onClick={() => toggleDrawer(false)}
+				<Link className={scss.button} to="projects-section" smooth onClick={() => toggleDrawer(false)}
 					offset={isTabletOrMobile ? 50 : 10}>
 					<Button size="large" color="inherit">
 						<Trans>NAVBAR_PROJECTS</Trans>
@@ -132,7 +133,7 @@ const NavBar: FC<AppBarProps> = (props: AppBarProps): JSX.Element =>
 				</Link>
 			</li>
 			<li>
-				<Link className="navbar-button" to="level-design-section" smooth onClick={() => toggleDrawer(false)}
+				<Link className={scss.button} to="level-design-section" smooth onClick={() => toggleDrawer(false)}
 					offset={isTabletOrMobile ? 30 : 180}>
 					<Button size="large" color="inherit">
 						<Trans>NAVBAR_LEVEL_DESIGN</Trans>
@@ -140,7 +141,7 @@ const NavBar: FC<AppBarProps> = (props: AppBarProps): JSX.Element =>
 				</Link>
 			</li>
 			<li>
-				<Link className="navbar-button" to="contact-section" smooth onClick={() => toggleDrawer(false)}
+				<Link className={scss.button} to="contact-section" smooth onClick={() => toggleDrawer(false)}
 					offset={0}>
 					<Button size="large" color="inherit">
 						<Trans>NAVBAR_CONTACT</Trans>
@@ -157,7 +158,7 @@ const NavBar: FC<AppBarProps> = (props: AppBarProps): JSX.Element =>
 		<Grid component="ul" container direction="row" justifyContent="flex-end" alignItems="center">
 			{navBarElements}
 			<li>
-				<Fab className="navbar-button" style={{ color: isDarkTheme ? "goldenrod" : "gainsboro" }} 
+				<Fab className={scss.button} style={{ color: isDarkTheme ? "goldenrod" : "gainsboro" }} 
 					size="small" onClick={toggleColorMode}>
 					{isDarkTheme ? <Flare /> : <Brightness3 />}
 				</Fab>
@@ -174,7 +175,7 @@ const NavBar: FC<AppBarProps> = (props: AppBarProps): JSX.Element =>
 	const navBarButtonsMobile: JSX.Element = (
 		<Grid component="ul" container direction="row" justifyContent="flex-end" alignItems="center">
 			<li>
-				<Fab className="navbar-button" style={{ color: isDarkTheme ? "goldenrod" : "gainsboro" }} 
+				<Fab className={scss.button} style={{ color: isDarkTheme ? "goldenrod" : "gainsboro" }} 
 					size="small" onClick={toggleColorMode}>
 					{isDarkTheme ? <Flare /> : <Brightness3 />}
 				</Fab>
@@ -183,7 +184,7 @@ const NavBar: FC<AppBarProps> = (props: AppBarProps): JSX.Element =>
 				<LanguagePicker />
 			</li>
 			<li>
-				<Fab className="navbar-button" color="inherit" size="small" 
+				<Fab className={scss.button} color="inherit" size="small" 
 					onClick={() => toggleDrawer(!drawerOpen)}>
 					<Menu />
 				</Fab>
@@ -209,7 +210,7 @@ const NavBar: FC<AppBarProps> = (props: AppBarProps): JSX.Element =>
 			<Toolbar variant="dense">
 				<Grid component="section" container spacing={3}>
 					<Grid component="figure" item xs={3}>
-						<Typography className="navbar-logo" align="center" variant="h4" component="h4">
+						<Typography className={scss.logo} align="center" variant="h4" component="h4">
 							Iswenzz
 						</Typography>
 					</Grid>
@@ -223,11 +224,11 @@ const NavBar: FC<AppBarProps> = (props: AppBarProps): JSX.Element =>
 
 	const showFixed = canShowFixedNavBar() || process.env.NODE_ENV === "test";
 	return (
-		<nav className="navbar">
+		<nav>
 			<AnimatePresence>
 				{showFixed && (
 					<motion.div initial={animationFixed.exit} animate={animationFixed.enter} exit={animationFixed.exit}
-						className="navbar-fixed">
+						className={scss.fixed}>
 						{navBar}
 					</motion.div>
 				)}
@@ -235,7 +236,7 @@ const NavBar: FC<AppBarProps> = (props: AppBarProps): JSX.Element =>
 			<AnimatePresence>
 				{!showFixed && (
 					<motion.div initial={animationAbsolute.enter} animate={animationAbsolute.enter} exit={animationAbsolute.exit}
-						className="navbar-absolute">
+						className={scss.absolute}>
 						{navBar}
 					</motion.div>
 				)}

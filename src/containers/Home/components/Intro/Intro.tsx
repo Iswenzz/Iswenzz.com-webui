@@ -7,7 +7,10 @@ import { motion, Variants } from "framer-motion";
 // import usePortrait from "utils/hooks/usePortrait";
 import useTabletOrMobile from "utils/hooks/useTabletOrMobile";
 import { Element } from "react-scroll";
-import "./Intro.scss";
+
+import scss from "./Intro.module.scss";
+import classNames from "classnames";
+import { style } from "@mui/system";
 
 export type Skill = {
 	title: string,
@@ -103,11 +106,11 @@ export const IntroSkill: FC = (): JSX.Element =>
 	 * Grid containing skills informations.
 	 */
 	const skillGrid: JSX.Element = (
-		<Grid className="skill-grid" container component="section"
+		<Grid className={scss.skillGrid} container component="section"
 			alignItems="center" direction="row" justifyContent="space-around">
 			
 			{/* Web Development */}
-			<article className="info-div">
+			<article className={scss.article}>
 				<Text i18n component="h2" className="poiret-h2" items={[introJSON.skills[0].title]} />
 				<Text component="h4" className="ubuntu-h4" items={introJSON.skills[0].points} />
 				<Spacing height="20px" />
@@ -116,7 +119,7 @@ export const IntroSkill: FC = (): JSX.Element =>
 			</article>
 
 			{/* Software Development */} 
-			<article className="info-div">
+			<article className={scss.article}>
 				<Text i18n component="h2" className="poiret-h2" items={[introJSON.skills[2].title]} />
 				<Text component="h4" className="ubuntu-h4" items={introJSON.skills[2].points} />
 				<Spacing height="20px" />
@@ -125,7 +128,7 @@ export const IntroSkill: FC = (): JSX.Element =>
 			</article>
 
 			{/* Level Design */}
-			<article className="info-div">
+			<article className={scss.article}>
 				<Text i18n component="h2" className="poiret-h2" items={[introJSON.skills[4].title]} />
 				<Text component="h4" className="ubuntu-h4" items={introJSON.skills[4].points} />
 				<Spacing height="20px" />
@@ -141,17 +144,18 @@ export const IntroSkill: FC = (): JSX.Element =>
 			<Element name="intro-section" />
 
 			{/* First Section (About) */}
-			<Gradient className="intro" component="section" gradientPosition="ellipse at bottom" colors={gradientColor}>
+			<Gradient component="section" gradientPosition="ellipse at bottom" colors={gradientColor}>
 				<VisibilitySensor partialVisibility offset={{ bottom: isTabletOrMobile ? 20 : 200 }}>
 					{({ isVisible }) => (
-						<Grid className="intro-grid" container direction="row" justifyContent="center" alignItems="center">
-							<motion.div className="intro-anim" variants={animationUp} initial={"exit"} animate={isVisible ? "enter" : "exit"}>
+						<Grid className={scss.introGrid} container direction="row" 
+							justifyContent="center" alignItems="center">
+							<motion.div variants={animationUp} initial={"exit"} animate={isVisible ? "enter" : "exit"}>
 								<Container component="header" maxWidth="md">
 									<Text i18n align="left" color="textPrimary" component="h2" variant="h2"
 										className="poiret-h1 noselect" items={[introJSON.header]} />
-									<Divider className="intro-divider" />
-									<Text i18n align="left" className="intro-second-text ubuntu-h3" color="textPrimary"
-										component="h3" variant="h3" items={[introJSON.title]} />
+									<Divider className={scss.introDivider} />
+									<Text i18n align="left" color="textPrimary" component="h3" variant="h3" 
+										className={classNames(scss.secondText, "ubuntu-h3")} items={[introJSON.title]} />
 									<Text i18n align="left" color="textPrimary" paragraph component="h4" variant="h4"
 										className="ubuntu-h4" items={[introJSON.desc]} />
 								</Container>
@@ -168,15 +172,15 @@ export const IntroSkill: FC = (): JSX.Element =>
 			</Parallax>
 
 			{/* Second Section (Skills) */}
-			<Gradient className="skill" component="section" gradientPosition="ellipse at top" colors={gradientColor}>
+			<Gradient component="section" gradientPosition="ellipse at top" colors={gradientColor}>
 				<VisibilitySensor partialVisibility offset={{ bottom: isTabletOrMobile ? 10 : 200 }}>
 					{({ isVisible }) => (
 						<Container>
 							<motion.div variants={animationLeft} initial={"exit"} animate={isVisible ? "enter" : "exit"}>
-								<Container component="header" className="skill-container">
+								<Container component="header" className={scss.container}>
 									<TrailText i18n align="center" color="textPrimary" component="h2" variant="h2"
 										className="poiret-h1 noselect" active={isVisible} items={["TECHNO_SKILLS"]} />
-									<Divider className="skill-divider" />
+									<Divider className={scss.skillDivider} />
 								</Container>
 							</motion.div>
 							{isTabletOrMobile ? skillGrid : (

@@ -11,7 +11,7 @@ import useTabletOrMobile from "utils/hooks/useTabletOrMobile";
 import { getProjects } from "Home/redux";
 
 import Project from "../Project/Project";
-import "./Projects.scss";
+import scss from "./Projects.module.scss";
 
 /**
  * Display the projects in a masonry layout.
@@ -40,13 +40,13 @@ const Projects: FC = () =>
 	};
 
 	return (
-		<section className="projects">
+		<section>
 			<Element name="projects-section" />
-			<Gradient config={config} className="projects-gradient-grid">
-				<Container component="header" className="projects-container">
+			<Gradient config={config} className={scss.gradient}>
+				<Container component="header" className={scss.container}>
 					<TrailText i18n align="center" color="textPrimary" component="h2" variant="h2"
 						className="poiret-h1 noselect" active items={["PROJECTS"]} />
-					<Divider className="projects-divider" />
+					<Divider className={scss.divider} />
 				</Container>
 				<Grid container component="section" direction="row" alignItems="center" justifyContent="center">
 					<SpringGrid layout="masonry">

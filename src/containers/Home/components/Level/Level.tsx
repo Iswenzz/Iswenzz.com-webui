@@ -7,8 +7,10 @@ import usePortrait from "utils/hooks/usePortrait";
 import useTabletOrMobile from "utils/hooks/useTabletOrMobile";
 import { v4 as uuidv4 } from "uuid";
 import {useTranslation} from "react-i18next";
-import {Image} from "Components";
-import "./Level.scss";
+import { Image, Forward } from "Components";
+
+import scss from "./Level.module.scss";
+import classNames from "classnames";
 
 const playerConfig: Config = { 
 	youtube: {
@@ -59,8 +61,8 @@ export const Level: FC<LevelProps> = (props: LevelProps): JSX.Element =>
 	 * Component for the desktop version.
 	 */
 	const desktopCard: JSX.Element = (
-		<Container component="section" className={`level ${themeName}`}>
-			<ImageList className="level-grid-list" rowHeight="auto" gap={1}>
+		<Container component="section" className={classNames(scss.level, scss[themeName])}>
+			<ImageList className={scss.gridList} rowHeight="auto" gap={1}>
 				<ImageListItem component="header" className="level-desktop-tile-name" key={uuidv4()} cols={2} rows={2}>
 					<Typography itemProp="name" className="level-desktop-typo" variant="h2" align="center" 
 						color="textPrimary" component="h2">
@@ -87,8 +89,8 @@ export const Level: FC<LevelProps> = (props: LevelProps): JSX.Element =>
 	 * Component for the mobile version.
 	 */
 	const mobileCard: JSX.Element = (
-		<Container component="section" className={`level ${themeName}`}>
-			<Grid container className="level-grid" direction="row" justifyContent="center" alignItems="center">
+		<Container component="section" className={classNames(scss.level, scss[themeName])}>
+			<Grid container className={scss.grid} direction="row" justifyContent="center" alignItems="center">
 				<header>
 					<h3 itemProp="name" className="calli-h2 level-mobile-name">{props.currentLevel.name}</h3>
 				</header>
@@ -104,23 +106,27 @@ export const Level: FC<LevelProps> = (props: LevelProps): JSX.Element =>
 
 	return (
 		<Flip flipCallback={flipCallback} back={(
-			<Container itemScope itemType="http://schema.org/3DModel" component="section" className="level" 
+			<Container itemScope itemType="http://schema.org/3DModel" component="section" className={scss.level} 
 				style={{ backgroundImage: `url(${props.currentLevel.image})` }}>
 				<meta itemProp="image" content={props.currentLevel.image} />
 				<meta itemProp="embedUrl" content={props.currentLevel.videoUrl} />
 				<Grid container direction="row" alignItems="center" justifyContent="space-between">
 					<Tooltip placement="right" arrow disableFocusListener title={t("TOOLTIP_CLICK_ME") as string}>
-						<Image onDragStart={(e) => e.preventDefault()} alt="click-me" width={55} height={64}
-							src={require("assets/images/misc/icons8-natural-user-interface-2-64.png")} />
+						<Forward>
+							<Image onDragStart={(e) => e.preventDefault()} alt="click-me" width={55} height={64}
+								src={require("assets/images/misc/icons8-natural-user-interface-2-64.png")} />
+						</Forward>
 					</Tooltip>
 					<Grid container component="ul" direction="column" justifyContent="space-evenly" alignItems="flex-end">
 						{props.currentLevel.renderIcons?.map(icon => (
 							<li key={uuidv4()}>
-								<Tooltip arrow disableFocusListener disableTouchListener title={icon.name}>
-									<Image onDragStart={(e) => e.preventDefault()} className="level-tooltip-img"
-										width={isPortrait || isTabletOrMobile ? "32" : "64"}
-										height={isPortrait || isTabletOrMobile ? "32" : "64"}
-										alt="" src={icon.src} />
+								<Tooltip placement="left" arrow disableFocusListener disableTouchListener title={icon.name}>
+									<Forward>
+										<Image onDragStart={(e) => e.preventDefault()} className={scss.tooltipImg}
+											width={isPortrait || isTabletOrMobile ? "32" : "64"}
+											height={isPortrait || isTabletOrMobile ? "32" : "64"}
+											alt="" src={icon.src} />
+									</Forward>
 								</Tooltip>
 							</li>
 						))}

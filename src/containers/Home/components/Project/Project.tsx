@@ -9,7 +9,7 @@ import useTabletOrMobile from "utils/hooks/useTabletOrMobile";
 import { setProjectsStartIndex } from "Home/redux";
 import { setModalActive } from "App/redux";
 
-import "./Project.scss";
+import scss from "./Project.module.scss";
 
 /**
  * Project card container with a preview image, and dispatch ProjectPopup modal on click.
@@ -31,13 +31,13 @@ const Project: FC<ProjectProps> = ({ project, projectIndex, height = 200, width 
 
 	return (
 		<motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }}
-			itemScope itemType="http://schema.org/SoftwareApplication" className="project">
+			itemScope itemType="http://schema.org/SoftwareApplication">
 			<meta itemProp="image" content={project.cardImage} />
 			<meta itemProp="downloadUrl" content={project.sourceURL} />
 			<LazyLoad height={height}>
-				<Card onClick={onToggle} className="project-card"
+				<Card onClick={onToggle} className={scss.card}
 				  style={{ width, height, backgroundImage: `url(${project.cardImage})`}}>
-					<CardActionArea className="project-card-action">
+					<CardActionArea className={scss.cardAction}>
 						<Typography itemProp="name" variant="caption" align="center" paragraph component="p"
 							style={{ fontSize: isTabletOrMobile ? 14 : 20, height: height / 3 }}>
 							{project.title}
@@ -49,22 +49,14 @@ const Project: FC<ProjectProps> = ({ project, projectIndex, height = 200, width 
 	);
 };
 
-export type ProjectRender = {
-	renderUrl?: string,
-	renderIcons?: ProjectIcon[],
-	renderFile?: JSX.Element[]
-};
-
-export type ProjectIcon = {
-	src: string,
-	name: string
-};
-
 export type ProjectSource = {
 	title: string,
 	isOpenSource: boolean,
 	sourceURL: string,
-	cardImage: string
+	cardImage: string,
+	renderUrl?: string,
+	renderIcons?: ProjectIcon[],
+	renderFile?: JSX.Element[]
 };
 
 export type ProjectProps = {
@@ -73,6 +65,11 @@ export type ProjectProps = {
 	height?: number,
 	width?: number,
 	style?: React.CSSProperties
+};
+
+export type ProjectIcon = {
+	src: string,
+	name: string
 };
 
 export default memo(Project);

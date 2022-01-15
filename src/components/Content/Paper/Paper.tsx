@@ -1,22 +1,17 @@
 import { FC, memo } from "react";
 
-import usePortrait from "utils/hooks/usePortrait";
-import useTabletOrMobile from "utils/hooks/useTabletOrMobile";
+import useResponsiveComponent from "utils/hooks/useResponsiveComponent";
 
 import PaperDesktop from "./PaperDesktop/PaperDesktop";
 import PaperMobile from "./PaperMobile/PaperMobile";
-import "./Paper.scss";
 
 /**
  * Paper card component.
  */
-const Paper: FC<PaperProps> = (props) =>
-{
-	const isPortrait = usePortrait();
-	const isTabletOrMobile = useTabletOrMobile();
-
-	return isTabletOrMobile || isPortrait ? <PaperMobile {...props} /> : <PaperDesktop {...props} />;
-};
+const Paper: FC<PaperProps> = (props) => useResponsiveComponent({
+	desktop: <PaperDesktop {...props} />,
+	mobile: <PaperMobile {...props} />
+});
 
 export type PaperProps = {
 	title?: string,
@@ -24,7 +19,7 @@ export type PaperProps = {
 	image?: string,
 	className?: string,
 	previewStyle?: React.CSSProperties,
-	paperStyle?: React.CSSProperties
+	style?: React.CSSProperties
 };
 
 export default memo(Paper);

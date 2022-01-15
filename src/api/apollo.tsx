@@ -1,6 +1,6 @@
 import { FC } from "react";
-import {ApolloClient, ApolloLink, ApolloProvider, HttpLink, InMemoryCache} from "@apollo/client";
-import {onError} from "@apollo/client/link/error";
+import { ApolloClient, ApolloLink, ApolloProvider, HttpLink, InMemoryCache } from "@apollo/client";
+import { onError } from "@apollo/client/link/error";
 import fetch from "cross-fetch";
 
 /**
@@ -34,7 +34,7 @@ const linkHttp = new HttpLink({
 /**
  * GraphQL Apollo Client.
  */
-export const apolloClient = new ApolloClient({
+const apolloClient = new ApolloClient({
 	cache: new InMemoryCache(),
 	link: ApolloLink.from([linkError, linkHttp])
 });
@@ -42,7 +42,7 @@ export const apolloClient = new ApolloClient({
 /**
  * Apollo client provider.
  */
-export const Apollo: FC = ({children}) => (
+export const Apollo: FC = ({ children }) => (
 	<ApolloProvider client={apolloClient}>
 		{children}
 	</ApolloProvider>
