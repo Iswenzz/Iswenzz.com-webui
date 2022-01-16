@@ -10,12 +10,12 @@ import "App/styles/Main.scss";
 /**
  * App themes.
  */
-export const Themes: FC = ({ children }): JSX.Element =>
+export const Themes: FC = ({ children }) =>
 {
-	const html = useRef<HTMLElement>(getElementByXPath("html") as HTMLElement);
-
 	const theme = useSelector(getTheme);
 	const isModalActive = useSelector(getModalActiveState);
+
+	const html = useRef<HTMLElement>(getElementByXPath("html") as HTMLElement);
 
 	/**
 	 * Dynamic changes.
@@ -26,7 +26,7 @@ export const Themes: FC = ({ children }): JSX.Element =>
 	}, [isModalActive]);
 
 	return (
-		<ThemeProvider theme={responsiveFontSizes(theme)}>
+		<ThemeProvider theme={theme}>
 			<CssBaseline />
 			{children}
 		</ThemeProvider>

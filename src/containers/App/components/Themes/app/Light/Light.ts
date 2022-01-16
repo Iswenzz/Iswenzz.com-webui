@@ -1,8 +1,8 @@
-import { createTheme } from "@mui/material";
+import { createTheme, responsiveFontSizes } from "@mui/material";
 
-const LightTheme = createTheme({
+const LightTheme = responsiveFontSizes(createTheme({
 	theme: "light",
-	isDarkTheme: true,
+	isDarkTheme: false,
 	palette: {
 		mode: "light",
 		text: {
@@ -129,6 +129,6 @@ const LightTheme = createTheme({
 			color: "rgba(240, 240, 240, 1)"
 		}
 	}
-});
+}));
 
 export default LightTheme;

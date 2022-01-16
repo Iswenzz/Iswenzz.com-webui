@@ -1,4 +1,5 @@
 import type { Theme } from "@mui/material";
+import { getThemeByName } from "App/components/Themes";
 
 import type { Language } from "App/i18n";
 import type { RootRedux } from "App/store";
@@ -6,7 +7,7 @@ import type { RootRedux } from "App/store";
 /**
  * Get the application theme.
  */
-export const getTheme = (state: RootRedux): Theme => state.app.theme;
+export const getTheme = (state: RootRedux): Theme => getThemeByName(state.app.theme);
 
 /**
  * Get the application language.

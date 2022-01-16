@@ -4,8 +4,8 @@ import DarkTheme from "./app/Dark/Dark";
 import LightTheme from "./app/Light/Light";
 
 const registredThemes: Record<string, Theme> = {
-	dark: DarkTheme,
-	light: LightTheme
+	light: LightTheme,
+	dark: DarkTheme
 };
 
 /**

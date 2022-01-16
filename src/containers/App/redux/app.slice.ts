@@ -1,21 +1,20 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import type { Theme } from "@mui/material";
 import { detect } from "detect-browser";
+import { omit } from "lodash";
 
 import type { Language } from "App/i18n";
-import { getThemeByName } from "App/components/Themes";
 
 export type AppRedux = {
-	theme: Theme,
+	theme: string,
 	language: Language,
-	browserInfo: ReturnType<typeof detect>,
+	browserInfo: Omit<ReturnType<typeof detect>, "prototypes">,
 	isModalActive: boolean
 };
 
 export const initialState: AppRedux = {
-	theme: getThemeByName(localStorage.getItem("theme") ?? "dark"),
+	theme: localStorage.getItem("theme") ?? "dark",
 	language: (localStorage.getItem("language") ?? "en") as Language,
-	browserInfo: detect(),
+	browserInfo: omit(detect(), "prototypes"),
 	isModalActive: false
 };
 
@@ -23,10 +22,14 @@ const slice = createSlice({
 	name: "app",
 	initialState,
 	reducers: {
-	  	setTheme: (state: any, action: PayloadAction<Theme>) => ({
-			...state,
-			theme: action.payload
-		}),
+	  	setTheme: (state: any, action: PayloadAction<string>) => 
+		{
+			localStorage.setItem("theme", action.payload);
+			return {
+				...state,
+				theme: action.payload
+			};
+		},
 		setModalActive: (state: any, action: PayloadAction<boolean>) => ({
 			...state,
 			isModalActive: action.payload

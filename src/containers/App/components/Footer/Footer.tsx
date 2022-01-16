@@ -1,10 +1,11 @@
 import { FC, memo } from "react";
 import { Parallax } from "react-parallax";
-import { Grid, Fab, Tooltip, Typography, useTheme } from "@mui/material";
+import { Grid, Fab, Tooltip, Typography } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDiscord, faYoutube, faGithub } from "@fortawesome/free-brands-svg-icons";
 
 import { Spacing } from "Components";
+import useThemeMode from "utils/hooks/useThemeMode";
 
 import scss from "./Footer.module.scss";
 
@@ -13,7 +14,9 @@ import scss from "./Footer.module.scss";
  */
 const Footer: FC = () =>
 {
-	const { isDarkTheme } = useTheme();
+	const { parallaxImage } = useThemeMode({ 
+		parallaxImage: { dark: "stars", light: "clouds" }
+	});
 
 	return (
 		<Grid container component="footer">
@@ -37,7 +40,7 @@ const Footer: FC = () =>
 				</li>
 			</Grid>
 			<Parallax className={scss.parallax} bgImageAlt="index" strength={-400}
-				bgImage={require(`assets/images/index/${isDarkTheme ? "stars" : "clouds"}.svg`)}>
+				bgImage={require(`assets/images/index/${parallaxImage}.svg`)}>
 				<Spacing height="10px" />
 				<Typography align="center" color="textPrimary" variant="subtitle2" component="h3">
 					Copyright © Iswenzz 2017-2022

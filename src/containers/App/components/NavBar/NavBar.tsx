@@ -6,10 +6,10 @@ import { Link } from "react-scroll";
 import { Fab, Typography, Drawer, AppBarProps, useTheme } from "@mui/material";
 import { useDispatch } from "react-redux";
 import {AnimatePresence, motion} from "framer-motion";
-import { useScroll } from "react-use-gesture";
+import { useScroll } from "@use-gesture/react";
 import LanguagePicker from "../LanguagePicker/LanguagePicker";
 import {Trans} from "react-i18next";
-import { setModalActive } from "App/redux";
+import { setModalActive, setTheme } from "App/redux";
 import usePortrait from "utils/hooks/usePortrait";
 import useTabletOrMobile from "utils/hooks/useTabletOrMobile";
 
@@ -53,11 +53,6 @@ const animationAbsolute = {
 	}
 };
 
-const scrollConfig = {
-	domTarget: window,
-	eventOptions: { passive: true }
-};
-
 /**
  * Navigation container with links to different sections.
  * @param props - AppBarProps
@@ -65,7 +60,7 @@ const scrollConfig = {
 const NavBar: FC<AppBarProps> = (props: AppBarProps): JSX.Element =>
 {
 	const dispatch = useDispatch();
-	const { isDarkTheme } = useTheme();
+	const { isDarkTheme, theme } = useTheme();
 	const projectModalActive = false;
 
 	const isPortrait = usePortrait();
@@ -76,23 +71,22 @@ const NavBar: FC<AppBarProps> = (props: AppBarProps): JSX.Element =>
 	/**
 	 * Scroll callback to set the fixed navbar when past the intro header.
 	 */
-	const scroll = useScroll(({ event }: any) => 
+	useScroll(() => 
 	{
 		const isPastHeader: boolean = window.scrollY >= window.innerHeight;
 		if (isPastHeader !== isFixedNavbar)
 			setFixedNavbar(isPastHeader);
-	}, scrollConfig);
+	}, {
+		target: window,
+		eventOptions: { passive: true }
+	});
 	  
-	useEffect(scroll, [scroll]);
+	// useEffect(scroll, [scroll]);
 
 	/**
 	 * Toggle dark/light mode callback.
 	 */
-	const toggleColorMode = (): void =>
-	{
-		// dispatch(toggleDarkMode(!isDarkTheme));
-		localStorage.setItem("isDarkTheme", (!isDarkTheme).toString());
-	};
+	const toggleThemeMode = () => dispatch(setTheme(isDarkTheme ? "light" : "dark"));
 
 	/**
 	 * Toggle the mobile drawer.
@@ -159,7 +153,7 @@ const NavBar: FC<AppBarProps> = (props: AppBarProps): JSX.Element =>
 			{navBarElements}
 			<li>
 				<Fab className={scss.button} style={{ color: isDarkTheme ? "goldenrod" : "gainsboro" }} 
-					size="small" onClick={toggleColorMode}>
+					size="small" onClick={toggleThemeMode}>
 					{isDarkTheme ? <Flare /> : <Brightness3 />}
 				</Fab>
 			</li>
@@ -176,7 +170,7 @@ const NavBar: FC<AppBarProps> = (props: AppBarProps): JSX.Element =>
 		<Grid component="ul" container justifyContent="flex-end" alignItems="center">
 			<li>
 				<Fab className={scss.button} style={{ color: isDarkTheme ? "goldenrod" : "gainsboro" }} 
-					size="small" onClick={toggleColorMode}>
+					size="small" onClick={toggleThemeMode}>
 					{isDarkTheme ? <Flare /> : <Brightness3 />}
 				</Fab>
 			</li>

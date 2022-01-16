@@ -45,7 +45,7 @@ export const Level: FC<LevelProps> = (props: LevelProps): JSX.Element =>
 	const { t } = useTranslation();
 	const isPortrait = usePortrait();
 	const isTabletOrMobile = useTabletOrMobile();
-	const [isFlipped, setFlipped] = useState<boolean>(true);
+	const [isFlipped, setFlipped] = useState<boolean>(false);
 	const { theme } = useTheme();
 
 	/**
@@ -61,7 +61,7 @@ export const Level: FC<LevelProps> = (props: LevelProps): JSX.Element =>
 	 * Component for the desktop version.
 	 */
 	const desktopCard: JSX.Element = (
-		<Container component="section" className={classNames(scss.level, scss[theme])}>
+		<Container component="section" className={classNames(scss.back, scss[theme])}>
 			<ImageList className={scss.gridList} rowHeight="auto" gap={1}>
 				<ImageListItem component="header" className="level-desktop-tile-name" key={uuidv4()} cols={2} rows={2}>
 					<Typography itemProp="name" className="level-desktop-typo" variant="h2" align="center" 
@@ -89,7 +89,7 @@ export const Level: FC<LevelProps> = (props: LevelProps): JSX.Element =>
 	 * Component for the mobile version.
 	 */
 	const mobileCard: JSX.Element = (
-		<Container component="section" className={classNames(scss.level, scss[theme])}>
+		<Container component="section" className={classNames(scss.back, scss[theme])}>
 			<Grid container className={scss.grid} justifyContent="center" alignItems="center">
 				<header>
 					<h3 itemProp="name" className="calli-h2 level-mobile-name">{props.currentLevel.name}</h3>
@@ -105,9 +105,9 @@ export const Level: FC<LevelProps> = (props: LevelProps): JSX.Element =>
 	);
 
 	return (
-		<Flip flipCallback={flipCallback} back={(
+		<Flip flipCallback={flipCallback} front={(
 			<Container itemScope itemType="http://schema.org/3DModel" component="section" 
-				className={classNames(scss.level, scss[theme])} 
+				className={classNames(scss.front, scss[theme])} 
 				style={{ backgroundImage: `url(${props.currentLevel.image})` }}>
 				<meta itemProp="image" content={props.currentLevel.image} />
 				<meta itemProp="embedUrl" content={props.currentLevel.videoUrl} />
@@ -134,7 +134,7 @@ export const Level: FC<LevelProps> = (props: LevelProps): JSX.Element =>
 					</Grid>
 				</Grid>
 			</Container>
-		)} front={isPortrait || isTabletOrMobile ? mobileCard : desktopCard} />
+		)} back={isPortrait || isTabletOrMobile ? mobileCard : desktopCard} />
 	);
 };
 
