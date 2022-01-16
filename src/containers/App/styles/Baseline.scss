@@ -15,15 +15,15 @@ $link-color-hover: slateblue;
 }
 
 .noselect {
-	user-select: none;
+	user-select: none !important;
 }
 
 .bold {
-	font-weight: bold;
+	font-weight: bold !important;
 }
 
 .pre-line {
-	white-space: pre-line;
+	white-space: pre-line !important;
 }
 
 .grecaptcha-badge { 

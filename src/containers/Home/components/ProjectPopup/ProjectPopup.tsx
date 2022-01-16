@@ -14,7 +14,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faOsi } from "@fortawesome/free-brands-svg-icons";
 
 import { ProjectSource } from "Home/components/Project/Project";
-import { ViewPager, ViewPagerConfig, Image } from "Components";
+import { ViewPager, ViewPagerConfig, Image } from "components";
 import usePortrait from "utils/hooks/usePortrait";
 import useTabletOrMobile from "utils/hooks/useTabletOrMobile";
 import VS2015 from "App/components/Highlight/VS2015";

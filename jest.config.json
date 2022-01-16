@@ -11,14 +11,14 @@
 	},
 	"moduleNameMapper": {
 		".*\\.scss$": "identity-obj-proxy",
-		"^Components": "<rootDir>/src/components",
-		"^Components(.*)$": "<rootDir>/src/components$1",
 		"^App(.*)$": "<rootDir>/src/containers/App$1",
 		"^Home(.*)$": "<rootDir>/src/containers/Home$1",
 		"^Docx(.*)$": "<rootDir>/src/containers/Docx$1",
 		"^UI(.*)$": "<rootDir>/src/containers/UI$1",
 		"^api(.*)$": "<rootDir>/src/api$1",
 		"^assets(.*)$": "<rootDir>/src/assets$1",
+		"^components": "<rootDir>/src/components",
+		"^components(.*)$": "<rootDir>/src/components$1",
 		"^utils(.*)$": "<rootDir>/src/utils$1",
 		"^test(.*)$": "<rootDir>/src/__test__$1"
 	},

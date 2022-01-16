@@ -6,7 +6,7 @@ import { Element } from "react-scroll";
 import {motion, Variants} from "framer-motion";
 import { Divider, Container, Grid, useTheme } from "@mui/material";
 
-import { Gradient, GradientProps, Carousel, Text } from "Components";
+import { Gradient, GradientProps, Carousel, Text } from "components";
 import Level, { LevelProject } from "Home/components/Level/Level";
 
 import scss from "./Levels.module.scss";
@@ -65,8 +65,10 @@ export const Levels: FC = () =>
 						<Grid container direction="column" justifyContent="center" alignItems="center">
 							<Container component="header" className={scss.container}>
 								<motion.div variants={animation} initial={"exit"} animate={isVisible ? "enter" : "exit"}>
-									<Text i18n align="center" color="textPrimary" component="h2" variant="h2"
-										className="poiret-h1 noselect" items={["LEVEL_DESIGN"]} />
+									<Text align="center" color="textPrimary" component="h2" variant="h2"
+										className="poiret-h1 noselect">
+										LEVEL_DESIGN
+									</Text>
 									<Divider className={scss.divider} />
 								</motion.div>
 							</Container>

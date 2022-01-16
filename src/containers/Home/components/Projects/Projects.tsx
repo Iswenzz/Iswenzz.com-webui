@@ -5,7 +5,7 @@ import random from "lodash/random";
 
 import { Grid, Divider, Container, useTheme } from "@mui/material";
 
-import { Spacing, TrailText, Gradient, GradientProps, SpringGrid } from "Components";
+import { Spacing, TrailText, Gradient, GradientProps, SpringGrid } from "components";
 import usePortrait from "utils/hooks/usePortrait";
 import useTabletOrMobile from "utils/hooks/useTabletOrMobile";
 import { getProjects } from "Home/redux";
@@ -44,8 +44,10 @@ const Projects: FC = () =>
 			<Element name="projects-section" />
 			<Gradient config={config} className={scss.gradient}>
 				<Container component="header" className={scss.container}>
-					<TrailText i18n align="center" color="textPrimary" component="h2" variant="h2"
-						className="poiret-h1 noselect" active items={["PROJECTS"]} />
+					<TrailText align="center" color="textPrimary" component="h2" variant="h2"
+						className="poiret-h1 noselect">
+						PROJECTS
+					</TrailText>
 					<Divider className={scss.divider} />
 				</Container>
 				<Grid container component="section" alignItems="center" justifyContent="center">

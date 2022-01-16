@@ -1,6 +1,6 @@
 import { memo, FC } from "react";
 import { Parallax } from "react-parallax";
-import { Text, TrailText, Spacing, Gradient, GradientColor } from "Components";
+import { Text, TrailText, Spacing, Gradient, GradientColor } from "components";
 import { Grid, Container, Divider, useTheme } from "@mui/material";
 import VisibilitySensor from "react-visibility-sensor";
 import { motion, Variants } from "framer-motion";
@@ -110,29 +110,29 @@ export const IntroSkill: FC = (): JSX.Element =>
 			
 			{/* Web Development */}
 			<article className={scss.article}>
-				<Text i18n component="h2" className="poiret-h2" items={[introJSON.skills[0].title]} />
-				<Text component="h4" className="ubuntu-h4" items={introJSON.skills[0].points} />
+				<Text component="h2" className="poiret-h2">{introJSON.skills[0].title}</Text>
+				<Text component="h4" className="ubuntu-h4">{introJSON.skills[0].points}</Text>
 				<Spacing height="20px" />
-				<Text i18n component="h2" className="poiret-h2" items={[introJSON.skills[1].title]} />
-				<Text component="h4" className="ubuntu-h4" items={introJSON.skills[1].points} />
+				<Text component="h2" className="poiret-h2">{introJSON.skills[1].title}</Text>
+				<Text component="h4" className="ubuntu-h4">{introJSON.skills[1].points}</Text>
 			</article>
 
 			{/* Software Development */} 
 			<article className={scss.article}>
-				<Text i18n component="h2" className="poiret-h2" items={[introJSON.skills[2].title]} />
-				<Text component="h4" className="ubuntu-h4" items={introJSON.skills[2].points} />
+				<Text component="h2" className="poiret-h2">{introJSON.skills[2].title}</Text>
+				<Text component="h4" className="ubuntu-h4">{introJSON.skills[2].points}</Text>
 				<Spacing height="20px" />
-				<Text i18n component="h2" className="poiret-h2" items={[introJSON.skills[3].title]} />
-				<Text component="h4" className="ubuntu-h4" items={introJSON.skills[3].points} />
+				<Text component="h2" className="poiret-h2">{introJSON.skills[3].title}</Text>
+				<Text component="h4" className="ubuntu-h4">{introJSON.skills[3].points}</Text>
 			</article>
 
 			{/* Level Design */}
 			<article className={scss.article}>
-				<Text i18n component="h2" className="poiret-h2" items={[introJSON.skills[4].title]} />
-				<Text component="h4" className="ubuntu-h4" items={introJSON.skills[4].points} />
+				<Text component="h2" className="poiret-h2">{introJSON.skills[4].title}</Text>
+				<Text component="h4" className="ubuntu-h4">{introJSON.skills[4].points}</Text>
 				<Spacing height="20px" />
-				<Text i18n component="h2" className="poiret-h2" items={[introJSON.skills[5].title]} />
-				<Text component="h4" className="ubuntu-h4" items={introJSON.skills[5].points} />
+				<Text component="h2" className="poiret-h2">{introJSON.skills[5].title}</Text>
+				<Text component="h4" className="ubuntu-h4">{introJSON.skills[5].points}</Text>
 			</article>
 
 		</Grid>
@@ -150,13 +150,19 @@ export const IntroSkill: FC = (): JSX.Element =>
 							justifyContent="center" alignItems="center">
 							<motion.div variants={animationUp} initial={"exit"} animate={isVisible ? "enter" : "exit"}>
 								<Container component="header" maxWidth="md">
-									<Text i18n align="left" color="textPrimary" component="h2" variant="h2"
-										className="poiret-h1 noselect" items={[introJSON.header]} />
+									<Text align="left" color="textPrimary" component="h2" variant="h2"
+										className="poiret-h1 noselect">
+										{introJSON.header}
+									</Text>
 									<Divider className={scss.introDivider} />
-									<Text i18n align="left" color="textPrimary" component="h3" variant="h3" 
-										className={classNames(scss.secondText, "ubuntu-h3")} items={[introJSON.title]} />
-									<Text i18n align="left" color="textPrimary" paragraph component="h4" variant="h4"
-										className="ubuntu-h4" items={[introJSON.desc]} />
+									<Text align="left" color="textPrimary" component="h3" variant="h3" 
+										className={classNames(scss.secondText, "ubuntu-h3")}>
+										{introJSON.title}
+									</Text>
+									<Text align="left" color="textPrimary" paragraph component="h4" variant="h4"
+										className="ubuntu-h4">
+										{introJSON.desc}
+									</Text>
 								</Container>
 							</motion.div>
 						</Grid>
@@ -177,8 +183,10 @@ export const IntroSkill: FC = (): JSX.Element =>
 						<Container>
 							<motion.div variants={animationLeft} initial={"exit"} animate={isVisible ? "enter" : "exit"}>
 								<Container component="header" className={scss.container}>
-									<TrailText i18n align="center" color="textPrimary" component="h2" variant="h2"
-										className="poiret-h1 noselect" active={isVisible} items={["TECHNO_SKILLS"]} />
+									<TrailText align="center" color="textPrimary" component="h2" variant="h2"
+										className="poiret-h1 noselect" visible={isVisible}>
+										TECHNO_SKILLS
+									</TrailText>
 									<Divider className={scss.skillDivider} />
 								</Container>
 							</motion.div>

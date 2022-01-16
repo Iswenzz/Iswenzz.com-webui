@@ -1,6 +1,7 @@
 import Card from "./Content/Card/Card";
 import Carousel from "./Content/Carousel/Carousel";
 import Flip from "./Content/Flip/Flip";
+import Header from "./Content/Header/Header";
 import Jumbotron from "./Content/Jumbotron/Jumbotron";
 import Paper from "./Content/Paper/Paper";
 import Table from "./Content/Table/Table";
@@ -11,7 +12,6 @@ import Gradient from "./Design/Gradient/Gradient";
 import Image from "./Design/Image/Image";
 import Loader from "./Design/Loader/Loader";
 import Spacing from "./Design/Spacing/Spacing";
-import SplitText from "./Design/SplitText/SplitText";
 import Video from "./Design/Video/Video";
 import ButtonLink from "./Inputs/ButtonLink/ButtonLink";
 import Link from "./Inputs/Link/Link";
@@ -24,6 +24,7 @@ export * from "./Content/Card/Card";
 export * from "./Content/Carousel/Carousel";
 export * from "./Content/Carousel/CarouselButtons/CarouselButtons";
 export * from "./Content/Flip/Flip";
+export * from "./Content/Header/Header";
 export * from "./Content/Jumbotron/Jumbotron";
 export * from "./Content/Paper/Paper";
 export * from "./Content/Table/Table";
@@ -34,7 +35,6 @@ export * from "./Design/Gradient/Gradient";
 export * from "./Design/Image/Image";
 export * from "./Design/Loader/Loader";
 export * from "./Design/Spacing/Spacing";
-export * from "./Design/SplitText/SplitText";
 export * from "./Design/Video/Video";
 export * from "./Inputs/ButtonLink/ButtonLink";
 export * from "./Inputs/Link/Link";
@@ -49,6 +49,7 @@ export {
 	Card,
 	Carousel,
 	Flip,
+	Header,
 	Jumbotron,
 	Paper,
 	Table,
@@ -59,7 +60,6 @@ export {
 	Image,
 	Loader,
 	Spacing,
-	SplitText,
 	Video,
 	ButtonLink,
 	Link,

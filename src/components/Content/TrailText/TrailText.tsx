@@ -1,51 +1,42 @@
-import { FC, memo, ElementType } from "react";
-import { useTrail, animated } from "react-spring";
-import {useTranslation} from "react-i18next";
+import { ElementType, FC, useMemo } from "react";
+import { useTranslation } from "react-i18next";
+import { motion } from "framer-motion";
+import { Typography, TypographyProps } from "@mui/material";
 import { v4 as uuidv4 } from "uuid";
 
-import { Typography, TypographyProps } from "@mui/material";
-
-import { trailAnimation } from "./config";
+import { animation } from "./config";
+import scss from "./TrailText.module.scss";
 
 /**
- * Typography wrapper for multiple strings with react-spring trail animation.
+ * Trail text characters animation.
  */
-const TrailText: FC<TrailProps> = ({ items, i18n, active, component = "h6", ...rest }) =>
+const TrailText: FC<TrailTextProps> = ({ children, visible = true, ...rest }) =>
 {
 	const { t } = useTranslation();
-	const text = i18n ? items.map(i => t(i)) : items;
+	const items = useMemo(() => 
+	{
+		const array = Array.isArray(children) ? children : [children];
+		return array.map<string>(t).map(text => text.split(" ").join("\u00A0").split(""));
+	}, [children, t]);
 
-	const trail = useTrail(text.length, {
-		config: trailAnimation,
-		opacity: active ? 1 : 0,
-		x: active ? 0 : 20,
-		height: active ? 80 : 0,
-		from: { opacity: 0, x: 20, height: 0 },
-	});
-
-  	return (
-		<>
-			{trail.map(({ x, height, ...style }, index) => (
-				<animated.div key={uuidv4()}  
-					style={{ ...style, transform: `translate3d(0, ${x}px, 0)` }}>
-					<animated.div>
-						<Typography component={component} {...rest }>
-							{text[index]}
-						</Typography>
-					</animated.div>
-				</animated.div>
-			))}
-		</>
+	return (
+		<Typography key={uuidv4()} className={scss.char} {...rest}>
+			{visible && items.map(word => 
+				word.map((char, index) => (
+					<motion.div className={scss.charMotion} initial="initial" animate="enter" 
+						variants={animation} custom={index}>
+						{char}
+					</motion.div>
+				))
+			)}
+		</Typography>
 	);
 };
 
-type TrailProps = TypographyProps & {
-	height?: number,
-	items: string[],
-	active: boolean,
-	className?: string,
+type TrailTextProps = TypographyProps & {
 	component?: ElementType,
-	i18n?: boolean
+	visible?: boolean,
+	children: string[] | string
 };
 
-export default memo(TrailText);
+export default TrailText;

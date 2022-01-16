@@ -3,7 +3,7 @@ import ReactDataGrid, { Column } from "react-data-grid";
 import { useTheme } from "@mui/material";
 import { Pagination } from "@mui/lab";
 
-import { Loader } from "Components";
+import { Loader } from "components";
 
 import scss from "./Table.module.scss";
 import classNames from "classnames";

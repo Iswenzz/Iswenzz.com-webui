@@ -1,20 +1,17 @@
 import { FC } from "react";
-import IntroHeader from "App/components/IntroHeader/IntroHeader";
-import DocViewer from "Docx/components/DocViewer/DocViewer";
+
+import { Header } from "components";
+import { DocViewer } from "Docx/components";
 
 /**
- * Docx container page.
+ * Docx page.
  */
-const Docx: FC = (): JSX.Element =>
-{
-	return (
-		<>
-			{/* About */}
-			<IntroHeader title="CGSC" desc="Documentation" spaceTop="0px" spaceBottom="170px" 
-				bgImage={require("assets/images/docx/2.jpg")} />
-			<DocViewer />
-		</>
-	);
-};
+const Docx: FC = () => (
+	<>
+		{/* About */}
+		<Header title="CGSC" description="Documentation" background={require("assets/images/docx/2.jpg")} />
+		<DocViewer />
+	</>
+);
 
 export default Docx;

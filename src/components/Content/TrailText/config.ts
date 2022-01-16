@@ -1,7 +1,15 @@
-import { SpringConfig } from "react-spring";
+import { Variants } from "framer-motion";
 
-export const trailAnimation: SpringConfig = {
-	mass: 5, 
-	tension: 2000, 
-	friction: 200 
+export const animation: Variants = {
+	enter: (index: number) => ({
+		y: 0,
+		opacity: 1,
+		transition: {
+			delay: index * 0.05
+		}
+	}),
+	initial: {
+		y: "100%",
+		opacity: 0
+	}
 };

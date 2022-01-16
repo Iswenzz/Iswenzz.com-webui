@@ -1,13 +1,13 @@
 import { FC, memo, useState } from "react";
 import { Grid, Tooltip, Container, Typography, ImageList, ImageListItem, useTheme } from "@mui/material";
 import { ProjectIcon } from "Home/components/Project/Project";
-import {Flip} from "Components";
+import {Flip} from "components";
 import ReactPlayer, { Config } from "react-player";
 import usePortrait from "utils/hooks/usePortrait";
 import useTabletOrMobile from "utils/hooks/useTabletOrMobile";
 import { v4 as uuidv4 } from "uuid";
 import {useTranslation} from "react-i18next";
-import { Image, Forward } from "Components";
+import { Image, Forward } from "components";
 
 import scss from "./Level.module.scss";
 import classNames from "classnames";
@@ -70,7 +70,7 @@ export const Level: FC<LevelProps> = (props: LevelProps): JSX.Element =>
 					</Typography>
 				</ImageListItem>
 				<ImageListItem key={uuidv4()} cols={1} rows={1} className="level-desktop-tile-player">
-					{!isFlipped ? <ReactPlayer config={playerConfig} width="100%" height="100%" 
+					{isFlipped ? <ReactPlayer config={playerConfig} width="100%" height="100%" 
 						url={props.currentLevel.videoUrl} /> : null}
 				</ImageListItem>
 				<ImageListItem key={uuidv4()} cols={1} rows={1} className="level-desktop-tile-desc">
@@ -94,7 +94,7 @@ export const Level: FC<LevelProps> = (props: LevelProps): JSX.Element =>
 				<header>
 					<h3 itemProp="name" className="calli-h2 level-mobile-name">{props.currentLevel.name}</h3>
 				</header>
-				{!isFlipped ? <ReactPlayer config={playerConfig} width="100%" height="50%" 
+				{isFlipped ? <ReactPlayer config={playerConfig} width="100%" height="50%" 
 					url={props.currentLevel.videoUrl} /> : null}
 				<Typography itemProp="description" className="level-mobile-typo" paragraph variant="subtitle1" align="left" 
 					color="textPrimary" component="p">

@@ -3,7 +3,6 @@ import AtomOneDark from "./Highlight/AtomOneDark";
 import AtomOneLight from "./Highlight/AtomOneLight";
 import NightOwl from "./Highlight/NightOwl";
 import VS2015 from "./Highlight/VS2015";
-import IntroHeader from "./IntroHeader/IntroHeader";
 import LanguagePicker from "./LanguagePicker/LanguagePicker";
 import NavBar from "./NavBar/NavBar";
 
@@ -12,8 +11,7 @@ export {
 	AtomOneDark, 
 	AtomOneLight, 
 	NightOwl, 
-	VS2015, 
-	IntroHeader, 
+	VS2015,
 	LanguagePicker, 
 	NavBar 
 };

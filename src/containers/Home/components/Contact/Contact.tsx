@@ -1,5 +1,5 @@
 import { FC, memo, useState, useRef } from "react";
-import { Gradient, GradientProps } from "Components";
+import { Gradient, GradientProps } from "components";
 import { Grid, Container, Avatar, Button, CircularProgress, Typography, useTheme, TextField } from "@mui/material";
 import VisibilitySensor from "react-visibility-sensor";
 // import usePortrait from "utils/hooks/usePortrait";
