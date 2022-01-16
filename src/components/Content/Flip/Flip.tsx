@@ -29,10 +29,10 @@ const Flip: FC<FlipProps> = ({ flipped = false, flipCallback, back, front, direc
 		<ReactCardFlip containerClassName={containerStyles} 
 			isFlipped={isFlipped} flipDirection={direction}>
 			<section className={scss.flip} onClick={handleClick}>
-				{back}
+				{front}
 			</section>
 			<section className={scss.flip} onClick={handleClick}>
-				{front}
+				{back}
 			</section>
 		</ReactCardFlip>
 	);

@@ -1,6 +1,6 @@
 import { useState, useEffect, RefObject, memo, FC } from "react";
 import { useSprings, animated } from "react-spring";
-import { useDrag } from "react-use-gesture";
+import { useDrag } from "@use-gesture/react";
 import clamp from "lodash/clamp";
 
 import scss from "./ViewPager.module.scss";
@@ -43,7 +43,7 @@ const ViewPager: FC<ViewPagerProps> = ({ items, startIndex, background, style, c
 	 */
 	const bind = useDrag(({ down, movement: [mx], direction: [xDir], distance, cancel }) => 
 	{
-		if (down && distance > window.innerWidth / 4) 
+		if (down && distance[0] > window.innerWidth / 4) 
 		{
 			setIndex(clamp(index + (xDir > 0 ? -1 : 1), 0, items.length - 1));
 			if (onIndexChange)
@@ -58,7 +58,7 @@ const ViewPager: FC<ViewPagerProps> = ({ items, startIndex, background, style, c
 				return { display: "none" };
 
 			const x = (i - index) * window.innerWidth + (down ? mx : 0);
-			const scale = down ? 1 - distance / window.innerWidth / 2 : 1;
+			const scale = down ? 1 - distance[0] / window.innerWidth / 2 : 1;
 
 			return { x, scale, display: "block" };
 		});
