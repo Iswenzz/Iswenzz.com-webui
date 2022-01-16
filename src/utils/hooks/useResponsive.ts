@@ -6,7 +6,7 @@ import useTabletOrMobile from "./useTabletOrMobile";
  * @param queries - The value to get on its media query.
  * @returns 
  */
-const useResponsive = <T>(queries: ResponsiveProps<T>): T | null => 
+const useResponsive = <T>(queries: ResponsiveProps<T>): T => 
 {
 	const isPortrait = usePortrait();
 	const isTabletOrMobile = useTabletOrMobile();
@@ -16,11 +16,11 @@ const useResponsive = <T>(queries: ResponsiveProps<T>): T | null =>
 		if (queries.tablet) return queries.tablet;
 		if (queries.mobile) return queries.mobile;
 	}
-	return queries.desktop || null;
+	return queries.desktop;
 };
 
 type ResponsiveProps<T> = {
-	desktop?: T,
+	desktop: T,
 	tablet?: T,
 	mobile?: T
 };

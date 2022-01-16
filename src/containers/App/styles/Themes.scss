@@ -5,8 +5,8 @@ $themes: (
 );
 
 @mixin lightMode() {
-	@each $theme in $themes {
-		@if (map-get($themes, $theme) == "light") {
+	@each $theme, $mode in $themes {
+		@if ($mode == "light") {
 			&.#{$theme} {
 				@content;
 			}
@@ -15,8 +15,8 @@ $themes: (
 }
 
 @mixin darkMode() {
-	@each $theme in $themes {
-		@if (map-get($themes, $theme) == "dark") {
+	@each $theme, $mode in $themes {
+		@if ($mode == "dark") {
 			&.#{$theme} {
 				@content;
 			}

@@ -6,6 +6,7 @@ import { Pagination } from "@mui/lab";
 import { Loader } from "Components";
 
 import scss from "./Table.module.scss";
+import classNames from "classnames";
 
 /**
  * React data grid table.
@@ -48,7 +49,7 @@ const Table: FC<TableProps> = ({ loading, sortCompare = defaultSortCompare, rows
 	const onPageChange = () => setPage(page);
 
 	return (
-		<section className={scss[theme]}>
+		<section className={classNames(scss.table, scss[theme])}>
 			<ReactDataGrid
 				columns={columns}
 				rowGetter={sortedRows}
