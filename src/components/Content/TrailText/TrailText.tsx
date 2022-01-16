@@ -20,10 +20,10 @@ const TrailText: FC<TrailTextProps> = ({ children, visible = true, ...rest }) =>
 	}, [children, t]);
 
 	return (
-		<Typography key={uuidv4()} className={scss.char} {...rest}>
+		<Typography className={scss.char} {...rest}>
 			{visible && items.map(word => 
 				word.map((char, index) => (
-					<motion.div className={scss.charMotion} initial="initial" animate="enter" 
+					<motion.div key={uuidv4()} className={scss.charMotion} initial="initial" animate="enter" 
 						variants={animation} custom={index}>
 						{char}
 					</motion.div>

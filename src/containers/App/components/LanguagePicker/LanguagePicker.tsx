@@ -1,58 +1,39 @@
 import { FC, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Fab, ListItemIcon, Menu, MenuItem, Typography, createTheme, ThemeProvider, Grid } from "@mui/material";
-import { i18nLanguages, Language } from "App/i18n";
+import { Fab, ListItemIcon, Menu, MenuItem, Typography, ThemeProvider, Grid } from "@mui/material";
+
+import { languages, i18nLanguages, Language } from "App/i18n";
 import { getLanguage, setLanguage, setModalActive } from "App/redux";
 
+import { menuTheme } from "./config";
 import scss from "./LanguagePicker.module.scss";
-
-export const languages: Record<Language, JSX.Element> = {
-	en: <img className={scss.icon} src={require("assets/images/flags/262-united-kingdom.svg")} alt={"United Kingdom"} />,
-	fr: <img className={scss.icon} src={require("assets/images/flags/077-france.svg")} alt={"France"} />,
-	es: <img className={scss.icon} src={require("assets/images/flags/044-spain.svg")} alt={"Spain"} />,
-	it: <img className={scss.icon} src={require("assets/images/flags/011-italy.svg")} alt={"Italy"} />,
-	zh: <img className={scss.icon} src={require("assets/images/flags/261-china.svg")} alt={"Chinese"} />
-};
-
-const menuTheme = createTheme({
-	components: {
-		MuiMenu: {
-			styleOverrides: {
-				paper: {
-					top: "48px !important",
-					backgroundColor: "rgba(50, 50, 60, 0.3) !important",
-					color: "gainsboro"
-				}
-			}
-		}
-	}
-});
 
 /**
  * Pick the application language.
  */
-export const LanguagePicker: FC = (): JSX.Element =>
+const LanguagePicker: FC = () =>
 {
 	const dispatch = useDispatch();
 	const currentLanguage = useSelector(getLanguage);
-	const [anchorEl, setAnchorEl] = useState<null | HTMLButtonElement>(null);
+
+	const [anchorEl, setAnchorEl] = useState<Nullable<HTMLButtonElement>>(null);
 
 	/**
-	 * Change the application language.
+	 * Set the application language.
 	 * @param language - The language.
 	 */
-	const toggle = (language: Language): void =>
+	const handleLanguageChange = (language: Language) =>
 	{
-		dispatch(setLanguage(language));
-		handleClose();
-		window.location.reload();
+		if (currentLanguage !== language)
+			dispatch(setLanguage(language));
+		handleMenuClose();
 	};
 
 	/**
-	 * On menu click.
-	 * @param event
+	 * Open or close the menu.
+	 * @param event - The mouse click event.
 	 */
-	const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void =>
+	const handleMenuClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>
 	{
 		if (anchorEl === null)
 		{
@@ -60,38 +41,40 @@ export const LanguagePicker: FC = (): JSX.Element =>
 			setAnchorEl(event.currentTarget);
 		}
 		else
-			handleClose();
+			handleMenuClose();
 	};
 
 	/**
-	 * On menu close.
+	 * Close the menu.
 	 */
-	const handleClose = (): void =>
+	const handleMenuClose = () =>
 	{
 		dispatch(setModalActive(false));
 		setAnchorEl(null);
 	};
 
+	const CurrentLanguageIcon = languages[currentLanguage];
+
 	return (
 		<div>
 			<Fab className={scss.button} aria-controls="language-menu" 
-				aria-haspopup="true" onClick={handleClick} size="small">
-				{languages[currentLanguage]}
+				aria-haspopup="true" onClick={handleMenuClick} size="small">
+				<CurrentLanguageIcon className={scss.icon} />
 			</Fab>
 			<ThemeProvider theme={menuTheme}>
 				<Menu id="language-menu" anchorEl={anchorEl} keepMounted 
-					open={Boolean(anchorEl)} onClose={handleClose} disableScrollLock>
-					{Object.entries(languages).map(([lang, langNode]) => (
-						<MenuItem key={lang} onClick={() => toggle(lang as Language)}>
+					open={Boolean(anchorEl)} onClose={handleMenuClose} disableScrollLock>
+					{Object.entries(languages).map(([language, LanguageIcon]) => (
+						<MenuItem key={language} onClick={() => handleLanguageChange(language as Language)}>
 							<Grid container>
 								<Grid item xs={6}>
 									<Typography className={scss.typo} variant={"h5"} component={"h5"} >
-										{i18nLanguages[lang as Language]}
+										{i18nLanguages[language as Language]}
 									</Typography>
 								</Grid>
 								<Grid item xs={6}>
 									<ListItemIcon className={scss.itemIcon}>
-										{langNode}
+										<LanguageIcon className={scss.icon} />
 									</ListItemIcon>
 								</Grid>
 							</Grid>

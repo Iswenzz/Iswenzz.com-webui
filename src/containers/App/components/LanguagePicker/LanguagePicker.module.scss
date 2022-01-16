@@ -6,19 +6,18 @@
 .typo {
 	display: inline-flex;
 	align-items: center;
-	justify-content: center;
-	text-align: center !important;
+	justify-content: flex-start;
+	text-align: left !important;
 	font-family: Ubuntu, sans-serif !important;
 	font-size: 1em !important;
 	padding-top: 5px;
-	margin-left: 1em;
 }
 
 .itemIcon {
 	display: inline-flex;
 	align-items: center;
-	justify-content: center;
-	margin-left: 0.5em;
+	justify-content: flex-end;
+	margin-left: 1em;
 }
 
 .icon {
