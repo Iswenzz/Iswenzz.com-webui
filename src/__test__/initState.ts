@@ -1,9 +1,9 @@
-import { AppRedux, initialState as app } from "App/redux";
-import { HomeRedux, initialState as home } from "Home/redux";
+import { initialState as app } from "App/redux";
+import { RootRedux } from "App/store";
+import { initialState as home } from "Home/redux";
 
 export type MockState = {
-	app: Partial<AppRedux>,
-	home: Partial<HomeRedux>
+	[key in keyof RootRedux]: Partial<RootRedux[key]>
 };
 
 const initState: MockState = {

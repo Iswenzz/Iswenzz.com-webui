@@ -2,8 +2,8 @@ import { FC } from "react";
 import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
 
-import app from "App/redux";
-import home from "Home/redux";
+import app, { AppRedux } from "App/redux";
+import home, { HomeRedux } from "Home/redux";
 
 const store = configureStore({
 	reducer: {
@@ -12,7 +12,10 @@ const store = configureStore({
 	}
 });
 
-export type RootRedux = ReturnType<typeof store.getState>;
+export type RootRedux = {
+	app: AppRedux;
+	home: HomeRedux;
+};
 
 /**
  * Redux store provider.

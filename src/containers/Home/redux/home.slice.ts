@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
+import { createInitState } from "App/utils/redux";
 import type { ProjectSource } from "Home/components/Project/Project";
 
 export type HomeRedux = {
@@ -7,10 +8,10 @@ export type HomeRedux = {
 	projectsStartIndex: number
 };
 
-export const initialState: HomeRedux = {
+export const initialState = createInitState<HomeRedux>({
 	projects: require("Home/components/Projects/Projects.json"),
 	projectsStartIndex: 0
-};
+}, "home");
 
 const slice = createSlice({
 	name: "home",

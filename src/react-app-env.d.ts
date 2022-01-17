@@ -5,6 +5,9 @@ import "@mui/material/styles";
 declare global
 {
 	type JSONValue = string | number | boolean | null | object | JSONValue[];
+	
+	type KeyOf<T> = keyof T;
+	type ValueOf<T> = T[keyof T];
 	type Nullable<T> = T | null;
 	type Optional<T> = T | undefined;
 

@@ -3,6 +3,8 @@ import { detect } from "detect-browser";
 import { omit } from "lodash";
 
 import type { Language } from "App/i18n";
+import { saveLocalState } from "App/utils/localStorage";
+import { createInitState } from "App/utils/redux";
 
 export type AppRedux = {
 	theme: string,
@@ -11,32 +13,28 @@ export type AppRedux = {
 	isModalActive: boolean
 };
 
-export const initialState: AppRedux = {
-	theme: localStorage.getItem("theme") ?? "dark",
-	language: (localStorage.getItem("language") ?? "en") as Language,
+export const initialState = createInitState<AppRedux>({
+	theme: "dark",
+	language: "en",
 	browserInfo: omit(detect(), "prototypes"),
 	isModalActive: false
-};
+}, "app");
 
 const slice = createSlice({
 	name: "app",
 	initialState,
 	reducers: {
-	  	setTheme: (state: any, action: PayloadAction<string>) => 
-		{
-			localStorage.setItem("theme", action.payload);
-			return {
-				...state,
-				theme: action.payload
-			};
-		},
+	  	setTheme: (state: any, action: PayloadAction<string>) => ({
+			...state,
+			...saveLocalState("app", { theme: action.payload })
+		}),
 		setModalActive: (state: any, action: PayloadAction<boolean>) => ({
 			...state,
 			isModalActive: action.payload
 		}),
 		setLanguage: (state: any, action: PayloadAction<Language>) => ({
 			...state,
-			language: action.payload
+			...saveLocalState("app", { language: action.payload })
 		})
 	}
 });

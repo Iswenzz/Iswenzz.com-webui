@@ -1,7 +1,9 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { initReactI18next } from "react-i18next";
 import i18n, {InitOptions, Resource} from "i18next";
 import detector from "i18next-browser-languagedetector";
+
+import { getLocalStateValue } from "./utils/localStorage";
 
 /**
  * Supported languages.
@@ -39,7 +41,7 @@ export const languages: Record<Language, FC<React.HTMLAttributes<HTMLImageElemen
 
 const initOption: InitOptions = {
 	resources,
-	lng: localStorage.getItem("language") ?? "en",
+	lng: getLocalStateValue("app", "language"),
 	fallbackLng: "en", 		// Use en if detected lng is not available
 	keySeparator: false, 	// We do not use keys in form messages.welcome
 	interpolation: {
