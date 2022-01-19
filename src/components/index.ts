@@ -9,6 +9,10 @@ import Text from "./Content/Text/Text";
 import TrailText from "./Content/TrailText/TrailText";
 import Forward from "./Design/Forward/Forward";
 import Gradient from "./Design/Gradient/Gradient";
+import AtomOneDark from "./Design/Highlight/AtomOneDark";
+import AtomOneLight from "./Design/Highlight/AtomOneLight";
+import NightOwl from "./Design/Highlight/NightOwl";
+import VS2015 from "./Design/Highlight/VS2015";
 import Image from "./Design/Image/Image";
 import Loader from "./Design/Loader/Loader";
 import Spacing from "./Design/Spacing/Spacing";
@@ -32,6 +36,10 @@ export * from "./Content/Text/Text";
 export * from "./Content/TrailText/TrailText";
 export * from "./Design/Forward/Forward";
 export * from "./Design/Gradient/Gradient";
+export * from "./Design/Highlight/AtomOneDark";
+export * from "./Design/Highlight/AtomOneLight";
+export * from "./Design/Highlight/NightOwl";
+export * from "./Design/Highlight/VS2015";
 export * from "./Design/Image/Image";
 export * from "./Design/Loader/Loader";
 export * from "./Design/Spacing/Spacing";
@@ -57,6 +65,10 @@ export {
 	TrailText,
 	Forward,
 	Gradient,
+	AtomOneDark,
+	AtomOneLight,
+	NightOwl,
+	VS2015,
 	Image,
 	Loader,
 	Spacing,
