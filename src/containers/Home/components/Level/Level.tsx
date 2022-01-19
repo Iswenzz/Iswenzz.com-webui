@@ -8,6 +8,7 @@ import useTabletOrMobile from "utils/hooks/useTabletOrMobile";
 import { v4 as uuidv4 } from "uuid";
 import {useTranslation} from "react-i18next";
 import { Image, Forward } from "components";
+import clickMeIcon from "assets/images/misc/icons8-natural-user-interface-2-64.png";
 
 import scss from "./Level.module.scss";
 import classNames from "classnames";
@@ -114,8 +115,8 @@ export const Level: FC<LevelProps> = (props: LevelProps): JSX.Element =>
 				<Grid container alignItems="center" justifyContent="space-between">
 					<Tooltip placement="right" arrow disableFocusListener title={t("TOOLTIP_CLICK_ME") as string}>
 						<Forward>
-							<Image onDragStart={(e) => e.preventDefault()} alt="click-me" width={55} height={64}
-								src={require("assets/images/misc/icons8-natural-user-interface-2-64.png")} />
+							<Image onDragStart={(e) => e.preventDefault()} 
+								alt="click-me" width={55} height={64} src={clickMeIcon} />
 						</Forward>
 					</Tooltip>
 					<Grid container component="ul" direction="column" justifyContent="space-evenly" alignItems="flex-end">

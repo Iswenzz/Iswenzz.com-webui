@@ -1,7 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import { createInitState } from "App/utils/redux";
-import type { ProjectSource } from "Home/components/Project/Project";
+import type { ProjectSource } from "Home/components";
+import projectSourceJson from "Home/design/Projects/Projects.json";
 
 export type HomeRedux = {
 	projects: ProjectSource[],
@@ -9,7 +10,7 @@ export type HomeRedux = {
 };
 
 export const initialState = createInitState<HomeRedux>({
-	projects: require("Home/components/Projects/Projects.json"),
+	projects: projectSourceJson as ProjectSource[],
 	projectsStartIndex: 0
 }, "home");
 

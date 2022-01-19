@@ -3,6 +3,18 @@ import { initReactI18next } from "react-i18next";
 import i18next, {InitOptions, Resource} from "i18next";
 import detector from "i18next-browser-languagedetector";
 
+import english from "assets/locales/english.json";
+import french from "assets/locales/french.json";
+import spanish from "assets/locales/spanish.json";
+import italian from "assets/locales/italian.json";
+import chinese from "assets/locales/chinese.json";
+
+import flagUnitedKingdom from "assets/images/flags/262-united-kingdom.svg";
+import flagFrance from "assets/images/flags/077-france.svg";
+import flagSpain from "assets/images/flags/044-spain.svg";
+import flagItaly from "assets/images/flags/011-italy.svg";
+import flagChina from "assets/images/flags/261-china.svg";
+
 import { getLocalStateValue } from "./utils/localStorage";
 
 /**
@@ -21,22 +33,22 @@ export const i18nLanguages: Record<Language, string> = {
  * Language locale files.
  */
 const resources: Record<Language, Resource> = {
-	en: { translation: require("assets/locales/english.json") },
-	fr: { translation: require("assets/locales/french.json") },
-	es: { translation: require("assets/locales/spanish.json") },
-	it: { translation: require("assets/locales/italian.json") },
-	zh: { translation: require("assets/locales/chinese.json") }
+	en: { translation: english },
+	fr: { translation: french },
+	es: { translation: spanish },
+	it: { translation: italian },
+	zh: { translation: chinese }
 };
 
 /**
  * Language icons.
  */
 export const languages: Record<Language, FC<React.HTMLAttributes<HTMLImageElement>>> = {
-	en: (props) => <img {...props} src={require("assets/images/flags/262-united-kingdom.svg").default} alt={"United Kingdom"} />,
-	fr: (props) => <img {...props} src={require("assets/images/flags/077-france.svg").default} alt={"France"} />,
-	es: (props) => <img {...props} src={require("assets/images/flags/044-spain.svg").default} alt={"Spain"} />,
-	it: (props) => <img {...props} src={require("assets/images/flags/011-italy.svg").default} alt={"Italy"} />,
-	zh: (props) => <img {...props} src={require("assets/images/flags/261-china.svg").default} alt={"Chinese"} />
+	en: (props) => <img {...props} src={flagUnitedKingdom} alt={"United Kingdom"} />,
+	fr: (props) => <img {...props} src={flagFrance} alt={"France"} />,
+	es: (props) => <img {...props} src={flagSpain} alt={"Spain"} />,
+	it: (props) => <img {...props} src={flagItaly} alt={"Italy"} />,
+	zh: (props) => <img {...props} src={flagChina} alt={"China"} />
 };
 
 const initOption: InitOptions = {

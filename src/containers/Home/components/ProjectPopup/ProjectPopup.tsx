@@ -17,9 +17,9 @@ import { ProjectSource } from "Home/components/Project/Project";
 import { ViewPager, ViewPagerConfig, Image } from "components";
 import usePortrait from "utils/hooks/usePortrait";
 import useTabletOrMobile from "utils/hooks/useTabletOrMobile";
-import VS2015 from "App/components/Highlight/VS2015";
-import AtomOneLight from "App/components/Highlight/AtomOneLight";
+import { VS2015, AtomOneLight } from "components";
 import { getProjects, getProjectsStartIndex } from "Home/redux";
+import dragIcon from "assets/images/misc/icons8-hand-drag-64.png";
 
 import scss from "./ProjectPopup.module.scss";
 
@@ -238,8 +238,8 @@ export const ProjectPopup: FC = (): JSX.Element =>
 				<section>
 					<Tooltip open={projectModalActive} placement="right" arrow disableFocusListener 
 						disableTouchListener title={t("PROJECT_TOOLTIP_DRAG") as string}>
-						<img onDragStart={(e) => e.preventDefault()} className={scss.tooltipDrag} alt="drag"
-							 src={require("assets/images/misc/icons8-hand-drag-64.png")} />
+						<img onDragStart={(e) => e.preventDefault()} 
+							className={scss.tooltipDrag} alt="drag" src={dragIcon} />
 					</Tooltip>
 					{projectModalActive ? 
 						isDarkTheme ? <VS2015>{viewPager}</VS2015> : <AtomOneLight>{viewPager}</AtomOneLight>

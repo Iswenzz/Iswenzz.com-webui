@@ -6,6 +6,8 @@ import { faDiscord, faYoutube, faGithub } from "@fortawesome/free-brands-svg-ico
 
 import { Spacing } from "components";
 import useThemeMode from "utils/hooks/useThemeMode";
+import stars from "assets/images/index/stars.svg";
+import clouds from "assets/images/index/clouds.svg";
 
 import scss from "./Footer.module.scss";
 import classNames from "classnames";
@@ -16,7 +18,7 @@ import classNames from "classnames";
 const Footer: FC = () =>
 {
 	const { parallaxImage, theme } = useThemeMode({ 
-		parallaxImage: ["stars", "clouds"]
+		parallaxImage: [stars, clouds]
 	});
 
 	return (
@@ -43,8 +45,7 @@ const Footer: FC = () =>
 					</li>
 				</Grid>
 			</Grid>
-			<Parallax className={scss.parallax} bgImageAlt="index" strength={-400}
-				bgImage={require(`assets/images/index/${parallaxImage}.svg`)}>
+			<Parallax className={scss.parallax} bgImageAlt="footer" strength={-400} bgImage={parallaxImage}>
 				<Spacing height="10px" />
 				<Typography align="center" color="textPrimary" variant="subtitle2" component="h3">
 				Copyright © Iswenzz 2017-2022
