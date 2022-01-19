@@ -1,6 +1,5 @@
 import { FC, memo, useState } from "react";
 import { Grid, Tooltip, Container, Typography, ImageList, ImageListItem, useTheme } from "@mui/material";
-import { ProjectIcon } from "Home/components/Project/Project";
 import {Flip} from "components";
 import ReactPlayer, { Config } from "react-player";
 import usePortrait from "utils/hooks/usePortrait";
@@ -12,6 +11,7 @@ import clickMeIcon from "assets/images/misc/icons8-natural-user-interface-2-64.p
 
 import scss from "./Level.module.scss";
 import classNames from "classnames";
+import { ProjectIcon } from "Home/components/Projects/Project/Project";
 
 const playerConfig: Config = { 
 	youtube: {

@@ -4,8 +4,8 @@ import { useTheme } from "@mui/material";
 
 import { Header, Spacing, TrailText } from "components";
 
-import { Contact, About, Levels, Projects } from "./design";
-import { ProjectPopup } from "./components";
+import { Contact, About, Levels, Projects } from "./components";
+import { ProjectPopup } from "./components/Projects/ProjectPopup/ProjectPopup";
 
 /**
  * Home page.

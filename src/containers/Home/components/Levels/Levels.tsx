@@ -7,10 +7,10 @@ import {motion, Variants} from "framer-motion";
 import { Divider, Container, Grid, useTheme } from "@mui/material";
 
 import { Gradient, GradientProps, Carousel, Text } from "components";
-import Level, { LevelProject } from "Home/components/Level/Level";
 
 import levelProjectsJson from "./Levels.json";
 import scss from "./Levels.module.scss";
+import { Level, LevelProject } from "./Level/Level";
 
 const levelProjects: LevelProject[] = levelProjectsJson;
 

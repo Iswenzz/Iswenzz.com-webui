@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import { createInitState } from "App/utils/redux";
-import type { ProjectSource } from "Home/components";
-import projectSourceJson from "Home/design/Projects/Projects.json";
+import type { ProjectSource } from "Home/components/Projects/Project/Project";
+import projectSourceJson from "Home/components/Projects/Projects.json";
 
 export type HomeRedux = {
 	projects: ProjectSource[],

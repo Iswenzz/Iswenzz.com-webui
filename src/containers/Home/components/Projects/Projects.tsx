@@ -11,7 +11,7 @@ import useTabletOrMobile from "utils/hooks/useTabletOrMobile";
 import { getProjects } from "Home/redux";
 
 import scss from "./Projects.module.scss";
-import { Project } from "Home/components";
+import Project from "./Project/Project";
 
 /**
  * Display the projects in a masonry layout.
@@ -53,7 +53,7 @@ const Projects: FC = () =>
 				<Grid container component="section" alignItems="center" justifyContent="center">
 					<SpringGrid layout="masonry">
 						{projects.map((project, index) => (
-							<Project 
+							<Project
 								key={project.title}
 								projectIndex={index}
 								project={project} 

@@ -13,7 +13,6 @@ import { Close, Lock } from "@mui/icons-material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faOsi } from "@fortawesome/free-brands-svg-icons";
 
-import { ProjectSource } from "Home/components/Project/Project";
 import { ViewPager, ViewPagerConfig, Image } from "components";
 import usePortrait from "utils/hooks/usePortrait";
 import useTabletOrMobile from "utils/hooks/useTabletOrMobile";
@@ -22,6 +21,7 @@ import { getProjects, getProjectsStartIndex } from "Home/redux";
 import dragIcon from "assets/images/misc/icons8-hand-drag-64.png";
 
 import scss from "./ProjectPopup.module.scss";
+import { ProjectSource } from "../Project/Project";
 
 export type ProjectPopupState = {
 	projects: JSX.Element[]

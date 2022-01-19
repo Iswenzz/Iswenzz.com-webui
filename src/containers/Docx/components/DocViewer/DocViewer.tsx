@@ -7,7 +7,7 @@ import scss from "./DocViewer.module.scss";
 
 /**
  * Document viewer container.
- * @todo jsdoc phpdoc doxygen
+ * @todo jsdoc doxygen
  * @todo remove anti patterns.
  * @todo loadDoc on history change / get req.
  * @todo change project folder with properties.
