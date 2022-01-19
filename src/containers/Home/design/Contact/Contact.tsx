@@ -12,6 +12,7 @@ import {Trans, useTranslation} from "react-i18next";
 import {gql, useMutation} from "@apollo/client";
 import {Mutation, MutationContactArgs} from "api/generated/graphql";
 import {motion, Variants} from "framer-motion";
+import iswenzzIcon from "assets/images/misc/iswenzz.png";
 
 import scss from "./Contact.module.scss";
 import classNames from "classnames";
@@ -165,7 +166,7 @@ export const Contact: FC = (): JSX.Element =>
 	const form: JSX.Element = (
 		<Grid container component="section" direction="column" justifyContent="center" alignItems="center">
 			<header>
-				<Avatar alt="iswenzz avatar" src={require("assets/images/misc/iswenzz.png")} 
+				<Avatar alt="iswenzz avatar" src={iswenzzIcon} 
 					className={scss.avatar} />
 			</header>
 			<Formik initialValues={contactFormInitial} onSubmit={sendEmail}>

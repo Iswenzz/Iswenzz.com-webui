@@ -1,15 +1,11 @@
 import { FC } from "react";
 import { Parallax } from "react-parallax";
-import { useTranslation } from "react-i18next";
+import { useTheme } from "@mui/material";
 
-import { Typography, useTheme } from "@mui/material";
-
-import Projects from "Home/components/Projects/Projects";
-import IntroSkill from "Home/components/Intro/Intro";
-import Contact from "Home/components/Contact/Contact";
-import Levels from "Home/components/Levels/Levels";
-import ProjectPopup from "Home/components/ProjectPopup/ProjectPopup";
 import { Header, Spacing, TrailText } from "components";
+
+import { Contact, About, Levels, Projects } from "./design";
+import { ProjectPopup } from "./components";
 
 /**
  * Home page.
@@ -17,19 +13,12 @@ import { Header, Spacing, TrailText } from "components";
 const Home: FC = () =>
 {
 	const { isDarkTheme } = useTheme();
-	const { t } = useTranslation();
-
+	
 	return (
 		<>
-			{/* About */}
 			<Header title="Iswenzz" description="HOME_HEADER"
 				background={require(`assets/images/index/${isDarkTheme ? "20.jpg" : "nature1.jpg"}`)} />
-			<IntroSkill />
-			<Parallax style={{backgroundColor: isDarkTheme ? "black" : "rgb(122,206,255)"}}
-				bgImageAlt="index" strength={400}
-				bgImage={require(`assets/images/index/${isDarkTheme ? "stars" : "clouds"}.svg`)}>
-				<Spacing height="100px" />
-			</Parallax>
+			<About />
 
 			{/* Projects */}
 			<ProjectPopup />

@@ -9,7 +9,10 @@ import { Divider, Container, Grid, useTheme } from "@mui/material";
 import { Gradient, GradientProps, Carousel, Text } from "components";
 import Level, { LevelProject } from "Home/components/Level/Level";
 
+import levelProjectsJson from "./Levels.json";
 import scss from "./Levels.module.scss";
+
+const levelProjects: LevelProject[] = levelProjectsJson;
 
 const animation: Variants = {
 	enter: { 
@@ -37,7 +40,7 @@ const animation: Variants = {
  */
 export const Levels: FC = () =>
 {
-	const [levels] = useState<LevelProject[]>(require("./Levels.json"));
+	const [levels] = useState<LevelProject[]>(levelProjects);
 	const isPortrait = usePortrait();
 	const isTabletOrMobile = useTabletOrMobile();
 	const { isDarkTheme } = useTheme();

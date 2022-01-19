@@ -10,8 +10,8 @@ import usePortrait from "utils/hooks/usePortrait";
 import useTabletOrMobile from "utils/hooks/useTabletOrMobile";
 import { getProjects } from "Home/redux";
 
-import Project from "../Project/Project";
 import scss from "./Projects.module.scss";
+import { Project } from "Home/components";
 
 /**
  * Display the projects in a masonry layout.

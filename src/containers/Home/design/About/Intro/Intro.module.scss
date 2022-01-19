@@ -1,0 +1,25 @@
+@import "~App/styles/Themes";
+
+.intro {
+	@include darkMode {
+		background: radial-gradient(ellipse at top, #0e0f14, #181a21);
+	}
+
+	@include lightMode {
+		background: radial-gradient(ellipse at top, #e5e5e5, #f4f4f4);
+	}
+}
+
+.grid {
+	padding: 100px 0;
+}
+
+.divider {
+	width: 350px !important;
+	height: 2px !important;
+	margin: 16px 0 !important;
+}
+
+.secondText {
+	margin: 16px 0 !important;
+}
