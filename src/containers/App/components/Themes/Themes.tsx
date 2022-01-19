@@ -1,6 +1,6 @@
 import { FC, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
-import { CssBaseline, ThemeProvider, responsiveFontSizes } from "@mui/material";
+import { CssBaseline, ThemeProvider } from "@mui/material";
 
 import { getModalActiveState, getTheme } from "App/redux";
 import { getElementByXPath } from "utils/elements";
@@ -9,6 +9,7 @@ import "App/styles/Main.scss";
 
 /**
  * App themes.
+ * @todo - Hook for locking page scroll with empty scroll bar.
  */
 export const Themes: FC = ({ children }) =>
 {

@@ -11,7 +11,6 @@ import config from "./config";
 
 /**
  * Responsive grid component with masonry layout and spring animation.
- * @todo - Spring animation on column changes.
  */
 export const SpringGrid: FC<SpringGridProps> = ({ 
 	children = [], style, 

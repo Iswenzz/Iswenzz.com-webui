@@ -53,7 +53,7 @@ export const DocViewer: FC = (): JSX.Element =>
 					scroll.scrollTo(elem.offsetTop - 48);
 				
 				/*
-				// set uml iframes @todo
+				// @todo set uml iframes
 				let dyncontents = getElementsByXPath("//div[@class="dyncontent"]");
 				for (let i = 0; i < dyncontents.length; i++)
 				{

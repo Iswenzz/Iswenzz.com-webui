@@ -27,13 +27,11 @@ const DarkTheme = responsiveFontSizes(createTheme({
 		MuiCssBaseline: {
 			styleOverrides: {
 				html: {
-					"--scrollbarBG": "#23272a",
-					"--thumbBG": "#3a3d41",
 					overflowX: "hidden",
 				},
 				body: {
 					scrollbarWidth: "thin",
-					scrollbarColor: "var(--thumbBG) var(--scrollbarBG)",
+					scrollbarColor: "#3a3d41 #23272a",
 					backgroundColor: "black",
 					margin: 0
 				},
@@ -46,12 +44,12 @@ const DarkTheme = responsiveFontSizes(createTheme({
 					width: "12px"
 				},
 				"::-webkit-scrollbar-track": {
-					background: "var(--scrollbarBG)",
+					background: "#23272a",
 					borderRadius: "10px"
 				},
 				"::-webkit-scrollbar-thumb": {
-					backgroundColor: "var(--thumbBG)",
-					border: "3px solid var(--scrollbarBG)",
+					backgroundColor: "#3a3d41",
+					border: "3px solid #23272a",
 					borderRadius: "10px",
 				},
 			}

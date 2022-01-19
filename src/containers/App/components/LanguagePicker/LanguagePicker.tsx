@@ -2,7 +2,7 @@ import { FC, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Fab, ListItemIcon, Menu, MenuItem, Typography, ThemeProvider, Grid } from "@mui/material";
 
-import { languages, i18nLanguages, Language } from "App/i18n";
+import { languages, i18nLanguages, Language } from "App/i18next";
 import { getLanguage, setLanguage, setModalActive } from "App/redux";
 
 import { menuTheme } from "./config";
@@ -40,8 +40,7 @@ const LanguagePicker: FC = () =>
 			dispatch(setModalActive(true));
 			setAnchorEl(event.currentTarget);
 		}
-		else
-			handleMenuClose();
+		else handleMenuClose();
 	};
 
 	/**
@@ -63,7 +62,7 @@ const LanguagePicker: FC = () =>
 			</Fab>
 			<ThemeProvider theme={menuTheme}>
 				<Menu id="language-menu" anchorEl={anchorEl} keepMounted 
-					open={Boolean(anchorEl)} onClose={handleMenuClose} disableScrollLock>
+					open={Boolean(anchorEl)} onClose={handleMenuClose}>
 					{Object.entries(languages).map(([language, LanguageIcon]) => (
 						<MenuItem key={language} onClick={() => handleLanguageChange(language as Language)}>
 							<Grid container>

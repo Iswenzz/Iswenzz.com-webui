@@ -16,7 +16,7 @@ import classNames from "classnames";
 const Footer: FC = () =>
 {
 	const { parallaxImage, theme } = useThemeMode({ 
-		parallaxImage: { dark: "stars", light: "clouds" }
+		parallaxImage: ["stars", "clouds"]
 	});
 
 	return (

@@ -1,11 +1,16 @@
+.navbar {
+	background: rgba(50,50,60,.3) !important;
+}
+
 .button {
 	background-color: transparent !important; 
 	margin: 0 5px !important;
 }
 
 .logo {
-	padding-top: 5px; 
+	padding: 5px 1rem 0;
 	user-select: none;
+	cursor: pointer;
 }
 
 .fixed {

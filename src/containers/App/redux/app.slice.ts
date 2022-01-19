@@ -1,8 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { detect } from "detect-browser";
 import { omit } from "lodash";
+import i18next from "i18next";
 
-import type { Language } from "App/i18n";
+import type { Language } from "App/i18next";
 import { saveLocalState } from "App/utils/localStorage";
 import { createInitState } from "App/utils/redux";
 
@@ -32,10 +33,15 @@ const slice = createSlice({
 			...state,
 			isModalActive: action.payload
 		}),
-		setLanguage: (state: any, action: PayloadAction<Language>) => ({
-			...state,
-			...saveLocalState("app", { language: action.payload })
-		})
+		setLanguage: (state: any, action: PayloadAction<Language>) => 
+		{
+			i18next.changeLanguage(action.payload);
+
+			return {
+				...state,
+				...saveLocalState("app", { language: action.payload })
+			};
+		}
 	}
 });
 

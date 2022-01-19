@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 /**
  * Typography wrapper for multiple strings.
  */
-const Text: FC<TextProps> = ({ children, component = "h6", ...rest }) => 
+const Text: FC<TextProps> = ({ children, raw, component = "h6", ...rest }) => 
 {
 	const { t } = useTranslation();
 	const items = Array.isArray(children) ? children : [children];
@@ -14,9 +14,11 @@ const Text: FC<TextProps> = ({ children, component = "h6", ...rest }) =>
 	return (
 		<>
 			{items.map(item => (
-				<Typography {...rest} component={component} key={uuidv4()}>
-					{t(item)}
-				</Typography>
+				!raw ? (
+					<Typography {...rest} component={component} key={uuidv4()}>
+						{t(item)}
+					</Typography>
+				) : t(item)
 			))}
 		</>
 	);
@@ -24,6 +26,7 @@ const Text: FC<TextProps> = ({ children, component = "h6", ...rest }) =>
 
 type TextProps = TypographyProps & {
 	children: string[] | string,
+	raw?: boolean,
 	component?: ElementType
 };
 

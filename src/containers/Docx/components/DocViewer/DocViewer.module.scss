@@ -337,29 +337,6 @@
 	/*********************************************/
 	/**             Custom scrollbar            **/
 	/*********************************************/
-	::-webkit-scrollbar {
-		width: 10px;
-	}
-
-	/* Track */
-	::-webkit-scrollbar-track {
-		border-radius: 10px;
-	}
-	
-	/* Handle */
-	::-webkit-scrollbar-thumb {
-		background: #234567;
-		border: none;
-	}
-
-	/* Handle on hover */
-	::-webkit-scrollbar-thumb:hover {
-		background: #32363d; 
-	}
-
-	/*********************************************/
-	/**             Custom scrollbar            **/
-	/*********************************************/
 	h1.glow, h2.glow, h3.glow,
 	h4.glow, h5.glow, h6.glow {
 		text-shadow: 0 0 15px #67d8ef;

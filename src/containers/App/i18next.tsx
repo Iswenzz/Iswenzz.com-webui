@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { initReactI18next } from "react-i18next";
-import i18n, {InitOptions, Resource} from "i18next";
+import i18next, {InitOptions, Resource} from "i18next";
 import detector from "i18next-browser-languagedetector";
 
 import { getLocalStateValue } from "./utils/localStorage";
@@ -49,8 +49,8 @@ const initOption: InitOptions = {
 	}
 };
 
-i18n.use(detector)
+i18next.use(detector)
 	.use(initReactI18next) 	// Passes i18n down to react-i18next
 	.init(initOption);
 
-export default i18n;
+export default i18next;

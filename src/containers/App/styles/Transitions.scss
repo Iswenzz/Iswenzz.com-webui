@@ -1,0 +1,9 @@
+$transitionDuration: 0.6s;
+$transitionFunction: cubic-bezier(0.4, 0, 0.2, 1);
+
+@mixin transition($duration: $transitionDuration, $properties: all, $function: $transitionFunction) {
+	-webkit-transition: $function $duration $properties;
+	-o-transition: $function $duration $properties;
+	-moz-transition: $function $duration $properties;
+	transition: $function $duration $properties;
+}

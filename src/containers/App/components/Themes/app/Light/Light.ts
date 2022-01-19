@@ -27,13 +27,11 @@ const LightTheme = responsiveFontSizes(createTheme({
 		MuiCssBaseline: {
 			styleOverrides: {
 				html: {
-					"--scrollbarBG": "#d9d9d9",
-					"--thumbBG": "#c0c0c0",
 					overflowX: "hidden"
 				},
 				body: {
 					scrollbarWidth: "thin",
-					scrollbarColor: "var(--thumbBG) var(--scrollbarBG)",
+					scrollbarColor: "#c0c0c0 #d9d9d9",
 					backgroundColor: "silver",
 					margin: 0
 				},
@@ -46,12 +44,12 @@ const LightTheme = responsiveFontSizes(createTheme({
 					width: "12px"
 				},
 				"::-webkit-scrollbar-track": {
-					background: "var(--scrollbarBG)",
+					background: "#d9d9d9",
 					borderRadius: "10px"
 				},
 				"::-webkit-scrollbar-thumb": {
-					backgroundColor: "var(--thumbBG)",
-					border: "3px solid var(--scrollbarBG)",
+					backgroundColor: "#c0c0c0",
+					border: "3px solid #d9d9d9",
 					borderRadius: "10px",
 				},
 			}

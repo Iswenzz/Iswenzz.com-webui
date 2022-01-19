@@ -8,7 +8,7 @@ import Apollo from "./api/apollo";
 import Redux from "./containers/App/store";
 import Themes from "./containers/App/components/Themes/Themes";
 import Router from "./router/routes";
-import "./containers/App/i18n";
+import "./containers/App/i18next";
 
 ReactDOM.render((
 	<Apollo>

@@ -1,7 +1,7 @@
 import type { Theme } from "@mui/material";
 import { getThemeByName } from "App/components/Themes";
 
-import type { Language } from "App/i18n";
+import type { Language } from "App/i18next";
 import type { RootRedux } from "App/store";
 
 /**
