@@ -19,7 +19,7 @@ class StateBuilder
 	/**
 	 * Add more properties to the mock state.
 	 * @param more - Properties to add to the mocked state.
-	 * @returns 
+	 * @returns
 	 */
 	public with(more: MockState)
 	{
@@ -32,7 +32,7 @@ class StateBuilder
 
 	/**
 	 * Build the mock state.
-	 * @returns 
+	 * @returns
 	 */
 	public build()
 	{

@@ -11,7 +11,7 @@ import scss from "../NavBar.module.scss";
 /**
 * Desktop navbar.
 */
-const NavBarDesktop: FC<NavBarDesktopProps> = ({ toggleDrawer, toggleThemeMode }) => 
+const NavBarDesktop: FC<NavBarDesktopProps> = ({ toggleDrawer, toggleThemeMode }) =>
 {
 	const { icon, color } = useThemeMode({
 		icon: [<Flare />, <Brightness3 />],

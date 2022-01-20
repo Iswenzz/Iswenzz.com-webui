@@ -10,10 +10,10 @@ import scss from "./Jumbotron.module.scss";
  * @constructor
  */
 const Jumbotron: FC<JumbotronProps> = ({ className, children, backgroundImage, title, style,
-	description, titleClassName, descriptionClassName, justifyContent = "center", 
+	description, titleClassName, descriptionClassName, justifyContent = "center",
 	direction = "column", alignItems = "flex-start", variants, initial, animate, exit
 }) => (
-	<article className={classNames(scss.jumbotron, className)} 
+	<article className={classNames(scss.jumbotron, className)}
 		style={{ ...style, backgroundImage: `url(${backgroundImage})` }}>
 		<Container maxWidth={"lg"}>
 			<Grid container component={"ul"} direction={direction} justifyContent={justifyContent} alignItems={alignItems}>

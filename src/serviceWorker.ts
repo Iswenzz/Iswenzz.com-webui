@@ -1,23 +1,23 @@
 /**
  * Register service worker.
  * @param config - Service worker config.
- * @returns 
+ * @returns
  */
 export const register = (config: any) =>
 {
-	if (process.env.NODE_ENV === "production" && "serviceWorker" in navigator) 
+	if (process.env.NODE_ENV === "production" && "serviceWorker" in navigator)
 	{
 	  	// The URL constructor is available in all browsers that support SW.
 		const publicUrl = new URL(process.env.PUBLIC_URL, window.location.href);
-		
+
 		// https://github.com/facebook/create-react-app/issues/2374
 		// Our service worker won't work if PUBLIC_URL is on a different origin
 		// from what our page is served on. This might happen if a CDN is used to
 		// serve assets.
 		if (publicUrl.origin !== window.location.origin)
 			return;
-  
-		window.addEventListener("load", () => 
+
+		window.addEventListener("load", () =>
 		{
 			const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
 
@@ -28,7 +28,7 @@ export const register = (config: any) =>
 		});
 	}
 };
-  
+
 /**
  * Register valid service worker.
  * @param url - Service worker URL.
@@ -40,22 +40,22 @@ const registerValidServiceWorker = async (url: string, config: any) =>
 	{
 		const registration = await navigator.serviceWorker.register(url);
 
-		registration.onupdatefound = () => 
+		registration.onupdatefound = () =>
 		{
 			const installingWorker = registration.installing;
 			if (installingWorker == null)
 				return;
 
-			installingWorker.onstatechange = () => 
+			installingWorker.onstatechange = () =>
 			{
-				if (installingWorker.state === "installed") 
+				if (installingWorker.state === "installed")
 				{
-					if (navigator.serviceWorker.controller) 
+					if (navigator.serviceWorker.controller)
 					{
 						if (config && config.onUpdate)
 							config.onUpdate(registration);
-					} 
-					else 
+					}
+					else
 					{
 						if (config && config.onSuccess)
 							config.onSuccess(registration);
@@ -69,7 +69,7 @@ const registerValidServiceWorker = async (url: string, config: any) =>
 		console.error("Error during service worker registration:", error);
 	}
 };
-  
+
 /**
  * Check if the service worker can be found. If it can't reload the page.
  * @param url - Service worker URL.
@@ -83,13 +83,13 @@ const checkValidServiceWorker = async (url: string, config: any) =>
 
 		// Ensure service worker exists, and that we really are getting a JS file.
 		const contentType = response.headers.get("content-type");
-		if (response.status === 404 || (contentType != null && contentType.indexOf("javascript") === -1)) 
+		if (response.status === 404 || (contentType != null && contentType.indexOf("javascript") === -1))
 		{
 			// No service worker found. Probably a different app. Reload the page.
 			const registration = await navigator.serviceWorker.ready;
 			await registration.unregister();
 			window.location.reload();
-		} 
+		}
 		else // Service worker found. Proceed as normal.
 			registerValidServiceWorker(url, config);
 	}
@@ -104,7 +104,7 @@ const checkValidServiceWorker = async (url: string, config: any) =>
  */
 export const unregister = async () =>
 {
-	if ("serviceWorker" in navigator) 
+	if ("serviceWorker" in navigator)
 	{
 		const registration = await navigator.serviceWorker.ready;
 		registration.unregister();

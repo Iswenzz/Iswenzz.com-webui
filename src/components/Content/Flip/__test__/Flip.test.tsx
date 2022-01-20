@@ -1,8 +1,8 @@
 import { buildRender, fireEvent } from "test/react";
 import Flip, { FlipProps } from "../Flip";
 
-const setup = buildRender<FlipProps, Query>({ 
-	component: Flip, 
+const setup = buildRender<FlipProps, Query>({
+	component: Flip,
 	defaultProps: {
 		front: <div>FRONT</div>,
 		back: <div>BACK</div>
@@ -25,7 +25,7 @@ describe("Flip", () =>
 		expect(component).toHaveClass("back");
 	});
 
-	it("should render both front and back", () => 
+	it("should render both front and back", () =>
 	{
 		const { front, back } = setup();
 
@@ -33,21 +33,21 @@ describe("Flip", () =>
 		expect(back).toBeInTheDocument();
 	});
 
-	it("should render front", () => 
+	it("should render front", () =>
 	{
 		const { component } = setup();
 
 		expect(component).toHaveClass("front");
 	});
 
-	it("should render back", () => 
+	it("should render back", () =>
 	{
 		const { component } = setup({ flipped: true });
 
 		expect(component).toHaveClass("back");
 	});
 
-	it("should call the flip callback", () => 
+	it("should call the flip callback", () =>
 	{
 		const flipCallback = jest.fn();
 		const { front } = setup({ flipCallback });

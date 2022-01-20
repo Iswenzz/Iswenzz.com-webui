@@ -11,6 +11,6 @@ const registredThemes: Record<string, Theme> = {
 /**
  * Get a theme by name.
  * @param name - The name of the theme.
- * @returns 
+ * @returns
  */
 export const getThemeByName = (name: string): Theme => registredThemes[name];

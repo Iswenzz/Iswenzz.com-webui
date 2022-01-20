@@ -33,7 +33,7 @@ const slice = createSlice({
 			...state,
 			isModalActive: action.payload
 		}),
-		setLanguage: (state: any, action: PayloadAction<Language>) => 
+		setLanguage: (state: any, action: PayloadAction<Language>) =>
 		{
 			i18next.changeLanguage(action.payload);
 

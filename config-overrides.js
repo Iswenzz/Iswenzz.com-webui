@@ -3,7 +3,7 @@ const paths = require("react-scripts/config/paths");
 const tsConfigPaths = require("./tsconfig.paths.json");
 const StylelintPlugin = require("stylelint-webpack-plugin");
 
-const { 
+const {
 	override,
 	overrideDevServer,
 	watchAll,
@@ -14,7 +14,7 @@ const {
 const createWebpackAliasesFromTSConfig = () =>
 {
 	const aliasPaths = tsConfigPaths.compilerOptions.paths;
-	return Object.keys(aliasPaths).reduce((alias, currentPath) => 
+	return Object.keys(aliasPaths).reduce((alias, currentPath) =>
 	{
 		const value = aliasPaths[currentPath];
 		const target = Array.isArray(value) ? value[0] : value;
@@ -25,7 +25,7 @@ const createWebpackAliasesFromTSConfig = () =>
 };
 
 module.exports.webpack = override(
-	addWebpackAlias({ 
+	addWebpackAlias({
 		...createWebpackAliasesFromTSConfig(),
 		"react/jsx-runtime": require.resolve("react/jsx-runtime")
 	}),

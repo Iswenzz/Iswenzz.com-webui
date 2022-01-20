@@ -10,7 +10,7 @@ import classNames from "classnames";
 
 /**
  * React data grid table.
- * @returns 
+ * @returns
  */
 const Table: FC<TableProps> = ({ loading, sortCompare = defaultSortCompare, rows, columns = [], ...rest }) =>
 {
@@ -81,7 +81,7 @@ export type TableProps = {
  * Compare two string.
  * @param a - String A.
  * @param b - String B.
- * @returns 
+ * @returns
  */
 const defaultSortCompare = (a: string, b: string) => a.localeCompare(b);
 

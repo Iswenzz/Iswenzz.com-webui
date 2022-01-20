@@ -21,7 +21,7 @@ const Intro: FC = () =>
 	const [ref, inView] = useInView();
 
 	return (
-		<Grid className={classNames(scss.intro, scss[theme])} component="section" 
+		<Grid className={classNames(scss.intro, scss[theme])} component="section"
 			justifyContent={"center"} alignItems={"center"}>
 			<Grid className={scss.grid} container justifyContent="center" alignItems="center">
 				<motion.div ref={ref} variants={animationUp} initial={"exit"} animate={inView ? "enter" : "exit"}>
@@ -31,7 +31,7 @@ const Intro: FC = () =>
 							{about.header}
 						</Text>
 						<Divider className={scss.divider} />
-						<Text align="left" color="textPrimary" component="h3" variant="h3" 
+						<Text align="left" color="textPrimary" component="h3" variant="h3"
 							className={classNames(scss.secondText, "ubuntu-h3")}>
 							{about.title}
 						</Text>

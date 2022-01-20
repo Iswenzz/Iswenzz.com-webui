@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDiscord, faYoutube, faGithub } from "@fortawesome/free-brands-svg-icons";
 import classNames from "classnames";
 
-import { Spacing, Parallax } from "components";
+import { Parallax } from "components";
 
 import scss from "./Footer.module.scss";
 
@@ -18,7 +18,7 @@ const Footer: FC = () =>
 	return (
 		<>
 			<Grid container component="footer">
-				<Grid container className={classNames(scss.footer, scss[theme])} 
+				<Grid container className={classNames(scss.footer, scss[theme])}
 					component="ul" justifyContent="center" alignItems="center">
 					<li>
 						<Fab href="https://github.com/iswenzz" className={scss.icons} color="primary">

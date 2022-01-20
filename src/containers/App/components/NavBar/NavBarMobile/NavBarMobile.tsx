@@ -11,7 +11,7 @@ import scss from "../NavBar.module.scss";
 /**
 * Mobile navbar.
 */
-const NavBarMobile: FC<NavBarMobileProps> = ({ toggleDrawer, toggleThemeMode, isDrawerOpen }) => 
+const NavBarMobile: FC<NavBarMobileProps> = ({ toggleDrawer, toggleThemeMode, isDrawerOpen }) =>
 {
 	const { icon, color } = useThemeMode({
 		icon: [<Flare />, <Brightness3 />],
@@ -20,13 +20,13 @@ const NavBarMobile: FC<NavBarMobileProps> = ({ toggleDrawer, toggleThemeMode, is
 
 	/**
 	 * Toggle the drawer.
-	 * @returns 
+	 * @returns
 	 */
 	const handleToggle = () => toggleDrawer(!isDrawerOpen);
 
 	/**
 	 * Close the drawer.
-	 * @returns 
+	 * @returns
 	 */
 	const handleClose = () => toggleDrawer(false);
 
@@ -47,7 +47,7 @@ const NavBarMobile: FC<NavBarMobileProps> = ({ toggleDrawer, toggleThemeMode, is
 					</Fab>
 				</li>
 			</Grid>
-			<Drawer variant="persistent" anchor="top" open={isDrawerOpen} onClose={handleClose} 
+			<Drawer variant="persistent" anchor="top" open={isDrawerOpen} onClose={handleClose}
 				PaperProps={{ style: { backgroundColor: "rgba(50, 50, 50, 0.3)", color: "gainsboro", top: "48px" }}}>
 				<section role="presentation" onClick={handleClose} onKeyDown={handleClose}>
 					<Grid component="ul" container direction="column" justifyContent="center" alignItems="center">

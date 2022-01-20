@@ -24,7 +24,7 @@ const Projects: FC = () =>
 	return (
 		<>
 			<Element name="projects-section" />
-			<Grid component="section" className={classNames(scss.projects, scss[theme])} 
+			<Grid component="section" className={classNames(scss.projects, scss[theme])}
 				justifyContent={"center"} alignItems={"center"}>
 				<Container component="header" className={scss.container}>
 					<TrailText align="center" color="textPrimary" component="h2" variant="h2" className="poiret-h1 noselect">
@@ -38,16 +38,16 @@ const Projects: FC = () =>
 							<Project
 								key={project.title}
 								projectIndex={index}
-								project={project} 
+								project={project}
 								height={random(100, 220)}
 								width={200}
-							/> 
+							/>
 						))}
 					</SpringGrid>
 				</Grid>
 			</Grid>
 			<Parallax spacingTop="100px" />
-		</> 
+		</>
 	);
 };
 

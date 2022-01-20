@@ -8,16 +8,16 @@ import carouselStyle from "../Carousel.module.scss";
  * @param param0 - Object with the indicator click callback & selected state.
  */
 export const DotButton: FC<CarouselButtonProps> = ({ selected, onClick, size = 20 }) => (
-	<button 
+	<button
 		className={classNames(carouselStyle.dot, { [carouselStyle.selected]: selected })}
-		style={{ width: size, height: size }} 
-		onClick={onClick} 
+		style={{ width: size, height: size }}
+		onClick={onClick}
 	/>
 );
 
 /**
  * Prev arrow button.
- * @param param0 - Object with the indicator click callback & disabled state. 
+ * @param param0 - Object with the indicator click callback & disabled state.
  */
 export const PrevButton: FC<CarouselButtonProps> = ({ disabled, onClick, size = 20 }) => (
 	<button className={classNames(carouselStyle.button, carouselStyle.buttonPrev)} onClick={onClick} disabled={disabled}>

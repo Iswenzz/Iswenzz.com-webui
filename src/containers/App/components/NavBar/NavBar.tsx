@@ -44,7 +44,7 @@ const NavBar: FC<AppBarProps> = () =>
 	/**
 	 * Scroll callback to set the fixed navbar.
 	 */
-	useScroll(() => 
+	useScroll(() =>
 	{
 		const isPastWindowHeight = window.scrollY >= window.innerHeight;
 		if (isPastWindowHeight !== isFixed)
@@ -58,13 +58,13 @@ const NavBar: FC<AppBarProps> = () =>
 		desktop: <NavBarDesktop toggleDrawer={toggleDrawer} toggleThemeMode={toggleThemeMode} />,
 		mobile: <NavBarMobile toggleDrawer={toggleDrawer} toggleThemeMode={toggleThemeMode} isDrawerOpen={isDrawerOpen} />
 	});
-	
+
 	return (
 		<NavBarAnimation isFixed={isFixed}>
-			<motion.div 
-				className={isFixed ? scss.fixed : scss.absolute} 
-				variants={isFixed ? animationFixed : animationAbsolute} 
-				initial={isFixed ? "exit" : "enter"} 
+			<motion.div
+				className={isFixed ? scss.fixed : scss.absolute}
+				variants={isFixed ? animationFixed : animationAbsolute}
+				initial={isFixed ? "exit" : "enter"}
 				animate={"enter"} exit={"exit"}>
 				<AppBar className={scss.navbar} component="nav" position={isFixed ? "fixed" : "absolute"}>
 					<Toolbar variant="dense">

@@ -12,8 +12,8 @@ import config from "./config";
 /**
  * Responsive grid component with masonry layout and spring animation.
  */
-export const SpringGrid: FC<SpringGridProps> = ({ 
-	children = [], style, 
+export const SpringGrid: FC<SpringGridProps> = ({
+	children = [], style,
 	columns = config.columns,
 	gutter = config.gutter,
 	itemSize = config.itemSize,
@@ -22,9 +22,9 @@ export const SpringGrid: FC<SpringGridProps> = ({
 {
 	const responsiveColumns = useBreakpoint(columns, 3);
 
-	const { items, height, width } = useMemo(() => 
+	const { items, height, width } = useMemo(() =>
 	{
-		const { positions, gridHeight, gridWidth } = layout === "simple" 
+		const { positions, gridHeight, gridWidth } = layout === "simple"
 			? computeSimpleLayout(children, responsiveColumns, gutter, itemSize)
 			: computeMasonryLayout(children, responsiveColumns, gutter, itemSize);
 
@@ -34,7 +34,7 @@ export const SpringGrid: FC<SpringGridProps> = ({
 			left: positions[index].x,
 			index
 		}));
-		
+
 		return { items, height: gridHeight, width: gridWidth };
 	}, [children, gutter, itemSize, layout, responsiveColumns]);
 

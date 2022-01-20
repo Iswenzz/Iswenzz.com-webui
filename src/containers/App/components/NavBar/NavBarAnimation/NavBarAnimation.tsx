@@ -3,7 +3,7 @@ import { AnimatePresence } from "framer-motion";
 
 /**
  * Animate the navbar to appear differently when past the window inner height.
- * @returns 
+ * @returns
  */
 const NavBarAnimation: FC<NavBarAnimationProps> = ({ isFixed, children }) => (
 	<nav>

@@ -13,7 +13,7 @@ import scss from "./TrailText.module.scss";
 const TrailText: FC<TrailTextProps> = ({ children, visible = true, ...rest }) =>
 {
 	const { t } = useTranslation();
-	const items = useMemo(() => 
+	const items = useMemo(() =>
 	{
 		const array = Array.isArray(children) ? children : [children];
 		return array.map<string>(t).map(text => text.split(" ").join("\u00A0").split(""));
@@ -21,9 +21,9 @@ const TrailText: FC<TrailTextProps> = ({ children, visible = true, ...rest }) =>
 
 	return (
 		<Typography className={scss.char} {...rest}>
-			{visible && items.map(word => 
+			{visible && items.map(word =>
 				word.map((char, index) => (
-					<motion.div key={uuidv4()} className={scss.charMotion} initial="initial" animate="enter" 
+					<motion.div key={uuidv4()} className={scss.charMotion} initial="initial" animate="enter"
 						variants={animation} custom={index}>
 						{char}
 					</motion.div>

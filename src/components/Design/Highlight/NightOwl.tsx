@@ -4,8 +4,8 @@ import styled from "styled-components";
     Night Owl for highlight.js (c) Carl Baxter <carl@cbax.tech>
     Edited by Iswenzz
 
-    An adaptation of Sarah Drasner's Night Owl VS Code Theme 
-    https://github.com/sdras/night-owl-vscode-theme 
+    An adaptation of Sarah Drasner's Night Owl VS Code Theme
+    https://github.com/sdras/night-owl-vscode-theme
 
     Copyright (c) 2018 Sarah Drasner
 */

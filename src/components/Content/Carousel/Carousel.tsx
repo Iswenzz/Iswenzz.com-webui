@@ -13,9 +13,9 @@ import scss from "./Carousel.module.scss";
  * The carousel provides a next/prev arrow and buttons to scroll through the carousel.
  * @param props - EmblaCarouselProps
  */
-const Carousel: FC<CarouselProps> = ({ 
-	options, loop, delay, children, height, width, buttonSize, style 
-}) => 
+const Carousel: FC<CarouselProps> = ({
+	options, loop, delay, children, height, width, buttonSize, style
+}) =>
 {
 	const [emblaRef, emblaApi] = useEmblaCarousel({ ...options, loop: false });
 
@@ -44,18 +44,18 @@ const Carousel: FC<CarouselProps> = ({
 	/**
 	 * On element select/changes.
 	 */
-	const onSelect = useCallback(() => 
+	const onSelect = useCallback(() =>
 	{
 		if (!emblaApi) return;
 		setSelectedIndex(emblaApi.selectedScrollSnap());
 		setPrevBtnEnabled(emblaApi.canScrollPrev());
 		setNextBtnEnabled(emblaApi.canScrollNext());
 	}, [emblaApi, setSelectedIndex]);
-	
+
 	/**
 	 * Set scroll snaps on changes.
 	 */
-	useEffect(() => 
+	useEffect(() =>
 	{
 		if (!emblaApi) return;
 		onSelect();
@@ -63,12 +63,12 @@ const Carousel: FC<CarouselProps> = ({
 		setScrollSnaps(emblaApi.scrollSnapList());
 		emblaApi.on("select", onSelect);
 	}, [emblaApi, setScrollSnaps, onSelect]);
-	
+
 
 	/**
 	 * Carousel loop.
 	 */
-	useInterval(() => 
+	useInterval(() =>
 	{
 		if (!emblaApi?.canScrollNext())
 			scrollTo(0);
@@ -90,11 +90,11 @@ const Carousel: FC<CarouselProps> = ({
 				</section>
 				<section className={scss.dots}>
 					{scrollSnaps.map((_, index) => (
-						<DotButton 
-							key={index} 
+						<DotButton
+							key={index}
 							size={buttonSize}
-							selected={index === selectedIndex} 
-							onClick={() => scrollTo(index)} 
+							selected={index === selectedIndex}
+							onClick={() => scrollTo(index)}
 						/>
 					))}
 				</section>

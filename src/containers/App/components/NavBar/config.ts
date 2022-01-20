@@ -7,10 +7,10 @@ export const navbarScrollConfig: UserScrollConfig = {
 };
 
 export const animationFixed: Variants = {
-	enter: { 
+	enter: {
 		opacity: 1,
 		scale: 1,
-		transition: { 
+		transition: {
 			duration: 0.5,
 			ease: "easeOut"
 		}
@@ -18,7 +18,7 @@ export const animationFixed: Variants = {
 	exit: {
 		opacity: 0,
 		scale: 1.5,
-		transition: { 
+		transition: {
 			duration: 0.5,
 			ease: "easeIn"
 		}
@@ -26,10 +26,10 @@ export const animationFixed: Variants = {
 };
 
 export const animationAbsolute: Variants = {
-	enter: { 
+	enter: {
 		opacity: 1,
 		scale: 1,
-		transition: { 
+		transition: {
 			duration: 0.25,
 			ease: "easeOut"
 		}
@@ -37,7 +37,7 @@ export const animationAbsolute: Variants = {
 	exit: {
 		opacity: 0,
 		scale: 0,
-		transition: { 
+		transition: {
 			duration: 0.25,
 			ease: "easeIn"
 		}

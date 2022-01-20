@@ -16,7 +16,7 @@ export const about: AboutInfo = aboutJson;
 /**
  * Technological skills.
  */
-const Skills: FC = () => 
+const Skills: FC = () =>
 {
 	const { theme } = useTheme();
 	const [ref, inView] = useInView();
@@ -24,7 +24,7 @@ const Skills: FC = () =>
 	const [web, software, level, webStacks, softwareStacks, editors] = about.skills;
 
 	return (
-		<Grid className={classNames(scss.skills, scss[theme])} component="section" 
+		<Grid className={classNames(scss.skills, scss[theme])} component="section"
 			justifyContent={"center"} alignItems={"center"}>
 			<Container>
 				<motion.div ref={ref} variants={animationLeft} initial={"exit"} animate={inView ? "enter" : "exit"}>
@@ -38,7 +38,7 @@ const Skills: FC = () =>
 				</motion.div>
 				<motion.div variants={animationRight} initial={"exit"} animate={inView ? "enter" : "exit"}>
 					<Grid className={scss.grid} container component="section"
-						alignItems="center" justifyContent="space-around">	
+						alignItems="center" justifyContent="space-around">
 						<article className={scss.article}>
 							<Text component="h2" className="poiret-h2">{web.title}</Text>
 							<Text component="h4" className="ubuntu-h4">{web.points}</Text>

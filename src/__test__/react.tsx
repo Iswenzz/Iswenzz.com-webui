@@ -11,7 +11,7 @@ import aState from "./StateBuilder";
 const mockStore = configureMockStore([thunk]);
 const mockQueries = <Queries,>() => ({ }) as Queries;
 
-const AllTheProviders = (store: MockStoreEnhanced<unknown, {}>): FC => 
+const AllTheProviders = (store: MockStoreEnhanced<unknown, {}>): FC =>
 	({ children }) => <Provider store={store}>{children}</Provider>;
 
 export const customRender = (ui: ReactElement, { store = mockStore(initState) } = {}) => ({
@@ -38,7 +38,7 @@ const buildRender = <Props, Queries>({
 	defaultProps = { },
 	queries = mockQueries }: BuildRenderOptions<Props, Queries>) =>
 {
-	return (props: Object<Props> = { }, state = defaultState): Render<Queries> => 
+	return (props: Object<Props> = { }, state = defaultState): Render<Queries> =>
 	{
 		const store = mockStore(state);
 		const rendered = customRender(
@@ -57,7 +57,7 @@ const buildRender = <Props, Queries>({
 			);
 		};
 
-		// There is another way to handle custom queries 
+		// There is another way to handle custom queries
 		// https://testing-library.com/docs/dom-testing-library/api-helpers#custom-queries
 		// but it seems to return only functions
 		return {

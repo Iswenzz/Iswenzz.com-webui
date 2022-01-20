@@ -10,11 +10,11 @@ import scss from "../NavBar.module.scss";
 /**
  * Navbar logo with redirect/scroll.
  */
-const NavBarLogo: FC = () => 
+const NavBarLogo: FC = () =>
 {
 	const location = useLocation();
 
-	const Link: FC = ({ children }) => location.pathname === "/" 
+	const Link: FC = ({ children }) => location.pathname === "/"
 		? <ScrollLink to="header-section" smooth>{children}</ScrollLink>
 		: <DOMLink className="nolink" to="/">{children}</DOMLink>;
 

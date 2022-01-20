@@ -7,7 +7,7 @@ import MarkdownIt from "markdown-it";
 import { v4 as uuidv4 } from "uuid";
 import hljs from "highlight.js";
 
-import { DialogContent, Fab, Grid, Modal, Fade, Backdrop, Tooltip, 
+import { DialogContent, Fab, Grid, Modal, Fade, Backdrop, Tooltip,
 	DialogTitle, CircularProgress, useTheme } from "@mui/material";
 import { Close, Lock } from "@mui/icons-material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -38,11 +38,11 @@ export const ProjectPopup: FC = (): JSX.Element =>
 	const projects = useSelector(getProjects);
 	const projectsStartIndex = useSelector(getProjectsStartIndex);
 	// const dispatch = useDispatch();
-	
+
 	const [state, setState] = useState<ProjectPopupState>({
 		projects: new Array(projects.length).fill("")
 	});
-	
+
 	const isPortrait = usePortrait();
 	const isTabletOrMobile = useTabletOrMobile();
 	const { width, height } = useWindowSize();
@@ -77,7 +77,7 @@ export const ProjectPopup: FC = (): JSX.Element =>
 	/**
 	 * Modal close handler
 	 */
-	const onClickClose = useCallback(() => 
+	const onClickClose = useCallback(() =>
 	{
 		// dispatch(toggleProjectModalActive(false));
 		// dispatch(toggleModalActive(false));
@@ -116,7 +116,7 @@ export const ProjectPopup: FC = (): JSX.Element =>
 			{
 				if (lang && hljs.getLanguage(lang))
 				{
-					try 
+					try
 					{
 						return "<pre class=\"hljs\"><code>"
 							+ hljs.highlight(lang, str, true).value
@@ -131,7 +131,7 @@ export const ProjectPopup: FC = (): JSX.Element =>
 
 		const openSource: JSX.Element = (
 			<Tooltip arrow disableFocusListener disableTouchListener title={t("PROJECT_TOOLTIP_SOURCE") as string}>
-				<Fab size={isPortrait || isTabletOrMobile ? "small" : "large"} href={project.sourceURL} 
+				<Fab size={isPortrait || isTabletOrMobile ? "small" : "large"} href={project.sourceURL}
 					className={scss.tooltipFab} color="primary">
 					<FontAwesomeIcon color="silver" icon={faOsi} size="2x" />
 				</Fab>
@@ -141,14 +141,14 @@ export const ProjectPopup: FC = (): JSX.Element =>
 		const privateSource: JSX.Element = (
 			<Tooltip arrow disableFocusListener disableTouchListener title={t("PROJECT_TOOLTIP_CLOSED_SOURCE") as string}>
 				<span>
-					<Fab size={isPortrait || isTabletOrMobile ? "small" : "large"} disabled 
+					<Fab size={isPortrait || isTabletOrMobile ? "small" : "large"} disabled
 						className={scss.tooltipFab} color="primary">
 						<Lock />
 					</Fab>
 				</span>
 			</Tooltip>
 		);
-		
+
 		return (
 			<article key={uuidv4()}>
 				{/* Modal Navbar */}
@@ -170,19 +170,19 @@ export const ProjectPopup: FC = (): JSX.Element =>
 							</ul>
 							<div>
 								{project.isOpenSource ? openSource : privateSource}
-								<Fab id="fab_modal_close" onClick={onClickClose} 
-									size={isPortrait || isTabletOrMobile ? "small" : "large"} 
+								<Fab id="fab_modal_close" onClick={onClickClose}
+									size={isPortrait || isTabletOrMobile ? "small" : "large"}
 									className={scss.tooltipFab} color="secondary">
 									<Close color="primary" />
 								</Fab>
 							</div>
-						</Grid> 
+						</Grid>
 					</DialogTitle>
 				</header>
 
 				{/* Modal Content */}
 				<section>
-					<DialogContent onMouseDown={e => e.stopPropagation()} 
+					<DialogContent onMouseDown={e => e.stopPropagation()}
 						onTouchStart={e => e.stopPropagation()} className={scss.modal}>
 						<header>
 							{project.title}
@@ -231,17 +231,17 @@ export const ProjectPopup: FC = (): JSX.Element =>
 	);
 
 	return (
-		<Modal aria-labelledby="projectpopup-modal" aria-describedby="viewpager-project" 
-			open={projectModalActive} keepMounted onClose={onClickClose} closeAfterTransition 
+		<Modal aria-labelledby="projectpopup-modal" aria-describedby="viewpager-project"
+			open={projectModalActive} keepMounted onClose={onClickClose} closeAfterTransition
 			BackdropComponent={Backdrop} BackdropProps={{ timeout: 500 }}>
 			<Fade in={projectModalActive}>
 				<section>
-					<Tooltip open={projectModalActive} placement="right" arrow disableFocusListener 
+					<Tooltip open={projectModalActive} placement="right" arrow disableFocusListener
 						disableTouchListener title={t("PROJECT_TOOLTIP_DRAG") as string}>
-						<img onDragStart={(e) => e.preventDefault()} 
+						<img onDragStart={(e) => e.preventDefault()}
 							className={scss.tooltipDrag} alt="drag" src={dragIcon} />
 					</Tooltip>
-					{projectModalActive ? 
+					{projectModalActive ?
 						isDarkTheme ? <VS2015>{viewPager}</VS2015> : <AtomOneLight>{viewPager}</AtomOneLight>
 						: null}
 				</section>

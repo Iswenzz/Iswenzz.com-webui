@@ -5,28 +5,28 @@ import config from "../config";
 
 /**
  * Calculate the masonry layout.
- * @param elements 
- * @param columns 
- * @param margin 
- * @returns 
+ * @param elements
+ * @param columns
+ * @param margin
+ * @returns
  */
 export const computeMasonryLayout = (
 	elements: ReactElement[], columns: number, gutter: Partial<Size>, itemSize: Partial<Size>
-): Layout => 
+): Layout =>
 {
 	const { width: gutterWidth = config.gutter.width, height: gutterHeight = config.gutter.height } = gutter;
 	const { width: itemWidth = config.itemSize.width } = itemSize;
 
 	const columnHeights: number[] = [];
-	for (let i = 0; i < columns; i++) 
+	for (let i = 0; i < columns; i++)
 		columnHeights.push(0);
 
-	const positions: Position[] = elements.map(element => 
+	const positions: Position[] = elements.map(element =>
 	{
 		const column = columnHeights.indexOf(Math.min.apply(null, columnHeights));
 		const { height } = element.props;
 
-		if (!(height && typeof height === "number")) 
+		if (!(height && typeof height === "number"))
 			throw new Error("Each child must have an \"height\" prop.");
 
 		const x = column * itemWidth + column * gutterWidth;

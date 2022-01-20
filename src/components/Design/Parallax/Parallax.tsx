@@ -12,7 +12,7 @@ import clouds from "assets/images/index/clouds.svg";
  */
 const Parallax: FC<Props> = ({ strength = 400, spacingTop, spacingBottom, bgImage, children, ...rest }) =>
 {
-	const { parallaxImage } = useThemeMode({ 
+	const { parallaxImage } = useThemeMode({
 		parallaxImage: [stars, clouds]
 	});
 

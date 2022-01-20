@@ -32,11 +32,11 @@ export const contactFormInitial: ContactFormValues = {
 };
 
 const animation: Variants = {
-	enter: { 
-		y: "0%", 
+	enter: {
+		y: "0%",
 		opacity: 1,
 		scale: 1,
-		transition: { 
+		transition: {
 			duration: 1,
 			ease: "easeOut"
 		}
@@ -45,7 +45,7 @@ const animation: Variants = {
 		y: "-100%",
 		opacity: 0,
 		scale: 0.4,
-		transition: { 
+		transition: {
 			duration: 1,
 			ease: "easeIn"
 		}
@@ -72,19 +72,19 @@ export const Contact: FC = (): JSX.Element =>
 	const [success, setSuccess] = useState(false);
 	const [fail, setFail] = useState(false);
 
-	const buttonStyle = classNames(scss.buttonDefault, { 
-		[scss.buttonSuccess]: success, [scss.buttonFail]: fail 
+	const buttonStyle = classNames(scss.buttonDefault, {
+		[scss.buttonSuccess]: success, [scss.buttonFail]: fail
 	});
 
 	const config: GradientProps = isDarkTheme ? {
-		gradientPosition: `${isTabletOrMobile ? "circle" : "ellipse"} at bottom`, 
+		gradientPosition: `${isTabletOrMobile ? "circle" : "ellipse"} at bottom`,
 		colors: [
 			{ color: "#841A2A", colorPercent: "0%" },
 			{ color: "#151243", colorPercent: "70%" }
 		]
 	} : {
 		linear: true,
-		gradientPosition: "-45deg", 
+		gradientPosition: "-45deg",
 		colors: [
 			{ color: "#ffdf00" },
 			{ color: "#f4f4f4" }
@@ -166,20 +166,20 @@ export const Contact: FC = (): JSX.Element =>
 	const form: JSX.Element = (
 		<Grid container component="section" direction="column" justifyContent="center" alignItems="center">
 			<header>
-				<Avatar alt="iswenzz avatar" src={iswenzzIcon} 
+				<Avatar alt="iswenzz avatar" src={iswenzzIcon}
 					className={scss.avatar} />
 			</header>
 			<Formik initialValues={contactFormInitial} onSubmit={sendEmail}>
 				<Form>
 					<Field component={TextField} required label={t("CONTACT_EMAIL")} id="email" name="email" type="email"
 						fullWidth color="secondary" variant="outlined" margin="normal" autoComplete="email" />
-					<Field component={TextField} required label={t("CONTACT_SUBJECT")} id="subject" name="subject" 
+					<Field component={TextField} required label={t("CONTACT_SUBJECT")} id="subject" name="subject"
 						type="text" fullWidth color="secondary" variant="outlined" margin="normal" />
-					<Field component={TextField} required label={t("CONTACT_MESSAGE")} id="message" name="message" 
+					<Field component={TextField} required label={t("CONTACT_MESSAGE")} id="message" name="message"
 						type="text" fullWidth multiline rows="6" color="secondary" variant="outlined" margin="normal" />
 					<Container maxWidth="xs">
 						<Grid container justifyContent="center" alignItems="center">
-							<Button fullWidth variant="contained" type="submit" 
+							<Button fullWidth variant="contained" type="submit"
 								color="secondary" disabled={loading || success || fail} className={buttonStyle}>
 								<Trans>CONTACT_SEND</Trans>
 							</Button>

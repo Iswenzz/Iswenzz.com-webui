@@ -8,7 +8,7 @@ import scss from "./ViewPager.module.scss";
 /**
  * Carousel with gesture features.
  */
-const ViewPager: FC<ViewPagerProps> = ({ items, startIndex, background, style, config, onIndexChange  }) => 
+const ViewPager: FC<ViewPagerProps> = ({ items, startIndex, background, style, config, onIndexChange  }) =>
 {
 	const [index, setIndex] = useState(startIndex !== undefined ? startIndex : 0);
 	const [divRef, setDivRef] = useState<Nullable<HTMLElement>>(null);
@@ -41,9 +41,9 @@ const ViewPager: FC<ViewPagerProps> = ({ items, startIndex, background, style, c
 	/**
 	 * Page dragging callback.
 	 */
-	const bind = useDrag(({ down, movement: [mx], direction: [xDir], distance, cancel }) => 
+	const bind = useDrag(({ down, movement: [mx], direction: [xDir], distance, cancel }) =>
 	{
-		if (down && distance[0] > window.innerWidth / 4) 
+		if (down && distance[0] > window.innerWidth / 4)
 		{
 			setIndex(clamp(index + (xDir > 0 ? -1 : 1), 0, items.length - 1));
 			if (onIndexChange)
@@ -52,9 +52,9 @@ const ViewPager: FC<ViewPagerProps> = ({ items, startIndex, background, style, c
 				cancel();
 		}
 
-		set(i => 
+		set(i =>
 		{
-			if (i < index - 1 || i > index + 1) 
+			if (i < index - 1 || i > index + 1)
 				return { display: "none" };
 
 			const x = (i - index) * window.innerWidth + (down ? mx : 0);
@@ -63,7 +63,7 @@ const ViewPager: FC<ViewPagerProps> = ({ items, startIndex, background, style, c
 			return { x, scale, display: "block" };
 		});
 	});
-	
+
 	return (
 		<section style={style}>
 			{springProps.map(({ x, display, scale }, i) => (

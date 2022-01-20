@@ -6,28 +6,28 @@ import { Grid, GridProps } from "@mui/material";
  */
 const Gradient: FC<GradientProps> = ({ className, id, children, config, ...props }) =>
 {
-	const { gradientPosition, linear, style, colors = [], 
-		justifyContent = "center", alignItems = "center", 
+	const { gradientPosition, linear, style, colors = [],
+		justifyContent = "center", alignItems = "center",
 		direction = "row", component = "div" } = config || props;
 
 	/**
 	 * Format all gradient colors to a string separated by a coma.
 	 * @param gradientColor - The gradient color.
-	 * @returns 
+	 * @returns
 	 */
-	const formatColors = (gradientColors: GradientColor[]) => 
+	const formatColors = (gradientColors: GradientColor[]) =>
 		gradientColors.map(c => `${c.color} ${c.colorPercent}`).join(",");
 
 	/**
 	 * Generate a linear/radial gradient CSS string.
 	 */
-	const getBackground = () => linear 
-		? `linear-gradient(${gradientPosition}, ${formatColors(colors)})` 
+	const getBackground = () => linear
+		? `linear-gradient(${gradientPosition}, ${formatColors(colors)})`
 		: `radial-gradient(${gradientPosition}, ${formatColors(colors)})`;
 
 	return (
-		<Grid className={className} id={id} component={component} container direction={direction} 
-			justifyContent={justifyContent} alignItems={alignItems} 
+		<Grid className={className} id={id} component={component} container direction={direction}
+			justifyContent={justifyContent} alignItems={alignItems}
 			style={{ ...style, background: getBackground() }}>
 			{children}
 		</Grid>

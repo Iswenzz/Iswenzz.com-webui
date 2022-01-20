@@ -15,11 +15,11 @@ import { Level, LevelProject } from "./Level/Level";
 const levelProjects: LevelProject[] = levelProjectsJson;
 
 const animation: Variants = {
-	enter: { 
-		y: "0%", 
+	enter: {
+		y: "0%",
 		opacity: 1,
 		scale: 1,
-		transition: { 
+		transition: {
 			duration: 1,
 			ease: "easeOut"
 		}
@@ -28,7 +28,7 @@ const animation: Variants = {
 		y: "100%",
 		opacity: 0,
 		scale: 0.4,
-		transition: { 
+		transition: {
 			duration: 1,
 			ease: "easeIn"
 		}
@@ -46,13 +46,13 @@ export const Levels: FC = () =>
 	const { isDarkTheme } = useTheme();
 
 	const config: GradientProps = isDarkTheme ? {
-		gradientPosition: `${isTabletOrMobile ? "circle" : "ellipse"} at bottom`, 
+		gradientPosition: `${isTabletOrMobile ? "circle" : "ellipse"} at bottom`,
 		colors: [
 			{ color: "#001C51", colorPercent: "0%" },
 			{ color: "#090A0A", colorPercent: "50%" }
 		]
 	} : {
-		gradientPosition: "circle at bottom", 
+		gradientPosition: "circle at bottom",
 		colors: [
 			{ color: "#f69100", colorPercent: "0%" },
 			{ color: "#f4f4f4", colorPercent: "50%" }
@@ -86,7 +86,7 @@ export const Levels: FC = () =>
 								</motion.div>
 							</Container>
 						</Grid>
-					</Gradient>	
+					</Gradient>
 				</section>
 			)}
 		</VisibilitySensor>

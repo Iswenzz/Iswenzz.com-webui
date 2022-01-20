@@ -25,7 +25,7 @@ const useDoubleClick = (onClick?: Callback, onDoubleClick?: Callback) =>
 		{
 			await waitForClick.promise;
 			cancellable.removePendingPromise(waitForClick);
-			if (onClick) 
+			if (onClick)
 				onClick(event);
 		}
 		catch (errorInfo: any)

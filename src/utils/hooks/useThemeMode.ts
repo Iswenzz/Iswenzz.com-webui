@@ -4,9 +4,9 @@ import { Theme, useTheme } from "@mui/material";
  * Get values corresponding to the current theme mode.
  * @remarks [dark, light]
  * @param values - The values to get depending on the theme mode.
- * @returns 
+ * @returns
  */
-const useThemeMode = <V extends Values>(values: V) => 
+const useThemeMode = <V extends Values>(values: V) =>
 {
 	const theme = useTheme();
 

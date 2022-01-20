@@ -12,7 +12,7 @@ import { ProjectPopup } from "./components/Projects/ProjectPopup/ProjectPopup";
 const Home: FC = () =>
 {
 	const { isDarkTheme } = useTheme();
-	
+
 	return (
 		<>
 			<Header title="Iswenzz" description="HOME_HEADER"

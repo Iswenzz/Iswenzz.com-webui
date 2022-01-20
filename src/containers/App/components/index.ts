@@ -6,8 +6,8 @@ export * from "./Footer/Footer";
 export * from "./LanguagePicker/LanguagePicker";
 export * from "./NavBar/NavBar";
 
-export { 
-	Footer, 
-	LanguagePicker, 
-	NavBar 
+export {
+	Footer,
+	LanguagePicker,
+	NavBar
 };

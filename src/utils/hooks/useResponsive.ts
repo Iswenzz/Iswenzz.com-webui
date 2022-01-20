@@ -4,9 +4,9 @@ import useTabletOrMobile from "./useTabletOrMobile";
 /**
  * Get value coresponding to the current media query.
  * @param queries - The value to get on its media query.
- * @returns 
+ * @returns
  */
-const useResponsive = <T>(queries: ResponsiveProps<T>): T => 
+const useResponsive = <T>(queries: ResponsiveProps<T>): T =>
 {
 	const isPortrait = usePortrait();
 	const isTabletOrMobile = useTabletOrMobile();

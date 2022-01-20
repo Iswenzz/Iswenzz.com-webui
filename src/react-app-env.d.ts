@@ -5,7 +5,7 @@ import "@mui/material/styles";
 declare global
 {
 	type JSONValue = string | number | boolean | null | object | JSONValue[];
-	
+
 	type KeyOf<T> = keyof T;
 	type ValueOf<T> = T[keyof T];
 	type Nullable<T> = T | null;
@@ -24,14 +24,14 @@ declare global
 		x: number,
 		y: number
 	};
-	
+
 	type Size = {
 		width: number,
 		height: number
 	};
 }
 
-declare module "@mui/material/styles" 
+declare module "@mui/material/styles"
 {
 	interface Theme
 	{
@@ -39,8 +39,8 @@ declare module "@mui/material/styles"
 		isDarkTheme: boolean
 	}
 
-	interface ThemeOptions 
-	{ 
+	interface ThemeOptions
+	{
 		theme?: string,
 		isDarkTheme?: boolean
 	}

@@ -13,7 +13,7 @@ import scss from "./Level.module.scss";
 import classNames from "classnames";
 import { ProjectIcon } from "Home/components/Projects/Project/Project";
 
-const playerConfig: Config = { 
+const playerConfig: Config = {
 	youtube: {
 		playerVars: {
 			disablekb: false,
@@ -65,18 +65,18 @@ export const Level: FC<LevelProps> = (props: LevelProps): JSX.Element =>
 		<Container component="section" className={classNames(scss.back, scss[theme])}>
 			<ImageList className={scss.gridList} rowHeight="auto" gap={1}>
 				<ImageListItem component="header" className="level-desktop-tile-name" key={uuidv4()} cols={2} rows={2}>
-					<Typography itemProp="name" className="level-desktop-typo" variant="h2" align="center" 
+					<Typography itemProp="name" className="level-desktop-typo" variant="h2" align="center"
 						color="textPrimary" component="h2">
 						{props.currentLevel.name}
 					</Typography>
 				</ImageListItem>
 				<ImageListItem key={uuidv4()} cols={1} rows={1} className="level-desktop-tile-player">
-					{isFlipped ? <ReactPlayer config={playerConfig} width="100%" height="100%" 
+					{isFlipped ? <ReactPlayer config={playerConfig} width="100%" height="100%"
 						url={props.currentLevel.videoUrl} /> : null}
 				</ImageListItem>
 				<ImageListItem key={uuidv4()} cols={1} rows={1} className="level-desktop-tile-desc">
 					<Grid container justifyContent="center" alignItems="center">
-						<Typography itemProp="description" className="level-desktop-tile-desc-typo" variant="subtitle1" 
+						<Typography itemProp="description" className="level-desktop-tile-desc-typo" variant="subtitle1"
 							align="left" color="textPrimary" paragraph component="p">
 							{props.currentLevel.description}
 						</Typography>
@@ -95,9 +95,9 @@ export const Level: FC<LevelProps> = (props: LevelProps): JSX.Element =>
 				<header>
 					<h3 itemProp="name" className="calli-h2 level-mobile-name">{props.currentLevel.name}</h3>
 				</header>
-				{isFlipped ? <ReactPlayer config={playerConfig} width="100%" height="50%" 
+				{isFlipped ? <ReactPlayer config={playerConfig} width="100%" height="50%"
 					url={props.currentLevel.videoUrl} /> : null}
-				<Typography itemProp="description" className="level-mobile-typo" paragraph variant="subtitle1" align="left" 
+				<Typography itemProp="description" className="level-mobile-typo" paragraph variant="subtitle1" align="left"
 					color="textPrimary" component="p">
 					{props.currentLevel.description}
 				</Typography>
@@ -107,15 +107,15 @@ export const Level: FC<LevelProps> = (props: LevelProps): JSX.Element =>
 
 	return (
 		<Flip flipCallback={flipCallback} front={(
-			<Container itemScope itemType="http://schema.org/3DModel" component="section" 
-				className={classNames(scss.front, scss[theme])} 
+			<Container itemScope itemType="http://schema.org/3DModel" component="section"
+				className={classNames(scss.front, scss[theme])}
 				style={{ backgroundImage: `url(${props.currentLevel.image})` }}>
 				<meta itemProp="image" content={props.currentLevel.image} />
 				<meta itemProp="embedUrl" content={props.currentLevel.videoUrl} />
 				<Grid container alignItems="center" justifyContent="space-between">
 					<Tooltip placement="right" arrow disableFocusListener title={t("TOOLTIP_CLICK_ME") as string}>
 						<Forward>
-							<Image onDragStart={(e) => e.preventDefault()} 
+							<Image onDragStart={(e) => e.preventDefault()}
 								alt="click-me" width={55} height={64} src={clickMeIcon} />
 						</Forward>
 					</Tooltip>

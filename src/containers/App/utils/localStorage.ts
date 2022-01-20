@@ -4,14 +4,14 @@ import type { RootRedux } from "App/store";
 
 /**
  * Load the local storage redux state.
- * @returns 
+ * @returns
  */
-export const loadLocalState = (): RootRedux | Record<string, unknown> => 
+export const loadLocalState = (): RootRedux | Record<string, unknown> =>
 {
-	try 
+	try
 	{
 		const serializedState = localStorage.getItem("state");
-		if (!serializedState) 
+		if (!serializedState)
 			return { };
 		return JSON.parse(serializedState) as RootRedux;
 	}
@@ -23,11 +23,11 @@ export const loadLocalState = (): RootRedux | Record<string, unknown> =>
 
 /**
  * Save the local storage redux state.
- * @param state - The redux state to save, merge if exsist. 
+ * @param state - The redux state to save, merge if exsist.
  */
 export const saveLocalState = <R extends keyof RootRedux>(
-	reducer: R, state: Partial<RootRedux[R]> 
-): Partial<RootRedux[R]> => 
+	reducer: R, state: Partial<RootRedux[R]>
+): Partial<RootRedux[R]> =>
 {
 	const oldState = loadLocalState();
 	const serializedState = JSON.stringify(merge(oldState, { [reducer]: state }));

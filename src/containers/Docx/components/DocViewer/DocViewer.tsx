@@ -51,7 +51,7 @@ export const DocViewer: FC = (): JSX.Element =>
 				const elem = getElementByXPath(`//a[@href="${hash}"]`);
 				if (elem && elem instanceof HTMLAnchorElement)
 					scroll.scrollTo(elem.offsetTop - 48);
-				
+
 				/*
 				// @todo set uml iframes
 				let dyncontents = getElementsByXPath("//div[@class="dyncontent"]");
@@ -67,11 +67,11 @@ export const DocViewer: FC = (): JSX.Element =>
 					switch (i)
 					{
 						case 0: // deps
-							iframe.setAttribute("src", `${url}__incl.svg`);	
+							iframe.setAttribute("src", `${url}__incl.svg`);
 							break;
 						case 1: // include graph
-							iframe.setAttribute("src", `${url}__dep__incl.svg`);	
-							div.classList.add("iframe-center"); 	
+							iframe.setAttribute("src", `${url}__dep__incl.svg`);
+							div.classList.add("iframe-center");
 							break;
 					}
 					div.appendChild(iframe);
@@ -92,7 +92,7 @@ export const DocViewer: FC = (): JSX.Element =>
 
 		const c_docpath = "/docs/cgsc/";
 		const c_pathname: string = navigate.name;
-		const c_file: string = c_pathname.substring(c_pathname.indexOf(c_docpath) 
+		const c_file: string = c_pathname.substring(c_pathname.indexOf(c_docpath)
 			+ c_docpath.length, c_pathname.length);
 
 		if (e.target instanceof HTMLAnchorElement)

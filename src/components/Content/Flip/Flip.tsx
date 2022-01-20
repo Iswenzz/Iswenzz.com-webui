@@ -26,7 +26,7 @@ const Flip: FC<FlipProps> = ({ flipped = false, flipCallback, back, front, direc
 	};
 
 	return (
-		<ReactCardFlip containerClassName={containerStyles} 
+		<ReactCardFlip containerClassName={containerStyles}
 			isFlipped={isFlipped} flipDirection={direction}>
 			<section className={scss.flip} onClick={handleClick}>
 				{front}

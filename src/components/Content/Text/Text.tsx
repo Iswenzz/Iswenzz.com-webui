@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 /**
  * Typography wrapper for multiple strings.
  */
-const Text: FC<TextProps> = ({ children, raw, component = "h6", ...rest }) => 
+const Text: FC<TextProps> = ({ children, raw, component = "h6", ...rest }) =>
 {
 	const { t } = useTranslation();
 	const items = Array.isArray(children) ? children : [children];

@@ -56,12 +56,12 @@ const LanguagePicker: FC = () =>
 
 	return (
 		<div>
-			<Fab className={scss.button} aria-controls="language-menu" 
+			<Fab className={scss.button} aria-controls="language-menu"
 				aria-haspopup="true" onClick={handleMenuClick} size="small">
 				<CurrentLanguageIcon className={scss.icon} />
 			</Fab>
 			<ThemeProvider theme={menuTheme}>
-				<Menu id="language-menu" anchorEl={anchorEl} keepMounted 
+				<Menu id="language-menu" anchorEl={anchorEl} keepMounted
 					open={Boolean(anchorEl)} onClose={handleMenuClose}>
 					{Object.entries(languages).map(([language, LanguageIcon]) => (
 						<MenuItem key={language} onClick={() => handleLanguageChange(language as Language)}>
