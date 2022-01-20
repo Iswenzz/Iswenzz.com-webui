@@ -1,10 +1,20 @@
-.gradient {
+@import "~App/styles/Themes";
+
+.projects {
 	list-style-type: none;
 	padding: 50px 0;
+	
+	@include darkMode {
+		background: radial-gradient(ellipse at center, #3c0084, #0e0f14 50%);
+	}
+
+	@include lightMode {
+		background: linear-gradient(144deg, white, #f4f4f4);
+	}
 }
 
 .container {
-	padding-top: 50px;
+	padding: 50px;
 }
 
 .divider {

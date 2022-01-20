@@ -1,8 +1,7 @@
 import { FC } from "react";
-import { Parallax } from "react-parallax";
 import { useTheme } from "@mui/material";
 
-import { Header, Spacing, TrailText } from "components";
+import { Header, Parallax, TrailText } from "components";
 
 import { Contact, About, Levels, Projects } from "./components";
 import { ProjectPopup } from "./components/Projects/ProjectPopup/ProjectPopup";
@@ -23,17 +22,12 @@ const Home: FC = () =>
 			{/* Projects */}
 			<ProjectPopup />
 			<Projects />
-			<Parallax style={{backgroundColor: isDarkTheme ? "black" : "rgb(122, 206, 255)"}} 
-				bgImageAlt="index" strength={400}
-				bgImage={require(`assets/images/index/${isDarkTheme ? "stars" : "clouds"}.svg`)}>
-				<Spacing height="100px" />
-			</Parallax>
 
 			{/* Levels */}
 			<Levels />
 
 			{/* Contact */}
-			<Parallax className="contact-parallax" bgImageAlt="index" strength={200} blur={1}
+			<Parallax className="contact-parallax" strength={200} blur={1}
 				bgImage={require(`assets/images/index/${isDarkTheme ? "55.jpg" : "t1.jpg"}`)}>
 				<TrailText className="poiret-h1 bold noselect contact-typo" align="center" variant="h2" component="h2">
 					CONTACT_HEADER

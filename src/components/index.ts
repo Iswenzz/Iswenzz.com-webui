@@ -15,6 +15,7 @@ import NightOwl from "./Design/Highlight/NightOwl";
 import VS2015 from "./Design/Highlight/VS2015";
 import Image from "./Design/Image/Image";
 import Loader from "./Design/Loader/Loader";
+import Parallax from "./Design/Parallax/Parallax";
 import Spacing from "./Design/Spacing/Spacing";
 import Video from "./Design/Video/Video";
 import ButtonLink from "./Inputs/ButtonLink/ButtonLink";
@@ -42,6 +43,7 @@ export * from "./Design/Highlight/NightOwl";
 export * from "./Design/Highlight/VS2015";
 export * from "./Design/Image/Image";
 export * from "./Design/Loader/Loader";
+export * from "./Design/Parallax/Parallax";
 export * from "./Design/Spacing/Spacing";
 export * from "./Design/Video/Video";
 export * from "./Inputs/ButtonLink/ButtonLink";
@@ -71,6 +73,7 @@ export {
 	VS2015,
 	Image,
 	Loader,
+	Parallax,
 	Spacing,
 	Video,
 	ButtonLink,

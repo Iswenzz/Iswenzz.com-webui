@@ -1,14 +1,12 @@
 import { FC, memo } from "react";
-import { Parallax } from "react-parallax";
 import { Link } from "react-scroll";
-import { useTranslation } from "react-i18next";
 import classNames from "classnames";
 
-import { Grid, Typography } from "@mui/material";
+import { Grid } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
-import { TrailText } from "components";
+import { TrailText, Parallax } from "components";
 
 import scss from "./Header.module.scss";
 
@@ -17,29 +15,25 @@ import scss from "./Header.module.scss";
  */
 const Header: FC<HeaderProps> = ({ 
 	className, title, description = "", background, parallaxStrength = 400, parallaxBlur = 0
-}) =>
-{
-	return (
-		<header>
-			<Parallax className={classNames(scss.parallax, className)} bgImage={background} 
-				bgImageAlt="index" blur={parallaxBlur}
-				strength={parallaxStrength}>
-				<Grid component="section" container className={scss.grid} 
-					direction="column" justifyContent="center" alignItems="center">
-					<TrailText className="calli-h1 bold noselect" align="center" variant="h1" component="h1">
-						{title}
-					</TrailText>
-					<TrailText className="poiret bold noselect" align="center" variant="h3" component="h3">
-						{description}
-					</TrailText>
-					<Link to="intro-section" offset={5} smooth>
-						<FontAwesomeIcon icon={faChevronDown} size="3x" className={scss.arrow} />
-					</Link>
-				</Grid>
-			</Parallax>
-		</header>
-	);
-};
+}) => (
+	<header>
+		<Parallax className={classNames(scss.parallax, className)} bgImage={background} 
+			bgImageAlt="parallax" blur={parallaxBlur} strength={parallaxStrength}>
+			<Grid component="section" container className={scss.grid} 
+				direction="column" justifyContent="center" alignItems="center">
+				<TrailText className="calli-h1 bold noselect" align="center" variant="h1" component="h1">
+					{title}
+				</TrailText>
+				<TrailText className="poiret bold noselect" align="center" variant="h3" component="h3">
+					{description}
+				</TrailText>
+				<Link to="intro-section" offset={5} smooth>
+					<FontAwesomeIcon icon={faChevronDown} size="3x" className={scss.arrow} />
+				</Link>
+			</Grid>
+		</Parallax>
+	</header>
+);
 
 type HeaderProps = {
 	className?: string,

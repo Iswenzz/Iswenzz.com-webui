@@ -1,25 +1,19 @@
 import { FC, memo } from "react";
-import { Parallax } from "react-parallax";
-import { Grid, Fab, Tooltip, Typography } from "@mui/material";
+import { Grid, Fab, Tooltip, Typography, useTheme } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDiscord, faYoutube, faGithub } from "@fortawesome/free-brands-svg-icons";
+import classNames from "classnames";
 
-import { Spacing } from "components";
-import useThemeMode from "utils/hooks/useThemeMode";
-import stars from "assets/images/index/stars.svg";
-import clouds from "assets/images/index/clouds.svg";
+import { Spacing, Parallax } from "components";
 
 import scss from "./Footer.module.scss";
-import classNames from "classnames";
 
 /**
  * Footer with links to social medias & copyrights.
  */
 const Footer: FC = () =>
 {
-	const { parallaxImage, theme } = useThemeMode({ 
-		parallaxImage: [stars, clouds]
-	});
+	const { theme } = useTheme();
 
 	return (
 		<>
@@ -45,12 +39,10 @@ const Footer: FC = () =>
 					</li>
 				</Grid>
 			</Grid>
-			<Parallax className={scss.parallax} bgImageAlt="footer" strength={-400} bgImage={parallaxImage}>
-				<Spacing height="10px" />
+			<Parallax className={scss.parallax} strength={-400}>
 				<Typography align="center" color="textPrimary" variant="subtitle2" component="h3">
-				Copyright © Iswenzz 2017-2022
+					Copyright © Iswenzz 2017-2022
 				</Typography>
-				<Spacing height="190px" />
 			</Parallax>
 		</>
 	);
