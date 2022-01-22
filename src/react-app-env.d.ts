@@ -29,6 +29,11 @@ declare global
 		width: number,
 		height: number
 	};
+
+	type Icon = {
+		src: string,
+		name: string
+	};
 }
 
 declare module "@mui/material/styles"
