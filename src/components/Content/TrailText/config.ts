@@ -8,7 +8,7 @@ export const animation: Variants = {
 			delay: index * 0.05
 		}
 	}),
-	initial: {
+	exit: {
 		y: "100%",
 		opacity: 0
 	}
