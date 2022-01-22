@@ -3,7 +3,7 @@ import { batch, useDispatch, useSelector } from "react-redux";
 import { useList, useWindowSize } from "react-use";
 import { Dialog, Fade, Portal } from "@mui/material";
 
-import { setModalActive } from "App/redux";
+import { setModalActive, setNavbarActive } from "App/redux";
 import { getProjectModalOpen, getProjectModalStartIndex, setProjectModalOpen } from "Home/redux";
 import { HintDrag, ViewPager, ViewPagerConfig } from "components";
 import useThemeMode from "utils/hooks/useThemeMode";
@@ -53,6 +53,7 @@ export const ProjectPopup: FC<ProjectPopupProps> = ({ projects }) =>
 		batch(() =>
 		{
 			dispatch(setProjectModalOpen(false));
+			dispatch(setNavbarActive(true));
 			dispatch(setModalActive(false));
 		});
 	};

@@ -2,7 +2,7 @@ import { FC, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 
-import { getModalActiveState, getTheme } from "App/redux";
+import { getModalActive, getTheme } from "App/redux";
 import { getElementByXPath } from "utils/elements";
 
 import "App/styles/Main.scss";
@@ -14,7 +14,7 @@ import "App/styles/Main.scss";
 export const Themes: FC = ({ children }) =>
 {
 	const theme = useSelector(getTheme);
-	const isModalActive = useSelector(getModalActiveState);
+	const isModalActive = useSelector(getModalActive);
 
 	const html = useRef<HTMLElement>(getElementByXPath("html") as HTMLElement);
 

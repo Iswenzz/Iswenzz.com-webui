@@ -17,4 +17,9 @@ export const getLanguage = (state: RootRedux): Language => state.app.language;
 /**
  * Get main modal active state.
  */
-export const getModalActiveState = (state: RootRedux): boolean => state.app.isModalActive;
+export const getModalActive = (state: RootRedux): boolean => state.app.isModalActive;
+
+/**
+ * Get the navbar active state.
+ */
+export const getNavbarActive = (state: RootRedux): boolean => state.app.navbar;

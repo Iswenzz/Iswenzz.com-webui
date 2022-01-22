@@ -8,18 +8,22 @@ $link-color-hover: slateblue;
 	&:visited {
 		color: $link-color-visited;
 	}
-	
+
 	&:hover {
 		color: $link-color-hover;
 	}
 }
 
 .nolink {
-	text-decoration: none;
+	text-decoration: none !important;
 }
 
 .noselect {
 	user-select: none !important;
+}
+
+.nopointer {
+	pointer-events: none !important;
 }
 
 .bold {
@@ -30,6 +34,6 @@ $link-color-hover: slateblue;
 	white-space: pre-line !important;
 }
 
-.grecaptcha-badge { 
-	visibility: hidden;
+.grecaptcha-badge {
+	visibility: hidden !important;
 }

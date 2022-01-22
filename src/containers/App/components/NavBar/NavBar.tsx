@@ -18,9 +18,10 @@ import scss from "./NavBar.module.scss";
 /**
  * Navigation container with links to different sections.
  */
-const NavBar: FC<AppBarProps> = () =>
+const NavBar: FC<AppBarProps> = (): Nullable<JSX.Element> =>
 {
 	const dispatch = useDispatch();
+
 	const { isDarkTheme } = useTheme();
 
 	const [isFixed, setFixed] = useState<boolean>(false);
@@ -66,7 +67,8 @@ const NavBar: FC<AppBarProps> = () =>
 				variants={isFixed ? animationFixed : animationAbsolute}
 				initial={isFixed ? "exit" : "enter"}
 				animate={"enter"} exit={"exit"}>
-				<AppBar className={scss.navbar} component="nav" position={isFixed ? "fixed" : "absolute"}>
+				<AppBar className={scss.navbar}
+					component="nav" position={isFixed ? "fixed" : "absolute"}>
 					<Toolbar variant="dense">
 						<Grid component="section" container spacing={3}>
 							<Grid component="figure" item xs={3}>

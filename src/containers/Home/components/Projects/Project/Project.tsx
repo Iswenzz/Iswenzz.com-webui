@@ -6,8 +6,8 @@ import { motion } from "framer-motion";
 import { Card, CardActionArea, Typography } from "@mui/material";
 
 import { setProjectModalOpen, setProjectModalStartIndex } from "Home/redux";
+import { setModalActive, setNavbarActive } from "App/redux";
 import useResponsive from "utils/hooks/useResponsive";
-import { setModalActive } from "App/redux";
 
 import scss from "./Project.module.scss";
 
@@ -24,12 +24,13 @@ const Project: FC<ProjectProps> = ({ project, projectIndex, height = 200, width 
 	});
 
 	/**
-	 * Toggle the ProjectPopup modal.
+	 * Open the ProjectPopup modal.
 	 */
-	const onToggle = () =>
+	const handleClick = () =>
 	{
 		batch(() =>
 		{
+			dispatch(setNavbarActive(false));
 			dispatch(setModalActive(true));
 			dispatch(setProjectModalOpen(true));
 			dispatch(setProjectModalStartIndex(projectIndex));
@@ -42,7 +43,7 @@ const Project: FC<ProjectProps> = ({ project, projectIndex, height = 200, width 
 			<meta itemProp="image" content={project.cardImage} />
 			<meta itemProp="downloadUrl" content={project.sourceURL} />
 			<LazyLoad height={height}>
-				<Card onClick={onToggle} className={scss.card}
+				<Card onClick={handleClick} className={scss.card}
 				  style={{ width, height, backgroundImage: `url(${project.cardImage})`}}>
 					<CardActionArea className={scss.cardAction}>
 						<Typography itemProp="name" variant="caption" align="center"

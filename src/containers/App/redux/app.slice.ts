@@ -11,14 +11,16 @@ export type AppRedux = {
 	theme: string,
 	language: Language,
 	browserInfo: Omit<ReturnType<typeof detect>, "prototypes">,
-	isModalActive: boolean
+	isModalActive: boolean,
+	navbar: boolean
 };
 
 export const initialState = createInitState<AppRedux>({
 	theme: "dark",
 	language: "en",
 	browserInfo: omit(detect(), "prototypes"),
-	isModalActive: false
+	isModalActive: false,
+	navbar: true
 }, "app");
 
 const slice = createSlice({
@@ -33,6 +35,10 @@ const slice = createSlice({
 			...state,
 			isModalActive: action.payload
 		}),
+		setNavbarActive: (state: any, action: PayloadAction<boolean>) => ({
+			...state,
+			navbar: action.payload
+		}),
 		setLanguage: (state: any, action: PayloadAction<Language>) =>
 		{
 			i18next.changeLanguage(action.payload);
@@ -45,6 +51,6 @@ const slice = createSlice({
 	}
 });
 
-export const { setTheme, setModalActive, setLanguage } = slice.actions;
+export const { setTheme, setModalActive, setNavbarActive, setLanguage } = slice.actions;
 
 export default slice.reducer;
