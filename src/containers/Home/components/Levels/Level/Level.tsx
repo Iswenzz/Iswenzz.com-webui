@@ -1,17 +1,18 @@
 import { FC, memo, useState } from "react";
 import { Grid, Tooltip, Container, Typography, ImageList, ImageListItem, useTheme } from "@mui/material";
-import {Flip} from "components";
+import {Flip, HintClick} from "components";
 import ReactPlayer, { Config } from "react-player";
 import usePortrait from "utils/hooks/usePortrait";
 import useTabletOrMobile from "utils/hooks/useTabletOrMobile";
 import { v4 as uuidv4 } from "uuid";
 import {useTranslation} from "react-i18next";
 import { Image, Forward } from "components";
-import clickMeIcon from "assets/images/misc/icons8-natural-user-interface-2-64.png";
+
+import classNames from "classnames";
+import { preventDefault } from "utils/events";
+import { ProjectIcon } from "Home/components/Projects/Project/Project";
 
 import scss from "./Level.module.scss";
-import classNames from "classnames";
-import { ProjectIcon } from "Home/components/Projects/Project/Project";
 
 const playerConfig: Config = {
 	youtube: {
@@ -113,18 +114,13 @@ export const Level: FC<LevelProps> = (props: LevelProps): JSX.Element =>
 				<meta itemProp="image" content={props.currentLevel.image} />
 				<meta itemProp="embedUrl" content={props.currentLevel.videoUrl} />
 				<Grid container alignItems="center" justifyContent="space-between">
-					<Tooltip placement="right" arrow disableFocusListener title={t("TOOLTIP_CLICK_ME") as string}>
-						<Forward>
-							<Image onDragStart={(e) => e.preventDefault()}
-								alt="click-me" width={55} height={64} src={clickMeIcon} />
-						</Forward>
-					</Tooltip>
+					<HintClick />
 					<Grid container component="ul" direction="column" justifyContent="space-evenly" alignItems="flex-end">
 						{props.currentLevel.renderIcons?.map(icon => (
 							<li key={uuidv4()}>
 								<Tooltip placement="left" arrow disableFocusListener disableTouchListener title={icon.name}>
 									<Forward>
-										<Image onDragStart={(e) => e.preventDefault()} className={scss.tooltipImg}
+										<Image onDragStart={preventDefault} className={scss.tooltipImg}
 											width={isPortrait || isTabletOrMobile ? "32" : "64"}
 											height={isPortrait || isTabletOrMobile ? "32" : "64"}
 											alt="" src={icon.src} />

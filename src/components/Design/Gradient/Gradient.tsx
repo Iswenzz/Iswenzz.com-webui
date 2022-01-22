@@ -2,6 +2,7 @@ import { FC, ReactNode } from "react";
 import { Grid, GridProps } from "@mui/material";
 
 /**
+ * @todo remove.
  * Gradient grid container.
  */
 const Gradient: FC<GradientProps> = ({ className, id, children, config, ...props }) =>
