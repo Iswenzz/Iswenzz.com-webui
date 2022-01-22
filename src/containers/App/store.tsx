@@ -13,8 +13,8 @@ const store = configureStore({
 });
 
 export type RootRedux = {
-	app: AppRedux;
-	home: HomeRedux;
+	app: AppRedux,
+	home: HomeRedux
 };
 
 /**

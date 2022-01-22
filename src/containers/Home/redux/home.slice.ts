@@ -1,34 +1,32 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import { createInitState } from "App/utils/redux";
-import type { ProjectSource } from "Home/components/Projects/Project/Project";
-import projectSourceJson from "Home/components/Projects/Projects.json";
 
 export type HomeRedux = {
-	projects: ProjectSource[],
-	projectsStartIndex: number
+	projectModalOpen: boolean,
+	projectModalStartIndex: number
 };
 
 export const initialState = createInitState<HomeRedux>({
-	projects: projectSourceJson as ProjectSource[],
-	projectsStartIndex: 0
+	projectModalOpen: false,
+	projectModalStartIndex: 0
 }, "home");
 
 const slice = createSlice({
 	name: "home",
 	initialState,
 	reducers: {
-		setProjectsStartIndex: (state: any, action: PayloadAction<number>) => ({
+	  	setProjectModalOpen: (state: any, action: PayloadAction<boolean>) => ({
 			...state,
-			projectsStartIndex: action.payload
+			projectModalOpen: action.payload
 		}),
-		setProjects: (state: any, action: PayloadAction<ProjectSource[]>) => ({
+		setProjectModalStartIndex: (state: any, action: PayloadAction<number>) => ({
 			...state,
-			projects: action.payload
+			projectModalStartIndex: action.payload
 		}),
 	}
 });
 
-export const { setProjectsStartIndex } = slice.actions;
+export const { setProjectModalOpen, setProjectModalStartIndex } = slice.actions;
 
 export default slice.reducer;

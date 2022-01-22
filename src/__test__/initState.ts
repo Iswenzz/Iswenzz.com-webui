@@ -1,5 +1,5 @@
-import { initialState as app } from "App/redux";
 import { RootRedux } from "App/store";
+import { initialState as app } from "App/redux";
 import { initialState as home } from "Home/redux";
 
 export type MockState = {
