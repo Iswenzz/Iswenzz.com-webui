@@ -18,11 +18,12 @@ const Flip: FC<FlipProps> = ({ flipped = false, flipCallback, back, front, direc
 	 */
 	const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>): void =>
 	{
+		const flip = !isFlipped;
 		e.preventDefault();
-		setIsFlipped(!isFlipped);
 
+		setIsFlipped(flip);
 		if (flipCallback)
-			flipCallback(isFlipped);
+			flipCallback(flip);
 	};
 
 	return (
