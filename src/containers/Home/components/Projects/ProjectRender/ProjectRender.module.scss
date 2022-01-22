@@ -1,0 +1,48 @@
+.modal {
+	overflow: hidden;
+}
+
+.frame {
+	user-select: none;
+}
+
+.title {
+	padding: 8px;
+	position: static;
+	overflow: hidden;
+	cursor: grab;
+}
+
+.icons {
+	padding-top: 4px;
+
+	li {
+		display: inline-block !important;
+	}
+
+	img {
+		margin: 0 4px;
+	}
+}
+
+.modalTitle {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+.tooltipFab {
+	margin: 0 8px !important;
+}
+
+.loader {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 60%;
+}
+
+.article {
+	width: 100%;
+	height: 100%;
+	user-select: text;
+}

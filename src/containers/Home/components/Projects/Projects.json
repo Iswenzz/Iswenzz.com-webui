@@ -12,6 +12,7 @@
     },
     {
         "title": "IzEngine",
+        "sourceURL": "https://github.com/Iswenzz/IzEngine",
         "isOpenSource": false,
         "cardImage": "https://iswenzz.com/iswenzz/projects/izengine.jpg",
         "renderUrl": "https://iswenzz.com/iswenzz/md/IzEngine.md",
@@ -67,6 +68,7 @@
     },
     {
         "title": "Sr- Speedrun",
+        "sourceURL": "https://github.com/Iswenzz/SR-Speedrun",
         "isOpenSource": false,
         "cardImage": "https://iswenzz.com/iswenzz/projects/sr_speedrun.jpg",
         "renderUrl": "https://iswenzz.com/iswenzz/md/sr_speedrun.md",
@@ -79,6 +81,7 @@
     },
     {
         "title": "Sr- Deathrun",
+        "sourceURL": "https://github.com/Iswenzz/SR-Deathrun",
         "isOpenSource": false,
         "cardImage": "https://iswenzz.com/iswenzz/projects/sr_deathrun.jpg",
         "renderUrl": "https://iswenzz.com/iswenzz/md/sr_deathrun.md",
@@ -181,10 +184,10 @@
     },
     {
         "title": "Iswenzz.com",
-        "sourceURL": "https://github.com/Iswenzz/Iswenzz.com",
+        "sourceURL": "https://github.com/Iswenzz/Iswenzz.com-webui",
         "isOpenSource": true,
         "cardImage": "https://iswenzz.com/iswenzz/projects/iswenzz.jpg",
-        "renderUrl": "https://raw.githubusercontent.com/Iswenzz/Iswenzz.com/master/README.md",
+        "renderUrl": "https://raw.githubusercontent.com/Iswenzz/Iswenzz.com-webui/master/README.md",
         "renderIcons": [
             {"name": "Typescript", "src": "https://iswenzz.com/iswenzz/devicons/typescript.svg"},
             {"name": "React", "src": "https://iswenzz.com/iswenzz/devicons/react.svg"},
@@ -204,6 +207,7 @@
     },
     {
         "title": "AION Client",
+        "sourceURL": "https://github.com/Iswenzz/AION-Client",
         "isOpenSource": false,
         "cardImage": "https://iswenzz.com/iswenzz/projects/aion_client.jpg",
         "renderUrl": "https://iswenzz.com/iswenzz/md/aion_client.md",
@@ -214,6 +218,7 @@
     },
     {
         "title": "AION Project",
+        "sourceURL": "https://github.com/Iswenzz/AION-Project",
         "isOpenSource": false,
         "cardImage": "https://iswenzz.com/iswenzz/projects/aion_project.jpg",
         "renderUrl": "https://iswenzz.com/iswenzz/md/aion_project.md",
@@ -223,6 +228,7 @@
     },
     {
         "title": "AION Project Website",
+        "sourceURL": "https://github.com/Iswenzz/AION-Project-Website",
         "isOpenSource": false,
         "cardImage": "https://iswenzz.com/iswenzz/projects/aion_project_website.jpg",
         "renderUrl": "https://iswenzz.com/iswenzz/md/aion_project_website.md",

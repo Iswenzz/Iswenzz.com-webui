@@ -1,16 +1,18 @@
 import { FC, memo } from "react";
 import { Element } from "react-scroll";
-import { useSelector } from "react-redux";
 import random from "lodash/random";
+import { Grid, Divider, Container, useTheme } from "@mui/material";
 import classNames from "classnames";
 
-import { Grid, Divider, Container, useTheme } from "@mui/material";
-
 import { TrailText, SpringGrid, Parallax } from "components";
-import { getProjects } from "Home/redux";
 
-import Project from "./Project/Project";
+import Project, { ProjectSource } from "./Project/Project";
+import projectsJson from "./Projects.json";
+import { ProjectPopup } from "./ProjectPopup/ProjectPopup";
+
 import scss from "./Projects.module.scss";
+
+const projects: ProjectSource[] = projectsJson;
 
 /**
  * Display the projects in a masonry layout.
@@ -19,16 +21,16 @@ const Projects: FC = () =>
 {
 	const { theme } = useTheme();
 
-	const projects = useSelector(getProjects);
-
 	return (
 		<>
+			<ProjectPopup projects={projects} />
 			<Element name="projects-section" />
+
 			<Grid component="section" className={classNames(scss.projects, scss[theme])}
 				justifyContent={"center"} alignItems={"center"}>
 				<Container component="header" className={scss.container}>
 					<TrailText align="center" color="textPrimary" component="h2" variant="h2" className="poiret-h1 noselect">
-					PROJECTS
+						PROJECTS
 					</TrailText>
 					<Divider className={scss.divider} />
 				</Container>
@@ -46,6 +48,7 @@ const Projects: FC = () =>
 					</SpringGrid>
 				</Grid>
 			</Grid>
+
 			<Parallax spacingTop="100px" />
 		</>
 	);

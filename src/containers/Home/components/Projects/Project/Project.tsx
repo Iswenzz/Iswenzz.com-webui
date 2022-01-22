@@ -1,32 +1,39 @@
 import { FC, memo } from "react";
-import { useDispatch } from "react-redux";
+import { batch, useDispatch } from "react-redux";
 import LazyLoad from "react-lazyload";
-import {motion} from "framer-motion";
+import { motion } from "framer-motion";
 
 import { Card, CardActionArea, Typography } from "@mui/material";
 
-import useTabletOrMobile from "utils/hooks/useTabletOrMobile";
-import { setProjectsStartIndex } from "Home/redux";
+import { setProjectModalOpen, setProjectModalStartIndex } from "Home/redux";
+import useResponsive from "utils/hooks/useResponsive";
 import { setModalActive } from "App/redux";
 
 import scss from "./Project.module.scss";
 
 /**
- * Project card container with a preview image, and dispatch ProjectPopup modal on click.
- * @param props - ProjectProps
+ * Project card with a preview image and opens the ProjectPopup modal on click.
  */
 const Project: FC<ProjectProps> = ({ project, projectIndex, height = 200, width = 200 }) =>
 {
-	const isTabletOrMobile = useTabletOrMobile();
 	const dispatch = useDispatch();
 
+	const fontSize = useResponsive({
+		desktop: 20,
+		mobile: 14
+	});
+
 	/**
-	 * Card click handler: toggle the ProjectPopup modal.
+	 * Toggle the ProjectPopup modal.
 	 */
 	const onToggle = () =>
 	{
-		dispatch(setProjectsStartIndex(projectIndex));
-		dispatch(setModalActive(true));
+		batch(() =>
+		{
+			dispatch(setModalActive(true));
+			dispatch(setProjectModalOpen(true));
+			dispatch(setProjectModalStartIndex(projectIndex));
+		});
 	};
 
 	return (
@@ -38,8 +45,8 @@ const Project: FC<ProjectProps> = ({ project, projectIndex, height = 200, width 
 				<Card onClick={onToggle} className={scss.card}
 				  style={{ width, height, backgroundImage: `url(${project.cardImage})`}}>
 					<CardActionArea className={scss.cardAction}>
-						<Typography itemProp="name" variant="caption" align="center" paragraph component="p"
-							style={{ fontSize: isTabletOrMobile ? 14 : 20, height: height / 3 }}>
+						<Typography itemProp="name" variant="caption" align="center"
+							paragraph component="p" style={{ fontSize, height: height / 3 }}>
 							{project.title}
 						</Typography>
 					</CardActionArea>
