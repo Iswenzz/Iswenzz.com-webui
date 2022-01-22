@@ -38,8 +38,8 @@ export const Levels: FC = () =>
 						LEVEL_DESIGN
 					</Text>
 					<Divider className={scss.divider} />
-					<Element name="level-design-section" />
 				</motion.header>
+				<Element name="level-design-section" />
 				<motion.article variants={animationScaleFadeUp()} initial={"exit"} animate={inView ? "enter" : "exit"}>
 					<Carousel buttonSize={55} width="100%" height={height}>
 						{levels.map((level: LevelSource) => (

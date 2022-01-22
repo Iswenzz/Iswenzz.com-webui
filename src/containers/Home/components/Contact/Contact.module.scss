@@ -1,34 +1,16 @@
-.avatar {
-	margin: 8px;
-	width: 120px;
-	height: 120px
-}
+@import "~App/styles/Themes";
 
-form {
-	margin-top: 8px;
-}
+.contact {
+	padding-top: 80px;
+	padding-bottom: 120px;
 
-.buttonDefault {
-	background: linear-gradient(45deg, #c51162 30%, #FF8E53 90%);
-	box-shadow: 0 3px 5px 2px rgba(255, 105, 135, .3);
-	margin: 2rem 0 1rem;
-}
+	@include darkMode {
+		background: radial-gradient(ellipse at bottom, #841A2A, #151243 70%);
+	}
 
-.buttonSuccess {
-	background: linear-gradient(45deg, #174b0f 30%, #1c9209 90%);
-	box-shadow: 0 3px 5px 2px rgba(18, 74, 9, .7);
-	margin: 2rem 0 1rem;
-}
-
-.buttonFail {
-	background: linear-gradient(45deg, #450301 30%, #7a0905 90%);
-	box-shadow: 0 3px 5px 2px rgba(69, 3, 1, .7);
-	margin: 2rem 0 1rem;
-}
-
-.buttonProgress {
-	color: cyan;
-	margin: -3rem 0 1rem;
+	@include lightMode {
+		background: linear-gradient(-45deg, #ffdf00, #f4f4f4);
+	}
 }
 
 .contactParallax {

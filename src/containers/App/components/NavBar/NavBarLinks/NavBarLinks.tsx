@@ -34,7 +34,7 @@ const NavBarLinks: FC<NavBarLinksProps> = ({ toggleDrawer }) =>
 				</Link>
 			</li>
 			<li>
-				<Link className={scss.button} to="level-design-section" smooth onClick={handleClose}>
+				<Link className={scss.button} to="level-design-section" smooth onClick={handleClose} offset={-60}>
 					<Button size="large" color="inherit">
 						<Text raw>NAVBAR_LEVEL_DESIGN</Text>
 					</Button>
