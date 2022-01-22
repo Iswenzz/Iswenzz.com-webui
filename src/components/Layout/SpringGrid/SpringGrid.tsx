@@ -13,11 +13,12 @@ import config from "./config";
  * Responsive grid component with masonry layout and spring animation.
  */
 export const SpringGrid: FC<SpringGridProps> = ({
-	children = [], style,
+	children = [],
 	columns = config.columns,
 	gutter = config.gutter,
 	itemSize = config.itemSize,
-	layout = "simple"
+	layout = "simple",
+	style
 }) =>
 {
 	const responsiveColumns = useBreakpoint(columns, 3);
@@ -65,7 +66,7 @@ export const SpringGrid: FC<SpringGridProps> = ({
 };
 
 export type SpringGridProps = {
-	children: ReactElement[],
+	children?: ReactElement[],
 	columns?: BreakpointValues<number>,
 	gutter?: Partial<Size>,
 	itemSize?: Partial<Size>,
@@ -74,7 +75,7 @@ export type SpringGridProps = {
 };
 
 export type Layout = {
-	positions: Position[],
+	positions: Point[],
 	gridWidth: number,
 	gridHeight: number
 };

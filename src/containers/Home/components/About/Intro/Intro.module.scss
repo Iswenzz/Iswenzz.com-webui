@@ -1,6 +1,8 @@
 @import "~App/styles/Themes";
 
 .intro {
+	overflow: hidden;
+
 	@include darkMode {
 		background: radial-gradient(ellipse at top, #0e0f14, #181a21);
 	}

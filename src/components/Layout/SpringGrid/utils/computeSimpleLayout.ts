@@ -1,23 +1,27 @@
-import { ReactElement } from "react";
+import { defaultSize } from "utils/default";
 
 import type { Layout } from "../SpringGrid";
 import config from "../config";
 
 /**
  * Calculate the grid layout.
- * @param elements
- * @param columns
- * @param margin
+ * @param elements - The elements to layout.
+ * @param columns - The number of columns.
+ * @param gutter - The gutter size.
+ * @param itemSize - The item size.
  * @returns
  */
 export const computeSimpleLayout = (
-	elements: ReactElement[], columns: number, gutter: Partial<Size>, itemSize: Partial<Size>
+	elements: any[],
+	columns: number,
+	gutter: Partial<Size> = defaultSize,
+	itemSize: Partial<Size> = defaultSize
 ): Layout =>
 {
 	const { width: gutterWidth = config.gutter.width, height: gutterHeight = config.gutter.height } = gutter;
 	const { width: itemWidth = config.itemSize.width, height: itemHeight = config.itemSize.height } = itemSize;
 
-	const positions: Position[] = elements.map((_, index) =>
+	const positions: Point[] = elements.map((_, index) =>
 	{
 		const column = index % columns;
 		const row = Math.floor(index / columns);

@@ -1,8 +1,9 @@
-import { FC, memo } from "react";
+import { FC, memo, useEffect, useMemo, useRef } from "react";
 import { Element } from "react-scroll";
-import random from "lodash/random";
+import { useInView } from "react-intersection-observer";
 import { Grid, Divider, Container, useTheme } from "@mui/material";
 import classNames from "classnames";
+import { random, shuffle } from "lodash";
 
 import { TrailText, SpringGrid, Parallax } from "components";
 
@@ -12,18 +13,26 @@ import { ProjectPopup } from "./ProjectPopup/ProjectPopup";
 
 import scss from "./Projects.module.scss";
 
-const projects: ProjectSource[] = projectsJson;
-
 /**
  * Display the projects in a masonry layout.
  */
 const Projects: FC = () =>
 {
 	const { theme } = useTheme();
+	const [ref, inView] = useInView({ triggerOnce: true });
+
+	const projects = useRef<ProjectSource[]>(projectsJson);
+	const projectsHeight = useMemo(() => projects.current.map(() => random(100, 220)), []);
+	const projectsWidth = 200;
+
+	useEffect(() =>
+	{
+		projects.current = shuffle(projects.current);
+	}, [inView]);
 
 	return (
 		<>
-			<ProjectPopup projects={projects} />
+			<ProjectPopup projects={projects.current} />
 			<Element name="projects-section" />
 
 			<Grid component="section" className={classNames(scss.projects, scss[theme])}
@@ -34,15 +43,15 @@ const Projects: FC = () =>
 					</TrailText>
 					<Divider className={scss.divider} />
 				</Container>
-				<Grid container component="section" alignItems="center" justifyContent="center">
+				<Grid ref={ref} container component="section" alignItems="center" justifyContent="center">
 					<SpringGrid layout="masonry">
-						{projects.map((project, index) => (
+						{projects.current.map((project, index) => (
 							<Project
 								key={project.title}
 								projectIndex={index}
 								project={project}
-								height={random(100, 220)}
-								width={200}
+								height={projectsHeight[index]}
+								width={projectsWidth}
 							/>
 						))}
 					</SpringGrid>

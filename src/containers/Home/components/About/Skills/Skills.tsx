@@ -26,8 +26,8 @@ const Skills: FC = () =>
 	return (
 		<Grid className={classNames(scss.skills, scss[theme])} component="section"
 			justifyContent={"center"} alignItems={"center"}>
-			<Container>
-				<motion.div ref={ref} variants={animationLeft} initial={"exit"} animate={inView ? "enter" : "exit"}>
+			<Container ref={ref}>
+				<motion.div variants={animationLeft} initial={"exit"} animate={inView ? "enter" : "exit"}>
 					<Container component="header" className={scss.container}>
 						<TrailText align="center" color="textPrimary" component="h2" variant="h2"
 							className="poiret-h1 noselect" visible={inView}>

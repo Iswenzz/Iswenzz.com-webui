@@ -11,7 +11,7 @@ declare global
 	type Nullable<T> = T | null;
 	type Optional<T> = T | undefined;
 
-	type BoundingBox = Position & Size;
+	type BoundingBox = Point & Size;
 
 	type Rectangle = {
 		top: number,
@@ -20,7 +20,7 @@ declare global
 		right: number
 	};
 
-	type Position = {
+	type Point = {
 		x: number,
 		y: number
 	};

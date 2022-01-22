@@ -4,7 +4,8 @@ const config = {
 	columns: {
 		xs: 2,
 		sm: 3,
-		md: 6
+		md: 4,
+		lg: 6
 	},
 	gutter: {
 		width: 30,

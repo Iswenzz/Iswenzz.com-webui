@@ -1,17 +1,21 @@
-import { ReactElement } from "react";
+import { defaultSize } from "utils/default";
 
 import type { Layout } from "../SpringGrid";
 import config from "../config";
 
 /**
  * Calculate the masonry layout.
- * @param elements
- * @param columns
- * @param margin
+ * @param elements - The elements to layout.
+ * @param columns - The number of columns.
+ * @param gutter - The gutter size.
+ * @param itemSize - The item size.
  * @returns
  */
 export const computeMasonryLayout = (
-	elements: ReactElement[], columns: number, gutter: Partial<Size>, itemSize: Partial<Size>
+	elements: any[],
+	columns: number,
+	gutter: Partial<Size> = defaultSize,
+	itemSize: Partial<Size> = defaultSize
 ): Layout =>
 {
 	const { width: gutterWidth = config.gutter.width, height: gutterHeight = config.gutter.height } = gutter;
@@ -21,7 +25,7 @@ export const computeMasonryLayout = (
 	for (let i = 0; i < columns; i++)
 		columnHeights.push(0);
 
-	const positions: Position[] = elements.map(element =>
+	const positions: Point[] = elements.map(element =>
 	{
 		const column = columnHeights.indexOf(Math.min.apply(null, columnHeights));
 		const { height } = element.props;
