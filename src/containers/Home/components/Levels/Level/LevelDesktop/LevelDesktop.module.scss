@@ -1,0 +1,24 @@
+@import "~../Level.module";
+
+.tileName {
+	height: 150px !important;
+}
+
+.typo {
+	margin-top: 40px !important;
+}
+
+.tilePlayer {
+	width: 70% !important;
+	height: 500px !important;
+}
+
+.tileDescription {
+	width: 30% !important;
+}
+
+.tileDescriptionTypo {
+	margin-left: 10px !important;
+	padding-left: 10px !important;
+	border-left: 3px solid red !important;
+}

@@ -62,7 +62,7 @@ export type ProjectSource = {
 	sourceURL: string,
 	cardImage: string,
 	renderUrl?: string,
-	renderIcons?: ProjectIcon[],
+	renderIcons?: Icon[],
 	renderFile?: JSX.Element[]
 };
 
@@ -72,11 +72,6 @@ export type ProjectProps = {
 	height?: number,
 	width?: number,
 	style?: React.CSSProperties
-};
-
-export type ProjectIcon = {
-	src: string,
-	name: string
 };
 
 export default memo(Project);

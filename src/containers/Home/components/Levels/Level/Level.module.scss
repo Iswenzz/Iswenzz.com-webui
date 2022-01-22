@@ -6,7 +6,7 @@
 	background-size: cover;
 }
 
-.back { 
+.back {
 	width: 100%;
 	height: 100%;
 	background-size: cover;
@@ -16,55 +16,15 @@
 	@include darkMode {
 		background: radial-gradient(ellipse at 80%, rgb(0, 48, 138) 0%, rgb(14, 14, 14) 110%);
 	}
-	
+
 	@include lightMode {
 		background: radial-gradient(ellipse at 80%, #eaeaea 0%, rgb(240, 240, 240) 110%);
 	}
 }
 
-.grid { 
+.grid {
 	width: 100%;
 	height: 100%;
-}
-
-.gridList {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-around;
-}
-
-.desktopTileName {
-	height: 150px !important;
-}
-
-.desktopTypo {
-	margin-top: 40px !important;
-}
-
-.desktopTilePlayer {
-	width: 70% !important;
-	height: 500px !important;
-}
-
-.desktopTileDescription {
-	width: 30% !important;
-}
-
-.desktopTileDescriptionTypo {
-	margin-left: 10px !important;
-	padding-left: 10px !important;
-	border-left: 3px solid red !important;
-}
-
-.mobileName {
-	font-size: 30px !important;
-	color: silver !important;
-	margin: 0 !important;
-}
-
-.mobileTypo {
-	padding-top: 5px !important;
-	border-top: 3px solid red !important;
 }
 
 .tooltipImg {

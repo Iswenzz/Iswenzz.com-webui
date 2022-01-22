@@ -1,7 +1,6 @@
 import { FC, memo, useState, useRef } from "react";
 import { Gradient, GradientProps } from "components";
 import { Grid, Container, Avatar, Button, CircularProgress, Typography, useTheme, TextField } from "@mui/material";
-import VisibilitySensor from "react-visibility-sensor";
 // import usePortrait from "utils/hooks/usePortrait";
 import useTabletOrMobile from "utils/hooks/useTabletOrMobile";
 import { Element } from "react-scroll";
@@ -51,6 +50,7 @@ export const Contact: FC = (): JSX.Element =>
 	const [loading, setLoading] = useState(false);
 	const [success, setSuccess] = useState(false);
 	const [fail, setFail] = useState(false);
+	const isVisible = true;
 
 	const buttonStyle = classNames(scss.buttonDefault, {
 		[scss.buttonSuccess]: success, [scss.buttonFail]: fail
@@ -183,20 +183,16 @@ export const Contact: FC = (): JSX.Element =>
 	);
 
 	return (
-		<VisibilitySensor partialVisibility offset={{ bottom: isTabletOrMobile ? 0 : 200 }}>
-			{({ isVisible }) => (
-				<section>
-					<Element name="contact-section" />
-					<Gradient config={config} style={{ paddingTop: "80px", paddingBottom: "120px" }}>
-						<Container>
-							<motion.div initial={"exit"} animate={isVisible ? "enter" : "exit"} variants={animationScaleFadeDown()}>
-								{form}
-							</motion.div>
-						</Container>
-					</Gradient>
-				</section>
-			)}
-		</VisibilitySensor>
+		<section>
+			<Element name="contact-section" />
+			<Gradient config={config} style={{ paddingTop: "80px", paddingBottom: "120px" }}>
+				<Container>
+					<motion.div initial={"exit"} animate={isVisible ? "enter" : "exit"} variants={animationScaleFadeDown()}>
+						{form}
+					</motion.div>
+				</Container>
+			</Gradient>
+		</section>
 	);
 };
 
