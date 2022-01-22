@@ -4,7 +4,8 @@ import { Backdrop as MUIBackdrop, BackdropProps } from "@mui/material";
 import { AnimatePresence, motion } from "framer-motion";
 import classNames from "classnames";
 
-import { animation } from "./config";
+import { animationFade } from "utils/animate";
+
 import scss from "./Backdrop.module.scss";
 
 /**
@@ -20,7 +21,7 @@ const Backdrop: FC<Props> = ({ disableClose = false, onClick = noop, open, class
 
 	return (
 		<AnimatePresence>
-			<motion.div variants={animation} initial={"enter"} animate={open ? "enter" : "exit"} exit="exit">
+			<motion.div variants={animationFade()} initial={"enter"} animate={open ? "enter" : "exit"} exit="exit">
 				<div className={classNames(className, scss.backdrop)}>
 					<MUIBackdrop {...props} className={scss.muiBackdrop} open={open} onClick={handleClose} />
 				</div>

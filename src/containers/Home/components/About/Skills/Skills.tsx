@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 import classNames from "classnames";
 
 import { Spacing, Text, TrailText } from "components";
+import { animationLeft, animationRight } from "utils/animate";
 
-import { animationLeft, animationRight } from "../config";
 import { AboutInfo } from "../Intro/Intro";
 import aboutJson from "../About.json";
 import scss from "./Skills.module.scss";

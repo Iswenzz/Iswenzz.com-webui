@@ -16,6 +16,7 @@ import iswenzzIcon from "assets/images/misc/iswenzz.png";
 
 import scss from "./Contact.module.scss";
 import classNames from "classnames";
+import { animationScaleFadeDown } from "utils/animate";
 
 export type ContactFormValues = {
 	email: string,
@@ -29,27 +30,6 @@ export const contactFormInitial: ContactFormValues = {
 	subject: "",
 	message: "",
 	token: ""
-};
-
-const animation: Variants = {
-	enter: {
-		y: "0%",
-		opacity: 1,
-		scale: 1,
-		transition: {
-			duration: 1,
-			ease: "easeOut"
-		}
-	},
-	exit: {
-		y: "-100%",
-		opacity: 0,
-		scale: 0.4,
-		transition: {
-			duration: 1,
-			ease: "easeIn"
-		}
-	}
 };
 
 export const GRAPHQL_CONTACT = gql`
@@ -209,7 +189,7 @@ export const Contact: FC = (): JSX.Element =>
 					<Element name="contact-section" />
 					<Gradient config={config} style={{ paddingTop: "80px", paddingBottom: "120px" }}>
 						<Container>
-							<motion.div initial={"exit"} animate={isVisible ? "enter" : "exit"} variants={animation}>
+							<motion.div initial={"exit"} animate={isVisible ? "enter" : "exit"} variants={animationScaleFadeDown()}>
 								{form}
 							</motion.div>
 						</Container>

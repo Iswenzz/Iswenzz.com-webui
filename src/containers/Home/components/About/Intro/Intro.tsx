@@ -7,8 +7,8 @@ import classNames from "classnames";
 import { Text } from "components";
 
 import aboutJson from "../About.json";
-import { animationUp } from "../config";
 import scss from "./Intro.module.scss";
+import { animationUp } from "utils/animate";
 
 export const about: AboutInfo = aboutJson;
 

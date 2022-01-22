@@ -4,7 +4,8 @@ import { motion } from "framer-motion";
 import { Typography, TypographyProps } from "@mui/material";
 import { v4 as uuidv4 } from "uuid";
 
-import { animation } from "./config";
+import { animationTrail } from "utils/animate";
+
 import scss from "./TrailText.module.scss";
 
 /**
@@ -24,7 +25,7 @@ const TrailText: FC<TrailTextProps> = ({ children, visible = true, ...rest }) =>
 			{items.map(word =>
 				word.map((char, index) => (
 					<motion.div key={uuidv4()} className={scss.charMotion} initial="exit"
-						animate={visible ? "enter" : "exit"} variants={animation} custom={index}>
+						animate={visible ? "enter" : "exit"} variants={animationTrail()} custom={index}>
 						{char}
 					</motion.div>
 				))
