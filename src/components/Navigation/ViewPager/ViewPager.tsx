@@ -1,4 +1,4 @@
-import { useState, useEffect, RefObject, memo, FC } from "react";
+import { useEffect, RefObject, memo, FC, useRef, useCallback } from "react";
 import { useSprings, animated } from "react-spring";
 import { useDrag } from "@use-gesture/react";
 import clamp from "lodash/clamp";
@@ -8,16 +8,70 @@ import scss from "./ViewPager.module.scss";
 /**
  * Carousel with gesture features.
  */
-const ViewPager: FC<ViewPagerProps> = ({ items, startIndex, background, style, config, onIndexChange  }) =>
+const ViewPager: FC<ViewPagerProps> = ({
+	items, startIndex = 0, background, style, config, onIndexChange, onDragState
+}) =>
 {
-	const [index, setIndex] = useState(startIndex !== undefined ? startIndex : 0);
-	const [divRef, setDivRef] = useState<Nullable<HTMLElement>>(null);
+	const index = useRef(startIndex);
+	const width = window.innerWidth;
 
-	const [springProps, set] = useSprings(items.length, i => ({
-		x: i * window.innerWidth,
+	const [springProps, api] = useSprings(items.length, i => ({
+		x: i * width,
 		scale: 1,
-		display: "block"
+		display: "block",
 	}));
+
+	const bind = useDrag(({ active, movement: [mx], direction: [xDir], cancel }) =>
+	{
+		if (active && Math.abs(mx) > width / 2)
+		{
+			index.current = clamp(index.current + (xDir > 0 ? -1 : 1), 0, items.length - 1);
+			if (onIndexChange)
+				onIndexChange(index.current);
+			cancel();
+		}
+		api.start(i =>
+		{
+			if (onDragState)
+				onDragState(true);
+			if (i < index.current - 1 || i > index.current + 1)
+				return { display: "none" };
+
+			const x = (i - index.current) * width + (active ? mx : 0);
+			const scale = active ? 1 - Math.abs(mx) / width / 2 : 1;
+			return { x, scale, display: "block" };
+		});
+	});
+
+	const { onPointerUp, ...binding } = bind();
+
+	/**
+	 * Handle pointer up event.
+	 * @param e - The pointer up event.
+	 */
+	const handlePointerUp = (e: React.PointerEvent<EventTarget>) =>
+	{
+		if (onPointerUp)
+			onPointerUp(e);
+		if (onDragState)
+			onDragState(false);
+	};
+
+	/**
+	 * Move to the new start index.
+	 */
+	const moveToStart = useCallback(async () =>
+	{
+		if (startIndex)
+			index.current = startIndex;
+
+		// animate to the new startIndex
+		await Promise.all(api.start(i => ({
+			x: (i - index.current) * width,
+			scale: 1,
+			display: items.length <= 1 || i >= index.current - 1 ? "block" : "none"
+		})));
+	}, [api, items.length, startIndex, width]);
 
 	/**
 	 * Refresh the page on index change.
@@ -25,50 +79,20 @@ const ViewPager: FC<ViewPagerProps> = ({ items, startIndex, background, style, c
 	useEffect(() =>
 	{
 		if (onIndexChange)
-			onIndexChange(index);
+			onIndexChange(index.current);
 	}, [index, onIndexChange]);
 
 	/**
-	 * Goes to the right pages on startIndex change.
+	 * Move to the new start index.
 	 */
-	useEffect(() =>
-	{
-		if (startIndex)
-			setIndex(startIndex);
-		divRef?.dispatchEvent(new MouseEvent("mousedown", { bubbles: true, cancelable: false }));
-	}, [startIndex, divRef]);
-
-	/**
-	 * Page dragging callback.
-	 */
-	const bind = useDrag(({ down, movement: [mx], direction: [xDir], distance, cancel }) =>
-	{
-		if (down && distance[0] > window.innerWidth / 4)
-		{
-			setIndex(clamp(index + (xDir > 0 ? -1 : 1), 0, items.length - 1));
-			if (onIndexChange)
-				onIndexChange(index);
-			if (cancel)
-				cancel();
-		}
-
-		set(i =>
-		{
-			if (i < index - 1 || i > index + 1)
-				return { display: "none" };
-
-			const x = (i - index) * window.innerWidth + (down ? mx : 0);
-			const scale = down ? 1 - distance[0] / window.innerWidth / 2 : 1;
-
-			return { x, scale, display: "block" };
-		});
-	});
+	useEffect(() => void moveToStart(), [moveToStart]);
 
 	return (
 		<section style={style}>
 			{springProps.map(({ x, display, scale }, i) => (
-				<animated.div className={scss.viewpager} {...bind()} key={i} style={{ display, x, ...config }}>
-					<animated.div ref={setDivRef} style={{ scale, background }}>
+				<animated.div className={scss.viewpager} key={i} style={{ display, x, ...config }}
+					{...binding} onPointerUp={handlePointerUp}>
+					<animated.div style={{ scale, background }}>
 						{items[i]}
 					</animated.div>
 				</animated.div>
@@ -83,7 +107,8 @@ export type ViewPagerProps = {
 	background?: string,
 	startIndex?: number,
 	config?: ViewPagerConfig,
-	onIndexChange?: (index: number) => void
+	onIndexChange?: (index: number) => void,
+	onDragState?: (state: boolean) => void,
 };
 
 export type ViewPagerConfig = {
