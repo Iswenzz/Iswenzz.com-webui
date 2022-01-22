@@ -1,4 +1,4 @@
-import { ElementType, FC, useMemo } from "react";
+import { ElementType, FC, memo, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { Typography, TypographyProps } from "@mui/material";
@@ -40,4 +40,4 @@ type TrailTextProps = TypographyProps & {
 	children: string[] | string
 };
 
-export default TrailText;
+export default memo(TrailText);
