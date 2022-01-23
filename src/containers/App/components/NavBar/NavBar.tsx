@@ -71,7 +71,7 @@ const NavBar: FC<AppBarProps> = (): Nullable<JSX.Element> =>
 				<AppBar className={scss.navbar}
 					component="nav" position={isFixed ? "fixed" : "absolute"}>
 					<Toolbar variant="dense">
-						<Grid component="section" container spacing={3}>
+						<Grid component="section" container>
 							<Grid component="figure" item xs={3}>
 								<Grid container component="section" justifyContent={"center"} alignItems={"center"}>
 									<NavBarLogo />
