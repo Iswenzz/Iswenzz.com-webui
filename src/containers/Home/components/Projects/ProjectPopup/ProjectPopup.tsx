@@ -29,7 +29,7 @@ export const ProjectPopup: FC<ProjectPopupProps> = ({ projects }) =>
 	const [fetchedProjects, { updateAt }] = useList(new Array<JSX.Element>(projects.length).fill(<></>));
 
 	const viewPagerConfig = useResponsive<ViewPagerConfig>({
-		desktop: {
+		desktopAndPortrait: {
 			height: (height / 1.3),
 			width: (width / 1.5),
 			top: (height / 2) - (height / 1.3) / 2,
@@ -38,8 +38,10 @@ export const ProjectPopup: FC<ProjectPopupProps> = ({ projects }) =>
 			maxHeight: "80vh"
 		},
 		mobile: {
-			height: height / 1.2,
+			height: height,
 			width: width,
+			top: (height / 2) - (height / 1.3) / 2,
+			right: (width / 2) - width / 2,
 			maxWidth: "100vw",
 			maxHeight: "80vh"
 		}

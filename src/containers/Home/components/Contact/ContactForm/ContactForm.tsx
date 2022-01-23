@@ -124,7 +124,7 @@ const ContactForm: FC = () =>
 								{t("CONTACT_SEND")}
 							</Button>
 							{loading && <Loader size={32} className={scss.buttonProgress} />}
-							<Typography variant="subtitle2" align="center" component="p" paragraph color="textPrimary">
+							<Typography variant="subtitle2" align="center" color="textPrimary" paragraph>
 								{t("GOOGLE_RECAPTCHA")}&nbsp;
 								<a className="link" href="https://policies.google.com/privacy">
 									{t("GOOGLE_RECAPTCHA_POLICY")}

@@ -17,7 +17,7 @@ const PaperDesktop: FC<PaperProps> = ({ className, style, title, description, im
 				</Typography>
 			</header>
 			<Container>
-				<Typography component={"p"} paragraph>
+				<Typography paragraph>
 					{description}
 				</Typography>
 			</Container>

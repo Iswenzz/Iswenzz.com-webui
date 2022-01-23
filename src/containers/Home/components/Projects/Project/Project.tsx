@@ -47,7 +47,7 @@ const Project: FC<ProjectProps> = ({ project, projectIndex, height = 200, width 
 				  style={{ width, height, backgroundImage: `url(${project.cardImage})`}}>
 					<CardActionArea className={scss.cardAction}>
 						<Typography itemProp="name" variant="caption" align="center"
-							paragraph component="p" style={{ fontSize, height: height / 3 }}>
+							style={{ fontSize, height: height / 3 }} paragraph>
 							{project.title}
 						</Typography>
 					</CardActionArea>

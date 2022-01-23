@@ -31,7 +31,7 @@ const LevelDesktop: FC<Props> = ({ level, isFlipped }) =>
 				<Grid item className={scss.tileDescription} xs={4}>
 					<Grid container justifyContent="center" alignItems="center">
 						<Typography itemProp="description" className={scss.tileDescriptionTypo} variant="subtitle1"
-							align="left" color="textPrimary" paragraph component="p">
+							align="left" color="textPrimary" paragraph>
 							{level.description}
 						</Typography>
 					</Grid>

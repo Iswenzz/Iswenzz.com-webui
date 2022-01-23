@@ -20,7 +20,7 @@ const PaperMobile: FC<PaperProps> = ({ className, style, title, description, ima
 				<section className={scss.preview} style={previewStyle}>
 					<img src={image} alt={"Presentation Paper"} />
 				</section>
-				<Typography component={"p"} paragraph>
+				<Typography paragraph>
 					{description}
 				</Typography>
 			</Grid>

@@ -24,7 +24,7 @@ const Jumbotron: FC<JumbotronProps> = ({ className, children, backgroundImage, t
 				</motion.li>
 				<motion.li custom={0.5} variants={variants} initial={initial} animate={animate} exit={exit}>
 					<section className={scss.description}>
-						<Typography className={descriptionClassName} variant={"subtitle1"} component={"p"} paragraph>
+						<Typography className={descriptionClassName} variant={"subtitle1"} paragraph>
 							{description}
 						</Typography>
 					</section>

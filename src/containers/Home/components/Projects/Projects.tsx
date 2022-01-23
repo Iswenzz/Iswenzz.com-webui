@@ -6,6 +6,7 @@ import classNames from "classnames";
 import { random, shuffle } from "lodash";
 
 import { TrailText, SpringGrid, Parallax } from "components";
+import useResponsive from "utils/hooks/useResponsive";
 
 import Project, { ProjectSource } from "./Project/Project";
 import projectsJson from "./Projects.json";
@@ -23,7 +24,10 @@ const Projects: FC = () =>
 
 	const projects = useRef<ProjectSource[]>(projectsJson);
 	const projectsHeight = useMemo(() => projects.current.map(() => random(100, 220)), []);
-	const projectsWidth = 200;
+	const projectsWidth = useResponsive({
+		desktopAndPortrait: 200,
+		mobile: 100
+	});
 
 	useEffect(() =>
 	{
@@ -44,7 +48,7 @@ const Projects: FC = () =>
 					<Divider className={scss.divider} />
 				</Container>
 				<Grid ref={ref} container component="section" alignItems="center" justifyContent="center">
-					<SpringGrid layout="masonry">
+					<SpringGrid itemSize={{ width: projectsWidth }} layout="masonry">
 						{projects.current.map((project, index) => (
 							<Project
 								key={project.title}

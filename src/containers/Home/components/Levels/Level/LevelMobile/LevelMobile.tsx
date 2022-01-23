@@ -23,8 +23,8 @@ const LevelMobile: FC<Props> = ({ level, isFlipped }) =>
 					<h3 itemProp="name" className={classNames(scss.name, "calli-h2")}>{level.name}</h3>
 				</header>
 				{isFlipped && <ReactPlayer config={playerConfig} width="100%" height="50%" url={level.videoUrl} />}
-				<Typography itemProp="description" className={scss.typo} paragraph variant="subtitle1" align="left"
-					color="textPrimary" component="p">
+				<Typography itemProp="description" className={scss.typo} paragraph variant="subtitle2" align="left"
+					color="textPrimary">
 					{level.description}
 				</Typography>
 			</Grid>
