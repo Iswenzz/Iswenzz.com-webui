@@ -11,17 +11,20 @@ const useResponsive = <T>(queries: ResponsiveProps<T>): T =>
 	const isPortrait = usePortrait();
 	const isTabletOrMobile = useTabletOrMobile();
 
-	if (isTabletOrMobile || isPortrait)
-	{
-		if (queries.tablet) return queries.tablet;
-		if (queries.mobile) return queries.mobile;
-	}
-	return queries.desktop;
+	if (queries.mobile && isTabletOrMobile)
+		return queries.mobile;
+	if (queries.mobile && !queries.desktopAndPortrait && isPortrait)
+		return queries.mobile;
+	if (queries.desktopAndPortrait && !isTabletOrMobile)
+		return queries.desktopAndPortrait;
+	if (!queries.desktop)
+		throw new Error("No default responsive query were found.");
+	return queries.desktop as T;
 };
 
 type ResponsiveProps<T> = {
-	desktop: T,
-	tablet?: T,
+	desktop?: T,
+	desktopAndPortrait?: T,
 	mobile?: T
 };
 
