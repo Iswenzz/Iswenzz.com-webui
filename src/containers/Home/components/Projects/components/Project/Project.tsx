@@ -19,7 +19,7 @@ const Project: FC<ProjectProps> = ({ project, projectIndex, height = 200, width 
 	const dispatch = useDispatch();
 
 	const fontSize = useResponsive({
-		desktop: 20,
+		desktopAndPortrait: 20,
 		mobile: 14
 	});
 
@@ -46,7 +46,7 @@ const Project: FC<ProjectProps> = ({ project, projectIndex, height = 200, width 
 				<Card onClick={handleClick} className={scss.card}
 				  style={{ width, height, backgroundImage: `url(${project.cardImage})`}}>
 					<CardActionArea className={scss.cardAction}>
-						<Typography itemProp="name" variant="caption" align="center"
+						<Typography className={scss.typo} itemProp="name" variant="caption" align="center"
 							style={{ fontSize, height: height / 3 }} paragraph>
 							{project.title}
 						</Typography>

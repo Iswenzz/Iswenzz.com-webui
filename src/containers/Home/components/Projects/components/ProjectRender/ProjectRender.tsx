@@ -25,7 +25,7 @@ const ProjectRender: FC<ProjectRenderProps> = ({ project, handleClose }) =>
 	const { t } = useTranslation();
 	const { theme } = useTheme();
 
-	const [isFetched, setFetched] = useState<boolean>(false);
+	const [isLoading, setLoading] = useState<boolean>(true);
 	const [fetchedMarkdown, setFetchedMarkdown] = useState<string>(t("PROJECT_WIP"));
 
 	const { fabSize, imageSize } = useResponsive({
@@ -44,10 +44,10 @@ const ProjectRender: FC<ProjectRenderProps> = ({ project, handleClose }) =>
 			{
 				const response = await axios.get<string>(project.renderUrl);
 				setFetchedMarkdown(markdown(response.data));
-				setFetched(true);
 			}
 		}
 		catch { }
+		setLoading(false);
 	}, [project.renderUrl]);
 
 	useEffect(() => void fetchMarkdown(), [fetchMarkdown]);
@@ -99,11 +99,11 @@ const ProjectRender: FC<ProjectRenderProps> = ({ project, handleClose }) =>
 			<section>
 				<DialogContent onPointerDown={stopPropagation} className={scss.modal}>
 					<section className={classNames("markdown", theme)}>
-						{isFetched && <article dangerouslySetInnerHTML={{ __html: fetchedMarkdown }} />}
+						{!isLoading && <article dangerouslySetInnerHTML={{ __html: fetchedMarkdown }} />}
 					</section>
 				</DialogContent>
 			</section>
-			{!isFetched && <Loader className={scss.loader} />}
+			{isLoading && <Loader className={scss.loader} />}
 		</article>
 	);
 };
