@@ -1,5 +1,6 @@
 import { FC, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
+import { ParallaxProvider } from "react-scroll-parallax";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 
 import { getModalActive, getTheme } from "App/redux";
@@ -27,10 +28,12 @@ export const Themes: FC = ({ children }) =>
 	}, [isModalActive]);
 
 	return (
-		<ThemeProvider theme={theme}>
-			<CssBaseline />
-			{children}
-		</ThemeProvider>
+		<ParallaxProvider>
+			<ThemeProvider theme={theme}>
+				<CssBaseline />
+				{children}
+			</ThemeProvider>
+		</ParallaxProvider>
 	);
 };
 

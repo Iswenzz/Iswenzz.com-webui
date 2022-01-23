@@ -39,7 +39,7 @@ const Footer: FC = () =>
 					</li>
 				</Grid>
 			</Grid>
-			<Parallax className={scss.parallax} strength={-400}>
+			<Parallax className={scss.parallax} speed={20}>
 				<Typography align="center" color="textPrimary" variant="subtitle2" component="h3">
 					Copyright © Iswenzz 2017-2022
 				</Typography>

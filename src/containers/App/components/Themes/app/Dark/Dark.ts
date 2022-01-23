@@ -26,19 +26,10 @@ const DarkTheme = responsiveFontSizes(createTheme({
 	components: {
 		MuiCssBaseline: {
 			styleOverrides: {
-				html: {
-					overflowX: "hidden",
-				},
 				body: {
 					scrollbarWidth: "thin",
 					scrollbarColor: "#3a3d41 #23272a",
 					backgroundColor: "black",
-					margin: 0
-				},
-				ul: {
-					listStyle: "none",
-					margin: 0,
-					padding: 0
 				},
 				"::-webkit-scrollbar": {
 					width: "12px"

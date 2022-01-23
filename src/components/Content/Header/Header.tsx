@@ -14,11 +14,11 @@ import scss from "./Header.module.scss";
  * Header with a parallax background & title.
  */
 const Header: FC<HeaderProps> = ({
-	className, title, description = "", background, parallaxStrength = 400, parallaxBlur = 0
+	className, title, description = "", background, parallaxStrength = -30, parallaxBlur = 0
 }) => (
 	<header>
-		<Parallax className={classNames(scss.parallax, className)} bgImage={background}
-			bgImageAlt="parallax" blur={parallaxBlur} strength={parallaxStrength}>
+		<Parallax className={classNames(scss.parallax, className)} image={background}
+		 	blur={parallaxBlur} speed={parallaxStrength}>
 			<Grid component="section" container className={scss.grid}
 				direction="column" justifyContent="center" alignItems="center">
 				<TrailText className="calli-h1 bold noselect" align="center" variant="h1" component="h1">

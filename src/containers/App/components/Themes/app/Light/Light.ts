@@ -26,19 +26,10 @@ const LightTheme = responsiveFontSizes(createTheme({
 	components: {
 		MuiCssBaseline: {
 			styleOverrides: {
-				html: {
-					overflowX: "hidden"
-				},
 				body: {
 					scrollbarWidth: "thin",
 					scrollbarColor: "#c0c0c0 #d9d9d9",
-					backgroundColor: "silver",
-					margin: 0
-				},
-				ul: {
-					listStyle: "none",
-					margin: 0,
-					padding: 0
+					backgroundColor: "silver"
 				},
 				"::-webkit-scrollbar": {
 					width: "12px"
