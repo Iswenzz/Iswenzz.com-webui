@@ -1,10 +1,4 @@
-import { UserScrollConfig } from "@use-gesture/react";
 import { Variants } from "framer-motion";
-
-export const navbarScrollConfig: UserScrollConfig = {
-	target: window,
-	eventOptions: { passive: true }
-};
 
 export const animationFixed: Variants = {
 	enter: {

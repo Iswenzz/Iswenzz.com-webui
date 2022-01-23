@@ -6,8 +6,9 @@ import { useScroll } from "@use-gesture/react";
 
 import { setModalActive, setTheme } from "App/redux";
 import useResponsive from "utils/hooks/useResponsive";
+import { scrollConfig } from "utils/config";
 
-import { animationAbsolute, animationFixed, navbarScrollConfig } from "./config";
+import { animationAbsolute, animationFixed } from "./config";
 import NavBarLogo from "./NavBarLogo/NavBarLogo";
 import NavBarDesktop from "./NavBarDesktop/NavBarDesktop";
 import NavBarMobile from "./NavBarMobile/NavBarMobile";
@@ -50,7 +51,7 @@ const NavBar: FC<AppBarProps> = (): Nullable<JSX.Element> =>
 		const isPastWindowHeight = window.scrollY >= window.innerHeight;
 		if (isPastWindowHeight !== isFixed)
 			setFixed(isPastWindowHeight);
-	}, navbarScrollConfig);
+	}, scrollConfig);
 
 	/**
 	 * Responsive buttons.
