@@ -8,8 +8,8 @@ import classNames from "classnames";
 import { Parallax, TrailText } from "components";
 import { animationScaleFadeDown } from "utils/animate";
 import useThemeMode from "utils/hooks/useThemeMode";
-import flowers from "assets/images/index/55.jpg";
-import forest from "assets/images/index/t1.jpg";
+import flowers from "assets/images/aion/ishalgen2.jpg";
+import forest from "assets/images/background/forest.jpg";
 
 import ContactForm from "./ContactForm/ContactForm";
 import scss from "./Contact.module.scss";

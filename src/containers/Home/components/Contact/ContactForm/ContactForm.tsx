@@ -8,7 +8,7 @@ import classNames from "classnames";
 import { isNil } from "lodash";
 
 import { Loader } from "components";
-import iswenzzIcon from "assets/images/misc/iswenzz.png";
+import iswenzzIcon from "assets/images/iswenzz/iswenzz.png";
 import { Mutation, MutationContactArgs } from "api/generated/graphql";
 import { delay } from "utils/misc";
 

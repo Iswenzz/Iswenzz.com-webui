@@ -2,7 +2,7 @@ import { FC } from "react";
 
 import { DocViewer } from "Docx/components";
 import { Header } from "components";
-import background from "assets/images/docx/2.jpg";
+import background from "assets/images/docx/blueprint.jpg";
 
 /**
  * Docx page.

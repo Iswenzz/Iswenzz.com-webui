@@ -5,8 +5,8 @@ import type { BannerLayer, ParallaxBannerProps } from "react-scroll-parallax/dis
 import { Spacing } from "components";
 import useThemeMode from "utils/hooks/useThemeMode";
 
-import stars from "assets/images/index/stars.svg";
-import clouds from "assets/images/index/clouds.svg";
+import stars from "assets/images/background/stars.svg";
+import clouds from "assets/images/background/clouds.svg";
 
 /**
  * Parallax background.
