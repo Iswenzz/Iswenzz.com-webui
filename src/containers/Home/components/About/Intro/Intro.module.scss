@@ -1,13 +1,13 @@
-@import "~App/styles/Themes";
+@use "izui-react/styles/Themes";
 
 .intro {
 	overflow: hidden;
 
-	@include darkMode {
+	@include Themes.darkMode {
 		background: radial-gradient(ellipse at top, #0e0f14, #181a21);
 	}
 
-	@include lightMode {
+	@include Themes.lightMode {
 		background: radial-gradient(ellipse at top, #e5e5e5, #f4f4f4);
 	}
 }

@@ -3,14 +3,13 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { useTranslation } from "react-i18next";
 import { useMutation } from "@apollo/client";
 import { Avatar, Container, Grid, TextField, Typography, Button, useTheme } from "@mui/material";
+import { Loader, delay } from "izui-react";
 import { Field, Form, Formik } from "formik";
 import classNames from "classnames";
-import { isNil } from "lodash";
+import isNil from "lodash/isNil";
 
-import { Loader } from "components";
 import iswenzzIcon from "assets/images/iswenzz/iswenzz.png";
 import { Mutation, MutationContactArgs } from "api/generated/graphql";
-import { delay } from "utils/misc";
 
 import { contactFormInitial, ContactFormValues, GRAPHQL_CONTACT } from "../config";
 import scss from "./ContactForm.module.scss";

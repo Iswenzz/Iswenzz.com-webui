@@ -1,5 +1,5 @@
 import type { Theme } from "@mui/material";
-import { getThemeByName } from "App/components/Themes";
+import { getThemeByName } from "izui-react";
 
 import type { Language } from "App/i18next";
 import type { RootRedux } from "App/store";

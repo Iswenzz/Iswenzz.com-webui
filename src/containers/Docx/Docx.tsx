@@ -1,7 +1,7 @@
 import { FC } from "react";
+import { Header } from "izui-react";
 
 import { DocViewer } from "Docx/components";
-import { Header } from "components";
 import background from "assets/images/docx/blueprint.jpg";
 
 /**

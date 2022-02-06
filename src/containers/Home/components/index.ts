@@ -1,16 +1,11 @@
-import About from "./About/About";
-import Contact from "./Contact/Contact";
-import Levels from "./Levels/Levels";
-import Projects from "./Projects/Projects";
-
+export { default as About } from "./About/About";
 export * from "./About/About";
-export * from "./Contact/Contact";
-export * from "./Levels/Levels";
-export * from "./Projects/Projects";
 
-export {
-	About,
-	Contact,
-	Levels,
-	Projects
-};
+export { default as Contact } from "./Contact/Contact";
+export * from "./Contact/Contact";
+
+export { default as Levels } from "./Levels/Levels";
+export * from "./Levels/Levels";
+
+export { default as Projects } from "./Projects/Projects";
+export * from "./Projects/Projects";

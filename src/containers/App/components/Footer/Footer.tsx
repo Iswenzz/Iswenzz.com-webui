@@ -1,10 +1,11 @@
 import { FC, memo } from "react";
 import { Grid, Fab, Tooltip, Typography, useTheme } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDiscord, faYoutube, faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faDiscord } from "@fortawesome/free-brands-svg-icons/faDiscord";
+import { faYoutube } from "@fortawesome/free-brands-svg-icons/faYoutube";
+import { faGithub } from "@fortawesome/free-brands-svg-icons/faGithub";
+import { Parallax } from "izui-react";
 import classNames from "classnames";
-
-import { Parallax } from "components";
 
 import scss from "./Footer.module.scss";
 

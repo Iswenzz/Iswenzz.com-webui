@@ -1,7 +1,6 @@
 import { FC } from "react";
+import { Header, useThemeMode } from "izui-react";
 
-import { Header } from "components";
-import useThemeMode from "utils/hooks/useThemeMode";
 import sunset from "assets/images/background/sunset2.jpg";
 import mountain from "assets/images/background/nature1.jpg";
 

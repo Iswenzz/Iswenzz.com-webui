@@ -2,12 +2,11 @@ import { FC, memo } from "react";
 import { batch, useDispatch } from "react-redux";
 import LazyLoad from "react-lazyload";
 import { motion } from "framer-motion";
-
 import { Card, CardActionArea, Typography } from "@mui/material";
+import { useResponsive } from "izui-react";
 
 import { setProjectModalOpen, setProjectModalStartIndex } from "Home/redux";
 import { setModalActive, setNavbarActive } from "App/redux";
-import useResponsive from "utils/hooks/useResponsive";
 
 import scss from "./Project.module.scss";
 

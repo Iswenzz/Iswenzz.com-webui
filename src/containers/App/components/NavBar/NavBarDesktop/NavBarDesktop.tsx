@@ -1,9 +1,9 @@
 import { FC } from "react";
 import { Fab, Grid } from "@mui/material";
 import { Flare, Brightness3 } from "@mui/icons-material";
+import { useThemeMode } from "izui-react";
 
 import { LanguagePicker } from "App/components";
-import useThemeMode from "utils/hooks/useThemeMode";
 
 import NavBarLinks from "../NavBarLinks/NavBarLinks";
 import scss from "../NavBar.module.scss";

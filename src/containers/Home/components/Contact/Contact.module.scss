@@ -1,14 +1,14 @@
-@import "~App/styles/Themes";
+@use "izui-react/styles/Themes";
 
 .contact {
 	padding-top: 80px;
 	padding-bottom: 120px;
 
-	@include darkMode {
+	@include Themes.darkMode {
 		background: radial-gradient(ellipse at bottom, #841A2A, #151243 70%);
 	}
 
-	@include lightMode {
+	@include Themes.lightMode {
 		background: linear-gradient(-45deg, #ffdf00, #f4f4f4);
 	}
 }

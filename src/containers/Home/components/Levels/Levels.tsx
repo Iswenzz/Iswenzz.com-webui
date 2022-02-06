@@ -4,10 +4,7 @@ import { motion } from "framer-motion";
 import { Divider, Container, Grid, useTheme } from "@mui/material";
 import { useInView } from "react-intersection-observer";
 import classNames from "classnames";
-
-import { Carousel, Text } from "components";
-import { animationScaleFadeUp } from "utils/animate";
-import useResponsive from "utils/hooks/useResponsive";
+import { Carousel, Text, animationScaleFadeUp, useResponsive } from "izui-react";
 
 import Level, { LevelSource } from "./Level/Level";
 import levelProjectsJson from "./Levels.json";

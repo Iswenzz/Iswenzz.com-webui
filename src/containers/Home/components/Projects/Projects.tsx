@@ -2,10 +2,8 @@ import { FC, memo, useMemo, useRef } from "react";
 import { Element } from "react-scroll";
 import { Grid, Divider, Container, useTheme } from "@mui/material";
 import classNames from "classnames";
-import { random } from "lodash";
-
-import { TrailText, SpringGrid, Parallax } from "components";
-import useResponsive from "utils/hooks/useResponsive";
+import random from "lodash/random";
+import { TrailText, SpringGrid, Parallax, useResponsive } from "izui-react";
 
 import Project, { ProjectSource } from "./components/Project/Project";
 import { ProjectPopup } from "./components/ProjectPopup/ProjectPopup";

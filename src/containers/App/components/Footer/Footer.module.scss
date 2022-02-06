@@ -1,11 +1,11 @@
-@import "~App/styles/Themes";
+@use "izui-react/styles/Themes";
 
 .footer {
-	@include darkMode {
+	@include Themes.darkMode {
 		background: radial-gradient(ellipse at bottom, #23272a, #23272f);
 	}
 
-	@include lightMode {
+	@include Themes.lightMode {
 		background: radial-gradient(ellipse at bottom, #f2f2f2, #f4f4f4);
 	}
 }

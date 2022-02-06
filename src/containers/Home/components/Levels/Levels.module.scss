@@ -1,14 +1,14 @@
-@import "~App/styles/Themes";
+@use "izui-react/styles/Themes";
 
 .gradient {
 	padding: 80px 0 200px 0;
 	width: 100%;
 
-	@include darkMode {
+	@include Themes.darkMode {
 		background: radial-gradient(ellipse at bottom, #001C51, #090A0A 50%);
 	}
 
-	@include lightMode {
+	@include Themes.lightMode {
 		background: radial-gradient(circle at bottom, #f69100, #f4f4f4 50%);
 	}
 }

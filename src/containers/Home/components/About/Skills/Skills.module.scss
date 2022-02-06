@@ -1,11 +1,11 @@
-@import "~App/styles/Themes";
+@use "izui-react/styles/Themes";
 
 .skills {
-	@include darkMode {
+	@include Themes.darkMode {
 		background: radial-gradient(ellipse at bottom, #0e0f14, #181a21);
 	}
 
-	@include lightMode {
+	@include Themes.lightMode {
 		background: radial-gradient(ellipse at bottom, #e5e5e5, #f4f4f4);
 	}
 }

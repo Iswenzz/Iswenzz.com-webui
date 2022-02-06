@@ -3,10 +3,9 @@ import { useDispatch } from "react-redux";
 import { AppBarProps, useTheme, AppBar, Toolbar, Grid  } from "@mui/material";
 import { motion } from "framer-motion";
 import { useScroll } from "@use-gesture/react";
+import { scrollConfig, useResponsive } from "izui-react";
 
 import { setModalActive, setTheme } from "App/redux";
-import useResponsive from "utils/hooks/useResponsive";
-import { scrollConfig } from "utils/config";
 
 import { animationAbsolute, animationFixed } from "./config";
 import NavBarLogo from "./NavBarLogo/NavBarLogo";

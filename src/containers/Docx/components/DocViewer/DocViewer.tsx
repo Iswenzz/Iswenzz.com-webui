@@ -1,7 +1,7 @@
 import { FC, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { animateScroll as scroll } from "react-scroll";
-import { getElementByXPath } from "utils/elements";
+import { getElementByXPath } from "izui-react";
 
 import scss from "./DocViewer.module.scss";
 

@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { detect } from "detect-browser";
-import { omit } from "lodash";
+import omit from "lodash/omit";
 import i18next from "i18next";
 
 import type { Language } from "App/i18next";

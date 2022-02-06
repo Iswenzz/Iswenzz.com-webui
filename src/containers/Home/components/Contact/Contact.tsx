@@ -4,10 +4,8 @@ import { useInView } from "react-intersection-observer";
 import { Grid, Container, useTheme } from "@mui/material";
 import { motion } from "framer-motion";
 import classNames from "classnames";
+import { Parallax, TrailText, animationScaleFadeDown, useThemeMode } from "izui-react";
 
-import { Parallax, TrailText } from "components";
-import { animationScaleFadeDown } from "utils/animate";
-import useThemeMode from "utils/hooks/useThemeMode";
 import flowers from "assets/images/aion/ishalgen2.jpg";
 import forest from "assets/images/background/forest.jpg";
 

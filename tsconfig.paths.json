@@ -2,16 +2,20 @@
 	"compilerOptions": {
 		"baseUrl": ".",
 		"paths": {
-			"App/*": ["src/containers/App/*"],
-			"Home/*": ["src/containers/Home/*"],
-			"Docx/*": ["src/containers/Docx/*"],
-			"UI/*": ["src/containers/UI/*"],
+			"test/*": ["src/__test__/*"],
 			"api/*": ["src/api/*"],
 			"assets/*": ["src/assets/*"],
+			"config/*": ["src/config/*"],
 			"components": ["src/components"],
-			"components/*": ["src/components/*"],
+			"containers": ["src/containers"],
+			"pages": ["src/pages"],
+			"router/*": ["src/router/*"],
+			"styles/*": ["src/styles/*"],
 			"utils/*": ["src/utils/*"],
-			"test/*": ["src/__test__/*"]
+
+			"App/*": ["src/containers/App/*"],
+			"Home/*": ["src/containers/Home/*"],
+			"Docx/*": ["src/containers/Docx/*"]
 		}
 	}
 }

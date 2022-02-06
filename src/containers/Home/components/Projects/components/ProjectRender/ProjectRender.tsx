@@ -4,15 +4,11 @@ import { v4 as uuidv4 } from "uuid";
 import classNames from "classnames";
 import axios from "axios";
 
+import { Forward, Image, Loader, useResponsive, preventDefault, stopPropagation, markdown } from "izui-react";
 import { DialogContent, DialogTitle, Fab, Grid, Tooltip, useTheme } from "@mui/material";
-import { faOsi } from "@fortawesome/free-brands-svg-icons";
+import { faOsi } from "@fortawesome/free-brands-svg-icons/faOsi";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Close, Lock } from "@mui/icons-material";
-
-import markdown from "App/utils/markdown";
-import { Forward, Image, Loader } from "components";
-import useResponsive from "utils/hooks/useResponsive";
-import { preventDefault, stopPropagation } from "utils/events";
 
 import { ProjectSource } from "../Project/Project";
 import scss from "./ProjectRender.module.scss";

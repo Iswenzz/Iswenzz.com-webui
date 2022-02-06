@@ -2,12 +2,10 @@ import { FC, Fragment, memo } from "react";
 import { batch, useDispatch, useSelector } from "react-redux";
 import { useList, useWindowSize } from "react-use";
 import { Dialog, Fade, Portal } from "@mui/material";
+import { HintDrag, ViewPager, ViewPagerConfig, useThemeMode, useResponsive } from "izui-react";
 
 import { setModalActive, setNavbarActive } from "App/redux";
 import { getProjectModalOpen, getProjectModalStartIndex, setProjectModalOpen } from "Home/redux";
-import { HintDrag, ViewPager, ViewPagerConfig } from "components";
-import useThemeMode from "utils/hooks/useThemeMode";
-import useResponsive from "utils/hooks/useResponsive";
 
 import { ProjectSource } from "../Project/Project";
 import ProjectRender from "../ProjectRender/ProjectRender";

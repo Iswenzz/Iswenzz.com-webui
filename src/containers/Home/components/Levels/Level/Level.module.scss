@@ -1,4 +1,4 @@
-@import "~App/styles/Themes";
+@use "izui-react/styles/Themes";
 
 .front {
 	width: 100%;
@@ -13,11 +13,11 @@
 	border-color: rgba(0, 131, 255, .3);
 	border-style: dotted;
 
-	@include darkMode {
+	@include Themes.darkMode {
 		background: radial-gradient(ellipse at 80%, rgb(0, 48, 138) 0%, rgb(14, 14, 14) 110%);
 	}
 
-	@include lightMode {
+	@include Themes.lightMode {
 		background: radial-gradient(ellipse at 80%, #eaeaea 0%, rgb(240, 240, 240) 110%);
 	}
 }

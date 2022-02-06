@@ -3,21 +3,16 @@
 	"version": "1.3",
 	"private": true,
 	"scripts": {
-		"start": "react-app-rewired start",
 		"build": "react-app-rewired build",
+		"build:analyze": "yarn build --analyze",
 		"doc": "jsdoc",
-		"test": "react-app-rewired test --watchAll=false --coverage --coverageDirectory=coverage",
-		"test:watch": "react-app-rewired test --watchAll=true --coverage --coverageDirectory=coverage",
+		"lint:scss": "stylelint **/*.{scss,css}",
+		"lint:scss:fix": "stylelint **/*.scss --fix",
 		"lint:ts": "eslint \"**/*.{js,jsx,ts,tsx}\"",
 		"lint:ts:fix": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix",
-		"lint:scss": "stylelint **/*.{scss,css}",
-		"lint:scss:fix": "stylelint **/*.scss --fix"
-	},
-	"eslintConfig": {
-		"extends": [
-			"react-app",
-			".eslintrc"
-		]
+		"start": "react-app-rewired start",
+		"test": "jest --watchAll=false --coverage --coverageDirectory=coverage",
+		"test:watch": "jest --watchAll=true --coverage --coverageDirectory=coverage"
 	},
 	"browserslist": {
 		"production": [
@@ -29,6 +24,12 @@
 			">0.2%",
 			"not dead",
 			"not op_mini all"
+		]
+	},
+	"eslintConfig": {
+		"extends": [
+			"react-app",
+			".eslintrc"
 		]
 	},
 	"dependencies": {
@@ -50,22 +51,16 @@
 		"classnames": "^2.3.1",
 		"cross-fetch": "^3.1.4",
 		"detect-browser": "^5.3.0",
-		"embla-carousel": "^6.0.2",
-		"embla-carousel-react": "^6.0.2",
-		"enquire.js": "^2.1.6",
 		"formik": "^2.2.9",
 		"framer-motion": "^5.5.6",
 		"graphql": "^16.2.0",
 		"highlight.js": "^11.4.0",
 		"i18next": "^21.6.5",
 		"i18next-browser-languagedetector": "^6.1.2",
+		"izui-react": "*",
 		"lodash": "^4.17.21",
-		"markdown-it": "^12.3.2",
 		"react": "^17.0.2",
 		"react-app-polyfill": "^3.0.0",
-		"react-app-rewired": "^2.1.11",
-		"react-card-flip": "^1.1.5",
-		"react-data-grid": "^7.0.0-beta.7",
 		"react-dom": "^17.0.2",
 		"react-google-recaptcha": "^2.1.0",
 		"react-i18next": "^11.15.3",
@@ -76,7 +71,6 @@
 		"react-router": "^6.2.1",
 		"react-router-dom": "^6.2.1",
 		"react-scroll": "^1.8.4",
-		"react-scroll-parallax": "^3.0.0",
 		"react-spring": "^9.4.1",
 		"react-use": "^17.3.2",
 		"stylelint-config-recommended-scss": "^5.0.2",
@@ -87,13 +81,11 @@
 		"@testing-library/react": "^12.1.2",
 		"@testing-library/react-hooks": "^7.0.2",
 		"@types/customize-cra": "^1.0.2",
-		"@types/enquire.js": "^2.1.3",
 		"@types/jest": "^27.4.0",
 		"@types/jest-matchers": "^20.0.2",
 		"@types/lodash": "^4.14.178",
-		"@types/markdown-it": "12.2.3",
 		"@types/node": "^17.0.8",
-		"@types/react-data-grid": "^4.0.7",
+		"@types/react": "^17.0.38",
 		"@types/react-dom": "^17.0.11",
 		"@types/react-google-recaptcha": "^2.1.2",
 		"@types/react-lazyload": "^3.1.1",
@@ -106,7 +98,6 @@
 		"identity-obj-proxy": "^3.0.0",
 		"jest": "^27.4.7",
 		"jsdoc": "^3.6.7",
-		"raw-loader": "^4.0.2",
 		"react-app-rewired": "^2.1.11",
 		"react-scripts": "^5.0.0",
 		"redux-mock-store": "^1.5.4",
@@ -115,6 +106,8 @@
 		"stylelint-order": "^5.0.0",
 		"stylelint-webpack-plugin": "^3.1.0",
 		"ts-jest": "^27.1.2",
-		"typescript": "^4.5.4"
+		"typescript": "^4.5.4",
+		"webpack-bundle-analyzer": "^4.5.0",
+		"yargs": "^17.3.1"
 	}
 }

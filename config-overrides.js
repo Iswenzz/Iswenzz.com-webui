@@ -1,7 +1,14 @@
 const path = require("path");
-const paths = require("react-scripts/config/paths");
-const tsConfigPaths = require("./tsconfig.paths.json");
+const yargs = require("yargs");
+const { hideBin } = require("yargs/helpers");
+
 const StylelintPlugin = require("stylelint-webpack-plugin");
+const BundleHighlightPlugin = require("izui-react/scripts/bundleHighlight");
+const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
+
+const { createWebpackAliasesFromTSConfig } = require("izui-react/scripts/createAliases");
+const highlightConfig = require("./src/config/highlight.json");
+const tsConfigPaths = require("./tsconfig.paths.json");
 
 const {
 	override,
@@ -11,25 +18,20 @@ const {
 	addWebpackPlugin
 } = require("customize-cra");
 
-const createWebpackAliasesFromTSConfig = () =>
-{
-	const aliasPaths = tsConfigPaths.compilerOptions.paths;
-	return Object.keys(aliasPaths).reduce((alias, currentPath) =>
-	{
-		const value = aliasPaths[currentPath];
-		const target = Array.isArray(value) ? value[0] : value;
-
-		alias[currentPath.replace(/\/\*$/, "")] = path.resolve(paths.appPath, target.replace(/\/\*$/, ""));
-		return alias;
-	}, {});
-};
+const argv = yargs(hideBin(process.argv)).options({
+	mode: { type: "string", default: "production" },
+	analyze: { type: "boolean", default: false }
+}).argv;
+console.log(`Building in ${argv.mode} mode.\n`);
 
 module.exports.webpack = override(
 	addWebpackAlias({
-		...createWebpackAliasesFromTSConfig(),
+		...createWebpackAliasesFromTSConfig(tsConfigPaths),
 		"react/jsx-runtime": require.resolve("react/jsx-runtime")
 	}),
-	addWebpackPlugin(new StylelintPlugin({ configPaths: ".stylelintrc" }))
+	addWebpackPlugin(new BundleHighlightPlugin(highlightConfig)),
+	addWebpackPlugin(new StylelintPlugin({ configPaths: ".stylelintrc" })),
+	argv.analyze ? addWebpackPlugin(new BundleAnalyzerPlugin()) : null
 );
 
 module.exports.devServer = overrideDevServer(

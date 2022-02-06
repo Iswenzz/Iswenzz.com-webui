@@ -3,12 +3,15 @@ import "react-app-polyfill/stable";
 
 import ReactDOM from "react-dom";
 
+import { Themes } from "App/components";
+import Redux from "App/store";
+import "App/i18next";
+
+import Router from "router/routes";
+import Apollo from "api/apollo";
+import "styles/Main.scss";
+
 import { unregister } from "./serviceWorker";
-import Apollo from "./api/apollo";
-import Redux from "./containers/App/store";
-import Themes from "./containers/App/components/Themes/Themes";
-import Router from "./router/routes";
-import "./containers/App/i18next";
 
 ReactDOM.render((
 	<Apollo>

@@ -1,14 +1,12 @@
 import { FC, memo } from "react";
 import { useInView } from "react-intersection-observer";
 import { Container, Divider, Grid, useTheme } from "@mui/material";
+import { Text, animationUp } from "izui-react";
 import { motion } from "framer-motion";
 import classNames from "classnames";
 
-import { Text } from "components";
-
 import aboutJson from "../About.json";
 import scss from "./Intro.module.scss";
-import { animationUp } from "utils/animate";
 
 export const about: AboutInfo = aboutJson;
 

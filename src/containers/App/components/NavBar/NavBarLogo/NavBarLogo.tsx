@@ -2,8 +2,7 @@ import { FC } from "react";
 import { Link as DOMLink, useLocation } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 import { ButtonBase } from "@mui/material";
-
-import { Text } from "components";
+import { Text } from "izui-react";
 
 import scss from "../NavBar.module.scss";
 

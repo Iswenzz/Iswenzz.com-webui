@@ -3,7 +3,7 @@ import ReactPlayer from "react-player";
 import { Grid, Container, Typography, useTheme } from "@mui/material";
 import classNames from "classnames";
 
-import type { LevelSource } from "../Level";
+import { LevelSource } from "../Level";
 import { playerConfig } from "../config";
 
 import scss from "./LevelMobile.module.scss";
