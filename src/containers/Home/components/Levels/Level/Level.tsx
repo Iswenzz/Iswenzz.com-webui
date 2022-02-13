@@ -1,5 +1,5 @@
 import { FC, memo, useState } from "react";
-import { Flip, useResponsive } from "izui-react";
+import { Flip, useResponsive } from "@izui/react";
 
 import LevelDesktop from "./LevelDesktop/LevelDesktop";
 import LevelMobile from "./LevelMobile/LevelMobile";

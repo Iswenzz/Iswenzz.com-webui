@@ -1,8 +1,9 @@
 import { FC } from "react";
-import { Header, useThemeMode } from "izui-react";
+import { Header, useThemeMode } from "@izui/react";
 
 import sunset from "assets/images/background/sunset2.jpg";
 import mountain from "assets/images/background/nature1.jpg";
+import { NavigationChevron } from "router/components";
 
 import { Contact, About, Levels, Projects } from "./components";
 
@@ -17,7 +18,9 @@ const Home: FC = () =>
 
 	return (
 		<>
-			<Header title="Iswenzz" description="HOME_HEADER" background={headerImage} />
+			<Header title="Iswenzz" description="HOME_HEADER" background={headerImage}>
+				<NavigationChevron />
+			</Header>
 
 			<About />
 			<Projects />

@@ -3,7 +3,7 @@ import { Element } from "react-scroll";
 import { Grid, Divider, Container, useTheme } from "@mui/material";
 import classNames from "classnames";
 import random from "lodash/random";
-import { TrailText, SpringGrid, Parallax, useResponsive } from "izui-react";
+import { TrailText, SpringGrid, Parallax, useResponsive } from "@izui/react";
 
 import Project, { ProjectSource } from "./components/Project/Project";
 import { ProjectPopup } from "./components/ProjectPopup/ProjectPopup";

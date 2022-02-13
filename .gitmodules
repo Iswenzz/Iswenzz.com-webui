@@ -1,0 +1,3 @@
+[submodule "packages/izui-web"]
+	path = packages/izui-web
+	url = git@github.com:Iswenzz/IzUI-Web.git

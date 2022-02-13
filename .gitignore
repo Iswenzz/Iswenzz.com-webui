@@ -1,10 +1,12 @@
 .idea/*
 .vs/*
 .vscode/*
+.yarn/*
 node_modules/*
 coverage/*
 build/*
 
+.pnp.*
 .env.local
 .env.development.local
 .env.test.local

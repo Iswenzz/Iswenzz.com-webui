@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { AppBarProps, useTheme, AppBar, Toolbar, Grid  } from "@mui/material";
 import { motion } from "framer-motion";
 import { useScroll } from "@use-gesture/react";
-import { scrollConfig, useResponsive } from "izui-react";
+import { scrollConfig, useResponsive } from "@izui/react";
 
 import { setModalActive, setTheme } from "App/redux";
 

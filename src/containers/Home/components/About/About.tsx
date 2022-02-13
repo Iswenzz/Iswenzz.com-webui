@@ -1,7 +1,7 @@
 import { memo, FC } from "react";
 import { Element } from "react-scroll";
 import { Grid } from "@mui/material";
-import { Parallax } from "izui-react";
+import { Parallax } from "@izui/react";
 
 import Skills from "./Skills/Skills";
 import Intro from "./Intro/Intro";

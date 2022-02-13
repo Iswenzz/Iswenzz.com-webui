@@ -3,7 +3,7 @@ import { batch, useDispatch } from "react-redux";
 import LazyLoad from "react-lazyload";
 import { motion } from "framer-motion";
 import { Card, CardActionArea, Typography } from "@mui/material";
-import { useResponsive } from "izui-react";
+import { useResponsive } from "@izui/react";
 
 import { setProjectModalOpen, setProjectModalStartIndex } from "Home/redux";
 import { setModalActive, setNavbarActive } from "App/redux";
@@ -43,7 +43,7 @@ const Project: FC<ProjectProps> = ({ project, projectIndex, height = 200, width 
 			<meta itemProp="downloadUrl" content={project.sourceURL} />
 			<LazyLoad height={height}>
 				<Card onClick={handleClick} className={scss.card}
-				  style={{ width, height, backgroundImage: `url(${project.cardImage})`}}>
+					style={{ width, height, backgroundImage: `url(${project.cardImage})`}}>
 					<CardActionArea className={scss.cardAction}>
 						<Typography className={scss.typo} itemProp="name" variant="caption" align="center"
 							style={{ fontSize, height: height / 3 }} paragraph>

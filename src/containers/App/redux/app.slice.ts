@@ -27,7 +27,7 @@ const slice = createSlice({
 	name: "app",
 	initialState,
 	reducers: {
-	  	setTheme: (state: any, action: PayloadAction<string>) => ({
+		setTheme: (state: any, action: PayloadAction<string>) => ({
 			...state,
 			...saveLocalState("app", { theme: action.payload })
 		}),

@@ -16,7 +16,7 @@ const slice = createSlice({
 	name: "home",
 	initialState,
 	reducers: {
-	  	setProjectModalOpen: (state: any, action: PayloadAction<boolean>) => ({
+		setProjectModalOpen: (state: any, action: PayloadAction<boolean>) => ({
 			...state,
 			projectModalOpen: action.payload
 		}),

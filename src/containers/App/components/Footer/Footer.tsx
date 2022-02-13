@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDiscord } from "@fortawesome/free-brands-svg-icons/faDiscord";
 import { faYoutube } from "@fortawesome/free-brands-svg-icons/faYoutube";
 import { faGithub } from "@fortawesome/free-brands-svg-icons/faGithub";
-import { Parallax } from "izui-react";
+import { Parallax } from "@izui/react";
 import classNames from "classnames";
 
 import scss from "./Footer.module.scss";

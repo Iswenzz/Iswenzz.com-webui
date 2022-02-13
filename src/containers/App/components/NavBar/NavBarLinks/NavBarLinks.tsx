@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Link } from "react-scroll";
 import { Button } from "@mui/material";
-import { Text } from "izui-react";
+import { Text } from "@izui/react";
 
 import scss from "../NavBar.module.scss";
 

@@ -3,7 +3,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { useTranslation } from "react-i18next";
 import { useMutation } from "@apollo/client";
 import { Avatar, Container, Grid, TextField, Typography, Button, useTheme } from "@mui/material";
-import { Loader, delay } from "izui-react";
+import { Loader, delay } from "@izui/react";
 import { Field, Form, Formik } from "formik";
 import classNames from "classnames";
 import isNil from "lodash/isNil";
@@ -92,7 +92,7 @@ const ContactForm: FC = () =>
 	 */
 	const mailFail = async (err?: any) =>
 	{
-		if (err) console.log(err);
+		if (err) console.error(err);
 		setFail(true);
 		setLoading(false);
 

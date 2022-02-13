@@ -7,7 +7,7 @@ export const register = (config: any) =>
 {
 	if (process.env.NODE_ENV === "production" && "serviceWorker" in navigator && process.env.PUBLIC_URL)
 	{
-	  	// The URL constructor is available in all browsers that support SW.
+		// The URL constructor is available in all browsers that support SW.
 		const publicUrl = new URL(process.env.PUBLIC_URL, window.location.href);
 
 		// https://github.com/facebook/create-react-app/issues/2374
@@ -61,7 +61,7 @@ const registerValidServiceWorker = async (url: string, config: any) =>
 							config.onSuccess(registration);
 					}
 				}
-		 	};
+			};
 		};
 	}
 	catch (error)

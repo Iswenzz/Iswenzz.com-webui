@@ -26,11 +26,11 @@
         ]
     },
     {
-        "title": "IzUI-React",
-        "sourceURL": "https://github.com/Iswenzz/IzUI-React",
+        "title": "IzUI-Web",
+        "sourceURL": "https://github.com/Iswenzz/IzUI-Web",
         "isOpenSource": true,
-        "cardImage": "https://iswenzz.com/iswenzz/projects/IzUI-React.jpg",
-        "renderUrl": "https://raw.githubusercontent.com/Iswenzz/IzUI-React/master/README.md",
+        "cardImage": "https://iswenzz.com/iswenzz/projects/IzUI-Web.jpg",
+        "renderUrl": "https://raw.githubusercontent.com/Iswenzz/IzUI-Web/master/README.md",
         "renderIcons": [
             {"name": "Typescript", "src": "https://iswenzz.com/iswenzz/devicons/typescript.svg"},
             {"name": "React", "src": "https://iswenzz.com/iswenzz/devicons/react.svg"},

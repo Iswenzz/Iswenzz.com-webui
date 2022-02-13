@@ -17,7 +17,7 @@ export const loadLocalState = (): RootRedux | Record<string, unknown> =>
 	}
 	catch
 	{
-	 	return { };
+		return { };
 	}
 };
 

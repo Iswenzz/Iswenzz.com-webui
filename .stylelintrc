@@ -16,5 +16,5 @@
         "selector-list-comma-newline-after": null,
         "scss/at-import-partial-extension": null
     },
-    "ignoreFiles": ["**/coverage/**/*", "**/*.{js,jsx,ts,tsx}"]
+    "ignoreFiles": ["**/node_modules/**/*", "**/build/**/*", "**/coverage/**/*", "**/*.{js,jsx,ts,tsx}"]
 }

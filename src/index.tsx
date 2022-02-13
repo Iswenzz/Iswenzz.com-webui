@@ -7,8 +7,9 @@ import { Themes } from "App/components";
 import Redux from "App/store";
 import "App/i18next";
 
-import Router from "router/routes";
 import Apollo from "api/apollo";
+import Router from "router/routes";
+import "config/highlight";
 import "styles/Main.scss";
 
 import { unregister } from "./serviceWorker";

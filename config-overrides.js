@@ -1,21 +1,26 @@
-const path = require("path");
 const yargs = require("yargs");
 const { hideBin } = require("yargs/helpers");
 
 const StylelintPlugin = require("stylelint-webpack-plugin");
-const BundleHighlightPlugin = require("izui-react/scripts/bundleHighlight");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
+const { default: BundleHighlightPlugin } = require("@izui/scripts/build/webpack/bundleHighlight");
 
-const { createWebpackAliasesFromTSConfig } = require("izui-react/scripts/createAliases");
 const highlightConfig = require("./src/config/highlight.json");
+const tsConfig= require("./tsconfig.json");
 const tsConfigPaths = require("./tsconfig.paths.json");
+
+const {
+	createWebpackAliasesFromTSConfig,
+	createWebpackBabelIncludeFromTSConfig
+} = require("@izui/scripts/build/utils/createAliases");
 
 const {
 	override,
 	overrideDevServer,
 	watchAll,
 	addWebpackAlias,
-	addWebpackPlugin
+	addWebpackPlugin,
+	babelInclude,
 } = require("customize-cra");
 
 const argv = yargs(hideBin(process.argv)).options({
@@ -25,13 +30,11 @@ const argv = yargs(hideBin(process.argv)).options({
 console.log(`Building in ${argv.mode} mode.\n`);
 
 module.exports.webpack = override(
-	addWebpackAlias({
-		...createWebpackAliasesFromTSConfig(tsConfigPaths),
-		"react/jsx-runtime": require.resolve("react/jsx-runtime")
-	}),
+	addWebpackAlias(createWebpackAliasesFromTSConfig(tsConfigPaths)),
 	addWebpackPlugin(new BundleHighlightPlugin(highlightConfig)),
 	addWebpackPlugin(new StylelintPlugin({ configPaths: ".stylelintrc" })),
-	argv.analyze ? addWebpackPlugin(new BundleAnalyzerPlugin()) : null
+	argv.analyze ? addWebpackPlugin(new BundleAnalyzerPlugin()) : null,
+	babelInclude(createWebpackBabelIncludeFromTSConfig(tsConfig))
 );
 
 module.exports.devServer = overrideDevServer(

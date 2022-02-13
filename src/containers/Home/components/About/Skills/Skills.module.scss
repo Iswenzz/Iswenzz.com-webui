@@ -1,4 +1,4 @@
-@use "izui-react/styles/Themes";
+@use "@izui/styles/scss/Themes";
 
 .skills {
 	@include Themes.darkMode {

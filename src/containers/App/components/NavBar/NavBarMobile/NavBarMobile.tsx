@@ -1,7 +1,9 @@
 import { FC } from "react";
 import { Fab, Drawer, Grid } from "@mui/material";
-import { Flare, Menu, Brightness3 } from "@mui/icons-material";
-import { useThemeMode } from "izui-react";
+import Flare from "@mui/icons-material/Flare";
+import Menu from "@mui/icons-material/Menu";
+import Brightness3 from "@mui/icons-material/Brightness3";
+import { useThemeMode } from "@izui/react";
 
 import { LanguagePicker } from "App/components";
 

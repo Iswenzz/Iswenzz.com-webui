@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { useSelector } from "react-redux";
-import { Themes as IzThemes, registerTheme } from "izui-react";
+import { Themes as IzThemes, registerTheme } from "@izui/react";
 
 import { getModalActive, getTheme } from "App/redux";
 
