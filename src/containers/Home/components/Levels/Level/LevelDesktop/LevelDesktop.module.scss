@@ -1,24 +1,24 @@
 @use "~../Level.module";
 
 .tileName {
-	height: 150px !important;
+	height: 150px;
 }
 
 .typo {
-	margin-top: 40px !important;
+	margin-top: 40px;
 }
 
 .tilePlayer {
-	width: 70% !important;
-	height: 500px !important;
+	width: 70%;
+	height: 500px;
 }
 
 .tileDescription {
-	width: 30% !important;
+	width: 30%;
 }
 
 .tileDescriptionTypo {
-	margin-left: 10px !important;
-	padding-left: 10px !important;
-	border-left: 3px solid red !important;
+	margin-left: 10px;
+	padding-left: 10px;
+	border-left: 3px solid red;
 }

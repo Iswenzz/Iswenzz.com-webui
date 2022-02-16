@@ -17,7 +17,7 @@
 	}
 
 	a, a:link, a:visited {
-		color: #67d8ef !important;
+		color: #67d8ef;
 	}
 
 	.permalink {
@@ -27,37 +27,37 @@
 	}
 
 	.highlighted {
-		background: none !important;
+		background: none;
 	}
 
 	a.highlighted {
-		background: none !important;
+		background: none;
 	}
 
 	/*********************************************/
 	/**              Top main menu              **/
 	/*********************************************/
 	.sm-dox {
-		text-shadow: none !important;
-		box-shadow: none !important;
+		text-shadow: none;
+		box-shadow: none;
 	}
-	
+
 	#main-nav {
 		/* display: none; */
 		border-bottom: 1px solid #32363d;
 	}
 
 	#main-nav .sm-dox {
-		background: transparent !important;
+		background: transparent;
 	}
 
 	.sm-dox a {
-		background: transparent !important;
-		text-shadow: none !important;
+		background: transparent;
+		text-shadow: none;
 	}
 
 	.sm-dox a:hover {
-		background: #282923 !important;
+		background: #282923;
 	}
 
 	.sm-dox ul {
@@ -83,13 +83,13 @@
 	}
 
 	a.SelectItem:hover {
-		background: #282923 !important;
+		background: #282923;
 	}
 
 	#MSearchResultsWindow {
 		border: 1px solid black;
 		background: #32363d;
-		color: #67d8ef !important;
+		color: #67d8ef;
 	}
 
 	/*********************************************/
@@ -110,8 +110,8 @@
 	div.toc {
 		background: #32363d;
 		border: 1px solid black;
-		margin: 0 !important;
-		border-radius: 4px !important;
+		margin: 0;
+		border-radius: 4px;
 	}
 
 	div.toc h3 {
@@ -147,7 +147,7 @@
 	}
 
 	.tablist li {
-		background: transparent !important;
+		background: transparent;
 	}
 
 	.tablist a {
@@ -218,19 +218,19 @@
 		color: #e7db74;
 	}
 
-	span.vhdldigit { 
+	span.vhdldigit {
 		color: magenta;
 	}
 
-	span.vhdlchar { 
+	span.vhdlchar {
 		color: black;
 	}
 
-	span.vhdlkeyword { 
+	span.vhdlkeyword {
 		color: #700070;
 	}
 
-	span.vhdllogic { 
+	span.vhdllogic {
 		color: red;
 	}
 
@@ -249,7 +249,7 @@
 	.mdescLeft, .mdescRight, .memItemLeft, .memItemRight,
 	.memTemplItemLeft, .memTemplItemRight, .memTemplParams {
 		background: #2a2d36;
-		box-shadow: 7px 7px 5px 0px rgba(0,0,0,0.3) !important;
+		box-shadow: 7px 7px 5px 0px rgba(0,0,0,0.3);
 		border-radius: 2px;
 		color: inherit;
 	}
@@ -268,9 +268,9 @@
 	/**                 Mem items               **/
 	/*********************************************/
 	.memitem {
-		background: #2a2d36 !important;
-		box-shadow: 7px 7px 5px 0px rgba(0,0,0,0.3) !important;
-		border-radius: 5px !important;
+		background: #2a2d36;
+		box-shadow: 7px 7px 5px 0px rgba(0,0,0,0.3);
+		border-radius: 5px;
 		color: inherit;
 		text-shadow: none;
 	}
@@ -283,7 +283,7 @@
 	}
 
 	.memproto table td {
-		font-family: monospace, fixed !important;
+		font-family: monospace, fixed;
 	}
 
 	td.memItemLeft, td.memItemRight {
@@ -296,7 +296,7 @@
 	}
 
 	.memdoc {
-		background: #2a2d36 !important;
+		background: #2a2d36;
 		text-shadow: none;
 	}
 
@@ -347,10 +347,10 @@
 		padding: 15px;
 		border-radius: 5px;
 		background-color: #2a2d36;
-		box-shadow: 7px 7px 5px 0px rgba(0,0,0,0.3) !important;
+		box-shadow: 7px 7px 5px 0px rgba(0,0,0,0.3);
 		* {
-			text-decoration: none !important;
-			font-family: monospace, fixed !important;
+			text-decoration: none;
+			font-family: monospace, fixed;
 		}
 	}
 
@@ -360,7 +360,7 @@
 	.contents {
 		padding-top: 40px;
 		padding-bottom: 40px;
-		margin: auto auto !important;
+		margin: auto auto;
 		max-width: 1200px;
 		display: grid;
 	}
@@ -398,7 +398,7 @@
 	.fieldtable {
 		-webkit-box-shadow: none;
 		-moz-box-shadow: none;
-		box-shadow: none !important;
+		box-shadow: none;
 	}
 
 	/*********************************************/
@@ -458,7 +458,7 @@
 
 		font-weight: bold;
 		text-transform: uppercase;
-		color: white !important;
+		color: white;
 		-webkit-box-shadow: none;
 		-moz-box-shadow: none;
 

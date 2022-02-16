@@ -7,6 +7,7 @@ import { useThemeMode } from "@izui/react";
 
 import { LanguagePicker } from "App/components";
 
+import { paperProps } from "./config";
 import NavBarLinks from "../NavBarLinks/NavBarLinks";
 import scss from "../NavBar.module.scss";
 
@@ -34,7 +35,7 @@ const NavBarMobile: FC<NavBarMobileProps> = ({ toggleDrawer, toggleThemeMode, is
 
 	return (
 		<>
-			<Grid component="ul" container justifyContent="flex-end" alignItems="center">
+			<Grid className={scss.buttons} component="ul" container justifyContent="flex-end" alignItems="center">
 				<li>
 					<Fab className={scss.button} style={{ color }} size="small" onClick={toggleThemeMode}>
 						{icon}
@@ -49,8 +50,7 @@ const NavBarMobile: FC<NavBarMobileProps> = ({ toggleDrawer, toggleThemeMode, is
 					</Fab>
 				</li>
 			</Grid>
-			<Drawer variant="persistent" anchor="top" open={isDrawerOpen} onClose={handleClose}
-				PaperProps={{ style: { backgroundColor: "rgba(50, 50, 50, 0.3)", color: "gainsboro", top: "48px" }}}>
+			<Drawer anchor="top" open={isDrawerOpen} onClose={handleClose} PaperProps={paperProps}>
 				<section role="presentation" onClick={handleClose} onKeyDown={handleClose}>
 					<Grid component="ul" container direction="column" justifyContent="center" alignItems="center">
 						<NavBarLinks toggleDrawer={toggleDrawer} />

@@ -1,15 +1,9 @@
-import { createTheme } from "@mui/material";
+import { SxProps } from "@mui/material";
 
-export const menuTheme = createTheme({
-	components: {
-		MuiMenu: {
-			styleOverrides: {
-				paper: {
-					top: "48px !important",
-					backgroundColor: "rgba(50, 50, 60, 0.3) !important",
-					color: "gainsboro !important"
-				}
-			}
-		}
+export const menuSx: SxProps = {
+	"& .MuiMenu-paper": {
+		marginTop: "5px",
+		backgroundColor: "rgba(50, 50, 60, 0.3)",
+		color: "gainsboro"
 	}
-});
+};

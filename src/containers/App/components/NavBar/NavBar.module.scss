@@ -1,11 +1,15 @@
 .navbar {
 	position: relative;
-	background: rgba(50,50,60,.3) !important;
+	background: rgba(50,50,60,.3);
 }
 
 .button {
 	background-color: transparent !important;
-	margin: 0 5px !important;
+	margin: 0 5px;
+}
+
+.buttons {
+	height: 100%;
 }
 
 .logo {

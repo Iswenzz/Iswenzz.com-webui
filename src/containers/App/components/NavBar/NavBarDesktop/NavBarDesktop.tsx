@@ -20,7 +20,7 @@ const NavBarDesktop: FC<NavBarDesktopProps> = ({ toggleDrawer, toggleThemeMode }
 	});
 
 	return (
-		<Grid component="ul" container justifyContent="flex-end" alignItems="center">
+		<Grid className={scss.buttons} component="ul" container justifyContent="flex-end" alignItems="center">
 			<NavBarLinks toggleDrawer={toggleDrawer} />
 			<li>
 				<Fab className={scss.button} style={{ color }} size="small" onClick={toggleThemeMode}>
