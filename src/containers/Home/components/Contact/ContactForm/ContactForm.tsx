@@ -4,11 +4,11 @@ import { useTranslation } from "react-i18next";
 import { useMutation } from "@apollo/client";
 import { Avatar, Container, Grid, TextField, Typography, Button, useTheme } from "@mui/material";
 import { Loader, delay } from "@izui/react";
+import iswenzzIcon from "@izui/assets/images/iswenzz/iswenzz.png";
 import { Field, Form, Formik } from "formik";
 import classNames from "classnames";
 import isNil from "lodash/isNil";
 
-import iswenzzIcon from "assets/images/iswenzz/iswenzz.png";
 import { Mutation, MutationContactArgs } from "api/generated/graphql";
 
 import { contactFormInitial, ContactFormValues, GRAPHQL_CONTACT } from "../config";

@@ -33,7 +33,7 @@ const Projects: FC = () =>
 			<Grid component="section" className={classNames(scss.projects, scss[theme])}
 				justifyContent={"center"} alignItems={"center"}>
 				<Container component="header" className={scss.container}>
-					<TrailText align="center" color="textPrimary" component="h2" variant="h2" className="poiret-h1 noselect">
+					<TrailText align="center" color="textPrimary" component="h2" variant="h2" className="poiret-big noselect">
 						PROJECTS
 					</TrailText>
 					<Divider className={scss.divider} />

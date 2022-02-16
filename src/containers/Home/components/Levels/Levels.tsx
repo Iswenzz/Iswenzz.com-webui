@@ -31,7 +31,7 @@ export const Levels: FC = () =>
 				className={classNames(scss.gradient, scss[theme])}>
 				<Container component="header" className={scss.container}>
 					<motion.div variants={animationScaleFadeUp()} initial={"exit"} animate={inView ? "enter" : "exit"}>
-						<Text align="center" color="textPrimary" component="h2" variant="h2" className="poiret-h1 noselect">
+						<Text align="center" color="textPrimary" component="h2" variant="h2" className="poiret-big noselect">
 							LEVEL_DESIGN
 						</Text>
 						<Divider className={scss.divider} />

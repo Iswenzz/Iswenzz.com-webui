@@ -18,7 +18,8 @@ const Home: FC = () =>
 
 	return (
 		<>
-			<Header title="Iswenzz" description="HOME_HEADER" background={headerImage}>
+			<Header title="Iswenzz" description="HOME_HEADER" background={headerImage}
+				titleClassName="gainsboro-90" descriptionClassName="gainsboro-90">
 				<NavigationChevron />
 			</Header>
 

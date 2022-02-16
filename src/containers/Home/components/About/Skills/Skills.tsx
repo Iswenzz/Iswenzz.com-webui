@@ -28,7 +28,7 @@ const Skills: FC = () =>
 				<motion.div variants={animationLeft} initial={"exit"} animate={inView ? "enter" : "exit"}>
 					<Container component="header" className={scss.container}>
 						<TrailText align="center" color="textPrimary" component="h2" variant="h2"
-							className="poiret-h1 noselect" visible={inView}>
+							className="poiret-big noselect" visible={inView}>
 							TECHNO_SKILLS
 						</TrailText>
 						<Divider className={scss.divider} />

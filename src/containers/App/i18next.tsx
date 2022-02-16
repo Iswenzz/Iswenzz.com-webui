@@ -3,17 +3,17 @@ import { initReactI18next } from "react-i18next";
 import i18next, {InitOptions, Resource} from "i18next";
 import detector from "i18next-browser-languagedetector";
 
+import flagUnitedKingdom from "@izui/assets/images/flags/262-united-kingdom.svg";
+import flagFrance from "@izui/assets/images/flags/077-france.svg";
+import flagSpain from "@izui/assets/images/flags/044-spain.svg";
+import flagItaly from "@izui/assets/images/flags/011-italy.svg";
+import flagChina from "@izui/assets/images/flags/261-china.svg";
+
 import english from "assets/locales/english.json";
 import french from "assets/locales/french.json";
 import spanish from "assets/locales/spanish.json";
 import italian from "assets/locales/italian.json";
 import chinese from "assets/locales/chinese.json";
-
-import flagUnitedKingdom from "assets/images/flags/262-united-kingdom.svg";
-import flagFrance from "assets/images/flags/077-france.svg";
-import flagSpain from "assets/images/flags/044-spain.svg";
-import flagItaly from "assets/images/flags/011-italy.svg";
-import flagChina from "assets/images/flags/261-china.svg";
 
 import { getLocalStateValue } from "./utils/localStorage";
 

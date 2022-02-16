@@ -25,7 +25,7 @@ const Intro: FC = () =>
 				<motion.div ref={ref} variants={animationUp} initial={"exit"} animate={inView ? "enter" : "exit"}>
 					<Container component="header" maxWidth="md">
 						<Text align="left" color="textPrimary" component="h2" variant="h2"
-							className="poiret-h1 noselect">
+							className="poiret-big noselect">
 							{about.header}
 						</Text>
 						<Divider className={scss.divider} />

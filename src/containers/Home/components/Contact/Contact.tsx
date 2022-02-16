@@ -27,7 +27,7 @@ export const Contact: FC = (): JSX.Element =>
 	return (
 		<>
 			<Parallax className={scss.contactParallax} speed={-12} image={parallaxImage}>
-				<TrailText className={classNames(scss.contactTypo, "poiret-h1", "bold", "noselect")}
+				<TrailText className={classNames(scss.contactTypo, "poiret-big", "bold", "noselect", "gainsboro-90")}
 					align="center" variant="h2" component="h2">
 					CONTACT_HEADER
 				</TrailText>
