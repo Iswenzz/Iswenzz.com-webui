@@ -1,0 +1,22 @@
+{
+	"languages": [
+		"typescript",
+		"javascript",
+		"java",
+		"c",
+		"cpp",
+		"csharp",
+		"json",
+		"xml",
+		"yaml",
+		"python",
+		"php",
+		"bash",
+		"shell",
+		"powershell",
+		"cmake",
+		"makefile",
+		"css",
+		"scss"
+	]
+}

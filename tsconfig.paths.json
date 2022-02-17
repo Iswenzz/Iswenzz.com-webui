@@ -1,0 +1,28 @@
+{
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"test/*": ["src/__test__/*"],
+			"api/*": ["src/api/*"],
+			"assets/*": ["src/assets/*"],
+			"config/*": ["src/config/*"],
+			"components": ["src/components"],
+			"containers": ["src/containers"],
+			"pages": ["src/pages"],
+			"router/*": ["src/router/*"],
+			"styles/*": ["src/styles/*"],
+			"utils/*": ["src/utils/*"],
+
+			"App/*": ["src/containers/App/*"],
+			"Home/*": ["src/pages/Home/*"],
+			"Docx/*": ["src/pages/Docx/*"],
+
+			"@/test/*": ["packages/izui-web/packages/izui-react/src/__test__/*"],
+			"@/components": ["packages/izui-web/packages/izui-react/src/components"],
+			"@/config/*": ["packages/izui-web/packages/izui-react/src/config/*"],
+			"@/router/*": ["packages/izui-web/packages/izui-react/src/router/*"],
+			"@/styles/*": ["packages/izui-web/packages/izui-react/src/styles/*"],
+			"@/utils/*": ["packages/izui-web/packages/izui-react/src/utils/*"]
+		}
+	}
+}

@@ -1,0 +1,613 @@
+.doxygen {
+	background-color: #0e0f14;
+
+	#top, .header, .footer, .lineno {
+		display: none;
+	}
+
+	iframe {
+		width: 100%;
+		height: 300px;
+	}
+
+	body {
+		background: #282923;
+		background-image: none;
+		color: #D8D8D8;
+	}
+
+	a, a:link, a:visited {
+		color: #67d8ef;
+	}
+
+	.permalink {
+		a {
+			text-decoration: none;
+		}
+	}
+
+	.highlighted {
+		background: none;
+	}
+
+	a.highlighted {
+		background: none;
+	}
+
+	/*********************************************/
+	/**              Top main menu              **/
+	/*********************************************/
+	.sm-dox {
+		text-shadow: none;
+		box-shadow: none;
+	}
+
+	#main-nav {
+		/* display: none; */
+		border-bottom: 1px solid #32363d;
+	}
+
+	#main-nav .sm-dox {
+		background: transparent;
+	}
+
+	.sm-dox a {
+		background: transparent;
+		text-shadow: none;
+	}
+
+	.sm-dox a:hover {
+		background: #282923;
+	}
+
+	.sm-dox ul {
+		border: 1px solid black;
+		background: #32363d;
+	}
+
+	.directory tr.even {
+		background: #32363d;
+	}
+
+
+	/*********************************************/
+	/**               Top search                **/
+	/*********************************************/
+	#MSearchSelectWindow {
+		border: 1px solid black;
+		background: #32363d;
+	}
+
+	a.selectItem {
+		padding: 3px;
+	}
+
+	a.SelectItem:hover {
+		background: #282923;
+	}
+
+	#MSearchResultsWindow {
+		border: 1px solid black;
+		background: #32363d;
+		color: #67d8ef;
+	}
+
+	/*********************************************/
+	/**                Main menu                **/
+	/*********************************************/
+	#nav-tree {
+		background: transparent;
+	}
+
+	#nav-tree .selected {
+		background: #32363d;
+		background-image: none;
+	}
+
+	/*********************************************/
+	/**         Table of Contents (ToC)         **/
+	/*********************************************/
+	div.toc {
+		background: #32363d;
+		border: 1px solid black;
+		margin: 0;
+		border-radius: 4px;
+	}
+
+	div.toc h3 {
+		font-size: 150%;
+		color: inherit;
+	}
+
+	/*********************************************/
+	/**              Content table              **/
+	/*********************************************/
+	table.doxtable tr:nth-child(even) td {
+		background: #32363d;
+	}
+
+	div.header {
+		background: transparent;
+		border-bottom: 1px solid #32363d;
+	}
+
+	/*********************************************/
+	/**               Field table               **/
+	/*********************************************/
+	.fieldtable th {
+		background: #282923;
+		color: inherit;
+	}
+
+	/*********************************************/
+	/**             TOP navigation              **/
+	/*********************************************/
+	.tabs, .tabs2, .tabs3 {
+		background: #DDDDDD;
+	}
+
+	.tablist li {
+		background: transparent;
+	}
+
+	.tablist a {
+		background-image: none;
+		border-right: 1px solid #999999;
+
+		color: #32363d;
+	}
+
+	.tablist a:hover,
+	.tablist li.current a {
+		text-decoration: none;
+		color: black;
+		background: #CCCCCC;
+		background-image: none;
+		text-shadow: none;
+	}
+
+	/*********************************************/
+	/**               Resizable UI              **/
+	/*********************************************/
+	.ui-resizable-e {
+		background: #32363d;
+		width: 3px;
+	}
+
+	/*********************************************/
+	/**               Syntax color              **/
+	/*********************************************/
+	div.line {
+		background: transparent;
+		color: inherit;
+	}
+
+	div.line a {
+		color: inherit;
+		text-decoration: underline;
+	}
+
+	span.keyword {
+		color: #f92472;
+		font-style: italic;
+	}
+
+	span.keywordtype {
+		color: #67cfc1;
+		font-style: italic;
+	}
+
+	span.keywordflow {
+		color: #f92472;
+		font-style: italic;
+	}
+
+	span.comment {
+		color: #74705a;
+	}
+
+	span.preprocessor {
+		color: #a6e22b;
+	}
+
+	span.stringliteral {
+		color: #e7db74;
+	}
+
+	span.charliteral {
+		color: #e7db74;
+	}
+
+	span.vhdldigit {
+		color: magenta;
+	}
+
+	span.vhdlchar {
+		color: black;
+	}
+
+	span.vhdlkeyword {
+		color: #700070;
+	}
+
+	span.vhdllogic {
+		color: red;
+	}
+
+	span.lineno {
+		background: transparent;
+	}
+
+	span.lineno a {
+		background: transparent;
+		text-decoration: none;
+	}
+
+	/*********************************************/
+	/**          Modules/Directory table        **/
+	/*********************************************/
+	.mdescLeft, .mdescRight, .memItemLeft, .memItemRight,
+	.memTemplItemLeft, .memTemplItemRight, .memTemplParams {
+		background: #2a2d36;
+		box-shadow: 7px 7px 5px 0px rgba(0,0,0,0.3);
+		border-radius: 2px;
+		color: inherit;
+	}
+
+	.memSeparator {
+		border: none;
+		background: transparent;
+	}
+
+	h2.groupheader {
+		color: #67d8ef;
+		border-bottom: solid 1px;
+	}
+
+	/*********************************************/
+	/**                 Mem items               **/
+	/*********************************************/
+	.memitem {
+		background: #2a2d36;
+		box-shadow: 7px 7px 5px 0px rgba(0,0,0,0.3);
+		border-radius: 5px;
+		color: inherit;
+		text-shadow: none;
+	}
+
+	.memproto {
+		background-color: #202229;
+		font-weight: bold;
+		color: inherit;
+		text-shadow: none;
+	}
+
+	.memproto table td {
+		font-family: monospace, fixed;
+	}
+
+	td.memItemLeft, td.memItemRight {
+		font-family: monospace, fixed;
+	}
+
+	.paramname, .paramname em {
+		color: #bf5f82;
+		font-style: italic;
+	}
+
+	.memdoc {
+		background: #2a2d36;
+		text-shadow: none;
+	}
+
+	.ttc {
+		display: none;
+	}
+
+
+	/*********************************************/
+	/**                 Footer                  **/
+	/*********************************************/
+	.titlearea {
+		border-bottom: 1px solid #32363d;
+	}
+
+	/*********************************************/
+	/**                 Footer                  **/
+	/*********************************************/
+	#nav-path {
+		background: transparent;
+	}
+
+	#nav-path ul {
+		background: transparent;
+		color: inherit;
+		border: none;
+		border-top: 1px solid #32363d;
+	}
+
+	.navpath li.footer {
+		color: inherit;
+	}
+
+	.navpath li.navelem a {
+		text-shadow: none;
+	}
+
+	/*********************************************/
+	/**             Custom scrollbar            **/
+	/*********************************************/
+	h1.glow, h2.glow, h3.glow,
+	h4.glow, h5.glow, h6.glow {
+		text-shadow: 0 0 15px #67d8ef;
+	}
+
+	div.fragment, pre.fragment {
+		margin: 0;
+		padding: 15px;
+		border-radius: 5px;
+		background-color: #2a2d36;
+		box-shadow: 7px 7px 5px 0px rgba(0,0,0,0.3);
+		* {
+			text-decoration: none;
+			font-family: monospace, fixed;
+		}
+	}
+
+	/*********************************************/
+	/**               Main content              **/
+	/*********************************************/
+	.contents {
+		padding-top: 40px;
+		padding-bottom: 40px;
+		margin: auto auto;
+		max-width: 1200px;
+		display: grid;
+	}
+
+	/*********************************************/
+	/**               Inline code               **/
+	/*********************************************/
+	p code,
+	li code,
+	td code,
+	dd code {
+		display: inline;
+		padding: 0px 6px;
+		-webkit-border-radius: 4px;
+		-moz-border-radius: 4px;
+		border-radius: 4px;
+
+		// background-color: #CCCCCC;
+		background-color: #0e0f14;
+		border: 1px solid #333333;
+
+		color: #888888;
+	}
+
+	/*********************************************/
+	/**              Content table              **/
+	/*********************************************/
+	.contents table.doxtable {
+		margin: 0 auto;
+	}
+
+	/*********************************************/
+	/**               Field table               **/
+	/*********************************************/
+	.fieldtable {
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		box-shadow: none;
+	}
+
+	/*********************************************/
+	/**           Memitem and memtitle          **/
+	/*********************************************/
+	.memitem,
+	.memproto,
+	.memdoc {
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		box-shadow: none;
+		background-image: none;
+	}
+
+	/*********************************************/
+	/**              H1 in textblocks           **/
+	/*********************************************/
+	.textblock h1 {
+		border-bottom: 1px solid #32363d;
+		border-left: 3px solid #32363d;
+		margin: 40px 0px 10px 0px;
+		padding-bottom: 10px;
+		padding-top: 10px;
+		padding-left: 5px;
+	}
+
+	.textblock h1:first-child {
+		margin-top: 10px;
+	}
+
+	/*********************************************/
+	/**               Note, warning             **/
+	/*********************************************/
+	dl.note,
+	dl.warning,
+	dl.todo,
+	dl.deprecated,
+	dl.reflist {
+		border: 0;
+		padding: 0px;
+		margin: 4px 0px 4px 0px;
+		border-radius: 4px;
+	}
+
+	dl.note dt,
+	dl.warning dt,
+	dl.todo dt,
+	dl.deprecated dt,
+	dl.reflist dt {
+		margin: 0;
+		font-size: 14px;
+		padding: 2px 4px;
+
+		border: none;
+		border-top-left-radius: 0px;
+		border-top-right-radius:0px;
+
+		font-weight: bold;
+		text-transform: uppercase;
+		color: white;
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+
+		box-shadow: none;
+		text-shadow: none;
+	}
+
+	dl.note dd,
+	dl.warning dd,
+	dl.todo dd,
+	dl.deprecated dd,
+	dl.reflist dd {
+		margin: 0;
+		padding: 4px;
+		background: none;
+
+		color: #222222;
+
+		border: 1px solid;
+		border-bottom-left-radius: 0px;
+		border-bottom-right-radius: 0px;
+		border-top: none;
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+
+		box-shadow: none;
+		text-shadow: none;
+	}
+
+	dl.reflist dd {
+		margin-bottom: 15px;
+		background-color: #ffe0b2;
+		border-color: #cbae82;
+	}
+
+	/* Header */
+	dl.note dt {
+		background-color: #cbc693;
+	}
+
+	dl.warning dt {
+		background-color: #bf5f82;
+	}
+
+	dl.todo dt {
+		background-color: #82b3c9;
+	}
+
+	dl.deprecated dt {
+		background-color: #af8eb5;
+	}
+
+	dl.reflist dt {
+		background-color: #cbae82;
+	}
+
+	/* Content */
+	dl.note dd {
+		background-color: #fff9c4;
+		border-color: #cbc693;
+	}
+
+	dl.warning dd {
+		background-color: #f48fb1;
+		border-color: #bf5f82;
+	}
+
+	dl.todo dd {
+		background-color: #b3e5fc;
+		border-color: #82b3c9;
+	}
+
+	dl.deprecated dd {
+		background-color: #e1bee7;
+		border-color: #af8eb5;
+	}
+
+	/*********************************************/
+	/**               Note, warning             **/
+	/*********************************************/
+	#docs_list {
+		padding: 0 10px;
+		background: #32363d;
+	}
+
+	#docs_list ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	#docs_list ul li {
+		display: inline-block;
+		border-right: 1px solid #BFBFBF;
+	}
+
+	#docs_list ul li:last-child {
+		border-right: none;
+	}
+
+	#docs_list ul li a {
+		display: block;
+		padding: 8px 13px;
+		font-weight: bold;
+		font-size: 15px;
+		color: #1b1e21;
+	}
+
+	#docs_list ul li a:hover,
+	#docs_list ul li a.docs_current {
+		text-decoration: underline;
+		background: #282923;
+	}
+
+	/*********************************************/
+	/**               Download url              **/
+	/*********************************************/
+	.download_url {
+		font-weight: bold;
+		font-size: 150%;
+		line-height: 150%;
+	}
+
+	/*********************************************/
+	/**          Modules/Directory table        **/
+	/*********************************************/
+	.directory .arrow {
+		height: initial;
+	}
+
+	.directory td.entry {
+		padding: 3px 6px;
+	}
+
+	/*********************************************/
+	/**                 Mem items               **/
+	/*********************************************/
+	.memItem {
+		font-family: monospace, fixed;
+	}
+
+	.memItem table {
+		font-family: inherit;
+	}
+
+	/*********************************************/
+	/**                 Footer                  **/
+	/*********************************************/
+	img.footer {
+		height: 22px;
+	}
+}

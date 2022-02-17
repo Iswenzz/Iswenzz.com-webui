@@ -1,9 +1,27 @@
 import "react-app-polyfill/ie11";
 import "react-app-polyfill/stable";
-import * as serviceWorker from "serviceWorker";
-import ReactDOM from "react-dom";
-import application from "application";
-import "i18n";
 
-ReactDOM.render(application, document.getElementById("iswenzz-react-root"));
-serviceWorker.unregister();
+import ReactDOM from "react-dom";
+
+import { Themes } from "App/components";
+import Redux from "App/store";
+import "App/i18next";
+
+import Apollo from "api/apollo";
+import Router from "router/routes";
+import "config/highlight";
+import "styles/Main.scss";
+
+import { unregister } from "./serviceWorker";
+
+ReactDOM.render((
+	<Apollo>
+		<Redux>
+			<Themes>
+				<Router />
+			</Themes>
+		</Redux>
+	</Apollo>
+), document.getElementById("iswenzz-react-root"));
+
+unregister();

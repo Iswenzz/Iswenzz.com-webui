@@ -1,0 +1,33 @@
+.navbar {
+	position: relative;
+	background: rgba(50,50,60,.3);
+}
+
+.button {
+	background-color: transparent !important;
+	margin: 0 5px;
+}
+
+.buttons {
+	height: 100%;
+}
+
+.logo {
+	padding: 0.5rem 1rem 0;
+	user-select: none;
+	cursor: pointer;
+}
+
+.fixed {
+	top: 0;
+	position: fixed;
+	width: 100%;
+	z-index: 4000;
+}
+
+.absolute {
+	top: 0;
+	position: absolute;
+	width: 100%;
+	z-index: 4000;
+}

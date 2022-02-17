@@ -1,0 +1,17 @@
+.arrow {
+	cursor: pointer;
+	color: gainsboro;
+	margin-top: 40px;
+	animation: downarrow 1s infinite alternate ease-in-out;
+}
+
+@keyframes downarrow {
+	0% {
+		transform: translateY(0);
+		opacity: 0.7;
+	}
+	100% {
+		transform: translateY(0.3em);
+		opacity: 1;
+	}
+}

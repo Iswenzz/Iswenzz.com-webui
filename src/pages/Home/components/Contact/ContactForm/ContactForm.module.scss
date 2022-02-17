@@ -1,0 +1,30 @@
+.avatar {
+	margin: 8px;
+	width: 120px;
+	height: 120px;
+}
+
+.buttonDefault {
+	background: linear-gradient(45deg, #c51162 30%, #FF8E53 90%);
+	box-shadow: 0 3px 5px 2px rgba(255, 105, 135, .3);
+	margin: 2rem 0 1rem;
+}
+
+.buttonSuccess {
+	background: linear-gradient(45deg, #174b0f 30%, #1c9209 90%);
+	box-shadow: 0 3px 5px 2px rgba(18, 74, 9, .7);
+}
+
+.buttonFail {
+	background: linear-gradient(45deg, #450301 30%, #7a0905 90%);
+	box-shadow: 0 3px 5px 2px rgba(69, 3, 1, .7);
+}
+
+.buttonProgress {
+	color: cyan;
+	margin: -3.3rem 0 1rem;
+}
+
+form {
+	margin-top: 8px;
+}
