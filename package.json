@@ -9,6 +9,7 @@
 	"scripts": {
 		"build": "react-app-rewired build",
 		"build:analyze": "yarn build --analyze",
+		"lint": "yarn lint:scss && yarn lint:ts",
 		"lint:scss": "stylelint **/*.{scss,css}",
 		"lint:scss:fix": "stylelint **/*.scss --fix",
 		"lint:ts": "eslint \"**/*.{js,jsx,ts,tsx}\"",
@@ -103,6 +104,7 @@
 		"@types/uuid": "^8.3.4",
 		"@typescript-eslint/eslint-plugin": "^5.11.0",
 		"customize-cra": "^1.0.0",
+		"eslint": "^8.9.0",
 		"eslint-config-react-app": "^7.0.0",
 		"identity-obj-proxy": "^3.0.0",
 		"jest": "^27.5.1",

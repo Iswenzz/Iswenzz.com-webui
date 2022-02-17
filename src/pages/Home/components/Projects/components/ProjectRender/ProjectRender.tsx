@@ -1,11 +1,9 @@
-import { FC, useCallback, useEffect, useState } from "react";
+import { FC } from "react";
 import { useTranslation } from "react-i18next";
 import { v4 as uuidv4 } from "uuid";
-import classNames from "classnames";
-import axios from "axios";
 
-import { Forward, Image, Loader, useResponsive, preventDefault, stopPropagation, markdown, Markdown, useFile } from "@izui/react";
-import { DialogContent, DialogTitle, Fab, Grid, Tooltip, useTheme } from "@mui/material";
+import { Forward, Image, Loader, useResponsive, preventDefault, stopPropagation, Markdown, useFile } from "@izui/react";
+import { DialogContent, DialogTitle, Fab, Grid, Tooltip } from "@mui/material";
 import { faOsi } from "@fortawesome/free-brands-svg-icons/faOsi";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Close from "@mui/icons-material/Close";

@@ -24,8 +24,8 @@ class StateBuilder
 	public with(more: MockState)
 	{
 		this.state = {
-		  ...this.state,
-		  ...more,
+			...this.state,
+			...more,
 		};
 		return this;
 	}

@@ -14,8 +14,8 @@
 			"utils/*": ["src/utils/*"],
 
 			"App/*": ["src/containers/App/*"],
-			"Home/*": ["src/containers/Home/*"],
-			"Docx/*": ["src/containers/Docx/*"],
+			"Home/*": ["src/pages/Home/*"],
+			"Docx/*": ["src/pages/Docx/*"],
 
 			"@/test/*": ["packages/izui-web/packages/izui-react/src/__test__/*"],
 			"@/components": ["packages/izui-web/packages/izui-react/src/components"],

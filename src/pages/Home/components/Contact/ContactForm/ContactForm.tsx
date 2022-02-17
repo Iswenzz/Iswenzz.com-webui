@@ -1,6 +1,5 @@
-import { FC, useRef, useState } from "react";
+import { FC, useState } from "react";
 import { useTranslation } from "react-i18next";
-import ReCAPTCHA from "react-google-recaptcha";
 import { useMutation } from "@apollo/client";
 import { Avatar, Container, Grid, TextField, Button } from "@mui/material";
 import { Field, Form, Formik } from "formik";
