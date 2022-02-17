@@ -1,15 +1,18 @@
 import { FC, useRef, useState } from "react";
-import ReCAPTCHA from "react-google-recaptcha";
 import { useTranslation } from "react-i18next";
+import ReCAPTCHA from "react-google-recaptcha";
 import { useMutation } from "@apollo/client";
-import { Avatar, Container, Grid, TextField, Typography, Button, useTheme } from "@mui/material";
-import { Loader, delay } from "@izui/react";
-import iswenzzIcon from "@izui/assets/images/iswenzz/iswenzz.png";
+import { Avatar, Container, Grid, TextField, Button } from "@mui/material";
 import { Field, Form, Formik } from "formik";
 import classNames from "classnames";
 import isNil from "lodash/isNil";
 
+import { Loader, delay } from "@izui/react";
+import iswenzzIcon from "@izui/assets/images/iswenzz/iswenzz.png";
+
+import { Captcha, CaptchaCopyright } from "App/components";
 import { Mutation, MutationContactArgs } from "api/generated/graphql";
+import { useCaptcha } from "utils/hooks";
 
 import { contactFormInitial, ContactFormValues, GRAPHQL_CONTACT } from "../config";
 import scss from "./ContactForm.module.scss";
@@ -20,10 +23,9 @@ import scss from "./ContactForm.module.scss";
  */
 const ContactForm: FC = () =>
 {
-	const { isDarkTheme } = useTheme();
 	const { t } = useTranslation();
 
-	const recaptchaRef = useRef<ReCAPTCHA>(null);
+	const captcha = useCaptcha();
 	const [contact] = useMutation<Mutation, MutationContactArgs>(GRAPHQL_CONTACT);
 
 	const [loading, setLoading] = useState(false);
@@ -42,15 +44,15 @@ const ContactForm: FC = () =>
 	const sendEmail = async (values: ContactFormValues) =>
 	{
 		// if the form as valid information send a request
-		if (!loading && !Object.values(values).some(isNil))
+		if (!loading && !Object.values(values).some(isNil) && captcha.current)
 		{
-			await recaptchaRef.current?.executeAsync();
+			await captcha.current.executeAsync();
 
 			setSuccess(false);
 			setFail(false);
 			setLoading(true);
 
-			const captcha_value = recaptchaRef.current?.getValue();
+			const captcha_value = captcha.current.getValue();
 
 			try
 			{
@@ -65,11 +67,11 @@ const ContactForm: FC = () =>
 				response.data?.contact
 					? await mailSuccess()
 					: await mailFail();
-				recaptchaRef.current?.reset();
+				captcha.current.reset();
 			}
-			catch (err)
+			catch
 			{
-				await mailFail(err);
+				await mailFail();
 			}
 		}
 	};
@@ -88,11 +90,9 @@ const ContactForm: FC = () =>
 
 	/**
 	 * Change button color to red and stop the progress circle.
-	 * @param err - Fail reason.
 	 */
-	const mailFail = async (err?: any) =>
+	const mailFail = async () =>
 	{
-		if (err) console.error(err);
 		setFail(true);
 		setLoading(false);
 
@@ -123,17 +123,8 @@ const ContactForm: FC = () =>
 								{t("CONTACT_SEND")}
 							</Button>
 							{loading && <Loader size={32} className={scss.buttonProgress} />}
-							<Typography variant="subtitle2" align="center" color="textPrimary" paragraph>
-								{t("GOOGLE_RECAPTCHA")}&nbsp;
-								<a className="link" href="https://policies.google.com/privacy">
-									{t("GOOGLE_RECAPTCHA_POLICY")}
-								</a> &&nbsp;
-								<a className="link" href="https://policies.google.com/terms">
-									{t("GOOGLE_RECAPTCHA_TERMS")}
-								</a> {t("GOOGLE_RECAPTCHA_APPLY")}
-							</Typography>
-							<ReCAPTCHA ref={recaptchaRef} sitekey={process.env.REACT_APP_RECAPTCHA_TOKEN as string}
-								size="invisible" badge="inline" theme={isDarkTheme ? "dark" : "light"} />
+							<CaptchaCopyright />
+							<Captcha ref={captcha} />
 						</Grid>
 					</Container>
 				</Form>

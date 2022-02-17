@@ -1,3 +1,7 @@
+export { default as Captcha } from "./Captcha/Captcha";
+export { default as CaptchaCopyright } from "./Captcha/CaptchaCopyright/CaptchaCopyright";
+export * from "./Captcha/Captcha";
+
 export { default as Footer } from "./Footer/Footer";
 export * from "./Footer/Footer";
 

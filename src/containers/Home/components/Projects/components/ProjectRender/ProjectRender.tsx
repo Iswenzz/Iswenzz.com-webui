@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import classNames from "classnames";
 import axios from "axios";
 
-import { Forward, Image, Loader, useResponsive, preventDefault, stopPropagation, markdown } from "@izui/react";
+import { Forward, Image, Loader, useResponsive, preventDefault, stopPropagation, markdown, Markdown, useFile } from "@izui/react";
 import { DialogContent, DialogTitle, Fab, Grid, Tooltip, useTheme } from "@mui/material";
 import { faOsi } from "@fortawesome/free-brands-svg-icons/faOsi";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -20,34 +20,12 @@ import scss from "./ProjectRender.module.scss";
 const ProjectRender: FC<ProjectRenderProps> = ({ project, handleClose }) =>
 {
 	const { t } = useTranslation();
-	const { theme } = useTheme();
-
-	const [isLoading, setLoading] = useState<boolean>(true);
-	const [fetchedMarkdown, setFetchedMarkdown] = useState<string>(t("PROJECT_WIP"));
+	const { file: markdown = t("PROJECT_WIP") || "", isLoading } = useFile(project.renderUrl);
 
 	const { fabSize, imageSize } = useResponsive({
 		desktop: { fabSize: "large", imageSize: "64px" },
 		mobile: { fabSize: "small", imageSize: "42px" }
 	});
-
-	/**
-	 * Fetch the markdown content.
-	 */
-	const fetchMarkdown = useCallback(async () =>
-	{
-		try
-		{
-			if (project.renderUrl)
-			{
-				const response = await axios.get<string>(project.renderUrl);
-				setFetchedMarkdown(markdown(response.data));
-			}
-		}
-		catch { }
-		setLoading(false);
-	}, [project.renderUrl]);
-
-	useEffect(() => void fetchMarkdown(), [fetchMarkdown]);
 
 	const openSource = (
 		<Tooltip arrow disableFocusListener disableTouchListener title={t("PROJECT_TOOLTIP_SOURCE") as string}>
@@ -95,9 +73,9 @@ const ProjectRender: FC<ProjectRenderProps> = ({ project, handleClose }) =>
 			</header>
 			<section>
 				<DialogContent onPointerDown={stopPropagation} className={scss.modal}>
-					<section className={classNames("markdown", theme)}>
-						{!isLoading && <article dangerouslySetInnerHTML={{ __html: fetchedMarkdown }} />}
-					</section>
+					<Markdown>
+						{markdown}
+					</Markdown>
 				</DialogContent>
 			</section>
 			{isLoading && <Loader className={scss.loader} />}
