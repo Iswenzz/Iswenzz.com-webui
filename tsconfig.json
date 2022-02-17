@@ -39,6 +39,5 @@
 	"include": [
 		"src",
 		"packages/izui-web/packages/izui-react/src"
-	],
-	"exclude": ["**/__test__/**/*"]
+	]
 }

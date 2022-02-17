@@ -7,6 +7,7 @@ const config: Config.InitialOptions = {
 	watchAll: false,
 	setupFilesAfterEnv: ["<rootDir>/src/__test__/setupTests.ts"],
 	testMatch: ["<rootDir>/src/**/*.(test).{js,jsx,ts,tsx}"],
+	modulePathIgnorePatterns: ["<rootDir>/packages"],
 	transform: {
 		"^.+\\.(js|jsx|ts|tsx)$": require.resolve("ts-jest"),
 		"^.+\\.scss$": require.resolve("@izui/scripts/mock/mockTransform"),
