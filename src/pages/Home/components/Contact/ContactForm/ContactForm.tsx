@@ -6,13 +6,11 @@ import { Field, Form, Formik } from "formik";
 import classNames from "classnames";
 import isNil from "lodash/isNil";
 
-import { Loader, delay } from "@izui/react";
+import { Loader, delay, Captcha, CaptchaCopyright, useCaptcha } from "@izui/react";
 import iswenzzIcon from "@izui/assets/images/iswenzz/iswenzz.png";
 
-import { Captcha, CaptchaCopyright } from "App/components";
 import mutationContact from "api/graphql/Home/Contact.graphql";
 import { Mutation, MutationContactArgs } from "api/generated/graphql";
-import { useCaptcha } from "utils/hooks";
 
 import { contactFormInitial, ContactFormValues } from "../config";
 import scss from "./ContactForm.module.scss";
