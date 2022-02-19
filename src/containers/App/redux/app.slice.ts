@@ -27,19 +27,19 @@ const slice = createSlice({
 	name: "app",
 	initialState,
 	reducers: {
-		setTheme: (state: any, action: PayloadAction<string>) => ({
+		setTheme: (state: AppRedux, action: PayloadAction<string>) => ({
 			...state,
 			...saveLocalState("app", { theme: action.payload })
 		}),
-		setModalActive: (state: any, action: PayloadAction<boolean>) => ({
+		setModalActive: (state: AppRedux, action: PayloadAction<boolean>) => ({
 			...state,
 			isModalActive: action.payload
 		}),
-		setNavbarActive: (state: any, action: PayloadAction<boolean>) => ({
+		setNavbarActive: (state: AppRedux, action: PayloadAction<boolean>) => ({
 			...state,
 			navbar: action.payload
 		}),
-		setLanguage: (state: any, action: PayloadAction<Language>) =>
+		setLanguage: (state: AppRedux, action: PayloadAction<Language>) =>
 		{
 			i18next.changeLanguage(action.payload);
 

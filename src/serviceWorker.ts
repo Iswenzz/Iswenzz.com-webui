@@ -3,7 +3,7 @@
  * @param config - Service worker config.
  * @returns
  */
-export const register = (config: any) =>
+export const register = (config: ServiceConfig) =>
 {
 	if (process.env.NODE_ENV === "production" && "serviceWorker" in navigator && process.env.PUBLIC_URL)
 	{
@@ -34,7 +34,7 @@ export const register = (config: any) =>
  * @param url - Service worker URL.
  * @param config - Service worker config.
  */
-const registerValidServiceWorker = async (url: string, config: any) =>
+const registerValidServiceWorker = async (url: string, config: ServiceConfig) =>
 {
 	try
 	{
@@ -75,7 +75,7 @@ const registerValidServiceWorker = async (url: string, config: any) =>
  * @param url - Service worker URL.
  * @param config - Service worker config.
  */
-const checkValidServiceWorker = async (url: string, config: any) =>
+const checkValidServiceWorker = async (url: string, config: ServiceConfig) =>
 {
 	try
 	{
@@ -120,3 +120,8 @@ const isLocalhost = Boolean(
 	window.location.hostname === "[::1]" ||
 	window.location.hostname.match(/^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/)
 );
+
+type ServiceConfig = {
+	onUpdate: (registration: ServiceWorkerRegistration) => void,
+	onSuccess: (registration: ServiceWorkerRegistration) => void
+};

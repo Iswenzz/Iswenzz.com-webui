@@ -16,11 +16,11 @@ const slice = createSlice({
 	name: "home",
 	initialState,
 	reducers: {
-		setProjectModalOpen: (state: any, action: PayloadAction<boolean>) => ({
+		setProjectModalOpen: (state: HomeRedux, action: PayloadAction<boolean>) => ({
 			...state,
 			projectModalOpen: action.payload
 		}),
-		setProjectModalStartIndex: (state: any, action: PayloadAction<number>) => ({
+		setProjectModalStartIndex: (state: HomeRedux, action: PayloadAction<number>) => ({
 			...state,
 			projectModalStartIndex: action.payload
 		}),
