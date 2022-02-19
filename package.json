@@ -7,14 +7,14 @@
 		"packages/*"
 	],
 	"scripts": {
-		"build": "react-app-rewired build",
+		"build": "craco build",
 		"build:analyze": "yarn build --analyze",
 		"lint": "yarn lint:scss && yarn lint:ts",
 		"lint:scss": "stylelint **/*.{scss,css}",
 		"lint:scss:fix": "stylelint **/*.scss --fix",
 		"lint:ts": "eslint \"**/*.{js,jsx,ts,tsx}\"",
 		"lint:ts:fix": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix",
-		"start": "react-app-rewired start",
+		"start": "craco start",
 		"start:fixtures": "yarn workspace @izui/fixtures-react start",
 		"test": "jest",
 		"test:watch": "jest --watchAll=true"
@@ -29,11 +29,6 @@
 			">0.2%",
 			"not dead",
 			"not op_mini all"
-		]
-	},
-	"eslintConfig": {
-		"extends": [
-			".eslintrc"
 		]
 	},
 	"dependencies": {
@@ -85,11 +80,12 @@
 		"uuid": "^8.3.2"
 	},
 	"devDependencies": {
+		"@craco/craco": "^6.4.3",
 		"@faker-js/faker": "^6.0.0-alpha.6",
 		"@testing-library/jest-dom": "^5.16.2",
 		"@testing-library/react": "^12.1.2",
 		"@testing-library/react-hooks": "^7.0.2",
-		"@types/customize-cra": "^1.0.2",
+		"@types/craco__craco": "^6.4.0",
 		"@types/jest": "^27.4.0",
 		"@types/jest-matchers": "^20.0.2",
 		"@types/lodash": "^4.14.178",
@@ -102,14 +98,18 @@
 		"@types/react-scroll": "^1.8.3",
 		"@types/redux-mock-store": "^1.0.3",
 		"@types/uuid": "^8.3.4",
-		"@typescript-eslint/eslint-plugin": "^5.11.0",
-		"customize-cra": "^1.0.0",
+		"@typescript-eslint/eslint-plugin": "^5.12.0",
+		"@typescript-eslint/parser": "^5.12.0",
+		"craco-babel-loader": "^1.0.3",
 		"eslint": "^8.9.0",
-		"eslint-config-react-app": "^7.0.0",
+		"eslint-plugin-jest": "^26.1.1",
+		"eslint-plugin-react": "^7.28.0",
+		"eslint-plugin-react-hooks": "^4.3.0",
+		"eslint-plugin-testing-library": "^5.0.5",
+		"graphql-tag": "^2.12.6",
 		"identity-obj-proxy": "^3.0.0",
 		"jest": "^27.5.1",
 		"jsdoc": "^3.6.10",
-		"react-app-rewired": "^2.1.11",
 		"react-scripts": "^5.0.0",
 		"redux-mock-store": "^1.5.4",
 		"sass": "^1.49.7",

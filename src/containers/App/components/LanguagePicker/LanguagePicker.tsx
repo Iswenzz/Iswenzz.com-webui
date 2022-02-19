@@ -66,7 +66,7 @@ const LanguagePicker: FC = () =>
 					<MenuItem key={language} onClick={() => handleLanguageChange(language as Language)}>
 						<Grid container>
 							<Grid item xs={6}>
-								<Typography className={scss.typo} variant={"h5"} component={"h5"} >
+								<Typography className={scss.typo} variant="h5" component="h5" >
 									{i18nLanguages[language as Language]}
 								</Typography>
 							</Grid>

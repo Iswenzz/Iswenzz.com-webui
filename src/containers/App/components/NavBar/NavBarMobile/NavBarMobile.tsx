@@ -17,7 +17,7 @@ import scss from "../NavBar.module.scss";
 const NavBarMobile: FC<NavBarMobileProps> = ({ toggleDrawer, toggleThemeMode, isDrawerOpen }) =>
 {
 	const { icon, color } = useThemeMode({
-		icon: [<Flare />, <Brightness3 />],
+		icon: [<Flare key="flare" />, <Brightness3 key="brightness" />],
 		color: ["goldenrod", "gainsboro"]
 	});
 

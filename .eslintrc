@@ -2,13 +2,22 @@
 	"root": true,
 	"extends": [
 		"eslint:recommended",
-		"plugin:@typescript-eslint/recommended"
+		"plugin:@typescript-eslint/recommended",
+		"plugin:react/recommended",
+		"plugin:react-hooks/recommended",
+		"plugin:react/jsx-runtime",
+		"plugin:testing-library/react"
 	],
 	"env": {
 		"browser": true,
 		"node": true,
 		"es6": true,
 		"jest": true
+	},
+	"settings": {
+		"react": {
+			"version": "detect"
+		}
 	},
 	"rules": {
 		"eol-last": "error",
@@ -22,7 +31,8 @@
 		"@typescript-eslint/indent": ["error", "tab"],
         "@typescript-eslint/quotes": ["error", "double"],
         "@typescript-eslint/semi": ["error", "always"],
-		"@typescript-eslint/brace-style": ["error", "allman", { "allowSingleLine": true }]
+		"@typescript-eslint/brace-style": ["error", "allman", { "allowSingleLine": true }],
+		"react/jsx-curly-brace-presence": ["error", { "props": "never", "children": "never" }]
 	},
 	"ignorePatterns": ["node_modules", "build", "coverage", "src/api/generated"]
 }

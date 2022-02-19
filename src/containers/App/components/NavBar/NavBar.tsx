@@ -66,13 +66,13 @@ const NavBar: FC<AppBarProps> = (): Nullable<JSX.Element> =>
 				className={isFixed ? scss.fixed : scss.absolute}
 				variants={isFixed ? animationFixed : animationAbsolute}
 				initial={isFixed ? "exit" : "enter"}
-				animate={"enter"} exit={"exit"}>
+				animate="enter" exit="exit">
 				<AppBar className={scss.navbar}
 					component="nav" position={isFixed ? "fixed" : "absolute"}>
 					<Toolbar variant="dense">
 						<Grid component="section" container>
 							<Grid component="figure" item xs={3}>
-								<Grid container component="section" justifyContent={"center"} alignItems={"center"}>
+								<Grid container component="section" justifyContent="center" alignItems="center">
 									<NavBarLogo />
 								</Grid>
 							</Grid>

@@ -1,6 +1,6 @@
 // https://testing-library.com/docs/react-testing-library/setup#custom-render
 import { render, fireEvent, RenderResult } from "@testing-library/react";
-import { FC, ReactElement } from "react";
+import { FC, PropsWithChildren, ReactElement } from "react";
 import { Provider } from "react-redux";
 import configureMockStore, { MockStoreEnhanced } from "redux-mock-store";
 import thunk from "redux-thunk";
@@ -12,7 +12,8 @@ const mockStore = configureMockStore([thunk]);
 const mockQueries = <Queries,>() => ({ }) as Queries;
 
 const AllTheProviders = (store: MockStoreEnhanced<unknown, {}>): FC =>
-	({ children }) => <Provider store={store}>{children}</Provider>;
+	// eslint-disable-next-line react/display-name
+	({ children }: PropsWithChildren<{}>) => <Provider store={store}>{children}</Provider>;
 
 export const customRender = (ui: ReactElement, { store = mockStore(initState) } = {}) => ({
 	...render(ui, { wrapper: AllTheProviders(store) }),
@@ -41,7 +42,7 @@ const buildRender = <Props, Queries>({
 	return (props: Object<Props> = { }, state = defaultState): Render<Queries> =>
 	{
 		const store = mockStore(state);
-		const rendered = customRender(
+		const view = customRender(
 			<Provider store={store}>
 				<Component {...defaultProps} {...props} />
 			</Provider>
@@ -50,7 +51,7 @@ const buildRender = <Props, Queries>({
 		const rerender = (newProps = props, newState = state) =>
 		{
 			const newStore = mockStore(newState);
-			return rendered.rerender(
+			return view.rerender(
 				<Provider store={newStore}>
 					<Component {...defaultProps} {...newProps} />
 				</Provider>
@@ -61,11 +62,11 @@ const buildRender = <Props, Queries>({
 		// https://testing-library.com/docs/dom-testing-library/api-helpers#custom-queries
 		// but it seems to return only functions
 		return {
-			...rendered,
+			...view,
 			store,
 			rerender,
 			...queries({
-				...rendered,
+				...view,
 				store
 			})
 		};

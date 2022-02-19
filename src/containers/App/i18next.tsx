@@ -44,11 +44,11 @@ const resources: Record<Language, Resource> = {
  * Language icons.
  */
 export const languages: Record<Language, FC<React.HTMLAttributes<HTMLImageElement>>> = {
-	en: (props) => <img {...props} src={flagUnitedKingdom} alt={"United Kingdom"} />,
-	fr: (props) => <img {...props} src={flagFrance} alt={"France"} />,
-	es: (props) => <img {...props} src={flagSpain} alt={"Spain"} />,
-	it: (props) => <img {...props} src={flagItaly} alt={"Italy"} />,
-	zh: (props) => <img {...props} src={flagChina} alt={"China"} />
+	en: (props) => <img {...props} src={flagUnitedKingdom} alt="United Kingdom" />,
+	fr: (props) => <img {...props} src={flagFrance} alt="France" />,
+	es: (props) => <img {...props} src={flagSpain} alt="Spain" />,
+	it: (props) => <img {...props} src={flagItaly} alt="Italy" />,
+	zh: (props) => <img {...props} src={flagChina} alt="China" />
 };
 
 const initOption: InitOptions = {

@@ -20,9 +20,9 @@ const Intro: FC = () =>
 
 	return (
 		<Grid className={classNames(scss.intro, scss[theme])} component="section"
-			justifyContent={"center"} alignItems={"center"}>
+			justifyContent="center" alignItems="center">
 			<Grid className={scss.grid} container justifyContent="center" alignItems="center">
-				<motion.div ref={ref} variants={animationUp} initial={"exit"} animate={inView ? "enter" : "exit"}>
+				<motion.div ref={ref} variants={animationUp} initial="exit" animate={inView ? "enter" : "exit"}>
 					<Container component="header" maxWidth="md">
 						<Text align="left" color="textPrimary" component="h2" variant="h2"
 							className="poiret-big noselect">

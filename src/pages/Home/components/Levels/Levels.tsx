@@ -27,10 +27,10 @@ export const Levels: FC = () =>
 
 	return (
 		<section>
-			<Grid ref={ref} component="section" justifyContent={"center"} alignItems="center"
+			<Grid ref={ref} component="section" justifyContent="center" alignItems="center"
 				className={classNames(scss.gradient, scss[theme])}>
 				<Container component="header" className={scss.container}>
-					<motion.div variants={animationScaleFadeUp()} initial={"exit"} animate={inView ? "enter" : "exit"}>
+					<motion.div variants={animationScaleFadeUp()} initial="exit" animate={inView ? "enter" : "exit"}>
 						<Text align="center" color="textPrimary" component="h2" variant="h2" className="poiret-big noselect">
 							LEVEL_DESIGN
 						</Text>
@@ -38,7 +38,7 @@ export const Levels: FC = () =>
 					</motion.div>
 					<Element name="level-design-section" />
 				</Container>
-				<motion.article variants={animationScaleFadeUp()} initial={"exit"} animate={inView ? "enter" : "exit"}>
+				<motion.article variants={animationScaleFadeUp()} initial="exit" animate={inView ? "enter" : "exit"}>
 					<Carousel buttonSize={55} width="100%" height={height}>
 						{levels.map((level: LevelSource) => (
 							<Level key={level.name} level={level} />

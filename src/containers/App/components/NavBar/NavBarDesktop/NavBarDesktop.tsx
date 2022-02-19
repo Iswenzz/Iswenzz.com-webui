@@ -15,7 +15,7 @@ import scss from "../NavBar.module.scss";
 const NavBarDesktop: FC<NavBarDesktopProps> = ({ toggleDrawer, toggleThemeMode }) =>
 {
 	const { icon, color } = useThemeMode({
-		icon: [<Flare />, <Brightness3 />],
+		icon: [<Flare key="flare" />, <Brightness3 key="brightness" />],
 		color: ["goldenrod", "gainsboro"]
 	});
 

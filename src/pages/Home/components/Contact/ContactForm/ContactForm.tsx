@@ -10,10 +10,11 @@ import { Loader, delay } from "@izui/react";
 import iswenzzIcon from "@izui/assets/images/iswenzz/iswenzz.png";
 
 import { Captcha, CaptchaCopyright } from "App/components";
+import mutationContact from "api/graphql/Home/Contact.graphql";
 import { Mutation, MutationContactArgs } from "api/generated/graphql";
 import { useCaptcha } from "utils/hooks";
 
-import { contactFormInitial, ContactFormValues, GRAPHQL_CONTACT } from "../config";
+import { contactFormInitial, ContactFormValues } from "../config";
 import scss from "./ContactForm.module.scss";
 
 /**
@@ -25,7 +26,7 @@ const ContactForm: FC = () =>
 	const { t } = useTranslation();
 
 	const captcha = useCaptcha();
-	const [contact] = useMutation<Mutation, MutationContactArgs>(GRAPHQL_CONTACT);
+	const [contact] = useMutation<Mutation, MutationContactArgs>(mutationContact);
 
 	const [loading, setLoading] = useState(false);
 	const [success, setSuccess] = useState(false);

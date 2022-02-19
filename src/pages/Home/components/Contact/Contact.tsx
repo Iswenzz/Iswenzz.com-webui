@@ -35,7 +35,7 @@ export const Contact: FC = (): JSX.Element =>
 			<Element name="contact-section" />
 			<Grid className={classNames(scss.contact, scss[theme])} component="section">
 				<Container ref={ref}>
-					<motion.div initial={"exit"} animate={inView ? "enter" : "exit"} variants={animationScaleFadeDown()}>
+					<motion.div initial="exit" animate={inView ? "enter" : "exit"} variants={animationScaleFadeDown()}>
 						<ContactForm />
 					</motion.div>
 				</Container>
