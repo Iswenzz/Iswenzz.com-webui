@@ -33,7 +33,7 @@ export const DocViewer: FC = (): JSX.Element =>
 	 * @param link Html document url.
 	 * @param hash Anchor hash string.
 	 */
-	const loadDoc = (link: string, hash?: string): void =>
+	const loadDoc = (link: string, hash?: string) =>
 	{
 		fetch(`https://iswenzz.com/iswenzz/docs/cgsc/${link}`).then(response => response.text()).then(text =>
 		{
@@ -86,25 +86,25 @@ export const DocViewer: FC = (): JSX.Element =>
 	 * Docx div click handler.
 	 * @param e - Mouse event.
 	 */
-	const onClickHandler = (e: React.MouseEvent<HTMLDivElement, globalThis.MouseEvent>): void =>
+	const onClickHandler = (e: React.MouseEvent<HTMLDivElement, globalThis.MouseEvent>) =>
 	{
 		e.preventDefault();
 
 		const c_docpath = "/docs/cgsc/";
-		const c_pathname: string = navigate.name;
-		const c_file: string = c_pathname.substring(c_pathname.indexOf(c_docpath)
+		const c_pathname = navigate.name;
+		const c_file = c_pathname.substring(c_pathname.indexOf(c_docpath)
 			+ c_docpath.length, c_pathname.length);
 
 		if (e.target instanceof HTMLAnchorElement)
 		{
-			const link: string = (e.target.attributes as any).href.value;
+			const link = (e.target.attributes as any).href.value;
 			if (link.includes(".html"))
 			{
 				// change html page if needed, and scroll to selected anchor.
 				if (link.includes(".html#"))
 				{
-					const hash: string = link.substring(link.indexOf(".html#") + 5, link.length);
-					const url: string = link.substring(0, link.indexOf(".html#") + 5);
+					const hash = link.substring(link.indexOf(".html#") + 5, link.length);
+					const url = link.substring(0, link.indexOf(".html#") + 5);
 
 					if (url !== c_file)
 						loadDoc(url, hash);

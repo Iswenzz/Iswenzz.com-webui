@@ -2,7 +2,7 @@ import { FC } from "react";
 import { useSelector } from "react-redux";
 import { AnimatePresence } from "framer-motion";
 
-import { getNavbarActive } from "App/redux";
+import { isNavbarActive } from "App/redux";
 
 /**
  * Animate the navbar to appear differently when past the window inner height.
@@ -10,7 +10,7 @@ import { getNavbarActive } from "App/redux";
  */
 const NavBarAnimation: FC<NavBarAnimationProps> = ({ isFixed, children }) =>
 {
-	const navbarVisible = useSelector(getNavbarActive);
+	const navbarVisible = useSelector(isNavbarActive);
 
 	return (
 		<nav>

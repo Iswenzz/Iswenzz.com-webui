@@ -15,11 +15,16 @@ export const getTheme = (state: RootRedux): Theme => getThemeByName(state.app.th
 export const getLanguage = (state: RootRedux): Language => state.app.language;
 
 /**
+ * Check if we scrolled past the window height.
+ */
+export const isPastWindowHeight = (state: RootRedux): boolean => state.app.isPastWindowHeight;
+
+/**
  * Get main modal active state.
  */
-export const getModalActive = (state: RootRedux): boolean => state.app.isModalActive;
+export const isModalActive = (state: RootRedux): boolean => state.app.isModalActive;
 
 /**
  * Get the navbar active state.
  */
-export const getNavbarActive = (state: RootRedux): boolean => state.app.navbar;
+export const isNavbarActive = (state: RootRedux): boolean => state.app.navbar;

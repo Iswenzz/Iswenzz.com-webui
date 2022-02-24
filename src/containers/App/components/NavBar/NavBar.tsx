@@ -1,11 +1,10 @@
 import { FC, useState, memo } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { AppBarProps, useTheme, AppBar, Toolbar, Grid  } from "@mui/material";
 import { motion } from "framer-motion";
-import { useScroll } from "@use-gesture/react";
-import { scrollConfig, useResponsive } from "@izui/react";
+import { useResponsive } from "@izui/react";
 
-import { setModalActive, setTheme } from "App/redux";
+import { isPastWindowHeight, setModalActive, setTheme } from "App/redux";
 
 import { animationAbsolute, animationFixed } from "./config";
 import NavBarLogo from "./NavBarLogo/NavBarLogo";
@@ -21,10 +20,9 @@ import scss from "./NavBar.module.scss";
 const NavBar: FC<AppBarProps> = (): Nullable<JSX.Element> =>
 {
 	const dispatch = useDispatch();
+	const pastWindowHeight = useSelector(isPastWindowHeight);
 
 	const { isDarkTheme } = useTheme();
-
-	const [isFixed, setFixed] = useState<boolean>(false);
 	const [isDrawerOpen, setDrawerOpen] = useState<boolean>(false);
 
 	/**
@@ -43,16 +41,6 @@ const NavBar: FC<AppBarProps> = (): Nullable<JSX.Element> =>
 	};
 
 	/**
-	 * Scroll callback to set the fixed navbar.
-	 */
-	useScroll(() =>
-	{
-		const isPastWindowHeight = window.scrollY >= window.innerHeight;
-		if (isPastWindowHeight !== isFixed)
-			setFixed(isPastWindowHeight);
-	}, scrollConfig);
-
-	/**
 	 * Responsive buttons.
 	 */
 	const navBarButtons = useResponsive({
@@ -61,14 +49,14 @@ const NavBar: FC<AppBarProps> = (): Nullable<JSX.Element> =>
 	});
 
 	return (
-		<NavBarAnimation isFixed={isFixed}>
+		<NavBarAnimation isFixed={pastWindowHeight}>
 			<motion.div
-				className={isFixed ? scss.fixed : scss.absolute}
-				variants={isFixed ? animationFixed : animationAbsolute}
-				initial={isFixed ? "exit" : "enter"}
+				className={pastWindowHeight ? scss.fixed : scss.absolute}
+				variants={pastWindowHeight ? animationFixed : animationAbsolute}
+				initial={pastWindowHeight ? "exit" : "enter"}
 				animate="enter" exit="exit">
 				<AppBar className={scss.navbar}
-					component="nav" position={isFixed ? "fixed" : "absolute"}>
+					component="nav" position={pastWindowHeight ? "fixed" : "absolute"}>
 					<Toolbar variant="dense">
 						<Grid component="section" container>
 							<Grid component="figure" item xs={3}>

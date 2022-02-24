@@ -12,6 +12,7 @@ export type AppRedux = {
 	language: Language,
 	browserInfo: Omit<ReturnType<typeof detect>, "prototypes">,
 	isModalActive: boolean,
+	isPastWindowHeight: boolean,
 	navbar: boolean
 };
 
@@ -20,6 +21,7 @@ export const initialState = createInitState<AppRedux>({
 	language: "en",
 	browserInfo: omit(detect(), "prototypes"),
 	isModalActive: false,
+	isPastWindowHeight: false,
 	navbar: true
 }, "app");
 
@@ -30,6 +32,10 @@ const slice = createSlice({
 		setTheme: (state: AppRedux, action: PayloadAction<string>) => ({
 			...state,
 			...saveLocalState("app", { theme: action.payload })
+		}),
+		setPastWindowHeight: (state: AppRedux, action: PayloadAction<boolean>) => ({
+			...state,
+			isPastWindowHeight: action.payload
 		}),
 		setModalActive: (state: AppRedux, action: PayloadAction<boolean>) => ({
 			...state,
@@ -51,6 +57,6 @@ const slice = createSlice({
 	}
 });
 
-export const { setTheme, setModalActive, setNavbarActive, setLanguage } = slice.actions;
+export const { setTheme, setPastWindowHeight, setModalActive, setNavbarActive, setLanguage } = slice.actions;
 
 export default slice.reducer;

@@ -2,7 +2,7 @@ import { FC, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useMutation } from "@apollo/client";
 import { Avatar, Container, Grid, TextField, Button } from "@mui/material";
-import { Field, Form, Formik } from "formik";
+import { Field, Form, Formik, FormikHelpers } from "formik";
 import classNames from "classnames";
 import isNil from "lodash/isNil";
 
@@ -39,7 +39,7 @@ const ContactForm: FC = () =>
 	 * @param values - Formik values.
 	 * @param param1 - Formik helpers.
 	 */
-	const sendEmail = async (values: ContactFormValues) =>
+	const sendEmail = async (values: ContactFormValues, { setSubmitting }: FormikHelpers<ContactFormValues>) =>
 	{
 		// if the form as valid information send a request
 		if (!loading && !Object.values(values).some(isNil) && captcha.current)
@@ -50,7 +50,7 @@ const ContactForm: FC = () =>
 			setFail(false);
 			setLoading(true);
 
-			const captcha_value = captcha.current.getValue();
+			const captchaValue = captcha.current.getValue();
 
 			try
 			{
@@ -58,7 +58,7 @@ const ContactForm: FC = () =>
 					variables: {
 						input: {
 							...values,
-							token: captcha_value ?? ""
+							token: captchaValue ?? ""
 						}
 					}
 				});
@@ -72,6 +72,7 @@ const ContactForm: FC = () =>
 				await mailFail();
 			}
 		}
+		setSubmitting(false);
 	};
 
 	/**
