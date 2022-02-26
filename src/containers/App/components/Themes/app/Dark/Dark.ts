@@ -2,7 +2,7 @@ import { createTheme, responsiveFontSizes, ThemeOptions } from "@mui/material";
 import { DarkThemeOptions as IzDarkThemeOptions } from "@izui/react";
 import merge from "lodash/merge";
 
-const DarkThemeOptions: ThemeOptions = merge<ThemeOptions, ThemeOptions>(IzDarkThemeOptions, {
+const DarkThemeOptions = merge<ThemeOptions, ThemeOptions>(IzDarkThemeOptions, {
 	theme: "dark",
 	isDarkTheme: true,
 	typography: {

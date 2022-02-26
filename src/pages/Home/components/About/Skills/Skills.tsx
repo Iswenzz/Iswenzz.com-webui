@@ -25,7 +25,7 @@ const Skills: FC = () =>
 		<Grid className={classNames(scss.skills, scss[theme])} component="section"
 			justifyContent="center" alignItems="center">
 			<Container ref={ref}>
-				<motion.div variants={animationLeft} initial="exit" animate={inView ? "enter" : "exit"}>
+				<motion.div variants={animationLeft()} initial="exit" animate={inView ? "enter" : "exit"}>
 					<Container component="header" className={scss.container}>
 						<TrailText align="center" color="textPrimary" component="h2" variant="h2"
 							className="poiret-big noselect" visible={inView}>
@@ -34,7 +34,7 @@ const Skills: FC = () =>
 						<Divider className={scss.divider} />
 					</Container>
 				</motion.div>
-				<motion.div variants={animationRight} initial="exit" animate={inView ? "enter" : "exit"}>
+				<motion.div variants={animationRight()} initial="exit" animate={inView ? "enter" : "exit"}>
 					<Grid className={scss.grid} container component="section"
 						alignItems="center" justifyContent="space-around">
 						<article className={scss.article}>
