@@ -34,7 +34,7 @@ const config: CracoConfig = {
 			const graphqlLoader = {
 				test: /\.(graphql|gql)$/,
 				include: /(src)/,
-				loader: "graphql-tag/loader"
+				loader: "graphql-tag/loader" // @todo remove with graphql codegen backend
 			};
 			addBeforeLoader(webpackConfig, loaderByName("babel-loader"), graphqlLoader);
 			return webpackConfig;

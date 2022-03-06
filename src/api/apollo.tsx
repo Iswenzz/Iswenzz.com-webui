@@ -42,7 +42,7 @@ const apolloClient = new ApolloClient({
 /**
  * Apollo client provider.
  */
-export const Apollo: FC = ({ children }) => (
+const Apollo: FC = ({ children }) => (
 	<ApolloProvider client={apolloClient}>
 		{children}
 	</ApolloProvider>

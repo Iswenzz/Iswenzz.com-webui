@@ -10,7 +10,7 @@ import LevelRender from "./LevelRender/LevelRender";
  */
 const Level: FC<Props> = ({ level }) =>
 {
-	const [isFlipped, setFlipped] = useState<boolean>(false);
+	const [isFlipped, setFlipped] = useState(false);
 
 	const LevelBackCard = useResponsive({
 		desktop: LevelDesktop,

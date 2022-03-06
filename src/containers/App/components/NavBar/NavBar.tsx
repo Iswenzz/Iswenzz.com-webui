@@ -23,7 +23,7 @@ const NavBar: FC<AppBarProps> = (): Nullable<JSX.Element> =>
 	const pastWindowHeight = useSelector(isPastWindowHeight);
 
 	const { isDarkTheme } = useTheme();
-	const [isDrawerOpen, setDrawerOpen] = useState<boolean>(false);
+	const [isDrawerOpen, setDrawerOpen] = useState(false);
 
 	/**
 	 * Toggle dark/light mode callback.
