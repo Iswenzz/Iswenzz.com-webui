@@ -1,7 +1,6 @@
 import { FC } from "react";
-import { Link } from "react-scroll";
 import { Button } from "@mui/material";
-import { Text } from "@izui/react";
+import { Text, Link } from "@izui/react";
 
 import scss from "../NavBar.module.scss";
 
@@ -19,28 +18,28 @@ const NavBarLinks: FC<NavBarLinksProps> = ({ toggleDrawer }) =>
 	return (
 		<>
 			<li>
-				<Link className={scss.button} to="header-section" smooth onClick={handleClose}>
+				<Link className={scss.button} to="header" smooth onClick={handleClose}>
 					<Button size="large" color="inherit">
 						<Text raw>NAVBAR_ABOUT</Text>
 					</Button>
 				</Link>
 			</li>
 			<li>
-				<Link className={scss.button} to="projects-section" smooth onClick={handleClose}>
+				<Link className={scss.button} to="projects" smooth onClick={handleClose}>
 					<Button size="large" color="inherit">
 						<Text raw>NAVBAR_PROJECTS</Text>
 					</Button>
 				</Link>
 			</li>
 			<li>
-				<Link className={scss.button} to="level-design-section" smooth onClick={handleClose}>
+				<Link className={scss.button} to="level-design" smooth onClick={handleClose}>
 					<Button size="large" color="inherit">
 						<Text raw>NAVBAR_LEVEL_DESIGN</Text>
 					</Button>
 				</Link>
 			</li>
 			<li>
-				<Link className={scss.button} to="contact-section" smooth onClick={handleClose}>
+				<Link className={scss.button} to="contact" smooth onClick={handleClose}>
 					<Button size="large" color="inherit">
 						<Text raw>NAVBAR_CONTACT</Text>
 					</Button>

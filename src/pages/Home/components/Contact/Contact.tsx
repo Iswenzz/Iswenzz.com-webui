@@ -1,10 +1,9 @@
 import { FC, memo } from "react";
-import { Element } from "react-scroll";
 import { useInView } from "react-intersection-observer";
 import { Grid, Container, useTheme } from "@mui/material";
 import { motion } from "framer-motion";
 import classNames from "classnames";
-import { Parallax, TrailText, animationScaleFadeDown, useThemeMode } from "@izui/react";
+import { Element, Parallax, TrailText, animationScaleFadeDown, useThemeMode } from "@izui/react";
 
 import flowers from "assets/images/aion/ishalgen2.jpg";
 import forest from "assets/images/background/forest.jpg";
@@ -32,7 +31,7 @@ export const Contact: FC = (): JSX.Element =>
 					CONTACT_HEADER
 				</TrailText>
 			</Parallax>
-			<Element name="contact-section" />
+			<Element name="contact" />
 			<Grid className={classNames(scss.contact, scss[theme])} component="section">
 				<Container ref={ref}>
 					<motion.div initial="exit" animate={inView ? "enter" : "exit"} variants={animationScaleFadeDown()}>

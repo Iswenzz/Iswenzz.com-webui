@@ -1,7 +1,6 @@
 import { memo, FC } from "react";
-import { Element } from "react-scroll";
 import { Grid } from "@mui/material";
-import { Parallax } from "@izui/react";
+import { Element, Parallax } from "@izui/react";
 
 import Skills from "./Skills/Skills";
 import Intro from "./Intro/Intro";
@@ -12,7 +11,7 @@ import Intro from "./Intro/Intro";
  */
 const About: FC = () => (
 	<Grid container component="section" direction="column" justifyContent="center" alignItems="stretch">
-		<Element name="intro-section" />
+		<Element name="intro" />
 
 		<Intro />
 		<Parallax spacingTop="100px" />

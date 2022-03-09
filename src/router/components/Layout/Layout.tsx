@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Outlet } from "react-router";
-import { Element } from "react-scroll";
+import { Element } from "@izui/react";
 
 import { NavBar, Footer } from "App/components";
 
@@ -9,11 +9,11 @@ import { NavBar, Footer } from "App/components";
  */
 const Layout: FC = () => (
 	<>
-		<Element name="header-section" />
+		<Element name="header" />
 		<NavBar />
 		<Outlet />
 		<Footer />
-		<Element name="footer-section" />
+		<Element name="footer" />
 	</>
 );
 

@@ -1,7 +1,6 @@
 import { FC } from "react";
 import { useLocation } from "react-router-dom";
-import { Link as ScrollLink } from "react-scroll";
-import { Link as DOMLink, Text } from "@izui/react";
+import { Link, Text } from "@izui/react";
 import { ButtonBase } from "@mui/material";
 
 import scss from "../NavBar.module.scss";
@@ -12,14 +11,11 @@ import scss from "../NavBar.module.scss";
 const NavBarLogo: FC = () =>
 {
 	const location = useLocation();
-
-	const Link: FC = ({ children }) => location.pathname === "/"
-		? <ScrollLink className="nolink" href="/" to="header-section" smooth>{children}</ScrollLink>
-		: <DOMLink className="nolink" to="/">{children}</DOMLink>;
+	const isLocationRoot = location.pathname === "/";
 
 	return (
 		<ButtonBase>
-			<Link>
+			<Link className="nolink" to={isLocationRoot ? "header" : "/"} smooth={isLocationRoot}>
 				<Text className={scss.logo} align="center" variant="h4" component="h4">
 					Iswenzz
 				</Text>
