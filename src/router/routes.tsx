@@ -11,7 +11,7 @@ import Docx from "Docx/Docx";
 const Router: FC = () => (
 	<BrowserRouter>
 		<Routes>
-			<Route path="/" element={<Layout />}>
+			<Route element={<Layout />}>
 				<Route path="/" element={<Home />} />
 				<Route path="/docs" element={<Docx />} />
 			</Route>
