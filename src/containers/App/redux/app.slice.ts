@@ -11,18 +11,18 @@ export type AppRedux = {
 	theme: string,
 	language: Language,
 	browserInfo: Omit<ReturnType<typeof detect>, "prototypes">,
-	isModalActive: boolean,
 	isPastWindowHeight: boolean,
-	navbar: boolean
+	isModalActive: boolean,
+	isNavbarActive: boolean
 };
 
 export const initialState = createInitState<AppRedux>({
 	theme: "dark",
 	language: "en",
 	browserInfo: omit(detect(), "prototypes"),
-	isModalActive: false,
 	isPastWindowHeight: false,
-	navbar: true
+	isModalActive: false,
+	isNavbarActive: true
 }, "app");
 
 const slice = createSlice({
@@ -43,7 +43,7 @@ const slice = createSlice({
 		}),
 		setNavbarActive: (state: AppRedux, action: PayloadAction<boolean>) => ({
 			...state,
-			navbar: action.payload
+			isNavbarActive: action.payload
 		}),
 		setLanguage: (state: AppRedux, action: PayloadAction<Language>) =>
 		{

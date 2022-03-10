@@ -27,4 +27,4 @@ export const isModalActive = (state: RootRedux): boolean => state.app.isModalAct
 /**
  * Get the navbar active state.
  */
-export const isNavbarActive = (state: RootRedux): boolean => state.app.navbar;
+export const isNavbarActive = (state: RootRedux): boolean => state.app.isNavbarActive;
