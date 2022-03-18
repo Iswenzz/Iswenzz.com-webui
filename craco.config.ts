@@ -1,6 +1,6 @@
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
-import { addBeforeLoader, CracoConfig, ESLINT_MODES, loaderByName, when } from "@craco/craco";
+import { CracoConfig, ESLINT_MODES, when } from "@craco/craco";
 
 import cracoBabelLoader from "craco-babel-loader";
 import StylelintPlugin from "stylelint-webpack-plugin";
@@ -29,16 +29,6 @@ const config: CracoConfig = {
 		}
 	],
 	webpack: {
-		configure: webpackConfig =>
-		{
-			const graphqlLoader = {
-				test: /\.(graphql|gql)$/,
-				include: /(src)/,
-				loader: "graphql-tag/loader" // @todo remove with graphql codegen backend
-			};
-			addBeforeLoader(webpackConfig, loaderByName("babel-loader"), graphqlLoader);
-			return webpackConfig;
-		},
 		plugins: {
 			add: [
 				new BundleHighlightPlugin(highlightConfig),

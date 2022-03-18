@@ -1,6 +1,5 @@
 import { FC, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useMutation } from "@apollo/client";
 import { Avatar, Container, Grid, Button } from "@mui/material";
 import { Field, Form, Formik, FormikHelpers } from "formik";
 import { TextField } from "formik-mui";
@@ -10,8 +9,7 @@ import isNil from "lodash/isNil";
 import { Loader, delay, Captcha, CaptchaCopyright, useCaptcha } from "@izui/react";
 import iswenzzIcon from "@izui/assets/images/iswenzz/iswenzz.png";
 
-import mutationContact from "api/graphql/Home/Contact.graphql";
-import { Mutation, MutationContactArgs } from "api/generated/graphql";
+import { useContactMutation } from "api/generated/graphql";
 
 import { contactFormInitial, ContactFormValues } from "../config";
 import scss from "./ContactForm.module.scss";
@@ -25,7 +23,7 @@ const ContactForm: FC = () =>
 	const { t } = useTranslation();
 
 	const captcha = useCaptcha();
-	const [contact] = useMutation<Mutation, MutationContactArgs>(mutationContact);
+	const [contact] = useContactMutation();
 
 	const [loading, setLoading] = useState(false);
 	const [success, setSuccess] = useState(false);
