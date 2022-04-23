@@ -18,7 +18,7 @@ This website, as it stands right now, mainly serves as a portfolio for me to sha
 ## Contact
 ![](https://i.imgur.com/JnUWPSq.jpg)
 
-## Building (Any Platform)
+## Building
 
 _Pre-Requisites:_
 1. [NodeJS (version 16+)](https://nodejs.org/en/)
