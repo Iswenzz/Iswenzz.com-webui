@@ -13,10 +13,10 @@
     },
     {
         "title": "AION Project.com",
-        "sourceURL": "https://github.com/Iswenzz/AION-Project.com-webui",
+        "sourceURL": "https://github.com/Iswenzz/AION-Project.com",
         "isOpenSource": false,
         "cardImage": "https://iswenzz.com/iswenzz/projects/AION-Project.com.jpg",
-        "renderUrl": "https://iswenzz.com/iswenzz/md/AION-Project.com-webui.md",
+        "renderUrl": "https://iswenzz.com/iswenzz/md/AION-Project.com.md",
         "renderIcons": [
             {"name": "Typescript", "src": "https://iswenzz.com/iswenzz/devicons/typescript.svg"},
             {"name": "React", "src": "https://iswenzz.com/iswenzz/devicons/react.svg"},

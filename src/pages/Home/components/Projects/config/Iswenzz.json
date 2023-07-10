@@ -95,7 +95,7 @@
         "sourceURL": "https://github.com/Iswenzz/IzPCSC",
         "isOpenSource": false,
         "cardImage": "https://iswenzz.com/iswenzz/projects/IzPCSC.jpg",
-        "renderUrl": "https://raw.githubusercontent.com/Iswenzz/IzPCSC/master/README.md",
+        "renderUrl": "https://iswenzz.com/iswenzz/md/IzPCSC.md",
         "renderIcons": [
             {"name": "C++", "src": "https://iswenzz.com/iswenzz/devicons/cpp.svg"}
         ]
