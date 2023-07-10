@@ -21,16 +21,5 @@
             {"name": "VB", "src": "https://iswenzz.com/iswenzz/devicons/vb.svg"},
             {"name": ".NET", "src": "https://iswenzz.com/iswenzz/devicons/dotnet.svg"}
         ]
-    },
-    {
-        "title": "Auto Clicker",
-        "sourceURL": "https://github.com/Iswenzz/Auto-Clicker",
-        "isOpenSource": true,
-        "cardImage": "https://iswenzz.com/iswenzz/projects/Auto-Clicker.jpg",
-        "renderUrl": "https://raw.githubusercontent.com/Iswenzz/Auto-Clicker/master/README.md",
-        "renderIcons": [
-            {"name": "C#", "src": "https://iswenzz.com/iswenzz/devicons/csharp.svg"},
-            {"name": ".NET", "src": "https://iswenzz.com/iswenzz/devicons/dotnet.svg"}
-        ]
     }
 ]

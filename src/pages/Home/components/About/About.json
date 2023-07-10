@@ -6,23 +6,18 @@
 		{
 			"title": "WEB_DEV",
 			"points": [
-				"• Javascript",
-				"• Typescript",
-				"• PHP",
-				"• HTML5",
-				"• CSS3 & SCSS / SASS",
+				"• JavaScript TypeScript",
+				"• HTML CSS SCSS",
+				"• PHP & SEO",
 				"• REST & GraphQL APIs"
 			]
 		},
 		{
 			"title": "SOFT_DEV",
 			"points": [
-				"• C C++",
-				"• C# C++/CLI VB",
-				"• Java",
-				"• Python",
-				"• GSC",
-				"• Bash / Shell / Powershell",
+				"• C C++ C# VB",
+				"• Java Python GSC",
+				"• Bash Shell Powershell",
 				"• Assembly x86 / x64"
 			]
 		},
@@ -39,34 +34,36 @@
 		{
 			"title": "WEB_STACKS",
 			"points": [
-				"• React Redux Apollo",
-				"• Mithril Webpack",
+				"• React Redux Apollo Webpack",
+				"• Next Mithril Electron",
+				"• Nest Express TypeORM",
 				"• MySQL MariaDB MongoDB",
-				"• Nest Express Electron TypeORM",
-				"• Material UI / Bootstrap",
+				"• Jest Playwright Puppeteer",
+				"• MUI Bootstrap Tailwind",
 				"• Three MapboxGL",
-				"• Symfony",
-				"• JQuery"
+				"• Symfony"
 			]
 		},
 		{
 			"title": "SOFT_STACKS",
 			"points": [
 				"• .NET",
-				"• Qt",
-				"• Winform & WPF",
-				"• DirectX & SharpDX & OpenFX",
-				"• Selenium",
-				"• ANTLR",
-				"• CI / CD"
+				"• CMake & Conan",
+				"• Qt & Winform & WPF",
+				"• HLSL OpenGL OpenFX DirectX SharpDX",
+				"• GTest Greatest NUnit JUnit",
+				"• Selenium ANTLR",
+				"• Jira & CI / CD"
 			]
 		},
 		{
-			"title": "LEVEL_DESIGN_EDITORS",
+			"title": "SOFTWARES",
 			"points": [
-				"• Unreal Engine 4",
-				"• Unity 5",
-				"• Radiant / GtkRadiant"
+				"• Unreal Engine & Unity",
+				"• Radiant / GtkRadiant",
+				"• Maya Blender, 3DS Max",
+				"• VEGAS & Adobe Premiere",
+				"• Photoshop Figma"
 			]
 		}
 	]

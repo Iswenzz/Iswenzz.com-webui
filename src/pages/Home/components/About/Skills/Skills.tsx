@@ -35,8 +35,7 @@ const Skills: FC = () =>
 					</Container>
 				</motion.div>
 				<motion.div variants={animationRight()} initial="exit" animate={inView ? "enter" : "exit"}>
-					<Grid className={scss.grid} container component="section"
-						alignItems="center" justifyContent="space-around">
+					<Grid className={scss.grid} container component="section" justifyContent="space-around">
 						<article className={scss.article}>
 							<Text component="h2" className="poiret-h2">{web.title}</Text>
 							<Text component="h4" className="ubuntu-h4">{web.points}</Text>

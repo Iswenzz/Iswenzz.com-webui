@@ -10,6 +10,6 @@ export const projectsSource: ProjectSource[] = [
 	...iswenzzJson,
 	...aionJson,
 	...cod4Json,
+	...projectsJson,
 	...schoolJson,
-	...projectsJson
 ];

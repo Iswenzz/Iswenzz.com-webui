@@ -38,7 +38,7 @@ const Projects: FC = () =>
 					<Divider className={scss.divider} />
 				</Container>
 				<Grid container component="section" alignItems="center" justifyContent="center">
-					<SpringGrid itemSize={{ width: projectsWidth }} layout="masonry">
+					<SpringGrid gutter={{ height: 10 }} itemSize={{ width: projectsWidth }} layout="masonry">
 						{projects.current.map((project, index) => (
 							<Project
 								key={project.title}
