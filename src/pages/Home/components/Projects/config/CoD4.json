@@ -8,9 +8,7 @@
         "renderIcons": [
             {"name": "GSC", "src": "https://iswenzz.com/iswenzz/devicons/gsc.svg"},
             {"name": "C", "src": "https://iswenzz.com/iswenzz/devicons/c.svg"},
-            {"name": "C++", "src": "https://iswenzz.com/iswenzz/devicons/cpp.svg"},
-            {"name": "Maya", "src": "https://iswenzz.com/iswenzz/devicons/maya.svg"},
-            {"name": "3DS Max", "src": "https://iswenzz.com/iswenzz/devicons/3ds-max.svg"}
+            {"name": "C++", "src": "https://iswenzz.com/iswenzz/devicons/cpp.svg"}
         ]
     },
     {
@@ -21,8 +19,8 @@
         "renderUrl": "https://iswenzz.com/iswenzz/md/SR-Deathrun.md",
         "renderIcons": [
             {"name": "GSC", "src": "https://iswenzz.com/iswenzz/devicons/gsc.svg"},
-            {"name": "Maya", "src": "https://iswenzz.com/iswenzz/devicons/maya.svg"},
-            {"name": "3DS Max", "src": "https://iswenzz.com/iswenzz/devicons/3ds-max.svg"}
+            {"name": "C", "src": "https://iswenzz.com/iswenzz/devicons/c.svg"},
+            {"name": "C++", "src": "https://iswenzz.com/iswenzz/devicons/cpp.svg"}
         ]
     },
 	{
@@ -32,9 +30,7 @@
         "cardImage": "https://iswenzz.com/iswenzz/projects/SR-BattleRoyale.jpg",
         "renderUrl": "https://raw.githubusercontent.com/Iswenzz/SR-BattleRoyale/master/README.md",
         "renderIcons": [
-            {"name": "GSC", "src": "https://iswenzz.com/iswenzz/devicons/gsc.svg"},
-            {"name": "Maya", "src": "https://iswenzz.com/iswenzz/devicons/maya.svg"},
-            {"name": "3DS Max", "src": "https://iswenzz.com/iswenzz/devicons/3ds-max.svg"}
+            {"name": "GSC", "src": "https://iswenzz.com/iswenzz/devicons/gsc.svg"}
         ]
     },
     {

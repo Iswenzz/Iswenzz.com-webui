@@ -6,8 +6,8 @@
         "cardImage": "https://iswenzz.com/iswenzz/projects/AION-Project.jpg",
         "renderUrl": "https://iswenzz.com/iswenzz/md/AION-Project.md",
         "renderIcons": [
-            {"name": "C++", "src": "https://iswenzz.com/iswenzz/devicons/cpp.svg"},
             {"name": "Java", "src": "https://iswenzz.com/iswenzz/devicons/java.svg"},
+            {"name": "C++", "src": "https://iswenzz.com/iswenzz/devicons/cpp.svg"},
 			{"name": "Assembly", "src": "https://iswenzz.com/iswenzz/devicons/assembly.svg"}
         ]
     },
@@ -21,7 +21,7 @@
             {"name": "Typescript", "src": "https://iswenzz.com/iswenzz/devicons/typescript.svg"},
             {"name": "React", "src": "https://iswenzz.com/iswenzz/devicons/react.svg"},
             {"name": "Redux", "src": "https://iswenzz.com/iswenzz/devicons/redux.svg"},
-            {"name": "WebGL", "src": "https://iswenzz.com/iswenzz/devicons/webgl.svg"},
+            {"name": "Three", "src": "https://iswenzz.com/iswenzz/devicons/three.svg"},
             {"name": "Nest", "src": "https://iswenzz.com/iswenzz/devicons/nest.svg"},
             {"name": "TypeORM", "src": "https://iswenzz.com/iswenzz/devicons/typeorm.svg"},
             {"name": "GraphQL", "src": "https://iswenzz.com/iswenzz/devicons/graphql.svg"}
