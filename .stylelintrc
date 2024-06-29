@@ -1,20 +1,34 @@
 {
-    "extends": "stylelint-config-recommended-scss",
-    "plugins": ["stylelint-order"],
-    "rules": {
-        "indentation": "tab",
-        "string-quotes": "double",
-        "color-named": "always-where-possible",
-        "number-leading-zero": null,
-        "max-nesting-depth": null,
-        "order/properties-alphabetical-order": null,
-        "order/order": ["custom-properties", "declarations"],
-        "order/properties-order": ["width", "height"],
-        "no-descending-specificity": null,
-        "no-missing-end-of-source-newline": true,
-        "selector-max-compound-selectors": null,
-        "selector-list-comma-newline-after": null,
-        "scss/at-import-partial-extension": null
-    },
-    "ignoreFiles": ["**/node_modules/**/*", "**/build/**/*", "**/coverage/**/*", "**/*.{js,jsx,ts,tsx}"]
+	"extends": ["stylelint-config-recommended-scss"],
+	"plugins": ["stylelint-scss", "stylelint-order"],
+	"rules": {
+		"color-named": "always-where-possible",
+		"max-nesting-depth": null,
+		"at-rule-no-unknown": null,
+		"no-descending-specificity": null,
+		"selector-max-compound-selectors": null,
+		"order/properties-alphabetical-order": null,
+		"order/order": ["custom-properties", "declarations"],
+		"order/properties-order": ["width", "height"],
+		"scss/at-import-partial-extension": null,
+		"scss/at-rule-no-unknown": [
+			true,
+			{
+				"ignoreAtRules": [
+					"extends",
+					"apply",
+					"tailwind",
+					"components",
+					"utilities",
+					"screen"
+				]
+			}
+		]
+	},
+	"ignoreFiles": [
+		"**/node_modules/**/*",
+		"**/build/**/*",
+		"**/coverage/**/*",
+		"**/*.{js,jsx,ts,tsx}"
+	]
 }

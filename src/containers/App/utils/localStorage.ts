@@ -6,18 +6,13 @@ import type { RootRedux } from "App/store";
  * Load the local storage redux state.
  * @returns
  */
-export const loadLocalState = (): RootRedux | Record<string, unknown> =>
-{
-	try
-	{
+export const loadLocalState = (): RootRedux | Record<string, unknown> => {
+	try {
 		const serializedState = localStorage.getItem("state");
-		if (!serializedState)
-			return { };
+		if (!serializedState) return {};
 		return JSON.parse(serializedState) as RootRedux;
-	}
-	catch
-	{
-		return { };
+	} catch {
+		return {};
 	}
 };
 
@@ -26,9 +21,9 @@ export const loadLocalState = (): RootRedux | Record<string, unknown> =>
  * @param state - The redux state to save, merge if exsist.
  */
 export const saveLocalState = <R extends keyof RootRedux>(
-	reducer: R, state: Partial<RootRedux[R]>
-): Partial<RootRedux[R]> =>
-{
+	reducer: R,
+	state: Partial<RootRedux[R]>
+): Partial<RootRedux[R]> => {
 	const oldState = loadLocalState();
 	const serializedState = JSON.stringify(merge(oldState, { [reducer]: state }));
 	localStorage.setItem("state", serializedState);
@@ -38,8 +33,7 @@ export const saveLocalState = <R extends keyof RootRedux>(
 /**
  * Get a specific redux state from the local storage.
  */
-export const getLocalState = <R extends keyof RootRedux>(reducer: R): RootRedux[R] =>
-{
+export const getLocalState = <R extends keyof RootRedux>(reducer: R): RootRedux[R] => {
 	const oldState = loadLocalState() as RootRedux;
 	return oldState[reducer];
 };
@@ -48,9 +42,9 @@ export const getLocalState = <R extends keyof RootRedux>(reducer: R): RootRedux[
  * Get a specific redux state value from the local storage.
  */
 export const getLocalStateValue = <R extends keyof RootRedux, T>(
-	reducer: R, value: keyof RootRedux[R]
-): Optional<T> =>
-{
+	reducer: R,
+	value: keyof RootRedux[R]
+): Optional<T> => {
 	const oldState = loadLocalState() as RootRedux;
 	return oldState[reducer]?.[value] as Optional<T>;
 };

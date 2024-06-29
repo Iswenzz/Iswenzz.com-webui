@@ -9,9 +9,10 @@ import initState, { MockState } from "./initState";
 import aState from "./StateBuilder";
 
 const mockStore = configureMockStore([thunk]);
-const mockQueries = <Queries,>() => ({ }) as Queries;
+const mockQueries = <Queries,>() => ({}) as Queries;
 
-const AllTheProviders = (store: MockStoreEnhanced<unknown, {}>): FC =>
+const AllTheProviders =
+	(store: MockStoreEnhanced<unknown, {}>): FC =>
 	// eslint-disable-next-line react/display-name
 	({ children }: PropsWithChildren<{}>) => <Provider store={store}>{children}</Provider>;
 
@@ -23,24 +24,24 @@ export const customRender = (ui: ReactElement, { store = mockStore(initState) } 
 type Object<O> = O | {};
 
 type BuildRenderOptions<Props, Queries> = {
-	component: FC,
-	defaultState?: MockState,
-	defaultProps?: Object<Props>,
+	component: FC;
+	defaultState?: MockState;
+	defaultProps?: Object<Props>;
 	queries?: (queries: Render) => Queries;
 };
 
-type Render<Queries = {}> = RenderResult & Queries & {
-	store: MockStoreEnhanced<unknown, {}>
-};
+type Render<Queries = {}> = RenderResult &
+	Queries & {
+		store: MockStoreEnhanced<unknown, {}>;
+	};
 
 const buildRender = <Props, Queries>({
 	component: Component,
 	defaultState = initState,
-	defaultProps = { },
-	queries = mockQueries }: BuildRenderOptions<Props, Queries>) =>
-{
-	return (props: Object<Props> = { }, state = defaultState): Render<Queries> =>
-	{
+	defaultProps = {},
+	queries = mockQueries
+}: BuildRenderOptions<Props, Queries>) => {
+	return (props: Object<Props> = {}, state = defaultState): Render<Queries> => {
 		const store = mockStore(state);
 		const view = customRender(
 			<Provider store={store}>
@@ -48,8 +49,7 @@ const buildRender = <Props, Queries>({
 			</Provider>
 		);
 
-		const rerender = (newProps = props, newState = state) =>
-		{
+		const rerender = (newProps = props, newState = state) => {
 			const newStore = mockStore(newState);
 			return view.rerender(
 				<Provider store={newStore}>

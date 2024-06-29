@@ -8,24 +8,19 @@ import { isNavbarActive } from "App/redux";
  * Animate the navbar to appear differently when past the window inner height.
  * @returns
  */
-const NavBarAnimation: FC<NavBarAnimationProps> = ({ isFixed, children }) =>
-{
+const NavBarAnimation: FC<NavBarAnimationProps> = ({ isFixed, children }) => {
 	const navbarVisible = useSelector(isNavbarActive);
 
 	return (
 		<nav>
-			<AnimatePresence>
-				{isFixed && navbarVisible && children}
-			</AnimatePresence>
-			<AnimatePresence>
-				{!isFixed && navbarVisible && children}
-			</AnimatePresence>
+			<AnimatePresence>{isFixed && navbarVisible && children}</AnimatePresence>
+			<AnimatePresence>{!isFixed && navbarVisible && children}</AnimatePresence>
 		</nav>
 	);
 };
 
 type NavBarAnimationProps = {
-	isFixed: boolean
+	isFixed: boolean;
 };
 
 export default NavBarAnimation;

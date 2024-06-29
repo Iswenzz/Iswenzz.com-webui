@@ -8,8 +8,7 @@ import scss from "../NavBar.module.scss";
 /**
  * Navbar logo with redirect/scroll.
  */
-const NavBarLogo: FC = () =>
-{
+const NavBarLogo: FC = () => {
 	const location = useLocation();
 	const isLocationRoot = location.pathname === "/";
 

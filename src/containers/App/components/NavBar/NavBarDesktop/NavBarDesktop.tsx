@@ -10,20 +10,30 @@ import NavBarLinks from "../NavBarLinks/NavBarLinks";
 import scss from "../NavBar.module.scss";
 
 /**
-* Desktop navbar.
-*/
-const NavBarDesktop: FC<NavBarDesktopProps> = ({ toggleDrawer, toggleThemeMode }) =>
-{
+ * Desktop navbar.
+ */
+const NavBarDesktop: FC<NavBarDesktopProps> = ({ toggleDrawer, toggleThemeMode }) => {
 	const { icon, color } = useThemeMode({
 		icon: [<Flare key="flare" />, <Brightness3 key="brightness" />],
 		color: ["goldenrod", "gainsboro"]
 	});
 
 	return (
-		<Grid className={scss.buttons} component="ul" container justifyContent="flex-end" alignItems="center">
+		<Grid
+			className={scss.buttons}
+			component="ul"
+			container
+			justifyContent="flex-end"
+			alignItems="center"
+		>
 			<NavBarLinks toggleDrawer={toggleDrawer} />
 			<li>
-				<Fab className={scss.button} style={{ color }} size="small" onClick={toggleThemeMode}>
+				<Fab
+					className={scss.button}
+					style={{ color }}
+					size="small"
+					onClick={toggleThemeMode}
+				>
 					{icon}
 				</Fab>
 			</li>
@@ -35,8 +45,8 @@ const NavBarDesktop: FC<NavBarDesktopProps> = ({ toggleDrawer, toggleThemeMode }
 };
 
 type NavBarDesktopProps = {
-	toggleDrawer: (state: boolean) => void,
-	toggleThemeMode: () => void
+	toggleDrawer: (state: boolean) => void;
+	toggleThemeMode: () => void;
 };
 
 export default NavBarDesktop;

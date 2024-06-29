@@ -11,8 +11,7 @@ import scss from "./LanguagePicker.module.scss";
 /**
  * Pick the application language.
  */
-const LanguagePicker: FC = () =>
-{
+const LanguagePicker: FC = () => {
 	const dispatch = useDispatch();
 	const currentLanguage = useSelector(getLanguage);
 
@@ -22,10 +21,8 @@ const LanguagePicker: FC = () =>
 	 * Set the application language.
 	 * @param language - The language.
 	 */
-	const handleLanguageChange = (language: Language) =>
-	{
-		if (currentLanguage !== language)
-			dispatch(setLanguage(language));
+	const handleLanguageChange = (language: Language) => {
+		if (currentLanguage !== language) dispatch(setLanguage(language));
 		handleMenuClose();
 	};
 
@@ -33,21 +30,17 @@ const LanguagePicker: FC = () =>
 	 * Open or close the menu.
 	 * @param event - The mouse click event.
 	 */
-	const handleMenuClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>
-	{
-		if (anchorEl === null)
-		{
+	const handleMenuClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+		if (anchorEl === null) {
 			dispatch(setModalActive(true));
 			setAnchorEl(event.currentTarget);
-		}
-		else handleMenuClose();
+		} else handleMenuClose();
 	};
 
 	/**
 	 * Close the menu.
 	 */
-	const handleMenuClose = () =>
-	{
+	const handleMenuClose = () => {
 		dispatch(setModalActive(false));
 		setAnchorEl(null);
 	};
@@ -56,17 +49,31 @@ const LanguagePicker: FC = () =>
 
 	return (
 		<div>
-			<Fab className={scss.button} aria-controls="language-menu"
-				aria-haspopup="true" onClick={handleMenuClick} size="small">
+			<Fab
+				className={scss.button}
+				aria-controls="language-menu"
+				aria-haspopup="true"
+				onClick={handleMenuClick}
+				size="small"
+			>
 				<CurrentLanguageIcon className={scss.icon} />
 			</Fab>
-			<Menu id="language-menu" anchorEl={anchorEl} keepMounted
-				open={Boolean(anchorEl)} onClose={handleMenuClose} sx={menuSx}>
+			<Menu
+				id="language-menu"
+				anchorEl={anchorEl}
+				keepMounted
+				open={Boolean(anchorEl)}
+				onClose={handleMenuClose}
+				sx={menuSx}
+			>
 				{Object.entries(languages).map(([language, LanguageIcon]) => (
-					<MenuItem key={language} onClick={() => handleLanguageChange(language as Language)}>
+					<MenuItem
+						key={language}
+						onClick={() => handleLanguageChange(language as Language)}
+					>
 						<Grid container>
 							<Grid item xs={6}>
-								<Typography className={scss.typo} variant="h5" component="h5" >
+								<Typography className={scss.typo} variant="h5" component="h5">
 									{i18nLanguages[language as Language]}
 								</Typography>
 							</Grid>

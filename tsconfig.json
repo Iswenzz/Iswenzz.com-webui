@@ -2,27 +2,22 @@
 	"extends": "./tsconfig.paths.json",
 	"ts-node": {
 		"compilerOptions": {
-			"target": "esnext",
+			"target": "ESNext",
 			"lib": ["esnext"],
 			"allowJs": true,
 			"skipLibCheck": true,
 			"esModuleInterop": true,
 			"allowSyntheticDefaultImports": true,
 			"strict": true,
-			"module": "commonjs",
+			"module": "CommonJS",
 			"moduleResolution": "node",
 			"resolveJsonModule": true,
 			"isolatedModules": true
 		}
 	},
 	"compilerOptions": {
-		"target": "es5",
-		"lib": [
-			"dom",
-			"dom.iterable",
-			"esnext",
-			"webworker"
-		],
+		"target": "ES6",
+		"lib": ["dom", "dom.iterable", "esnext", "webworker"],
 		"allowJs": true,
 		"skipLibCheck": true,
 		"esModuleInterop": true,
@@ -30,15 +25,12 @@
 		"allowSyntheticDefaultImports": true,
 		"strict": true,
 		"forceConsistentCasingInFileNames": true,
-		"module": "esnext",
+		"module": "ESNext",
 		"moduleResolution": "node",
 		"resolveJsonModule": true,
 		"isolatedModules": true,
 		"noEmit": true,
 		"jsx": "react-jsx"
 	},
-	"include": [
-		"src",
-		"packages/izui-web/packages/izui-react/src"
-	]
+	"include": ["src", "packages/izui-web/packages/izui-react/src"]
 }

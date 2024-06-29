@@ -11,16 +11,14 @@ import LightTheme from "./app/Light/Light";
 /**
  * App themes.
  */
-const Themes: FC = ({ children }) =>
-{
+const Themes: FC = ({ children }) => {
 	const dispatch = useDispatch();
 
 	const theme = useSelector(getTheme);
 	const modalActive = useSelector(isModalActive);
 	const pastWindowHeight = useSelector(isPastWindowHeight);
 
-	useScroll(() =>
-	{
+	useScroll(() => {
 		const scrollPastWindowHeight = window.scrollY >= window.innerHeight;
 		if (scrollPastWindowHeight !== pastWindowHeight)
 			dispatch(setPastWindowHeight(scrollPastWindowHeight));

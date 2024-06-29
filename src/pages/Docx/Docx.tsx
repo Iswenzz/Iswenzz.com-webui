@@ -11,8 +11,13 @@ import { NavigationChevron } from "router/components";
 const Docx: FC = () => (
 	<>
 		{/* About */}
-		<Header title="CGSC" description="Documentation" background={background}
-			titleClassName="gainsboro-90" descriptionClassName="gainsboro-90">
+		<Header
+			title="CGSC"
+			description="Documentation"
+			background={background}
+			titleClassName="gainsboro-90"
+			descriptionClassName="gainsboro-90"
+		>
 			<NavigationChevron />
 		</Header>
 		<DocViewer />

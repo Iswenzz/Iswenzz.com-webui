@@ -14,8 +14,7 @@ const levels: LevelSource[] = levelProjectsJson;
 /**
  * Embla carousel container with all level design flip cards.
  */
-export const Levels: FC = () =>
-{
+export const Levels: FC = () => {
 	const { theme } = useTheme();
 	const [ref, inView] = useInView();
 
@@ -26,18 +25,37 @@ export const Levels: FC = () =>
 
 	return (
 		<section>
-			<Grid ref={ref} component="section" justifyContent="center" alignItems="center"
-				className={classNames(scss.gradient, scss[theme])}>
+			<Grid
+				ref={ref}
+				component="section"
+				justifyContent="center"
+				alignItems="center"
+				className={classNames(scss.gradient, scss[theme])}
+			>
 				<Container component="header" className={scss.container}>
-					<motion.div variants={animationScaleFadeUp()} initial="exit" animate={inView ? "enter" : "exit"}>
-						<Text align="center" color="textPrimary" component="h2" variant="h2" className="poiret-big noselect">
+					<motion.div
+						variants={animationScaleFadeUp()}
+						initial="exit"
+						animate={inView ? "enter" : "exit"}
+					>
+						<Text
+							align="center"
+							color="textPrimary"
+							component="h2"
+							variant="h2"
+							className="poiret-big noselect"
+						>
 							LEVEL_DESIGN
 						</Text>
 						<Divider className={scss.divider} />
 					</motion.div>
 					<Element name="level-design" />
 				</Container>
-				<motion.article variants={animationScaleFadeUp()} initial="exit" animate={inView ? "enter" : "exit"}>
+				<motion.article
+					variants={animationScaleFadeUp()}
+					initial="exit"
+					animate={inView ? "enter" : "exit"}
+				>
 					<Carousel buttonSize={55} width="100%" height={height}>
 						{levels.map((level: LevelSource) => (
 							<Level key={level.name} level={level} />

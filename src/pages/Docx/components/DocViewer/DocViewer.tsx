@@ -18,12 +18,10 @@ import scss from "./DocViewer.module.scss";
  * @todo syntax highlight VS2015 for dark and AtomOneLight for light theme.
  * @todo show diagrams with no interaction except moving/zoom.
  */
-export const DocViewer: FC = (): JSX.Element =>
-{
+export const DocViewer: FC = (): JSX.Element => {
 	const navigate = useNavigate();
 
-	useEffect(() =>
-	{
+	useEffect(() => {
 		// @todo test remove later.
 		loadDoc("cgsc__variable_8c.html");
 	}, []);
@@ -33,26 +31,25 @@ export const DocViewer: FC = (): JSX.Element =>
 	 * @param link Html document url.
 	 * @param hash Anchor hash string.
 	 */
-	const loadDoc = (link: string, hash?: string) =>
-	{
-		fetch(`https://iswenzz.com/iswenzz/docs/cgsc/${link}`).then(response => response.text()).then(text =>
-		{
-			const div = document.getElementById("docx");
-			if (div)
-			{
-				// remove all link tags
-				text = text.replace(/<link.*>/gi, "");
-				// remove all iframes
-				text = text.replace(/<iframe.*iframe>/gi, "");
-				// set the page html
-				div.innerHTML = text;
+	const loadDoc = (link: string, hash?: string) => {
+		fetch(`https://iswenzz.com/iswenzz/docs/cgsc/${link}`)
+			.then(response => response.text())
+			.then(text => {
+				const div = document.getElementById("docx");
+				if (div) {
+					// remove all link tags
+					text = text.replace(/<link.*>/gi, "");
+					// remove all iframes
+					text = text.replace(/<iframe.*iframe>/gi, "");
+					// set the page html
+					div.innerHTML = text;
 
-				// scroll to hash if defined.
-				const elem = getElementByXPath(`//a[@href="${hash}"]`);
-				if (elem && elem instanceof HTMLAnchorElement)
-					scroll.scrollTo(elem.offsetTop - 48);
+					// scroll to hash if defined.
+					const elem = getElementByXPath(`//a[@href="${hash}"]`);
+					if (elem && elem instanceof HTMLAnchorElement)
+						scroll.scrollTo(elem.offsetTop - 48);
 
-				/*
+					/*
 				// @todo set uml iframes
 				let dyncontents = getElementsByXPath("//div[@class="dyncontent"]");
 				for (let i = 0; i < dyncontents.length; i++)
@@ -78,38 +75,34 @@ export const DocViewer: FC = (): JSX.Element =>
 					dyncontents[i].appendChild(div);
 				}
 				*/
-			}
-		});
+				}
+			});
 	};
 
 	/**
 	 * Docx div click handler.
 	 * @param e - Mouse event.
 	 */
-	const onClickHandler = (e: React.MouseEvent<HTMLDivElement, globalThis.MouseEvent>) =>
-	{
+	const onClickHandler = (e: React.MouseEvent<HTMLDivElement, globalThis.MouseEvent>) => {
 		e.preventDefault();
 
 		const c_docpath = "/docs/cgsc/";
 		const c_pathname = navigate.name;
-		const c_file = c_pathname.substring(c_pathname.indexOf(c_docpath)
-			+ c_docpath.length, c_pathname.length);
+		const c_file = c_pathname.substring(
+			c_pathname.indexOf(c_docpath) + c_docpath.length,
+			c_pathname.length
+		);
 
-		if (e.target instanceof HTMLAnchorElement)
-		{
+		if (e.target instanceof HTMLAnchorElement) {
 			const link = (e.target.attributes as any).href.value;
-			if (link.includes(".html"))
-			{
+			if (link.includes(".html")) {
 				// change html page if needed, and scroll to selected anchor.
-				if (link.includes(".html#"))
-				{
+				if (link.includes(".html#")) {
 					const hash = link.substring(link.indexOf(".html#") + 5, link.length);
 					const url = link.substring(0, link.indexOf(".html#") + 5);
 
-					if (url !== c_file)
-						loadDoc(url, hash);
-					else
-					{
+					if (url !== c_file) loadDoc(url, hash);
+					else {
 						const elem = getElementByXPath(`//a[@href="${hash}"]`);
 						if (elem && elem instanceof HTMLAnchorElement)
 							scroll.scrollTo(elem.offsetTop - 48);
@@ -117,20 +110,16 @@ export const DocViewer: FC = (): JSX.Element =>
 					navigate(`/docs/cgsc/${url}${hash || ""}`);
 				}
 				// change html page with no selected anchor.
-				else if (link.endsWith(".html") && link !== c_file)
-				{
+				else if (link.endsWith(".html") && link !== c_file) {
 					loadDoc(link);
 					navigate(`/docs/cgsc/${link}`);
 				}
-			}
-			else // stay on the page and add hash to url
-				navigate(`${c_docpath}${c_file}${link}`);
+			} // stay on the page and add hash to url
+			else navigate(`${c_docpath}${c_file}${link}`);
 		}
 	};
 
-	return (
-		<div id="docx" onClick={onClickHandler} className={scss.doxygen} />
-	);
+	return <div id="docx" onClick={onClickHandler} className={scss.doxygen} />;
 };
 
 export default DocViewer;

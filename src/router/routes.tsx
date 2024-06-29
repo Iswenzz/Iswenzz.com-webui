@@ -10,8 +10,7 @@ import Docx from "Docx/Docx";
 /**
  * Application animated routes.
  */
-const AnimatedRoutes: FC = () =>
-{
+const AnimatedRoutes: FC = () => {
 	const location = useLocation();
 
 	return (

@@ -5,10 +5,9 @@ import { Text, Link } from "@izui/react";
 import scss from "../NavBar.module.scss";
 
 /**
-* Navbar links.
-*/
-const NavBarLinks: FC<NavBarLinksProps> = ({ toggleDrawer }) =>
-{
+ * Navbar links.
+ */
+const NavBarLinks: FC<NavBarLinksProps> = ({ toggleDrawer }) => {
 	/**
 	 * Close the drawer.
 	 * @returns
@@ -50,7 +49,7 @@ const NavBarLinks: FC<NavBarLinksProps> = ({ toggleDrawer }) =>
 };
 
 type NavBarLinksProps = {
-	toggleDrawer: (state: boolean) => void
+	toggleDrawer: (state: boolean) => void;
 };
 
 export default NavBarLinks;

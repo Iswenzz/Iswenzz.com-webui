@@ -6,8 +6,8 @@ export const contactFormInitial: ContactFormValues = {
 };
 
 export type ContactFormValues = {
-	email: string,
-	subject: string,
-	message: string,
-	token: string
+	email: string;
+	subject: string;
+	message: string;
+	token: string;
 };

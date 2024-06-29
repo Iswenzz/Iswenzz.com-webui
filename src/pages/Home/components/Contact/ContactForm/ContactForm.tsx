@@ -18,8 +18,7 @@ import scss from "./ContactForm.module.scss";
  * The contact form.
  * @returns
  */
-const ContactForm: FC = () =>
-{
+const ContactForm: FC = () => {
 	const { t } = useTranslation();
 
 	const captcha = useCaptcha();
@@ -30,7 +29,8 @@ const ContactForm: FC = () =>
 	const [fail, setFail] = useState(false);
 
 	const buttonStyle = classNames(scss.buttonDefault, {
-		[scss.buttonSuccess]: success, [scss.buttonFail]: fail
+		[scss.buttonSuccess]: success,
+		[scss.buttonFail]: fail
 	});
 
 	/**
@@ -38,11 +38,12 @@ const ContactForm: FC = () =>
 	 * @param values - Formik values.
 	 * @param param1 - Formik helpers.
 	 */
-	const sendEmail = async (values: ContactFormValues, formik: FormikHelpers<ContactFormValues>) =>
-	{
+	const sendEmail = async (
+		values: ContactFormValues,
+		formik: FormikHelpers<ContactFormValues>
+	) => {
 		// if the form as valid information send a request
-		if (!loading && !Object.values(values).some(isNil) && captcha.current)
-		{
+		if (!loading && !Object.values(values).some(isNil) && captcha.current) {
 			await captcha.current.executeAsync();
 
 			setSuccess(false);
@@ -51,8 +52,7 @@ const ContactForm: FC = () =>
 
 			const captchaValue = captcha.current.getValue();
 
-			try
-			{
+			try {
 				const response = await contact({
 					variables: {
 						input: {
@@ -61,13 +61,9 @@ const ContactForm: FC = () =>
 						}
 					}
 				});
-				response.data?.contact
-					? await mailSuccess()
-					: await mailFail();
+				response.data?.contact ? await mailSuccess() : await mailFail();
 				captcha.current.reset();
-			}
-			catch
-			{
+			} catch {
 				await mailFail();
 			}
 		}
@@ -77,8 +73,7 @@ const ContactForm: FC = () =>
 	/**
 	 * Change button color to green and stop the progress circle.
 	 */
-	const mailSuccess = async () =>
-	{
+	const mailSuccess = async () => {
 		setSuccess(true);
 		setLoading(false);
 
@@ -89,8 +84,7 @@ const ContactForm: FC = () =>
 	/**
 	 * Change button color to red and stop the progress circle.
 	 */
-	const mailFail = async () =>
-	{
+	const mailFail = async () => {
 		setFail(true);
 		setLoading(false);
 
@@ -99,25 +93,67 @@ const ContactForm: FC = () =>
 	};
 
 	return (
-		<Grid container component="section" direction="column" justifyContent="center" alignItems="center">
+		<Grid
+			container
+			component="section"
+			direction="column"
+			justifyContent="center"
+			alignItems="center"
+		>
 			<header>
 				<Avatar alt="iswenzz avatar" src={iswenzzIcon} className={scss.avatar} />
 			</header>
 			<Formik initialValues={contactFormInitial} onSubmit={sendEmail}>
 				<Form>
-					<Field component={TextField} required label={t("CONTACT_EMAIL")}
-						id="email" name="email" type="email" fullWidth color="secondary"
-						variant="outlined" margin="normal" autoComplete="email" />
-					<Field component={TextField} required label={t("CONTACT_SUBJECT")}
-						id="subject" name="subject" type="text" fullWidth color="secondary"
-						variant="outlined" margin="normal" />
-					<Field component={TextField} required label={t("CONTACT_MESSAGE")}
-						id="message" name="message" type="text" fullWidth multiline
-						rows="6" color="secondary" variant="outlined" margin="normal" />
+					<Field
+						component={TextField}
+						required
+						label={t("CONTACT_EMAIL")}
+						id="email"
+						name="email"
+						type="email"
+						fullWidth
+						color="secondary"
+						variant="outlined"
+						margin="normal"
+						autoComplete="email"
+					/>
+					<Field
+						component={TextField}
+						required
+						label={t("CONTACT_SUBJECT")}
+						id="subject"
+						name="subject"
+						type="text"
+						fullWidth
+						color="secondary"
+						variant="outlined"
+						margin="normal"
+					/>
+					<Field
+						component={TextField}
+						required
+						label={t("CONTACT_MESSAGE")}
+						id="message"
+						name="message"
+						type="text"
+						fullWidth
+						multiline
+						rows="6"
+						color="secondary"
+						variant="outlined"
+						margin="normal"
+					/>
 					<Container maxWidth="xs">
 						<Grid container justifyContent="center" alignItems="center">
-							<Button fullWidth variant="contained" type="submit" color="secondary"
-								disabled={loading || success || fail} className={buttonStyle}>
+							<Button
+								fullWidth
+								variant="contained"
+								type="submit"
+								color="secondary"
+								disabled={loading || success || fail}
+								className={buttonStyle}
+							>
 								{t("CONTACT_SEND")}
 							</Button>
 							{loading && <Loader size={32} className={scss.buttonProgress} />}

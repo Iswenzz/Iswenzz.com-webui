@@ -8,8 +8,7 @@ import LevelRender from "./LevelRender/LevelRender";
 /**
  * Flip card with the map preview and stacks on the front and video/description on the back.
  */
-const Level: FC<Props> = ({ level }) =>
-{
+const Level: FC<Props> = ({ level }) => {
 	const [isFlipped, setFlipped] = useState(false);
 
 	const LevelBackCard = useResponsive({
@@ -24,7 +23,8 @@ const Level: FC<Props> = ({ level }) =>
 	const flipCallback = (flipState: boolean) => setFlipped(flipState);
 
 	return (
-		<Flip flipCallback={flipCallback}
+		<Flip
+			flipCallback={flipCallback}
 			front={<LevelRender level={level} />}
 			back={<LevelBackCard level={level} isFlipped={isFlipped} />}
 		/>
@@ -32,17 +32,17 @@ const Level: FC<Props> = ({ level }) =>
 };
 
 export type LevelSource = {
-	name: string,
-	image: string,
-	description?: string,
-	videoUrl?: string,
-	width?: string,
-	height?: string,
-	renderIcons?: Icon[]
+	name: string;
+	image: string;
+	description?: string;
+	videoUrl?: string;
+	width?: string;
+	height?: string;
+	renderIcons?: Icon[];
 };
 
 type Props = {
-	level: LevelSource
+	level: LevelSource;
 };
 
 export default memo(Level);

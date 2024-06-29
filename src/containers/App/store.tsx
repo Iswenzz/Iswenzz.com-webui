@@ -13,17 +13,13 @@ const store = configureStore({
 });
 
 export type RootRedux = {
-	app: AppRedux,
-	home: HomeRedux
+	app: AppRedux;
+	home: HomeRedux;
 };
 
 /**
  * Redux store provider.
  */
-const Redux: FC = ({ children }) => (
-	<Provider store={store}>
-		{children}
-	</Provider>
-);
+const Redux: FC = ({ children }) => <Provider store={store}>{children}</Provider>;
 
 export default Redux;

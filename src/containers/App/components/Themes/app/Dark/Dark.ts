@@ -7,29 +7,29 @@ const DarkThemeOptions = merge<ThemeOptions, ThemeOptions>(IzDarkThemeOptions, {
 	isDarkTheme: true,
 	typography: {
 		subtitle1: {
-			fontFamily: "Ubuntu",
+			fontFamily: "Ubuntu"
 		},
 		subtitle2: {
 			fontFamily: "Poiret One",
 			fontWeight: "bold"
 		},
 		h1: {
-			fontFamily: "Calligraffitti",
+			fontFamily: "Calligraffitti"
 		},
 		h2: {
-			fontFamily: "Calligraffitti",
+			fontFamily: "Calligraffitti"
 		},
 		h3: {
-			fontFamily: "Calligraffitti",
+			fontFamily: "Calligraffitti"
 		},
 		h4: {
-			fontFamily: "Calligraffitti",
+			fontFamily: "Calligraffitti"
 		},
 		h5: {
-			fontFamily: "Calligraffitti",
+			fontFamily: "Calligraffitti"
 		},
 		caption: {
-			fontFamily: "Ubuntu",
+			fontFamily: "Ubuntu"
 		}
 	}
 });

@@ -10,7 +10,7 @@
 	width: 100%;
 	height: 100%;
 	background-size: cover;
-	border-color: rgba(0, 131, 255, .3);
+	border-color: rgba(0, 131, 255, 0.3);
 	border-style: dotted;
 
 	@include Themes.darkMode {

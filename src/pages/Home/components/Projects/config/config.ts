@@ -11,5 +11,5 @@ export const projectsSource: ProjectSource[] = [
 	...aionJson,
 	...cod4Json,
 	...projectsJson,
-	...schoolJson,
+	...schoolJson
 ];

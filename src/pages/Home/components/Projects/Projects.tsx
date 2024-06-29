@@ -13,8 +13,7 @@ import scss from "./Projects.module.scss";
 /**
  * Display the projects in a masonry layout.
  */
-const Projects: FC = () =>
-{
+const Projects: FC = () => {
 	const { theme } = useTheme();
 
 	const projects = useRef<ProjectSource[]>(projectsSource);
@@ -29,16 +28,30 @@ const Projects: FC = () =>
 			<ProjectPopup projects={projects.current} />
 			<Element name="projects" />
 
-			<Grid component="section" className={classNames(scss.projects, scss[theme])}
-				justifyContent="center" alignItems="center">
+			<Grid
+				component="section"
+				className={classNames(scss.projects, scss[theme])}
+				justifyContent="center"
+				alignItems="center"
+			>
 				<Container component="header" className={scss.container}>
-					<TrailText align="center" color="textPrimary" component="h2" variant="h2" className="poiret-big noselect">
+					<TrailText
+						align="center"
+						color="textPrimary"
+						component="h2"
+						variant="h2"
+						className="poiret-big noselect"
+					>
 						PROJECTS
 					</TrailText>
 					<Divider className={scss.divider} />
 				</Container>
 				<Grid container component="section" alignItems="center" justifyContent="center">
-					<SpringGrid gutter={{ height: 10 }} itemSize={{ width: projectsWidth }} layout="masonry">
+					<SpringGrid
+						gutter={{ height: 10 }}
+						itemSize={{ width: projectsWidth }}
+						layout="masonry"
+					>
 						{projects.current.map((project, index) => (
 							<Project
 								key={project.title}

@@ -24,4 +24,5 @@ export const languages: Record<string, LanguageFn> = {
 
 // Register configured languages
 Object.entries(languages).forEach(([languageName, language]) =>
-	hljs.registerLanguage(languageName, language));
+	hljs.registerLanguage(languageName, language)
+);

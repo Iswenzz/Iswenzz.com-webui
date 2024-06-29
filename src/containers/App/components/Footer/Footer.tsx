@@ -12,22 +12,34 @@ import scss from "./Footer.module.scss";
 /**
  * Footer with links to social medias & copyrights.
  */
-const Footer: FC = () =>
-{
+const Footer: FC = () => {
 	const { theme } = useTheme();
 
 	return (
 		<>
 			<Grid container component="footer">
-				<Grid container className={classNames(scss.footer, scss[theme])}
-					component="ul" justifyContent="center" alignItems="center">
+				<Grid
+					container
+					className={classNames(scss.footer, scss[theme])}
+					component="ul"
+					justifyContent="center"
+					alignItems="center"
+				>
 					<li>
-						<Fab href="https://github.com/iswenzz" className={scss.icons} color="primary">
+						<Fab
+							href="https://github.com/iswenzz"
+							className={scss.icons}
+							color="primary"
+						>
 							<FontAwesomeIcon color="silver" icon={faGithub} size="2x" />
 						</Fab>
 					</li>
 					<li>
-						<Fab href="https://www.youtube.com/c/iswenzz" className={scss.icons} color="primary">
+						<Fab
+							href="https://www.youtube.com/c/iswenzz"
+							className={scss.icons}
+							color="primary"
+						>
 							<FontAwesomeIcon color="#FF0000" icon={faYoutube} size="2x" />
 						</Fab>
 					</li>

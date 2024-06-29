@@ -1,7 +1,10 @@
 .doxygen {
 	background-color: #0e0f14;
 
-	#top, .header, .footer, .lineno {
+	#top,
+	.header,
+	.footer,
+	.lineno {
 		display: none;
 	}
 
@@ -13,10 +16,12 @@
 	body {
 		background: #282923;
 		background-image: none;
-		color: #D8D8D8;
+		color: #d8d8d8;
 	}
 
-	a, a:link, a:visited {
+	a,
+	a:link,
+	a:visited {
 		color: #67d8ef;
 	}
 
@@ -68,7 +73,6 @@
 	.directory tr.even {
 		background: #32363d;
 	}
-
 
 	/*********************************************/
 	/**               Top search                **/
@@ -142,8 +146,10 @@
 	/*********************************************/
 	/**             TOP navigation              **/
 	/*********************************************/
-	.tabs, .tabs2, .tabs3 {
-		background: #DDDDDD;
+	.tabs,
+	.tabs2,
+	.tabs3 {
+		background: #dddddd;
 	}
 
 	.tablist li {
@@ -161,7 +167,7 @@
 	.tablist li.current a {
 		text-decoration: none;
 		color: black;
-		background: #CCCCCC;
+		background: #cccccc;
 		background-image: none;
 		text-shadow: none;
 	}
@@ -246,10 +252,15 @@
 	/*********************************************/
 	/**          Modules/Directory table        **/
 	/*********************************************/
-	.mdescLeft, .mdescRight, .memItemLeft, .memItemRight,
-	.memTemplItemLeft, .memTemplItemRight, .memTemplParams {
+	.mdescLeft,
+	.mdescRight,
+	.memItemLeft,
+	.memItemRight,
+	.memTemplItemLeft,
+	.memTemplItemRight,
+	.memTemplParams {
 		background: #2a2d36;
-		box-shadow: 7px 7px 5px 0px rgba(0,0,0,0.3);
+		box-shadow: 7px 7px 5px 0px rgba(0, 0, 0, 0.3);
 		border-radius: 2px;
 		color: inherit;
 	}
@@ -269,7 +280,7 @@
 	/*********************************************/
 	.memitem {
 		background: #2a2d36;
-		box-shadow: 7px 7px 5px 0px rgba(0,0,0,0.3);
+		box-shadow: 7px 7px 5px 0px rgba(0, 0, 0, 0.3);
 		border-radius: 5px;
 		color: inherit;
 		text-shadow: none;
@@ -286,11 +297,13 @@
 		font-family: monospace, fixed;
 	}
 
-	td.memItemLeft, td.memItemRight {
+	td.memItemLeft,
+	td.memItemRight {
 		font-family: monospace, fixed;
 	}
 
-	.paramname, .paramname em {
+	.paramname,
+	.paramname em {
 		color: #bf5f82;
 		font-style: italic;
 	}
@@ -303,7 +316,6 @@
 	.ttc {
 		display: none;
 	}
-
 
 	/*********************************************/
 	/**                 Footer                  **/
@@ -337,17 +349,22 @@
 	/*********************************************/
 	/**             Custom scrollbar            **/
 	/*********************************************/
-	h1.glow, h2.glow, h3.glow,
-	h4.glow, h5.glow, h6.glow {
+	h1.glow,
+	h2.glow,
+	h3.glow,
+	h4.glow,
+	h5.glow,
+	h6.glow {
 		text-shadow: 0 0 15px #67d8ef;
 	}
 
-	div.fragment, pre.fragment {
+	div.fragment,
+	pre.fragment {
 		margin: 0;
 		padding: 15px;
 		border-radius: 5px;
 		background-color: #2a2d36;
-		box-shadow: 7px 7px 5px 0px rgba(0,0,0,0.3);
+		box-shadow: 7px 7px 5px 0px rgba(0, 0, 0, 0.3);
 		* {
 			text-decoration: none;
 			font-family: monospace, fixed;
@@ -454,7 +471,7 @@
 
 		border: none;
 		border-top-left-radius: 0px;
-		border-top-right-radius:0px;
+		border-top-right-radius: 0px;
 
 		font-weight: bold;
 		text-transform: uppercase;
@@ -552,7 +569,7 @@
 
 	#docs_list ul li {
 		display: inline-block;
-		border-right: 1px solid #BFBFBF;
+		border-right: 1px solid #bfbfbf;
 	}
 
 	#docs_list ul li:last-child {

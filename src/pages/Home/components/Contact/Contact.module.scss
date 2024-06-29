@@ -5,7 +5,7 @@
 	padding-bottom: 120px;
 
 	@include Themes.darkMode {
-		background: radial-gradient(ellipse at bottom, #841A2A, #151243 70%);
+		background: radial-gradient(ellipse at bottom, #841a2a, #151243 70%);
 	}
 
 	@include Themes.lightMode {
@@ -14,7 +14,7 @@
 }
 
 .contactParallax {
-	box-shadow: 0 0 5px 6px rgba(60, 60, 60, .3);
+	box-shadow: 0 0 5px 6px rgba(60, 60, 60, 0.3);
 }
 
 .contactTypo {

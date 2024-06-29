@@ -9,7 +9,8 @@ import { getLocalState } from "./localStorage";
  * @returns
  */
 export const createInitState = <S extends ValueOf<RootRedux>>(
-	initState: S, reducer: KeyOf<RootRedux>
+	initState: S,
+	reducer: KeyOf<RootRedux>
 ): S => ({
 	...initState,
 	...getLocalState(reducer)

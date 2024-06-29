@@ -10,17 +10,21 @@ import { Contact, About, Levels, Projects } from "./components";
 /**
  * Home page.
  */
-const Home: FC = () =>
-{
+const Home: FC = () => {
 	const { headerImage } = useThemeMode({
 		headerImage: [sunset, mountain]
 	});
 
 	return (
 		<>
-			<Header title="Iswenzz" description="HOME_HEADER" background={headerImage}
-				titleClassName="gainsboro-90" descriptionClassName="gainsboro-90"
-				TextComponent={TrailText}>
+			<Header
+				title="Iswenzz"
+				description="HOME_HEADER"
+				background={headerImage}
+				titleClassName="gainsboro-90"
+				descriptionClassName="gainsboro-90"
+				TextComponent={TrailText}
+			>
 				<NavigationChevron />
 			</Header>
 

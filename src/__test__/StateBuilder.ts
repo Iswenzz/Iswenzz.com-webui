@@ -3,16 +3,14 @@ import initState, { MockState } from "./initState";
 /**
  * Build a mock redux state.
  */
-class StateBuilder
-{
-	public state = { };
+class StateBuilder {
+	public state = {};
 
 	/**
 	 * Initialize a new StateBuilder.
 	 * @param defaultState - The default state.
 	 */
-	public constructor(defaultState: MockState)
-	{
+	public constructor(defaultState: MockState) {
 		this.state = { ...defaultState };
 	}
 
@@ -21,11 +19,10 @@ class StateBuilder
 	 * @param more - Properties to add to the mocked state.
 	 * @returns
 	 */
-	public with(more: MockState)
-	{
+	public with(more: MockState) {
 		this.state = {
 			...this.state,
-			...more,
+			...more
 		};
 		return this;
 	}
@@ -34,8 +31,7 @@ class StateBuilder
 	 * Build the mock state.
 	 * @returns
 	 */
-	public build()
-	{
+	public build() {
 		return this.state;
 	}
 }

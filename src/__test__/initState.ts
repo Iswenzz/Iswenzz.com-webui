@@ -3,7 +3,7 @@ import { initialState as app } from "App/redux";
 import { initialState as home } from "Home/redux";
 
 export type MockState = {
-	[key in keyof RootRedux]: Partial<RootRedux[key]>
+	[key in keyof RootRedux]: Partial<RootRedux[key]>;
 };
 
 const initState: MockState = {

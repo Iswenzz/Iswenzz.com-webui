@@ -1,6 +1,3 @@
-import "react-app-polyfill/ie11";
-import "react-app-polyfill/stable";
-
 import ReactDOM from "react-dom";
 
 import { Themes } from "App/components";
@@ -12,16 +9,13 @@ import Router from "router/routes";
 import "config/highlight";
 import "styles/Main.scss";
 
-import { unregister } from "./serviceWorker";
-
-ReactDOM.render((
+ReactDOM.render(
 	<Apollo>
 		<Redux>
 			<Themes>
 				<Router />
 			</Themes>
 		</Redux>
-	</Apollo>
-), document.getElementById("iswenzz-react-root"));
-
-unregister();
+	</Apollo>,
+	document.getElementById("iswenzz-react-root")
+);
