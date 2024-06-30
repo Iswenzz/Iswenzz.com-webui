@@ -1,76 +1,61 @@
 // https://testing-library.com/docs/react-testing-library/setup#custom-render
-import { render, fireEvent, RenderResult } from "@testing-library/react";
+import { render, fireEvent, RenderResult, RenderOptions } from "@testing-library/react";
 import { FC, PropsWithChildren, ReactElement } from "react";
 import { Provider } from "react-redux";
-import configureMockStore, { MockStoreEnhanced } from "redux-mock-store";
-import thunk from "redux-thunk";
 
-import initState, { MockState } from "./initState";
+import { State, setupStore } from "App/store";
 import aState from "./StateBuilder";
 
-const mockStore = configureMockStore([thunk]);
-const mockQueries = <Queries,>() => ({}) as Queries;
+// This type interface extends the default options for render from RTL, as well
+// as allows the user to specify other things such as initialState, store.
+interface ExtendedRenderOptions extends Omit<RenderOptions, "queries"> {
+	preloadedState?: Partial<State>;
+	store?: State;
+}
 
-const AllTheProviders =
-	(store: MockStoreEnhanced<unknown, {}>): FC =>
-	// eslint-disable-next-line react/display-name
-	({ children }: PropsWithChildren<{}>) => <Provider store={store}>{children}</Provider>;
-
-export const customRender = (ui: ReactElement, { store = mockStore(initState) } = {}) => ({
-	...render(ui, { wrapper: AllTheProviders(store) }),
-	store
-});
-
-type Object<O> = O | {};
-
-type BuildRenderOptions<Props, Queries> = {
-	component: FC;
-	defaultState?: MockState;
-	defaultProps?: Object<Props>;
-	queries?: (queries: Render) => Queries;
+export const customRender = (
+	ui: ReactElement,
+	{
+		preloadedState = {},
+		store = setupStore(preloadedState),
+		...renderOptions
+	}: ExtendedRenderOptions = {}
+) => {
+	const Wrapper = ({ children }: PropsWithChildren<{}>) => (
+		<Provider store={store}>{children}</Provider>
+	);
+	return { store, ...render(ui, { wrapper: Wrapper, ...renderOptions }) };
 };
-
-type Render<Queries = {}> = RenderResult &
-	Queries & {
-		store: MockStoreEnhanced<unknown, {}>;
-	};
 
 const buildRender = <Props, Queries>({
 	component: Component,
-	defaultState = initState,
+	defaultState = {},
 	defaultProps = {},
 	queries = mockQueries
-}: BuildRenderOptions<Props, Queries>) => {
-	return (props: Object<Props> = {}, state = defaultState): Render<Queries> => {
-		const store = mockStore(state);
-		const view = customRender(
-			<Provider store={store}>
-				<Component {...defaultProps} {...props} />
-			</Provider>
-		);
-
+}: BuildRender<Props, Queries>) => {
+	return (props = {}, state = defaultState) => {
+		const store = setupStore(state);
+		const view = customRender(<Component {...defaultProps} {...props} />, { store });
 		const rerender = (newProps = props, newState = state) => {
-			const newStore = mockStore(newState);
+			const newStore = setupStore(newState);
 			return view.rerender(
 				<Provider store={newStore}>
 					<Component {...defaultProps} {...newProps} />
 				</Provider>
 			);
 		};
-
-		// There is another way to handle custom queries
-		// https://testing-library.com/docs/dom-testing-library/api-helpers#custom-queries
-		// but it seems to return only functions
-		return {
-			...view,
-			store,
-			rerender,
-			...queries({
-				...view,
-				store
-			})
-		};
+		return { ...view, rerender, ...queries({ ...view, store }) };
 	};
+};
+
+type Object<O> = O | {};
+type Render = RenderResult & { store: State };
+
+type BuildRender<Props, Queries> = {
+	component: FC;
+	defaultState?: State;
+	defaultProps?: Object<Props>;
+	queries?: (screen: Render) => Queries;
 };
 
 const mockObserverFunc = jest.fn().mockImplementation(() => ({
@@ -78,6 +63,8 @@ const mockObserverFunc = jest.fn().mockImplementation(() => ({
 	observe: jest.fn(),
 	unobserve: jest.fn()
 }));
+
+const mockQueries = <Queries,>() => ({}) as Queries;
 
 window.ResizeObserver = window.ResizeObserver || mockObserverFunc;
 window.MutationObserver = window.MutationObserver || mockObserverFunc;

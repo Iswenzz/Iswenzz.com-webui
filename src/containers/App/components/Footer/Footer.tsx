@@ -14,7 +14,6 @@ import scss from "./Footer.module.scss";
  */
 const Footer: FC = () => {
 	const { theme } = useTheme();
-
 	return (
 		<>
 			<Grid container component="footer">

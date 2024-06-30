@@ -14,7 +14,7 @@ import scss from "./Contact.module.scss";
 /**
  * Contact container to send an email.
  */
-export const Contact: FC = (): JSX.Element => {
+const Contact: FC = (): JSX.Element => {
 	const { theme } = useTheme();
 	const [ref, inView] = useInView();
 

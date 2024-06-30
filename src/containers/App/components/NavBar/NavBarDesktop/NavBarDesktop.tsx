@@ -12,12 +12,11 @@ import scss from "../NavBar.module.scss";
 /**
  * Desktop navbar.
  */
-const NavBarDesktop: FC<NavBarDesktopProps> = ({ toggleDrawer, toggleThemeMode }) => {
+const NavBarDesktop: FC<Props> = ({ toggleDrawer, toggleThemeMode }) => {
 	const { icon, color } = useThemeMode({
 		icon: [<Flare key="flare" />, <Brightness3 key="brightness" />],
 		color: ["goldenrod", "gainsboro"]
 	});
-
 	return (
 		<Grid
 			className={scss.buttons}
@@ -44,7 +43,7 @@ const NavBarDesktop: FC<NavBarDesktopProps> = ({ toggleDrawer, toggleThemeMode }
 	);
 };
 
-type NavBarDesktopProps = {
+type Props = {
 	toggleDrawer: (state: boolean) => void;
 	toggleThemeMode: () => void;
 };

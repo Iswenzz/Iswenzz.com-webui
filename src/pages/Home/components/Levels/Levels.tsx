@@ -5,7 +5,7 @@ import { useInView } from "react-intersection-observer";
 import classNames from "classnames";
 import { Element, Carousel, Text, animationScaleFadeUp, useResponsive } from "@izui/react";
 
-import Level, { LevelSource } from "./Level/Level";
+import Level, { LevelSource } from "./components/Level/Level";
 import levelProjectsJson from "./Levels.json";
 import scss from "./Levels.module.scss";
 
@@ -14,7 +14,7 @@ const levels: LevelSource[] = levelProjectsJson;
 /**
  * Embla carousel container with all level design flip cards.
  */
-export const Levels: FC = () => {
+const Levels: FC = () => {
 	const { theme } = useTheme();
 	const [ref, inView] = useInView();
 

@@ -14,7 +14,6 @@ const Home: FC = () => {
 	const { headerImage } = useThemeMode({
 		headerImage: [sunset, mountain]
 	});
-
 	return (
 		<>
 			<Header
@@ -27,7 +26,6 @@ const Home: FC = () => {
 			>
 				<NavigationChevron />
 			</Header>
-
 			<About />
 			<Projects />
 			<Levels />

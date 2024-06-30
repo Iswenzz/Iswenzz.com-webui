@@ -7,13 +7,8 @@ import scss from "../NavBar.module.scss";
 /**
  * Navbar links.
  */
-const NavBarLinks: FC<NavBarLinksProps> = ({ toggleDrawer }) => {
-	/**
-	 * Close the drawer.
-	 * @returns
-	 */
+const NavBarLinks: FC<Props> = ({ toggleDrawer }) => {
 	const handleClose = () => toggleDrawer(false);
-
 	return (
 		<>
 			<li>
@@ -48,7 +43,7 @@ const NavBarLinks: FC<NavBarLinksProps> = ({ toggleDrawer }) => {
 	);
 };
 
-type NavBarLinksProps = {
+type Props = {
 	toggleDrawer: (state: boolean) => void;
 };
 

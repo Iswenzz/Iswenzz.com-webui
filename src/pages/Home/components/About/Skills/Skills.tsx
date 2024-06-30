@@ -17,7 +17,6 @@ export const about: AboutInfo = aboutJson;
 const Skills: FC = () => {
 	const { theme } = useTheme();
 	const [ref, inView] = useInView();
-
 	const [web, software, level, webStacks, softwareStacks, editors] = about.skills;
 
 	return (

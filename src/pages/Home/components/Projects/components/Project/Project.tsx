@@ -1,5 +1,5 @@
 import { FC, memo } from "react";
-import { batch, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import LazyLoad from "react-lazyload";
 import { motion } from "framer-motion";
 import { Card, CardActionArea, Typography } from "@mui/material";
@@ -25,12 +25,10 @@ const Project: FC<ProjectProps> = ({ project, projectIndex, height = 200, width 
 	 * Open the ProjectPopup modal.
 	 */
 	const handleClick = () => {
-		batch(() => {
-			dispatch(setNavbarActive(false));
-			dispatch(setModalActive(true));
-			dispatch(setProjectModalOpen(true));
-			dispatch(setProjectModalStartIndex(projectIndex));
-		});
+		dispatch(setNavbarActive(false));
+		dispatch(setModalActive(true));
+		dispatch(setProjectModalOpen(true));
+		dispatch(setProjectModalStartIndex(projectIndex));
 	};
 
 	return (

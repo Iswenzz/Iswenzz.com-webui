@@ -1,7 +1,8 @@
 import { FC, Fragment, memo } from "react";
-import { batch, useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useList, useWindowSize } from "react-use";
 import { Dialog, Fade } from "@mui/material";
+
 import {
 	HintDrag,
 	ViewPager,
@@ -22,7 +23,7 @@ import scss from "./ProjectPopup.module.scss";
 /**
  * Modal container that shows all projects markdown in a ViewPager.
  */
-export const ProjectPopup: FC<ProjectPopupProps> = ({ projects }) => {
+const ProjectPopup: FC<ProjectPopupProps> = ({ projects }) => {
 	const dispatch = useDispatch();
 	const startIndex = useSelector(getProjectModalStartIndex);
 	const openModal = useSelector(getProjectModalOpen);
@@ -57,11 +58,9 @@ export const ProjectPopup: FC<ProjectPopupProps> = ({ projects }) => {
 	 * Modal close handler.
 	 */
 	const onClose = () => {
-		batch(() => {
-			dispatch(setProjectModalOpen(false));
-			dispatch(setNavbarActive(true));
-			dispatch(setModalActive(false));
-		});
+		dispatch(setProjectModalOpen(false));
+		dispatch(setNavbarActive(true));
+		dispatch(setModalActive(false));
 	};
 
 	/**

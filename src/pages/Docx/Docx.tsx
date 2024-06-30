@@ -10,7 +10,6 @@ import { NavigationChevron } from "router/components";
  */
 const Docx: FC = () => (
 	<>
-		{/* About */}
 		<Header
 			title="CGSC"
 			description="Documentation"

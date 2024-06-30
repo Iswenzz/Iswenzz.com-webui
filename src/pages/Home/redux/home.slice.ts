@@ -2,28 +2,25 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import { createInitState } from "App/utils/redux";
 
-export type HomeRedux = {
+export type HomeState = {
 	projectModalOpen: boolean;
 	projectModalStartIndex: number;
 };
 
-export const initialState = createInitState<HomeRedux>(
-	{
-		projectModalOpen: false,
-		projectModalStartIndex: 0
-	},
-	"home"
-);
+export const initialState = createInitState<HomeState>("home", {
+	projectModalOpen: false,
+	projectModalStartIndex: 0
+});
 
 const slice = createSlice({
 	name: "home",
 	initialState,
 	reducers: {
-		setProjectModalOpen: (state: HomeRedux, action: PayloadAction<boolean>) => ({
+		setProjectModalOpen: (state: HomeState, action: PayloadAction<boolean>) => ({
 			...state,
 			projectModalOpen: action.payload
 		}),
-		setProjectModalStartIndex: (state: HomeRedux, action: PayloadAction<number>) => ({
+		setProjectModalStartIndex: (state: HomeState, action: PayloadAction<number>) => ({
 			...state,
 			projectModalStartIndex: action.payload
 		})

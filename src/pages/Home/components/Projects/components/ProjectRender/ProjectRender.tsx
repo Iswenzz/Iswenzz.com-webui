@@ -41,7 +41,7 @@ const ProjectRender: FC<ProjectRenderProps> = ({ project, handleClose }) => {
 			title={t("PROJECT_TOOLTIP_SOURCE") as string}
 		>
 			<Fab
-				size={fabSize as any}
+				size={fabSize as "medium"}
 				href={project.sourceURL}
 				className={scss.tooltipFab}
 				color="primary"
@@ -59,7 +59,12 @@ const ProjectRender: FC<ProjectRenderProps> = ({ project, handleClose }) => {
 			title={t("PROJECT_TOOLTIP_CLOSED_SOURCE") as string}
 		>
 			<span>
-				<Fab size={fabSize as any} className={scss.tooltipFab} color="primary" disabled>
+				<Fab
+					size={fabSize as "medium"}
+					className={scss.tooltipFab}
+					color="primary"
+					disabled
+				>
 					<Lock />
 				</Fab>
 			</span>
@@ -101,7 +106,7 @@ const ProjectRender: FC<ProjectRenderProps> = ({ project, handleClose }) => {
 							{project.isOpenSource ? openSource : privateSource}
 							<Fab
 								onClick={handleClose}
-								size={fabSize as any}
+								size={fabSize as "medium"}
 								className={scss.tooltipFab}
 								color="secondary"
 							>

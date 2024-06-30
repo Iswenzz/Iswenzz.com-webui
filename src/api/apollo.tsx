@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, PropsWithChildren } from "react";
 import { ApolloClient, ApolloLink, ApolloProvider, HttpLink, InMemoryCache } from "@apollo/client";
 import { onError } from "@apollo/client/link/error";
 import fetch from "cross-fetch";
@@ -39,7 +39,7 @@ const apolloClient = new ApolloClient({
 /**
  * Apollo client provider.
  */
-const Apollo: FC = ({ children }) => (
+const Apollo: FC<PropsWithChildren> = ({ children }) => (
 	<ApolloProvider client={apolloClient}>{children}</ApolloProvider>
 );
 

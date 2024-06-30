@@ -11,7 +11,6 @@ import scss from "../NavBar.module.scss";
 const NavBarLogo: FC = () => {
 	const location = useLocation();
 	const isLocationRoot = location.pathname === "/";
-
 	return (
 		<ButtonBase>
 			<Link className="nolink" to={isLocationRoot ? "header" : "/"} smooth={isLocationRoot}>

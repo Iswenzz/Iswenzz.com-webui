@@ -1,0 +1,40 @@
+@use "@izui/styles/scss/Themes";
+
+.back {
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	border-color: rgba(0, 131, 255, 0.3);
+	border-style: dotted;
+
+	@include Themes.darkMode {
+		background: radial-gradient(ellipse at 80%, rgb(0, 48, 138) 0%, rgb(14, 14, 14) 110%);
+	}
+
+	@include Themes.lightMode {
+		background: radial-gradient(ellipse at 80%, #eaeaea 0%, rgb(240, 240, 240) 110%);
+	}
+}
+
+.tileName {
+	height: 150px;
+}
+
+.typo {
+	margin-top: 40px;
+}
+
+.tilePlayer {
+	width: 70%;
+	height: 500px;
+}
+
+.tileDescription {
+	width: 30%;
+}
+
+.tileDescriptionTypo {
+	margin-left: 10px;
+	padding-left: 10px;
+	border-left: 3px solid red;
+}

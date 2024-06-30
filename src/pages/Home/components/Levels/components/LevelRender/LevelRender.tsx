@@ -4,7 +4,7 @@ import { HintClick, Image, Forward, preventDefault, useResponsive } from "@izui/
 import { v4 as uuidv4 } from "uuid";
 import classNames from "classnames";
 
-import { LevelSource } from "../Level";
+import { LevelSource } from "../Level/Level";
 import scss from "../Level.module.scss";
 
 /**
@@ -13,6 +13,7 @@ import scss from "../Level.module.scss";
  */
 const LevelRender: FC<Props> = ({ level }) => {
 	const { theme } = useTheme();
+
 	const iconSize = useResponsive({
 		desktop: "64",
 		mobile: "32"

@@ -14,22 +14,13 @@ import scss from "../NavBar.module.scss";
 /**
  * Mobile navbar.
  */
-const NavBarMobile: FC<NavBarMobileProps> = ({ toggleDrawer, toggleThemeMode, isDrawerOpen }) => {
+const NavBarMobile: FC<Props> = ({ toggleDrawer, toggleThemeMode, isDrawerOpen }) => {
 	const { icon, color } = useThemeMode({
 		icon: [<Flare key="flare" />, <Brightness3 key="brightness" />],
 		color: ["goldenrod", "gainsboro"]
 	});
 
-	/**
-	 * Toggle the drawer.
-	 * @returns
-	 */
 	const handleToggle = () => toggleDrawer(!isDrawerOpen);
-
-	/**
-	 * Close the drawer.
-	 * @returns
-	 */
 	const handleClose = () => toggleDrawer(false);
 
 	return (
@@ -82,7 +73,7 @@ const NavBarMobile: FC<NavBarMobileProps> = ({ toggleDrawer, toggleThemeMode, is
 	);
 };
 
-type NavBarMobileProps = {
+type Props = {
 	toggleDrawer: (state: boolean) => void;
 	toggleThemeMode: () => void;
 	isDrawerOpen: boolean;

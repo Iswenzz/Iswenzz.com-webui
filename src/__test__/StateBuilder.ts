@@ -1,4 +1,4 @@
-import initState, { MockState } from "./initState";
+import { State } from "App/store";
 
 /**
  * Build a mock redux state.
@@ -10,7 +10,7 @@ class StateBuilder {
 	 * Initialize a new StateBuilder.
 	 * @param defaultState - The default state.
 	 */
-	public constructor(defaultState: MockState) {
+	public constructor(defaultState: State) {
 		this.state = { ...defaultState };
 	}
 
@@ -19,7 +19,7 @@ class StateBuilder {
 	 * @param more - Properties to add to the mocked state.
 	 * @returns
 	 */
-	public with(more: MockState) {
+	public with(more: State) {
 		this.state = {
 			...this.state,
 			...more
@@ -36,6 +36,6 @@ class StateBuilder {
 	}
 }
 
-const stateBuilder = (defaultState = initState) => new StateBuilder(defaultState);
+const stateBuilder = (defaultState = {}) => new StateBuilder(defaultState as State);
 
 export default stateBuilder;

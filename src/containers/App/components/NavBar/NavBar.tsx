@@ -24,23 +24,13 @@ const NavBar: FC<AppBarProps> = (): Nullable<JSX.Element> => {
 	const { isDarkTheme } = useTheme();
 	const [isDrawerOpen, setDrawerOpen] = useState(false);
 
-	/**
-	 * Toggle dark/light mode callback.
-	 */
 	const toggleThemeMode = () => dispatch(setTheme(isDarkTheme ? "light" : "dark"));
 
-	/**
-	 * Toggle the mobile drawer.
-	 * @param visible - Visible state.
-	 */
 	const toggleDrawer = (visible: boolean) => {
 		setDrawerOpen(visible);
 		dispatch(setModalActive(visible));
 	};
 
-	/**
-	 * Responsive buttons.
-	 */
 	const navBarButtons = useResponsive({
 		desktop: <NavBarDesktop toggleDrawer={toggleDrawer} toggleThemeMode={toggleThemeMode} />,
 		mobile: (

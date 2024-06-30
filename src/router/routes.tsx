@@ -12,9 +12,8 @@ import Docx from "Docx/Docx";
  */
 const AnimatedRoutes: FC = () => {
 	const location = useLocation();
-
 	return (
-		<AnimatePresence exitBeforeEnter>
+		<AnimatePresence mode="wait">
 			<ReactRoutes key={location.pathname} location={location}>
 				<Route element={<Layout />}>
 					<Route path="/" element={<Home />} />

@@ -7,7 +7,7 @@ import type { Language } from "App/i18next";
 import { saveLocalState } from "App/utils/localStorage";
 import { createInitState } from "App/utils/redux";
 
-export type AppRedux = {
+export type AppState = {
 	theme: string;
 	language: Language;
 	browserInfo: Omit<ReturnType<typeof detect>, "prototypes">;
@@ -16,41 +16,37 @@ export type AppRedux = {
 	isNavbarActive: boolean;
 };
 
-export const initialState = createInitState<AppRedux>(
-	{
-		theme: "dark",
-		language: "en",
-		browserInfo: omit(detect(), "prototypes"),
-		isPastWindowHeight: false,
-		isModalActive: false,
-		isNavbarActive: true
-	},
-	"app"
-);
+export const initialState = createInitState<AppState>("app", {
+	theme: "dark",
+	language: "en",
+	browserInfo: omit(detect(), "prototypes"),
+	isPastWindowHeight: false,
+	isModalActive: false,
+	isNavbarActive: true
+});
 
 const slice = createSlice({
 	name: "app",
 	initialState,
 	reducers: {
-		setTheme: (state: AppRedux, action: PayloadAction<string>) => ({
+		setTheme: (state: AppState, action: PayloadAction<string>) => ({
 			...state,
 			...saveLocalState("app", { theme: action.payload })
 		}),
-		setPastWindowHeight: (state: AppRedux, action: PayloadAction<boolean>) => ({
+		setPastWindowHeight: (state: AppState, action: PayloadAction<boolean>) => ({
 			...state,
 			isPastWindowHeight: action.payload
 		}),
-		setModalActive: (state: AppRedux, action: PayloadAction<boolean>) => ({
+		setModalActive: (state: AppState, action: PayloadAction<boolean>) => ({
 			...state,
 			isModalActive: action.payload
 		}),
-		setNavbarActive: (state: AppRedux, action: PayloadAction<boolean>) => ({
+		setNavbarActive: (state: AppState, action: PayloadAction<boolean>) => ({
 			...state,
 			isNavbarActive: action.payload
 		}),
-		setLanguage: (state: AppRedux, action: PayloadAction<Language>) => {
+		setLanguage: (state: AppState, action: PayloadAction<Language>) => {
 			i18next.changeLanguage(action.payload);
-
 			return {
 				...state,
 				...saveLocalState("app", { language: action.payload })

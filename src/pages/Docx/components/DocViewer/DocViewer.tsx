@@ -18,7 +18,7 @@ import scss from "./DocViewer.module.scss";
  * @todo syntax highlight VS2015 for dark and AtomOneLight for light theme.
  * @todo show diagrams with no interaction except moving/zoom.
  */
-export const DocViewer: FC = (): JSX.Element => {
+const DocViewer: FC = (): JSX.Element => {
 	const navigate = useNavigate();
 
 	useEffect(() => {
@@ -94,7 +94,7 @@ export const DocViewer: FC = (): JSX.Element => {
 		);
 
 		if (e.target instanceof HTMLAnchorElement) {
-			const link = (e.target.attributes as any).href.value;
+			const link = e.target.href;
 			if (link.includes(".html")) {
 				// change html page if needed, and scroll to selected anchor.
 				if (link.includes(".html#")) {
@@ -118,7 +118,6 @@ export const DocViewer: FC = (): JSX.Element => {
 			else navigate(`${c_docpath}${c_file}${link}`);
 		}
 	};
-
 	return <div id="docx" onClick={onClickHandler} className={scss.doxygen} />;
 };
 

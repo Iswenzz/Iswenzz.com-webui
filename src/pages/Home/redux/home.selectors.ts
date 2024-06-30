@@ -1,11 +1,11 @@
-import type { RootRedux } from "App/store";
+import type { State } from "App/store";
 
 /**
  * Get the project modal state.
  */
-export const getProjectModalOpen = (state: RootRedux) => state.home.projectModalOpen;
+export const getProjectModalOpen = (state: State) => state.home.projectModalOpen;
 
 /**
  * Get the project modal start index.
  */
-export const getProjectModalStartIndex = (state: RootRedux) => state.home.projectModalStartIndex;
+export const getProjectModalStartIndex = (state: State) => state.home.projectModalStartIndex;

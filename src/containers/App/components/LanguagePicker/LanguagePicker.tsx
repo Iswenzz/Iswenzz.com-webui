@@ -14,22 +14,13 @@ import scss from "./LanguagePicker.module.scss";
 const LanguagePicker: FC = () => {
 	const dispatch = useDispatch();
 	const currentLanguage = useSelector(getLanguage);
-
 	const [anchorEl, setAnchorEl] = useState<Nullable<HTMLButtonElement>>(null);
 
-	/**
-	 * Set the application language.
-	 * @param language - The language.
-	 */
 	const handleLanguageChange = (language: Language) => {
 		if (currentLanguage !== language) dispatch(setLanguage(language));
 		handleMenuClose();
 	};
 
-	/**
-	 * Open or close the menu.
-	 * @param event - The mouse click event.
-	 */
 	const handleMenuClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
 		if (anchorEl === null) {
 			dispatch(setModalActive(true));
@@ -37,9 +28,6 @@ const LanguagePicker: FC = () => {
 		} else handleMenuClose();
 	};
 
-	/**
-	 * Close the menu.
-	 */
 	const handleMenuClose = () => {
 		dispatch(setModalActive(false));
 		setAnchorEl(null);

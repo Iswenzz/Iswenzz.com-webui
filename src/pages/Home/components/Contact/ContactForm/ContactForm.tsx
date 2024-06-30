@@ -33,16 +33,10 @@ const ContactForm: FC = () => {
 		[scss.buttonFail]: fail
 	});
 
-	/**
-	 * Submit callback - post req to send an email.
-	 * @param values - Formik values.
-	 * @param param1 - Formik helpers.
-	 */
 	const sendEmail = async (
 		values: ContactFormValues,
 		formik: FormikHelpers<ContactFormValues>
 	) => {
-		// if the form as valid information send a request
 		if (!loading && !Object.values(values).some(isNil) && captcha.current) {
 			await captcha.current.executeAsync();
 
@@ -70,9 +64,6 @@ const ContactForm: FC = () => {
 		formik.setSubmitting(false);
 	};
 
-	/**
-	 * Change button color to green and stop the progress circle.
-	 */
 	const mailSuccess = async () => {
 		setSuccess(true);
 		setLoading(false);
@@ -81,9 +72,6 @@ const ContactForm: FC = () => {
 		setSuccess(false);
 	};
 
-	/**
-	 * Change button color to red and stop the progress circle.
-	 */
 	const mailFail = async () => {
 		setFail(true);
 		setLoading(false);

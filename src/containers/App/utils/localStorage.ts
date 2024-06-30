@@ -1,16 +1,16 @@
 import merge from "lodash/merge";
 
-import type { RootRedux } from "App/store";
+import type { State } from "App/store";
 
 /**
  * Load the local storage redux state.
  * @returns
  */
-export const loadLocalState = (): RootRedux | Record<string, unknown> => {
+export const loadLocalState = (): State | Record<string, unknown> => {
 	try {
 		const serializedState = localStorage.getItem("state");
 		if (!serializedState) return {};
-		return JSON.parse(serializedState) as RootRedux;
+		return JSON.parse(serializedState) as State;
 	} catch {
 		return {};
 	}
@@ -20,10 +20,10 @@ export const loadLocalState = (): RootRedux | Record<string, unknown> => {
  * Save the local storage redux state.
  * @param state - The redux state to save, merge if exsist.
  */
-export const saveLocalState = <R extends keyof RootRedux>(
+export const saveLocalState = <R extends keyof State>(
 	reducer: R,
-	state: Partial<RootRedux[R]>
-): Partial<RootRedux[R]> => {
+	state: Partial<State[R]>
+): Partial<State[R]> => {
 	const oldState = loadLocalState();
 	const serializedState = JSON.stringify(merge(oldState, { [reducer]: state }));
 	localStorage.setItem("state", serializedState);
@@ -33,18 +33,18 @@ export const saveLocalState = <R extends keyof RootRedux>(
 /**
  * Get a specific redux state from the local storage.
  */
-export const getLocalState = <R extends keyof RootRedux>(reducer: R): RootRedux[R] => {
-	const oldState = loadLocalState() as RootRedux;
+export const getLocalState = <R extends keyof State>(reducer: R): State[R] => {
+	const oldState = loadLocalState() as State;
 	return oldState[reducer];
 };
 
 /**
  * Get a specific redux state value from the local storage.
  */
-export const getLocalStateValue = <R extends keyof RootRedux, T>(
+export const getLocalStateValue = <R extends keyof State, T>(
 	reducer: R,
-	value: keyof RootRedux[R]
+	value: keyof State[R]
 ): Optional<T> => {
-	const oldState = loadLocalState() as RootRedux;
+	const oldState = loadLocalState() as State;
 	return oldState[reducer]?.[value] as Optional<T>;
 };

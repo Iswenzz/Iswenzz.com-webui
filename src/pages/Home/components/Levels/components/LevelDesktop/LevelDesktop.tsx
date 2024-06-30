@@ -3,7 +3,7 @@ import ReactPlayer from "react-player";
 import { Grid, Container, Typography, useTheme } from "@mui/material";
 import classNames from "classnames";
 
-import { LevelSource } from "../Level";
+import { LevelSource } from "../Level/Level";
 import { playerConfig } from "../config";
 
 import scss from "./LevelDesktop.module.scss";
@@ -14,7 +14,6 @@ import scss from "./LevelDesktop.module.scss";
  */
 const LevelDesktop: FC<Props> = ({ level, isFlipped }) => {
 	const { theme } = useTheme();
-
 	return (
 		<Container component="section" className={classNames(scss.back, scss[theme])}>
 			<Grid container>

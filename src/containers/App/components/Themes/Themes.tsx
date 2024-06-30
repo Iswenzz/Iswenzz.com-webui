@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, PropsWithChildren } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Themes as IzThemes, registerTheme, scrollConfig } from "@izui/react";
 import { useScroll } from "@use-gesture/react";
@@ -11,7 +11,7 @@ import LightTheme from "./app/Light/Light";
 /**
  * App themes.
  */
-const Themes: FC = ({ children }) => {
+const Themes: FC<PropsWithChildren> = ({ children }) => {
 	const dispatch = useDispatch();
 
 	const theme = useSelector(getTheme);
