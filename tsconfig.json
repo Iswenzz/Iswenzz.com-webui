@@ -1,20 +1,5 @@
 {
 	"extends": "./tsconfig.paths.json",
-	"ts-node": {
-		"compilerOptions": {
-			"target": "ESNext",
-			"lib": ["esnext"],
-			"allowJs": true,
-			"skipLibCheck": true,
-			"esModuleInterop": true,
-			"allowSyntheticDefaultImports": true,
-			"strict": true,
-			"module": "CommonJS",
-			"moduleResolution": "node",
-			"resolveJsonModule": true,
-			"isolatedModules": true
-		}
-	},
 	"compilerOptions": {
 		"target": "ES6",
 		"lib": ["dom", "dom.iterable", "esnext", "webworker"],

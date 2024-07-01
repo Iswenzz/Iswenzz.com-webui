@@ -10,29 +10,25 @@ This website, as it stands right now, mainly serves as a portfolio for me to sha
 ![](https://i.imgur.com/i6DO98s.jpg)
 
 ## Projects
+
 ![](https://i.imgur.com/Dg53ai0.jpg)
 
 ## Level Design
+
 ![](https://i.imgur.com/cZOJbXK.jpg)
 
 ## Contact
+
 ![](https://i.imgur.com/JnUWPSq.jpg)
 
 ## Building
 
 _Pre-Requisites:_
-1. [NodeJS (version 16+)](https://nodejs.org/en/)
-2. [Yarn / NPM](https://yarnpkg.com/)
 
-_Yarn Berry:_
-```sh
-yarn config set nodeLinker node-modules
-yarn plugin import workspace-tools
-yarn plugin import version
-yarn dlx @yarnpkg/sdks vscode
-```
+1. [Node](https://nodejs.org/en/)
+2. [PNPM](https://pnpm.io/)
 
 ## Contributors
 
-***Note:*** If you would like to contribute to this repository, feel free to send a pull request, and I will review your code.
+**_Note:_** If you would like to contribute to this repository, feel free to send a pull request, and I will review your code.
 Also feel free to post about any problems that may arise in the issues section of the repository.

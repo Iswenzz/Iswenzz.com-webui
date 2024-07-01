@@ -34,7 +34,7 @@
 		{
 			"title": "WEB_STACKS",
 			"points": [
-				"• React Redux Apollo Webpack",
+				"• React Redux Apollo Webpack Vite",
 				"• Next Mithril Electron",
 				"• Nest Express TypeORM",
 				"• MySQL MariaDB MongoDB",
