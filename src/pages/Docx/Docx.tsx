@@ -1,9 +1,10 @@
 import { FC } from "react";
-import { Header } from "@izui/react";
+import { Header } from "@izui/react/types";
 
+import { NavigationChevron } from "router";
 import { DocViewer } from "Docx/components";
+
 import background from "assets/images/docx/blueprint.jpg";
-import { NavigationChevron } from "router/components";
 
 /**
  * Docx page.

@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import LazyLoad from "react-lazyload";
 import { motion } from "framer-motion";
 import { Card, CardActionArea, Typography } from "@mui/material";
-import { useResponsive } from "@izui/react";
+import { useResponsive } from "@izui/react/types";
 
 import { setProjectModalOpen, setProjectModalStartIndex } from "Home/redux";
 import { setModalActive, setNavbarActive } from "App/redux";

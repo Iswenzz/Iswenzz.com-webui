@@ -10,7 +10,7 @@ import {
 	useThemeMode,
 	useResponsive,
 	Portal
-} from "@izui/react";
+} from "@izui/react/types";
 
 import { setModalActive, setNavbarActive } from "App/redux";
 import { getProjectModalOpen, getProjectModalStartIndex, setProjectModalOpen } from "Home/redux";

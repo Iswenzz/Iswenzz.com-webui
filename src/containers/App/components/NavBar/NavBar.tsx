@@ -2,7 +2,7 @@ import { FC, useState, memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppBarProps, useTheme, AppBar, Toolbar, Grid } from "@mui/material";
 import { motion } from "framer-motion";
-import { useResponsive } from "@izui/react";
+import { useResponsive } from "@izui/react/types";
 
 import { isPastWindowHeight, setModalActive, setTheme } from "App/redux";
 

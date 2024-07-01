@@ -1,5 +1,5 @@
 import { createTheme, responsiveFontSizes } from "@mui/material";
-import { LightThemeOptions as IzLightThemeConfig } from "@izui/react";
+import { LightThemeOptions as IzLightThemeConfig } from "@izui/react/types";
 import merge from "lodash/merge";
 
 const LightThemeOptions = merge(IzLightThemeConfig, {

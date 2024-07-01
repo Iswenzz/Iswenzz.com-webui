@@ -1,9 +1,9 @@
 import { FC } from "react";
-import { Header, useThemeMode, TrailText } from "@izui/react";
+import { Header, useThemeMode, TrailText } from "@izui/react/types";
 
 import sunset from "assets/images/background/sunset2.jpg";
 import mountain from "assets/images/background/nature1.jpg";
-import { NavigationChevron } from "router/components";
+import { NavigationChevron } from "router";
 
 import { Contact, About, Levels, Projects } from "./components";
 

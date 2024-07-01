@@ -3,7 +3,7 @@ import { Route, Routes as ReactRoutes, BrowserRouter } from "react-router-dom";
 import { useLocation } from "react-router";
 import { AnimatePresence } from "framer-motion";
 
-import { Layout } from "router/components";
+import { Layout } from "router";
 import Home from "Home/Home";
 import Docx from "Docx/Docx";
 

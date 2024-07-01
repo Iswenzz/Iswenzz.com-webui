@@ -1,17 +1,16 @@
-import type { Config } from "@jest/types";
+import { Config } from "jest";
 
 import { createJestAliasesFromTSConfig } from "@izui/scripts/utils/createAliases";
 import tsConfigPaths from "./tsconfig.paths.json";
 
-const config: Config.InitialOptions = {
+const config: Config = {
 	watchAll: false,
 	setupFilesAfterEnv: ["<rootDir>/src/__test__/setupTests.ts"],
 	testMatch: ["<rootDir>/src/**/*.(test).{js,jsx,ts,tsx}"],
-	modulePathIgnorePatterns: ["<rootDir>/packages"],
 	transform: {
-		"^.+\\.(js|jsx|ts|tsx)$": require.resolve("ts-jest"),
-		"^.+\\.scss$": require.resolve("@izui/scripts/mock/mockTransform"),
-		"^.+\\.(ico|png|jpg|webp|gif|svg)$": require.resolve("@izui/scripts/mock/fileTransform")
+		"^.+\\.(js|jsx|ts|tsx)$": "ts-jest",
+		"^.+\\.scss$": "@izui/scripts/mock/mockTransform",
+		"^.+\\.(ico|png|jpg|webp|gif|svg)$": "@izui/scripts/mock/fileTransform"
 	},
 	moduleNameMapper: {
 		...createJestAliasesFromTSConfig(tsConfigPaths, __dirname),
@@ -23,9 +22,9 @@ const config: Config.InitialOptions = {
 	coverageReporters: ["text", "cobertura", "lcov"],
 	collectCoverage: true,
 	collectCoverageFrom: [
-		"<rootDir>/src/**/*.{js,jsx,ts,tsx}",
 		"!**/node_modules/**",
-		"!**/__test__/**/*.js"
+		"!**/__test__/**/*.{js,jsx,ts,tsx}",
+		"<rootDir>/src/**/*.{js,jsx,ts,tsx}"
 	]
 };
 

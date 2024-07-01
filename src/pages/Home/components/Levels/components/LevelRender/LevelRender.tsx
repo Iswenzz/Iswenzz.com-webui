@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Grid, Tooltip, Container, useTheme } from "@mui/material";
-import { HintClick, Image, Forward, preventDefault, useResponsive } from "@izui/react";
+import { HintClick, Image, Forward, preventDefault, useResponsive } from "@izui/react/types";
 import { v4 as uuidv4 } from "uuid";
 import classNames from "classnames";
 

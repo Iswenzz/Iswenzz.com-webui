@@ -3,7 +3,7 @@ import { useInView } from "react-intersection-observer";
 import { Container, Divider, Grid, useTheme } from "@mui/material";
 import { motion } from "framer-motion";
 import classNames from "classnames";
-import { Spacing, Text, TrailText, animationLeft, animationRight } from "@izui/react";
+import { Spacing, Text, TrailText, animationLeft, animationRight } from "@izui/react/types";
 
 import { AboutInfo } from "../Intro/Intro";
 import aboutJson from "../About.json";

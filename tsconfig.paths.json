@@ -9,7 +9,7 @@
 			"components": ["src/components"],
 			"containers": ["src/containers"],
 			"pages": ["src/pages"],
-			"router/*": ["src/router/*"],
+			"router": ["src/router"],
 			"styles/*": ["src/styles/*"],
 			"utils/*": ["src/utils/*"],
 
@@ -20,7 +20,7 @@
 			"@/test/*": ["packages/izui-web/packages/izui-react/src/__test__/*"],
 			"@/components": ["packages/izui-web/packages/izui-react/src/components"],
 			"@/config/*": ["packages/izui-web/packages/izui-react/src/config/*"],
-			"@/router/*": ["packages/izui-web/packages/izui-react/src/router/*"],
+			"@/router": ["packages/izui-web/packages/izui-react/src/router"],
 			"@/styles/*": ["packages/izui-web/packages/izui-react/src/styles/*"],
 			"@/utils/*": ["packages/izui-web/packages/izui-react/src/utils/*"]
 		}

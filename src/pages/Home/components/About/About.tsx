@@ -1,6 +1,6 @@
 import { memo, FC } from "react";
 import { Grid } from "@mui/material";
-import { Element, Parallax } from "@izui/react";
+import { Element, Parallax } from "@izui/react/types";
 
 import Skills from "./Skills/Skills";
 import Intro from "./Intro/Intro";
