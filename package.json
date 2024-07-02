@@ -4,6 +4,9 @@
 	"private": true,
 	"license": "GPL-3.0+",
 	"type": "module",
+	"workspaces": [
+		"packages/*"
+	],
 	"scripts": {
 		"build": "vite build",
 		"lint": "pnpm lint:ts && pnpm lint:scss",

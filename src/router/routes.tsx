@@ -4,8 +4,8 @@ import { useLocation } from "react-router";
 import { AnimatePresence } from "framer-motion";
 
 import { Layout } from "router";
+
 import Home from "Home/Home";
-import Docx from "Docx/Docx";
 
 /**
  * Application animated routes.
@@ -17,7 +17,6 @@ const AnimatedRoutes: FC = () => {
 			<ReactRoutes key={location.pathname} location={location}>
 				<Route element={<Layout />}>
 					<Route path="/" element={<Home />} />
-					<Route path="/docs" element={<Docx />} />
 				</Route>
 			</ReactRoutes>
 		</AnimatePresence>
