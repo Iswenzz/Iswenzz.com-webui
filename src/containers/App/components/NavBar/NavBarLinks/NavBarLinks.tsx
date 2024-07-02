@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Button } from "@mui/material";
-import { Text, Link } from "@izui/react/types";
+import { Text, Link } from "@izui/react";
 
 import scss from "../NavBar.module.scss";
 

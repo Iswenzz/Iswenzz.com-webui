@@ -1,5 +1,5 @@
 import type { Theme } from "@mui/material";
-import { getThemeByName } from "@izui/react/types";
+import { getThemeByName } from "@izui/react";
 
 import type { Language } from "App/i18next";
 import type { State } from "App/store";

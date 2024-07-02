@@ -1,6 +1,6 @@
 import { FC, PropsWithChildren } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Themes as IzThemes, registerTheme, scrollConfig } from "@izui/react/types";
+import { Themes as IzThemes, registerTheme, scrollConfig } from "@izui/react";
 import { useScroll } from "@use-gesture/react";
 
 import { isModalActive, getTheme, setPastWindowHeight, isPastWindowHeight } from "App/redux";

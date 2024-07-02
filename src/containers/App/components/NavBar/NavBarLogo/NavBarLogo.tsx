@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { useLocation } from "react-router-dom";
-import { Link, Text } from "@izui/react/types";
+import { Link, Text } from "@izui/react";
 import { ButtonBase } from "@mui/material";
 
 import scss from "../NavBar.module.scss";

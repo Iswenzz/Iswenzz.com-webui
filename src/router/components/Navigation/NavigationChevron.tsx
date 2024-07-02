@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Link } from "@izui/react/types";
+import { Link } from "@izui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons/faChevronDown";
 

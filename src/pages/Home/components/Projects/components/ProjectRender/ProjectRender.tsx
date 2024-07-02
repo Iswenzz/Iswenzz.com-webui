@@ -11,7 +11,7 @@ import {
 	stopPropagation,
 	Markdown,
 	useFile
-} from "@izui/react/types";
+} from "@izui/react";
 import { DialogContent, DialogTitle, Fab, Grid, Tooltip } from "@mui/material";
 import { faOsi } from "@fortawesome/free-brands-svg-icons/faOsi";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

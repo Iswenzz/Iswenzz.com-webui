@@ -1,7 +1,7 @@
 import { FC, memo } from "react";
 import { useInView } from "react-intersection-observer";
 import { Container, Divider, Grid, useTheme } from "@mui/material";
-import { Text, animationUp } from "@izui/react/types";
+import { Text, animationUp } from "@izui/react";
 import { motion } from "framer-motion";
 import classNames from "classnames";
 

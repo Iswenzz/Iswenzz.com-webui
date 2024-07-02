@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Outlet } from "react-router";
-import { Element } from "@izui/react/types";
+import { Element } from "@izui/react";
 
 import { NavBar, Footer } from "App/components";
 

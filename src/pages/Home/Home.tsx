@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Header, useThemeMode, TrailText } from "@izui/react/types";
+import { Header, useThemeMode, TrailText } from "@izui/react";
 
 import sunset from "assets/images/background/sunset2.jpg";
 import mountain from "assets/images/background/nature1.jpg";

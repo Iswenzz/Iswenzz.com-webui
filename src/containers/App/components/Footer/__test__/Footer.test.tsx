@@ -1,6 +1,6 @@
 import { render } from "test/react";
 
-import { DarkTheme, Themes } from "@izui/react/types";
+import { DarkTheme, Themes } from "@izui/react";
 import Footer from "../Footer";
 
 const setup = () =>

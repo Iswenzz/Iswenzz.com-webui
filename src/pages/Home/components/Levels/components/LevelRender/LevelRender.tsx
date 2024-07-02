@@ -1,11 +1,11 @@
 import { FC } from "react";
 import { Grid, Tooltip, Container, useTheme } from "@mui/material";
-import { HintClick, Image, Forward, preventDefault, useResponsive } from "@izui/react/types";
+import { HintClick, Image, Forward, preventDefault, useResponsive } from "@izui/react";
 import { v4 as uuidv4 } from "uuid";
 import classNames from "classnames";
 
 import { LevelSource } from "../Level/Level";
-import scss from "../Level.module.scss";
+import scss from "./LevelRender.module.scss";
 
 /**
  * Level render image and stacks.

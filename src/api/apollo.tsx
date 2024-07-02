@@ -22,7 +22,7 @@ const linkError = onError(({ graphQLErrors, networkError }) => {
  */
 const linkHttp = new HttpLink({
 	fetch,
-	uri: process.env.REACT_APP_GRAPHQL_URL,
+	uri: import.meta.env.VITE_GRAPHQL_URL,
 	headers: {
 		authorization: localStorage.getItem("token") || ""
 	}

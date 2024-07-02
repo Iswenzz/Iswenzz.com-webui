@@ -5,6 +5,7 @@ import react from "@vitejs/plugin-react";
 import eslintPlugin from "vite-plugin-eslint";
 import stylelintPlugin from "vite-plugin-stylelint";
 import tsconfigPaths from "vite-tsconfig-paths";
+import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
 
 import { visualizer } from "rollup-plugin-visualizer";
 
@@ -36,6 +37,7 @@ const config = defineConfig(({ mode }) => ({
 	},
 	plugins: [
 		react(),
+		cssInjectedByJsPlugin(),
 		eslintPlugin({
 			cache: false,
 			fix: true,

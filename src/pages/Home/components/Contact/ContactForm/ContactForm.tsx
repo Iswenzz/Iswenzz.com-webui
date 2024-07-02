@@ -6,7 +6,7 @@ import { TextField } from "formik-mui";
 import classNames from "classnames";
 import isNil from "lodash/isNil";
 
-import { Loader, delay, Captcha, CaptchaCopyright, useCaptcha } from "@izui/react/types";
+import { Loader, delay, Captcha, CaptchaCopyright, useCaptcha } from "@izui/react";
 import iswenzzIcon from "@izui/assets/images/iswenzz/iswenzz.png";
 
 import { useContactMutation } from "api/generated/graphql";
