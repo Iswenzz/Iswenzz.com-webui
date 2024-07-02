@@ -26,7 +26,7 @@ This website, as it stands right now, mainly serves as a portfolio for me to sha
 _Pre-Requisites:_
 
 1. [Node](https://nodejs.org/en/)
-2. [PNPM](https://pnpm.io/)
+2. [Yarn](https://yarnpkg.com/)
 
 ## Contributors
 

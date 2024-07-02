@@ -1,6 +1,7 @@
 .idea/*
 .vs/*
 .vscode/*
+.yarn/*
 node_modules/*
 coverage/*
 build/*

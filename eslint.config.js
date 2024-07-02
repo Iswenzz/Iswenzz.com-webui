@@ -1,4 +1,4 @@
-import config from "./packages/izui-web/eslint.config.js";
+import config from "./packages/izui-web/packages/izui-react/eslint.config.js";
 
 export default [
 	...config,
