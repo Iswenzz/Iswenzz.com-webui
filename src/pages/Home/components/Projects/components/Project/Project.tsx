@@ -39,24 +39,24 @@ const Project: FC<ProjectProps> = ({ project, projectIndex, height = 200, width 
 		>
 			<meta itemProp="image" content={project.cardImage} />
 			<meta itemProp="downloadUrl" content={project.sourceURL} />
-				<Card
-					onClick={handleClick}
-					className={scss.card}
-					style={{ width, height, backgroundImage: `url(${project.cardImage})` }}
-				>
-					<CardActionArea className={scss.cardAction}>
-						<Typography
-							className={scss.typo}
-							itemProp="name"
-							variant="caption"
-							align="center"
-							style={{ fontSize, height: height / 3 }}
-							paragraph
-						>
-							{project.title}
-						</Typography>
-					</CardActionArea>
-				</Card>
+			<Card
+				onClick={handleClick}
+				className={scss.card}
+				style={{ width, height, backgroundImage: `url(${project.cardImage})` }}
+			>
+				<CardActionArea className={scss.cardAction}>
+					<Typography
+						className={scss.typo}
+						itemProp="name"
+						variant="caption"
+						align="center"
+						style={{ fontSize, height: height / 3 }}
+						paragraph
+					>
+						{project.title}
+					</Typography>
+				</CardActionArea>
+			</Card>
 		</motion.div>
 	);
 };

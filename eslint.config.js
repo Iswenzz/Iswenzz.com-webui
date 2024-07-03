@@ -5,4 +5,4 @@ export default [
 	{
 		ignores: ["src/api/generated/*"]
 	}
-]
+];

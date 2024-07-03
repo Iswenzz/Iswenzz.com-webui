@@ -14,8 +14,8 @@
 		"lint:scss:fix": "stylelint --fix **/*.{scss,css}",
 		"lint:ts": "eslint **/*.{js,jsx,ts,tsx}",
 		"lint:ts:fix": "eslint --fix **/*.{js,jsx,ts,tsx}",
-		"prettier": "prettier --check **/*.{js,jsx,ts,tsx,scss}",
-		"prettier:fix": "prettier --write **/*.{js,jsx,ts,tsx,scss}",
+		"prettier": "prettier --check '**/*.{js,jsx,ts,tsx,scss}'",
+		"prettier:fix": "prettier --write '**/*.{js,jsx,ts,tsx,scss}'",
 		"start": "vite",
 		"test": "jest",
 		"test:watch": "jest --watchAll=true"
