@@ -5,7 +5,6 @@ import i18next from "i18next";
 
 import type { Language } from "App/i18next";
 import { saveLocalState } from "App/utils/localStorage";
-import { createInitState } from "App/utils/redux";
 
 export type AppState = {
 	theme: string;
@@ -16,41 +15,36 @@ export type AppState = {
 	isNavbarActive: boolean;
 };
 
-export const initialState = createInitState<AppState>("app", {
+export const initialState: AppState = {
 	theme: "dark",
 	language: "en",
 	browserInfo: omit(detect(), "prototypes"),
 	isPastWindowHeight: false,
 	isModalActive: false,
 	isNavbarActive: true
-});
+};
 
 const slice = createSlice({
 	name: "app",
 	initialState,
 	reducers: {
-		setTheme: (state: AppState, action: PayloadAction<string>) => ({
-			...state,
-			...saveLocalState("app", { theme: action.payload })
-		}),
-		setPastWindowHeight: (state: AppState, action: PayloadAction<boolean>) => ({
-			...state,
-			isPastWindowHeight: action.payload
-		}),
-		setModalActive: (state: AppState, action: PayloadAction<boolean>) => ({
-			...state,
-			isModalActive: action.payload
-		}),
-		setNavbarActive: (state: AppState, action: PayloadAction<boolean>) => ({
-			...state,
-			isNavbarActive: action.payload
-		}),
+		setTheme: (state: AppState, action: PayloadAction<string>) => {
+			state.theme = action.payload;
+			saveLocalState("app", { theme: action.payload });
+		},
+		setPastWindowHeight: (state: AppState, action: PayloadAction<boolean>) => {
+			state.isPastWindowHeight = action.payload;
+		},
+		setModalActive: (state: AppState, action: PayloadAction<boolean>) => {
+			state.isModalActive = action.payload;
+		},
+		setNavbarActive: (state: AppState, action: PayloadAction<boolean>) => {
+			state.isNavbarActive = action.payload;
+		},
 		setLanguage: (state: AppState, action: PayloadAction<Language>) => {
 			i18next.changeLanguage(action.payload);
-			return {
-				...state,
-				...saveLocalState("app", { language: action.payload })
-			};
+			state.language = action.payload;
+			saveLocalState("app", { language: action.payload });
 		}
 	}
 });

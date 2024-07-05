@@ -5,6 +5,8 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import app from "App/redux";
 import home from "Home/redux";
 
+import { loadLocalState } from "./utils/localStorage";
+
 const rootReducer = combineReducers({
 	app,
 	home
@@ -25,7 +27,7 @@ export type Thunk = { state: State; dispatch: AppDispatch };
  * Redux store provider.
  */
 const Redux: FC<PropsWithChildren> = ({ children }) => (
-	<Provider store={setupStore()}>{children}</Provider>
+	<Provider store={setupStore(loadLocalState())}>{children}</Provider>
 );
 
 export default Redux;

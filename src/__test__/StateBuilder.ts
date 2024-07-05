@@ -36,6 +36,11 @@ class StateBuilder {
 	}
 }
 
+/**
+ * Create a new state builder.
+ * @param defaultState - The default state.
+ * @returns
+ */
 const stateBuilder = (defaultState = {}) => new StateBuilder(defaultState as State);
 
 export default stateBuilder;
