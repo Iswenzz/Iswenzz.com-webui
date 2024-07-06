@@ -1,9 +1,9 @@
-import { Config } from "jest";
+import type { JestConfigWithTsJest } from "ts-jest";
 
 import { createJestAliasesFromTSConfig } from "@izui/scripts/utils/createAliases";
 import tsConfigPaths from "./tsconfig.paths.json";
 
-const config: Config = {
+const config: JestConfigWithTsJest = {
 	watchAll: false,
 	setupFilesAfterEnv: ["<rootDir>/src/__test__/setupTests.ts"],
 	testMatch: ["<rootDir>/src/**/*.(test).{js,jsx,ts,tsx}"],
@@ -16,7 +16,7 @@ const config: Config = {
 		...createJestAliasesFromTSConfig(tsConfigPaths, __dirname),
 		".*\\.scss$": "identity-obj-proxy"
 	},
-	testEnvironment: "jest-environment-jsdom",
+	testEnvironment: "jsdom",
 	moduleFileExtensions: ["js", "jsx", "ts", "tsx", "json", "scss"],
 	coverageDirectory: "coverage",
 	coverageReporters: ["text", "cobertura", "lcov"],
