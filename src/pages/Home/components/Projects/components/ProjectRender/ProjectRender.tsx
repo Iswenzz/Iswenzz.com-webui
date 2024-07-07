@@ -1,6 +1,9 @@
 import { FC } from "react";
 import { useTranslation } from "react-i18next";
 import { v4 as uuidv4 } from "uuid";
+import { FaOsi } from "react-icons/fa";
+import { MdClose, MdLock } from "react-icons/md";
+import { DialogContent, DialogTitle, Fab, Grid, Tooltip } from "@mui/material";
 
 import {
 	Forward,
@@ -12,11 +15,6 @@ import {
 	Markdown,
 	useFile
 } from "@izui/react";
-import { DialogContent, DialogTitle, Fab, Grid, Tooltip } from "@mui/material";
-import { faOsi } from "@fortawesome/free-brands-svg-icons/faOsi";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Close from "@mui/icons-material/Close";
-import Lock from "@mui/icons-material/Lock";
 
 import { ProjectSource } from "../Project/Project";
 import scss from "./ProjectRender.module.scss";
@@ -46,7 +44,7 @@ const ProjectRender: FC<ProjectRenderProps> = ({ project, handleClose }) => {
 				className={scss.tooltipFab}
 				color="primary"
 			>
-				<FontAwesomeIcon color="silver" icon={faOsi} size="2x" />
+				<FaOsi color="silver" />
 			</Fab>
 		</Tooltip>
 	);
@@ -65,7 +63,7 @@ const ProjectRender: FC<ProjectRenderProps> = ({ project, handleClose }) => {
 					color="primary"
 					disabled
 				>
-					<Lock />
+					<MdLock />
 				</Fab>
 			</span>
 		</Tooltip>
@@ -110,7 +108,7 @@ const ProjectRender: FC<ProjectRenderProps> = ({ project, handleClose }) => {
 								className={scss.tooltipFab}
 								color="secondary"
 							>
-								<Close color="primary" />
+								<MdClose color="deeppink" />
 							</Fab>
 						</div>
 					</Grid>

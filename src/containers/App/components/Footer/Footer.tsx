@@ -1,9 +1,6 @@
 import { FC, memo } from "react";
 import { Grid, Fab, Tooltip, Typography, useTheme } from "@mui/material";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDiscord } from "@fortawesome/free-brands-svg-icons/faDiscord";
-import { faYoutube } from "@fortawesome/free-brands-svg-icons/faYoutube";
-import { faGithub } from "@fortawesome/free-brands-svg-icons/faGithub";
+import { FaDiscord, FaYoutube, FaGithub } from "react-icons/fa";
 import { Parallax } from "@izui/react";
 import classNames from "classnames";
 
@@ -30,7 +27,7 @@ const Footer: FC = () => {
 							className={scss.icons}
 							color="primary"
 						>
-							<FontAwesomeIcon color="silver" icon={faGithub} size="2x" />
+							<FaGithub color="silver" />
 						</Fab>
 					</li>
 					<li>
@@ -39,13 +36,13 @@ const Footer: FC = () => {
 							className={scss.icons}
 							color="primary"
 						>
-							<FontAwesomeIcon color="#FF0000" icon={faYoutube} size="2x" />
+							<FaYoutube color="#FF0000" />
 						</Fab>
 					</li>
 					<li>
 						<Tooltip disableFocusListener disableTouchListener title="Iswenzz#3906">
 							<Fab color="primary" className={scss.icons}>
-								<FontAwesomeIcon color="#7289da" icon={faDiscord} size="2x" />
+								<FaDiscord color="#7289DA" />
 							</Fab>
 						</Tooltip>
 					</li>

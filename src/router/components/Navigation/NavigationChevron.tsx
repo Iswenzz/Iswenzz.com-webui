@@ -1,7 +1,6 @@
 import { FC } from "react";
 import { Link } from "@izui/react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons/faChevronDown";
+import { FaChevronDown } from "react-icons/fa";
 
 import scss from "./NavigationChevron.module.scss";
 
@@ -10,7 +9,7 @@ import scss from "./NavigationChevron.module.scss";
  */
 const NavigationChevron: FC = () => (
 	<Link to="intro" offset={5} smooth>
-		<FontAwesomeIcon icon={faChevronDown} size="3x" className={scss.arrow} />
+		<FaChevronDown className={scss.arrow} />
 	</Link>
 );
 

@@ -1,7 +1,6 @@
 import { FC } from "react";
 import { Fab, Grid } from "@mui/material";
-import Flare from "@mui/icons-material/Flare";
-import Brightness3 from "@mui/icons-material/Brightness3";
+import { MdFlare, MdBrightness3 } from "react-icons/md";
 import { useThemeMode } from "@izui/react";
 
 import { LanguagePicker } from "App/components";
@@ -14,7 +13,7 @@ import scss from "../NavBar.module.scss";
  */
 const NavBarDesktop: FC<Props> = ({ toggleDrawer, toggleThemeMode }) => {
 	const { icon, color } = useThemeMode({
-		icon: [<Flare key="flare" />, <Brightness3 key="brightness" />],
+		icon: [<MdFlare key="flare" />, <MdBrightness3 key="brightness" />],
 		color: ["goldenrod", "gainsboro"]
 	});
 	return (

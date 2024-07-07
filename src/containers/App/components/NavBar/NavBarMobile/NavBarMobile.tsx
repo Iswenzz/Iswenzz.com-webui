@@ -1,14 +1,13 @@
 import { FC } from "react";
 import { Fab, Drawer, Grid } from "@mui/material";
-import Flare from "@mui/icons-material/Flare";
-import Menu from "@mui/icons-material/Menu";
-import Brightness3 from "@mui/icons-material/Brightness3";
+import { MdFlare, MdMenu, MdBrightness3 } from "react-icons/md";
 import { useThemeMode } from "@izui/react";
 
 import { LanguagePicker } from "App/components";
 
 import { paperProps } from "./config";
 import NavBarLinks from "../NavBarLinks/NavBarLinks";
+
 import scss from "../NavBar.module.scss";
 
 /**
@@ -16,7 +15,7 @@ import scss from "../NavBar.module.scss";
  */
 const NavBarMobile: FC<Props> = ({ toggleDrawer, toggleThemeMode, isDrawerOpen }) => {
 	const { icon, color } = useThemeMode({
-		icon: [<Flare key="flare" />, <Brightness3 key="brightness" />],
+		icon: [<MdFlare key="flare" />, <MdBrightness3 key="brightness" />],
 		color: ["goldenrod", "gainsboro"]
 	});
 
@@ -52,7 +51,7 @@ const NavBarMobile: FC<Props> = ({ toggleDrawer, toggleThemeMode, isDrawerOpen }
 						size="small"
 						onClick={handleToggle}
 					>
-						<Menu />
+						<MdMenu />
 					</Fab>
 				</li>
 			</Grid>
