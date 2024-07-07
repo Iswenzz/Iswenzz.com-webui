@@ -1,3 +1,4 @@
+import "dotenv/config";
 import { resolve } from "path";
 
 import { defineConfig, PluginOption } from "vite";
@@ -28,6 +29,9 @@ const config = defineConfig(({ mode }) => ({
 				}) as PluginOption
 			]
 		}
+	},
+	define: {
+		"process.env": JSON.stringify(process.env)
 	},
 	css: {
 		modules: {
