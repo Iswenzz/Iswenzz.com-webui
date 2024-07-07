@@ -9,8 +9,8 @@ const config: JestConfigWithTsJest = {
 	testMatch: ["<rootDir>/src/**/*.(test).{js,jsx,ts,tsx}"],
 	transform: {
 		"^.+\\.(js|jsx|ts|tsx)$": "ts-jest",
-		"^.+\\.scss$": "@izui/scripts/mock/mockTransform",
-		"^.+\\.(ico|png|jpg|webp|gif|svg)$": "@izui/scripts/mock/fileTransform"
+		"^.+\\.scss$": require.resolve("@izui/scripts/mock/mockTransform.cjs"),
+		"^.+\\.(ico|png|jpg|webp|gif|svg)$": require.resolve("@izui/scripts/mock/fileTransform.cjs")
 	},
 	moduleNameMapper: {
 		...createJestAliasesFromTSConfig(tsConfigPaths, __dirname),
