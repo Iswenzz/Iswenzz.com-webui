@@ -7,13 +7,9 @@ import fetch from "cross-fetch";
  * Apollo Link for error handling.
  */
 const linkError = onError(({ graphQLErrors, networkError }) => {
-	if (graphQLErrors) {
-		graphQLErrors.map(({ message, locations, path }) =>
-			console.error(
-				`[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
-			)
-		);
-	}
+	graphQLErrors?.map(({ message, locations, path }) =>
+		console.error(`[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`)
+	);
 	if (networkError) console.error(`[Network error]: ${networkError}`);
 });
 
