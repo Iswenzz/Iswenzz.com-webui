@@ -17,5 +17,5 @@
 		"strict": true,
 		"target": "ES6"
 	},
-	"include": ["src", "types"]
+	"include": ["src", "types", "packages/izui-web/packages/izui-react/src"]
 }

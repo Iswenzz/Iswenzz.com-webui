@@ -1,13 +1,13 @@
 import "dotenv/config";
 import { resolve } from "path";
 
-import { defineConfig, PluginOption } from "vite";
+import { PluginOption } from "vite";
+import { defineConfig } from "vitest/config";
 import react from "@vitejs/plugin-react";
 import eslintPlugin from "vite-plugin-eslint";
 import stylelintPlugin from "vite-plugin-stylelint";
 import tsconfigPaths from "vite-tsconfig-paths";
 import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
-
 import { visualizer } from "rollup-plugin-visualizer";
 
 const config = defineConfig(({ mode }) => ({
@@ -60,6 +60,12 @@ const config = defineConfig(({ mode }) => ({
 	server: {
 		open: true,
 		port: 3000
+	},
+	test: {
+		globals: true,
+		watch: false,
+		environment: "jsdom",
+		setupFiles: "src/__test__/setup.ts"
 	}
 }));
 
