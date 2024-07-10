@@ -62,10 +62,11 @@ const config = defineConfig(({ mode }) => ({
 		port: 3000
 	},
 	test: {
+		root: "src",
 		globals: true,
 		watch: false,
 		environment: "jsdom",
-		setupFiles: "src/__test__/setup.ts"
+		setupFiles: "__test__/setup.ts"
 	}
 }));
 
