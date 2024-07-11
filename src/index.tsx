@@ -1,3 +1,4 @@
+import "@izui/react/src/config/highlight";
 import { createRoot } from "react-dom/client";
 
 import { Themes } from "App/components";
@@ -6,7 +7,6 @@ import "App/i18next";
 
 import Apollo from "api/apollo";
 import { Router } from "router";
-import "@/config/highlight";
 
 import "styles/Main.scss";
 

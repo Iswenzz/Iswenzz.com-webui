@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, PropsWithChildren } from "react";
 import { Header, useThemeMode, TrailText } from "@izui/react";
 
 import sunset from "assets/images/background/sunset2.jpg";
@@ -22,7 +22,7 @@ const Home: FC = () => {
 				background={headerImage}
 				titleClassName="gainsboro-90"
 				descriptionClassName="gainsboro-90"
-				TextComponent={TrailText}
+				TextComponent={TrailText as FC<PropsWithChildren>}
 			>
 				<NavigationChevron />
 			</Header>
