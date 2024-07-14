@@ -13,7 +13,7 @@ const NavBarLogo: FC = () => {
 	const isLocationRoot = location.pathname === "/";
 	return (
 		<ButtonBase>
-			<Link className="nolink" to={isLocationRoot ? "header" : "/"} smooth={isLocationRoot}>
+			<Link className="nolink" to={isLocationRoot ? "#header" : "/"} smooth={isLocationRoot}>
 				<Text className={scss.logo} align="center" variant="h4" component="h4">
 					Iswenzz
 				</Text>

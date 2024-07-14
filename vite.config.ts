@@ -4,6 +4,7 @@ import { resolve } from "path";
 import { PluginOption } from "vite";
 import { defineConfig } from "vitest/config";
 import react from "@vitejs/plugin-react";
+import checker from "vite-plugin-checker";
 import eslintPlugin from "vite-plugin-eslint";
 import stylelintPlugin from "vite-plugin-stylelint";
 import tsconfigPaths from "vite-tsconfig-paths";
@@ -42,6 +43,7 @@ const config = defineConfig(({ mode }) => ({
 	plugins: [
 		react(),
 		cssInjectedByJsPlugin(),
+		checker({ typescript: true }),
 		eslintPlugin({
 			cache: false,
 			fix: true,

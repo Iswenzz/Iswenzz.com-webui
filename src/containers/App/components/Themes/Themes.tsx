@@ -1,7 +1,7 @@
-import { FC, PropsWithChildren } from "react";
+import { FC, PropsWithChildren, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Themes as IzThemes, registerTheme, scrollConfig } from "@izui/react";
-import { useScroll } from "@use-gesture/react";
+import { Themes as IzThemes, registerTheme } from "@izui/react";
+import { useWindowScroll } from "react-use";
 
 import { isModalActive, getTheme, setPastWindowHeight, isPastWindowHeight } from "App/redux";
 
@@ -18,11 +18,13 @@ const Themes: FC<PropsWithChildren> = ({ children }) => {
 	const modalActive = useSelector(isModalActive);
 	const pastWindowHeight = useSelector(isPastWindowHeight);
 
-	useScroll(() => {
-		const scrollPastWindowHeight = window.scrollY >= window.innerHeight;
+	const { y } = useWindowScroll();
+
+	useEffect(() => {
+		const scrollPastWindowHeight = y >= window.innerHeight;
 		if (scrollPastWindowHeight !== pastWindowHeight)
 			dispatch(setPastWindowHeight(scrollPastWindowHeight));
-	}, scrollConfig);
+	}, [y]);
 
 	return (
 		<IzThemes theme={theme} scrollLock={modalActive}>

@@ -8,7 +8,7 @@ import scss from "./NavigationChevron.module.scss";
  * Animated arrow down component.
  */
 const NavigationChevron: FC = () => (
-	<Link to="intro" offset={5} smooth>
+	<Link to="#intro" smooth>
 		<FaChevronDown className={scss.arrow} />
 	</Link>
 );

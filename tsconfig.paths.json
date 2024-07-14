@@ -2,6 +2,12 @@
 	"compilerOptions": {
 		"baseUrl": ".",
 		"paths": {
+			"@/test/*": ["packages/izui-web/packages/izui-react/src/__test__/*"],
+			"@/components": ["packages/izui-web/packages/izui-react/src/components"],
+			"@/config/*": ["packages/izui-web/packages/izui-react/src/config/*"],
+			"@/styles/*": ["packages/izui-web/packages/izui-react/src/styles/*"],
+			"@/utils/*": ["packages/izui-web/packages/izui-react/src/utils/*"],
+
 			"test/*": ["src/__test__/*"],
 			"api/*": ["src/api/*"],
 			"assets/*": ["src/assets/*"],
