@@ -2,7 +2,7 @@ import { PaperProps } from "@mui/material";
 
 export const paperProps: PaperProps = {
 	style: {
-		backgroundColor: "red",
+		backgroundColor: "transparent",
 		color: "gainsboro",
 		top: "48px"
 	}

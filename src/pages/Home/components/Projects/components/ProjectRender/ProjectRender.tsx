@@ -36,7 +36,7 @@ const ProjectRender: FC<Props> = ({ project, handleClose }) => {
 			arrow
 			disableFocusListener
 			disableTouchListener
-			title={t("PROJECT_TOOLTIP_SOURCE") as string}
+			title={t("PROJECT_TOOLTIP_SOURCE")}
 		>
 			<Fab
 				size={fabSize as "medium"}
@@ -44,7 +44,7 @@ const ProjectRender: FC<Props> = ({ project, handleClose }) => {
 				className={scss.tooltipFab}
 				color="primary"
 			>
-				<FaOsi color="silver" />
+				<FaOsi color="silver" size={24} />
 			</Fab>
 		</Tooltip>
 	);
@@ -54,7 +54,7 @@ const ProjectRender: FC<Props> = ({ project, handleClose }) => {
 			arrow
 			disableFocusListener
 			disableTouchListener
-			title={t("PROJECT_TOOLTIP_CLOSED_SOURCE") as string}
+			title={t("PROJECT_TOOLTIP_CLOSED_SOURCE")}
 		>
 			<span>
 				<Fab
@@ -63,7 +63,7 @@ const ProjectRender: FC<Props> = ({ project, handleClose }) => {
 					color="primary"
 					disabled
 				>
-					<MdLock />
+					<MdLock size={24} />
 				</Fab>
 			</span>
 		</Tooltip>
@@ -108,7 +108,7 @@ const ProjectRender: FC<Props> = ({ project, handleClose }) => {
 								className={scss.tooltipFab}
 								color="secondary"
 							>
-								<MdClose color="deeppink" />
+								<MdClose size={24} />
 							</Fab>
 						</div>
 					</Grid>

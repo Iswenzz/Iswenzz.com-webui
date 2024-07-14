@@ -4,7 +4,7 @@ import { AppBarProps, useTheme, AppBar, Toolbar, Grid } from "@mui/material";
 import { motion } from "framer-motion";
 import { useResponsive } from "@izui/react";
 
-import { isNavbarActive, isPastWindowHeight, setModalActive, setTheme } from "App/redux";
+import { isPastWindowHeight, setModalActive, setTheme } from "App/redux";
 
 import NavBarLogo from "./NavBarLogo/NavBarLogo";
 import NavBarDesktop from "./NavBarDesktop/NavBarDesktop";
@@ -20,7 +20,6 @@ import NavBarAnimation from "./NavBarAnimation/NavBarAnimation";
 const NavBar: FC<AppBarProps> = (): Nullable<JSX.Element> => {
 	const dispatch = useDispatch();
 	const pastWindowHeight = useSelector(isPastWindowHeight);
-	const navbarVisible = useSelector(isNavbarActive);
 
 	const { isDarkTheme } = useTheme();
 	const [isDrawerOpen, setDrawerOpen] = useState(false);
