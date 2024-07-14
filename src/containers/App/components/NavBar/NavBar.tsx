@@ -1,7 +1,7 @@
 import { FC, useState, memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppBarProps, useTheme, AppBar, Toolbar, Grid } from "@mui/material";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useResponsive } from "@izui/react";
 
 import { isNavbarActive, isPastWindowHeight, setModalActive, setTheme } from "App/redux";
@@ -12,6 +12,7 @@ import NavBarMobile from "./NavBarMobile/NavBarMobile";
 import { animation } from "./config";
 
 import scss from "./NavBar.module.scss";
+import NavBarAnimation from "./NavBarAnimation/NavBarAnimation";
 
 /**
  * Navigation container with links to different sections.
@@ -43,12 +44,13 @@ const NavBar: FC<AppBarProps> = (): Nullable<JSX.Element> => {
 	});
 
 	return (
-		<AnimatePresence>
+		<NavBarAnimation>
 			<motion.div
 				className={pastWindowHeight ? scss.fixed : scss.absolute}
-				animate={!navbarVisible ? "exit" : "enter"}
 				variants={animation}
-				initial="enter"
+				initial={pastWindowHeight ? "exit" : "enter"}
+				animate="enter"
+				exit="exit"
 			>
 				<AppBar
 					component="nav"
@@ -74,7 +76,7 @@ const NavBar: FC<AppBarProps> = (): Nullable<JSX.Element> => {
 					</Toolbar>
 				</AppBar>
 			</motion.div>
-		</AnimatePresence>
+		</NavBarAnimation>
 	);
 };
 
