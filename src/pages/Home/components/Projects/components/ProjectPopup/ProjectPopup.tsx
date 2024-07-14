@@ -13,7 +13,11 @@ import {
 } from "@izui/react";
 
 import { setModalActive, setNavbarActive } from "App/redux";
-import { getProjectModalOpen, getProjectModalStartIndex, setProjectModalOpen } from "Home/redux";
+import {
+	getProjectModalOpen,
+	getProjectModalIndex as getProjectModalIndex,
+	setProjectModalOpen
+} from "Home/redux";
 
 import { ProjectSource } from "../Project/Project";
 import ProjectRender from "../ProjectRender/ProjectRender";
@@ -25,8 +29,8 @@ import scss from "./ProjectPopup.module.scss";
  */
 const ProjectPopup: FC<ProjectPopupProps> = ({ projects }) => {
 	const dispatch = useDispatch();
-	const startIndex = useSelector(getProjectModalStartIndex);
-	const openModal = useSelector(getProjectModalOpen);
+	const index = useSelector(getProjectModalIndex);
+	const open = useSelector(getProjectModalOpen);
 
 	const { isDarkTheme } = useThemeMode({});
 	const { width, height } = useWindowSize();
@@ -54,37 +58,30 @@ const ProjectPopup: FC<ProjectPopupProps> = ({ projects }) => {
 		}
 	});
 
-	/**
-	 * Modal close handler.
-	 */
 	const onClose = () => {
 		dispatch(setProjectModalOpen(false));
 		dispatch(setNavbarActive(true));
 		dispatch(setModalActive(false));
 	};
 
-	/**
-	 * Render the right project on ViewPager index change.
-	 * @param index - The ViewPager index.
-	 */
 	const onIndexChange = (index: number) => {
 		if (fetchedProjects[index].type === Fragment)
 			updateAt(index, <ProjectRender project={projects[index]} handleClose={onClose} />);
 	};
 
 	return (
-		<Dialog aria-labelledby="projectpopup-modal" open={openModal} onClose={onClose}>
-			<Fade in={openModal}>
+		<Dialog aria-labelledby="projectpopup-modal" open={open} onClose={onClose}>
+			<Fade in={open}>
 				<section>
 					<ViewPager
 						background={isDarkTheme ? "#202326" : "#f4f4f4"}
-						startIndex={startIndex}
+						index={index}
 						config={viewPagerConfig}
 						onIndexChange={onIndexChange}
 						items={fetchedProjects}
 					/>
 					<Portal>
-						<HintDrag className={scss.tooltipDrag} open={openModal} />
+						<HintDrag className={scss.tooltipDrag} open={open} />
 					</Portal>
 				</section>
 			</Fade>

@@ -1,9 +1,8 @@
-import { FC, memo } from "react";
-import { motion } from "framer-motion";
+import { FC, memo, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { Divider, Container, Grid, useTheme } from "@mui/material";
-import { useInView } from "react-intersection-observer";
-import classNames from "classnames";
 import { Element, Carousel, Text, animationScaleFadeUp, useResponsive } from "@izui/react";
+import classNames from "classnames";
 
 import Level, { LevelSource } from "./components/Level/Level";
 import levelProjectsJson from "./Levels.json";
@@ -16,7 +15,8 @@ const levels: LevelSource[] = levelProjectsJson;
  */
 const Levels: FC = () => {
 	const { theme } = useTheme();
-	const [ref, inView] = useInView();
+	const ref = useRef<HTMLDivElement>(null);
+	const inView = useInView(ref);
 
 	const height = useResponsive({
 		desktop: "700px",

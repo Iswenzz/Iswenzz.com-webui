@@ -1,8 +1,7 @@
-import { FC, memo } from "react";
-import { useInView } from "react-intersection-observer";
+import { FC, memo, useRef } from "react";
 import { Container, Divider, Grid, useTheme } from "@mui/material";
 import { Text, animationUp } from "@izui/react";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import classNames from "classnames";
 
 import aboutJson from "../About.json";
@@ -15,7 +14,8 @@ export const about: AboutInfo = aboutJson;
  */
 const Intro: FC = () => {
 	const { theme } = useTheme();
-	const [ref, inView] = useInView();
+	const ref = useRef<HTMLDivElement>(null);
+	const inView = useInView(ref);
 
 	return (
 		<Grid

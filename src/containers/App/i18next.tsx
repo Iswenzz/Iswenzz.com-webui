@@ -61,9 +61,6 @@ const initOption: InitOptions = {
 	}
 };
 
-i18next
-	.use(detector)
-	.use(initReactI18next) // Passes i18n down to react-i18next
-	.init(initOption);
+i18next.use(detector).use(initReactI18next).init(initOption);
 
 export default i18next;

@@ -1,4 +1,4 @@
 import type { State } from "App/store";
 
 export const getProjectModalOpen = (state: State) => state.home.projectModalOpen;
-export const getProjectModalStartIndex = (state: State) => state.home.projectModalStartIndex;
+export const getProjectModalIndex = (state: State) => state.home.projectModalIndex;

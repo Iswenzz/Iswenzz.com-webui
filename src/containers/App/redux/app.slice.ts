@@ -5,6 +5,7 @@ import i18next from "i18next";
 
 import type { Language } from "App/i18next";
 import { saveLocalState } from "App/utils/localStorage";
+import { createInitState } from "App/utils/redux";
 
 export type AppState = {
 	theme: string;
@@ -15,14 +16,14 @@ export type AppState = {
 	isNavbarActive: boolean;
 };
 
-export const initialState: AppState = {
+export const initialState = createInitState<AppState>("app", {
 	theme: "dark",
 	language: "en",
 	browserInfo: omit(detect(), "prototypes"),
 	isPastWindowHeight: false,
 	isModalActive: false,
 	isNavbarActive: true
-};
+});
 
 const slice = createSlice({
 	name: "app",

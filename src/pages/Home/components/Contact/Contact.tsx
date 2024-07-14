@@ -1,9 +1,8 @@
-import { FC, memo } from "react";
-import { useInView } from "react-intersection-observer";
+import { FC, memo, useRef } from "react";
 import { Grid, Container, useTheme } from "@mui/material";
-import { motion } from "framer-motion";
-import classNames from "classnames";
 import { Element, Parallax, TrailText, animationScaleFadeDown, useThemeMode } from "@izui/react";
+import { motion, useInView } from "framer-motion";
+import classNames from "classnames";
 
 import flowers from "assets/images/aion/ishalgen2.jpg";
 import forest from "assets/images/background/forest.jpg";
@@ -14,9 +13,10 @@ import scss from "./Contact.module.scss";
 /**
  * Contact container to send an email.
  */
-const Contact: FC = (): JSX.Element => {
+const Contact: FC = () => {
 	const { theme } = useTheme();
-	const [ref, inView] = useInView();
+	const ref = useRef<HTMLDivElement>(null);
+	const inView = useInView(ref);
 
 	const { parallaxImage } = useThemeMode({
 		parallaxImage: [flowers, forest]

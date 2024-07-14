@@ -22,7 +22,7 @@ import scss from "./ProjectRender.module.scss";
 /**
  * Render the project markdown.
  */
-const ProjectRender: FC<ProjectRenderProps> = ({ project, handleClose }) => {
+const ProjectRender: FC<Props> = ({ project, handleClose }) => {
 	const { t } = useTranslation();
 	const { file: markdown = t("PROJECT_WIP") || "", isLoading } = useFile(project.renderUrl);
 
@@ -124,7 +124,7 @@ const ProjectRender: FC<ProjectRenderProps> = ({ project, handleClose }) => {
 	);
 };
 
-type ProjectRenderProps = {
+type Props = {
 	project: ProjectSource;
 	handleClose: () => void;
 };

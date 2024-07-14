@@ -27,7 +27,7 @@ const Footer: FC = () => {
 							className={scss.icons}
 							color="primary"
 						>
-							<FaGithub color="silver" />
+							<FaGithub size={24} color="silver" />
 						</Fab>
 					</li>
 					<li>
@@ -36,13 +36,13 @@ const Footer: FC = () => {
 							className={scss.icons}
 							color="primary"
 						>
-							<FaYoutube color="#FF0000" />
+							<FaYoutube size={24} color="#FF0000" />
 						</Fab>
 					</li>
 					<li>
-						<Tooltip disableFocusListener disableTouchListener title="Iswenzz#3906">
+						<Tooltip disableFocusListener disableTouchListener title="Iswenzz">
 							<Fab color="primary" className={scss.icons}>
-								<FaDiscord color="#7289DA" />
+								<FaDiscord size={24} color="#7289DA" />
 							</Fab>
 						</Tooltip>
 					</li>

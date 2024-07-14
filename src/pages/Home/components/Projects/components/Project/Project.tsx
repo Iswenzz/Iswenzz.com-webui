@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Card, CardActionArea, Typography } from "@mui/material";
 import { useResponsive } from "@izui/react";
 
-import { setProjectModalOpen, setProjectModalStartIndex } from "Home/redux";
+import { setProjectModalOpen, setProjectModalIndex } from "Home/redux";
 import { setModalActive, setNavbarActive } from "App/redux";
 
 import scss from "./Project.module.scss";
@@ -20,14 +20,11 @@ const Project: FC<ProjectProps> = ({ project, projectIndex, height = 200, width 
 		mobile: 14
 	});
 
-	/**
-	 * Open the ProjectPopup modal.
-	 */
 	const handleClick = () => {
 		dispatch(setNavbarActive(false));
 		dispatch(setModalActive(true));
 		dispatch(setProjectModalOpen(true));
-		dispatch(setProjectModalStartIndex(projectIndex));
+		dispatch(setProjectModalIndex(projectIndex));
 	};
 
 	return (

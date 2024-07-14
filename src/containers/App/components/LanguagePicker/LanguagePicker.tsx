@@ -4,8 +4,8 @@ import { Fab, ListItemIcon, Menu, MenuItem, Typography, Grid } from "@mui/materi
 
 import { languages, i18nLanguages, Language } from "App/i18next";
 import { getLanguage, setLanguage, setModalActive } from "App/redux";
-
 import { menuSx } from "./config";
+
 import scss from "./LanguagePicker.module.scss";
 
 /**
@@ -44,7 +44,7 @@ const LanguagePicker: FC = () => {
 				onClick={handleMenuClick}
 				size="small"
 			>
-				<CurrentLanguageIcon className={scss.icon} />
+				{CurrentLanguageIcon && <CurrentLanguageIcon className={scss.icon} />}
 			</Fab>
 			<Menu
 				id="language-menu"

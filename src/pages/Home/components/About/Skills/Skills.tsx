@@ -1,7 +1,6 @@
-import { FC } from "react";
-import { useInView } from "react-intersection-observer";
+import { FC, useRef } from "react";
 import { Container, Divider, Grid, useTheme } from "@mui/material";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import classNames from "classnames";
 import { Spacing, Text, TrailText, animationLeft, animationRight } from "@izui/react";
 
@@ -16,7 +15,8 @@ export const about: AboutInfo = aboutJson;
  */
 const Skills: FC = () => {
 	const { theme } = useTheme();
-	const [ref, inView] = useInView();
+	const ref = useRef<HTMLDivElement>(null);
+	const inView = useInView(ref);
 	const [web, software, level, webStacks, softwareStacks, editors] = about.skills;
 
 	return (

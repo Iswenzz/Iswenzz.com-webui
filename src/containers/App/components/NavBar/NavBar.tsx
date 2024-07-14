@@ -1,16 +1,15 @@
 import { FC, useState, memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppBarProps, useTheme, AppBar, Toolbar, Grid } from "@mui/material";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useResponsive } from "@izui/react";
 
-import { isPastWindowHeight, setModalActive, setTheme } from "App/redux";
+import { isNavbarActive, isPastWindowHeight, setModalActive, setTheme } from "App/redux";
 
-import { animationAbsolute, animationFixed } from "./config";
 import NavBarLogo from "./NavBarLogo/NavBarLogo";
 import NavBarDesktop from "./NavBarDesktop/NavBarDesktop";
 import NavBarMobile from "./NavBarMobile/NavBarMobile";
-import NavBarAnimation from "./NavBarAnimation/NavBarAnimation";
+import { animation } from "./config";
 
 import scss from "./NavBar.module.scss";
 
@@ -20,6 +19,7 @@ import scss from "./NavBar.module.scss";
 const NavBar: FC<AppBarProps> = (): Nullable<JSX.Element> => {
 	const dispatch = useDispatch();
 	const pastWindowHeight = useSelector(isPastWindowHeight);
+	const navbarVisible = useSelector(isNavbarActive);
 
 	const { isDarkTheme } = useTheme();
 	const [isDrawerOpen, setDrawerOpen] = useState(false);
@@ -43,17 +43,16 @@ const NavBar: FC<AppBarProps> = (): Nullable<JSX.Element> => {
 	});
 
 	return (
-		<NavBarAnimation isFixed={pastWindowHeight}>
+		<AnimatePresence>
 			<motion.div
 				className={pastWindowHeight ? scss.fixed : scss.absolute}
-				variants={pastWindowHeight ? animationFixed : animationAbsolute}
-				initial={pastWindowHeight ? "exit" : "enter"}
-				animate="enter"
-				exit="exit"
+				animate={!navbarVisible ? "exit" : "enter"}
+				variants={animation}
+				initial="enter"
 			>
 				<AppBar
-					className={scss.navbar}
 					component="nav"
+					className={scss.navbar}
 					position={pastWindowHeight ? "fixed" : "absolute"}
 				>
 					<Toolbar variant="dense">
@@ -75,7 +74,7 @@ const NavBar: FC<AppBarProps> = (): Nullable<JSX.Element> => {
 					</Toolbar>
 				</AppBar>
 			</motion.div>
-		</NavBarAnimation>
+		</AnimatePresence>
 	);
 };
 

@@ -18,6 +18,7 @@ const Projects: FC = () => {
 
 	const projects = useRef<ProjectSource[]>(projectsSource);
 	const projectsHeight = useMemo(() => projects.current.map(() => random(100, 220)), []);
+
 	const projectsWidth = useResponsive({
 		desktopAndPortrait: 200,
 		mobile: 100
@@ -27,7 +28,6 @@ const Projects: FC = () => {
 		<>
 			<ProjectPopup projects={projects.current} />
 			<Element name="projects" />
-
 			<Grid
 				component="section"
 				className={classNames(scss.projects, scss[theme])}
@@ -64,7 +64,6 @@ const Projects: FC = () => {
 					</SpringGrid>
 				</Grid>
 			</Grid>
-
 			<Parallax spacingTop="100px" />
 		</>
 	);

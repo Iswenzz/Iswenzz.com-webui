@@ -1,14 +1,15 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createInitState } from "App/utils/redux";
 
 export type HomeState = {
 	projectModalOpen: boolean;
-	projectModalStartIndex: number;
+	projectModalIndex: number;
 };
 
-export const initialState: HomeState = {
+export const initialState = createInitState<HomeState>("home", {
 	projectModalOpen: false,
-	projectModalStartIndex: 0
-};
+	projectModalIndex: 0
+});
 
 const slice = createSlice({
 	name: "home",
@@ -17,12 +18,12 @@ const slice = createSlice({
 		setProjectModalOpen: (state: HomeState, action: PayloadAction<boolean>) => {
 			state.projectModalOpen = action.payload;
 		},
-		setProjectModalStartIndex: (state: HomeState, action: PayloadAction<number>) => {
-			state.projectModalStartIndex = action.payload;
+		setProjectModalIndex: (state: HomeState, action: PayloadAction<number>) => {
+			state.projectModalIndex = action.payload;
 		}
 	}
 });
 
-export const { setProjectModalOpen, setProjectModalStartIndex } = slice.actions;
+export const { setProjectModalOpen, setProjectModalIndex } = slice.actions;
 
 export default slice.reducer;
