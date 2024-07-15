@@ -2,7 +2,7 @@ import { FC, memo, useMemo, useRef } from "react";
 import { Grid, Divider, Container, useTheme } from "@mui/material";
 import classNames from "classnames";
 import random from "lodash/random";
-import { Element, TrailText, SpringGrid, Parallax, useResponsive } from "@izui/react";
+import { TrailText, SpringGrid, Parallax, useResponsive } from "@izui/react";
 
 import Project, { ProjectSource } from "./components/Project/Project";
 import ProjectPopup from "./components/ProjectPopup/ProjectPopup";
@@ -27,8 +27,8 @@ const Projects: FC = () => {
 	return (
 		<>
 			<ProjectPopup projects={projects.current} />
-			<Element name="projects" />
 			<Grid
+				id="projects"
 				component="section"
 				className={classNames(scss.projects, scss[theme])}
 				justifyContent="center"

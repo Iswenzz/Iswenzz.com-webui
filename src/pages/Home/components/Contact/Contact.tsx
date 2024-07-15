@@ -1,6 +1,6 @@
 import { FC, memo, useRef } from "react";
 import { Grid, Container, useTheme } from "@mui/material";
-import { Element, Parallax, TrailText, animationScaleFadeDown, useThemeMode } from "@izui/react";
+import { Parallax, TrailText, animationScaleFadeDown, useThemeMode } from "@izui/react";
 import { motion, useInView } from "framer-motion";
 import classNames from "classnames";
 
@@ -40,8 +40,11 @@ const Contact: FC = () => {
 					CONTACT_HEADER
 				</TrailText>
 			</Parallax>
-			<Element name="contact" />
-			<Grid className={classNames(scss.contact, scss[theme])} component="section">
+			<Grid
+				id="contact"
+				className={classNames(scss.contact, scss[theme])}
+				component="section"
+			>
 				<Container ref={ref}>
 					<motion.div
 						initial="exit"

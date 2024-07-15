@@ -17,6 +17,7 @@ const Home: FC = () => {
 	return (
 		<>
 			<Header
+				id="header"
 				title="Iswenzz"
 				description="HOME_HEADER"
 				background={headerImage}

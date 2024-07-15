@@ -13,7 +13,7 @@ const Footer: FC = () => {
 	const { theme } = useTheme();
 	return (
 		<>
-			<Grid container component="footer">
+			<Grid container id="footer" component="footer">
 				<Grid
 					container
 					className={classNames(scss.footer, scss[theme])}

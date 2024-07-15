@@ -1,7 +1,7 @@
 import { FC, memo, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Divider, Container, Grid, useTheme } from "@mui/material";
-import { Element, Carousel, Text, animationScaleFadeUp, useResponsive } from "@izui/react";
+import { Carousel, Text, animationScaleFadeUp, useResponsive } from "@izui/react";
 import classNames from "classnames";
 
 import Level, { LevelSource } from "./components/Level/Level";
@@ -47,9 +47,8 @@ const Levels: FC = () => {
 						>
 							LEVEL_DESIGN
 						</Text>
-						<Divider className={scss.divider} />
+						<Divider id="level-design" className={scss.divider} />
 					</motion.div>
-					<Element name="level-design" />
 				</Container>
 				<motion.article
 					variants={animationScaleFadeUp()}
