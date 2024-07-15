@@ -9,7 +9,7 @@
 	}
 
 	@include Themes.lightMode {
-		background: linear-gradient(144deg, white, #f4f4f4);
+		background: radial-gradient(ellipse at top, #e5e5e5, #f4f4f4);
 	}
 }
 

@@ -8,17 +8,19 @@
 			"points": [
 				"• JavaScript TypeScript",
 				"• HTML CSS SCSS",
-				"• PHP & SEO",
-				"• REST & GraphQL APIs"
+				"• PHP SEO",
+				"• REST & GraphQL APIs",
+				"• Microservices"
 			]
 		},
 		{
 			"title": "SOFT_DEV",
 			"points": [
-				"• C C++ C# VB",
-				"• Java Python GSC",
-				"• Bash Shell Powershell",
-				"• Assembly x86 / x64"
+				"• C C++ C# GSC",
+				"• Java Python",
+				"• Shell Powershell",
+				"• Assembly x86 x64",
+				"• CI CD Jira"
 			]
 		},
 		{
@@ -27,33 +29,30 @@
 				"• BSP Blockout & Landscape",
 				"• Detail geometry",
 				"• Shader / Material creation",
-				"• Lighting, FX / SFX placement",
-				"• Level optimization & Portaling"
+				"• Lighting, FX SFX placement",
+				"• Level optimization"
 			]
 		},
 		{
 			"title": "WEB_STACKS",
 			"points": [
-				"• React Redux Apollo Webpack Vite",
-				"• Next Mithril Electron",
+				"• React Redux Apollo Vite Webpack",
+				"• Next Electron Three",
 				"• Nest Express TypeORM",
+				"• SpringBoot Symfony",
 				"• MySQL MariaDB MongoDB",
-				"• Jest Playwright Puppeteer",
-				"• MUI Bootstrap Tailwind",
-				"• Three MapboxGL",
-				"• Symfony"
+				"• Vitest Jest Playwright Puppeteer",
+				"• MUI Bootstrap Tailwind"
 			]
 		},
 		{
 			"title": "SOFT_STACKS",
 			"points": [
-				"• .NET",
-				"• CMake & Conan",
-				"• Qt & Winform & WPF",
+				"• .NET Winform WPF ANTLR",
+				"• CMake Vcpkg Conan",
 				"• HLSL OpenGL OpenFX DirectX SharpDX",
 				"• GTest Greatest NUnit JUnit",
-				"• Selenium ANTLR",
-				"• Jira & CI / CD"
+				"• Docker ANTLR"
 			]
 		},
 		{

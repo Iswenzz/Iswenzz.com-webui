@@ -4,8 +4,8 @@ import { Parallax, TrailText, animationScaleFadeDown, useThemeMode } from "@izui
 import { motion, useInView } from "framer-motion";
 import classNames from "classnames";
 
-import flowers from "assets/images/aion/ishalgen2.jpg";
-import forest from "assets/images/background/forest.jpg";
+import ishalgen from "assets/images/aion/ishalgen2.jpg";
+import white from "@izui/assets/images/background/white.jpg";
 
 import ContactForm from "./ContactForm/ContactForm";
 import scss from "./Contact.module.scss";
@@ -19,20 +19,15 @@ const Contact: FC = () => {
 	const inView = useInView(ref);
 
 	const { parallaxImage } = useThemeMode({
-		parallaxImage: [flowers, forest]
+		parallaxImage: [ishalgen, white]
 	});
 
 	return (
 		<>
 			<Parallax className={scss.contactParallax} speed={-12} image={parallaxImage}>
 				<TrailText
-					className={classNames(
-						scss.contactTypo,
-						"poiret-big",
-						"bold",
-						"noselect",
-						"gainsboro-90"
-					)}
+					className={classNames(scss.contactTypo, "poiret-big", "bold", "noselect")}
+					color="textPrimary"
 					align="center"
 					variant="h2"
 					component="h2"

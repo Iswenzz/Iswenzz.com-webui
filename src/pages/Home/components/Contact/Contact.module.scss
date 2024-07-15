@@ -9,12 +9,12 @@
 	}
 
 	@include Themes.lightMode {
-		background: linear-gradient(-45deg, #ffdf00, #f4f4f4);
+		background: radial-gradient(ellipse at top, #e5e5e5, #f4f4f4);
 	}
 }
 
 .contactParallax {
-	box-shadow: 0 0 5px 6px rgba(60, 60, 60, 0.3);
+	box-shadow: 0 0 5px 6px rgba(60, 60, 60, 0.107);
 }
 
 .contactTypo {

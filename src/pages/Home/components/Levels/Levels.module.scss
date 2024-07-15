@@ -9,7 +9,7 @@
 	}
 
 	@include Themes.lightMode {
-		background: radial-gradient(circle at bottom, #f69100, #f4f4f4 50%);
+		background: radial-gradient(ellipse at top, #e5e5e5, #f4f4f4);
 	}
 }
 
