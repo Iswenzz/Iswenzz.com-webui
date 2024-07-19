@@ -8,15 +8,15 @@
 		"renderIcons": [{ "name": "C++", "src": "https://iswenzz.com/iswenzz/devicons/cpp.svg" }]
 	},
 	{
-		"title": "IzEngine-UE5",
-		"sourceURL": "https://github.com/Iswenzz/IzEngine-UE5",
+		"title": "IzEngine-UE",
+		"sourceURL": "https://github.com/Iswenzz/IzEngine-UE",
 		"isOpenSource": false,
-		"cardImage": "https://iswenzz.com/iswenzz/projects/IzEngine-UE5.jpg",
-		"renderUrl": "https://iswenzz.com/iswenzz/md/IzEngine-UE5.md",
+		"cardImage": "https://iswenzz.com/iswenzz/projects/IzEngine-UE.jpg",
+		"renderUrl": "https://iswenzz.com/iswenzz/md/IzEngine-UE.md",
 		"renderIcons": [
 			{ "name": "C++", "src": "https://iswenzz.com/iswenzz/devicons/cpp.svg" },
 			{
-				"name": "Unreal Engine 5",
+				"name": "Unreal Engine",
 				"src": "https://iswenzz.com/iswenzz/devicons/unreal-engine.svg"
 			}
 		]
