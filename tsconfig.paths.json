@@ -14,7 +14,14 @@
 			"utils/*": ["src/utils/*"],
 
 			"App/*": ["src/containers/App/*"],
-			"Home/*": ["src/pages/Home/*"]
+			"Home/*": ["src/pages/Home/*"],
+
+			"@izui/react": ["packages/izui-web/packages/izui-react/src"],
+			"@/test/*": ["packages/izui-web/packages/izui-react/src/__test__/*"],
+			"@/components": ["packages/izui-web/packages/izui-react/src/components"],
+			"@/config/*": ["packages/izui-web/packages/izui-react/src/config/*"],
+			"@/styles/*": ["packages/izui-web/packages/izui-react/src/styles/*"],
+			"@/utils/*": ["packages/izui-web/packages/izui-react/src/utils/*"]
 		}
 	}
 }
