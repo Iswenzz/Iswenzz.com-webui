@@ -1,4 +1,3 @@
-import "@izui/react/src/config/highlight";
 import { createRoot } from "react-dom/client";
 
 import { Themes } from "App/components";

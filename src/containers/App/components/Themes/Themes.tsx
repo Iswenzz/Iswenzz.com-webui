@@ -1,6 +1,6 @@
 import { FC, PropsWithChildren, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Themes as IzThemes, registerTheme } from "@izui/react";
+import { Themes as IzThemes, registerTheme, initializeHighlight } from "@izui/react";
 import { useWindowScroll } from "react-use";
 
 import { isModalActive, getTheme, setPastWindowHeight, isPastWindowHeight } from "App/redux";
@@ -35,5 +35,7 @@ const Themes: FC<PropsWithChildren> = ({ children }) => {
 
 registerTheme("dark", DarkTheme);
 registerTheme("light", LightTheme);
+
+initializeHighlight();
 
 export default Themes;
