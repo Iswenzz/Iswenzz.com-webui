@@ -21,7 +21,7 @@ export type Scalars = {
 	Float: { input: number; output: number };
 };
 
-export type Mail = {
+export type MailRequest = {
 	email: Scalars["String"]["input"];
 	message: Scalars["String"]["input"];
 	subject: Scalars["String"]["input"];
@@ -34,7 +34,7 @@ export type Mutation = {
 };
 
 export type MutationContactArgs = {
-	input: Mail;
+	input: MailRequest;
 };
 
 export type Query = {
@@ -43,13 +43,13 @@ export type Query = {
 };
 
 export type ContactMutationVariables = Exact<{
-	input: Mail;
+	input: MailRequest;
 }>;
 
 export type ContactMutation = { __typename?: "Mutation"; contact: boolean };
 
 export const ContactDocument = gql`
-	mutation Contact($input: Mail!) {
+	mutation Contact($input: MailRequest!) {
 		contact(input: $input)
 	}
 `;
