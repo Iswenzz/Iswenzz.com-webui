@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom/vitest";
 
-vi.mock("api/generated/graphql");
+vi.mock("api");
 
 sessionStorage.clear();
 localStorage.clear();

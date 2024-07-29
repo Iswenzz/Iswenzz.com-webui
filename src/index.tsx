@@ -4,7 +4,7 @@ import { Themes } from "App/components";
 import Redux from "App/store";
 import "App/i18next";
 
-import Apollo from "api/apollo";
+import { Apollo } from "api";
 import { Router } from "router";
 
 import "styles/Main.scss";

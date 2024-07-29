@@ -9,7 +9,7 @@ import isNil from "lodash/isNil";
 import { Loader, delay, Captcha, CaptchaCopyright, useCaptcha } from "@izui/react";
 import iswenzzIcon from "@izui/assets/images/iswenzz/iswenzz.png";
 
-import { useContactMutation } from "api/generated/graphql";
+import { useContactMutation } from "api";
 
 import { contactFormInitial, ContactFormValues } from "../config";
 import scss from "./ContactForm.module.scss";
