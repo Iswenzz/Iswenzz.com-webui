@@ -1,32 +1,25 @@
 import { FC, PropsWithChildren } from "react";
-import { ApolloClient, ApolloLink, ApolloProvider, HttpLink, InMemoryCache } from "@apollo/client";
 import { onError } from "@apollo/client/link/error";
-import fetch from "cross-fetch";
 
-/**
- * Apollo Link for error handling.
- */
-const linkError = onError(({ graphQLErrors, networkError }) => {
-	graphQLErrors?.map(({ message, locations, path }) =>
-		console.error(`[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`)
-	);
+import {
+	ApolloClient,
+	ApolloLink,
+	ApolloProvider,
+	createHttpLink,
+	InMemoryCache
+} from "@apollo/client";
+
+const linkError = onError(({ graphQLErrors = [], networkError }) => {
+	for (const { message, locations, path } of graphQLErrors) {
+		console.error(`[GraphQL] Message: ${message}, Location: ${locations}, Path: ${path}`);
+	}
 	if (networkError) console.error(`[Network error]: ${networkError}`);
 });
 
-/**
- * Apollo Link server.
- */
-const linkHttp = new HttpLink({
-	fetch,
-	uri: process.env.VITE_GRAPHQL_URL,
-	headers: {
-		authorization: localStorage.getItem("token") || ""
-	}
+const linkHttp = createHttpLink({
+	uri: process.env.VITE_GRAPHQL_URL
 });
 
-/**
- * GraphQL Apollo Client.
- */
 const apolloClient = new ApolloClient({
 	cache: new InMemoryCache(),
 	link: ApolloLink.from([linkError, linkHttp])
