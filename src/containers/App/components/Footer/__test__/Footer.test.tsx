@@ -1,14 +1,8 @@
 import { render } from "test/react";
 
-import { DarkTheme, Themes } from "@izui/react";
 import Footer from "../Footer";
 
-const setup = () =>
-	render(
-		<Themes theme={DarkTheme}>
-			<Footer />
-		</Themes>
-	);
+const setup = () => render(<Footer />);
 
 describe("Footer", () => {
 	it("should render footer", () => {
