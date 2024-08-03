@@ -4,8 +4,7 @@ import omit from "lodash/omit";
 import i18next from "i18next";
 
 import type { Language } from "App/i18next";
-import { saveLocalState } from "App/utils/localStorage";
-import { createInitState } from "App/utils/redux";
+import { saveLocalState, createInitState } from "App/utils";
 
 export type AppState = {
 	theme: string;

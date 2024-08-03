@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { createInitState } from "App/utils/redux";
+import { createInitState } from "App/utils";
 
 export type HomeState = {
 	projectModalOpen: boolean;
