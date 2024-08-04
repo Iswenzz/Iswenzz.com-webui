@@ -1,13 +1,11 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import { useTranslation } from "react-i18next";
-import { Avatar, Container, Grid, Button } from "@mui/material";
-import { Field, Form, Formik, FormikHelpers } from "formik";
-import { TextField } from "formik-mui";
+import { Avatar, Container, Grid, Button, TextField } from "@mui/material";
+import { FormikHelpers, useFormik } from "formik";
 import classNames from "classnames";
-import isNil from "lodash/isNil";
 
-import { Loader, delay, Captcha, CaptchaCopyright, useCaptcha } from "@izui/react";
-import iswenzzIcon from "@izui/assets/images/iswenzz/iswenzz.png";
+import { Loader, Captcha, CaptchaCopyright, useCaptcha } from "@izui/react";
+import iswenzz from "@izui/assets/images/iswenzz/iswenzz.png";
 
 import { useContactMutation } from "api";
 
@@ -22,63 +20,36 @@ const ContactForm: FC = () => {
 	const { t } = useTranslation();
 
 	const captcha = useCaptcha();
-	const [contact] = useContactMutation();
+	const [contact, { loading, error, data }] = useContactMutation();
 
-	const [loading, setLoading] = useState(false);
-	const [success, setSuccess] = useState(false);
-	const [fail, setFail] = useState(false);
+	const success = data?.contact || false;
+	const fail = !!error;
 
 	const buttonStyle = classNames(scss.buttonDefault, {
 		[scss.buttonSuccess]: success,
 		[scss.buttonFail]: fail
 	});
 
-	const sendEmail = async (
+	const onSubmit = async (
 		values: ContactFormValues,
 		formik: FormikHelpers<ContactFormValues>
 	) => {
-		if (!loading && !Object.values(values).some(isNil) && captcha.current) {
-			await captcha.current.executeAsync();
-
-			setSuccess(false);
-			setFail(false);
-			setLoading(true);
-
-			const captchaValue = captcha.current.getValue();
-
-			try {
-				const response = await contact({
-					variables: {
-						input: {
-							...values,
-							token: captchaValue ?? ""
-						}
-					}
-				});
-				response.data?.contact ? await mailSuccess() : await mailFail();
-				captcha.current.reset();
-			} catch {
-				await mailFail();
+		formik.setSubmitting(true);
+		if (!captcha.current) return;
+		await captcha.current.executeAsync();
+		await contact({
+			variables: {
+				input: {
+					...values,
+					token: captcha.current.getValue() || ""
+				}
 			}
-		}
+		});
+		captcha.current.reset();
 		formik.setSubmitting(false);
 	};
 
-	const mailSuccess = async () => {
-		setSuccess(true);
-		setLoading(false);
-
-		await delay(3000);
-		setSuccess(false);
-	};
-
-	const mailFail = async () => {
-		setFail(true);
-		setLoading(false);
-
-		await delay(3000);
-		setFail(false);
-	};
+	const formik = useFormik({ initialValues: contactFormInitial, onSubmit });
 
 	return (
 		<Grid
@@ -89,68 +60,65 @@ const ContactForm: FC = () => {
 			alignItems="center"
 		>
 			<header>
-				<Avatar alt="iswenzz avatar" src={iswenzzIcon} className={scss.avatar} />
+				<Avatar alt="iswenzz avatar" src={iswenzz} className={scss.avatar} />
 			</header>
-			<Formik initialValues={contactFormInitial} onSubmit={sendEmail}>
-				<Form>
-					<Field
-						component={TextField}
-						required
-						label={t("CONTACT_EMAIL")}
-						id="email"
-						name="email"
-						type="email"
-						fullWidth
-						color="secondary"
-						variant="outlined"
-						margin="normal"
-						autoComplete="email"
-					/>
-					<Field
-						component={TextField}
-						required
-						label={t("CONTACT_SUBJECT")}
-						id="subject"
-						name="subject"
-						type="text"
-						fullWidth
-						color="secondary"
-						variant="outlined"
-						margin="normal"
-					/>
-					<Field
-						component={TextField}
-						required
-						label={t("CONTACT_MESSAGE")}
-						id="message"
-						name="message"
-						type="text"
-						fullWidth
-						multiline
-						rows="6"
-						color="secondary"
-						variant="outlined"
-						margin="normal"
-					/>
-					<Container maxWidth="xs">
-						<Grid container justifyContent="center" alignItems="center">
-							<Button
-								fullWidth
-								variant="contained"
-								type="submit"
-								color="secondary"
-								disabled={loading || success || fail}
-								className={buttonStyle}
-							>
-								{t("CONTACT_SEND")}
-							</Button>
-							{loading && <Loader size={32} className={scss.buttonProgress} />}
-							<CaptchaCopyright />
-							<Captcha ref={captcha} />
-						</Grid>
-					</Container>
-				</Form>
-			</Formik>
+			<form onSubmit={formik.handleSubmit}>
+				<TextField
+					required
+					fullWidth
+					label={t("CONTACT_EMAIL")}
+					name="email"
+					type="email"
+					autoComplete="email"
+					color="secondary"
+					variant="outlined"
+					margin="normal"
+					onChange={formik.handleChange}
+					value={formik.values.email}
+				/>
+				<TextField
+					required
+					fullWidth
+					label={t("CONTACT_SUBJECT")}
+					name="subject"
+					type="text"
+					color="secondary"
+					variant="outlined"
+					margin="normal"
+					onChange={formik.handleChange}
+					value={formik.values.subject}
+				/>
+				<TextField
+					required
+					multiline
+					fullWidth
+					label={t("CONTACT_MESSAGE")}
+					name="message"
+					type="text"
+					rows="6"
+					color="secondary"
+					variant="outlined"
+					margin="normal"
+					onChange={formik.handleChange}
+					value={formik.values.message}
+				/>
+				<Container maxWidth="xs">
+					<Grid container justifyContent="center" alignItems="center">
+						<Button
+							fullWidth
+							variant="contained"
+							type="submit"
+							color="secondary"
+							className={buttonStyle}
+						>
+							{t("CONTACT_SEND")}
+						</Button>
+						{loading && <Loader size={32} className={scss.buttonProgress} />}
+						<CaptchaCopyright />
+						<Captcha ref={captcha} />
+					</Grid>
+				</Container>
+			</form>
 		</Grid>
 	);
 };

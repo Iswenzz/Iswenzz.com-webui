@@ -35,7 +35,6 @@
 		"embla-carousel": "^8.1.6",
 		"embla-carousel-react": "^8.1.6",
 		"formik": "^2.4.6",
-		"formik-mui": "^5.0.0-alpha.0",
 		"framer-motion": "^11.2.12",
 		"graphql": "^16.9.0",
 		"highlight.js": "^11.9.0",
