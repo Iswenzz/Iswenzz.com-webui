@@ -34,7 +34,6 @@ const ContactForm: FC = () => {
 		values: ContactFormValues,
 		formik: FormikHelpers<ContactFormValues>
 	) => {
-		formik.setSubmitting(true);
 		if (!captcha.current) return;
 		await captcha.current.executeAsync();
 		await contact({
