@@ -17,7 +17,7 @@ import NavBarAnimation from "./NavBarAnimation/NavBarAnimation";
 /**
  * Navigation container with links to different sections.
  */
-const NavBar: FC<AppBarProps> = (): Nullable<JSX.Element> => {
+const NavBar: FC<AppBarProps> = () => {
 	const dispatch = useDispatch();
 	const pastWindowHeight = useSelector(isPastWindowHeight);
 
