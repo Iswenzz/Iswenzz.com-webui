@@ -10,10 +10,10 @@ import {
 } from "@apollo/client";
 
 const linkError = onError(({ graphQLErrors = [], networkError }) => {
-	for (const { message, locations, path } of graphQLErrors) {
-		console.error(`[GraphQL] Message: ${message}, Location: ${locations}, Path: ${path}`);
+	for (const { message, path } of graphQLErrors) {
+		console.error(`[GQL] /${path} ${message}`);
 	}
-	if (networkError) console.error(`[Network error]: ${networkError}`);
+	if (networkError) console.error(`[Network] ${networkError.name} ${networkError.message}`);
 });
 
 const linkHttp = createHttpLink({
