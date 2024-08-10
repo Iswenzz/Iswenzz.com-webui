@@ -18,7 +18,7 @@ const Home: FC = () => (
 			background={sunset}
 			titleClassName="gainsboro-90"
 			descriptionClassName="gainsboro-90"
-			TextComponent={TrailText as FC<PropsWithChildren>}
+			TextComponent={TrailText}
 		>
 			<NavigationChevron />
 		</Header>
