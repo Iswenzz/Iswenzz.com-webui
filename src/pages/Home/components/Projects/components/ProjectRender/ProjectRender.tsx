@@ -71,54 +71,50 @@ const ProjectRender: FC<Props> = ({ project, handleClose }) => {
 
 	return (
 		<article className={scss.article} key={uuidv4()}>
-			<header className={scss.frame}>
-				<DialogTitle className={scss.modalTitle}>
-					<Grid
-						className={scss.title}
-						container
-						justifyContent="space-between"
-						alignItems="center"
-					>
-						<ul className={scss.icons}>
-							{project.renderIcons?.map(icon => (
-								<li key={uuidv4()}>
-									<Tooltip
-										arrow
-										disableFocusListener
-										disableTouchListener
-										title={icon.name}
-									>
-										<Forward>
-											<Image
-												width={imageSize}
-												height={imageSize}
-												onDragStart={preventDefault}
-												src={icon.src}
-											/>
-										</Forward>
-									</Tooltip>
-								</li>
-							))}
-						</ul>
-						<div>
-							{project.isOpenSource ? openSource : privateSource}
-							<Fab
-								onClick={handleClose}
-								size={fabSize as "medium"}
-								className={scss.tooltipFab}
-								color="secondary"
-							>
-								<MdClose size={24} />
-							</Fab>
-						</div>
-					</Grid>
-				</DialogTitle>
-			</header>
-			<section>
-				<DialogContent onPointerDown={stopPropagation} className={scss.modal}>
-					<Markdown>{markdown}</Markdown>
-				</DialogContent>
-			</section>
+			<DialogTitle className={scss.modalTitle}>
+				<Grid
+					className={scss.title}
+					container
+					justifyContent="space-between"
+					alignItems="center"
+				>
+					<ul className={scss.icons}>
+						{project.renderIcons?.map(icon => (
+							<li key={uuidv4()}>
+								<Tooltip
+									arrow
+									disableFocusListener
+									disableTouchListener
+									title={icon.name}
+								>
+									<Forward>
+										<Image
+											width={imageSize}
+											height={imageSize}
+											onDragStart={preventDefault}
+											src={icon.src}
+										/>
+									</Forward>
+								</Tooltip>
+							</li>
+						))}
+					</ul>
+					<div>
+						{project.isOpenSource ? openSource : privateSource}
+						<Fab
+							onClick={handleClose}
+							size={fabSize as "medium"}
+							className={scss.tooltipFab}
+							color="secondary"
+						>
+							<MdClose size={24} />
+						</Fab>
+					</div>
+				</Grid>
+			</DialogTitle>
+			<DialogContent className={scss.modal} onPointerDownCapture={stopPropagation}>
+				<Markdown>{markdown}</Markdown>
+			</DialogContent>
 			{isLoading && <Loader className={scss.loader} />}
 		</article>
 	);

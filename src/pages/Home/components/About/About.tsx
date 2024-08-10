@@ -1,4 +1,4 @@
-import { memo, FC } from "react";
+import { FC } from "react";
 import { Grid } from "@mui/material";
 import { Parallax } from "@izui/react";
 
@@ -24,4 +24,4 @@ const About: FC = () => (
 	</Grid>
 );
 
-export default memo(About);
+export default About;

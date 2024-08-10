@@ -1,4 +1,4 @@
-import { FC, memo } from "react";
+import { FC } from "react";
 import { useDispatch } from "react-redux";
 import { motion } from "framer-motion";
 import { Card, CardActionArea, Typography } from "@mui/material";
@@ -76,4 +76,4 @@ export type ProjectProps = {
 	style?: React.CSSProperties;
 };
 
-export default memo(Project);
+export default Project;

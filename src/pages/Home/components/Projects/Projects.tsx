@@ -1,4 +1,4 @@
-import { FC, memo, useMemo, useRef } from "react";
+import { FC, useMemo, useRef } from "react";
 import { Grid, Divider, Container, useTheme } from "@mui/material";
 import classNames from "classnames";
 import random from "lodash/random";
@@ -69,4 +69,4 @@ const Projects: FC = () => {
 	);
 };
 
-export default memo(Projects);
+export default Projects;

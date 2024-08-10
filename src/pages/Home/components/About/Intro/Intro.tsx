@@ -1,4 +1,4 @@
-import { FC, memo, useRef } from "react";
+import { FC, useRef } from "react";
 import { Container, Divider, Grid, useTheme } from "@mui/material";
 import { Text, animationUp } from "@izui/react";
 import { motion, useInView } from "framer-motion";
@@ -80,4 +80,4 @@ type Skill = {
 	points: string[];
 };
 
-export default memo(Intro);
+export default Intro;

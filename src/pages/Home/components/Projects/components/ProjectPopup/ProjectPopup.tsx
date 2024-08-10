@@ -1,4 +1,4 @@
-import { FC, Fragment, memo } from "react";
+import { FC, Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useList, useWindowSize } from "react-use";
 import { Dialog, Fade } from "@mui/material";
@@ -13,6 +13,7 @@ import {
 } from "@izui/react";
 
 import { setModalActive, setNavbarActive } from "App/redux";
+
 import {
 	getProjectModalOpen,
 	getProjectModalIndex as getProjectModalIndex,
@@ -35,9 +36,7 @@ const ProjectPopup: FC<ProjectPopupProps> = ({ projects }) => {
 	const { isDarkTheme } = useThemeMode({});
 	const { width, height } = useWindowSize();
 
-	const [fetchedProjects, { updateAt }] = useList(
-		new Array<JSX.Element>(projects.length).fill(<></>)
-	);
+	const [list, { updateAt }] = useList(new Array(projects.length).fill(<Fragment />));
 
 	const viewPagerConfig = useResponsive<ViewPagerConfig>({
 		desktopAndPortrait: {
@@ -65,7 +64,7 @@ const ProjectPopup: FC<ProjectPopupProps> = ({ projects }) => {
 	};
 
 	const onIndexChange = (index: number) => {
-		if (fetchedProjects[index].type === Fragment)
+		if (list[index].type === Fragment)
 			updateAt(index, <ProjectRender project={projects[index]} handleClose={onClose} />);
 	};
 
@@ -77,8 +76,8 @@ const ProjectPopup: FC<ProjectPopupProps> = ({ projects }) => {
 						background={isDarkTheme ? "#202326" : "#f4f4f4"}
 						index={index}
 						config={viewPagerConfig}
-						onIndexChange={onIndexChange}
-						items={fetchedProjects}
+						onChange={onIndexChange}
+						items={list}
 					/>
 					<Portal>
 						<HintDrag className={scss.tooltipDrag} open={open} />
@@ -93,4 +92,4 @@ type ProjectPopupProps = {
 	projects: ProjectSource[];
 };
 
-export default memo(ProjectPopup);
+export default ProjectPopup;

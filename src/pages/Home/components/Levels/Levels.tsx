@@ -1,4 +1,4 @@
-import { FC, memo, useRef } from "react";
+import { FC, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Divider, Container, Grid, useTheme } from "@mui/material";
 import { Carousel, Text, animationScaleFadeUp, useResponsive } from "@izui/react";
@@ -66,4 +66,4 @@ const Levels: FC = () => {
 	);
 };
 
-export default memo(Levels);
+export default Levels;

@@ -1,4 +1,4 @@
-import { FC, memo, useRef } from "react";
+import { FC, useRef } from "react";
 import { Grid, Container, useTheme } from "@mui/material";
 import { Parallax, TrailText, animationScaleFadeDown, useThemeMode } from "@izui/react";
 import { motion, useInView } from "framer-motion";
@@ -54,4 +54,4 @@ const Contact: FC = () => {
 	);
 };
 
-export default memo(Contact);
+export default Contact;

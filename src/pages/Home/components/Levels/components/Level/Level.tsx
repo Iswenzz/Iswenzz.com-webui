@@ -1,4 +1,4 @@
-import { FC, memo, useState } from "react";
+import { FC, useState } from "react";
 import { Flip, useResponsive } from "@izui/react";
 
 import LevelDesktop from "../LevelDesktop/LevelDesktop";
@@ -41,4 +41,4 @@ type Props = {
 	level: LevelSource;
 };
 
-export default memo(Level);
+export default Level;

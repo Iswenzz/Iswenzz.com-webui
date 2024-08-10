@@ -1,4 +1,4 @@
-import { FC, useState, memo } from "react";
+import { FC, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppBarProps, useTheme, AppBar, Toolbar, Grid } from "@mui/material";
 import { motion } from "framer-motion";
@@ -79,4 +79,4 @@ const NavBar: FC<AppBarProps> = (): Nullable<JSX.Element> => {
 	);
 };
 
-export default memo(NavBar);
+export default NavBar;

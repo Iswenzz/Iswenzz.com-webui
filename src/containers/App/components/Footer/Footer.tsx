@@ -1,4 +1,4 @@
-import { FC, memo } from "react";
+import { FC } from "react";
 import { Grid, Fab, Tooltip, Typography, useTheme } from "@mui/material";
 import { FaDiscord, FaYoutube, FaGithub } from "react-icons/fa";
 import { Parallax } from "@izui/react";
@@ -57,4 +57,4 @@ const Footer: FC = () => {
 	);
 };
 
-export default memo(Footer);
+export default Footer;
