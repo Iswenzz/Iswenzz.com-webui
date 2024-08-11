@@ -34,6 +34,12 @@ const config = defineConfig(({ mode }) => ({
 	define: {
 		"process.env": JSON.stringify(process.env)
 	},
+	resolve: {
+		alias: {
+			assets: resolve(__dirname, "src/assets"),
+			styles: resolve(__dirname, "src/styles")
+		}
+	},
 	css: {
 		modules: {
 			localsConvention: "camelCaseOnly",

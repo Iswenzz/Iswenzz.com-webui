@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren } from "react";
+import { FC } from "react";
 import { Header, TrailText } from "@izui/react";
 
 import sunset from "assets/images/background/sunset2.jpg";
