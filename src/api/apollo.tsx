@@ -17,7 +17,8 @@ const linkError = onError(({ graphQLErrors = [], networkError }) => {
 });
 
 const linkHttp = createHttpLink({
-	uri: process.env.VITE_GRAPHQL_URL
+	uri: process.env.VITE_GRAPHQL_URL,
+	credentials: "include"
 });
 
 const apolloClient = new ApolloClient({
