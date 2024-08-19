@@ -12,8 +12,6 @@ import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
 import { visualizer } from "rollup-plugin-visualizer";
 
 const config = defineConfig(({ mode }) => ({
-	root: ".",
-	base: "/",
 	build: {
 		outDir: "build",
 		rollupOptions: {
