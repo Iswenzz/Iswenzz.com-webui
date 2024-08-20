@@ -1,58 +1,57 @@
-import { gql } from "@apollo/client";
-import * as Apollo from "@apollo/client";
+import { gql } from '@apollo/client';
+import * as Apollo from '@apollo/client';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
-export type MakeEmpty<T extends { [key: string]: unknown }, K extends keyof T> = {
-	[_ in K]?: never;
-};
-export type Incremental<T> =
-	| T
-	| { [P in keyof T]?: P extends " $fragmentName" | "__typename" ? T[P] : never };
+export type MakeEmpty<T extends { [key: string]: unknown }, K extends keyof T> = { [_ in K]?: never };
+export type Incremental<T> = T | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
 const defaultOptions = {} as const;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
-	ID: { input: string; output: string };
-	String: { input: string; output: string };
-	Boolean: { input: boolean; output: boolean };
-	Int: { input: number; output: number };
-	Float: { input: number; output: number };
+  ID: { input: string; output: string; }
+  String: { input: string; output: string; }
+  Boolean: { input: boolean; output: boolean; }
+  Int: { input: number; output: number; }
+  Float: { input: number; output: number; }
 };
 
 export type MailRequest = {
-	email: Scalars["String"]["input"];
-	message: Scalars["String"]["input"];
-	subject: Scalars["String"]["input"];
-	token: Scalars["String"]["input"];
+  email: Scalars['String']['input'];
+  message: Scalars['String']['input'];
+  subject: Scalars['String']['input'];
+  token: Scalars['String']['input'];
 };
 
 export type Mutation = {
-	__typename?: "Mutation";
-	contact: Scalars["Boolean"]["output"];
+  __typename?: 'Mutation';
+  contact: Scalars['Boolean']['output'];
 };
 
+
 export type MutationContactArgs = {
-	input: MailRequest;
+  input: MailRequest;
 };
 
 export type Query = {
-	__typename?: "Query";
-	sayHello: Scalars["String"]["output"];
+  __typename?: 'Query';
+  sayHello: Scalars['String']['output'];
 };
 
 export type ContactMutationVariables = Exact<{
-	input: MailRequest;
+  input: MailRequest;
 }>;
 
-export type ContactMutation = { __typename?: "Mutation"; contact: boolean };
+
+export type ContactMutation = { __typename?: 'Mutation', contact: boolean };
+
 
 export const ContactDocument = gql`
-	mutation Contact($input: MailRequest!) {
-		contact(input: $input)
-	}
-`;
+    mutation Contact($input: MailRequest!) {
+  contact(input: $input)
+}
+    `;
 export type ContactMutationFn = Apollo.MutationFunction<ContactMutation, ContactMutationVariables>;
 
 /**
@@ -72,15 +71,10 @@ export type ContactMutationFn = Apollo.MutationFunction<ContactMutation, Contact
  *   },
  * });
  */
-export function useContactMutation(
-	baseOptions?: Apollo.MutationHookOptions<ContactMutation, ContactMutationVariables>
-) {
-	const options = { ...defaultOptions, ...baseOptions };
-	return Apollo.useMutation<ContactMutation, ContactMutationVariables>(ContactDocument, options);
-}
+export function useContactMutation(baseOptions?: Apollo.MutationHookOptions<ContactMutation, ContactMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<ContactMutation, ContactMutationVariables>(ContactDocument, options);
+      }
 export type ContactMutationHookResult = ReturnType<typeof useContactMutation>;
 export type ContactMutationResult = Apollo.MutationResult<ContactMutation>;
-export type ContactMutationOptions = Apollo.BaseMutationOptions<
-	ContactMutation,
-	ContactMutationVariables
->;
+export type ContactMutationOptions = Apollo.BaseMutationOptions<ContactMutation, ContactMutationVariables>;
