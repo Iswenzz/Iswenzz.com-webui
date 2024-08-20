@@ -68,11 +68,16 @@ const config = defineConfig(({ mode }) => ({
 		port: 3000
 	},
 	test: {
-		root: "src",
+		include: ["src/**/*.test.*"],
+		passWithNoTests: true,
 		globals: true,
 		watch: false,
 		environment: "jsdom",
-		setupFiles: "__test__/setup.ts"
+		setupFiles: "src/__test__/setup.ts",
+		coverage: {
+			enabled: true,
+			reporter: ["cobertura", "html"]
+		}
 	}
 }));
 
