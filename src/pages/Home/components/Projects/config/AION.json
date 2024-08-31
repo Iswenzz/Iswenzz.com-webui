@@ -61,19 +61,6 @@
 		]
 	},
 	{
-		"title": "AION Database Parser",
-		"sourceURL": "https://github.com/Iswenzz/AION-Database-Parser",
-		"isOpenSource": true,
-		"cardImage": "https://iswenzz.com/iswenzz/projects/AION-Database-Parser.jpg",
-		"renderUrl": "https://raw.githubusercontent.com/Iswenzz/AION-Database-Parser/master/README.md",
-		"renderIcons": [
-			{ "name": "C#", "src": "https://iswenzz.com/iswenzz/devicons/csharp.svg" },
-			{ "name": ".NET", "src": "https://iswenzz.com/iswenzz/devicons/dotnet.svg" },
-			{ "name": "Selenium", "src": "https://iswenzz.com/iswenzz/devicons/selenium.svg" },
-			{ "name": "PhantomJS", "src": "https://iswenzz.com/iswenzz/devicons/phantomjs.svg" }
-		]
-	},
-	{
 		"title": "AION Chat",
 		"sourceURL": "https://github.com/Iswenzz/AION-Chat",
 		"isOpenSource": true,

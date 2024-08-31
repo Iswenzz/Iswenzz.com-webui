@@ -36,7 +36,7 @@
 	},
 	{
 		"title": "SR BattleRoyale",
-		"sourceURL": "https://github.com/Iswenzz/CoD4-BattleRoyale",
+		"sourceURL": "https://github.com/Iswenzz/SR-BattleRoyale",
 		"isOpenSource": true,
 		"cardImage": "https://iswenzz.com/iswenzz/projects/SR-BattleRoyale.jpg",
 		"renderUrl": "https://raw.githubusercontent.com/Iswenzz/SR-BattleRoyale/master/README.md",
@@ -65,17 +65,6 @@
 		"cardImage": "https://iswenzz.com/iswenzz/projects/CoD4-DM1.jpg",
 		"renderUrl": "https://raw.githubusercontent.com/Iswenzz/CoD4-DM1/master/README.md",
 		"renderIcons": [{ "name": "C++", "src": "https://iswenzz.com/iswenzz/devicons/cpp.svg" }]
-	},
-	{
-		"title": "CoD4 Utility",
-		"sourceURL": "https://github.com/Iswenzz/CoD4-Utility",
-		"isOpenSource": true,
-		"cardImage": "https://iswenzz.com/iswenzz/projects/CoD4-Utility.jpg",
-		"renderUrl": "https://raw.githubusercontent.com/Iswenzz/CoD4-Utility/master/README.md",
-		"renderIcons": [
-			{ "name": "C#", "src": "https://iswenzz.com/iswenzz/devicons/csharp.svg" },
-			{ "name": ".NET", "src": "https://iswenzz.com/iswenzz/devicons/dotnet.svg" }
-		]
 	},
 	{
 		"title": "Q3COD4BSP",
