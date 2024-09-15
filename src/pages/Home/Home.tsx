@@ -2,6 +2,7 @@ import { FC } from "react";
 import { Header, TrailText } from "@izui/react";
 
 import sunset from "assets/images/background/sunset2.jpg";
+
 import { NavigationChevron } from "router";
 
 import { Contact, About, Levels, Projects } from "./components";

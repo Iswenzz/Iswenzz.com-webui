@@ -1,8 +1,8 @@
 import { FC, useMemo, useRef } from "react";
 import { Grid, Divider, Container, useTheme } from "@mui/material";
+import { TrailText, SpringGrid, Parallax } from "@izui/react";
 import classNames from "classnames";
 import random from "lodash/random";
-import { TrailText, SpringGrid, Parallax, useResponsive } from "@izui/react";
 
 import Project, { ProjectSource } from "./components/Project/Project";
 import ProjectPopup from "./components/ProjectPopup/ProjectPopup";
@@ -18,11 +18,7 @@ const Projects: FC = () => {
 
 	const projects = useRef<ProjectSource[]>(projectsSource);
 	const projectsHeight = useMemo(() => projects.current.map(() => random(100, 220)), []);
-
-	const projectsWidth = useResponsive({
-		desktopAndPortrait: 200,
-		mobile: 100
-	});
+	const projectsWidth = 200;
 
 	return (
 		<>
@@ -64,7 +60,7 @@ const Projects: FC = () => {
 					</SpringGrid>
 				</Grid>
 			</Grid>
-			<Parallax spacingTop="100px" />
+			<Parallax spacingTop="50px" />
 		</>
 	);
 };

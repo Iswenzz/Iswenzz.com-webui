@@ -48,7 +48,7 @@
 		{
 			"title": "SOFT_STACKS",
 			"points": [
-				"• .NET Winform WPF ANTLR",
+				"• .NET Winform ANTLR",
 				"• CMake Vcpkg Conan",
 				"• HLSL OpenGL OpenFX DirectX SharpDX",
 				"• GTest Greatest NUnit JUnit",

@@ -50,7 +50,7 @@ const Footer: FC = () => {
 			</Grid>
 			<Parallax className={scss.parallax} speed={20}>
 				<Typography align="center" color="textPrimary" variant="subtitle2" component="h3">
-					Copyright © Iswenzz 2017-2022
+					Copyright © Iswenzz 2017-2024
 				</Typography>
 			</Parallax>
 		</>

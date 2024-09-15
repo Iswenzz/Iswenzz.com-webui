@@ -48,30 +48,6 @@
 		]
 	},
 	{
-		"title": "IzEditor",
-		"sourceURL": "https://github.com/Iswenzz/IzEditor",
-		"isOpenSource": false,
-		"cardImage": "https://iswenzz.com/iswenzz/projects/IzEditor.jpg",
-		"renderUrl": "https://iswenzz.com/iswenzz/md/IzEditor.md",
-		"renderIcons": [
-			{ "name": "C#", "src": "https://iswenzz.com/iswenzz/devicons/csharp.svg" },
-			{ "name": ".NET", "src": "https://iswenzz.com/iswenzz/devicons/dotnet.svg" },
-			{ "name": "SharpDX", "src": "https://iswenzz.com/iswenzz/devicons/sharpdx.svg" }
-		]
-	},
-	{
-		"title": "IzNodeEditor",
-		"sourceURL": "https://github.com/Iswenzz/IzNodeEditor",
-		"isOpenSource": false,
-		"cardImage": "https://iswenzz.com/iswenzz/projects/IzNodeEditor.jpg",
-		"renderUrl": "https://iswenzz.com/iswenzz/md/IzNodeEditor.md",
-		"renderIcons": [
-			{ "name": "C#", "src": "https://iswenzz.com/iswenzz/devicons/csharp.svg" },
-			{ "name": ".NET", "src": "https://iswenzz.com/iswenzz/devicons/dotnet.svg" },
-			{ "name": "SharpDX", "src": "https://iswenzz.com/iswenzz/devicons/sharpdx.svg" }
-		]
-	},
-	{
 		"title": "IzFormatter",
 		"sourceURL": "https://github.com/Iswenzz/IzFormatter",
 		"isOpenSource": true,

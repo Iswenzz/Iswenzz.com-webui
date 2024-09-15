@@ -5,11 +5,11 @@
 	width: 100%;
 
 	@include Themes.darkMode {
-		background: radial-gradient(ellipse at bottom, #001c51, #090a0a 50%);
+		background: radial-gradient(ellipse at bottom, #3c0084, #0e0f14 50%);
 	}
 
 	@include Themes.lightMode {
-		background: radial-gradient(ellipse at top, #e5e5e5, #f4f4f4);
+		background: radial-gradient(ellipse at bottom, #e5e5e5, #f4f4f4);
 	}
 }
 

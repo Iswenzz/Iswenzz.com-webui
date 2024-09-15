@@ -18,9 +18,9 @@ const About: FC = () => (
 		alignItems="stretch"
 	>
 		<Intro />
-		<Parallax spacingTop="100px" />
+		<Parallax spacingTop="50px" />
 		<Skills />
-		<Parallax spacingTop="100px" />
+		<Parallax spacingTop="50px" />
 	</Grid>
 );
 
