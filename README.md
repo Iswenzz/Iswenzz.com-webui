@@ -1,6 +1,6 @@
 # Iswenzz.com
 
-[![Checks](https://img.shields.io/github/checks-status/Iswenzz/Iswenzz.com-webui/master?logo=github)](https://github.com/Iswenzz/Iswenzz.com-webui/actions)
+[![Checks](https://img.shields.io/github/check-runs/Iswenzz/Iswenzz.com-webui/master?logo=github)](https://github.com/Iswenzz/Iswenzz.com-webui/actions)
 [![CodeFactor](https://img.shields.io/codefactor/grade/github/Iswenzz/Iswenzz.com-webui?label=codefactor&logo=codefactor)](https://www.codefactor.io/repository/github/iswenzz/Iswenzz.com-webui)
 [![CodeCov](https://img.shields.io/codecov/c/github/Iswenzz/Iswenzz.com-webui?label=codecov&logo=codecov)](https://codecov.io/gh/Iswenzz/Iswenzz.com-webui)
 [![License](https://img.shields.io/github/license/Iswenzz/Iswenzz.com-webui?color=blue&logo=gitbook&logoColor=white)](https://github.com/Iswenzz/Iswenzz.com-webui/blob/master/LICENSE)
