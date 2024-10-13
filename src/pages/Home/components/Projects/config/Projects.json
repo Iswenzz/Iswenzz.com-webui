@@ -18,7 +18,7 @@
 		"cardImage": "https://iswenzz.com/iswenzz/projects/CTGP-R-Ghost-Downloader.jpg",
 		"renderUrl": "https://raw.githubusercontent.com/Iswenzz/CTGP-R-Ghost-Downloader/master/README.md",
 		"renderIcons": [
-			{ "name": "VB", "src": "https://iswenzz.com/iswenzz/devicons/vb.svg" },
+			{ "name": "C#", "src": "https://iswenzz.com/iswenzz/devicons/csharp.svg" },
 			{ "name": ".NET", "src": "https://iswenzz.com/iswenzz/devicons/dotnet.svg" }
 		]
 	}
