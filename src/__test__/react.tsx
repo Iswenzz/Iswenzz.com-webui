@@ -3,7 +3,7 @@ import { render, RenderResult, RenderOptions } from "@testing-library/react";
 import { FC, PropsWithChildren, ReactElement } from "react";
 import { Provider } from "react-redux";
 
-import { DarkTheme, Themes } from "@izui/react";
+import { getThemeByName, Themes } from "@izui/react";
 import { AppStore, State, setupStore } from "App/store";
 import aState from "./StateBuilder";
 
@@ -17,7 +17,7 @@ export const customRender = (
 ): CustomRenderResult => {
 	const wrapper: FC<PropsWithChildren> = ({ children }) => (
 		<Provider store={store}>
-			<Themes theme={DarkTheme}>{children}</Themes>
+			<Themes theme={getThemeByName("dark")}>{children}</Themes>
 		</Provider>
 	);
 	return { store, ...render(ui, { wrapper, ...renderOptions }) };
@@ -36,7 +36,7 @@ const buildRender = <Props, Queries>({
 			const newStore = setupStore(newState);
 			return view.rerender(
 				<Provider store={newStore}>
-					<Themes theme={DarkTheme}>
+					<Themes theme={getThemeByName("dark")}>
 						<Component {...defaultProps} {...newProps} />
 					</Themes>
 				</Provider>

@@ -11,8 +11,8 @@ import NavBarDesktop from "./NavBarDesktop/NavBarDesktop";
 import NavBarMobile from "./NavBarMobile/NavBarMobile";
 import { animation } from "./config";
 
-import scss from "./NavBar.module.scss";
 import NavBarAnimation from "./NavBarAnimation/NavBarAnimation";
+import scss from "./NavBar.module.scss";
 
 /**
  * Navigation container with links to different sections.
@@ -21,10 +21,10 @@ const NavBar: FC<AppBarProps> = () => {
 	const dispatch = useDispatch();
 	const pastWindowHeight = useSelector(isPastWindowHeight);
 
-	const { isDarkTheme } = useTheme();
+	const { isDark } = useTheme();
 	const [isDrawerOpen, setDrawerOpen] = useState(false);
 
-	const toggleThemeMode = () => dispatch(setTheme(isDarkTheme ? "light" : "dark"));
+	const toggleThemeMode = () => dispatch(setTheme(isDark ? "light" : "dark"));
 
 	const toggleDrawer = (visible: boolean) => {
 		setDrawerOpen(visible);

@@ -14,6 +14,7 @@ import scss from "./LevelMobile.module.scss";
  */
 const LevelMobile: FC<Props> = ({ level, isFlipped }) => {
 	const { theme } = useTheme();
+
 	return (
 		<Container component="section" className={classNames(scss.back, scss[theme])}>
 			<Grid container className={scss.grid} justifyContent="center" alignItems="center">

@@ -5,8 +5,8 @@ import { useWindowScroll } from "react-use";
 
 import { isModalActive, getTheme, setPastWindowHeight, isPastWindowHeight } from "App/redux";
 
-import DarkTheme from "./app/Dark/Dark";
-import LightTheme from "./app/Light/Light";
+import dark from "./Dark/Dark";
+import light from "./Light/Light";
 
 /**
  * App themes.
@@ -33,8 +33,8 @@ const Themes: FC<PropsWithChildren> = ({ children }) => {
 	);
 };
 
-registerTheme("dark", DarkTheme);
-registerTheme("light", LightTheme);
+registerTheme("dark", dark);
+registerTheme("light", light);
 
 initializeHighlight();
 

@@ -33,7 +33,7 @@ const ProjectPopup: FC<ProjectPopupProps> = ({ projects }) => {
 	const index = useSelector(getProjectModalIndex);
 	const open = useSelector(getProjectModalOpen);
 
-	const { isDarkTheme } = useThemeMode({});
+	const { isDark } = useThemeMode({});
 	const { width, height } = useWindowSize();
 
 	const [list, { updateAt }] = useList(new Array(projects.length).fill(<Fragment />));
@@ -73,7 +73,7 @@ const ProjectPopup: FC<ProjectPopupProps> = ({ projects }) => {
 			<Fade in={open}>
 				<section>
 					<ViewPager
-						background={isDarkTheme ? "#202326" : "#f4f4f4"}
+						background={isDark ? "#202326" : "#f4f4f4"}
 						index={index}
 						config={viewPagerConfig}
 						onChange={onIndexChange}

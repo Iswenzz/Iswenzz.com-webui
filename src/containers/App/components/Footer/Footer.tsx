@@ -1,8 +1,9 @@
 import { FC } from "react";
 import { Grid, Fab, Tooltip, Typography, useTheme } from "@mui/material";
 import { FaDiscord, FaYoutube, FaGithub } from "react-icons/fa";
-import { Parallax } from "@izui/react";
 import classNames from "classnames";
+
+import { Parallax } from "components";
 
 import scss from "./Footer.module.scss";
 
@@ -11,6 +12,7 @@ import scss from "./Footer.module.scss";
  */
 const Footer: FC = () => {
 	const { theme } = useTheme();
+
 	return (
 		<>
 			<Grid container id="footer" component="footer">
@@ -22,26 +24,18 @@ const Footer: FC = () => {
 					alignItems="center"
 				>
 					<li>
-						<Fab
-							href="https://github.com/iswenzz"
-							className={scss.icons}
-							color="primary"
-						>
-							<FaGithub size={24} color="silver" />
+						<Fab href="https://github.com/iswenzz" className={scss.icons}>
+							<FaGithub size={24} color="dimgray" />
 						</Fab>
 					</li>
 					<li>
-						<Fab
-							href="https://www.youtube.com/c/iswenzz"
-							className={scss.icons}
-							color="primary"
-						>
+						<Fab href="https://www.youtube.com/c/iswenzz" className={scss.icons}>
 							<FaYoutube size={24} color="#FF0000" />
 						</Fab>
 					</li>
 					<li>
 						<Tooltip disableFocusListener disableTouchListener title="Iswenzz">
-							<Fab color="primary" className={scss.icons}>
+							<Fab className={scss.icons}>
 								<FaDiscord size={24} color="#7289DA" />
 							</Fab>
 						</Tooltip>

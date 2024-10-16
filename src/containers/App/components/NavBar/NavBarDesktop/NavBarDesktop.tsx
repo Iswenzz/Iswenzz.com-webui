@@ -16,6 +16,7 @@ const NavBarDesktop: FC<Props> = ({ toggleDrawer, toggleThemeMode }) => {
 		icon: [<MdFlare size={24} key="flare" />, <MdBrightness3 size={24} key="brightness" />],
 		color: ["goldenrod", "gainsboro"]
 	});
+
 	return (
 		<Grid
 			className={scss.buttons}

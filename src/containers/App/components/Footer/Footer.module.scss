@@ -8,6 +8,11 @@
 	@include Themes.lightMode {
 		background: radial-gradient(ellipse at bottom, #fdfdfd, #e2e2e2);
 	}
+
+	a,
+	button {
+		background: transparent;
+	}
 }
 
 .icons {

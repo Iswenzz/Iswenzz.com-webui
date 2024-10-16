@@ -14,6 +14,7 @@ import scss from "./LevelDesktop.module.scss";
  */
 const LevelDesktop: FC<Props> = ({ level, isFlipped }) => {
 	const { theme } = useTheme();
+
 	return (
 		<Container component="section" className={classNames(scss.back, scss[theme])}>
 			<Grid container>

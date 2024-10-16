@@ -11,6 +11,7 @@ import { isNavbarActive, isPastWindowHeight } from "App/redux";
 const NavBarAnimation: FC<Props> = ({ children }) => {
 	const navbarVisible = useSelector(isNavbarActive);
 	const pastWindowHeight = useSelector(isPastWindowHeight);
+
 	return (
 		<nav>
 			<AnimatePresence>{!pastWindowHeight && navbarVisible && children}</AnimatePresence>

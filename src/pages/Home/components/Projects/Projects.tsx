@@ -1,8 +1,10 @@
 import { FC, useMemo, useRef } from "react";
 import { Grid, Divider, Container, useTheme } from "@mui/material";
-import { TrailText, SpringGrid, Parallax } from "@izui/react";
+import { TrailText, SpringGrid } from "@izui/react";
 import classNames from "classnames";
 import random from "lodash/random";
+
+import { Parallax } from "components";
 
 import Project, { ProjectSource } from "./components/Project/Project";
 import ProjectPopup from "./components/ProjectPopup/ProjectPopup";

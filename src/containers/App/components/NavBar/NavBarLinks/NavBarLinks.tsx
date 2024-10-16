@@ -9,6 +9,7 @@ import scss from "../NavBar.module.scss";
  */
 const NavBarLinks: FC<Props> = ({ toggleDrawer }) => {
 	const handleClose = () => toggleDrawer(false);
+
 	return (
 		<>
 			<li>

@@ -1,11 +1,12 @@
 import { FC, useRef } from "react";
 import { Grid, Container, useTheme } from "@mui/material";
-import { Parallax, TrailText, animationScaleFadeDown, useThemeMode } from "@izui/react";
+import { TrailText, animationScaleFadeDown, useThemeMode } from "@izui/react";
+import white from "@izui/assets/images/background/white.jpg";
 import { motion, useInView } from "framer-motion";
 import classNames from "classnames";
 
 import ishalgen from "assets/images/aion/ishalgen2.jpg";
-import white from "@izui/assets/images/background/white.jpg";
+import { Parallax } from "components";
 
 import ContactForm from "./ContactForm/ContactForm";
 import scss from "./Contact.module.scss";

@@ -12,6 +12,7 @@ import Home from "Home/Home";
  */
 const AnimatedRoutes: FC = () => {
 	const location = useLocation();
+
 	return (
 		<AnimatePresence mode="wait">
 			<Routes key={location.pathname} location={location}>
