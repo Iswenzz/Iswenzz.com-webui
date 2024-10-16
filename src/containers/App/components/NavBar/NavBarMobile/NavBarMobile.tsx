@@ -15,7 +15,7 @@ import scss from "../NavBar.module.scss";
  */
 const NavBarMobile: FC<Props> = ({ toggleDrawer, toggleThemeMode, isDrawerOpen }) => {
 	const { icon, color } = useThemeMode({
-		icon: [<MdFlare key="flare" />, <MdBrightness3 key="brightness" />],
+		icon: [<MdFlare size={24} key="flare" />, <MdBrightness3 size={24} key="brightness" />],
 		color: ["goldenrod", "gainsboro"]
 	});
 
@@ -51,7 +51,7 @@ const NavBarMobile: FC<Props> = ({ toggleDrawer, toggleThemeMode, isDrawerOpen }
 						size="small"
 						onClick={handleToggle}
 					>
-						<MdMenu />
+						<MdMenu size={24} />
 					</Fab>
 				</li>
 			</Grid>
