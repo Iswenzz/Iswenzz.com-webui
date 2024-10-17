@@ -1,5 +1,5 @@
 import { FC, useRef } from "react";
-import { Grid, Container, useTheme } from "@mui/material";
+import { Grid, Container } from "@mui/material";
 import { TrailText, animationScaleFadeDown, useThemeMode } from "@izui/react";
 import white from "@izui/assets/images/background/white.jpg";
 import { motion, useInView } from "framer-motion";
@@ -15,7 +15,6 @@ import scss from "./Contact.module.scss";
  * Contact container to send an email.
  */
 const Contact: FC = () => {
-	const { theme } = useTheme();
 	const ref = useRef<HTMLDivElement>(null);
 	const inView = useInView(ref);
 
@@ -24,10 +23,11 @@ const Contact: FC = () => {
 	});
 
 	return (
-		<>
-			<Parallax className={scss.contactParallax} speed={-12} image={parallaxImage}>
+		<Grid className={scss.contact} component="section">
+			<Parallax className={scss.parallax} speed={-12} image={parallaxImage}>
 				<TrailText
-					className={classNames(scss.contactTypo, "poiret-big", "bold", "noselect")}
+					className={classNames(scss.typo, "poiret-big", "bold", "noselect")}
+					position="relative"
 					color="textPrimary"
 					align="center"
 					variant="h2"
@@ -36,11 +36,7 @@ const Contact: FC = () => {
 					CONTACT_HEADER
 				</TrailText>
 			</Parallax>
-			<Grid
-				id="contact"
-				className={classNames(scss.contact, scss[theme])}
-				component="section"
-			>
+			<Grid id="contact" className={scss.grid}>
 				<Container ref={ref}>
 					<motion.div
 						initial="exit"
@@ -51,7 +47,7 @@ const Contact: FC = () => {
 					</motion.div>
 				</Container>
 			</Grid>
-		</>
+		</Grid>
 	);
 };
 

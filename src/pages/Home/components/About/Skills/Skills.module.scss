@@ -2,11 +2,11 @@
 
 .skills {
 	@include Themes.darkMode {
-		background: radial-gradient(ellipse at bottom, #0e0f14, #181a21);
+		background: radial-gradient(ellipse at top, #1b1d26, #0e0f14 70%);
 	}
 
 	@include Themes.lightMode {
-		background: radial-gradient(ellipse at bottom, #e5e5e5, #f4f4f4);
+		background: radial-gradient(ellipse at top, white, #e5e5e5 70%);
 	}
 }
 

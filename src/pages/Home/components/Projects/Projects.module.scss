@@ -1,20 +1,17 @@
 @use "@izui/styles/scss/Themes";
 
 .projects {
-	list-style-type: none;
-	padding: 50px 0;
-
 	@include Themes.darkMode {
 		background: radial-gradient(ellipse at center, #3c0084, #0e0f14 50%);
 	}
 
 	@include Themes.lightMode {
-		background: radial-gradient(ellipse at top, #e5e5e5, #f4f4f4);
+		background: radial-gradient(ellipse at center, #7300ff, #e5e5e5 50%);
 	}
 }
 
 .container {
-	padding: 50px;
+	padding: 100px 0 20px;
 }
 
 .divider {

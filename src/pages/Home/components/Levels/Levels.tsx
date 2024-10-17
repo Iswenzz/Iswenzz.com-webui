@@ -1,8 +1,7 @@
 import { FC, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Divider, Container, Grid, useTheme } from "@mui/material";
+import { Divider, Container, Grid } from "@mui/material";
 import { Carousel, Text, animationScaleFadeUp, useResponsive } from "@izui/react";
-import classNames from "classnames";
 
 import Level, { LevelSource } from "./components/Level/Level";
 import levelProjectsJson from "./Levels.json";
@@ -14,7 +13,6 @@ const levels: LevelSource[] = levelProjectsJson;
  * Embla carousel container with all level design flip cards.
  */
 const Levels: FC = () => {
-	const { theme } = useTheme();
 	const ref = useRef<HTMLDivElement>(null);
 	const inView = useInView(ref);
 
@@ -24,13 +22,7 @@ const Levels: FC = () => {
 	});
 
 	return (
-		<Grid
-			ref={ref}
-			component="section"
-			justifyContent="center"
-			alignItems="center"
-			className={classNames(scss.gradient, scss[theme])}
-		>
+		<Grid ref={ref} className={scss.gradient} component="section">
 			<Container component="header" className={scss.container}>
 				<motion.div
 					variants={animationScaleFadeUp()}

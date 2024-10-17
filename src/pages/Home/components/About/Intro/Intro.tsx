@@ -1,8 +1,10 @@
 import { FC, useRef } from "react";
-import { Container, Divider, Grid, useTheme } from "@mui/material";
+import { Container, Divider, Grid } from "@mui/material";
 import { Text, animationUp } from "@izui/react";
 import { motion, useInView } from "framer-motion";
 import classNames from "classnames";
+
+import { Parallax } from "components";
 
 import aboutJson from "../About.json";
 import scss from "./Intro.module.scss";
@@ -13,13 +15,12 @@ export const about: AboutInfo = aboutJson;
  * Portfolio introduction.
  */
 const Intro: FC = () => {
-	const { theme } = useTheme();
 	const ref = useRef<HTMLDivElement>(null);
 	const inView = useInView(ref);
 
 	return (
 		<Grid
-			className={classNames(scss.intro, scss[theme])}
+			className={scss.intro}
 			component="section"
 			justifyContent="center"
 			alignItems="center"
@@ -64,6 +65,7 @@ const Intro: FC = () => {
 					</Container>
 				</motion.div>
 			</Grid>
+			<Parallax spacingTop="50px" />
 		</Grid>
 	);
 };

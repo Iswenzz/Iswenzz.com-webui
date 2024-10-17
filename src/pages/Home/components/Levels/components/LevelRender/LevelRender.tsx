@@ -1,8 +1,7 @@
 import { FC } from "react";
-import { Grid, Tooltip, Container, useTheme } from "@mui/material";
+import { Grid, Tooltip, Container } from "@mui/material";
 import { HintClick, Image, Forward, preventDefault, useResponsive } from "@izui/react";
 import { v4 as uuidv4 } from "uuid";
-import classNames from "classnames";
 
 import { LevelSource } from "../Level/Level";
 import scss from "./LevelRender.module.scss";
@@ -12,8 +11,6 @@ import scss from "./LevelRender.module.scss";
  * @returns
  */
 const LevelRender: FC<Props> = ({ level }) => {
-	const { theme } = useTheme();
-
 	const iconSize = useResponsive({
 		desktop: "64",
 		mobile: "32"
@@ -24,7 +21,7 @@ const LevelRender: FC<Props> = ({ level }) => {
 			itemScope
 			itemType="http://schema.org/3DModel"
 			component="section"
-			className={classNames(scss.front, scss[theme])}
+			className={scss.front}
 			style={{ backgroundImage: `url(${level.image})` }}
 		>
 			<meta itemProp="image" content={level.image} />

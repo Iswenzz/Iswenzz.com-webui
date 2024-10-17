@@ -12,6 +12,10 @@
 	a,
 	button {
 		background: transparent;
+
+		&:hover {
+			background: transparent;
+		}
 	}
 }
 

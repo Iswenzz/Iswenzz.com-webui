@@ -1,14 +1,12 @@
 @use "@izui/styles/scss/Themes";
 
 .intro {
-	overflow: hidden;
-
 	@include Themes.darkMode {
-		background: radial-gradient(ellipse at top, #0e0f14, #181a21);
+		background: radial-gradient(ellipse at bottom, #1b1d26, #0e0f14 70%);
 	}
 
 	@include Themes.lightMode {
-		background: radial-gradient(ellipse at top, #e5e5e5, #f4f4f4);
+		background: radial-gradient(ellipse at bottom, white, #e5e5e5 70%);
 	}
 }
 

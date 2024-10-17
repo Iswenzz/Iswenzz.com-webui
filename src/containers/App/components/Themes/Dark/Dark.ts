@@ -1,7 +1,7 @@
 import { ThemeOptions } from "@mui/material";
 
 const theme: ThemeOptions = {
-	theme: "dark",
+	name: "dark",
 	isDark: true,
 	typography: {
 		h1: {

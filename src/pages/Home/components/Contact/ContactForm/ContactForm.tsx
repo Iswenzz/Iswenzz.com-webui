@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { useTranslation } from "react-i18next";
 import { Avatar, Container, Grid, Button, TextField } from "@mui/material";
-import { FormikHelpers, useFormik } from "formik";
+import { useFormik } from "formik";
 import classNames from "classnames";
 
 import { Loader, Captcha, CaptchaCopyright, useCaptcha } from "@izui/react";
@@ -22,7 +22,7 @@ const ContactForm: FC = () => {
 	const captcha = useCaptcha();
 	const [contact, { loading, error, data }] = useContactMutation();
 
-	const success = data?.contact || false;
+	const success = !!data?.contact;
 	const fail = !!error;
 
 	const buttonStyle = classNames(scss.buttonDefault, {
@@ -30,10 +30,7 @@ const ContactForm: FC = () => {
 		[scss.buttonFail]: fail
 	});
 
-	const onSubmit = async (
-		values: ContactFormValues,
-		formik: FormikHelpers<ContactFormValues>
-	) => {
+	const onSubmit = async (values: ContactFormValues) => {
 		if (!captcha.current) return;
 		await captcha.current.executeAsync();
 		await contact({
@@ -45,7 +42,6 @@ const ContactForm: FC = () => {
 			}
 		});
 		captcha.current.reset();
-		formik.setSubmitting(false);
 	};
 
 	const formik = useFormik({ initialValues: contactFormInitial, onSubmit });

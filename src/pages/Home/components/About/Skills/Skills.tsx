@@ -1,8 +1,9 @@
 import { FC, useRef } from "react";
-import { Container, Divider, Grid, useTheme } from "@mui/material";
+import { Container, Divider, Grid } from "@mui/material";
 import { motion, useInView } from "framer-motion";
-import classNames from "classnames";
 import { Spacing, Text, TrailText, animationLeft, animationRight } from "@izui/react";
+
+import { Parallax } from "components";
 
 import { AboutInfo } from "../Intro/Intro";
 import aboutJson from "../About.json";
@@ -14,14 +15,13 @@ export const about: AboutInfo = aboutJson;
  * Technological skills.
  */
 const Skills: FC = () => {
-	const { theme } = useTheme();
 	const ref = useRef<HTMLDivElement>(null);
 	const inView = useInView(ref);
 	const [web, software, level, webStacks, softwareStacks, editors] = about.skills;
 
 	return (
 		<Grid
-			className={classNames(scss.skills, scss[theme])}
+			className={scss.skills}
 			component="section"
 			justifyContent="center"
 			alignItems="center"
@@ -105,6 +105,7 @@ const Skills: FC = () => {
 					</Grid>
 				</motion.div>
 			</Container>
+			<Parallax spacingTop="50px" />
 		</Grid>
 	);
 };

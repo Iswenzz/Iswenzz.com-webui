@@ -1,6 +1,6 @@
 @use "@izui/styles/scss/Themes";
 
-.contact {
+.grid {
 	padding-top: 80px;
 	padding-bottom: 120px;
 
@@ -9,15 +9,15 @@
 	}
 
 	@include Themes.lightMode {
-		background: radial-gradient(ellipse at top, #e5e5e5, #f4f4f4);
+		background: radial-gradient(ellipse at bottom, #dbbdff, #e5e5e5 70%);
 	}
 }
 
-.contactParallax {
+.parallax {
 	box-shadow: 0 0 5px 6px rgba(60, 60, 60, 0.107);
 }
 
-.contactTypo {
+.typo {
 	user-select: none;
 	padding-top: 200px;
 	padding-bottom: 200px;
