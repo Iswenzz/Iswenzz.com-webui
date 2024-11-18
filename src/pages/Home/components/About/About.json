@@ -5,13 +5,7 @@
 	"skills": [
 		{
 			"title": "WEB_DEV",
-			"points": [
-				"• JavaScript TypeScript",
-				"• HTML CSS SCSS",
-				"• PHP SEO",
-				"• REST & GraphQL APIs",
-				"• Microservices"
-			]
+			"points": ["• TypeScript SCSS", "• REST & GraphQL APIs", "• Microservices", "• SEO"]
 		},
 		{
 			"title": "SOFT_DEV",
@@ -19,7 +13,7 @@
 				"• C C++ C# GSC",
 				"• Java Python",
 				"• Shell Powershell",
-				"• Assembly x86 x64",
+				"• Assembly x86",
 				"• CI CD Jira"
 			]
 		},
@@ -36,23 +30,23 @@
 		{
 			"title": "WEB_STACKS",
 			"points": [
-				"• React Redux Apollo Vite Webpack",
-				"• Next Electron Three",
+				"• Next React Redux Apollo Vite Webpack",
 				"• Nest Express TypeORM",
-				"• SpringBoot Symfony",
-				"• MySQL MariaDB MongoDB",
-				"• Vitest Jest Playwright Puppeteer",
-				"• MUI Bootstrap Tailwind"
+				"• Tauri Three",
+				"• SpringBoot",
+				"• MariaDB MongoDB",
+				"• Vitest Jest Playwright",
+				"• MUI Tailwind"
 			]
 		},
 		{
 			"title": "SOFT_STACKS",
 			"points": [
-				"• .NET Winform ANTLR",
+				"• .NET Winforms",
 				"• CMake Vcpkg Conan",
-				"• HLSL OpenGL OpenFX DirectX SharpDX",
+				"• HLSL OpenGL OpenFX DirectX",
 				"• GTest Greatest NUnit JUnit",
-				"• Docker ANTLR"
+				"• Docker"
 			]
 		},
 		{
@@ -60,7 +54,7 @@
 			"points": [
 				"• Unreal Engine & Unity",
 				"• Radiant / GtkRadiant",
-				"• Maya Blender, 3DS Max",
+				"• Blender, Maya, 3DS Max",
 				"• VEGAS & Adobe Premiere",
 				"• Photoshop Figma"
 			]

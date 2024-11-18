@@ -82,6 +82,9 @@
 		"isOpenSource": true,
 		"cardImage": "https://iswenzz.com/iswenzz/projects/gscunit.jpg",
 		"renderUrl": "https://raw.githubusercontent.com/Iswenzz/gscunit/master/README.md",
-		"renderIcons": [{ "name": "GSC", "src": "https://iswenzz.com/iswenzz/devicons/gsc.svg" }]
+		"renderIcons": [
+			{ "name": "Typescript", "src": "https://iswenzz.com/iswenzz/devicons/typescript.svg" },
+			{ "name": "GSC", "src": "https://iswenzz.com/iswenzz/devicons/gsc.svg" }
+		]
 	}
 ]

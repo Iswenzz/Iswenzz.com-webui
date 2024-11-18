@@ -9,6 +9,7 @@
 			{ "name": "Typescript", "src": "https://iswenzz.com/iswenzz/devicons/typescript.svg" },
 			{ "name": "React", "src": "https://iswenzz.com/iswenzz/devicons/react.svg" },
 			{ "name": "Redux", "src": "https://iswenzz.com/iswenzz/devicons/redux.svg" },
+			{ "name": "MUI", "src": "https://iswenzz.com/iswenzz/devicons/mui.svg" },
 			{ "name": "Nest", "src": "https://iswenzz.com/iswenzz/devicons/nest.svg" },
 			{ "name": "TypeORM", "src": "https://iswenzz.com/iswenzz/devicons/typeorm.svg" },
 			{ "name": "GraphQL", "src": "https://iswenzz.com/iswenzz/devicons/graphql.svg" }
@@ -79,7 +80,7 @@
 		"renderIcons": [
 			{ "name": "Typescript", "src": "https://iswenzz.com/iswenzz/devicons/typescript.svg" },
 			{ "name": "React", "src": "https://iswenzz.com/iswenzz/devicons/react.svg" },
-			{ "name": "Material UI", "src": "https://iswenzz.com/iswenzz/devicons/mui.svg" }
+			{ "name": "MUI", "src": "https://iswenzz.com/iswenzz/devicons/mui.svg" }
 		]
 	},
 	{
