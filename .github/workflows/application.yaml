@@ -1,57 +1,34 @@
 name: Application
 
 on:
-  push:
-    branches: [master]
-  pull_request:
-    branches: [master]
+    push:
+        branches: [master]
+    pull_request:
+        branches: [master]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-      with:
-        submodules: "recursive"
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+              with:
+                  submodules: "recursive"
 
-    - name: Build
-      run: |
-        yarn --no-immutable
-        yarn build
+            - name: Build
+              run: |
+                  yarn --no-immutable
+                  yarn build
 
-  tests:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-      with:
-        submodules: "recursive"
+    lint:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+              with:
+                  submodules: "recursive"
 
-    - name: Tests
-      run: |
-        yarn --no-immutable
-        yarn test
-
-    - name: CodeCov
-      uses: codecov/codecov-action@v2
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }}
-        files: ./coverage/cobertura-coverage.xml
-        flags: unittests
-        name: codecov-umbrella
-        fail_ci_if_error: true
-        verbose: true
-
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-      with:
-        submodules: "recursive"
-
-    - name: Lint
-      run: |
-        yarn --no-immutable
-        yarn lint
+            - name: Lint
+              run: |
+                  yarn --no-immutable
+                  yarn lint

@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+	@apply bg-[#0b0b0e] text-gray-300 scroll-smooth;
+}
+
+progress::-webkit-progress-value {
+	@apply transition-[width] ease-out duration-700;
+}

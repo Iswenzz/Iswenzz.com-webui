@@ -1,0 +1,58 @@
+[
+	{
+		"name": "Web Development",
+		"points": ["• TypeScript SCSS", "• REST & GraphQL APIs", "• Microservices", "• SEO"]
+	},
+	{
+		"name": "Software Development",
+		"points": [
+			"• C C++ C# GSC",
+			"• Java Python",
+			"• Shell Powershell",
+			"• Assembly x86",
+			"• CI CD Jira"
+		]
+	},
+	{
+		"name": "Level Design",
+		"points": [
+			"• BSP Blockout & Landscape",
+			"• Detail geometry",
+			"• Shader / Material creation",
+			"• Lighting, FX SFX placement",
+			"• Level optimization"
+		]
+	},
+	{
+		"name": "Web Stacks",
+		"points": [
+			"• Next React Redux Apollo Vite Webpack",
+			"• Nest Express TypeORM",
+			"• Tauri Three",
+			"• SpringBoot",
+			"• MariaDB MongoDB",
+			"• Vitest Jest Playwright",
+			"• MUI Tailwind"
+		]
+	},
+	{
+		"name": "Software Stacks",
+		"points": [
+			"• .NET Winforms",
+			"• CMake Vcpkg Conan",
+			"• HLSL OpenGL OpenFX DirectX",
+			"• GTest Greatest NUnit JUnit",
+			"• Docker"
+		]
+	},
+	{
+		"name": "Softwares",
+		"points": [
+			"• Unreal Engine & Unity",
+			"• Radiant / GtkRadiant",
+			"• Blender, Maya, 3DS Max",
+			"• VEGAS & Adobe Premiere",
+			"• Photoshop Figma"
+		]
+	}
+]

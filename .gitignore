@@ -1,9 +1,12 @@
 .idea/*
 .vs/*
 .vscode/*
+.next/*
+.vercel/*
 node_modules/*
 coverage/*
 build/*
+out/*
 
 .yarn/*
 !.yarn/cache

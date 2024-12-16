@@ -1,0 +1,88 @@
+[
+	{
+		"name": "IW3SR",
+		"repository": "https://github.com/Iswenzz/IW3SR",
+		"open": false,
+		"image": "/images/projects/IW3SR.jpg",
+		"markdown": "https://raw.githubusercontent.com/Iswenzz/IW3SR.Release/master/README.md",
+		"icons": [
+			{ "name": "C++", "src": "/images/devicons/cpp.svg" },
+			{ "name": "Assembly", "src": "/images/devicons/assembly.svg" }
+		]
+	},
+	{
+		"name": "SR Speedrun",
+		"repository": "https://github.com/Iswenzz/SR-Speedrun",
+		"open": false,
+		"image": "/images/projects/SR-Speedrun.jpg",
+		"markdown": "/markdown/SR-Speedrun.md",
+		"icons": [
+			{ "name": "GSC", "src": "/images/devicons/gsc.svg" },
+			{ "name": "C", "src": "/images/devicons/c.svg" },
+			{ "name": "C++", "src": "/images/devicons/cpp.svg" }
+		]
+	},
+	{
+		"name": "SR Deathrun",
+		"repository": "https://github.com/Iswenzz/SR-Deathrun",
+		"open": false,
+		"image": "/images/projects/SR-Deathrun.jpg",
+		"markdown": "/markdown/SR-Deathrun.md",
+		"icons": [
+			{ "name": "GSC", "src": "/images/devicons/gsc.svg" },
+			{ "name": "C", "src": "/images/devicons/c.svg" },
+			{ "name": "C++", "src": "/images/devicons/cpp.svg" }
+		]
+	},
+	{
+		"name": "SR BattleRoyale",
+		"repository": "https://github.com/Iswenzz/SR-BattleRoyale",
+		"open": true,
+		"image": "/images/projects/SR-BattleRoyale.jpg",
+		"markdown": "https://raw.githubusercontent.com/Iswenzz/SR-BattleRoyale/master/README.md",
+		"icons": [{ "name": "GSC", "src": "/images/devicons/gsc.svg" }]
+	},
+	{
+		"name": "CGSC",
+		"repository": "https://github.com/Iswenzz/CGSC",
+		"open": true,
+		"image": "/images/projects/CGSC.jpg",
+		"markdown": "https://raw.githubusercontent.com/Iswenzz/CGSC/master/README.md",
+		"icons": [{ "name": "C", "src": "/images/devicons/c.svg" }]
+	},
+	{
+		"name": "GSCLIB",
+		"repository": "https://github.com/Iswenzz/gsclib",
+		"open": true,
+		"image": "/images/projects/gsclib.jpg",
+		"markdown": "https://raw.githubusercontent.com/Iswenzz/gsclib/master/README.md",
+		"icons": [{ "name": "C", "src": "/images/devicons/c.svg" }]
+	},
+	{
+		"name": "CoD4 DM1",
+		"repository": "https://github.com/Iswenzz/CoD4-DM1",
+		"open": true,
+		"image": "/images/projects/CoD4-DM1.jpg",
+		"markdown": "https://raw.githubusercontent.com/Iswenzz/CoD4-DM1/master/README.md",
+		"icons": [{ "name": "C++", "src": "/images/devicons/cpp.svg" }]
+	},
+	{
+		"name": "Q3COD4BSP",
+		"repository": "https://github.com/Iswenzz/Q3COD4BSP",
+		"open": true,
+		"image": "/images/projects/Q3COD4BSP.jpg",
+		"markdown": "https://raw.githubusercontent.com/Iswenzz/Q3COD4BSP/master/README.md",
+		"icons": [{ "name": "Python", "src": "/images/devicons/python.svg" }]
+	},
+	{
+		"name": "gscunit",
+		"repository": "https://github.com/Iswenzz/gscunit",
+		"open": true,
+		"image": "/images/projects/gscunit.jpg",
+		"markdown": "https://raw.githubusercontent.com/Iswenzz/gscunit/master/README.md",
+		"icons": [
+			{ "name": "Typescript", "src": "/images/devicons/typescript.svg" },
+			{ "name": "GSC", "src": "/images/devicons/gsc.svg" }
+		]
+	}
+]

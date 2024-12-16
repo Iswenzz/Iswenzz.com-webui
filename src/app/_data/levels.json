@@ -1,0 +1,74 @@
+[
+	{
+		"name": "Mirrors Edge",
+		"image": "/images/levels/mp_dr_mirrors_edge/2.jpg",
+		"description": "This project is a detailed recreation of the prologue level from the game *Mirror's Edge*, meticulously designed to capture the essence and visual style of the original game. The map takes full advantage of the capabilities of the Call of Duty 4 game engine, showcasing its flexibility and technical potential. Every aspect of the design pushes the engine to its absolute limits, delivering an immersive and visually striking experience that blends the unique aesthetics of *Mirror's Edge* with the mechanics of Call of Duty 4.",
+		"url": "https://www.youtube.com/watch?v=DgjmWXsrc8E",
+		"icons": [
+			{ "name": "Radiant", "src": "/images/devicons/radiant.svg" },
+			{ "name": "Maya", "src": "/images/devicons/maya.svg" },
+			{ "name": "3DS Max", "src": "/images/devicons/3ds-max.svg" },
+			{ "name": "Photoshop", "src": "/images/devicons/photoshop.svg" }
+		]
+	},
+	{
+		"name": "Train Rush",
+		"image": "/images/levels/mp_dr_train_rush/1.jpg",
+		"description": "This project is a faithful recreation of the iconic Train Rush level from the game A Hat in Time, featuring all the high-speed excitement and platforming challenges. As a hidden bonus, the map also includes a secret recreation of the Time Rift - The Moon level, adding an extra layer of discovery and nostalgia. The entire project was carefully crafted over the course of approximately one month, showcasing impressive attention to detail and dedication to capturing the charm and atmosphere of the original game.",
+		"url": "https://www.youtube.com/watch?v=PpfoMNMNZ5w",
+		"icons": [
+			{ "name": "Radiant", "src": "/images/devicons/radiant.svg" },
+			{ "name": "Maya", "src": "/images/devicons/maya.svg" },
+			{ "name": "3DS Max", "src": "/images/devicons/3ds-max.svg" },
+			{ "name": "Photoshop", "src": "/images/devicons/photoshop.svg" }
+		]
+	},
+	{
+		"name": "Blackout",
+		"image": "/images/levels/mp_br_blackout/1.jpg",
+		"description": "This map is specifically designed to support over 30 players, offering an expansive and dynamic battlefield tailored for the SR BattleRoyale mod. Built with the full capabilities of the Call of Duty 4 game engine, the map maximizes performance and gameplay features, pushing the engine to its absolute limits. The result is a large-scale, immersive experience that blends fast-paced action with the strategic elements of a battle royale setting.",
+		"icons": [
+			{ "name": "Radiant", "src": "/images/devicons/radiant.svg" },
+			{ "name": "Maya", "src": "/images/devicons/maya.svg" },
+			{ "name": "3DS Max", "src": "/images/devicons/3ds-max.svg" },
+			{ "name": "Speedtree", "src": "/images/devicons/speedtree.svg" },
+			{ "name": "Photoshop", "src": "/images/devicons/photoshop.svg" },
+			{ "name": "World Machine", "src": "/images/devicons/worldmachine.svg" }
+		]
+	},
+	{
+		"name": "Medieval Village",
+		"image": "/images/levels/medieval_village/1.jpg",
+		"description": "This is a meticulously crafted Medieval village scene, brought to life using Unreal Engine 4. The environment captures the charm and rustic beauty of a traditional village, featuring cobblestone streets, wooden cottages, and a lively atmosphere. The entire scene was completed in just one week, showcasing a blend of careful planning, attention to detail, and efficient use of the powerful features available in Unreal Engine 4 to create a visually immersive and authentic Medieval setting.",
+		"url": "https://www.youtube.com/watch?v=3qs9xnKlGlU",
+		"icons": [
+			{ "name": "Unreal Engine 4", "src": "/images/devicons/unreal-engine.svg" },
+			{ "name": "Maya", "src": "/images/devicons/maya.svg" },
+			{ "name": "Speedtree", "src": "/images/devicons/speedtree.svg" },
+			{ "name": "Photoshop", "src": "/images/devicons/photoshop.svg" },
+			{ "name": "World Machine", "src": "/images/devicons/worldmachine.svg" }
+		]
+	},
+	{
+		"name": "Toujane",
+		"image": "/images/levels/mp_toujane/2.jpg",
+		"description": "This map is the most popular and iconic map from the classic Call of Duty 2, ported and remastered for Call of Duty 4. With enhanced graphics, refined details, the map brings a fresh experience while preserving the essence and gameplay that made it a fan favorite. The remaster stays true to the original design, delivering a nostalgic yet visually upgraded version of the beloved classic.",
+		"url": "https://www.youtube.com/watch?v=ATimP1R-rJ4",
+		"icons": [
+			{ "name": "Radiant", "src": "/images/devicons/radiant.svg" },
+			{ "name": "Maya", "src": "/images/devicons/maya.svg" },
+			{ "name": "Photoshop", "src": "/images/devicons/photoshop.svg" }
+		]
+	},
+	{
+		"name": "Super Mario 64",
+		"image": "/images/levels/mp_dr_sm64/1.jpg",
+		"description": "This map is a detailed recreation of Peach's Castle and the first level, Bob-omb Battlefield, from the classic Super Mario 64. The map captures the iconic environments and layout of these beloved locations, bringing the charm and nostalgia of the original game into a new setting. Every aspect, from the castle’s grand halls to the expansive battlefield, has been thoughtfully recreated to provide an authentic experience for fans of the legendary platformer.",
+		"url": "https://www.youtube.com/watch?v=4S_twub-mZo",
+		"icons": [
+			{ "name": "Radiant", "src": "/images/devicons/radiant.svg" },
+			{ "name": "Blender", "src": "/images/devicons/blender.svg" },
+			{ "name": "Photoshop", "src": "/images/devicons/photoshop.svg" }
+		]
+	}
+]
