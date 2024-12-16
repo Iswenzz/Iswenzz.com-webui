@@ -1,25 +1,21 @@
 # Iswenzz.com
 
-[![Checks](https://img.shields.io/github/check-runs/Iswenzz/Iswenzz.com-webui/master?logo=github)](https://github.com/Iswenzz/Iswenzz.com-webui/actions)
-[![CodeFactor](https://img.shields.io/codefactor/grade/github/Iswenzz/Iswenzz.com-webui?label=codefactor&logo=codefactor)](https://www.codefactor.io/repository/github/iswenzz/Iswenzz.com-webui)
-[![CodeCov](https://img.shields.io/codecov/c/github/Iswenzz/Iswenzz.com-webui?label=codecov&logo=codecov)](https://codecov.io/gh/Iswenzz/Iswenzz.com-webui)
-[![License](https://img.shields.io/github/license/Iswenzz/Iswenzz.com-webui?color=blue&logo=gitbook&logoColor=white)](https://github.com/Iswenzz/Iswenzz.com-webui/blob/master/LICENSE)
+[![Checks](https://img.shields.io/github/check-runs/Iswenzz/Iswenzz.com/master?logo=github)](https://github.com/Iswenzz/Iswenzz.com/actions)
+[![CodeFactor](https://img.shields.io/codefactor/grade/github/Iswenzz/Iswenzz.com?label=codefactor&logo=codefactor)](https://www.codefactor.io/repository/github/iswenzz/Iswenzz.com)
+[![CodeCov](https://img.shields.io/codecov/c/github/Iswenzz/Iswenzz.com?label=codecov&logo=codecov)](https://codecov.io/gh/Iswenzz/Iswenzz.com)
+[![License](https://img.shields.io/github/license/Iswenzz/Iswenzz.com?color=blue&logo=gitbook&logoColor=white)](https://github.com/Iswenzz/Iswenzz.com/blob/master/LICENSE)
 
-![](https://i.imgur.com/v7y8KKM.jpeg)
+![](https://i.imgur.com/qEujTWV.jpeg)
 
 This website, as it stands right now, mainly serves as a portfolio for me to share my projects with the world. In the future, I plan to integrate things such as documentation for software I've created, as well as the ability to purchase some of the larger products i've worked on that aren't open source.
 
 ## Projects
 
-![](https://i.imgur.com/Dg53ai0.jpg)
+![](https://i.imgur.com/s0QDHTN.png)
 
 ## Level Design
 
-![](https://i.imgur.com/cZOJbXK.jpg)
-
-## Contact
-
-![](https://i.imgur.com/JnUWPSq.jpg)
+![](https://i.imgur.com/05M5dnW.png)
 
 ## Building
 
