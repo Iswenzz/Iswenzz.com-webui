@@ -17,6 +17,7 @@ jobs:
 
             - name: Build
               run: |
+                  corepack enable
                   yarn --no-immutable
                   yarn build
 
@@ -30,5 +31,6 @@ jobs:
 
             - name: Lint
               run: |
+                  corepack enable
                   yarn --no-immutable
                   yarn lint
