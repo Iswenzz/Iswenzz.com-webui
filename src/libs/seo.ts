@@ -24,7 +24,6 @@ export const getSEO = ({
 		title: openGraph?.title || title,
 		description: openGraph?.description || description,
 		url: openGraph?.url || process.env.WEBSITE_URL,
-		siteName: (openGraph?.title as string) || title,
 		images: "/opengraph-image.jpg",
 		locale: "en_US",
 		type: "website"
