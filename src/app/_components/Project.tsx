@@ -37,10 +37,7 @@ const Project: FC<Props> = ({ project }) => {
 						width={300}
 						height={200}
 					/>
-					<h3
-						className="absolute size-full flex items-center justify-center text-center font-bold text-3xl text-white tracking-widest"
-						style={{ textShadow: "black 1px 1px 2px" }}
-					>
+					<h3 className="absolute size-full flex items-center justify-center text-center font-bold text-3xl text-white tracking-widest [text-shadow:black_1px_1px_2px]">
 						<SlideIn>{project.name}</SlideIn>
 					</h3>
 				</ScaleUp>

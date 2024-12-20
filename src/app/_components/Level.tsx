@@ -23,10 +23,7 @@ const Level: FC<Props> = ({ level }) => {
 					width={1280}
 					height={400}
 				/>
-				<h3
-					className="absolute flex items-center justify-center size-full text-5xl text-center text-white font-bold tracking-widest"
-					style={{ textShadow: "black 1px 1px 2px" }}
-				>
+				<h3 className="absolute flex items-center justify-center size-full text-5xl text-center text-white font-bold tracking-widest [text-shadow:black_1px_1px_2px]">
 					<SlideIn>{level.name}</SlideIn>
 				</h3>
 				<div className="absolute flex flex-col items-center right-0 p-4">
