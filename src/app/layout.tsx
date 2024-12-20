@@ -13,7 +13,7 @@ export const viewport = getViewport();
 
 export const metadata = getSEO({
 	url: "/",
-	title: "Iswenzz.com",
+	title: "Iswenzz",
 	description:
 		"I'm a Software Engineer and a Level Designer. Here you can find all my work. I've experience working on a diverse set of programming topics ...",
 	keywords: [
