@@ -3,6 +3,15 @@
 import { FC } from "react";
 import { motion, HTMLMotionProps } from "framer-motion";
 
+export const FadeIn: FC<HTMLMotionProps<"div">> = props => (
+	<motion.div
+		initial={{ opacity: 0 }}
+		whileInView={{ opacity: 1 }}
+		transition={{ duration: 0.5, delay: 0.3 }}
+		{...props}
+	/>
+);
+
 export const SlideIn: FC<HTMLMotionProps<"div">> = props => (
 	<motion.div
 		initial={{ opacity: 0, y: "100%" }}

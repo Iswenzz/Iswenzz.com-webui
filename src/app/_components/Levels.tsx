@@ -1,20 +1,10 @@
-"use client";
-
-import { motion } from "framer-motion";
-
-import { SlideIn } from "@/components/Animations";
+import { FadeIn, SlideIn } from "@/components/Animations";
 import levels from "@/app/_data/levels.json";
 
 import Level from "./Level";
 
 const Levels = () => (
-	<motion.section
-		id="levels"
-		className="relative py-24 px-8"
-		initial={{ opacity: 0 }}
-		whileInView={{ opacity: 1 }}
-		transition={{ duration: 0.5, delay: 0.3 }}
-	>
+	<FadeIn id="levels" className="relative py-24 px-8">
 		<div className="absolute size-1/2 top-20 left-0 blur-[100px] bg-[conic-gradient(from_2.5rad,#ff0042,#0000ff)]" />
 		<h2 className="relative pb-16 text-5xl md:text-6xl">
 			<SlideIn>Level Design</SlideIn>
@@ -43,7 +33,7 @@ const Levels = () => (
 				<Level level={levels[5]} />
 			</div>
 		</div>
-	</motion.section>
+	</FadeIn>
 );
 
 export default Levels;

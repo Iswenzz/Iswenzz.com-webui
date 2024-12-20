@@ -1,17 +1,7 @@
-"use client";
-
-import { motion } from "framer-motion";
-
-import { SlideIn } from "@/components/Animations";
+import { FadeIn, SlideIn } from "@/components/Animations";
 
 const About = () => (
-	<motion.section
-		id="about"
-		className="py-24 px-8 max-w-7xl"
-		initial={{ opacity: 0 }}
-		whileInView={{ opacity: 1 }}
-		transition={{ duration: 0.5, delay: 0.3 }}
-	>
+	<FadeIn id="about" className="py-24 px-8 max-w-7xl">
 		<h2 className="pb-4 text-5xl md:text-6xl text-gray-300 font-bold tracking-widest">
 			<SlideIn>Hello there!</SlideIn>
 		</h2>
@@ -22,7 +12,7 @@ const About = () => (
 				programming, game development, UI/UX design, and reverse engineering.
 			</SlideIn>
 		</h3>
-	</motion.section>
+	</FadeIn>
 );
 
 export default About;
