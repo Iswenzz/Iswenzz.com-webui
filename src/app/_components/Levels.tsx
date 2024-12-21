@@ -1,5 +1,6 @@
-import { FadeIn, SlideIn } from "@/components/Animations";
-import levels from "@/app/_data/levels.json";
+import { FadeIn, SlideIn } from "@/components";
+
+import levels from "../_data/levels.json";
 
 import Level from "./Level";
 

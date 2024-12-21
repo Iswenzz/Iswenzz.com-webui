@@ -4,8 +4,7 @@ import { FC, useState } from "react";
 import ReactPlayer from "react-player/youtube";
 import Image from "next/image";
 
-import Dialog from "@/components/Dialog";
-import { SlideIn } from "@/components/Animations";
+import { SlideIn, Dialog } from "@/components";
 
 const Level: FC<Props> = ({ level }) => {
 	const [isOpen, setOpen] = useState(false);

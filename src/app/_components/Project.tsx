@@ -10,8 +10,7 @@ import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import rehypeHighlight from "rehype-highlight";
 
-import Dialog from "@/components/Dialog";
-import { ScaleUp, SlideIn } from "@/components/Animations";
+import { ScaleUp, SlideIn, Dialog } from "@/components";
 
 const Project: FC<Props> = ({ project }) => {
 	const [markdown, setMarkdown] = useState("");

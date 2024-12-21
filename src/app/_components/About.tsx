@@ -1,4 +1,4 @@
-import { FadeIn, SlideIn } from "@/components/Animations";
+import { FadeIn, SlideIn } from "@/components";
 
 const About = () => (
 	<FadeIn id="about" className="py-24 px-8 max-w-7xl">

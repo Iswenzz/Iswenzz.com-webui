@@ -1,4 +1,4 @@
-import { SlideIn } from "@/components/Animations";
+import { SlideIn } from "@/components";
 
 const Header = () => (
 	<section className="relative h-screen flex flex-col items-center justify-center px-8">

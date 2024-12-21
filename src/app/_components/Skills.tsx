@@ -1,5 +1,6 @@
-import { FadeIn, SlideIn } from "@/components/Animations";
-import skills from "@/app/_data/skills.json";
+import { FadeIn, SlideIn } from "@/components";
+
+import skills from "../_data/skills.json";
 
 const Skills = () => (
 	<FadeIn className="py-48 px-8 max-w-8xl">

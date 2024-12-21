@@ -1,8 +1,9 @@
-import { FadeIn, SlideIn } from "@/components/Animations";
-import aion from "@/app/_data/aion.json";
-import cod4 from "@/app/_data/cod4.json";
-import iswenzz from "@/app/_data/iswenzz.json";
-import projects from "@/app/_data/projects.json";
+import { FadeIn, SlideIn } from "@/components";
+
+import aion from "../_data/aion.json";
+import cod4 from "../_data/cod4.json";
+import iswenzz from "../_data/iswenzz.json";
+import projects from "../_data/projects.json";
 
 import Project from "./Project";
 
